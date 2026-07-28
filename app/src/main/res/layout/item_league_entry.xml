@@ -6,8 +6,10 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    app:cardCornerRadius="@dimen/radius_md"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp"
+    app:strokeColor="@color/edu_primary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,26 +20,38 @@
 
         <TextView
             android:id="@+id/tvRank"
-            android:layout_width="32dp"
+            android:layout_width="36dp"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="16sp"
+            android:text="4"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_text"/>
+            android:textColor="@color/edu_secondary"
+            android:gravity="center" />
 
+        <!-- Avatar with NPC badge overlay -->
         <FrameLayout
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:layout_marginStart="12dp">
+            android:layout_marginStart="10dp">
 
-            <TextView
-                android:id="@+id/tvAvatar"
+            <ImageView
+                android:id="@+id/imgAvatar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:padding="4dp"
+                android:src="@drawable/avatar_mascot_brainy"
+                android:contentDescription="Avatar" />
+
+            <TextView
+                android:id="@+id/tvNpcBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
                 android:gravity="center"
-                android:text="👤"
-                android:textSize="24sp"
-                android:background="@drawable/bg_badge"/>
+                android:text="🤖"
+                android:textSize="10sp"
+                android:visibility="gone" />
         </FrameLayout>
 
         <LinearLayout
@@ -47,39 +61,33 @@
             android:orientation="vertical"
             android:layout_marginStart="12dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipNpc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:text="NPC"
-                    android:textSize="11sp"
-                    android:visibility="gone"
-                    app:chipBackgroundColor="@color/bb_turquoise_light"
-                    app:chipMinHeight="24dp"/>
-            </LinearLayout>
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/edu_text"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
             <TextView
                 android:id="@+id/tvScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textSize="14sp"
-                android:textColor="@color/bb_text_muted"/>
+                android:textSize="13sp"
+                android:textColor="@color/edu_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvGapText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp"
+                android:textColor="@color/edu_text_muted"
+                android:visibility="gone" />
         </LinearLayout>
 
         <TextView
@@ -89,6 +97,6 @@
             android:text="0"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_turquoise"/>
+            android:textColor="@color/edu_turquoise" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

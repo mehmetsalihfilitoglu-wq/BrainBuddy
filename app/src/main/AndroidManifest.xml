@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      EDUmio ships NO advertising SDK and does not use an advertising ID. firebase-analytics pulls these
+      permissions into the merged manifest by default; Play cross-checks the merged manifest against the
+      Console "advertising ID" declaration, so a stale AD_ID permission costs a review round-trip.
+      Removed explicitly so the app can honestly answer "No" to the advertising-ID question.
+    -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" tools:node="remove" />
 
     <application
-        android:name=".BrainBuddyApp"
-        android:allowBackup="true"
+        android:name=".app.EDUmioApp"
+        android:allowBackup="false"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BrainBuddy">
+        android:theme="@style/Theme.EDUmio">
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
-
-        <activity
-            android:name=".CrashActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CrashRecoveryWarningActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.EmergencyUnlockActivity"
-            android:exported="false" />
-
+        <!-- ── Core routing ── -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.EDUmio.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -44,75 +38,43 @@
         </activity>
 
         <activity
-            android:name=".OnboardingActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BrainBuddy" />
-
-        <activity
-            android:name=".OnboardingWizardActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BrainBuddy" />
-
-        <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".SimpleHomeActivity"
+            android:name=".OnboardingWizardActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EDUmio" />
+
+        <!-- ── Error handling ── -->
+        <activity
+            android:name=".CrashActivity"
             android:exported="false" />
 
+        <!-- ── Daily Challenge (Günün Görevi) ── -->
         <activity
-            android:name=".ui.BlockedAppsActivity"
-            android:exported="false" />
+            android:name=".dailychallenge.DailyChallengeActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".dailychallenge.DailyChallengeResultActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".dailychallenge.DailyChallengeReviewActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".dailychallenge.WrongQuestionsActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".solutions.SolutionActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
-        <activity
-            android:name=".ui.TimeLimitsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.QuizSettingsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ExamPackActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".quiz.QuestionImportActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.PinLockActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.SettingsActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ParentHubActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ScreenTimeActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.TestSettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.PoolStatusActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.SecurityActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ProtectionInactiveActivity"
-            android:exported="false" />
-
+        <!-- ── Quiz engine ── -->
         <activity
             android:name=".quiz.QuizActivity"
             android:exported="false"
@@ -120,6 +82,11 @@
 
         <activity
             android:name=".quiz.QuizResultActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
+        <activity
+            android:name=".quiz.WrongPoolActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout" />
 
@@ -138,124 +105,71 @@
             android:configChanges="orientation|screenSize|screenLayout" />
 
         <activity
-            android:name=".LockScreenActivity"
-            android:exported="false"
-            android:configChanges="orientation|screenSize|screenLayout" />
+            android:name=".quiz.PastTestDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".quiz.QuestionImportActivity"
+            android:exported="false" />
+
+        <!-- ── Student hub & progress ── -->
+        <activity
+            android:name=".ui.StudyHubActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.GrowthHubActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.StudentProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ToolsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.StudyAreasActivity"
+            android:exported="false" />
+
+        <!-- ── University & program discovery ── -->
+        <activity
+            android:name=".discover.DiscoverActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.UniversityDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.BachelorDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.FeaturedUniversityActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.FeaturedProgramDetailActivity"
+            android:exported="false" />
 
         <activity
             android:name=".StatsActivity"
             android:exported="false" />
 
+        <!-- ── Analytics & reports ── -->
         <activity
-            android:name=".quiz.PastTestDetailActivity"
-            android:exported="false" />
-
-        <receiver
-            android:name=".receiver.PackageChangeReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <receiver
-            android:name=".receiver.SocialAppInstalledReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <receiver
-            android:name=".receiver.BlockAppFromNotificationReceiver"
-            android:exported="false" />
-
-        <receiver
-            android:name=".receiver.DismissSocialNotifReceiver"
-            android:exported="false" />
-
-        <service
-            android:name=".resilience.AccessibilityMonitorService"
-            android:exported="false"
-            android:foregroundServiceType="specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Parental control accessibility monitoring" />
-        </service>
-
-        <receiver
-            android:name=".resilience.BootReceiver"
-            android:exported="true"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.brainbuddy.app.accessibility.ForegroundAppBlockerService"
-            android:exported="false"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_foreground_blocker" />
-        </service>
-
-        <receiver
-            android:name=".deviceadmin.BrainBuddyDeviceAdminReceiver"
-            android:exported="true"
-            android:permission="android.permission.BIND_DEVICE_ADMIN">
-            <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/device_admin" />
-            <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name=".gate.GateActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BrainBuddy"
-            android:excludeFromRecents="true"
-            android:configChanges="orientation|screenSize|screenLayout" />
-
-        <activity
-            android:name=".ui.PermissionsChecklistActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.SystemHealthActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.RegisterActivity"
+            android:name=".ui.ReportsActivity"
             android:exported="false" />
 
         <activity
             android:name=".ui.ReportShareActivity"
             android:exported="false" />
 
+        <!-- ── Settings & account ── -->
         <activity
-            android:name=".ui.PrivacyPolicyActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.AccessibilityUsageActivity"
+            android:name=".ui.SettingsActivity"
             android:exported="false" />
 
         <activity
@@ -263,13 +177,63 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.ReportsActivity"
+            android:name=".ui.DataRightsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.EmailReportsSetupActivity"
+            android:name=".ui.AccountSyncActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.AuthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.PrivacyPolicyActivity"
+            android:exported="false" />
+
+        <!-- ── Social & gamification ── -->
+        <activity
+            android:name=".social.LeagueScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".avatar.AvatarShopScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".legal.LegalHubActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".legal.LegalDocActivity"
+            android:exported="false" />
+
+        <!-- ── Developer / debug tools ── -->
+        <activity
+            android:name=".ui.DebugSeedStatusActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.SeedAuditActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EDUmio" />
+
+        <activity
+            android:name=".ui.PoolStatusActivity"
+            android:exported="false" />
+
+        <!-- ── Firebase Cloud Messaging (inert until google-services.json is supplied) ── -->
+        <service
+            android:name=".messaging.EdumioMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- ── File sharing provider ── -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -279,103 +243,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <activity
-            android:name=".ui.SchedulesActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ProfileManageActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.StudentProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.StudyHubActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.GrowthHubActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.WatchAdToUnlockLastTestActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.WatchAdForParentViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.AdLimitReachedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".quiz.QuizRetryAdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".quiz.QuizCooldownActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.ProfileSelectionActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".coach.CoachScreen"
-            android:exported="false" />
-
-        <activity
-            android:name=".classroom.ClassroomActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".avatar.AvatarShopScreen"
-            android:exported="false" />
-
-        <activity
-            android:name=".reward.RewardContractActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".social.LeagueScreen"
-            android:exported="false" />
-
-        <activity
-            android:name=".quiz.BossTestActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BrainBuddy" />
-
-        <activity
-            android:name=".quiz.GateRetrySingleActivity"
-            android:exported="false"
-            android:configChanges="orientation|screenSize|screenLayout" />
-
-        <!-- BrainBuddy Junior (1. Sınıf Okuma-Yazma) -->
-        <activity
-            android:name=".junior.JuniorSettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.JuniorHubActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.LetterSoundMatchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.SyllableBuilderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.PictureToWordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.LetterTracingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.ReadAloudActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.JuniorProgressActivity"
-            android:exported="false" />
-        <activity
-            android:name=".junior.JuniorReportActivity"
-            android:exported="false" />
 
     </application>
 

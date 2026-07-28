@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  EDUmio status-bar notification icon. Status-bar icons are rendered white-on-transparent
+  and tinted by the system, so this is the mascot silhouette (body + mortarboard, eyes
+  punched out) in white. Rendered at 24dp; 108 viewport keeps the safe-zone geometry.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M42,46 h24 a16,16 0 0 1 16,16 v6 a16,16 0 0 1 -16,16 h-24 a16,16 0 0 1 -16,-16 v-6 a16,16 0 0 1 16,-16 Z M54,30 L84,42 L54,46 L24,42 Z M45,54 a7,9 0 1,0 0,18 a7,9 0 1,0 0,-18 Z M63,54 a7,9 0 1,0 0,18 a7,9 0 1,0 0,-18 Z" />
+</vector>

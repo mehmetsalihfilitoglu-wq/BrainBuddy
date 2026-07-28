@@ -1,0 +1,478 @@
+[
+  {
+    "id": "mio_chem_0159",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Industrial chemistry — the Haber process",
+    "subtopic": "Temperature as a compromise between equilibrium yield and rate in the Haber process",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "Haber process",
+      "Le Chatelier",
+      "equilibrium yield",
+      "reaction rate",
+      "compromise conditions",
+      "exothermic"
+    ],
+    "learning_objective": "Explain why the operating temperature of the Haber process is a compromise between a high equilibrium yield (favoured at low temperature for an exothermic reaction) and an economically acceptable rate.",
+    "question": "In the Haber process, N2(g) + 3H2(g) ⇌ 2NH3(g), ΔH = −92 kJ mol⁻¹. Industrial plants typically operate at about 450 °C. Which statement best explains why this temperature is a compromise rather than an arbitrary choice?",
+    "choices": {
+      "A": "At 450 °C the equilibrium yield of ammonia reaches its maximum value, so the temperature is chosen to give the greatest possible amount of ammonia at equilibrium.",
+      "B": "The temperature is fixed by the catalyst, which only becomes active at 450 °C, and the position of this equilibrium does not depend on temperature in any case.",
+      "C": "A lower temperature would increase both the rate and the equilibrium yield, so 450 °C is chosen solely to protect the iron catalyst from thermal damage.",
+      "D": "A higher temperature would be preferable, because the equilibrium yield of ammonia rises as the temperature increases; 450 °C is limited only by the melting point of the catalyst.",
+      "E": "A lower temperature would increase the equilibrium yield of ammonia but make the reaction too slow to be economic, so 450 °C sacrifices some yield to obtain an acceptable rate."
+    },
+    "correct_answer": "E",
+    "explanation": "The forward reaction is exothermic, so by Le Chatelier's principle lowering the temperature shifts the equilibrium towards ammonia and raises the equilibrium yield. However, lowering the temperature also slows the rate, so equilibrium would be reached too slowly to be economic. Raising the temperature speeds the reaction but lowers the yield. About 450 °C is a compromise: the yield is only moderate (~15%), but it is reached quickly enough, and unreacted gases are recycled. The catalyst raises the rate but does not change the position of equilibrium.",
+    "option_analysis": {
+      "A": "Wrong: there is no maximum-yield temperature for an exothermic reaction — yield rises continuously as temperature is lowered; this misconception imagines an optimum yield temperature.",
+      "B": "Wrong: the position of an equilibrium involving a non-zero ΔH does depend on temperature, and the catalyst alters only the rate, not the temperature at which equilibrium lies.",
+      "C": "Wrong: lowering the temperature decreases the rate (fewer molecules exceed the activation energy); the claim that a lower temperature increases the rate is the core misconception.",
+      "D": "Wrong: for an exothermic reaction the equilibrium yield falls, not rises, as temperature increases; this option inverts the Le Chatelier temperature effect.",
+      "E": "Correct: low temperature favours a high equilibrium yield but gives an uneconomically slow rate, so the chosen temperature trades yield for rate — the essence of a compromise."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0160",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Industrial chemistry — the Contact process",
+    "subtopic": "Pressure choice in the Contact process: near-complete conversion at low pressure makes high pressure uneconomic",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "Contact process",
+      "sulfuric acid",
+      "Le Chatelier",
+      "pressure",
+      "equilibrium yield",
+      "compromise conditions"
+    ],
+    "learning_objective": "Reason about why the Contact process is run at close to atmospheric pressure even though higher pressure would, by Le Chatelier's principle, further favour the product.",
+    "question": "In the Contact process, 2SO2(g) + O2(g) ⇌ 2SO3(g), ΔH = −196 kJ mol⁻¹, carried out at about 450 °C over a V2O5 catalyst. Increasing the pressure would shift the equilibrium towards SO3, yet the process is operated at only about 1–2 atm. Which statement best accounts for this choice of pressure?",
+    "choices": {
+      "A": "Because there are more moles of gas on the left, increasing the pressure would favour the reactants, so a low pressure is needed to keep the equilibrium on the right.",
+      "B": "Higher pressures cannot be used because they would shift this equilibrium back towards SO2 and O2, lowering the yield of SO3.",
+      "C": "The equilibrium already gives about 99% conversion to SO3 at atmospheric pressure, so the small extra yield gained from high pressure does not justify the cost of high-pressure plant.",
+      "D": "At 1–2 atm the reaction becomes endothermic overall, so raising the pressure would only waste energy without changing the amount of SO3 formed.",
+      "E": "The V2O5 catalyst is deactivated above about 2 atm, so the low pressure is required to keep the catalyst working rather than to control the yield."
+    },
+    "correct_answer": "C",
+    "explanation": "There are 3 moles of gas on the left and 2 on the right, so higher pressure does shift the equilibrium towards SO3. But at about 450 °C the equilibrium conversion is already ~99% at atmospheric pressure, so raising the pressure would give only a negligible extra yield while adding the large capital and running costs (and hazards) of high-pressure equipment. The economic compromise is therefore to run at close to atmospheric pressure. (High temperature would lower the yield, which is why a fairly modest 450 °C is used with an efficient catalyst.)",
+    "option_analysis": {
+      "A": "Wrong: it miscounts the effect — with 3 mol gas left and 2 mol right, higher pressure favours the right-hand side; the reasoning contradicts itself.",
+      "B": "Wrong: with fewer gas moles on the product side, higher pressure shifts the equilibrium towards SO3, not back towards reactants; this reverses the Le Chatelier pressure effect.",
+      "C": "Correct: conversion is already near-complete at low pressure, so the marginal yield gain from compression cannot justify its cost — the true reason the low pressure is a compromise.",
+      "D": "Wrong: ΔH is fixed by the reaction and remains negative regardless of pressure; a reaction does not 'become endothermic' at a particular pressure.",
+      "E": "Wrong: the pressure choice is dictated by economics, not by catalyst deactivation; V2O5 is not switched off by a rise to a few atmospheres."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0161",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Industrial chemistry — catalysis and equilibrium",
+    "subtopic": "A catalyst changes the rate but not the position of equilibrium, the yield or Kc",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "catalyst",
+      "iron catalyst",
+      "equilibrium position",
+      "Kc",
+      "activation energy",
+      "Haber process"
+    ],
+    "learning_objective": "Distinguish what a catalyst does (lowers activation energy, speeds forward and reverse reactions equally, shortens time to equilibrium) from what it does not do (change yield, position of equilibrium, Kc or ΔH).",
+    "question": "Which statement correctly describes the effect of adding the iron catalyst to a sealed Haber-process mixture, N2(g) + 3H2(g) ⇌ 2NH3(g), held at constant temperature until equilibrium is reached?",
+    "choices": {
+      "A": "The equilibrium yield of ammonia is higher with the catalyst, because the catalyst increases the rate of the forward reaction more than that of the reverse reaction.",
+      "B": "The equilibrium yield is higher, because the catalyst lowers the enthalpy change of the reaction and so makes the forward reaction more exothermic.",
+      "C": "The equilibrium yield of ammonia is unchanged, because the catalyst speeds up the forward and reverse reactions equally and only shortens the time taken to reach equilibrium.",
+      "D": "The equilibrium yield is unchanged, but the value of the equilibrium constant Kc is increased, because the activation energy has been lowered.",
+      "E": "The equilibrium yield is lower, because the catalyst permits a higher temperature to be used, which drives the exothermic reaction backwards."
+    },
+    "correct_answer": "C",
+    "explanation": "A catalyst provides an alternative pathway with a lower activation energy for both the forward and the reverse reaction, lowering both by the same amount. It therefore increases both rates equally, so equilibrium is reached sooner but at exactly the same position: the yield, the equilibrium composition, Kc and ΔH are all unchanged. In industry the catalyst is valuable because it allows equilibrium to be reached quickly at a comparatively low temperature, but it cannot by itself increase the amount of ammonia present at equilibrium.",
+    "option_analysis": {
+      "A": "Wrong: a catalyst lowers the activation energy of the forward and reverse steps equally, so it cannot speed one direction more than the other or shift the yield.",
+      "B": "Wrong: a catalyst does not change ΔH; the enthalpy change depends only on the initial and final states, not on the pathway taken.",
+      "C": "Correct: equal acceleration of both directions leaves the equilibrium position untouched and merely shortens the time to reach it — the yield is unchanged.",
+      "D": "Wrong: Kc depends only on temperature; lowering the activation energy changes the rate constant but not the equilibrium constant, so Kc is unaltered.",
+      "E": "Wrong: this conflates the effect of the catalyst with a change of temperature; at constant temperature the catalyst alone does not lower the yield."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0162",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Environmental chemistry — nitrogen oxides and acid rain",
+    "subtopic": "Endothermic formation of NO in hot engines (temperature raises K) and its oxidation to HNO3 in acid rain",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "nitrogen oxides",
+      "acid rain",
+      "Le Chatelier",
+      "endothermic",
+      "equilibrium constant",
+      "nitric acid",
+      "combustion"
+    ],
+    "learning_objective": "Integrate the temperature dependence of an endothermic equilibrium with the downstream atmospheric chemistry of NOx to explain both why NO forms in hot engines and why it produces acid rain.",
+    "question": "Nitrogen and oxygen from the air react inside a hot car engine: N2(g) + O2(g) ⇌ 2NO(g), ΔH = +180 kJ mol⁻¹. At 25 °C the equilibrium constant is negligibly small, but at combustion temperatures (~2000 °C) appreciable NO forms. The NO is later oxidised (2NO + O2 → 2NO2) and contributes to acid rain. Which statement correctly explains the observations and the acid-rain link?",
+    "choices": {
+      "A": "The equilibrium constant is larger at 2000 °C because increasing the temperature always increases K for any reaction; the NO2 then forms sulfuric acid in the atmosphere.",
+      "B": "Because the forward reaction is endothermic, raising the temperature shifts the equilibrium to the right and increases the equilibrium constant, so much more NO forms at 2000 °C; the NO2 formed later reacts with water and oxygen to give nitric acid, a strong acid that lowers rain pH.",
+      "C": "Raising the temperature increases the amount of NO purely because it speeds up the forward reaction only; the NO2 produced then reacts with water to give nitric acid, a strong acid.",
+      "D": "More NO forms at high temperature because the high temperature raises the pressure in the cylinder, and higher pressure shifts this equilibrium to the right; the NO2 then forms nitric acid.",
+      "E": "NO forms only at high temperature because the forward reaction is exothermic, so heating supplies activation energy while also raising the yield; the NO2 then dissolves to give carbonic acid."
+    },
+    "correct_answer": "B",
+    "explanation": "The formation of NO is endothermic, so by Le Chatelier's principle raising the temperature shifts the position of equilibrium to the right and, crucially, increases the value of the equilibrium constant K (temperature is the only factor that changes K). Hence K is negligible at 25 °C but large at combustion temperatures, so significant NO forms in the engine. In the exhaust and atmosphere NO is oxidised to NO2, which reacts with water and oxygen (3NO2 + H2O → 2HNO3 + NO, or 4NO2 + O2 + 2H2O → 4HNO3) to give nitric acid, a strong acid responsible for part of acid rain. Note that Δn(gas) = 0 here, so pressure has no effect on this equilibrium.",
+    "option_analysis": {
+      "A": "Wrong: temperature does not 'always' increase K — it does so only for endothermic reactions — and NO2 gives nitric, not sulfuric, acid.",
+      "B": "Correct: an endothermic forward reaction has a larger K at higher temperature, so NO forms in quantity in the engine, and the resulting NO2 gives nitric acid, a strong acid that acidifies rain.",
+      "C": "Wrong: increasing temperature speeds the forward and reverse reactions and, for an endothermic reaction, genuinely raises K; explaining the higher NO by a forward-rate change alone misses the equilibrium shift (the acid identification is correct, but the mechanism is not).",
+      "D": "Wrong: with equal moles of gas on both sides (Δn = 0), pressure has no effect on this equilibrium, so attributing the extra NO to a pressure shift is incorrect.",
+      "E": "Wrong: the reaction is endothermic, not exothermic, and NO2 forms nitric acid, not carbonic acid — two errors combined."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0163",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Environmental chemistry — acid rain",
+    "subtopic": "Natural rain acidity from weak carbonic acid versus strong sulfuric acid from SO2 oxidation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "acid rain",
+      "carbonic acid",
+      "sulfuric acid",
+      "sulfur dioxide",
+      "weak vs strong acid",
+      "pH"
+    ],
+    "learning_objective": "Explain the natural weak acidity of rainwater (dissolved CO2) and contrast it with the strong acidity produced when SO2 is oxidised to sulfuric acid.",
+    "question": "Even in unpolluted air, rainwater is slightly acidic, with a pH of about 5.6, whereas rain in industrial regions can fall to pH 4 or lower. Which statement correctly explains both the natural acidity and the greater acidity caused by sulfur dioxide pollution?",
+    "choices": {
+      "A": "Dissolved atmospheric CO2 forms carbonic acid, a weak acid that gives pH ≈ 5.6; SO2 is oxidised to SO3 and then to sulfuric acid, a strong acid that ionises fully and lowers the pH much further.",
+      "B": "CO2 forms carbonic acid, and SO2 also forms only a weak acid; the lower pH in industrial regions is caused entirely by the larger volume of rainfall, not by a stronger acid.",
+      "C": "Both the natural and the industrial acidity are caused by nitric acid from nitrogen oxides; sulfur dioxide behaves as a base and would raise the pH if present.",
+      "D": "The natural acidity is due to dissolved oxygen forming a weak acid, while SO2 dissolves without reacting and simply adds more of the same weak acid.",
+      "E": "Dissolved CO2 forms a strong acid that gives pH ≈ 5.6, while SO2 forms carbonic acid, an even stronger acid that lowers the pH further."
+    },
+    "correct_answer": "A",
+    "explanation": "Unpolluted rain is naturally slightly acidic because atmospheric CO2 dissolves and forms carbonic acid, H2CO3, a weak acid that only partly ionises, giving pH ≈ 5.6. This is not usually called acid rain. True acid rain arises when SO2 (from burning sulfur-containing fuels) is oxidised in the atmosphere to SO3 and then reacts with water to form sulfuric acid, H2SO4, a strong acid that ionises essentially completely and produces a much higher hydrogen-ion concentration, lowering the pH well below 5. (Sulfurous acid, H2SO3, from SO2 dissolving directly is only a moderate contributor; oxidation to sulfuric acid dominates.)",
+    "option_analysis": {
+      "A": "Correct: weak carbonic acid accounts for the natural pH of ~5.6, whereas SO2 oxidised to strong sulfuric acid gives the much lower pH of true acid rain.",
+      "B": "Wrong: the industrial pH drop is caused by the strong sulfuric acid formed on oxidation of SO2, not by the amount of rainfall; a larger volume of the same acid does not change the pH.",
+      "C": "Wrong: SO2 is an acidic (non-metal) oxide, not a base, and the natural acidity is due to CO2, not nitric acid; this ignores the sulfur chemistry entirely.",
+      "D": "Wrong: dissolved O2 does not form an acid, and SO2 is a reactive, acidic oxide that is oxidised to sulfuric acid rather than being inert.",
+      "E": "Wrong: it reverses the acid strengths — carbonic acid is weak, not strong, and the strong acid from SO2 is sulfuric acid, not carbonic acid."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0164",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Environmental chemistry — stratospheric ozone",
+    "subtopic": "Chlorine as a homogeneous catalyst in the catalytic destruction of stratospheric ozone",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ozone",
+      "stratosphere",
+      "CFCs",
+      "chlorine radical",
+      "catalysis",
+      "net reaction",
+      "chain reaction"
+    ],
+    "learning_objective": "Interpret a two-step radical cycle to identify the catalyst, derive the correct net reaction, and explain how one chlorine atom can destroy many ozone molecules.",
+    "question": "In the stratosphere, chlorine atoms released from CFCs destroy ozone by a two-step cycle:\nStep 1:  Cl• + O3 → ClO• + O2\nStep 2:  ClO• + O• → Cl• + O2\n(Oxygen atoms, O•, are present because ultraviolet light also splits O2 and O3.) A single chlorine atom can destroy of the order of 10⁵ ozone molecules before it is removed. Which statement correctly interprets this cycle?",
+    "choices": {
+      "A": "The net reaction is O3 + O2 → 2ClO, and chlorine is a reactant that is used up, which is why CFCs must be supplied continuously for ozone to be depleted.",
+      "B": "Because ΔH for the cycle is positive, each Cl atom can react only once; the large number of ozone molecules destroyed comes from the many separate Cl atoms released by one CFC molecule.",
+      "C": "The net reaction is 2O3 → 3O2 and chlorine is a catalyst, so ozone is converted straight to oxygen without any oxygen atoms taking part.",
+      "D": "Chlorine is consumed in Step 1 and regenerated as ClO in Step 2, so ClO is the true catalyst and each Cl atom destroys only one O3 molecule.",
+      "E": "Chlorine acts as a homogeneous catalyst: it is regenerated in Step 2, so the net reaction is O3 + O → 2O2 and one Cl atom can destroy many ozone molecules before it is removed."
+    },
+    "correct_answer": "E",
+    "explanation": "Adding the two steps, Cl and ClO both cancel (Cl is used in Step 1 and remade in Step 2; ClO is made in Step 1 and used in Step 2), giving the net reaction O3 + O → 2O2. A species that is consumed in one step and regenerated in a later step, leaving a net reaction, is a catalyst; because the two O-containing gases mix in the same phase, chlorine is a homogeneous catalyst here. Since each Cl atom is returned unchanged at the end of every cycle, one atom can pass through the cycle many thousands of times, destroying vast numbers of ozone molecules until a side reaction removes it — this catalytic (chain) behaviour is why trace CFCs are so damaging.",
+    "option_analysis": {
+      "A": "Wrong: the given steps sum to O3 + O → 2O2, not O3 + O2 → 2ClO, and chlorine is regenerated rather than used up, so it is not a consumed reactant.",
+      "B": "Wrong: a catalyst is regenerated and reused, so the sign of ΔH does not limit it to one reaction; the huge count comes from repeated cycling of the same Cl atom, not from many separate atoms.",
+      "C": "Wrong: although chlorine is correctly a catalyst, the net reaction for these particular steps is O3 + O → 2O2, and oxygen atoms are explicitly involved (they appear in Step 2), so '2O3 → 3O2 without O atoms' does not match the given cycle.",
+      "D": "Wrong: it is Cl (not ClO) that is regenerated and therefore the catalyst; a catalyst that is regenerated is not limited to a single turnover, so 'only one O3' is incorrect.",
+      "E": "Correct: cancelling the regenerated Cl and the intermediate ClO gives net O3 + O → 2O2, and because Cl is reformed each cycle a single atom destroys many ozone molecules — the defining behaviour of a catalyst."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0165",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (stoichiometry)",
+    "subtopic": "Reacting masses from a balanced equation: mass of a reactant required, with a wrong-species (product-mass) distractor",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "stoichiometry",
+      "reacting-masses",
+      "mole-ratio",
+      "thermite",
+      "molar-mass"
+    ],
+    "learning_objective": "Convert a given mass of one substance to the mass of another via the mole ratio of a balanced equation, distinguishing the requested species from other species in the equation.",
+    "question": "In the thermite reaction, aluminium reduces iron(III) oxide to molten iron: Fe2O3 + 2Al -> 2Fe + Al2O3. What mass of aluminium powder reacts completely with 160 g of iron(III) oxide? (Relative atomic masses: Al = 27, Fe = 56, O = 16.)",
+    "choices": {
+      "A": "112 g",
+      "B": "160 g",
+      "C": "27 g",
+      "D": "54 g",
+      "E": "108 g"
+    },
+    "correct_answer": "D",
+    "explanation": "M(Fe2O3) = 2(56) + 3(16) = 160 g/mol, so 160 g is exactly 1 mol. The equation shows 2 mol Al react per mol Fe2O3, giving 2 mol Al = 2 x 27 = 54 g. The two steps are: mass -> moles of oxide (160/160 = 1 mol), then moles of oxide -> moles of Al (x2) -> mass of Al.",
+    "option_analysis": {
+      "A": "Wrong: calculates the mass of iron produced (2 mol x 56 = 112 g) rather than the mass of aluminium required (answering for the wrong species).",
+      "B": "Wrong: assumes reactants combine in equal masses (1:1 mass ratio), simply copying the 160 g of oxide.",
+      "C": "Wrong: uses a 1:1 mole ratio and takes only 1 mol of Al (27 g), ignoring the coefficient 2 in front of Al.",
+      "D": "Correct: 160 g Fe2O3 = 1 mol; the 1:2 ratio requires 2 mol Al = 54 g.",
+      "E": "Wrong: doubles the correct mole ratio, assuming 2 mol Al are needed per mol Fe produced (4 mol Al = 108 g)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0166",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (stoichiometry)",
+    "subtopic": "Limiting reagent identified from given masses of two gases, then percentage yield of the product (gas-phase synthesis)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "limiting-reagent",
+      "percentage-yield",
+      "mole-ratio",
+      "ammonia-synthesis",
+      "gases"
+    ],
+    "learning_objective": "Identify the limiting reactant by comparing available moles against the stoichiometric requirement, calculate the theoretical amount of product, and apply a percentage yield to obtain the actual mass.",
+    "question": "Ammonia is synthesised from nitrogen and hydrogen: N2 + 3H2 -> 2NH3. A reaction vessel is charged with 84 g of nitrogen and 12 g of hydrogen. The reaction gives a 75% yield of ammonia based on the limiting reactant. What mass of ammonia is obtained? (Relative atomic masses: H = 1, N = 14.)",
+    "choices": {
+      "A": "102 g",
+      "B": "76.5 g",
+      "C": "90.7 g",
+      "D": "51 g",
+      "E": "68 g"
+    },
+    "correct_answer": "D",
+    "explanation": "Moles: N2 = 84/28 = 3.0 mol; H2 = 12/2 = 6.0 mol. Reacting all 3.0 mol N2 would need 9.0 mol H2, but only 6.0 mol H2 is present, so hydrogen is limiting. From 6.0 mol H2 (ratio 3H2 : 2NH3), theoretical NH3 = 4.0 mol = 68 g. Applying the 75% yield: 68 x 0.75 = 51 g.",
+    "option_analysis": {
+      "A": "Wrong: takes nitrogen as limiting (6 mol NH3 = 102 g) and reports the theoretical amount without applying the yield.",
+      "B": "Wrong: selects nitrogen as the limiting reactant (it has the greater mass) giving 6 mol NH3 theoretical, then applies the yield (102 x 0.75).",
+      "C": "Wrong: divides by the yield (68/0.75) instead of multiplying, inverting the percentage-yield operation.",
+      "D": "Correct: H2 is limiting, giving 4.0 mol NH3 theoretical (68 g); 75% of this is 51 g.",
+      "E": "Wrong: gives the theoretical yield (4.0 mol = 68 g) and forgets to apply the 75% percentage yield."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0167",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (green chemistry metrics)",
+    "subtopic": "Atom economy of a desired product in a two-product reaction, distinguished from percentage yield",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "atom-economy",
+      "green-chemistry",
+      "molar-mass",
+      "yield-vs-atom-economy",
+      "by-products"
+    ],
+    "learning_objective": "Calculate the atom economy of a target product from the balanced equation and recognise that atom economy is independent of the reaction's percentage yield.",
+    "question": "Ethyne (C2H2) is prepared by adding water to calcium carbide: CaC2 + 2H2O -> C2H2 + Ca(OH)2. In a particular preparation the reaction gives a 90% yield of ethyne. What is the atom economy of this preparation with respect to ethyne? (Relative atomic masses: H = 1, C = 12, O = 16, Ca = 40.)",
+    "choices": {
+      "A": "26%",
+      "B": "90%",
+      "C": "23%",
+      "D": "41%",
+      "E": "74%"
+    },
+    "correct_answer": "A",
+    "explanation": "Atom economy = (mass of desired product / total mass of all products) x 100. M(C2H2) = 26; M(Ca(OH)2) = 40 + 2(17) = 74; total products = 100. Atom economy = 26/100 x 100 = 26%. The 90% is the reaction yield, which does not affect atom economy (atom economy depends only on the balanced equation).",
+    "option_analysis": {
+      "A": "Correct: 26/(26 + 74) x 100 = 26%.",
+      "B": "Wrong: reports the reaction yield (90%), confusing percentage yield with atom economy.",
+      "C": "Wrong: multiplies the atom economy by the 90% yield (26 x 0.90 ~ 23%), conflating atom economy with percentage yield.",
+      "D": "Wrong: divides the ethyne mass by the mass of calcium carbide alone (26/64), ignoring the water reactant / all the products.",
+      "E": "Wrong: calculates the atom economy of the by-product Ca(OH)2 (74/100) instead of the desired ethyne."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0168",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (reactions in solution)",
+    "subtopic": "Concentration of the excess reactant ion remaining after a precipitation reaction, using a 2:1 stoichiometry and the combined volume",
+    "difficulty": "hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "concentration",
+      "limiting-reagent",
+      "precipitation",
+      "mole-ratio",
+      "solution-volume"
+    ],
+    "learning_objective": "Determine which ion is in excess after a precipitation reaction using the correct stoichiometric ratio, then express the leftover amount as a concentration in the total combined volume.",
+    "question": "50.0 cm3 of 0.200 mol dm^-3 lead(II) nitrate solution is mixed with 50.0 cm3 of 0.0800 mol dm^-3 potassium iodide solution. A precipitate of lead(II) iodide forms: Pb^2+(aq) + 2I^-(aq) -> PbI2(s). What is the concentration of lead(II) ions remaining in solution in the final mixture?",
+    "choices": {
+      "A": "0.020 mol dm^-3",
+      "B": "0.10 mol dm^-3",
+      "C": "0.16 mol dm^-3",
+      "D": "0.060 mol dm^-3",
+      "E": "0.080 mol dm^-3"
+    },
+    "correct_answer": "E",
+    "explanation": "Initial amounts: Pb^2+ = 0.0500 x 0.200 = 0.0100 mol; I^- = 0.0500 x 0.0800 = 0.00400 mol. Each mole of Pb^2+ consumes 2 mol I^-, so 0.00400 mol I^- removes only 0.00200 mol Pb^2+ (iodide is limiting). Leftover Pb^2+ = 0.0100 - 0.00200 = 0.00800 mol. Total volume = 100 cm3 = 0.100 dm3, so [Pb^2+] = 0.00800/0.100 = 0.0800 mol dm^-3.",
+    "option_analysis": {
+      "A": "Wrong: inverts the ratio (2 mol Pb^2+ per mol I^-), removing 0.00800 mol Pb^2+ and leaving only 0.00200 mol (0.020 mol dm^-3).",
+      "B": "Wrong: ignores the precipitation reaction entirely and reports the diluted total Pb^2+ (0.0100 mol / 0.100 dm3 = 0.10 mol dm^-3).",
+      "C": "Wrong: uses the correct leftover 0.00800 mol but divides by the original 50 cm3 rather than the combined 100 cm3.",
+      "D": "Wrong: assumes a 1:1 ratio, so 0.00400 mol I^- removes 0.00400 mol Pb^2+, leaving 0.00600 mol (0.060 mol dm^-3).",
+      "E": "Correct: iodide is limiting via the 2:1 ratio, leaving 0.00800 mol Pb^2+ in 0.100 dm3 = 0.080 mol dm^-3."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0169",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (volumetric analysis)",
+    "subtopic": "Back-titration to find the purity of a metal oxide: excess standard acid dissolves the oxide, unreacted acid back-titrated with standard alkali",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 210,
+    "tags": [
+      "back-titration",
+      "limiting-reagent",
+      "purity",
+      "mole-ratio",
+      "percentage-by-mass"
+    ],
+    "learning_objective": "Carry out a back-titration calculation: find total and residual acid, obtain the acid consumed by the analyte by difference, apply the correct acid:analyte ratio, and convert to percentage by mass.",
+    "question": "A 2.00 g sample of impure magnesium oxide (the impurities are unreactive) is dissolved in 100.0 cm3 of 1.00 mol dm^-3 hydrochloric acid, which is in excess: MgO + 2HCl -> MgCl2 + H2O. The unreacted acid is then titrated and requires 40.0 cm3 of 0.500 mol dm^-3 sodium hydroxide for neutralisation. What is the percentage by mass of magnesium oxide in the sample? (Take the molar mass of MgO as 40 g mol^-1; Mg = 24, O = 16.)",
+    "choices": {
+      "A": "60%",
+      "B": "80%",
+      "C": "100%",
+      "D": "48%",
+      "E": "40%"
+    },
+    "correct_answer": "B",
+    "explanation": "Total HCl = 0.1000 x 1.00 = 0.100 mol. Excess (unreacted) HCl = NaOH used = 0.0400 x 0.500 = 0.0200 mol (HCl + NaOH is 1:1). HCl that reacted with MgO = 0.100 - 0.0200 = 0.0800 mol. From MgO + 2HCl, mol MgO = 0.0800/2 = 0.0400 mol; mass = 0.0400 x 40 = 1.60 g. Percentage = 1.60/2.00 x 100 = 80%.",
+    "option_analysis": {
+      "A": "Wrong: treats the NaOH-HCl neutralisation as 1:2, doubling the excess acid to 0.0400 mol, so 0.0600 mol reacts (0.0300 mol MgO -> 60%).",
+      "B": "Correct: acid reacting with MgO = 0.0800 mol, so MgO = 0.0400 mol = 1.60 g = 80% of 2.00 g.",
+      "C": "Wrong: forgets to subtract the unreacted acid found by back-titration, using all 0.100 mol HCl (0.0500 mol MgO = 2.00 g -> 100%).",
+      "D": "Wrong: uses the molar mass of magnesium (24) instead of magnesium oxide (40) for the 0.0400 mol (0.96 g -> 48%).",
+      "E": "Wrong: mistakes the back-titrated (excess) acid for the acid that reacted with the oxide and uses a 1:1 ratio (0.0200 mol MgO = 0.80 g -> 40%)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0170",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Quantitative chemistry (sequential reactions)",
+    "subtopic": "Overall percentage yield across a two-stage synthesis combined with a mole/mass conversion (nitric acid from ammonia)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 200,
+    "tags": [
+      "percentage-yield",
+      "sequential-reactions",
+      "overall-yield",
+      "mole-ratio",
+      "molar-mass"
+    ],
+    "learning_objective": "Combine the yields of consecutive reaction stages multiplicatively and integrate mole-mass conversions to find the mass of final product from a given mass of starting material.",
+    "question": "Nitric acid is manufactured from ammonia in two stages. Overall, one mole of ammonia can be converted into one mole of nitric acid (NH3 -> HNO3). The first stage proceeds with a 75% yield and the second stage with an 80% yield. What mass of nitric acid can be obtained from 1.70 kg of ammonia? (Relative atomic masses: H = 1, N = 14, O = 16.)",
+    "choices": {
+      "A": "3.78 kg",
+      "B": "6.30 kg",
+      "C": "4.73 kg",
+      "D": "1.02 kg",
+      "E": "5.04 kg"
+    },
+    "correct_answer": "A",
+    "explanation": "Moles of NH3 = 1700/17 = 100 mol, giving a theoretical 100 mol HNO3 (1:1 nitrogen). Overall yield = 0.75 x 0.80 = 0.60, so actual HNO3 = 60 mol. Mass = 60 x 63 = 3780 g = 3.78 kg (M(HNO3) = 1 + 14 + 48 = 63).",
+    "option_analysis": {
+      "A": "Correct: 100 mol NH3 -> 100 mol HNO3 theoretical; overall yield 0.60 gives 60 mol = 3.78 kg.",
+      "B": "Wrong: ignores both percentage yields and reports the theoretical maximum (100 mol x 63 = 6.30 kg).",
+      "C": "Wrong: applies only the first-stage yield (100 x 0.75 x 63 = 4.73 kg), omitting the second-stage 80%.",
+      "D": "Wrong: multiplies the ammonia mass directly by the overall yield (1.70 x 0.60 = 1.02 kg), assuming mass is conserved 1:1 and skipping the mole/molar-mass conversion.",
+      "E": "Wrong: applies only the second-stage yield (100 x 0.80 x 63 = 5.04 kg), omitting the first-stage 75%."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  }
+]

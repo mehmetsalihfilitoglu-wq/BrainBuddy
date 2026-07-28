@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Saf döl baskın özellikli bir bezelye bitkisi (AA) ile çekinik özellikli bir bezelye bitkisi (aa) çaprazlanıyor. Oluşan F1 neslindeki bireylerden biri, genotipi bilinmeyen kısa boylu bir bireyle çaprazlanıyor. Bu çaprazlamada yavruların yarısının kısa boylu olduğu gözleniyor.\n\nBuna göre kısa boylu bireyin genotipi aşağıdakilerden hangisidir?",
+      "options": [
+        "AA",
+        "Aa",
+        "aa",
+        "Genotip belirlenemez"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "AA × aa → F1 bireyleri Aa olur. Aa birey kısa boylu (aa) ile çaprazlanırsa yavruların yarısı kısa olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin bazlarının sayısı toplam baz sayısının %30'u kadardır.\n\nBuna göre adenin bazlarının oranı aşağıdakilerden hangisidir?",
+      "options": [
+        "%20",
+        "%30",
+        "%40",
+        "%70"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
+      "explanation": "G = C → %30 ise C de %30'dur. G+C=%60. Geriye A+T=%40 kalır. A=T olduğundan %20.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q02"
+    },
+    {
+      "stem": "Bir DNA analizinde aşağıdaki veriler elde edilmiştir:\n\nAdenin: 150\nGuanin: 200\n\nBuna göre toplam nükleotit sayısı kaçtır?",
+      "options": [
+        "500",
+        "600",
+        "700",
+        "800"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "A=T → 150, G=C → 200. Toplam = 150+150+200+200 = 700.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q03"
+    },
+    {
+      "stem": "Bazı değişimler DNA dizilimini değiştirip nesillere aktarılırken bazıları yalnızca bireyin yaşamı boyunca etkili olur. Aşağıdaki değişimlerden hangisi kalıtsal olmayan (sonraki nesillere geçmeyen) bir örnektir?",
+      "options": [
+        "Radyasyon sonucu DNA diziliminin değişmesi",
+        "Bazı bakterilerin antibiyotik direnci kazanması",
+        "Spor yapan bireyin kaslarının gelişmesi",
+        "DNA'da gen diziliminin değişmesi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitsal", "modifikasyon", "cevre_etkisi"],
+      "explanation": "Kas gelişimi çevresel etkidir ve kalıtsal değildir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q04"
+    },
+    {
+      "stem": "Aa genotipli iki bireyin çaprazlanması sonucunda oluşacak yavruların çekinik fenotipli olma olasılığı nedir?",
+      "options": [
+        "1/2",
+        "1/4",
+        "3/4",
+        "1/3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik"],
+      "explanation": "Aa × Aa çaprazlamasında 1 aa oluşur → 1/4.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q05"
+    },
+    {
+      "stem": "Bir canlı türünde meydana gelen mutasyonların bazıları popülasyonda hızla yayılmaktadır.\n\nBu durum aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Mutasyonların her zaman zararlı olması",
+        "Mutasyonların doğal seçilimle avantaj sağlaması",
+        "Mutasyonların DNA'yı yok etmesi",
+        "Mutasyonların çevreyi değiştirmesi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "dogal_secilim", "evrim"],
+      "explanation": "Faydalı mutasyonlar doğal seçilimle yayılabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q06"
+    },
+    {
+      "stem": "DNA molekülü şeker, fosfat ve baz gruplarının belirli bir düzende tekrar etmesiyle oluşur. Bu tekrarlayan en küçük yapı birimi aşağıdakilerden hangisidir?",
+      "options": [
+        "Gen",
+        "Nükleotit",
+        "Protein",
+        "Kromozom"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "nukleotit", "yapi_birimi"],
+      "explanation": "DNA'nın yapı birimi nükleotittir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q07"
+    },
+    {
+      "stem": "Bir bitkide meydana gelen mutasyon sonucunda yaprak rengi değişmiş ve bu özellik sonraki nesillere aktarılmıştır.\n\nBu durum aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Modifikasyon gerçekleşmiştir",
+        "Mutasyon kalıtsal olabilir",
+        "Çevresel değişim kalıcıdır",
+        "Fenotip değişmez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "kalitsal", "ozellikler"],
+      "explanation": "Mutasyonlar kalıtsal olabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q08"
+    },
+    {
+      "stem": "Bir bireyin genotipi Aa'dır. Bu birey aa genotipli bireyle çaprazlanıyor.\n\nBu çaprazlama sonucunda oluşacak yavruların yarısının fenotipi aşağıdakilerden hangisi olur?",
+      "options": [
+        "Baskın özellik",
+        "Çekinik özellik",
+        "Her iki özellik",
+        "Hiçbiri"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "fenotip"],
+      "explanation": "Aa × aa → yavruların yarısı aa olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q09"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi mutasyon ile modifikasyon arasındaki farkı doğru açıklar?",
+      "options": [
+        "Mutasyon çevresel, modifikasyon kalıtsaldır",
+        "Mutasyon DNA değişimidir, modifikasyon çevreseldir",
+        "Modifikasyon DNA değiştirir",
+        "Mutasyon her zaman faydalıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "modifikasyon", "ayrim"],
+      "explanation": "Mutasyon DNA dizilimi değişimidir; modifikasyon çevre etkisidir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_003_q10"
+    }
+  ]
+}

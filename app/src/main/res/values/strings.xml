@@ -1,111 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BrainBuddy</string>
+    <string name="app_name">EDUmio</string>
     <string name="test_preparing">Test hazırlanıyor…</string>
-    <string name="wise_coach_default">Her gün biraz daha ileri.</string>
 
-    <!-- Parent & Settings -->
-    <string name="parent_title">Ebeveyn Paneli</string>
-    <string name="parent_hub_title">Veli Paneli</string>
-    <string name="parent_summary_screen_time">Bugün ekran süresi</string>
-    <string name="parent_summary_tests">Bugün test</string>
-    <string name="parent_summary_blocked">Engellenen uygulama</string>
-    <string name="parent_summary_due_wrong">Bugün tekrar sorulacak yanlışlar</string>
-    <string name="parent_summary_minutes_value">%1$d dk</string>
-    <string name="parent_card_screen_time">Ekran Süresi</string>
-    <string name="parent_card_screen_time_sub">Limitler ve uyku modu</string>
-    <string name="parent_card_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="parent_card_blocked_apps_sub">Uygulama seç ve engelle</string>
-    <string name="parent_card_tests">Test &amp; Eğitim</string>
-    <string name="parent_card_tests_sub">Ayarlar ve eğitim modülleri</string>
-    <string name="parent_card_reports">Raporlar</string>
-    <string name="parent_card_reports_sub">Grafikler ve analiz</string>
-    <string name="parent_card_security">Güvenlik &amp; PIN</string>
-    <string name="parent_card_security_sub">PIN ve izin kontrolleri</string>
-    <string name="parent_status_screen_time">Bugün engelleme denemeleri: %d</string>
-    <string name="parent_status_gate_pass">Geçiş oranı (7 gün): %s%%</string>
-    <string name="parent_gamification">Oyunlaştırma</string>
-    <string name="parent_weekly_summary">Haftalık Özet (Son 7 Gün)</string>
-    <string name="parent_performance">Performans</string>
-    <string name="parent_controls">Kontroller</string>
-    <string name="parent_review_wrong">Yanlış Cevapları İncele</string>
-    <string name="parent_review_wrong_sub">Doğru cevapları sadece veli görür</string>
-    <string name="parent_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="parent_blocked_apps_sub">Seçili uygulamaları yönet</string>
-    <string name="parent_time_settings">Süre Ayarları</string>
-    <string name="parent_time_settings_sub">30/45/60 dk ve periyot</string>
-    <string name="parent_question_packs">Soru Paketleri</string>
-    <string name="parent_question_packs_sub">LGS / TYT / AYT / 1–7. sınıf</string>
-    <string name="parent_avatar_shop">Avatar Satın Alma</string>
-    <string name="parent_avatar_shop_sub">Avatar mağazası açık/kapalı</string>
-    <string name="parent_permissions">İzinler</string>
-    <string name="parent_permissions_sub">Erişilebilirlik, Kullanım, Pil</string>
-    <string name="parent_change_pin">PIN Değiştir</string>
-    <string name="parent_change_pin_sub">Ebeveyn PIN\'ini güncelle</string>
-    <string name="parent_settings">Ayarlar</string>
-    <string name="parent_settings_sub">Tüm ayarlara erişim</string>
-    <string name="quick_settings_title">Hızlı Ayarlar</string>
-    <string name="quick_settings_blocked_apps">Engellenecek Uygulamalar</string>
-    <string name="quick_settings_profiles">Profiller</string>
-    <string name="parent_quick_test">Test</string>
-    <string name="parent_quick_success">Başarı</string>
-    <string name="parent_quick_deneme">Deneme</string>
-    <string name="parent_weekly_success">Haftalık Başarı</string>
-    <string name="parent_topic_performance">Konulara Göre (Doğru/Toplam)</string>
-    <string name="parent_strong_topics">En güçlü 3 konu</string>
-    <string name="parent_weak_topics">Çalışılması gereken 3 konu</string>
-    <string name="parent_last_update">Son güncelleme: %1$s</string>
-    <string name="parent_no_wrong_yet">Henüz inceleyecek yanlış cevap yok</string>
-    <string name="parent_no_wrong_record">Henüz yanlış cevap kaydı yok.</string>
-    <string name="parent_review_wrong_desc">En çok yanlış yapılan konuları veli olarak inceleyebilirsiniz.</string>
+    <!-- Quiz Screen -->
+    <string name="quiz_subject_label">Ders</string>
+    <string name="quiz_question_placeholder">Soru metni</string>
+    <string name="quiz_feedback">Geri bildirim</string>
+    <string name="quiz_check_answer">Cevabı Kontrol Et</string>
+    <string name="quiz_next">Sonraki</string>
+    <string name="quiz_go_home">Ana Sayfaya Dön</string>
+    <string name="quiz_pool_insufficient">Soru havuzu yetersiz</string>
+    <string name="quiz_no_wrong_answers">Yanlış cevaplanan soru yok. Önce bir test çöz!</string>
+    <string name="quiz_pool_insufficient_detail">Soru havuzu yetersiz (en az %1$d soru gerekli).</string>
+    <string name="quiz_pool_limited_detail">Soru havuzu yetersiz (%1$d soru mevcut, en az %2$d gerekli).</string>
+    <string name="quiz_oom_error">Bellek yetersiz. Uygulamayı yeniden başlatın.</string>
+    <string name="quiz_abandon_title">Testi bırak?</string>
+    <string name="quiz_abandon_message">İlerleme kaydedilmeyecek.</string>
+    <string name="quiz_abandon_confirm">Bırak</string>
+    <string name="quiz_abandon_cancel">Devam et</string>
+    <string name="quiz_pool_limited_warning">Soru havuzu sınırlı.</string>
+    <string name="quiz_shorter_test_notice">Soru havuzu sınırlı — %1$d soru ile devam ediliyor.</string>
+
+    <!-- Quiz Result Screen -->
+    <string name="quiz_result_congrats">Tebrikler!</string>
+    <string name="quiz_result_completed">Tamamlandı</string>
+    <string name="quiz_result_load_error">Sonuç yüklenemedi</string>
+    <string name="quiz_result_celebration_title">Tebrikler</string>
+    <string name="quiz_result_great">Çok iyi</string>
+    <string name="quiz_result_step_done">✓ Bugünün adımı tamam</string>
+    <string name="result_mission_done">Bugünkü görevin tamamlandı — hedefine bir adım daha yakınsın.</string>
+    <string name="result_review_queue">Tekrar kuyruğunda %1$d soru, pekiştirmeni bekliyor.</string>
+    <string name="result_review_corrected">Daha önce yanlış yaptığın %1$d soruyu bu testte düzelttin.</string>
+    <string name="result_next_focus">Yarın %1$s üzerine kısa bir tekrar, en çok fark yaratacak adım.</string>
+    <string name="quiz_result_review_wrong">Yanlışları İncele</string>
+    <string name="quiz_result_correct_wrong_blank">Doğru | Yanlış | Boş</string>
+
+    <!-- League Screen -->
+    <string name="league_weekly_score">Haftalık puan: %1$d</string>
+    <string name="league_days_left">Haftanın bitmesine: %1$d gün</string>
+    <string name="league_current_user_label">Sen</string>
+
+    <!-- Reports Screen -->
+    <string name="reports_daily_summary">Günlük Özet</string>
+    <string name="reports_today">Bugün</string>
+    <string name="reports_last_7_days">Son 7 gün</string>
+    <string name="reports_monthly_summary">Aylık Özet</string>
+    <string name="reports_last_30_days">Son 30 gün</string>
+    <string name="reports_error_generic">Rapor yüklenirken bir sorun oluştu. Tekrar deneyebilirsin.</string>
+
+    <!-- League Screen Layout -->
+    <string name="league_title">Lig</string>
+    <string name="league_back">Geri</string>
+    <string name="league_ranking_title">Sıralama</string>
+    <string name="league_empty_title">Lig tablosu için henüz yeterli veri yok.</string>
+    <string name="league_empty_subtitle">Testleri çözdükçe lig sıralamanız burada görünecek.</string>
+    <string name="league_scoring_title">Puan nasıl kazanılır?</string>
+    <string name="league_scoring_tip_1">Az yanlış = daha çok puan</string>
+    <string name="league_scoring_tip_2">Başarısız test puan düşürür</string>
+    <string name="league_scoring_tip_3">Günde çok fazla testte puan azalır</string>
+
+    <!-- Home Screen -->
+    <string name="home_daily_goal">Günlük hedef (1 test)</string>
+
+    <!-- GrowthHub Phase 2E -->
+    <string name="progress_title">İlerleme</string>
+    <string name="progress_hero_title">🇮🇹 İtalya Yolculuğun</string>
+    <string name="progress_hero_subtitle">Hazırlık Seviyesi · Günlük tutarlılık</string>
+    <string name="progress_topic_section">KONU PERFORMANSI</string>
+    <string name="progress_strong_topics">Güçlü Konular</string>
+    <string name="progress_weak_topics">Geliştirilecek Konular</string>
+    <string name="progress_no_data_yet">Birkaç test çözdükten sonra gelişim analizlerin burada görünmeye başlayacak.</string>
+    <string name="progress_week_section">BU HAFTA</string>
+    <string name="progress_week_empty">Henüz yeterli veri yok. Birkaç test çözdükten sonra haftalık gelişim analizlerin burada görünecek.</string>
+    <string name="progress_week_questions">Soru</string>
+    <string name="progress_week_xp">XP</string>
+    <string name="progress_week_accuracy">Doğruluk</string>
+    <string name="progress_vs_last_week">geçen haftaya göre %1$s</string>
+    <string name="progress_achievements_section">BAŞARIMLAR</string>
+    <string name="progress_next_milestone">SIRADAKİ HEDEF</string>
+    <string name="premium_analysis_section">PREMIUM ANALİZ</string>
+    <string name="premium_upsell_title">Premium ile daha akıllı hazırlan</string>
+    <string name="premium_upsell_body">Sınav Hazırlık Skoru, 30 ve 90 günlük derin gelişim analizi, akıllı tekrar kuyruğu, günlük çalışma planın, çalışma haritan ve öğrenme yolculuğun — kişisel bir sınav koçu gibi.</string>
+    <string name="readiness_title">SINAV HAZIRLIK SKORU</string>
+    <string name="readiness_not_enough">Sınav hazırlık skorun için biraz daha veri gerekli. Birkaç test daha çözünce burada görünecek.</string>
+    <string name="readiness_opportunity">En çok gelişim fırsatı: %1$s</string>
+    <string name="readiness_week_change">Bu hafta hazırlık skorun: %1$s puan</string>
+    <string name="learning_states_section">ÖĞRENME DURUMU</string>
+    <string name="learning_state_wrong">Yanlış</string>
+    <string name="learning_state_reviewing">Tekrarda</string>
+    <string name="learning_state_mastered">Ustalaşıldı</string>
+    <string name="heatmap_section">ÇALIŞMA HARİTASI</string>
+    <string name="heatmap_summary">En uzun seri: %1$d gün · Bu ay %2$d aktif gün</string>
+    <string name="heatmap_less">Az</string>
+    <string name="heatmap_more">Çok</string>
+    <string name="journey_section">ÖĞRENME YOLCULUĞU</string>
+    <string name="result_one_step_closer">İtalya yolculuğun için bir çalışma günü daha tamamlandı.</string>
+    <string name="result_achievement_unlocked">Yeni başarım açıldı 🏆</string>
+    <string name="progress_more_section">DAHA FAZLA</string>
+    <string name="progress_detailed_stats">Detaylı İstatistikler</string>
+    <string name="progress_detailed_stats_sub">Grafik ve trend analizi</string>
+    <string name="progress_league">Lig</string>
+    <string name="progress_league_sub">Haftalık sıralama</string>
+
+    <!-- StudyHub Phase 2D -->
+    <string name="study_hub_title">Öğren</string>
+    <string name="study_hub_btn_practice">Tüm Konularda Pratik Yap</string>
+    <string name="study_hub_stats_accuracy">Doğruluk</string>
+    <string name="study_hub_stats_tests">Test</string>
+    <string name="study_hub_stats_questions">Soru</string>
+    <!-- Learning-statistics empty state: shown INSTEAD of the value row while there is no real data,
+         so the card never renders placeholder dashes. Driven by the data itself (see
+         StudyHubActivity.refreshStats); it disappears on its own as soon as statistics exist. -->
+    <string name="study_hub_stats_empty_title">İstatistiklerin hazırlanıyor</string>
+    <string name="study_hub_stats_empty_body">İlk günlük görevini tamamladığında doğruluk oranını ve çözdüğün soru sayısını burada görebileceksin.</string>
+    <string name="study_hub_stats_empty_cta">Günün Görevine Başla</string>
+
+    <!-- Study areas (multi-exam profiles) -->
+    <string name="areas_title">Çalışma Alanlarım</string>
+    <string name="areas_subtitle">Aktif alanı değiştir, yeni alan ekle veya çıkar. Her alanın istatistikleri ayrı tutulur.</string>
+    <string name="areas_add">+ Alan Ekle</string>
+    <string name="areas_active_badge">Aktif</string>
+    <string name="areas_set_active">Aktif yap</string>
+    <string name="areas_remove">Çıkar</string>
+    <string name="areas_add_dialog_title">Alan Ekle</string>
+    <string name="areas_all_added">Tüm alanlar zaten ekli.</string>
+    <string name="areas_min_one">En az bir alan kalmalı.</string>
+    <string name="areas_remove_confirm_title">Alanı çıkar?</string>
+    <string name="areas_remove_confirm_msg">%1$s çalışma alanı listenden çıkarılacak. Aktif alanına ait istatistikler etkilenmez.</string>
+    <string name="areas_switched">Aktif alan: %1$s</string>
+    <string name="area_switcher_title">Aktif Çalışma Alanı</string>
+    <string name="area_switcher_manage">Alanları Yönet</string>
+    <string name="profile_areas">Çalışma Alanlarım</string>
+    <string name="profile_areas_sub">İlgi alanların ve aktif sınav profilin</string>
+    <string name="home_active_area_hint">Değiştir</string>
+
+    <!-- Discover (University & Program Discovery) -->
+    <string name="study_hub_discover_title">Üniversite &amp; Program Keşfi</string>
+    <string name="study_hub_discover_sub">Sınav rehberi, üniversiteler ve SSS</string>
+    <string name="study_hub_tools_title">Ücretsiz Araçlar</string>
+    <string name="study_hub_tools_sub">IMAT skor simülatörü · maliyet &amp; burs · uygunluk</string>
+    <string name="discover_title">Keşfet</string>
+    <string name="discover_section_guide">SINAV REHBERİ</string>
+    <string name="discover_summary_section">SINAV ÖZETİ</string>
+    <string name="discover_summary_when">Ne zaman yapılır?</string>
+    <string name="discover_summary_attempts">Kaç kez girilebilir?</string>
+    <string name="discover_summary_validity">Sonuç geçerliliği</string>
+    <string name="discover_summary_important">Önemli bilgiler</string>
+    <string name="discover_section_universities">ÜNİVERSİTELER (%1$d)</string>
+    <string name="discover_section_faq">SIK SORULAN SORULAR</string>
+    <string name="discover_exam_structure">Sınav Yapısı</string>
+    <string name="discover_subjects">Dersler</string>
+    <string name="discover_scoring">Puanlama</string>
+    <string name="discover_timeline">Takvim</string>
+    <string name="discover_application">Başvuru Notları</string>
+    <string name="discover_documents">Gerekli Belgeler</string>
+    <string name="discover_notice_label">Resmî Duyuru</string>
+    <string name="discover_public">Devlet</string>
+    <string name="discover_private">Özel</string>
+    <string name="discover_view_details">Detayları Gör</string>
+    <string name="discover_empty">Bu çalışma alanı için rehber yakında eklenecek. Şimdilik soru çözerek hazırlanmaya devam edebilirsin.</string>
+    <string name="discover_detail_program">Program</string>
+    <string name="discover_detail_degree">Derece</string>
+    <string name="discover_detail_type">Tür</string>
+    <string name="discover_detail_language">Dil</string>
+    <string name="discover_detail_exam">Kabul Sınavı</string>
+    <string name="discover_detail_about">Program Hakkında</string>
+    <string name="discover_detail_cost">Ücret ve Burs</string>
+    <string name="discover_detail_tuition">Ücret</string>
+    <string name="discover_detail_scholarship">Burs</string>
+    <string name="discover_detail_notice">Kontenjan, kabul koşulları, ücretler ve başvuru tarihleri her yıl değişebilir. Güncel bilgiler için üniversitenin resmî duyuruları kontrol edilmelidir.</string>
+    <string name="discover_section_programs">BÖLÜMLER (%1$d)</string>
+    <string name="discover_detail_field">Alan</string>
+    <string name="discover_section_featured">ÖNE ÇIKAN ÜNİVERSİTE</string>
+    <string name="discover_featured_badge">Öne Çıkan Hedef</string>
+    <string name="discover_featured_programs_count">%1$d İngilizce mühendislik programı</string>
+    <string name="discover_detail_campus">Kampüs</string>
+    <string name="discover_detail_seats">Kontenjan</string>
+
+    <!-- Home Phase 2C: Mission + Nav -->
+    <string name="home_next_step_label">BUGÜNKÜ ADIM</string>
+    <string name="home_step_start">Başla →</string>
+    <string name="home_mission_progress">%1$d / %2$d tamamlandı</string>
+    <string name="home_streak_start">Bugün başla</string>
+    <string name="home_nav_study">Öğren</string>
+    <string name="home_nav_progress">İlerleme</string>
+    <string name="home_nav_profile">Profil</string>
+
+    <!-- Stats Screen -->
+    <string name="stats_level">Seviye %1$d</string>
+    <string name="stats_xp">%1$d XP</string>
+    <string name="stats_streak">%1$d gün seri</string>
+    <string name="stats_accuracy">%1$d/%2$d doğru (%3$.1f%%)</string>
+    <string name="stats_no_data">Henüz veri yok</string>
+    <string name="stats_no_topic_data">Henüz konu verisi yok</string>
+    <string name="stats_test_index">Test %1$d</string>
+    <string name="stats_topics_breakdown">Konulara Göre (Doğru/Toplam)</string>
+    <string name="stats_trend_title">Son 10 Test Başarı Trendi</string>
+    <string name="stats_topic_summary">Konu Özeti</string>
+    <string name="stats_needs_improvement">Geliştirilecek</string>
+    <string name="stats_recent_tests">Son Testler</string>
+
+    <!-- Quiz Result Layout -->
+    <string name="quiz_result_retry_test">Testi Tekrarla</string>
+    <string name="quiz_result_play_again">Tekrar Oyna</string>
+    <string name="quiz_result_home">Ana Sayfa</string>
+    <string name="quiz_result_wrong_answers">Yanlış cevaplar</string>
+    <string name="wrong_pool_home_title">Yanlışlarını Çöz</string>
+    <string name="wrong_pool_home_sub">Sadece yanlış yaptığın sorular</string>
+    <string name="wrong_pool_mode_chip">Yanlışlarını Çöz</string>
+    <string name="wrong_pool_remaining">Kalan: %1$d</string>
+    <string name="wrong_pool_empty">Henüz tekrar bekleyen soru yok. Yanlış yaptığın sorular burada akıllı tekrar planına alınacak.</string>
+    <string name="wrong_pool_all_done">Tüm yanlışlarını temizledin.</string>
+    <string name="wrong_pool_submit">Gönder</string>
+    <string name="wrong_pool_pick_option">Bir seçenek işaretle.</string>
+    <string name="wrong_pool_premium_title">Premium Özellik</string>
+    <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
+    <string name="wrong_pool_card_empty_sub">Yanlışların burada akıllı tekrar planına alınır. Şimdilik temizsin.</string>
+
+    <!-- Settings -->
     <string name="btn_detail">Detaya Git</string>
     <string name="close">Kapat</string>
     <string name="settings_title">Ayarlar</string>
-    <string name="parent_permission_required">Ebeveyn izni gerekiyor</string>
 
-    <!-- Settings sections (with icons) -->
-    <string name="settings_section_protection">🔐 Koruma Ayarları</string>
-    <string name="settings_section_protection_advanced">Gelişmiş Koruma Ayarları</string>
-    <string name="settings_section_protection_advanced_sub">Veli Paneli\'nde hızlı erişim de mevcut</string>
-    <string name="settings_section_education">🎓 Öğrenci &amp; Eğitim</string>
-    <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
-    <string name="settings_section_customization">🎨 Özelleştirme</string>
-    <string name="settings_protection_on">Uygulama engelleme açık</string>
-    <string name="settings_protection_sub">Engelleme özelliğini etkinleştir veya kapat</string>
-    <string name="settings_quiz_interval">Quiz aralığı</string>
-    <string name="settings_quiz_interval_sub">Test aralığını belirle (30/45/60 dk)</string>
-    <string name="settings_min_success_rate">Minimum başarı oranı</string>
-    <string name="settings_min_success_rate_sub">Test geçiş için gereken min. doğru/(doğru+yanlış) oranı (boş sayılmaz)</string>
-    <string name="success_rate_50">%50</string>
-    <string name="success_rate_60">%60</string>
-    <string name="success_rate_70">%70</string>
-    <string name="success_rate_80">%80</string>
-    <string name="settings_permissions_title">Erişilebilirlik / Kullanım izinleri</string>
-    <string name="settings_permissions_sub">Erişilebilirlik ve kullanım izinlerini yönet</string>
-    <string name="settings_system_health_sub">İzinler ve koruma durumunu kontrol et</string>
-    <string name="settings_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="settings_blocked_apps_sub">Engellenecek uygulamaları seç ve yönet</string>
-    <string name="settings_time_limits">Zaman Limitleri</string>
-    <string name="settings_time_limits_sub">Günlük kullanım limitlerini ayarla</string>
-    <string name="settings_schedules_sub">Zaman dilimlerine göre kurallar tanımla</string>
-    <string name="settings_student_level">Öğrenci Seviyesi</string>
-    <string name="settings_student_level_sub">Yaş ve sınıf seviyesini belirle</string>
-    <string name="settings_test_settings">Test Ayarları</string>
-    <string name="settings_test_sub">Zorluk ve soru sayısı ayarları</string>
-    <string name="settings_grade_level">Sınıf Seviyesi</string>
-    <string name="settings_grade_level_sub">Testte sadece bu sınıfın soruları gelir (zorunlu)</string>
-    <string name="grade_selected_label">Seçili Sınıf: %1$d. Sınıf</string>
-    <string name="grade_selected_junior">Seçili Sınıf: Junior</string>
-    <string name="grade_selected_none">Seçili Sınıf: -</string>
-    <string name="mode_selected_lgs">Seçili Mod: LGS</string>
-    <string name="settings_mode_section_title">Mod</string>
-    <string name="settings_mode_section_sub_lgs">LGS veya Sınıf modu seçin</string>
-    <string name="grade_required_toast">Test başlatmak için önce sınıf seçimi yapın.</string>
-    <string name="settings_exam_packs">Sınav Paketleri (LGS/TYT/AYT)</string>
-    <string name="settings_exam_packs_sub">LGS, TYT, AYT sınav paketleri</string>
-    <string name="settings_junior_title">BrainBuddy Junior</string>
-    <string name="settings_junior_sub">1. sınıf okuma-yazma modülü</string>
+    <!-- Settings sections -->
+    <string name="settings_section_reports">Raporlar</string>
+    <string name="settings_section_customization">Bildirimler</string>
+    <string name="settings_section_premium">Premium</string>
+    <string name="settings_section_privacy_data">Gizlilik ve Veri</string>
+    <string name="settings_section_app">Uygulama</string>
+    <string name="settings_version_label">Sürüm</string>
+    <string name="settings_premium_title">Premium\'u Keşfet</string>
+    <string name="settings_premium_sub">Daha akıllı hazırlan — neyin işe yaradığını gör</string>
+    <string name="cd_back">Geri</string>
     <string name="pool_status_title_format">Soru Havuzu Durumu (%1$s)</string>
     <string name="pool_status_title_default">Soru Havuzu Durumu</string>
     <string name="pool_status_button_format">Havuz Durumu (%1$s)</string>
@@ -114,54 +242,75 @@
     <string name="pool_status_diff_medium">Orta</string>
     <string name="pool_status_diff_hard">Zor</string>
     <string name="pool_status_header">Grade %1$d için soru havuzu (TOTAL / ACTIVE):</string>
-    <string name="settings_profiles_sub">Birden fazla öğrenci profili yönet</string>
+    <string name="pool_status_force_reseed_button">Soru Havuzunu Yenile</string>
+    <string name="pool_status_force_reseed_title">Yenileme Sonucu</string>
+    <string name="seed_audit_path_unknown">(henüz oluşturulmadı)</string>
+    <string name="seed_audit_initializing">Soru veritabanı hazırlanıyor, lütfen bekleyin…</string>
+    <string name="pool_status_initializing">Soru veritabanı hazırlanıyor, lütfen bekleyin…</string>
     <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
-    <string name="settings_backup_sub">Verileri dışa aktar (Export)</string>
-    <string name="settings_restore_sub">Yedekten geri yükle (Import)</string>
-    <string name="settings_reward_contracts">Ödül Sözleşmeleri</string>
-    <string name="settings_reward_contracts_sub">Ödül sözleşmelerini yönet</string>
-    <string name="settings_shop_disable">Avatar mağazasını kapat</string>
-    <string name="settings_shop_disable_sub">Öğrencinin avatar satın almasını engelle</string>
-    <string name="settings_theme">Tema</string>
-    <string name="settings_theme_sub">Tema seçenekleri (yakında)</string>
-    <string name="settings_section_about">Hakkında</string>
+    <string name="settings_backup_sub">Verileri dışa aktar</string>
+    <string name="settings_restore_sub">Yedekten geri yükle</string>
+    <string name="settings_section_about">Gizlilik ve Yasal</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
-    <string name="settings_accessibility_usage_sub">BrainBuddy erişilebilirlik kullanımı hakkında</string>
-    <string name="interval_30">30 dk</string>
-    <string name="interval_45">45 dk</string>
-    <string name="interval_60">60 dk</string>
-    <string name="level_ages_3_5">Yaş 3–5</string>
-    <string name="level_grades_1_4">Sınıf 1–4</string>
-    <string name="level_grades_5_8">Sınıf 5–8</string>
-    <string name="level_grades_9_12">Sınıf 9–12</string>
+    <!-- Privacy & data rights (GDPR) -->
+    <string name="settings_data_rights_sub">Verilerini dışa aktar</string>
+    <string name="data_rights_title">Gizlilik ve Verilerim</string>
+    <string name="data_rights_intro">Verilerin senindir. Buradan tüm çalışma verini dışa aktarabilirsin.</string>
+    <string name="data_rights_export">Verilerimi Dışa Aktar</string>
+    <string name="data_rights_export_sub">Tüm ilerlemeni ve ayarlarını bir JSON dosyası olarak indir ve paylaş.</string>
+    <string name="data_rights_export_error">Dışa aktarma sırasında bir sorun oluştu. Tekrar dene.</string>
+    <string name="data_rights_privacy">Gizlilik Politikası ve Şartlar</string>
+    <string name="data_rights_privacy_sub">Verilerini nasıl koruduğumuzu oku.</string>
+    <string name="data_rights_cloud_note">Verilerin yalnızca bu cihazda tutulur; buluta yedeklenmez ve bir hesaba bağlı değildir. Uygulamayı kaldırırsan cihazındaki ilerlemen silinir.</string>
+
+    <!-- Account & Sync -->
+    <string name="settings_section_account">Hesap</string>
+    <string name="settings_account_sub">Hesabını ve senkronizasyonu yönet</string>
+    <string name="account_title">Hesap ve Senkronizasyon</string>
+    <string name="account_why_title">Neden hesap oluşturmalısın?</string>
+    <string name="account_why_1">İlerlemen güvende kalır ve kaybolmaz.</string>
+    <string name="account_why_2">Yeni bir cihaza geçtiğinde çalışman seninle gelir.</string>
+    <string name="account_why_3">Bulut senkronu bağlandığında her şey otomatik eşitlenir.</string>
+    <string name="account_create">Hesap Oluştur</string>
+    <string name="account_signin">Giriş Yap</string>
+    <string name="account_signin_sub">E-posta ve şifrenle giriş yap</string>
+    <string name="account_local_only_note">Verilerin şu anda yalnızca bu cihazda güvenle saklanıyor. Bulut senkronu hazırlanıyor.</string>
+    <string name="account_signed_in_as">Giriş yapıldı</string>
+    <string name="account_verified">E-posta doğrulandı.</string>
+    <string name="account_verify_pending">E-posta doğrulama, bulut hesapları bağlandığında sunulacak.</string>
+    <string name="account_sync_section">SENKRONİZASYON</string>
+    <string name="account_sync_ready">Yerelde hazır</string>
+    <string name="account_sync_last">Son senkron: %1$s</string>
+    <string name="account_sync_running">Senkronize ediliyor…</string>
+    <string name="account_sync_running_btn">Senkronize ediliyor…</string>
+    <string name="account_sync_failed">Senkronizasyon tamamlanamadı. Verilerin bu cihazda güvende — birazdan tekrar deneyebilirsin.</string>
+    <string name="account_sync_cloud_note">Bulut senkronu bağlandığında verilerin tüm cihazlarına taşınacak. Şu anda bu cihazda güvende.</string>
+    <string name="account_sync_now">Şimdi Senkronize Et</string>
+    <string name="account_sync_done">Verilerin bu cihazda senkronize edildi.</string>
+    <string name="account_data_section">VERİLERİM</string>
+    <string name="account_signout">Çıkış Yap</string>
+    <string name="account_provider_email">E-posta</string>
+
+    <!-- Auth (sign in / sign up) — auth_email/auth_password/auth_fill_all reuse existing keys -->
+    <string name="auth_signin_title">Giriş Yap</string>
+    <string name="auth_signin_sub">Hesabına giriş yaparak devam et.</string>
+    <string name="auth_signup_title">Hesap Oluştur</string>
+    <string name="auth_signup_sub">İlerlemeni güvende tutmak için bir hesap oluştur.</string>
+    <string name="auth_signin_cta">Giriş Yap</string>
+    <string name="auth_signup_cta">Hesap Oluştur</string>
+    <string name="auth_switch_to_signin">Zaten hesabın var mı? Giriş yap</string>
+    <string name="auth_switch_to_signup">Hesabın yok mu? Oluştur</string>
+    <string name="auth_forgot">Şifreni mi unuttun?</string>
+    <string name="auth_google">Google ile devam et</string>
+    <string name="auth_creating">Hesabın oluşturuluyor…</string>
+    <string name="auth_checking">Hesabın kontrol ediliyor…</string>
+    <string name="auth_reset_title">Şifre sıfırlama</string>
+    <string name="auth_reset_message">E-posta adresini gir. Gerçek e-posta gönderimi, bulut hesapları bağlandığında etkinleşecek.</string>
+    <string name="auth_reset_cta">Gönder</string>
+    <string name="auth_cancel">Vazgeç</string>
+    <string name="auth_reset_sent">Eğer bu e-posta ile bir hesap varsa, sıfırlama hazırlandı. E-posta gönderimi bulut hesapları bağlandığında etkinleşecek.</string>
     <string name="settings_motivation">Motivasyon bildirimleri</string>
     <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
-
-    <!-- PIN -->
-    <string name="pin_len_4">4 haneli PIN</string>
-    <string name="pin_len_6">6 haneli PIN</string>
-    <string name="enter_pin">PIN gir</string>
-    <string name="confirm_pin">PIN tekrar</string>
-    <string name="unlock">Kilidi Aç</string>
-    <string name="set_pin">PIN Ayarla</string>
-    <string name="pin_saved">PIN kaydedildi</string>
-
-    <string name="pin_length_error">PIN uzunluğu hatalı</string>
-    <string name="pin_length_error_generic">PIN 4 veya 6 haneli olmalı</string>
-    <string name="pin_mismatch">PINler eslesmiyor</string>
-    <string name="pin_incorrect">PIN yanlış</string>
-
-    <!-- Accessibility -->
-    <string name="protection_inactive_title">Koruma Kapalı</string>
-    <string name="protection_inactive_body">
-        Uygulama engelleme aktif değil. Lütfen Erişilebilirlik iznini aç.
-    </string>
-    <string name="open_accessibility_settings">
-        Erişilebilirlik Ayarlarını Aç
-    </string>
-    <string name="accessibility_service_desc">
-        Uygulama engelleme ve odak modu için gerekli servis
-    </string>
 
     <!-- Quiz -->
     <string name="quiz_title">Test</string>
@@ -169,40 +318,6 @@
     <string name="next_question">Sonraki</string>
     <string name="btn_start_quiz">Teste Başla</string>
     <string name="btn_practice">Pratik Yap (Mini Test)</string>
-
-    <!-- Gate -->
-    <string name="gate_title">Sınava Gerek Var</string>
-    <string name="gate_quiz_required">Engellenen uygulamayı kullanmak için önce testi geçmelisin.</string>
-
-    <!-- Lock screen -->
-    <string name="lock_failed_title">BAŞARISIZ</string>
-    <string name="lock_failed_message">Sorular zor olabilir. Birlikte güçleneceğiz.</string>
-    <string name="lock_permission_title">Engelleme İzni Kapatıldı</string>
-    <string name="lock_permission_message">Uygulama engelleme izni kapatıldı. Ebeveyn PIN\'i ile ayarlardan yeniden açabilirsiniz.</string>
-    <string name="btn_parent_unlock">Ebeveyn PIN ile Aç</string>
-    <string name="btn_emergency_unlock">Acil Durum Kodu ile Aç</string>
-    <string name="emergency_unlock_title">Acil Durum Kilidi Açma</string>
-    <string name="emergency_unlock_subtitle">Gate veya ekran takılıysa, acil durum kodunuzla veli alanına erişin.</string>
-    <string name="emergency_code_hint">Acil durum kodu (min. 6 karakter)</string>
-    <string name="emergency_unlock_btn">Kilidi Aç</string>
-    <string name="emergency_back">Geri</string>
-    <string name="emergency_code_too_short">Kod en az 6 karakter olmalı</string>
-    <string name="emergency_code_incorrect">Kod yanlış</string>
-
-    <!-- Permissions checklist -->
-    <string name="perm_checklist_title">İzin Kontrolü</string>
-    <string name="perm_accessibility">Erişilebilirlik (Zorunlu)</string>
-    <string name="perm_usage">Kullanım Erişimi (Opsiyonel)</string>
-    <string name="perm_notification">Bildirimler (Opsiyonel)</string>
-    <string name="perm_battery">Pil Optimizasyonu Dışı (Önerilen)</string>
-    <string name="perm_status_ok">Aktif</string>
-    <string name="perm_status_missing">Eksik</string>
-    <string name="perm_status_optional">Opsiyonel</string>
-    <string name="perm_status_recommended">Önerilen</string>
-    <string name="perm_enable">Etkinleştir</string>
-    <string name="perm_recheck">Kontrol Et</string>
-    <string name="perm_open_settings">Ayarları Aç</string>
-    <string name="perm_device_owner_note">Tam kısıtlama için Cihaz Sahibi modu gerekir.</string>
 
     <!-- Results -->
     <string name="results_title">Sonuçlar</string>
@@ -227,7 +342,18 @@
     <string name="report_pdf_error_copy">Kopyala</string>
     <string name="report_pdf_error_share_file">Hata Dosyasını Paylaş</string>
     <string name="report_create_error">Rapor oluşturulamadı</string>
-    <string name="report_no_data">Henüz rapor oluşturacak veri yok</string>
+    <string name="report_no_data">Haftalık raporların, yeterli çalışma verisi oluştuğunda hazırlanacak.</string>
+    <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
+    <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
+    <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
+    <string name="report_share_locked_bullet_2">✦ Hangi konularda güçlü olduğunu gör</string>
+    <string name="report_share_locked_bullet_3">✦ Hangi alanlarda desteğe ihtiyacın olduğunu keşfet</string>
+    <string name="report_share_locked_bullet_4">✦ Konu bazlı başarı oranını incele</string>
+    <string name="report_share_locked_bullet_5">✦ Zaman yönetimini değerlendir</string>
+    <string name="report_share_locked_bullet_6">✦ Gelişim grafiğinle ilerlemeni takip et</string>
+    <string name="report_share_locked_bullet_7">✦ Lig ve sıralama performansını karşılaştır</string>
+    <string name="report_share_locked_footer">Premium ile bu raporu danışmanınla veya öğretmeninle kolayca paylaşabilirsin.</string>
+    <string name="report_share_locked_cta">Premium\'a Geç</string>
     <string name="trend_chart_title">Son 10 Test Başarı Oranı</string>
     <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru / (doğru + yanlış). Boşlar başarıya dahil edilmez.</string>
     <string name="trend_empty_test_warning">En az 1 soru cevaplanmalı (tam boş testler grafikte gösterilmez)</string>
@@ -236,11 +362,8 @@
     <string name="reports_empty_generic">Bu aralıkta veri yok. Test çözünce burada görünecek.</string>
     <string name="topics_caption">Her bar bir konudur. Doğru/toplam oranı.</string>
 
-    <!-- Reports - recent tests & apps -->
+    <!-- Reports - recent tests -->
     <string name="recent_test_title_format">Test %1$d</string>
-    <string name="reports_top_apps_title">En çok denenen uygulamalar</string>
-    <string name="reports_top_apps_empty_title">Henüz uygulama denemesi yok</string>
-    <string name="reports_top_apps_empty_subtitle">Öğrenci engellenen uygulamaları kullanmaya çalıştığında burada görünecek.</string>
 
     <!-- Performance Analysis card -->
     <string name="performance_analysis_title">Performans Analizi</string>
@@ -278,7 +401,7 @@
     <!-- Backup -->
     <string name="backup_export">Yedek Al</string>
     <string name="backup_import">Yedekten Geri Yükle</string>
-    <string name="backup_import_summary">%1$d profil, %2$d engellenen uygulama</string>
+    <string name="backup_import_summary">%1$d profil</string>
 
     <!-- Schedule -->
     <string name="schedule_title">Zaman Çizelgeleri</string>
@@ -289,90 +412,50 @@
     <!-- Profile -->
     <string name="profile_add">Profil Ekle</string>
 
-    <!-- Protection notification -->
-    <string name="notif_channel_protection">BrainBuddy Koruma</string>
-    <string name="notif_channel_monitor">Erişilebilirlik İzleme</string>
-    <string name="notif_monitor_title">BrainBuddy koruması aktif</string>
-    <string name="notif_monitor_text">Erişilebilirlik izni izleniyor</string>
-    <string name="notif_protection_off_title">BrainBuddy koruması kapalı!</string>
-    <string name="notif_protection_off_text">Erişilebilirlik izni kapatıldı. Dokunarak ayarlardan yeniden açın.</string>
-
-    <string name="privacy_policy_title">Gizlilik Politikası</string>
-    <string name="privacy_view_on_web">Web\'de görüntüle</string>
-    <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
-    <string name="accessibility_usage_explanation">BrainBuddy, uygulama engelleme özelliği için Android Erişilebilirlik Hizmeti kullanır. Bu izin yalnızca engellenen uygulamaların ekranda açılıp açılmadığını tespit etmek ve test geçmeden kullanılmasını engellemek amacıyla kullanılır. Hiçbir kişisel veri toplanmaz veya üçüncü taraflarla paylaşılmaz. Tüm veriler cihazınızda kalır.</string>
-
-    <!-- App presets -->
-    <string name="preset_all">Tümü</string>
-    <string name="preset_social">Sosyal</string>
-    <string name="preset_games">Oyunlar</string>
-    <string name="preset_browsers">Tarayıcılar</string>
-    <string name="preset_quick_presets">Hızlı Presetler</string>
-    <string name="blocked_apps_search_hint">Uygulama ara…</string>
-    <string name="preset_social_media">Sosyal Medya</string>
-    <string name="preset_social_confirm_title">Sosyal medya uygulamaları engellensin mi?</string>
-    <string name="preset_confirm_block">Engelle</string>
-    <string name="preset_cancel">İptal</string>
-    <string name="preset_none_found">Bu preset için cihazda uygulama bulunamadı.</string>
-    <string name="preset_blocked_success">Uygulamalar engellendi</string>
-    <string name="preset_single_select">Tek tek seç</string>
-
-    <!-- Auth -->
-    <string name="auth_login_title">Giriş Yap</string>
-    <string name="auth_register_title">Kayıt Ol</string>
+    <!-- Auth (email/password + fill-all reused by AuthActivity) -->
     <string name="auth_email">E-posta</string>
     <string name="auth_password">Şifre</string>
-    <string name="auth_confirm_password">Şifre Tekrar</string>
-    <string name="auth_login">Giriş</string>
-    <string name="auth_register">Kayıt Ol</string>
-    <string name="auth_forgot_password">Şifremi unuttum</string>
-    <string name="auth_no_account_register">Hesabım yok, kayıt ol</string>
-    <string name="auth_has_account_login">Zaten hesabım var, giriş yap</string>
     <string name="auth_fill_all">Tüm alanları doldurun</string>
-    <string name="auth_password_short">Şifre en az 6 karakter olmalı</string>
-    <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
 
-    <!-- Email Reports -->
-    <string name="report_ready_title">BrainBuddy Raporu Hazır</string>
+    <!-- Reports notifications -->
+    <string name="report_ready_title">EDUmio Raporu Hazır</string>
     <string name="report_ready_text">Dokunarak manuel gönderebilirsiniz</string>
     <string name="report_channel_name">Raporlar</string>
     <string name="report_share_prompt">Raporu Gönder</string>
 
     <!-- Motivation notifications -->
-    <string name="notif_motivation_channel">Motivasyon</string>
-    <string name="notif_daily_reminder_title">BrainBuddy</string>
-    <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
-    <string name="notif_streak_title">BrainBuddy</string>
-    <string name="notif_streak_text">Seri bitiyor!</string>
+    <string name="notif_motivation_channel">Çalışma Hatırlatıcıları</string>
+    <string name="notif_daily_reminder_title">Bugünkü görevin hazır</string>
+    <string name="notif_daily_reminder_text">10 dakikalık kısa bir test bugünü tamamlar. Küçük bir adım, sınav gününde fark yaratır.</string>
+    <string name="notif_streak_title">Serin riskte</string>
+    <string name="notif_streak_text">Kısa bir testle ritmini koru. Bugün birkaç soru yeterli.</string>
+    <string name="notif_action_dismiss">Yoksay</string>
+    <!-- Smart, real-data notifications -->
+    <string name="notif_smart_review_title">Tekrar zamanı</string>
+    <string name="notif_smart_review_text">%1$d soru tekrara hazır. Birkaç dakikada tazele, kalıcı hale getir.</string>
+    <string name="notif_smart_streak_title">Serine bir adım</string>
+    <string name="notif_smart_streak_text">%1$d günlük seriye ulaşmana bir çalışma kaldı. Bugün bir test çöz.</string>
+    <string name="notif_smart_weak_title">Bugünün odağı</string>
+    <string name="notif_smart_weak_text">%1$s konusunda kısa bir pratik bugün iyi gelir.</string>
 
     <!-- System Health -->
     <string name="system_health_title">Sistem Sağlığı</string>
-    <string name="system_health_subtitle">İzinler ve koruma durumu</string>
+    <string name="system_health_subtitle">Bildirim ve erişim izinleri</string>
     <string name="health_last_checked">Son kontrol: %1$s</string>
     <string name="health_accessibility">Erişilebilirlik servisi</string>
     <string name="health_usage_stats">Kullanım istatistikleri izni</string>
     <string name="health_battery">Pil optimizasyonu dışı</string>
-    <string name="health_gate_test">Koruma testi</string>
-    <string name="health_gate_test_btn">Koruma Testi Başlat</string>
-    <string name="health_block_list">Engelleme listesi</string>
     <string name="health_fix">Düzelt</string>
     <string name="health_status_ok">Aktif</string>
     <string name="health_status_missing">Eksik</string>
     <string name="health_settings_fallback">Ayar ekranı açılamadı. Lütfen Ayarlar\'dan manuel kontrol edin.</string>
     <string name="health_all_ok">Tüm kontroller tamam</string>
 
-    <!-- New social app notification -->
-    <string name="notif_channel_social_preset">Yeni Uygulama Önerisi</string>
-    <string name="notif_new_social_title">Yeni uygulama</string>
-    <string name="notif_new_social_text">Yeni uygulama bulundu: %1$s. Engellemek ister misiniz?</string>
-    <string name="notif_action_block">Engelle</string>
-    <string name="notif_action_dismiss">Yoksay</string>
+    <string name="privacy_policy_title">Gizlilik Politikası</string>
+    <string name="privacy_view_on_web">Web\'de görüntüle</string>
+    <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
 
-    <!-- Improvement stats (parent) -->
-    <string name="parent_improvement_title">Gelişim Özeti</string>
-    <string name="parent_improvement_topic">%1$s: %2$d yanlış → %3$d düzeltildi</string>
-    <string name="parent_improvement_total">Toplam: %1$d yanlış → %2$d düzeltildi</string>
-    <string name="student_encouragement">Bu konuda gelişiyorsun!</string>
+    <string name="student_encouragement">Bir test daha tamamladın. Düzenli pratik, en çok fark yaratan şey.</string>
 
     <!-- Navigation -->
     <string name="btn_back">← Geri</string>
@@ -381,12 +464,25 @@
 
     <!-- Student Profile -->
     <string name="student_profile_name_hint">İsmini yaz</string>
-    <string name="student_profile_avatars">Avatarlar</string>
+    <string name="student_profile_avatars">Maskotunu Seç</string>
     <string name="btn_save">Kaydet</string>
+
+    <!-- Profile Screen (Phase 2F) -->
+    <string name="profile_screen_title">Profil</string>
+    <string name="profile_goal_section">HEDEFİM</string>
+    <string name="profile_achievements_section">BAŞARILARIM</string>
+    <string name="profile_achievements_empty">Henüz başarı kazanılmadı. Testleri çöz ve rozetler kazan!</string>
+    <string name="profile_avatars_section">MASKOTLARIM</string>
+    <string name="profile_avatar_shop">Mağaza →</string>
+    <string name="profile_more_section">DAHA FAZLA</string>
+    <string name="profile_settings">Ayarlar</string>
+    <string name="profile_premium">Premium</string>
+    <string name="profile_premium_sub">Eksiksiz İtalya yolculuğu deneyimi</string>
+    <string name="profile_name_saved">Kaydedildi ✓</string>
 
     <!-- Last Test Replay -->
     <string name="btn_replay">Tekrar Çöz</string>
-    <string name="replay_with_ad_remaining">Reklam izleyerek tekrar çöz (Kalan: %1$d/3)</string>
+    <string name="replay_premium_hint">Bir testi birebir yeniden çözmek Premium bir özelliktir. Premium ile geçmiş testlerini istediğin kadar tekrar çöz.</string>
     <string name="ad_unlock_last_test_info">Reklam izleyerek 1 giriş aç (Kalan: %1$d/3)</string>
     <string name="ad_unlock_premium_unlimited">Premium ile sınırsız</string>
 
@@ -394,7 +490,7 @@
     <string name="wrong_review_unlimited">Sınırsız</string>
     <string name="wrong_review_remaining">Günlük kalan: %1$d</string>
     <string name="wrong_review_hint_watch_ad">Reklam izle → +1</string>
-    <string name="wrong_review_paywall_message">Günlük hakkın bitti. Reklam izleyerek +1 soru açabilir veya Premium ile sınırsız erişebilirsin.</string>
+    <string name="wrong_review_paywall_message">Günlük inceleme hakkın doldu. Reklam izleyerek +1 soru açabilir ya da Premium ile sınırsız çalışabilirsin.</string>
     <string name="wrong_review_btn_watch_ad">Reklam İzle (+1)</string>
     <string name="wrong_review_btn_premium">Premium\'a Geç</string>
     <string name="wrong_review_ad_failed">Reklam yüklenemedi, tekrar dene.</string>
@@ -417,17 +513,6 @@
     <string name="retry_cooldown_message">30 dakika dolmadan tekrar deneyemezsin. Kalan süre: %1$s</string>
     <string name="retry_ad_info">Reklam izleyerek hemen tekrar dene (Kalan: %1$d/3)</string>
 
-    <!-- Kill Switch -->
-    <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
-    <string name="kill_switch_toggle">Tüm Engellemeleri Geçici Kapat</string>
-    <string name="kill_switch_expire_15m">15 dakika</string>
-    <string name="kill_switch_expire_1h">1 saat</string>
-    <string name="kill_switch_expire_24h">24 saat</string>
-    <string name="kill_switch_expire_manual">Manuel kapatana kadar</string>
-
-    <!-- Parent hub summary -->
-    <string name="parent_today_screen_time_minutes">Bugün ekran süresi: %1$d dk</string>
-
     <!-- E-posta Raporları kurulum -->
     <string name="email_reports_setup_title">E-posta Raporları</string>
     <string name="email_reports_setup_subtitle">Haftalık/Aylık otomatik PDF raporu</string>
@@ -440,16 +525,71 @@
     <string name="email_freq_monthly">Aylık</string>
     <string name="email_reports_save">Kaydet</string>
     <string name="email_reports_saved">E-posta ayarları kaydedildi</string>
-    <string name="email_reports_test_mail">Test maili gönder</string>
-    <string name="email_reports_test_mail_sent">Test maili sıraya alındı (gönderim yakında aktif olacak)</string>
+    <string name="email_reports_test_mail">Deneme e-postası gönder</string>
+    <string name="email_reports_test_mail_sent">Deneme e-postası sıraya alındı</string>
     <string name="email_reports_permissions_info">Bildirimler için bildirim izni gereklidir. Raporlar planlanan saatte arka planda gönderilecektir.</string>
     <string name="email_required">E-posta adresi gerekli</string>
     <string name="email_invalid">Geçerli e-posta adresi girin</string>
     <string name="email_reports_attach_pdf">Test PDF raporu ekle</string>
 
-    <!-- Wrong review quota chip -->
-    <string name="wrong_review_quota_chip">Bugünkü kalan hak: %1$d/3</string>
+    <!-- Wrong review gate (post-test review flow) -->
+    <string name="wrong_review_empty">Şu an tekrar edilecek yanlış soru yok. Yeni testler çözdükçe tekrar kuyruğun güncellenecek.</string>
+    <string name="wrong_review_locked_question">Bu sorunun detayları kilitli</string>
+    <string name="wrong_review_gate_your_answer">Senin cevabın: %1$s ❌</string>
+    <string name="wrong_review_gate_ad_prompt">Soruyu ve doğru cevabı görmek için\nreklam izleyin</string>
+    <string name="wrong_review_gate_btn_ad">Cevabı Göster</string>
+    <string name="wrong_review_gate_limit_title">Günlük inceleme hakkınız doldu</string>
+    <string name="wrong_review_gate_limit_body">Yarın 3 yeni hak kazanacaksınız.\nSınırsız erişim için Premium\'a geçin.</string>
+    <string name="wrong_review_gate_premium_cta">Premium ile Sınırsız Aç</string>
+    <string name="wrong_review_btn_skip">Atla →</string>
+    <string name="wrong_review_btn_finish">Bitir</string>
+    <string name="wrong_review_ad_not_ready">Reklam yükleniyor, lütfen birkaç saniye bekleyin.</string>
+    <string name="wrong_review_ad_loading_short">Yükleniyor…</string>
+    <string name="wrong_review_ad_fail">Reklam gösterilemedi: %1$s</string>
     <string name="wrong_review_premium_upsell">Premium ile sınırsız görüntüleme</string>
+
+    <!-- Result screen conversion card -->
+    <string name="result_wrong_count">%1$d yanlış soru</string>
+    <string name="result_review_info_free">Günde %1$d/%2$d inceleme hakkı kaldı\nHer inceleme için reklam izlenir</string>
+    <!-- v1.0 is entirely free: review is always open, no quota and no advertisements. -->
+    <string name="result_review_info_open">Yanlışlarını inceleyip doğrusunu öğren</string>
+    <string name="result_review_limit_done">Bugünkü inceleme hakkınız doldu</string>
+    <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
+
+    <!-- Premium paywall bottom sheet -->
+    <string name="paywall_title">Premium: kişisel sınav koçun</string>
+    <string name="paywall_subtitle">Ücretsiz sürüm pratik yapmanı sağlar. Premium daha akıllı hazırlanmanı sağlar.</string>
+    <string name="paywall_f1_title">Uyarlanabilir Günlük Görev</string>
+    <string name="paywall_f1_sub">Her gün, en çok ihtiyacın olan konulara odaklanan bir mini sınav.</string>
+    <string name="paywall_f2_title">Akıllı Yanlış Tekrarı</string>
+    <string name="paywall_f2_sub">Hatalarını, gerçekten öğrenene kadar doğru aralıklarla tekrar et.</string>
+    <string name="paywall_f3_title">Sınav Hazırlık Skoru</string>
+    <string name="paywall_f3_sub">Sınava ne kadar hazır olduğunu tek bir net skorla gör.</string>
+    <string name="paywall_f4_title">Çalışma Planı</string>
+    <string name="paywall_f4_sub">Bugün ne yapman gerektiğini düşünmene gerek kalmasın.</string>
+    <string name="paywall_f5_title">Derin Analiz</string>
+    <string name="paywall_f5_sub">Sadece sayıları değil, performansının neden değiştiğini de gör.</string>
+    <string name="paywall_f6_title">Öğrenme Yolculuğu ve Çalışma Haritası</string>
+    <string name="paywall_f6_sub">İlerlemeni ve istikrarını zaman içinde hisset.</string>
+    <string name="paywall_f7_title">Haftalık ve Aylık Raporlar</string>
+    <string name="paywall_f7_sub">Gerçek çalışma verinle hazırlanan sade, profesyonel özetler.</string>
+    <string name="paywall_f8_title">Akıllı Bildirimler</string>
+    <string name="paywall_f8_sub">Doğru anda, gerçek verine dayalı küçük hatırlatmalar.</string>
+    <string name="paywall_availability">Premium satın alma, hesabın ve mağaza bağlantısı hazır olduğunda etkinleşecek. O zamana kadar temel özellikler senin.</string>
+    <string name="paywall_cta">Premium\'a Geç</string>
+    <string name="paywall_dismiss">Şimdilik ücretsiz devam et</string>
+    <string name="paywall_plan_monthly">Aylık</string>
+    <string name="paywall_plan_yearly">Yıllık</string>
+    <string name="paywall_best_value">EN AVANTAJLI</string>
+    <string name="paywall_price_period">%1$s / %2$s</string>
+    <string name="paywall_restore">Satın alımları geri yükle</string>
+    <string name="paywall_status_active">Premium aktif · %1$s plan</string>
+    <string name="paywall_status_expired">Aboneliğin sona erdi. Premium\'a yeniden geçebilirsin.</string>
+    <string name="paywall_status_free">Şu an Ücretsiz plandasın.</string>
+    <string name="paywall_purchase_unavailable">Ödeme sistemi yakında etkinleşecek. Play Store bağlantısı tamamlandığında Premium\'a buradan geçebileceksin.</string>
+    <string name="paywall_restore_none">Geri yüklenecek aktif bir abonelik bulunamadı.</string>
+    <string name="paywall_restore_done">Aboneliğin geri yüklendi.</string>
+
 
     <!-- Wrong Answers Report (from Reports screen) -->
     <string name="wrong_report_title">Yanlış Cevaplar</string>
@@ -459,4 +599,153 @@
     <string name="wrong_report_btn_watch_unlock">Reklam İzle ve Aç</string>
     <string name="wrong_report_locked_title">Yanlış cevap verilmiş soru</string>
 
+    <!-- League -->
+    <string name="league_tier_progress">Lig ilerlemesi: %1$d/%2$d puan</string>
+    <string name="league_streak_bonus">Seri bonusu: +%1$d puan</string>
+
+    <!-- Performance insights -->
+    <string name="perf_status_weak">Zayıf</string>
+    <string name="perf_status_moderate">Orta</string>
+    <string name="perf_status_good">İyi</string>
+    <string name="perf_insight_declining_weak">Performansın düşüyor. %1$s konusuna odaklan.</string>
+    <string name="perf_insight_declining_no_weak">Performansın düşüyor. Daha fazla pratik yap.</string>
+    <string name="perf_insight_improving_weak">Gelişiyorsun! %1$s konusunu biraz daha çalış.</string>
+    <string name="perf_insight_improving">İyi gidiyorsun, aynı tempoda devam et.</string>
+    <string name="perf_insight_stable_weak">İstikrarlısın. %1$s konusunu geliştirmeyi dene.</string>
+    <string name="perf_insight_stable">Performansın istikrarlı. Böyle devam!</string>
+
+    <!-- Labels kept for live layout/code references -->
+    <string name="parent_review_wrong">Yanlış Cevapları İncele</string>
+    <string name="lock_failed_message">Sorular zor olabilir. Her gün biraz daha ileri!</string>
+
+    <!-- Reports labels (kept for live layout/code references) -->
+    <string name="parent_weekly_success">Haftalık Başarı</string>
+    <string name="parent_topic_performance">Konulara Göre (Doğru/Toplam)</string>
+    <string name="parent_no_wrong_record">Henüz yanlış cevap kaydı yok.</string>
+    <string name="reports_top_apps_title">Konu Analizi</string>
+    <string name="reports_top_apps_empty_title">Henüz veri yok</string>
+    <string name="reports_top_apps_empty_subtitle">Test çözdükçe burada görünecek.</string>
+    <string name="perm_status_ok">Aktif</string>
+    <string name="perm_status_missing">Eksik</string>
+    <string name="perm_status_optional">Opsiyonel</string>
+    <string name="perm_status_recommended">Önerilen</string>
+
+    <!-- Legal / onboarding -->
+    <string name="legal_hub_title">Yasal Bilgiler</string>
+    <string name="legal_hub_info">Yasal bilgiler ve kullanım koşullarını buradan inceleyebilirsiniz.</string>
+    <string name="onboarding_consent_short">Devam ederek aşağıdaki koşulları kabul edersiniz:</string>
+    <string name="legal_privacy_policy_title">Gizlilik Politikası</string>
+    <string name="legal_privacy_policy_sub">Verilerinizi nasıl topladığımızı ve kullandığımızı öğrenin.</string>
+    <string name="legal_terms_title">Kullanım Koşulları</string>
+    <string name="legal_terms_sub">Uygulama kullanım kuralları ve şartlar.</string>
+    <string name="legal_data_usage_title">Veri Kullanımı</string>
+    <string name="legal_data_usage_sub">Verileriniz yalnızca uygulama deneyiminizi iyileştirmek için kullanılır.</string>
+
+    <!-- ===== Daily Challenge (Günün Görevi) ===== -->
+    <string name="dc_title">Günün Görevi</string>
+    <string name="dc_card_subtitle">Bugünün 5 yeni sorusu</string>
+    <string name="dc_state_available">Bugünkü Mini Test hazır</string>
+    <string name="dc_state_in_progress">Devam ediyor</string>
+    <string name="dc_state_completed">Bugün tamamlandı 🎉</string>
+    <string name="dc_state_unavailable">Bu çalışma alanı için henüz hazır değil</string>
+    <!-- Shown when the question bank genuinely could not be loaded. NEVER reuse the "no questions
+         left today" copy for this: a failure must not read like a normal end of the day. -->
+    <string name="dc_load_error">Sorular yüklenemedi.\nLütfen tekrar deneyin.</string>
+    <!-- Wrong-question hub: a database failure is an error, not an empty pool. -->
+    <string name="wp_load_error">Yanlış sorular yüklenemedi.\nLütfen tekrar deneyin.</string>
+    <!-- First-open, while the active exam's question bank finishes seeding (normal path → AVAILABLE). -->
+    <string name="dc_state_loading">Günün görevi hazırlanıyor…</string>
+    <!-- Last-resort ONLY if the bank truly cannot be built after auto-retries (never confused with "completed"). -->
+    <string name="dc_state_error">Sorular yüklenemedi. Lütfen tekrar dene.</string>
+    <string name="dc_cta_retry">Tekrar Dene</string>
+    <string name="dc_cta_start">Günün Görevine Başla</string>
+    <string name="dc_cta_practice">Pratik Yap</string>
+    <string name="dc_cta_continue">Devam et</string>
+    <string name="dc_cta_review">Yanlışları tekrar et</string>
+    <string name="dc_cta_done">Tamamlandı</string>
+    <string name="dc_streak_label">%d günlük seri</string>
+    <string name="dc_streak_none">Seriye bugün başla</string>
+    <string name="dc_meta_fmt">%1$s · %2$s · %3$s</string>
+    <string name="dc_next_unlock">Yeni görev: %s sonra</string>
+    <string name="dc_next">Devam</string>
+    <string name="dc_finish">Bitir</string>
+    <string name="dc_question_placeholder">Soru</string>
+    <string name="dc_option_fmt">%1$s) %2$s</string>
+    <string name="dc_cd_question_figure">Soru görseli</string>
+    <string name="dc_cd_mascot">EDUmio maskotu</string>
+    <string name="splash_tagline">İtalya yolculuğun burada başlıyor</string>
+    <string name="dc_loading">Yükleniyor…</string>
+    <string name="dc_empty_today">Bugünlük yeni soru kalmadı. Yarın yeni bir görevle dön!</string>
+    <string name="dc_error_generic">Bir sorun oluştu. Lütfen tekrar dene.</string>
+    <string name="dc_retry">Tekrar dene</string>
+
+    <!-- Completion -->
+    <string name="dc_result_title">Günün Görevi · Sonuç</string>
+    <string name="dc_result_score_label">doğru cevap</string>
+    <string name="dc_result_sections">Bölüm dağılımı</string>
+    <string name="dc_result_section_row">%1$s: %2$d/%3$d</string>
+    <string name="dc_result_streak">Seri: %d gün</string>
+    <string name="dc_result_next_unlock">Yeni görev %s sonra açılıyor</string>
+    <string name="dc_result_next_unlock_ready">Yeni görev hazır</string>
+    <string name="dc_result_feedback_great">Harika! Bugünü güçlü kapattın.</string>
+    <string name="dc_result_feedback_ok">İyi iş. Yanlışlarını tekrar ederek pekiştir.</string>
+    <string name="dc_result_feedback_low">Sorun değil — yanlışlarını tekrar et.</string>
+    <string name="dc_result_review_cta">Yanlışları tekrar et</string>
+    <string name="dc_result_home_cta">Ana sayfaya dön</string>
+
+    <!-- Review -->
+    <string name="dc_review_title">Tekrar</string>
+    <string name="dc_review_check">Kontrol Et</string>
+    <string name="dc_review_next">Devam</string>
+    <string name="dc_review_finish">Bitir</string>
+    <string name="dc_review_correct">Doğru ✓</string>
+    <string name="dc_review_incorrect">Yanlış ✗</string>
+    <string name="dc_review_empty">Tekrar edilecek soru yok. Harika gidiyorsun!</string>
+    <string name="dc_review_empty_sub">Yeni yanlışların olduğunda burada birikir.</string>
+    <string name="dc_review_no_explanation">Bu soru için açıklama bulunmuyor.</string>
+    <string name="dc_review_premium_hint">%d soru daha bekliyor · Premium ile sınırsız tekrar aç</string>
+    <string name="dc_review_done">Tekrar tamamlandı</string>
+
+    <!-- Notification permission -->
+    <string name="dc_perm_open_settings">Hatırlatıcıların gösterilmesi için bildirim iznini aç.</string>
+
+    <!-- Premium solutions + wrong-question pool -->
+    <string name="sol_title">Çözüm</string>
+    <string name="sol_your_answer">Senin cevabın</string>
+    <string name="sol_correct_answer">Doğru cevap</string>
+    <string name="sol_short_title">Kısa açıklama</string>
+    <string name="sol_steps_title">Adım adım çözüm</string>
+    <string name="sol_key_concept">Anahtar kavram</string>
+    <string name="sol_common_mistake">Sık yapılan hata</string>
+    <string name="sol_figure_title">Şekil yorumu</string>
+    <string name="sol_formula_title">Formül notu</string>
+    <string name="sol_options_title">Diğer seçenekler neden yanlış?</string>
+    <string name="sol_missing">Bu soru için doğrulanmış çözüm henüz hazır değil.</string>
+    <string name="sol_locked_title">Çözümler Premium\'da</string>
+    <string name="sol_locked_body">Her sorunun doğrulanmış adım adım çözümü, kavramı ve sık yapılan hatası Premium ile açılır.</string>
+    <string name="sol_locked_cta">Premium\'a geç</string>
+    <string name="sol_view">Çözümü gör</string>
+    <string name="sol_retry">Soruyu tekrar çöz</string>
+    <string name="sol_retry_later">Daha sonra dene</string>
+
+    <string name="wp_title">Yanlış Sorularım</string>
+    <string name="wp_active_count">Aktif</string>
+    <string name="wp_due_count">Sırada</string>
+    <string name="wp_resolved_count">Çözüldü</string>
+    <string name="wp_filter_all">Tümü</string>
+    <string name="wp_sort_due">Tarihe göre</string>
+    <string name="wp_sort_recent">En yeni</string>
+    <string name="wp_sort_most_wrong">En çok yanlış</string>
+    <string name="wp_wrong_times">%d kez yanlış</string>
+    <string name="wp_status_active">Tekrar bekliyor</string>
+    <string name="wp_status_scheduled">Planlandı</string>
+    <string name="wp_status_resolved">Çözüldü</string>
+    <string name="wp_empty">Aktif yanlış sorun yok. Böyle devam!</string>
+    <string name="wp_retry_success">Doğru! Bu soru aktif yanlış havuzundan çıktı.</string>
+    <!-- Shown instead of wp_retry_success when the answer was correct but the review could not be
+         saved. The app must never claim the pool changed when nothing was persisted. -->
+    <string name="wp_retry_save_failed">Cevabın doğru ama kaydedilemedi. Lütfen tekrar dene.</string>
+    <string name="wp_locked_body">Yanlış sorularını sınırsız tekrar et, her birinin tam çözümünü gör.</string>
+    <string name="dcr_wrong_title">Yanlışların</string>
+    <string name="sol_locked_inline">Tam çözüm Premium\'da. Doğru cevabı yukarıda işaretledik.</string>
 </resources>

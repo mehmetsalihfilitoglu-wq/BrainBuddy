@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat4_0460",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Ortalama",
+        "Aralık",
+        "Tepe değer (mod)",
+        "Medyan"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "edumio",
+      "sourceRef": "mat4_0460",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0461",
+      "stem": "4 öğrencinin sınav notları 60, 70, 80, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "76",
+        "73",
+        "75",
+        "74"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300÷4=75.",
+      "source": "edumio",
+      "sourceRef": "mat4_0461",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0462",
+      "stem": "5 öğrencinin notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "82",
+        "78",
+        "80",
+        "79"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "edumio",
+      "sourceRef": "mat4_0462",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0463",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Medyan",
+        "Aralık",
+        "Tepe değer (mod)",
+        "Ortalama"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "edumio",
+      "sourceRef": "mat4_0463",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0464",
+      "stem": "4 öğrencinin sınav notları 60, 70, 80, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "75",
+        "74",
+        "73",
+        "76"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300÷4=75.",
+      "source": "edumio",
+      "sourceRef": "mat4_0464",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0465",
+      "stem": "Tablo: Pazartesi 20, Salı 30, Çarşamba 25. Ortalama günlük değer kaçtır?",
+      "options": [
+        "26",
+        "25",
+        "24",
+        "23"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "20+30+25=75, 75÷3=25.",
+      "source": "edumio",
+      "sourceRef": "mat4_0465",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0466",
+      "stem": "Sütun grafiğinde Pazartesi 30, Salı 25, Çarşamba 35 kitap okunmuş. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "85",
+        "95",
+        "90",
+        "80"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "30+25+35=90.",
+      "source": "edumio",
+      "sourceRef": "mat4_0466",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0467",
+      "stem": "Tablo: Pazartesi 20, Salı 30, Çarşamba 25. Ortalama günlük değer kaçtır?",
+      "options": [
+        "23",
+        "24",
+        "25",
+        "26"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "20+30+25=75, 75÷3=25.",
+      "source": "edumio",
+      "sourceRef": "mat4_0467",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0468",
+      "stem": "Sütun grafiğinde Pazartesi 30, Salı 25, Çarşamba 35 kitap okunmuş. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "95",
+        "80",
+        "90",
+        "85"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "30+25+35=90.",
+      "source": "edumio",
+      "sourceRef": "mat4_0468",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0469",
+      "stem": "Tablo: Pazartesi 20, Salı 30, Çarşamba 25. Ortalama günlük değer kaçtır?",
+      "options": [
+        "24",
+        "25",
+        "26",
+        "23"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "20+30+25=75, 75÷3=25.",
+      "source": "edumio",
+      "sourceRef": "mat4_0469",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

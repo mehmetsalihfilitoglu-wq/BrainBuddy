@@ -1,7 +1,71 @@
-{
-  "version": 1,
-  "mode": "LGS",
-  "subject": "din",
-  "publisher": "brainbuddy",
-  "questions": []
-}
+[
+  {
+    "stem": "Metinde verilen ayet ve hadislerde yardımlaşma ve dayanışma konusu işlenmektedir. Parçaya göre bu değerlerin toplum hayatındaki yeri ile ilgili hangi çıkarım yapılabilir? Yukarıdaki bilgilere dayanarak değerlendiriniz.",
+    "options": [
+      "Yardımlaşma sadece aile içinde geçerlidir",
+      "Yardımlaşma toplumsal barışı güçlendirir",
+      "Dayanışma sadece dini günlerde önemlidir",
+      "Bu değerler sadece geçmişte geçerliydi"
+    ],
+    "answerIndex": 1,
+    "difficulty": 1,
+    "questionType": "REASONING",
+    "topic": "Yardımlaşma ve Dayanışma",
+    "skills": [
+      "değerler",
+      "cikarim",
+      "metin_yorumlama"
+    ],
+    "explanation": "Yardımlaşma ve dayanışma toplumsal barışı güçlendiren temel değerlerdir.",
+    "source": "edumio",
+    "sourceRef": "lgs_smoke:din:1",
+    "grade": 8,
+    "subject": "din"
+  },
+  {
+    "stem": "Tablo ve metinde farklı ibadetlerin amaçları karşılaştırılmaktadır. Buna göre namaz, oruç ve zekâtın ortak amacı hakkında hangi yorum yapılabilir? Metne dayanarak en uygun seçeneği belirleyiniz.",
+    "options": [
+      "Sadece bireysel fayda sağlar",
+      "Manevi olgunluk ve toplumsal yardımlaşmayı hedefler",
+      "Yalnızca fiziksel sağlık içindir",
+      "Sadece toplumsal kural olarak görülür"
+    ],
+    "answerIndex": 1,
+    "difficulty": 1,
+    "questionType": "REASONING",
+    "topic": "İbadetler",
+    "skills": [
+      "ibadet",
+      "karşılaştırma",
+      "analiz"
+    ],
+    "explanation": "İbadetler hem bireysel manevi gelişimi hem toplumsal yardımlaşmayı hedefler.",
+    "source": "edumio",
+    "sourceRef": "lgs_smoke:din:2",
+    "grade": 8,
+    "subject": "din"
+  },
+  {
+    "stem": "Yukarıdaki parçada Hz. Muhammed'in günlük hayatta adalet ve merhamet ile ilgili davranışları anlatılmaktadır. Bu bilgilere göre Peygamber'in örnek davranışları hakkında hangi çıkarım yapılabilir? Parçanın bütününe bakarak değerlendiriniz.",
+    "options": [
+      "Sadece dini konularda örnek alınmalıdır",
+      "Tüm hayat alanlarında örnek alınabilecek davranışlar sergilemiştir",
+      "Örnek alınması zorunlu değildir",
+      "Sadece savaş döneminde geçerlidir"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "REASONING",
+    "topic": "Hz. Muhammed ve Örnek Davranışları",
+    "skills": [
+      "peygamber",
+      "örnek_davranış",
+      "cikarim"
+    ],
+    "explanation": "Hz. Muhammed tüm hayat alanlarında örnek davranışlar sergilemiştir.",
+    "source": "edumio",
+    "sourceRef": "lgs_smoke:din:3",
+    "grade": 8,
+    "subject": "din"
+  }
+]

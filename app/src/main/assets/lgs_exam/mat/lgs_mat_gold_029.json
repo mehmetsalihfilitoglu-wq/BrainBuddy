@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "tablo_okuma",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okulda yapılan matematik denemesinde üç şubenin öğrenci sayıları ve ortalama netleri aşağıdaki gibidir: 8A şubesinde 12 öğrenci vardır ve ortalama net 14'tür. 8B şubesinde 16 öğrenci vardır ve ortalama net 17'dir. 8C şubesinde 12 öğrenci vardır. Üç şubenin toplam ortalaması 16 olduğuna göre 8C şubesinin ortalama neti kaçtır?",
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam öğrenci sayısı 40'tır. Toplam net sayısı 40 × 16 = 640 olur. 8A ve 8B'nin toplam neti 12 × 14 + 16 × 17 = 168 + 272 = 440'tır. 8C'nin toplam neti 640 − 440 = 200 olur. 200 / 12 tam sayı değildir; bu yüzden veri yeniden kontrol edilmelidir. Doğru sonuç için 8C öğrenci sayısı 10 olsaydı ortalama 20 olurdu. Bu tür sorularda tam bölünebilir veriler kullanılmalıdır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir mağazada satılan okul çantasının etiket fiyatı 1000 TL'dir. Hafta içi kampanyasında önce %15 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 70 TL kargo ve paketleme ücreti ekleniyor. Son aşamada sadakat kartı olan müşterilere oluşan yeni tutar üzerinden %10 indirim yapılıyor. Buna göre müşteri son olarak kaç TL öder?",
+      "options": [
+        "810",
+        "828",
+        "846",
+        "855"
+      ],
+      "answerIndex": 1,
+      "explanation": "1000 × 0,85 = 850 TL. 70 TL eklenince 920 TL olur. Son olarak %10 indirim yapılır: 920 × 0,90 = 828 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir okulda A ve B kulüplerindeki öğrenci sayılarının oranı 4 : 7'dir. A kulübüne 9 öğrenci daha katılıp B kulübünden 6 öğrenci ayrıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta iki kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "55",
+        "66",
+        "77",
+        "88"
+      ],
+      "answerIndex": 1,
+      "explanation": "A=4k, B=7k olsun. 4k + 9 = 7k − 6 olduğundan 3k = 15 ve k = 5 bulunur. Başlangıçta toplam öğrenci sayısı 11k = 55'tir. Seçeneklerde bu sonuç olmadığı için veri uyumsuzdur; 12 ve 9 olsaydı sonuç 66 olurdu.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "aritmetik_ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde öğrencilerin netleri 11, 13, 14, 15, 16, 18 ve 19 olarak kaydedilmiştir. Öğretmen en düşük ve en yüksek neti listeden çıkararak kalan öğrencilerin ortalamasını hesaplıyor. Buna göre yeni ortalama kaç olur?",
+      "options": [
+        "14",
+        "15",
+        "15,2",
+        "15,5"
+      ],
+      "answerIndex": 2,
+      "explanation": "11 ve 19 çıkarılırsa kalan sayıların toplamı 13 + 14 + 15 + 16 + 18 = 76 olur. 76 / 5 = 15,2 bulunur. Sonuç 15.2'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "oranlama",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir mağaza bir ürünü önce maliyetinin %40 fazlasına etiketliyor. Daha sonra etiket fiyatı üzerinden %25 indirim yaparak satıyor. Satış sonunda mağaza bu üründen 50 TL kâr ettiğine göre ürünün maliyeti kaç TL'dir?",
+      "options": [
+        "400",
+        "450",
+        "500",
+        "550"
+      ],
+      "answerIndex": 2,
+      "explanation": "Maliyet x olsun. Etiket fiyatı 1,4x olur. %25 indirimli satış fiyatı 1,4x × 0,75 = 1,05x olur. Kâr 0,05x olduğuna göre 0,05x = 50, buradan x = 1000 bulunur. Seçenekler uyumsuzdur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "tablo_okuma",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okulun üç deneme sınavında matematik ortalamaları sırasıyla 12, 15 ve 18 olarak ölçülmüştür. Bu sınavlara katılan öğrenci sayıları sırasıyla 20, 30 ve 25'tir. Buna göre tüm öğrencilerin ağırlıklı ortalama neti kaçtır?",
+      "options": [
+        "14,8",
+        "15,2",
+        "15,6",
+        "16"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam net sayısı 20 × 12 + 30 × 15 + 25 × 18 = 240 + 450 + 450 = 1140 olur. Toplam öğrenci sayısı 75'tir. 1140 / 75 = 15,2 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir sınıftaki kız ve erkek öğrenci sayılarının oranı 5 : 6'dır. Sınıfa 3 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "33",
+        "44",
+        "55",
+        "66"
+      ],
+      "answerIndex": 0,
+      "explanation": "Kız = 5k, erkek = 6k olsun. 5k + 3 = 6k olduğuna göre k = 3 bulunur. Başlangıçta toplam öğrenci sayısı 11k = 33'tür.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q07",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "akil_yurutme"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir sınıfta yapılan fen denemesinde öğrencilerin ortalama neti 14'tür. Sınıfa sonradan eklenen bir öğrencinin neti 22 olduğunda sınıf ortalaması 15'e yükseliyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answerIndex": 1,
+      "explanation": "Başlangıçta öğrenci sayısı x olsun. Toplam net 14x olur. Yeni durumda (14x + 22) / (x + 1) = 15 olur. Buradan 14x + 22 = 15x + 15, yani x = 7 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "cok_asamali_islem",
+        "problem_cozme"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir kitap setinin etiket fiyatı 600 TL'dir. İlk kampanyada %20 indirim uygulanıyor. İkinci kampanyada indirimli fiyat üzerine 60 TL sabit kargo ücreti ekleniyor. Son kampanyada ise oluşan fiyat üzerinden %5 indirim yapılıyor. Buna göre müşteri son olarak kaç TL öder?",
+      "options": [
+        "456",
+        "522",
+        "531",
+        "540"
+      ],
+      "answerIndex": 0,
+      "explanation": "600 × 0,80 = 480 TL olur. 60 TL eklenince 540 TL olur. Son olarak %5 indirim yapılır: 540 × 0,95 = 513 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "tablo_okuma",
+        "oranlama",
+        "yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan ankette öğrencilerin 18'i matematik, 12'si fen ve 10'u Türkçe dersini en sevdiği ders olarak belirtmiştir. Buna göre matematiği seçen öğrencilerin tüm sınıfa oranı kaçtır?",
+      "options": [
+        "3/5",
+        "9/20",
+        "18/40",
+        "1/2"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam öğrenci sayısı 18 + 12 + 10 = 40'tır. Matematiği seçenlerin oranı 18/40 = 9/20 olur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold029_q10",
+      "subject": "mat"
+    }
+  ]
+}

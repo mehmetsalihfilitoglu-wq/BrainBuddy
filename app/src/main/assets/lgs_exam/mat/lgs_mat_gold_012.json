@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem"
+      ],
+      "stem": "Bir kırtasiyede fiyatı 200 TL olan bir çantaya önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %10 ek indirim yapılıyor. Buna göre çantanın son fiyatı kaç TL olur?",
+      "options": [
+        "140",
+        "144",
+        "150",
+        "160"
+      ],
+      "answerIndex": 3,
+      "explanation": "200×0.80=160 TL olur. Sonra 160×0.90=144 TL.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri"
+      ],
+      "stem": "Rehberlik servisi bir öğrencinin matematik deneme performansını takip etmektedir. İlk üç denemede alınan puanlar sırasıyla 70, 80 ve 90'dır. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Servis, dört denemenin ortalamasının 85 olması hedefine ulaşmak için önce hedef ortalamaya göre gerekli toplam puanı hesaplayacak, ardından bilinen puanları çıkararak dördüncü deneme puanını belirleyecektir. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
+      "options": [
+        "85",
+        "90",
+        "95",
+        "100"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam = 4×85 = 340. İlk üç toplamı 240. x = 340−240 = 100 değil, 340−240=100 → doğru cevap D olur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "denklem",
+      "skills": [
+        "denklem",
+        "problem"
+      ],
+      "stem": "Okul kantininde kalem ve defter satışı yapan kantinci, iki farklı müşterinin alışverişlerini kaydeder: İlk müşteri 2 kalem ve 1 defter alıp 18 TL öder; ikinci müşteri 1 kalem ve 1 defter alıp 13 TL öder. Kantinci stok takibi için birim fiyatları hesaplamak ister. Önce iki alışveriş arasındaki farkı yorumlayarak kalem fiyatını bulacak, ardından defter fiyatını kontrol edecektir. Buna göre bir kalemin fiyatı kaç TL'dir?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answerIndex": 0,
+      "explanation": "2k+d=18 ve k+d=13. Çıkarılırsa k=5.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "veri",
+      "skills": [
+        "veri",
+        "ortalama",
+        "yorumlama"
+      ],
+      "stem": "8. sınıf öğrencisi Elif, LGS'ye hazırlanmak için bir haftalık hedef belirlemiştir. Pazartesi 20 matematik sorusu çözer. Salı günü hedefini aşarak 30 soru çözer. Çarşamba günü daha da artırarak 40 soru çözer. Perşembe günü ise 30 soru çözerek haftanın ilk dört gününü tamamlar. Elif'in günlük ortalama soru çözme sayısını hesaplamak istediğinde, bu dört günün ortalaması kaç olur?",
+      "options": [
+        "28",
+        "30",
+        "32",
+        "35"
+      ],
+      "answerIndex": 1,
+      "explanation": "Önce dört günün toplamı hesaplanır: 20+30+40+30=120. Sonra ortalama için 120÷4=30 bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "alan",
+      "skills": [
+        "alan",
+        "geometri",
+        "yorumlama"
+      ],
+      "stem": "Matematik dersinde öğretmen, sınıfa bir poster hazırlamalarını söyler. Poster dikdörtgen biçiminde olacak ve kısa kenarı 20 cm, uzun kenarı 30 cm olacaktır. Önce posterin kaç cm² kağıt gerektirdiğini hesaplamaları, sonra da bu alana uygun çerçeve kenarlığı belirlemeleri istenir. Buna göre posterin alanı kaç cm²'dir?",
+      "options": [
+        "500",
+        "600",
+        "650",
+        "700"
+      ],
+      "answerIndex": 1,
+      "explanation": "Dikdörtgen alanı = kısa kenar × uzun kenar. 20×30=600 cm² bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem"
+      ],
+      "stem": "Can, yarıyıl tatilinde okumak üzere bir roman seçmiştir. Kitabın ilk gün 1/4'ünü okuyarak başlamış, ikinci gün kalan sayfaların 1/3'ünü okumuştur. Üçüncü gün kitabı eline aldığında geriye 60 sayfa kaldığını görmüştür. Can önce ilk günden sonra kaç sayfa kaldığını, ardından ikinci günden sonra kalan kısmın kitabın kaçta kaçı olduğunu bulup toplam sayfa sayısını hesaplayacaktır. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": [
+        "120",
+        "150",
+        "180",
+        "200"
+      ],
+      "answerIndex": 0,
+      "explanation": "İlk gün x/4 okunur, kalan 3x/4. İkinci gün 3x/4'ün 1/3'ü = x/4 okunur. Kalan 3x/4 - x/4 = x/2. x/2=60 → x=120.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "stem": "Okul müdürü 8-C sınıfındaki cinsiyet dağılımını inceleyerek sınıf temsilciliği için aday belirleyecektir. Sınıf listesinde kız ve erkek öğrenci sayılarının 2:3 oranında olduğu görülmektedir. Toplam 25 öğrencinin bulunduğu bu sınıfta müdür önce oranın birim değerini bulacak, ardından kız öğrenci sayısını hesaplayacaktır. Buna göre sınıftaki kız öğrenci sayısı kaçtır?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "15"
+      ],
+      "answerIndex": 1,
+      "explanation": "Oran 2:3 ise kız 2k, erkek 3k olur. Toplam 5k = 25 → k = 5. Kız sayısı 2k = 10 olur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir kırtasiyeci, stokta kalan defterlerin fiyatını belirlemek için maliyet artışını dikkate alır. Maliyeti 100 TL olan deftere, kâr payı ve KDV dahil olmak üzere %30 zam uygulanacaktır. Önce zam oranına göre ek maliyet hesaplanacak, ardından satış fiyatı belirlenecektir. Buna göre defterin yeni satış fiyatı kaç TL olur?",
+      "options": [
+        "120",
+        "130",
+        "135",
+        "140"
+      ],
+      "answerIndex": 1,
+      "explanation": "%30 artış için 100×1,30=130 TL hesaplanır. Veya 100×0,30=30 TL artış, 100+30=130 TL.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "problem_cozme"
+      ],
+      "stem": "Fen bilgisi projesi için bir öğrenci kare şeklinde bir poster panosu hazırlamaktadır. Panonun bir kenarı 12 cm olacak şekilde kesilmiştir. Önce karenin alanını hesaplayacak, ardından bu alana göre gerekli boya miktarını belirleyecektir. Buna göre poster panosunun alanı kaç cm²'dir?",
+      "options": [
+        "120",
+        "132",
+        "144",
+        "156"
+      ],
+      "answerIndex": 2,
+      "explanation": "Karenin alanı = kenar × kenar. 12×12=144 cm² bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "veri",
+      "skills": [
+        "ortalama",
+        "problem_cozme",
+        "veri_analizi"
+      ],
+      "stem": "Matematik öğretmeni sınıfa üç sınav yapar ve öğrencilerin genel başarısını değerlendirmek için ortalamaları hesaplar. Bir öğrencinin bu üç sınavdaki notları farklı olsa da ortalaması tam 20 olarak çıkmıştır. Öğretmen toplam puanı bulmak için ortalamadan geriye doğru hesaplama yapar. Ortalama formülüne göre bu üç sayının toplamı kaçtır?",
+      "options": [
+        "40",
+        "50",
+        "60",
+        "70"
+      ],
+      "answerIndex": 2,
+      "explanation": "Ortalama = toplam / adet. Toplam = ortalama × adet. 20×3=60 bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-10",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "oran",
+      "skills": [
+        "oran",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "stem": "Okul müdürü 8-A sınıfının cinsiyet dağılımını incelemektedir. Sınıfta 12 kız ve 18 erkek öğrenci bulunmaktadır. Müdür önce kız-erkek oranını sadeleştirerek ifade etmek, ardından bu orana göre sınıf etkinliklerinde dengeli gruplar oluşturmak istemektedir. Buna göre kız öğrenci sayısının erkek öğrenci sayısına oranı (sadeleştirilmiş haliyle) kaçtır?",
+      "options": [
+        "2/3",
+        "3/2",
+        "4/5",
+        "5/4"
+      ],
+      "answerIndex": 0,
+      "explanation": "12:18 oranı önce 6'ya bölünür: 2:3. Kız/erkek = 12/18 = 2/3 olur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-11",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yas",
+      "skills": [
+        "problem",
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Ali ailesiyle birlikte bir yaş problemi çözmektedir. Ali şu an 10 yaşındadır. Ali'nin babası, Ali'nin yaşının tam 4 katı kadardır. Aile önce babanın yaşını hesaplayacak, sonra da Ali ile babası arasındaki yaş farkını bulacaktır. Buna göre Ali'nin babası kaç yaşındadır?",
+      "options": [
+        "30",
+        "35",
+        "40",
+        "45"
+      ],
+      "answerIndex": 2,
+      "explanation": "Baba yaşı = Ali'nin yaşı × 4. 10×4=40 yaşında olur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-12",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "cevre",
+      "skills": [
+        "geometri",
+        "cevre",
+        "problem_cozme"
+      ],
+      "stem": "El işi dersinde öğrenciler dikdörtgen biçiminde bir çerçeve yapacaktır. Çerçevenin kısa kenarı 5 cm, uzun kenarı 7 cm olacaktır. Önce çerçevenin çevresini hesaplayacaklar, sonra bu uzunluğa göre gereken ip veya karton miktarını belirleyeceklerdir. Buna göre dikdörtgen çerçevenin çevresi kaç cm'dir?",
+      "options": [
+        "20",
+        "22",
+        "24",
+        "26"
+      ],
+      "answerIndex": 2,
+      "explanation": "Dikdörtgen çevresi = 2×(kısa+uzun). 2×(5+7)=2×12=24 cm bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-13",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "hiz",
+      "skills": [
+        "problem",
+        "hiz",
+        "yorumlama"
+      ],
+      "stem": "Aile tatil planı yaparken yol mesafesini hesaplamaktadır. Araç sabit 60 km/sa hızla hareket edecek ve yolda mola vermeden 3 saat süreyle gidecektir. Önce bu sürede alınacak mesafe hesaplanacak, ardından benzin tüketimi bu mesafeye göre tahmin edilecektir. Buna göre araç 3 saatte kaç km yol alır?",
+      "options": [
+        "150",
+        "160",
+        "170",
+        "180"
+      ],
+      "answerIndex": 3,
+      "explanation": "Yol = Hız × Zaman. 60×3=180 km bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-14",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "kesir",
+      "skills": [
+        "kesir",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir pasta tarifinde unun yarısı beyaz un, üçte biri kepekli undan oluşmaktadır. Geriye kalan kısım başka malzemelerle dolacaktır. Pastacı önce 1/2 ile 1/3'ü toplayarak toplam un oranını hesaplar, sonra payda eşitlemesi yaparak kesir toplama işlemini gerçekleştirir. Buna göre 1/2 + 1/3 işleminin sonucu kaçtır?",
+      "options": [
+        "5/6",
+        "4/5",
+        "3/4",
+        "2/3"
+      ],
+      "answerIndex": 0,
+      "explanation": "Paydalar 6'da eşitlenir: 1/2=3/6, 1/3=2/6. Toplam 3/6+2/6=5/6.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-15",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "paragraf_problem",
+      "skills": [
+        "problem",
+        "veri_analizi",
+        "yorumlama"
+      ],
+      "stem": "Beden eğitimi dersinde öğrenciler renkli toplarla istatistik çalışması yapmaktadır. Bir kutuda 12 kırmızı top ve 8 mavi top bulunmaktadır. Öğretmen önce kutudaki toplam top sayısını hesaplamalarını, ardından her renkten yüzde kaç olduğunu bulmalarını ister. Buna göre kutudaki toplam top sayısı kaçtır?",
+      "options": [
+        "18",
+        "20",
+        "22",
+        "24"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam = kırmızı + mavi. 12+8=20 top bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-16",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "oran",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "veri_analizi"
+      ],
+      "stem": "Okul gezisi için 8-B sınıfından katılımcı listesi hazırlanmaktadır. Listede 15 kız öğrenci ve 15 erkek öğrenci yer almaktadır. Gezi sorumlusu önce toplam katılımcı sayısını hesaplayacak, sonra servis kapasitesine göre gruplara ayıracaktır. Buna göre gezide toplam kaç öğrenci olacaktır?",
+      "options": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam = kız + erkek. 15+15=30 öğrenci bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-17",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "stem": "Resim dersinde öğrenciler dikdörtgen şeklinde bir kartona desen çizecektir. Kartonun kısa kenarı 6 cm, uzun kenarı 8 cm olarak ölçülmüştür. Önce kartonda kaç cm² alan olduğu hesaplanacak, ardından bu alana göre gerekli boya miktarı belirlenecektir. Buna göre dikdörtgen kartonun alanı kaç cm²'dir?",
+      "options": [
+        "42",
+        "46",
+        "48",
+        "50"
+      ],
+      "answerIndex": 2,
+      "explanation": "Dikdörtgen alanı = kısa × uzun. 6×8=48 cm² bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-18",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "zaman",
+      "skills": [
+        "problem",
+        "zaman",
+        "yorumlama"
+      ],
+      "stem": "Okul müdürü haftalık ders programını incelerken bir sınıfın sabah blokundaki ders süresini hesaplamaktadır. Her ders 40 dakika sürmektedir. Sabah blokta arka arkaya 3 ders yapılmaktadır. Önce toplam ders süresi hesaplanacak, ardından teneffüsler çıkarılarak okula varış saati belirlenecektir. Buna göre 3 ders toplam kaç dakika sürer?",
+      "options": [
+        "100",
+        "110",
+        "120",
+        "130"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam süre = ders süresi × ders sayısı. 40×3=120 dakika bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-19",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "para",
+      "skills": [
+        "problem",
+        "oran_oranti",
+        "yorumlama"
+      ],
+      "stem": "Sınıf temsilcisi kırtasiye alışverişi için bütçe hesaplamaktadır. Her öğrenci için 6 kalem alınacaktır. Kırtasiyede bir kalemin fiyatı 5 TL'dir. Önce toplam kalem maliyeti hesaplanacak, ardından defter ve silgi giderleriyle birlikte toplam bütçe çıkarılacaktır. Buna göre 6 kalemin toplam fiyatı kaç TL'dir?",
+      "options": [
+        "25",
+        "5",
+        "35",
+        "40"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam = birim fiyat × miktar. 5×6=30 TL bulunur.",
+      "source": "edumio",
+      "sourceRef": "mat-gold-012-20",
+      "subject": "mat"
+    }
+  ]
+}

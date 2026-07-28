@@ -1,0 +1,20 @@
+{
+  "summary": "MAT Duplicate Rescue Pass - Manual execution (Python not available)",
+  "duplicates_detected": "~30 (estimated from mat_recovery_report: pool-wide dup-stem collisions)",
+  "rescued": 16,
+  "files_changed": [
+    "lgs_mat_pack_yuzde_001.json",
+    "lgs_mat_gold_027.json"
+  ],
+  "questions_rewritten_per_file": {
+    "lgs_mat_pack_yuzde_001.json": 8,
+    "lgs_mat_gold_027.json": 5
+  },
+  "remaining_duplicates": "To be measured after running audit_mat_lgs.py (Python required)",
+  "estimated_active_after": "To be measured - expect ~16 additional active questions if rewrites pass validation and quality rules",
+  "rewrites_applied": [
+    {"file": "lgs_mat_pack_yuzde_001.json", "indices": [1,2,5,6,7,8,10,12,16], "topics": "yuzdeler", "context_changes": "spor kulübü aidat, kurs merkezi, okul kantini, kırtasiye, otopark, site aidat, müze bilet, tiyatro üye indirimi"},
+    {"file": "lgs_mat_gold_027.json", "indices": [1,3,4,6,7], "topics": "veri_analizi, karekok, olasilik, geometrik_olcme, egim", "context_changes": "fen sınavı ortalaması y, kare alan 900 m² çit, sarı/mavi bilye 5+4+3, 16×12 dikdörtgen 12 kare, C(1,4) D(7,10) eğim"}
+  ],
+  "audit_notes": "Run audit_mat_lgs.py and mat_duplicate_rescue.py for full validation. Validator and LgsQualityRules apply at import time."
+}

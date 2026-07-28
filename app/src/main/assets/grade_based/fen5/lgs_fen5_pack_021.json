@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen5_0200",
+      "stem": "Sürtünme kuvvetinin hareketi yavaşlattığı veya engellediği deneyle gösterildi.\n\nBuna göre sürtünme kuvvetinin yönü nasıldır?",
+      "options": [
+        "Yukarı doğrudur",
+        "Hareket yönüyle aynıdır",
+        "Hareket yönünün tersinedir",
+        "Sürtünmenin yönü yoktur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Hareket yönünün tersinedir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0200",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0201",
+      "stem": "Kuvvetin cisimlerin hareketini veya şeklini değiştirdiği deneyle gösterildi. Yay sıkıştırıldığında kısalıyor.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Kuvvet sadece hareketi etkiler",
+        "Yay genişlemez",
+        "Yay kuvvet üretir",
+        "Kuvvet cisimlerin şeklini değiştirebilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "grafik_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kuvvet cisimlerin şeklini değiştirebilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0201",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0202",
+      "stem": "Eğik düzlem deneyinde rampa yüksekliği sabit tutulup uzunluk artırıldığında daha az kuvvet yeterli oldu.\n\nBu sonucun nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Kuvvet rampa uzunluğundan bağımsızdır",
+        "Yükseklik kuvveti etkilemez",
+        "Kısa rampa daha hafiftir",
+        "Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "sebep_sonuc",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0202",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0203",
+      "stem": "Öğrenciler dinamometre ile farklı cisimlere uyguladıkları kuvveti ölçtü. Ağır cisimlere daha fazla kuvvet uygulandığında dinamometre daha fazla uzadı.\n\nBu deneyin sonucu nedir?",
+      "options": [
+        "Tüm cisimler aynı kuvveti uygular",
+        "Dinamometre kuvveti Newton cinsinden ölçer; büyük kuvvet büyük uzama gösterir",
+        "Dinamometre sadece ağırlığı ölçer",
+        "Kuvvet ölçülemez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "sebep_sonuc",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Dinamometre kuvveti Newton cinsinden ölçer; büyük kuvvet büyük uzama gösterir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0203",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0204",
+      "stem": "Halı ve parke üzerinde aynı kutuyu iten öğrenci, halıda daha zor itti.\n\nBu gözlemin sebebi aşağıdakilerden hangisidir?",
+      "options": [
+        "Kutu halıda daha ağırdır",
+        "Parke daha kaygandır",
+        "Halıda sürtünme kuvveti daha büyüktür",
+        "Parke daha uzundur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Halıda sürtünme kuvveti daha büyüktür\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0204",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0205",
+      "stem": "Sürtünme kuvvetinin yüzeyin pürüzlülüğüne bağlı olduğu deneyle gösterildi. Pürüzlü yüzeyde sürtünme arttı.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Pürüzlü yüzeylerde sürtünme daha fazladır",
+        "Sürtünme sadece ağır cisimlerde vardır",
+        "Pürüzsüz yüzeyde sürtünme en fazladır",
+        "Sürtünme yüzeyle ilgili değildir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Pürüzlü yüzeylerde sürtünme daha fazladır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0205",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0206",
+      "stem": "Tablo: Farklı yüzeylerde ölçülen sürtünme kuvveti değerleri. Halıda 5 N, buzda 1 N ölçüldü.\n\nBu tabloya göre aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Tüm yüzeylerde sürtünme aynıdır",
+        "Buzda sürtünme en fazladır",
+        "Sürtünme kuvveti ölçülemez",
+        "Yüzey pürüzlülüğü arttıkça sürtünme artar"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Yüzey pürüzlülüğü arttıkça sürtünme artar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0206",
+      "imageAsset": "quiz_images/fen/fen_021_fen5_0206_table.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0207",
+      "stem": "Sürtünme kuvvetinin hareketi yavaşlattığı veya engellediği deneyle gösterildi.\n\nBuna göre sürtünme kuvvetinin yönü nasıldır?",
+      "options": [
+        "Hareket yönünün tersinedir",
+        "Hareket yönüyle aynıdır",
+        "Sürtünmenin yönü yoktur",
+        "Yukarı doğrudur"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Hareket yönünün tersinedir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0207",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0208",
+      "stem": "Kuvvetin cisimlerin hareketini veya şeklini değiştirdiği deneyle gösterildi. Yay sıkıştırıldığında kısalıyor.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Kuvvet cisimlerin şeklini değiştirebilir",
+        "Kuvvet sadece hareketi etkiler",
+        "Yay genişlemez",
+        "Yay kuvvet üretir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "deney_yorumlama",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kuvvet cisimlerin şeklini değiştirebilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0208",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0209",
+      "stem": "Eğik düzlem deneyinde rampa yüksekliği sabit tutulup uzunluk artırıldığında daha az kuvvet yeterli oldu.\n\nBu sonucun nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Kısa rampa daha hafiftir",
+        "Yükseklik kuvveti etkilemez",
+        "Kuvvet rampa uzunluğundan bağımsızdır",
+        "Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "kuvvet_surtunme",
+      "skills": [
+        "kuvvet_sur",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0209",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

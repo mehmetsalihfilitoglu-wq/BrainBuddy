@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/page_padding_h"
+        android:paddingVertical="@dimen/space_24">
+
+        <ImageView
+            android:id="@+id/dcrMascot"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_edumio_mascot"
+            android:contentDescription="@string/dc_cd_mascot"/>
+
+        <TextView
+            android:id="@+id/dcrTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dc_result_title"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/edu_turquoise"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/dcrScoreBig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/5"
+                    android:textSize="44sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/edu_text_dark"/>
+
+                <TextView
+                    android:id="@+id/dcrScoreLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/dc_result_score_label"
+                    android:textSize="14sp"
+                    android:textColor="@color/edu_text_muted"/>
+
+                <ProgressBar
+                    android:id="@+id/dcrScoreBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:max="5"
+                    android:progress="0"
+                    android:progressTint="@color/edu_turquoise"/>
+
+                <TextView
+                    android:id="@+id/dcrFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center"
+                    android:text="@string/dc_result_feedback_ok"
+                    android:textSize="15sp"
+                    android:textColor="@color/edu_text_dark"
+                    android:lineSpacingMultiplier="1.15"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section distribution -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dc_result_sections"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/edu_text_dark"/>
+
+                <LinearLayout
+                    android:id="@+id/dcrSectionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/dcrWrongTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dcr_wrong_title"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/edu_text_dark"
+                    android:visibility="gone"/>
+
+                <!-- one row per wrong answer, with the two Premium actions (or a locked CTA) -->
+                <LinearLayout
+                    android:id="@+id/dcrWrongContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Streak + next unlock -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/dcrStreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dc_result_streak"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/edu_text_dark"/>
+
+                <TextView
+                    android:id="@+id/dcrNextUnlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/dc_result_next_unlock"
+                    android:textSize="14sp"
+                    android:textColor="@color/edu_text_muted"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/dcrReviewBtn"
+            style="@style/Edu.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/dc_result_review_cta"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/dcrHomeBtn"
+            style="@style/BBButtonAlt"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/dc_result_home_cta"/>
+
+    </LinearLayout>
+</ScrollView>

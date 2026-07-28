@@ -1,0 +1,199 @@
+[
+  {
+    "id": "mio_ct_0017",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Principal flaw: equivocation (shift in the sense of a key term)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "logical fallacy",
+      "equivocation",
+      "principal flaw"
+    ],
+    "learning_objective": "Identify equivocation as the principal flaw by testing whether a key term retains a single meaning across the premises and the conclusion.",
+    "question": "A parent argues: 'Anyone who breaks the law deserves to be punished by the courts. My daughter broke her solemn promise to practise the piano every evening, and a promise one makes to oneself is a kind of personal law. Therefore my daughter deserves to be punished by the courts.'\n\nWhich of the following identifies the principal flaw in this argument?",
+    "choices": {
+      "A": "It treats a condition that is merely necessary for court punishment as though it were sufficient for it.",
+      "B": "It relies on the word 'law' in two different senses, so the premises do not connect as the argument requires.",
+      "C": "It takes for granted, in one of its premises, the very claim that the argument sets out to establish.",
+      "D": "It assumes that because something has not been shown to be permitted, it must therefore be forbidden.",
+      "E": "It presents only two possibilities when others are available, forcing a false choice between them."
+    },
+    "correct_answer": "B",
+    "explanation": "The argument turns on the word 'law'. In the first premise 'law' means the law of the state, breach of which can bring court punishment. The bridging premise then redefines 'law' as a self-imposed personal rule (a promise to oneself). Because the key term carries two different meanings, the premises fail to link up: nothing about breaking a personal resolution entails liability to the courts. The test for equivocation is whether a crucial term keeps a single, consistent meaning throughout; here it does not. Distractor D is tempting, but the breakdown is not about a necessary/sufficient confusion — it is the meaning shift itself that severs the inference.",
+    "option_analysis": {
+      "A": "Wrong: although breaking a law may be necessary but not sufficient for court punishment, the decisive error is the shift in the meaning of 'law', not a confusion of a conditional relationship. Misconception: diagnosing a necessary/sufficient error whenever a conclusion feels too strong.",
+      "B": "Correct: this is equivocation. 'Law' denotes a state statute in the first premise and a self-imposed rule in the bridging premise; the inference is valid only if one meaning is held constant, which it is not.",
+      "C": "Wrong: this describes circular reasoning, but the conclusion is not smuggled into the premises. Misconception: treating every invalid argument as though it must beg the question.",
+      "D": "Wrong: this is the argument from ignorance, but nothing here reasons from a lack of evidence. Misconception: matching the argument to a familiar fallacy label that does not fit its actual structure.",
+      "E": "Wrong: this describes a false dilemma, but the argument never restricts matters to two options. Misconception: assuming that any argument reaching a harsh conclusion must be forcing a false choice."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0018",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a necessary (unstated) assumption via the negation test",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "unstated assumption",
+      "necessary assumption",
+      "negation test",
+      "causation"
+    ],
+    "learning_objective": "Isolate the unstated assumption on which an argument depends by applying the negation test to a causal claim drawn from a comparison case.",
+    "question": "A city councillor argues: 'Installing average-speed cameras along our ring road will reduce the number of serious-injury collisions on it. We know this because, on the comparable ring road of a neighbouring city, the number of serious-injury collisions fell by 40% in the two years after such cameras were introduced.'\n\nThe councillor's argument depends on assuming which of the following?",
+    "choices": {
+      "A": "Average-speed cameras lower the speed of every vehicle on the ring road to below the legal limit.",
+      "B": "No city that has ever installed average-speed cameras has subsequently seen its collision figures rise.",
+      "C": "Serious-injury collisions on the neighbouring city's ring road have continued to fall in every year since the cameras were introduced.",
+      "D": "The 40% fall on the neighbouring ring road was brought about by the cameras rather than by other road-safety changes made there at the same time.",
+      "E": "The financial cost of installing the cameras is outweighed by the value of the collisions they prevent."
+    },
+    "correct_answer": "D",
+    "explanation": "The conclusion — cameras will cut serious-injury collisions on this ring road — rests entirely on the evidence that collisions fell after cameras were installed elsewhere. For that evidence to support the conclusion, the earlier fall must actually have been caused by the cameras rather than by some other change introduced at the same time. Apply the negation test: suppose the 40% fall had really been caused by other safety measures; then the neighbouring case would give no reason to expect cameras to help here, and the argument would collapse. Because negating E destroys the argument, E is a necessary assumption. The other options are either irrelevant to the conclusion (B), or far stronger than the argument requires (A, C, D).",
+    "option_analysis": {
+      "A": "Wrong: the conclusion needs only that collisions fall, not that every vehicle is slowed below the limit; this overstates the required mechanism. Misconception: mistaking a strong sufficient-sounding mechanism for the assumption the argument actually needs.",
+      "B": "Wrong: a universal claim about every city that has ever installed cameras is far stronger than a single comparison needs. Misconception: confusing a necessary assumption with an unnecessary sweeping generalisation.",
+      "C": "Wrong: only the initial two-year fall is used as evidence, so a continued year-on-year decline is not required. Misconception: over-reading the evidence as though it depended on a sustained trend.",
+      "D": "Correct: this is the bridging assumption. If the fall had been caused by other simultaneous changes, the evidence would not transfer to this city; its negation defeats the argument, so it must be assumed.",
+      "E": "Wrong: cost-effectiveness is beside the point, since the conclusion claims only a reduction in collisions, not that the scheme is worth the money. Misconception: importing a practical consideration the conclusion never makes."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0019",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Principal flaw: fallacy of composition (part-to-whole inference)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "logical fallacy",
+      "fallacy of composition",
+      "part-to-whole"
+    ],
+    "learning_objective": "Recognise the fallacy of composition, distinguishing an invalid part-to-whole inference from other named reasoning errors.",
+    "question": "A financial adviser argues: 'I have examined these ten technology companies one by one, and each is individually a sound investment with strong fundamentals. It follows that a fund holding an equal stake in all ten of them must be a sound and well-diversified investment.'\n\nWhich of the following best describes the principal flaw in this reasoning?",
+    "choices": {
+      "A": "It assumes that a characteristic possessed by each individual member of a collection must also be a characteristic of the collection taken as a whole.",
+      "B": "It draws a sweeping conclusion about technology companies in general from a sample far too small to be representative.",
+      "C": "It uses the word 'sound' with one meaning in its premises and a subtly different meaning in its conclusion.",
+      "D": "It concludes that one event must have caused another purely from the observation that the two are correlated.",
+      "E": "It presents investing in these ten companies as the only available course of action, ignoring other options."
+    },
+    "correct_answer": "A",
+    "explanation": "The adviser moves from 'each part (company) is sound' to 'the whole (the fund) is sound and well-diversified'. That is the fallacy of composition: a property of the individual members need not carry over to the collection they form. In fact ten individually sound technology firms are likely to be highly correlated, so the fund could look sound yet be badly undiversified and risky — which is exactly why part-to-whole transfer is not valid in general. The flaw is structural and holds independently of any finance knowledge.",
+    "option_analysis": {
+      "A": "Correct: this is the fallacy of composition — it infers a feature of the whole collection from a feature shared by each of its members, an inference that is not generally valid.",
+      "B": "Wrong: the argument does not generalise from a sample to all technology companies; it reasons about these specific ten. Misconception: mistaking a part-to-whole inference for a sample-to-population one.",
+      "C": "Wrong: 'sound' carries the same meaning throughout, so there is no equivocation. Misconception: seeing a shift in the meaning of a term where the term is in fact used consistently.",
+      "D": "Wrong: no causal claim is drawn from a correlation here. Misconception: defaulting to the most familiar fallacy (correlation implies causation) regardless of the argument's actual form.",
+      "E": "Wrong: the argument does not falsely narrow the options to a single choice. Misconception: mislabelling a structural inference error as a false dilemma."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0020",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data reasoning",
+    "subtopic": "Absolute vs relative risk reduction and the number needed to treat",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "critical thinking",
+      "data reasoning",
+      "relative risk",
+      "absolute risk",
+      "number needed to treat",
+      "medical statistics"
+    ],
+    "learning_objective": "Distinguish relative risk reduction from absolute risk reduction and compute the number needed to treat from trial incidence data.",
+    "question": "In a five-year randomised trial, the risk of suffering a first heart attack was 4% among patients given a placebo and 3% among patients given drug Z. A newspaper reports: 'Drug Z cuts the risk of a heart attack by 25%.' Assuming the trial results are valid, which single statement is best supported by these figures?",
+    "choices": {
+      "A": "Treating one hundred patients with drug Z for five years prevents, on average, one heart attack.",
+      "B": "Drug Z prevents a heart attack in 25% of the patients who take it.",
+      "C": "Among patients taking drug Z, the chance of a heart attack is 25 percentage points lower than among those taking the placebo.",
+      "D": "Without drug Z, one in four patients would suffer a heart attack within five years.",
+      "E": "Treating four patients with drug Z for five years prevents, on average, one heart attack."
+    },
+    "correct_answer": "A",
+    "explanation": "'Cuts risk by 25%' is a relative risk reduction: (4% − 3%)/4% = 25%. What determines how many people actually benefit is the absolute risk reduction, 4% − 3% = 1 percentage point = 0.01. The number needed to treat is 1/ARR = 1/0.01 = 100, so roughly one heart attack is prevented for every 100 patients treated for five years. The wrong options each mistake the relative figure for an absolute one or a baseline: A reads 25% as the share of patients who benefit, B reads it as a 25-point absolute drop, E reads it as the baseline incidence, and C uses the relative figure inside the NNT formula (1/0.25 = 4).",
+    "option_analysis": {
+      "A": "Correct: the number needed to treat is 1/ARR = 1/0.01 = 100, so on average one heart attack is prevented per hundred patients treated for five years.",
+      "B": "Wrong: this interprets the 25% relative reduction as the proportion of treated patients in whom a heart attack is prevented; in fact only about 1% (one in a hundred) benefit. Misconception: reading a relative risk reduction as an absolute proportion of patients helped.",
+      "C": "Wrong: this conflates a 25% relative reduction with a 25 percentage-point absolute reduction; the absolute gap is only 1 point (4% versus 3%). Misconception: confusing 'percent' with 'percentage points'.",
+      "D": "Wrong: this treats the 25% relative figure as the baseline five-year incidence, whereas the placebo baseline is 4%. Misconception: mistaking a relative reduction for the underlying risk.",
+      "E": "Wrong: this computes the number needed to treat from the relative reduction, 1/0.25 = 4, instead of from the absolute reduction. Misconception: dividing 1 by the relative rather than the absolute risk reduction."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0021",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logic puzzles",
+    "subtopic": "Deductive selection puzzle with conditional/biconditional constraints (necessity across all valid models)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "critical thinking",
+      "logic puzzle",
+      "deductive reasoning",
+      "propositional logic",
+      "conditional constraints"
+    ],
+    "learning_objective": "Solve a deductive selection puzzle with conditional and biconditional constraints and determine which conclusion holds across every valid arrangement.",
+    "question": "Exactly which of five friends — Nia, Omar, Pia, Raj and Tom — will go on a weekend trip is governed by the following facts:\n- If Nia goes, then Omar goes.\n- Pia goes if and only if Nia does not go.\n- Exactly one of Omar and Raj goes.\n- If Pia goes, then Raj goes.\n- Tom goes if and only if both Omar and Pia go.\n\nWhich one of the following must be true?",
+    "choices": {
+      "A": "Tom does not go on the trip.",
+      "B": "Raj does not go on the trip.",
+      "C": "If Omar goes on the trip, then Pia goes on the trip.",
+      "D": "Exactly three of the five friends go on the trip.",
+      "E": "Nia goes on the trip."
+    },
+    "correct_answer": "A",
+    "explanation": "The third fact forces exactly one of Omar and Raj, giving two cases. Case 1 (Omar in, Raj out): 'If Pia goes then Raj goes' forces Pia out; 'Pia if and only if not Nia' then forces Nia in; 'If Nia then Omar' is satisfied; 'Tom if and only if both Omar and Pia' gives Tom out because Pia is out. Arrangement: Nia and Omar go, the rest stay. Case 2 (Omar out, Raj in): 'If Nia then Omar' forces Nia out; 'Pia if and only if not Nia' forces Pia in; 'If Pia then Raj' is satisfied; 'Tom if and only if both Omar and Pia' gives Tom out because Omar is out. Arrangement: Pia and Raj go, the rest stay. Both valid arrangements exclude Tom and contain exactly two members, so the only statement true in every arrangement is that Tom does not go.",
+    "option_analysis": {
+      "A": "Correct: in both valid arrangements at least one of Omar and Pia is absent, so 'both Omar and Pia go' is never satisfied and Tom is excluded in every case.",
+      "B": "Wrong: Raj goes in Case 2 (Omar out, Raj in), so his exclusion is not forced. Misconception: fixing on the single arrangement in which Raj happens to be out.",
+      "C": "Wrong: in Case 1, Omar goes but Pia does not, making the conditional false, so it is not a necessary truth. Misconception: mis-deriving 'if Omar then Pia' from the rules that actually link Pia to Nia and Raj.",
+      "D": "Wrong: each valid arrangement contains exactly two members, not three. Misconception: a miscount, or assuming more constraints must mean more people selected.",
+      "E": "Wrong: Nia goes in Case 1 but stays home in Case 2, so her going is not forced. Misconception: treating something that can be true in one arrangement as though it must be true in all."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  }
+]

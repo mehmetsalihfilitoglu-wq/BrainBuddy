@@ -1,0 +1,745 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "fen",
+  "questions": [
+    {
+      "stem": "Bir mum yaktığınızda ısı ve ışık enerjisi üretilir. Bu süreçte gerçekleşen değişim ne tür bir değişimdir?",
+      "options": ["Kimyasal değişim (geri döndürülemez)", "Fiziksel değişim (geri döndürülebilir)", "Sadece fiziksel bir erime", "Biyolojik değişim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Madde ve Değişim",
+      "skills": ["kimyasal-fiziksel değişim ayrımı"],
+      "explanation": "Mum yanarken kimyasal bir dönüşüm gerçekleşir; bal mumu farklı maddelere dönüşür ve bu değişim geri alınamaz."
+    },
+    {
+      "stem": "Suyun 0°C'de donması ve 100°C'de kaynaması hangi tür değişimlere örnektir?",
+      "options": ["Fiziksel değişim (maddenin yapısı değişmez, yalnızca hâli değişir.)", "Kimyasal değişim", "Biyolojik değişim", "Nükleer değişim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hâl Değişimleri",
+      "skills": ["fiziksel değişim", "hâl değişimi"],
+      "explanation": "Donma ve kaynama sırasında suyun kimyasal yapısı değişmez; yalnızca katı, sıvı, gaz hâlleri arasında geçiş yaşanır. Fiziksel değişimdir."
+    },
+    {
+      "stem": "Bir öğrenci demiri ve tahtayı mıknatısın yakınına tutuyor. Mıknatıs yalnızca demiri çekiyor. Bu gözlemden çıkarılan bilimsel sonuç nedir?",
+      "options": ["Mıknatısın çekim kuvveti yalnızca demir gibi demir içeren metalleri etkiler.", "Mıknatıs tüm maddeleri çeker.", "Tahta manyetik bir maddedir.", "Mıknatısın kütlesi çekimi belirler."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mıknatıs",
+      "skills": ["manyetik maddeler", "deney yorumlama"],
+      "explanation": "Mıknatıslar demir, nikel ve kobalt gibi ferromanyetik metalleri çeker; tahta, plastik veya bakır gibi maddeler etkilenmez."
+    },
+    {
+      "stem": "Vücudumuzda oksijen taşıyan sistem hangisidir?",
+      "options": ["Dolaşım sistemi (kan)", "Sindirim sistemi", "Solunum sistemi", "Sinir sistemi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vücut Sistemleri",
+      "skills": ["dolaşım sistemi", "oksijen taşıma"],
+      "explanation": "Dolaşım sistemi oksijeni akciğerlerden alıp kırmızı kan hücresi aracılığıyla tüm vücuda taşır."
+    },
+    {
+      "stem": "Güneş sistemindeki gezegenler güneşin etrafında döner. Bu harekete ne denir?",
+      "options": ["Yörünge (Devir hareketi / Orbitasyon)", "Günlük dönüş", "Ekseni etrafında dönüş", "Dalgalanma hareketi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Güneş Sistemi",
+      "skills": ["güneş sistemi", "devir hareketi"],
+      "explanation": "Gezegenlerin güneşin etrafında belirli bir yolda dolaşmasına 'yörünge hareketi' veya devir hareketi denir."
+    },
+    {
+      "stem": "Bitkilerde fotosentez hangi organda gerçekleşir?",
+      "options": ["Yaprak (kloroplastlarda)", "Kök", "Çiçek", "Meyve"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Fotosentez",
+      "skills": ["fotosentez", "yaprak yapısı"],
+      "explanation": "Fotosentez, yapraklarda bulunan kloroplastlarda gerçekleşir. Burada güneş ışığı, su ve CO₂ glikoz ve oksijene dönüştürülür."
+    },
+    {
+      "stem": "Bir ampulün yanması için gerekli olan unsur nedir?",
+      "options": ["Kapalı elektrik devresi", "Açık devre", "Yalnızca pil", "Yalnızca kablo"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Elektrik Devresi",
+      "skills": ["elektrik devresi", "kapalı devre"],
+      "explanation": "Bir ampulün yanması için elektriğin tam bir yol boyunca (kapalı devre) akması gerekir; devrenin herhangi bir yerinde kopukluk varsa ampul yanmaz."
+    },
+    {
+      "stem": "Isı her zaman hangi yönde akar?",
+      "options": ["Sıcak cisimden soğuk cisme", "Soğuk cisimden sıcak cisme", "Her iki yönde eşit olarak", "Sadece gaz halindeki maddelerde akar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı İletimi",
+      "skills": ["ısı akışı", "termodinamik"],
+      "explanation": "Isı, doğal olarak her zaman sıcak maddeden soğuk maddeye doğru akar; sıcaklıklar eşitleninceye kadar bu akış devam eder."
+    },
+    {
+      "stem": "Bir torba içinde sıkıştırılmış hava düşünün. Hava basıncı azaltılırsa torba ne olur?",
+      "options": ["Şişer / genişler", "Küçülür", "Değişmez", "Patlayarak yok olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava Basıncı",
+      "skills": ["basınç-hacim ilişkisi"],
+      "explanation": "Basınç azaldıkça gazın hacmi artar (Boyle Yasası). Dış basınç düşünce torba içindeki hava genişleyerek torbayı şişirir."
+    },
+    {
+      "stem": "Bir balık suda nasıl nefes alır?",
+      "options": ["Solungaçlarıyla sudaki çözünmüş oksijeni alarak", "Yüzeye çıkarak havayla nefes alarak", "Derisi aracılığıyla", "Su içerek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Solunum - Su Canlıları",
+      "skills": ["solungaç solunumu"],
+      "explanation": "Balıklar solungaçlarıyla suyun içindeki çözünmüş oksijeni süzüp kullanır."
+    },
+    {
+      "stem": "Ay'ın evrelerinin (yeni ay, hilal, dolunay vb.) sebebi nedir?",
+      "options": ["Ay'ın Dünya etrafında dönerken Güneş ışığını farklı açılardan yansıtması", "Ay'ın farklı hızlarda hareket etmesi", "Dünya'nın gölgesinin Ay'ı farklı oranlarda örtmesi", "Ay'ın büyüyüp küçülmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ay'ın Evreleri",
+      "skills": ["ay evreleri", "ışık yansıması"],
+      "explanation": "Ay'ın görünen şekli, Dünya-Ay-Güneş konumuna göre Ay'ın Güneş ışığını yansıttığı kısmın farklılaşmasından kaynaklanır."
+    },
+    {
+      "stem": "Bitkiler klorofil sayesinde ne yapar?",
+      "options": ["Güneş ışığını emip fotosentez için enerji kaynağı olarak kullanırlar.", "Güneş ışığını yansıtırlar.", "Su çekerler.", "Besin depolarlar."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Klorofil",
+      "skills": ["klorofil işlevi", "fotosentez"],
+      "explanation": "Klorofil yapraklara yeşil rengi veren pigmenttir; güneş ışığını absorbe ederek fotosentez için gerekli enerjiyi sağlar."
+    },
+    {
+      "stem": "Kemiklerimizin sağlıklı kalması için hangi mineral özellikle önemlidir?",
+      "options": ["Kalsiyum", "Demir", "Sodyum", "Çinko"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Mineraller ve Kemik Sağlığı",
+      "skills": ["kalsiyum", "kemik gelişimi"],
+      "explanation": "Kalsiyum kemik ve diş gelişimi için temel mineraldir; yetersiz kalsiyum kemik erimesine (osteoporoz) yol açabilir."
+    },
+    {
+      "stem": "Bir nesne daha yüksekten düşürülürse yere çarptığında etkisi nasıl olur?",
+      "options": ["Daha büyük etki oluşturur; çünkü potansiyel enerji artmıştır.", "Aynı etkiyi oluşturur.", "Daha az etki oluşturur.", "Hız yükseklikle azalır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Potansiyel ve Kinetik Enerji",
+      "skills": ["enerji dönüşümü", "yükseklik ve enerji"],
+      "explanation": "Daha yüksek bir noktadan bırakılan nesne daha fazla potansiyel enerjiye sahiptir; düşerken bu enerji kinetik enerjiye dönüşür ve yere çarptığındaki etki büyür."
+    },
+    {
+      "stem": "Maddenin katı hâlden sıvı hâle geçmesine ne denir?",
+      "options": ["Erime", "Donma", "Buharlaşma", "Yoğuşma"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Hâl Değişimleri",
+      "skills": ["erime", "hâl değişimi isimleri"],
+      "explanation": "Katı → sıvı: erime. Sıvı → katı: donma. Sıvı → gaz: buharlaşma. Gaz → sıvı: yoğuşma."
+    },
+    {
+      "stem": "Bir elektrik devresinde pil neyin kaynağıdır?",
+      "options": ["Elektrik enerjisinin (elektron akışının) kaynağıdır.", "Elektrik depolayan pasif bir bileşendir.", "Işık üreticisidir.", "Devreyi kesen anahtardır."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Elektrik - Pil",
+      "skills": ["pil işlevi", "enerji kaynağı"],
+      "explanation": "Pil kimyasal enerjiyi elektrik enerjisine dönüştürerek devrede akım oluşturan enerji kaynağıdır."
+    },
+    {
+      "stem": "Toprağın oluşması için gereken süre düşünüldüğünde, toprak kaybı neden önemli bir çevre sorunudur?",
+      "options": ["Toprağın oluşması binlerce yıl sürdüğünden, bir kez yok olan toprak kolayca yerine konulamaz.", "Toprak kısa sürede yenilenebildiğinden sorun değildir.", "Yalnızca tarım için önemlidir.", "Toprak kaybı yalnızca erozyon dışındaki nedenlerle olur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toprak Erozyonu",
+      "skills": ["erozyon önemi", "toprak oluşumu"],
+      "explanation": "1 cm toprak katmanının oluşması yüzlerce yıl sürer; tarım arazileri ve ekosistemler toprak olmadan işlevsiz kalır."
+    },
+    {
+      "stem": "Güneş sistemi kaç gezegenден oluşur?",
+      "options": ["8", "9", "7", "10"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Güneş Sistemi",
+      "skills": ["gezegen sayısı"],
+      "explanation": "Plüton'un 2006'da cüce gezegen olarak sınıflandırılmasından sonra güneş sisteminde 8 gezegen kabul edilmektedir."
+    },
+    {
+      "stem": "Bir mıknatısın kuzey kutbu ile başka bir mıknatısın kuzey kutbu yan yana getirilirse ne olur?",
+      "options": ["Birbirini iter.", "Birbirini çeker.", "Etki göstermez.", "Birleşerek daha güçlü bir mıknatıs oluşturur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mıknatıs - Kutuplar",
+      "skills": ["mıknatıs kutupları", "itme-çekme"],
+      "explanation": "Aynı kutuplar (K-K veya G-G) birbirini iter; zıt kutuplar (K-G) birbirini çeker."
+    },
+    {
+      "stem": "Havanın nemi artarken sıcaklık düşünce ne oluşur?",
+      "options": ["Çiğ veya yağış oluşabilir.", "Hava tamamen kurur.", "Güneş açar.", "Rüzgar kesilir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava ve İklim",
+      "skills": ["nem ve yağış", "hava olayları"],
+      "explanation": "Soğuyan hava nem taşıma kapasitesini kaybeder; bu su buharı yoğuşarak çiğ, sis veya yağış olarak ortaya çıkabilir."
+    },
+    {
+      "stem": "Bir çocuk havada tuttuğu taşı bırakıyor. Taş neden düşüyor?",
+      "options": ["Yerçekimi kuvveti taşı aşağıya doğru çektiği için", "Havanın ittiği için", "Taşın ağır olduğu için", "Isı nedeniyle"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Yerçekimi",
+      "skills": ["yerçekimi kuvveti"],
+      "explanation": "Yerçekimi Dünya'nın kütlesi nedeniyle tüm nesneleri merkeze doğru çeken kuvvettir; nesnenin kütlesinden bağımsız olarak her şeyi aşağı çeker."
+    },
+    {
+      "stem": "Su döngüsünde 'evaporation' (buharlaşma) aşamasında ne olur?",
+      "options": ["Sıvı su ısınarak su buharına dönüşür ve atmosfere çıkar.", "Su buharı soğuyarak suya dönüşür.", "Yağış gerçekleşir.", "Buz erir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su Döngüsü",
+      "skills": ["buharlaşma", "su döngüsü"],
+      "explanation": "Güneş ısısıyla ısınan yüzey suları buharlaşarak havaya karışır; bu su döngüsünün başlangıç aşamasıdır."
+    },
+    {
+      "stem": "Bitkiler büyümek için hangi üç temel şeye ihtiyaç duyar?",
+      "options": ["Güneş ışığı, su ve karbondioksit", "Yalnızca su ve ışık", "Oksijen, su ve tuz", "Güneş ışığı, oksijen ve şeker"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Bitkilerin İhtiyaçları",
+      "skills": ["fotosentez girdileri"],
+      "explanation": "Fotosentez için bitkiler güneş ışığı (enerji), su (topraktan) ve karbondioksit (havadan) kullanır."
+    },
+    {
+      "stem": "Bir demir çivi suya bırakılır ve çivinin batması gözlemleniyor. Bu durumun sebebi nedir?",
+      "options": ["Demirin yoğunluğu suyun yoğunluğundan fazladır.", "Demirin hacmi çok küçüktür.", "Su demiri itmektedir.", "Demir su ile reaksiyona giriyor."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yoğunluk ve Yüzme",
+      "skills": ["yoğunluk karşılaştırması"],
+      "explanation": "Bir nesne yoğunluğu sudakinden fazlaysa batar. Demir ~7.87 g/cm³ iken su 1 g/cm³'tür; bu nedenle demir batar."
+    },
+    {
+      "stem": "Bir çocuk solunum sistemi hakkında araştırma yapıyor. Akciğerlerin temel görevi nedir?",
+      "options": ["Havadan oksijen alıp kana aktarmak ve kandan karbondioksiti atmak", "Kanı pompalamak", "Besinleri sindirimek", "Atık maddeleri filtrelemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Solunum Sistemi",
+      "skills": ["akciğer görevi", "gaz değişimi"],
+      "explanation": "Akciğerlerdeki alveollerde gaz değişimi gerçekleşir: kana oksijen geçer, kandan karbondioksit alınır."
+    },
+    {
+      "stem": "Bir maddenin rengini, kokusunu veya şeklini değiştirmek hangi tür değişimdir?",
+      "options": ["Fiziksel değişim", "Kimyasal değişim", "Biyolojik değişim", "Isıl değişim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiziksel Değişim",
+      "skills": ["fiziksel değişim örnekleri"],
+      "explanation": "Renk, koku veya şekil değişikliği genellikle maddenin kimyasal yapısını değiştirmez; bunlar fiziksel değişimlerdir."
+    },
+    {
+      "stem": "Bir deney sırasında şeker suda eriyince ne değişir?",
+      "options": ["Şeker görünmez olur; ancak suyun kütlesi artar ve tat değişir.", "Şeker tamamen yok olur.", "Suyun kütlesi azalır.", "Sadece renk değişir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çözünme",
+      "skills": ["çözünme", "kütlenin korunumu"],
+      "explanation": "Şeker suda çözündüğünde gözden kaybolur gibi görünse de kütlesi korunur; su + şeker = toplam kütle değişmez, tat değişir."
+    },
+    {
+      "stem": "Gün ışığında güneş gözlüğü takmanın bilimsel nedeni nedir?",
+      "options": ["Güneşin UV ışınlarının göz retinasına zarar vermesini önler.", "Yalnızca görüntü kalitesini artırmak için", "Yalnızca estetik bir tercihtir.", "Soğuk havalarda göz koruma içindir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve Göz Sağlığı",
+      "skills": ["UV ışınları", "göz sağlığı"],
+      "explanation": "Güneşin morötesi (UV) ışınları göz retinasına ve lensine zarar verebilir; güneş gözlüğü bu ışınları filtreler."
+    },
+    {
+      "stem": "Bir çocuk egzersiz yaparken neden daha çok nefes alır?",
+      "options": ["Kaslar daha fazla oksijen talep ettiğinde soluk alıp verme hızlanır.", "Egzersiz akciğerleri küçülttüğü için", "Nefes almak yoruculaşır.", "Vücut ısısı düştüğü için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Solunum ve Egzersiz",
+      "skills": ["oksijen ihtiyacı", "egzersiz fizyolojisi"],
+      "explanation": "Egzersiz sırasında kaslar daha hızlı enerji üretmek için daha fazla oksijen gerektirir; bu nedenle nefes alma sıklaşır."
+    },
+    {
+      "stem": "Dünya'nın kendi ekseni etrafında bir tam dönüşü ne kadar sürer?",
+      "options": ["24 saat (1 gün)", "365 gün", "12 saat", "7 gün"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Dünya'nın Hareketleri",
+      "skills": ["günlük dönüş", "zaman"],
+      "explanation": "Dünya ekseni etrafında yaklaşık 24 saatte bir tam tur yapar; bu gündüz ve geceyi oluşturur."
+    },
+    {
+      "stem": "Bir taşın suya atılmasıyla oluşan dalgalar hangi enerji türünü iletir?",
+      "options": ["Mekanik dalga enerjisi (kinetik enerji)", "Elektromanyetik enerji", "Kimyasal enerji", "Nükleer enerji"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji ve Dalgalar",
+      "skills": ["mekanik dalgalar", "enerji iletimi"],
+      "explanation": "Taşın suya çarpmasıyla oluşan dalgalar mekanik dalgalardır; titreşim enerjisi su aracılığıyla çevreye yayılır."
+    },
+    {
+      "stem": "Bir bitki karanlık bir ortama konulursa uzun süre hayatta kalabilir mi?",
+      "options": ["Hayır; fotosentez yapamadığından enerji üretemez ve ölür.", "Evet; bitkiler ışığa gerek duymaz.", "Evet; topraktan besin aldığından karanlıkta da yaşar.", "Hayır; yalnızca sıcak olmadığı için ölür."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fotosentez İhtiyacı",
+      "skills": ["ışık ve fotosentez"],
+      "explanation": "Bitkiler güneş ışığı olmadan fotosentez yapamaz, dolayısıyla glikoz üretemez; enerjisiz kalan bitki zamanla ölür."
+    },
+    {
+      "stem": "Bir sindirim sistemini en doğru şekilde açıklayan ifade hangisidir?",
+      "options": ["Besinleri küçük moleküllere parçalayarak kana geçmelerini sağlayan sistem", "Kanı vücuda pompalayan sistem", "Atık maddeleri filtreleyen sistem", "Oksijeni taşıyan sistem"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sindirim Sistemi",
+      "skills": ["sindirim sistemi görevi"],
+      "explanation": "Sindirim sistemi; ağız, mide ve bağırsaklar aracılığıyla besinleri parçalayarak enerjiye dönüştürülmek üzere kana verir."
+    },
+    {
+      "stem": "Gece gökyüzünde gördüğümüz yıldızlar neden titrer gibi görünür?",
+      "options": ["Işığın atmosferden geçerken kırılıp saçılması nedeniyle titrek görünürler.", "Yıldızlar gerçekten titriyor.", "Gözlerimiz yorgunken böyle görünür.", "Teleskopsuz bakınca hata yaşanır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atmosfer ve Işık",
+      "skills": ["ışık kırılması", "atmosfer"],
+      "explanation": "Yıldız ışığı dalgalı atmosfer katmanlarından geçerken kırınır; bu kırılma titreme (şipşak) etkisi yaratır."
+    },
+    {
+      "stem": "Hangi madde elektriği iyi iletir?",
+      "options": ["Bakır tel", "Plastik", "Ahşap", "Cam"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Elektrik İletkenliği",
+      "skills": ["iletken-yalıtkan ayrımı"],
+      "explanation": "Bakır elektrik için mükemmel bir iletkendir; plastik, ahşap ve cam ise yalıtkandır (elektriği iletmez)."
+    },
+    {
+      "stem": "Bir elektrik devresine paralel olarak iki ampul bağlanırsa biri yanmayı bırakırsa diğeri ne olur?",
+      "options": ["Diğer ampul yanmaya devam eder; paralel devrede her kol bağımsızdır.", "İkisi de söner.", "Diğeri daha az yanar.", "Sistem tamamen durur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Paralel Devre",
+      "skills": ["paralel devre mantığı"],
+      "explanation": "Paralel devrede her bileşen bağımsız bir yolda çalışır; bir ampul söndüğünde diğerinin yolu açık kaldığından yanmaya devam eder."
+    },
+    {
+      "stem": "Bir ekosistemdeki besin zinciri neyi gösterir?",
+      "options": ["Enerji ve besin akışını; kimin kimi yediğini gösteren ilişkiyi", "Havanın su döngüsünü", "İklim değişikliklerini", "Toprak yapısını"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Besin Zinciri",
+      "skills": ["besin zinciri", "enerji akışı"],
+      "explanation": "Besin zinciri, enerjinin üreticilerden (bitkiler) birinci tüketiciye, oradan ikinci tüketiciye nasıl geçtiğini gösterir."
+    },
+    {
+      "stem": "Güneş'in Dünya'ya en yakın yıldız olduğu bilinmektedir. Güneş enerjisi Dünya'ya nasıl ulaşır?",
+      "options": ["Elektromanyetik dalgalar (ışık ve ısı radyasyonu) aracılığıyla vakum üzerinden", "Hava aracılığıyla iletimle", "Okyanuslar aracılığıyla", "Yer kabuğu aracılığıyla"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş Enerjisi",
+      "skills": ["enerji iletimi", "radyasyon"],
+      "explanation": "Uzay vakumda madde olmadığından ısı iletimi veya taşınımı mümkün değildir; güneş enerjisi elektromanyetik dalgalarla (ışınımla) gelir."
+    },
+    {
+      "stem": "Bir çocuk dışarıda kartopu yapıyor. Ellerindeki kar neden erimektedir?",
+      "options": ["Elin ısısı karın erime noktasının üzerinde olduğundan ısı transferiyle kar erir.", "Hava çok sıcak olduğundan", "Kar kendi kendine erir.", "Sürtünme karı ısıtmaz."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı Transferi",
+      "skills": ["ısı transferi", "erime noktası"],
+      "explanation": "Vücut ısısı (~37°C) karın erime noktasından (0°C) yüksek olduğundan ele temas eden kar erir."
+    },
+    {
+      "stem": "Bir araba camının içinde yoğuşma (buğu) oluşmasının sebebi nedir?",
+      "options": ["İçerideki sıcak ve nemli hava soğuk cama değince su buharı sıvıya dönüşür.", "Camın kirli olmasından", "Dışarının çok soğuk olmasından", "Motor çalışmadığında oluşur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yoğuşma",
+      "skills": ["yoğuşma olayı"],
+      "explanation": "Sıcak ve nemli iç hava, soğuk cam yüzeyine temas edince su buharı yoğuşarak küçük su damlalarına dönüşür ve buğu oluşur."
+    },
+    {
+      "stem": "Hangi gezegen güneş sistemindeki en büyük gezegendir?",
+      "options": ["Jüpiter", "Satürn", "Dünya", "Mars"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Gezegen Bilgisi",
+      "skills": ["güneş sistemi gezegenleri"],
+      "explanation": "Jüpiter güneş sisteminin en büyük gezegenidir; kütlesi diğer tüm gezegenlerin toplamından büyüktür."
+    },
+    {
+      "stem": "Bir ekosistemdeki bir türün yok olması neden ekosistemi etkileyebilir?",
+      "options": ["Besin zincirleri birbirine bağlı olduğundan bir türün kaybolması basamaklı etki yaratır.", "Bir tür yok olduğunda diğerleri daha rahat yaşar.", "Ekosistemler değişime uyum sağlar, etkilenmez.", "Yalnızca insanlar için önem taşır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Biyolojik Çeşitlilik",
+      "skills": ["ekosistem dengesi", "besin zinciri"],
+      "explanation": "Besin zincirleri birbirine bağımlıdır; bir türün yok olması hem altındaki hem üstündeki türleri etkileyen 'basamaklı etki' yaratır."
+    },
+    {
+      "stem": "Bir kaldıraç sisteminde kuvvet uyguladığımız nokta yük kaldırma noktasına ne kadar uzaksa ne olur?",
+      "options": ["Daha az kuvvetle daha büyük yük kaldırmak mümkün olur (mekanik avantaj).", "Daha fazla kuvvet gerektirir.", "Etki değişmez.", "Kaldıraç çalışmaz."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kaldıraç",
+      "skills": ["kaldıraç prensibi", "mekanik avantaj"],
+      "explanation": "Kaldıraçta direnç kolundan uzak noktaya uygulanan kuvvet mekanik avantaj sağlar; kuvvet azalırken yol uzar."
+    },
+    {
+      "stem": "Bir çocuk güneşin battığını gözlemliyor. Bu olay aslında neyin göstergesidir?",
+      "options": ["Dünya'nın kendi ekseni etrafında dönerek o bölgeyi güneşten uzaklaştırmasının", "Güneşin hareket etmesinin", "Dünyanın durduğunun", "Ayın güneşi kapatmasının"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya'nın Hareketi",
+      "skills": ["gündüz-gece", "görünür güneş hareketi"],
+      "explanation": "Güneş aslında hareket etmiyor; Dünya kendi ekseni etrafında döndüğü için güneş doğudan batıya gidiyor gibi görünür."
+    },
+    {
+      "stem": "Havada asılı kalan mikro parçacıkların (toz, sis) oluşturduğu olay nedir?",
+      "options": ["Hava kirliliği / sis", "Yağmur", "Işık kırınması", "Toprak erozyonu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava Kalitesi",
+      "skills": ["hava kirliliği", "partikül madde"],
+      "explanation": "Havada asılı kalan ince parçacıklar sis veya kirlilik oluşturur; bu PM2.5/PM10 gibi hava kirliliği ölçümleriyle takip edilir."
+    },
+    {
+      "stem": "Gözlerimiz renkleri nasıl algılar?",
+      "options": ["Nesnelerden yansıyan ışık gözümüze ulaşır; gözümüzdeki koni hücreleri farklı dalga boylarını renk olarak işler.", "Gözlerimiz nesnelerden ışık gönderir.", "Renkler havada asılıdır ve gözümüze gelir.", "Beyin ışık olmadan da renk oluşturur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve Görme",
+      "skills": ["ışık ve renk algısı"],
+      "explanation": "Göz, nesnelerden yansıyan ışığı alır. Retinakdaki koni hücreleri farklı dalga boylarını (kırmızı, yeşil, mavi) ayırt eder ve biz bunu renk olarak algılarız."
+    },
+    {
+      "stem": "Bir nesnenin kütlesi ile ağırlığı arasındaki fark nedir?",
+      "options": ["Kütle her yerde sabit kalır; ağırlık yerçekimine bağlı olarak değişir.", "İkisi aynıdır.", "Kütle Ay'da sıfır olur.", "Ağırlık sabit, kütle değişir."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kütle ve Ağırlık",
+      "skills": ["kütle-ağırlık farkı"],
+      "explanation": "Kütle maddenin miktarıdır ve evrenin her yerinde sabit kalır. Ağırlık ise yerçekimiyle değişir; Ay'da ağırlık yaklaşık 6'da 1'e düşer."
+    },
+    {
+      "stem": "Güneş tutulması sırasında ne olur?",
+      "options": ["Ay, Güneş ile Dünya arasına girerek Güneş'in ışığını kısmen veya tamamen kapatır.", "Dünya, Ay ile Güneş arasına girer.", "Güneş söner.", "Ay kaybolur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş-Ay Tutulmaları",
+      "skills": ["güneş tutulması"],
+      "explanation": "Güneş tutulmasında Ay tam olarak Güneş ve Dünya arasına gelir; Ay'ın gölgesi Dünya üzerine düşer ve güneş gizlenir."
+    },
+    {
+      "stem": "Besinlerdeki enerji hangi birimde ölçülür?",
+      "options": ["Kalori (Cal/kcal)", "Watt", "Joule", "Newton"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Enerji ve Beslenme",
+      "skills": ["kalori kavramı"],
+      "explanation": "Gıda enerji içeriği genellikle kalori (kcal) cinsinden ifade edilir. Watt güç, Joule enerji birimidir ama beslenme için kcal kullanılır."
+    },
+    {
+      "stem": "Bir termometre nasıl çalışır?",
+      "options": ["İçindeki sıvı (civa veya alkol) ısındıkça genleşir ve yükselerek sıcaklığı gösterir.", "Sıcaklığa göre renk değiştirir.", "Elektrik akımı ölçerek sıcaklığı belirler.", "Havanın basıncını ölçer."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı Ölçümü",
+      "skills": ["termometre çalışması", "genleşme"],
+      "explanation": "Geleneksel termometrelerde sıvı madde ısındıkça genleşir ve tüpte yükselir; bu yükseliş sıcaklık skalasına göre okunur."
+    },
+    {
+      "stem": "Bir çiçeğin yaprağı neden beyaz ışığa tutulduğunda yeşil görünür?",
+      "options": ["Klorofil yeşil ışığı yansıtır, kırmızı ve mavi ışığı yutar.", "Yeşil ışığı yutar, diğerlerini yansıtır.", "Yaprak renksizdir.", "Gözlerimiz yanılıyor."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Işık ve Renk",
+      "skills": ["renk algısı", "klorofil"],
+      "explanation": "Klorofil kırmızı ve mavi dalga boylarını absorbe eder; yeşil dalga boyunu yansıtır. Yansıyan ışık gözümüze ulaştığında yaprak yeşil görünür."
+    },
+    {
+      "stem": "Bir yıldız ile bir gezegen arasındaki temel fark nedir?",
+      "options": ["Yıldızlar kendi ışığını üretir; gezegenler yıldızın ışığını yansıtır.", "Yıldızlar hep daha büyüktür.", "Gezegenler ışık üretir.", "İkisi aynı şeydir, yalnızca konumu farklıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uzay Cisimleri",
+      "skills": ["yıldız-gezegen farkı"],
+      "explanation": "Yıldızlar çekirdeklerinde füzyon yaparak kendi ışığını üretir. Gezegenler ışık üretmez; yıldızın ışığını yansıtarak görünürler."
+    },
+    {
+      "stem": "Bir kelebeğin hayat döngüsündeki evreler sırasıyla nelerdir?",
+      "options": ["Yumurta → Tırtıl (larva) → Koza (pupa) → Kelebek (imago)", "Yumurta → Kelebek → Koza → Tırtıl", "Tırtıl → Yumurta → Kelebek → Koza", "Koza → Tırtıl → Yumurta → Kelebek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metamorfoz",
+      "skills": ["tam metamorfoz", "kelebek yaşam döngüsü"],
+      "explanation": "Tam metamorfoz: yumurta → larva (tırtıl) → pupa (koza) → ergin (imago/kelebek) şeklinde gerçekleşir."
+    },
+    {
+      "stem": "Kış mevsiminde bazı hayvanların kış uykusuna yatmasının biyolojik nedeni nedir?",
+      "options": ["Besin azlığı ve soğuktan korunmak için metabolizmayı yavaşlatmak ve enerji tasarrufu yapmak", "Bitkinlik nedeniyle", "Üremek için gereken koşullar kışın oluşur.", "Güneş ışığından uzak kalmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvanların Adaptasyonları",
+      "skills": ["kış uykusu", "adaptasyon"],
+      "explanation": "Kış uykusunda hayvanın kalp atışı ve solunum yavaşlar; vücut, yağ depolarından enerji alarak soğuk ve besin yetersizliğini aşar."
+    },
+    {
+      "stem": "Topraksız bir ortamda bitki yetiştirilmesine ne ad verilir?",
+      "options": ["Hidroponik tarım", "Organik tarım", "Seracılık", "Sulama tarımı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Modern Tarım Yöntemleri",
+      "skills": ["hidroponik", "bitkisel üretim"],
+      "explanation": "Hidroponik, bitkinin ihtiyacı olan besinlerin su aracılığıyla sağlandığı topraksız tarım yöntemidir."
+    },
+    {
+      "stem": "Bir deney sonucunda hipotez doğrulanmazsa ne yapılmalıdır?",
+      "options": ["Yeni bir hipotez oluşturmak veya hipotezi revize edip tekrar denemek", "Deneyi tekrarlamamak", "Hipotez her zaman doğrudur, sonuç yanlıştır.", "Deneyi gizlemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bilimsel Yöntem",
+      "skills": ["hipotez revizyonu", "bilimsel süreç"],
+      "explanation": "Bilimsel süreçte hipotez verilerle çürütülürse bu başarısızlık değil, öğrenme fırsatıdır; yeni hipotez oluşturulur."
+    },
+    {
+      "stem": "Su bir sıvıdır ve ısıtıldığında buhar olur. Oluşan buhar neden havada gözden kaybolur gibi görünür?",
+      "options": ["Gaz hâlindeki su molekülleri çok küçük ve dağınık olduğundan gözle görülmez.", "Buhar yok olur.", "Buhar gökyüzüne çıkar ve artık var olmaz.", "Buhar suya dönüşür ama görülmez."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Buharlaşma",
+      "skills": ["gaz hâl", "madde korunumu"],
+      "explanation": "Su buharı gaz hâlindedir; moleküller o kadar dağınık ve küçüktür ki gözle görülemez, ancak hâlâ var olmaya devam ederler."
+    },
+    {
+      "stem": "Bir baraj gölü elektrik üretmek için nasıl kullanılır?",
+      "options": ["Yüksekten akan su türbinleri döndürür; türbin jeneratöre bağlıdır ve elektrik üretilir.", "Su doğrudan yakıt olarak kullanılır.", "Su ısıtılarak buhar türbini çalıştırılır.", "Su pillerini şarj eder."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yenilenebilir Enerji",
+      "skills": ["hidroelektrik enerji"],
+      "explanation": "Barajlarda suyun potansiyel enerjisi kinetik enerjiye dönüşerek türbinleri döndürür; türbin mekanik enerjiyi jeneratör aracılığıyla elektriğe çevirir."
+    },
+    {
+      "stem": "Bir çocuk çimenlerin üzerinde sabah yürürken ayakları ıslanıyor. Bunun sebebi nedir?",
+      "options": ["Geceyi daha soğuk geçiren çimen yaprakları üzerinde hava nemi yoğuşarak çiğ oluşturmuştur.", "Gece yağmur yağmıştır.", "Çimenler su salgılar.", "Yeraltı suyu yüzeye çıkmıştır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yoğuşma - Çiğ",
+      "skills": ["çiğ oluşumu", "yoğuşma"],
+      "explanation": "Soğuk gece boyunca çimen yüzeyleri soğur; sabah havası bu soğuk yüzeyle temas edince su buharı yoğuşarak çiğ damlalar oluşur."
+    },
+    {
+      "stem": "Bir çocuk deneyde tuzlu su ile saf suyu karşılaştırıyor ve tuzlu suyun daha çok kaynama noktasının olduğunu buluyor. Bu nedenle nedir?",
+      "options": ["Tuzun suda çözünmesi kaynama noktasını yükseltir (kaynama noktası yükselmesi).", "Tuz saf suyu soğutur.", "Tuz su buharını engeller.", "Saf su daha erken buharlaşır."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Çözeltiler - Kaynama Noktası",
+      "skills": ["kaynama noktası yükselmesi"],
+      "explanation": "Tuz gibi çözünen maddeler suyun kaynama noktasını yükseltir; bu 'kaynama noktası yükselmesi' adlı bir koligatif özelliktir."
+    },
+    {
+      "stem": "Güneş sistemi gezegenleri güneşe yakınlık sırasına göre sıralandığında Dünya kaçıncıdır?",
+      "options": ["3.", "2.", "4.", "5."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Güneş Sistemi - Sıralama",
+      "skills": ["gezegen sıralaması"],
+      "explanation": "Güneşe yakınlık sırası: Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün. Dünya 3. sıradadır."
+    },
+    {
+      "stem": "Ses nasıl yayılır?",
+      "options": ["Madde aracılığıyla titreşimler şeklinde", "Yalnızca hava aracılığıyla", "Işık gibi vakumda da yayılır.", "Yalnızca katılarda yayılır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses Dalgaları",
+      "skills": ["ses yayılımı", "titreşim"],
+      "explanation": "Ses, titreşimlerin katı, sıvı veya gaz halindeki madde aracılığıyla taşınmasıyla yayılır. Vakumda (maddesiz ortamda) ses yayılmaz."
+    },
+    {
+      "stem": "Bir ekosistemde 'üretici' olarak tanımlanan canlılar hangileridir?",
+      "options": ["Fotosentez yapan bitkiler ve algler", "Et yiyen hayvanlar", "Çürükçüller (bakteri ve mantarlar)", "Otçul hayvanlar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Besin Zinciri - Üreticiler",
+      "skills": ["üretici kavramı"],
+      "explanation": "Üreticiler güneş enerjisini fotosentezle organik bileşiklere dönüştüren bitki ve algler; tüm besin zincirinin tabanını oluştururlar."
+    },
+    {
+      "stem": "Bir çiçek döllenmeden sonra hangi yapıya dönüşür?",
+      "options": ["Meyveye", "Yaprağa", "Tohumsuz kalır.", "Kökten gelişir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çiçek ve Tozlaşma",
+      "skills": ["döllenme sonrası", "meyve oluşumu"],
+      "explanation": "Döllenme sonrasında yumurtalık meyveye, yumurta ise tohuma dönüşür."
+    },
+    {
+      "stem": "Neden bazı hayvanlar gruplar hâlinde yaşar?",
+      "options": ["Grup halinde yaşamak avlanma, korunma ve yavru yetiştirmede avantaj sağlar.", "Yalnız yaşamak tehlikelidir, hayvanlar bunu bilmez.", "Grupla yaşamak avcılar için kolaylaştırır.", "Sadece sosyal nedenlerle grupta yaşarlar."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvan Davranışları",
+      "skills": ["grup yaşamının avantajı"],
+      "explanation": "Sürü veya grup halinde yaşamak; avcıları tespit etme, avlanma, yavru koruma ve sıcaklığı paylaşma gibi hayatta kalma avantajları sağlar."
+    },
+    {
+      "stem": "Bir çocuk ekmek yedikten birkaç dakika sonra tükürükte tatlılık fark ediyor. Bu gözlem neyi gösterir?",
+      "options": ["Tükürükteki amilaz enzimi nişastayı şekere parçalamaya başlamıştır.", "Ekmek şekerden yapılmıştır.", "Diş çürüğü oluşmuştur.", "Mide enzimi ağıza ulaşmıştır."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Sindirim - Enzimler",
+      "skills": ["amilaz", "sindirim enzimleri"],
+      "explanation": "Tükürükteki amilaz enzimi nişastayı (polisakkarit) şekerlere parçalar; bu nedenle ekmek çiğnendikçe tatlı bir tat fark edilir."
+    },
+    {
+      "stem": "Bir güneş paneli ne iş yapar?",
+      "options": ["Güneş ışığını (foton enerjisini) elektrik enerjisine dönüştürür.", "Güneş ısısını depo eder.", "Rüzgar enerjisini elektriğe çevirir.", "Su enerjisini kullanır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yenilenebilir Enerji",
+      "skills": ["güneş enerjisi", "fotovoltaik"],
+      "explanation": "Güneş panelleri (fotovoltaik hücreler) fotonları soğurarak elektronları harekete geçirir ve elektrik akımı üretir."
+    },
+    {
+      "stem": "Bir öğrenci buz üzerinde paten kayıyor. Sürtünme azalmasının nedeni nedir?",
+      "options": ["Patenin buz üzerinde yarattığı basınç ve sürtünme buz yüzeyini eritir, ince su filmi kayışı kolaylaştırır.", "Buz çok sert olduğu için sürtünme yoktur.", "Patenin kauçuk tabanı sürtünmeyi azaltır.", "Hava buz üzerinde sürtünmeyi sıfırlar."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Sürtünme",
+      "skills": ["buz ve sürtünme", "basınç etkisi"],
+      "explanation": "Paten altındaki baskı buz yüzeyinde çok ince bir su filmi oluşturur; bu film kayışı kolaylaştırır."
+    },
+    {
+      "stem": "Bir ormanın kesilmesi ve betonlaşması nasıl bir iklim etkisi yaratır?",
+      "options": ["CO₂ yutağı azalır, kentsel ısı adası oluşur ve su döngüsü bozulur.", "Hava temizlenir.", "Bölgede yağış artar.", "Doğaya faydası vardır."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Ormansızlaşma",
+      "skills": ["ormanların iklim rolü", "kentsel ısı adası"],
+      "explanation": "Ormanlar CO₂'yi emer, nem üretir ve sıcaklığı dengeler. Kesildikten sonra CO₂ birikir, beton yüzeyler ısı depolar; bu iklim değişikliğini hızlandırır."
+    },
+    {
+      "stem": "Dünya'nın yuvarlak şekli ve eğik ekseni birlikte ne gibi bir doğa olayına yol açar?",
+      "options": ["Mevsimlerin oluşmasına", "Yalnızca gece ve gündüze", "Yalnızca ay tutulmalarına", "Okyanusların oluşmasına"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["mevsim oluşumu", "eksen eğikliği"],
+      "explanation": "Dünya'nın yaklaşık 23.5° eğik ekseniyle güneşin etrafında dönmesi, güneş ışığının mevsimlere göre farklı açıda gelmesine yol açar."
+    },
+    {
+      "stem": "Bir göl ekosisteminde alglerin çoğalması neden sorun yaratır?",
+      "options": ["Aşırı alg büyümesi sudaki oksijeni tüketir ve diğer sucul canlıları öldürebilir.", "Algler faydalıdır; ne kadar çok olursa o kadar iyi.", "Algler yalnızca görüntü kirliliği yaratır.", "Alglerin çoğalması balıkları besler."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Su Kirliliği - Alg Patlaması",
+      "skills": ["ötrofikasyon", "ekosistem dengesi"],
+      "explanation": "Aşırı alg büyümesi (ötrofikasyon) suyun üstünü kapatır, ışığı engeller ve su içindeki oksijeni tüketir; bu balık ve diğer canlıları öldürür."
+    },
+    {
+      "stem": "Çelik bir boru ile plastik bir borudan biri ellerinize tutulduğunda çelik daha soğuk hissettiriyor. Neden?",
+      "options": ["Çelik iyi bir ısı iletkenidir; elinizin ısısını daha hızlı çekerek soğuk hissi yaratır.", "Çelik daha düşük sıcaklıkta depolanmıştır.", "Plastik ısı üretir.", "Çelik yüzeyi daha pürüzlüdür."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı İletkenliği",
+      "skills": ["iletkenlik", "ısı transferi hissi"],
+      "explanation": "Çelik yüksek ısı iletkenliğine sahiptir; elin ısısını hızla alır ve eliniz soğur. Plastik düşük iletkenliktedir, ısıyı daha yavaş transfer eder."
+    },
+    {
+      "stem": "Bir çocuk balon şişiriyor. Balon içindeki hava basıncı dışarıya oranla nasıldır?",
+      "options": ["İçerideki basınç daha yüksektir.", "İçerideki basınç daha düşüktür.", "İçerisi ve dışarısı eşit basınçtadır.", "Balonun şekli basıncı etkiler."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava Basıncı",
+      "skills": ["basınç kavramı"],
+      "explanation": "Şişirilmiş balonda iç basınç, balon duvarının gerilen direncine karşı dış atmosfer basıncından daha yüksektir."
+    },
+    {
+      "stem": "Bir çocuk denizde yüzerken tuzlu suyun tatlı sudan daha çok taşıma gücü verdiğini fark ediyor. Bunun sebebi nedir?",
+      "options": ["Tuz suyun yoğunluğunu artırır; yoğun su daha büyük kaldırma kuvveti uygular.", "Tatlı su daha soğuk olduğundan taşıma kuvveti azalır.", "Tuzlu su daha az hacim kaplar.", "Deniz yüzeyi düzdür, bu yüzden daha kolay yüzülür."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yoğunluk ve Kaldırma Kuvveti",
+      "skills": ["tuz-yoğunluk ilişkisi", "kaldırma kuvveti"],
+      "explanation": "Tuz suyun yoğunluğunu artırır. Artan yoğunluk daha büyük kaldırma (Archimedes) kuvveti oluşturur ve cisimler daha kolay yüzer."
+    },
+    {
+      "stem": "Bir ampul ile LED ışık aynı parlaklıkta ışık üretiyorlarsa hangisi daha az enerji tüketir?",
+      "options": ["LED, enerji tasarrufu sağlar; aynı ışık için çok daha az elektrik harcar.", "Ampul daha az enerji tüketir.", "İkisi aynı enerjiyi tüketir.", "LED ışık daha parlak değil, sadece farklı renktedir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji Verimliliği",
+      "skills": ["LED vs ampul", "enerji tasarrufu"],
+      "explanation": "LED'ler ampullere kıyasla %80-90 daha az enerji tüketir; bu nedenle enerji tasarruflu aydınlatma için tercih edilir."
+    },
+    {
+      "stem": "Bir deney yapılmadan önce araştırmacı neden hipotez oluşturur?",
+      "options": ["Gözlemlenecek değişkeni tahmin etmek ve deneyi planlamak için test edilebilir bir öngörü sunar.", "Deney yapmadan sonuca ulaşmak için", "Hipotez sonuçları belirler.", "Hipotez olmadan deney yapılmaz."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bilimsel Yöntem",
+      "skills": ["hipotez", "bilimsel süreç"],
+      "explanation": "Hipotez test edilebilir bir öngörüdür. Deneyin amacını, bağımsız ve bağımlı değişkenleri belirleyerek sistematik araştırmaya rehberlik eder."
+    },
+    {
+      "stem": "Bir çocuk eline aldığı buz erirken elin neden ısıttığını, buzun neden soğuttuğunu açıklayabilir mi?",
+      "options": ["El ısısı buz erimesi için gerekli enerjiyi sağlar (erime ısısı); bu enerji el tarafından verildiğinden el soğur.", "El buz tarafından ısıtılıyor.", "Buz enerji üretir ve eli soğutur.", "Madde değişimi yoktur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Isı ve Erime",
+      "skills": ["erime enerjisi", "ısı transferi"],
+      "explanation": "Erime endotermik bir süreçtir; buz erirken çevresinden enerji emer. El ısısını buz alır → el soğur, buz ısınır ve erir."
+    },
+    {
+      "stem": "Bir ahtapotun dokunaçlarından birini kaybetmesi durumunda ne olabilir?",
+      "options": ["Bazı canlılarda (ahtapot dahil) kayıp organlar yeniden büyüyebilir (rejenerasyon).", "Ahtapot ölür.", "Ahtapot hiçbir şekilde iyileşemez.", "Kayıp dokunaç başka bir canlıya geçer."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Rejenerasyon",
+      "skills": ["hayvan biyolojisi", "rejenerasyon"],
+      "explanation": "Ahtapotlar ve bazı diğer canlılar (kertenkele, planarya) rejenerasyon yeteneğine sahiptir; kaybedilen organlar yeniden büyüyebilir."
+    },
+    {
+      "stem": "Yenilenebilir enerji kaynakları neden önemlidir?",
+      "options": ["Tükenmez veya çok yavaş tükenir; fosil yakıtların aksine CO₂ salınımı düşüktür.", "Fosil yakıtlardan daha ucuzdur.", "Yalnızca gelişmiş ülkeler için uygundur.", "Daha fazla enerji üretir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji Kaynakları",
+      "skills": ["yenilenebilir enerji önemi"],
+      "explanation": "Güneş, rüzgar ve su gibi yenilenebilir kaynaklar tükenmez; karbondioksit salınımı fosil yakıtlara göre çok daha düşüktür."
+    },
+    {
+      "stem": "İnsan vücudundaki en büyük organ hangisidir?",
+      "options": ["Deri", "Karaciğer", "Akciğer", "Beyin"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İnsan Vücudu",
+      "skills": ["vücut organları"],
+      "explanation": "Deri, yaklaşık 1.5-2 m² yüzey alanıyla insan vücudunun en büyük organıdır."
+    },
+    {
+      "stem": "Bir çocuk karanlıkta yürürken masaya çarpıyor. Bu durumda hangi enerji türü mevcut değildir?",
+      "options": ["Işık enerjisi", "Kinetik enerji", "Kimyasal enerji (kas kasılması)", "Ses enerjisi (çarpma sesi)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji Türleri",
+      "skills": ["enerji çeşitleri", "bağlam"],
+      "explanation": "Karanlıkta ışık enerjisi yoktur. Yürüyen çocuk kinetik enerji içeriyor, kaslar kimyasal enerji harcıyor, çarpma sesi oluşturuyor."
+    },
+    {
+      "stem": "Bir deney tüpüne sirke ve karbonat konulduğunda neden köpürme oluşur?",
+      "options": ["Kimyasal tepkime sonucu karbondioksit gazı açığa çıkar.", "Karışım ısındığından buhar oluşur.", "Sıvılar birbirine girer ve fiziksel tepkime görülür.", "Renk değişimi gözlenir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kimyasal Tepkime",
+      "skills": ["asit-baz tepkimesi", "gaz üretimi"],
+      "explanation": "Sirke (asetik asit) ve karbonat (sodyum bikarbonat) tepkimeye girerek CO₂ gazı açığa çıkarır; köpürme bu gazın kaçışından kaynaklanır."
+    }
+  ]
+}

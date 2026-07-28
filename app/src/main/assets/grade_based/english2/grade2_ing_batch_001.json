@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "ing",
+  "questions": [
+    {
+      "stem": "Aşağıdaki resimlerden hangisi 'cat' kelimesini gösterir? (Seçenekler hayvanlardır)\nA) Kedi\nB) Köpek\nC) Kuş\nD) Balık",
+      "options": ["Kedi", "Köpek", "Kuş", "Balık"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Animals Vocabulary",
+      "skills": ["vocabulary", "word-picture matching"],
+      "explanation": "'Cat' İngilizce'de kedi demektir. Dog=köpek, bird=kuş, fish=balık."
+    },
+    {
+      "stem": "'Apple' kelimesinin Türkçe anlamı nedir?",
+      "options": ["Elma", "Armut", "Portakal", "Muz"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Food Vocabulary",
+      "skills": ["vocabulary", "translation"],
+      "explanation": "'Apple' elma demektir. Pear=armut, orange=portakal, banana=muz."
+    },
+    {
+      "stem": "Aşağıdaki renklerin hangisi 'red' ile eşleşir?",
+      "options": ["Kırmızı", "Mavi", "Yeşil", "Sarı"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Colors",
+      "skills": ["vocabulary", "colors"],
+      "explanation": "'Red' kırmızı demektir. Blue=mavi, green=yeşil, yellow=sarı."
+    },
+    {
+      "stem": "'How old are you?' sorusuna hangi yanıt uygundur?",
+      "options": ["I am seven years old.", "I am fine, thank you.", "My name is Ali.", "I live in Ankara."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Greetings and Introductions",
+      "skills": ["question-answer matching", "basic conversations"],
+      "explanation": "'How old are you?' yaşınızı sorar. 'I am seven years old.' (Yedi yaşındayım) doğru yanıttır."
+    },
+    {
+      "stem": "Aşağıdaki cümlede boşluğa hangi kelime gelmelidir?\n'I _______ a student.'",
+      "options": ["am", "is", "are", "be"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "To Be - Present Simple",
+      "skills": ["to be verb conjugation"],
+      "explanation": "Birinci tekil şahıs (I) ile 'am' kullanılır. 'Is' üçüncü tekil, 'are' çoğul veya ikinci şahıs, 'be' mastar formudur."
+    },
+    {
+      "stem": "'What is this?' sorusuna bakıyorsunuz ve bir resimde köpek var. Doğru yanıt hangisidir?",
+      "options": ["It is a dog.", "It is a cat.", "It is a bird.", "It is a fish."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Animals - Basic Sentences",
+      "skills": ["sentence formation", "this/that"],
+      "explanation": "Resimde köpek var. 'Dog' İngilizce köpek demektir. 'It is a dog.' doğru yanıttır."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 'five' ile eşleşir?",
+      "options": ["5", "4", "6", "3"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Numbers",
+      "skills": ["number recognition", "vocabulary"],
+      "explanation": "'Five' sayısı 5'tir. Four=4, six=6, three=3."
+    },
+    {
+      "stem": "'She _______ a book.' cümlesini tamamlayan doğru kelime hangisidir?",
+      "options": ["reads", "read", "reading", "readed"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Simple - Third Person",
+      "skills": ["third person singular -s"],
+      "explanation": "Üçüncü tekil şahıs (she/he/it) ile Present Simple'da fiile '-s' eki eklenir. 'Reads' doğrudur."
+    },
+    {
+      "stem": "Aşağıdaki günlerin hangisi hafta sonu günüdür?",
+      "options": ["Saturday", "Monday", "Wednesday", "Thursday"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Days of the Week",
+      "skills": ["days vocabulary", "categorization"],
+      "explanation": "Saturday (Cumartesi) ve Sunday (Pazar) hafta sonu günleridir. Monday, Wednesday, Thursday hafta içidir."
+    },
+    {
+      "stem": "'Good morning!' ifadesine en uygun yanıt hangisidir?",
+      "options": ["Good morning!", "Good night!", "Goodbye!", "Thank you!"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Greetings",
+      "skills": ["appropriate responses", "greetings"],
+      "explanation": "'Good morning!' sabah selamlaşmasıdır ve karşılığında aynı şekilde 'Good morning!' denir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi bir meyve DEĞİLDİR?",
+      "options": ["Carrot", "Apple", "Banana", "Orange"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Food Categories",
+      "skills": ["categorization", "vocabulary"],
+      "explanation": "'Carrot' (havuç) bir sebzedir. Apple (elma), banana (muz) ve orange (portakal) meyve kategorisindedir."
+    },
+    {
+      "stem": "'This is my _______ .' cümlesinde resimde bir kitap görünüyor. Boşluğa hangi kelime gelir?",
+      "options": ["book", "pen", "bag", "ruler"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Classroom Objects",
+      "skills": ["vocabulary", "classroom items"],
+      "explanation": "'Book' kitap demektir. Pen=kalem, bag=çanta, ruler=cetvel. Resimde kitap olduğundan 'book' doğrudur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi doğru bir tanıtım cümlesidir?",
+      "options": ["My name is Zeynep.", "My name Zeynep is.", "I name is Zeynep.", "Name my is Zeynep."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Self Introduction",
+      "skills": ["sentence structure", "my name is"],
+      "explanation": "'My name is + isim.' yapısı Türkçe'deki 'Benim adım...' ifadesine karşılık gelir. Kelime sırası bu şekildedir."
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi söylüyor: 'I have a brother and a sister.' Bu öğrenci hakkında ne söylenebilir?",
+      "options": ["Hem erkek hem kız kardeşi var.", "Yalnızca bir erkek kardeşi var.", "Yalnızca bir kız kardeşi var.", "Hiç kardeşi yok."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Family Vocabulary",
+      "skills": ["sentence comprehension", "family"],
+      "explanation": "'Brother' erkek kardeş, 'sister' kız kardeş anlamına gelir. Öğrenci her ikisine de sahip olduğunu söylüyor."
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi doğrudur?\n'There _______ two cats on the table.'",
+      "options": ["are", "is", "am", "be"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "There is / There are",
+      "skills": ["there is/are grammar", "plural"],
+      "explanation": "'Two cats' çoğul olduğundan 'There are' kullanılır. Tekil için 'There is' kullanılır."
+    },
+    {
+      "stem": "'Where are you from?' sorusuna hangi yanıt uygundur?",
+      "options": ["I am from Turkey.", "I am fine.", "I am eight.", "I like pizza."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Countries and Nationalities",
+      "skills": ["question-answer matching"],
+      "explanation": "'Where are you from?' nerelisin sorusudur. 'I am from Turkey.' (Türkiye'denim) doğru yanıttır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi giysi kategorisine girer?",
+      "options": ["Jacket", "Table", "Pencil", "Window"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Clothes Vocabulary",
+      "skills": ["categorization", "clothes"],
+      "explanation": "'Jacket' (ceket) giysidir. Table=masa, pencil=kalem, window=pencere farklı kategorilerdedir."
+    },
+    {
+      "stem": "Aşağıdaki saatlerin hangisi 'three o'clock'ı gösterir?",
+      "options": ["3:00", "4:00", "2:00", "5:00"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Telling Time",
+      "skills": ["time vocabulary", "o'clock"],
+      "explanation": "'Three o'clock' saat 3:00 demektir. Her sayı kendi saatine karşılık gelir."
+    },
+    {
+      "stem": "'Do you like apples?' sorusuna olumlu yanıt hangisidir?",
+      "options": ["Yes, I do.", "No, I don't.", "Yes, I am.", "No, I'm not."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Short Answers - Do/Don't",
+      "skills": ["do/does questions and answers"],
+      "explanation": "'Do' ile kurulan sorulara 'Yes, I do.' veya 'No, I don't.' ile yanıt verilir. 'Yes, I am.' 'be' fiili içindir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi şu an devam eden bir eylemi ifade eder?",
+      "options": ["She is dancing now.", "She dances every day.", "She danced yesterday.", "She will dance tomorrow."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Continuous",
+      "skills": ["present continuous identification", "now"],
+      "explanation": "'Now' (şimdi) ve '-ing' eki şu an devam eden eylemi gösterir. Present Continuous = is/am/are + V-ing."
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi 'Benim bisikletim var.' anlamına gelir?",
+      "options": ["I have a bicycle.", "I am a bicycle.", "I like bicycles.", "I want a bicycle."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Have/Has",
+      "skills": ["have/has for possession", "vocabulary"],
+      "explanation": "'Have a bicycle' sahiplik ifade eder. 'Am a bicycle' kimlik, 'like' sevmek, 'want' istemek anlamındadır."
+    },
+    {
+      "stem": "Bir sınıfta öğretmen şöyle diyor: 'Open your books, please.' Öğrenciler ne yapmalıdır?",
+      "options": ["Kitaplarını açmalılar.", "Kitaplarını kapatmalılar.", "Ayağa kalkmalılar.", "Tahtaya bakmalılar."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Classroom Instructions",
+      "skills": ["imperative comprehension", "classroom language"],
+      "explanation": "'Open' açmak, 'books' kitaplar anlamına gelir. 'Open your books' = kitaplarını aç."
+    },
+    {
+      "stem": "Aşağıdaki hayvanların hangisi 'fly' (uçmak) eylemini yapabilir?",
+      "options": ["Bird", "Fish", "Dog", "Cat"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Animals and Actions",
+      "skills": ["animal abilities", "vocabulary"],
+      "explanation": "Kuşlar (birds) uçabilir. Balık yüzer, köpek ve kedi yürür/koşar."
+    },
+    {
+      "stem": "'What colour is the sky?' sorusuna doğru yanıt hangisidir?",
+      "options": ["It is blue.", "It is red.", "It is green.", "It is yellow."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Colors in Context",
+      "skills": ["color identification", "real world knowledge"],
+      "explanation": "Gökyüzü mavi (blue) renktedir. Bu temel bir gözlem sorusudur."
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi mevsimlerden birini doğru şekilde tanımlar?",
+      "options": ["Winter is cold and it sometimes snows.", "Winter is hot and sunny.", "Summer is cold and rainy.", "Spring is dark and freezing."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Seasons and Weather",
+      "skills": ["seasons vocabulary", "description"],
+      "explanation": "Kış (winter) soğuktur ve bazen kar yağar. Diğer tanımlar mevsimlerle örtüşmüyor."
+    },
+    {
+      "stem": "Bir öğrenci şöyle yazıyor: 'I can swim.' Bu cümle ne anlama gelir?",
+      "options": ["Yüzebilirim.", "Yüzmek istiyorum.", "Yüzmeyi seviyorum.", "Yüzmek zorundayım."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Can - Ability",
+      "skills": ["modal can", "ability"],
+      "explanation": "'Can' yetenek ifade eden modal fiildir. 'I can swim' = Yüzebilirim."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'can't' yetenek eksikliğini gösterir?",
+      "options": ["I can't ride a bike.", "I can't go now, it's late.", "You can't come in.", "She can't be serious."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Can't - Inability",
+      "skills": ["can vs can't", "ability vs prohibition"],
+      "explanation": "'I can't ride a bike' bisiklet süremem şeklinde yetenek eksikliği bildirir. Diğerleri yasak, izin veya tahmin anlamı taşır."
+    },
+    {
+      "stem": "Bir resimde bebek uyuyor. Bu durumu anlatan cümle hangisidir?",
+      "options": ["The baby is sleeping.", "The baby sleeps.", "The baby slept.", "The baby will sleep."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Continuous",
+      "skills": ["present continuous for current actions"],
+      "explanation": "Şu an devam eden eylem Present Continuous ile anlatılır: 'is sleeping'. Resim anlık durumu gösterir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede hangi renk 'yeşil' demektir?\n'The grass is green.'",
+      "options": ["Green", "Blue", "Red", "Yellow"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Colors",
+      "skills": ["reading comprehension", "color vocabulary"],
+      "explanation": "'Green' yeşil demektir. Cümlede çimenin yeşil olduğu söyleniyor."
+    },
+    {
+      "stem": "'I am happy.' cümlesinin tersi (olumsuz formu) nedir?",
+      "options": ["I am not happy.", "I not am happy.", "I am no happy.", "Not I am happy."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Negation - To Be",
+      "skills": ["negation with to be"],
+      "explanation": "'Be' fiilinin olumsuz formu 'am/is/are + not' şeklinde oluşturulur. 'I am not happy.' doğrudur."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'school' ile ilgilidir?",
+      "options": ["Teacher", "Doctor", "Chef", "Pilot"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "School Vocabulary",
+      "skills": ["word association", "school"],
+      "explanation": "'Teacher' (öğretmen) okulla doğrudan ilişkilidir. Doctor doktor, chef aşçı, pilot pilot okul ortamında bulunmaz."
+    },
+    {
+      "stem": "Bir öğrenci 'My favourite colour is purple.' diyor. Bu öğrencinin favori rengi nedir?",
+      "options": ["Mor", "Sarı", "Turuncu", "Pembe"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Colors - Favorite",
+      "skills": ["reading comprehension", "colors"],
+      "explanation": "'Purple' mor demektir. Yellow=sarı, orange=turuncu, pink=pembe."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi hava durumunu anlatır?",
+      "options": ["It is raining today.", "I am reading a book.", "She is eating lunch.", "They are playing football."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Weather",
+      "skills": ["weather vocabulary", "reading sentences"],
+      "explanation": "'It is raining today.' bugün yağmur yağıyor anlamına gelir. Diğerleri hava durumuyla ilgili değil."
+    },
+    {
+      "stem": "'Breakfast' kelimesi hangi öğünü ifade eder?",
+      "options": ["Sabah kahvaltısı", "Öğle yemeği", "Akşam yemeği", "Gece atıştırması"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Meals Vocabulary",
+      "skills": ["vocabulary", "daily routines"],
+      "explanation": "'Breakfast' sabah kahvaltısıdır. Lunch=öğle, dinner=akşam, snack=atıştırma."
+    },
+    {
+      "stem": "Bir diyalogda:\nA: 'Is this your bag?'\nB: 'Yes, _______ my bag.'\nBoşluğa hangi ifade gelir?",
+      "options": ["it is", "it are", "this are", "they is"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Possessives - This/It is",
+      "skills": ["demonstratives", "possessives"],
+      "explanation": "Tek bir nesne hakkında konuşulduğunda 'it is' (=it's) kullanılır. 'Yes, it is my bag.' doğru yanıttır."
+    },
+    {
+      "stem": "Aşağıdaki besin gruplarından hangisi 'vegetables' kategorisine girer?",
+      "options": ["Carrot and tomato", "Apple and banana", "Milk and cheese", "Bread and rice"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Food and Vegetables",
+      "skills": ["food categorization"],
+      "explanation": "Carrot (havuç) ve tomato (domates) sebzedir. Apple ve banana meyve, milk ve cheese süt ürünü, bread ve rice tahıldır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi doğru bir soru formudur?",
+      "options": ["Do you like ice cream?", "You like do ice cream?", "Like do you ice cream?", "You do like ice cream?"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Simple Questions",
+      "skills": ["do/does question formation"],
+      "explanation": "Soru formu: 'Do/Does + özne + fiil?' şeklindedir. 'Do you like ice cream?' doğru soru yapısıdır."
+    },
+    {
+      "stem": "Bir öğrenci sabahları yaptıklarını anlatıyor: 'I wake up, brush my teeth and eat breakfast.' Bu sıra nasıl anlaşılmalıdır?",
+      "options": ["Öğrenci önce uyanıyor, sonra dişlerini fırçalıyor, ardından kahvaltı yapıyor.", "Öğrenci önce kahvaltı yapıyor, sonra dişlerini fırçalıyor.", "Öğrenci sadece kahvaltı yapıyor.", "Öğrenci sabah yalnızca uyuyor."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Daily Routine",
+      "skills": ["sequence", "daily routines"],
+      "explanation": "Cümledeki sıralama uyanmak → diş fırçalamak → kahvaltı etmektir. Bu sabah rutininin olağan sırasıdır."
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi 'Bugün Pazartesi.' anlamına gelir?",
+      "options": ["Today is Monday.", "Today is Sunday.", "Yesterday was Monday.", "Tomorrow is Monday."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Days of the Week",
+      "skills": ["days vocabulary", "today/yesterday/tomorrow"],
+      "explanation": "'Today is Monday.' = Bugün Pazartesi. Sunday=Pazar, yesterday=dün, tomorrow=yarın."
+    },
+    {
+      "stem": "Bir öğrencinin çantasında kitap, kalem, silgi ve cetvel var. 'What is in the bag?' sorusuna doğru yanıt hangisidir?",
+      "options": ["There are a book, a pencil, an eraser and a ruler.", "There is a book, pencil, eraser and ruler.", "The bag has book, pencil, eraser, ruler.", "In the bag book, pencil, eraser, ruler."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "There is / There are",
+      "skills": ["there are with list", "articles"],
+      "explanation": "Birden fazla nesne var → 'There are'. Her nesne önünde belirsiz tanımlık (a/an) kullanılmalıdır."
+    },
+    {
+      "stem": "'My mother is a nurse.' cümlesinde annenin mesleği nedir?",
+      "options": ["Hemşire", "Öğretmen", "Doktor", "Aşçı"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Jobs and Professions",
+      "skills": ["vocabulary", "professions"],
+      "explanation": "'Nurse' hemşire demektir. Teacher=öğretmen, doctor=doktor, chef=aşçı."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi 'Kardeşim 10 yaşında.' ifadesini doğru İngilizceyle verir?",
+      "options": ["My brother is ten years old.", "My brother has ten years old.", "My brother are ten years old.", "My brother ten years old."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Age Expressions",
+      "skills": ["to be for age", "grammar"],
+      "explanation": "Yaş ifadesinde 'to be' kullanılır: 'is ten years old'. 'Has' yanlıştır, 'are' yanlış şahıs, fiilin tamamen atlanması kabul edilemez."
+    },
+    {
+      "stem": "'He plays football every Saturday.' cümlesinde ne sıklıkla oynandığı belirtilmiştir?",
+      "options": ["Her Cumartesi", "Her gün", "Bazen", "Hiçbir zaman"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Frequency - Days",
+      "skills": ["reading for specific detail", "frequency"],
+      "explanation": "'Every Saturday' her Cumartesi demektir. Bu düzenli bir haftalık aktiviteyi gösterir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde hangisi 'She has a dog.' cümlesini olumsuz yapar?",
+      "options": ["She doesn't have a dog.", "She don't have a dog.", "She hasn't a dog.", "She not has a dog."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Negation - Present Simple",
+      "skills": ["does/doesn't negation"],
+      "explanation": "Üçüncü tekil şahıs olumsuzunda 'doesn't + base verb' kullanılır. 'Don't' birinci/ikinci şahıs, 'hasn't' British English'te eski kullanım, 'not has' hatalı."
+    },
+    {
+      "stem": "Bir resimde büyük ve sarı bir güneş var. Bu resmi anlatan cümle hangisidir?",
+      "options": ["The sun is big and yellow.", "The sun is small and blue.", "The moon is big and yellow.", "The star is big and yellow."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Adjectives - Description",
+      "skills": ["reading and describing pictures"],
+      "explanation": "Resimde büyük (big) ve sarı (yellow) bir güneş (sun) var. Cümle bu iki sıfatı doğru kullanmalıdır."
+    },
+    {
+      "stem": "'What do you do on Sundays?' sorusuna hangi yanıt uygundur?",
+      "options": ["On Sundays, I play with my friends.", "I am fine, thank you.", "I am nine years old.", "My name is Selin."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Daily and Weekly Routines",
+      "skills": ["question-answer matching", "routines"],
+      "explanation": "Soru Pazarları ne yaptığını soruyor. 'On Sundays, I play with my friends.' bu soruya uygun bir yanıttır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi bir yer sorgusu sorusu oluşturur?",
+      "options": ["Where is the library?", "What is the library?", "Who is the library?", "When is the library?"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Question Words - Where",
+      "skills": ["question words", "where for location"],
+      "explanation": "'Where' yer sorusudur. 'What' ne, 'who' kim, 'when' ne zaman demektir. Kütüphanenin yerini sormak için 'Where' kullanılır."
+    },
+    {
+      "stem": "Bir öğrenci şöyle diyor: 'I have two eyes, one nose and one mouth.' Bu cümle ne hakkındadır?",
+      "options": ["Yüz organları hakkında", "Vücut kasları hakkında", "Hayvanların özellikleri hakkında", "Renk tanımları hakkında"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Body Parts",
+      "skills": ["body vocabulary", "self description"],
+      "explanation": "Eyes (gözler), nose (burun) ve mouth (ağız) yüz organlarıdır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'big' ve 'small' sıfatları hangi anlam ilişkisini gösterir?",
+      "options": ["Zıt anlamlı (antonim)", "Eş anlamlı (sinonim)", "İlgisiz kelimeler", "Aynı anlam, farklı yazım"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Opposites",
+      "skills": ["antonyms", "adjective pairs"],
+      "explanation": "'Big' büyük, 'small' küçük demektir; bunlar zıt anlamlı kelimelerdir (antonimler)."
+    },
+    {
+      "stem": "Bir öğrenci şöyle diyor: 'My favourite food is pizza.' Öğrencinin en sevdiği yiyecek nedir?",
+      "options": ["Pizza", "Makarna", "Hamburger", "Salata"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Food Preferences",
+      "skills": ["reading comprehension", "vocabulary"],
+      "explanation": "'Favourite food is pizza' en sevilen yiyeceğin pizza olduğunu açıkça belirtiyor."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi doğru bir 'There is' kullanımıdır?",
+      "options": ["There is a cat under the table.", "There are a cat under the table.", "There is two cats under the table.", "There be a cat under the table."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "There is / There are",
+      "skills": ["singular there is", "grammar accuracy"],
+      "explanation": "Tekil nesne (a cat) için 'There is' kullanılır. 'There are' çoğul içindir. 'There be' hatalıdır."
+    },
+    {
+      "stem": "Bir öğrenci 'My father is tall and strong.' diyor. Baba hakkında verilen bilgiler nelerdir?",
+      "options": ["Uzun boylu ve güçlü", "Kısa boylu ve zayıf", "Uzun boylu ve zayıf", "Kısa boylu ve güçlü"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Describing People",
+      "skills": ["adjective comprehension", "family description"],
+      "explanation": "'Tall' uzun boylu, 'strong' güçlü demektir. İkisi birlikte doğru yanıtı oluşturur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde hangi kelime 'quick' (hızlı) ile zıt anlamlıdır?",
+      "options": ["Slow", "Fast", "Smart", "Loud"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Opposites",
+      "skills": ["antonyms"],
+      "explanation": "'Quick/fast' hızlı, 'slow' yavaş demektir ve bunlar zıt anlamlıdır. Fast=quick ile eş anlamlı, smart=zeki, loud=gürültülü."
+    },
+    {
+      "stem": "'She has _______ umbrella.' cümlesini tamamlayan doğru belirsiz tanımlık hangisidir?",
+      "options": ["an", "a", "the", "—"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Articles - a/an",
+      "skills": ["a vs an", "vowel sounds"],
+      "explanation": "'Umbrella' ünlü sesle (u) başlar, bu yüzden 'an' kullanılır. 'A' ünsüzle başlayan kelimeler için, 'the' belirli tanımlık için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde hangi fiil 'swim' ile ilgili bir aktiviteyi ifade eder?",
+      "options": ["I can swim in the pool.", "I can fly in the sky.", "I can climb the tree.", "I can run on the track."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Action Verbs",
+      "skills": ["action verbs", "can for ability"],
+      "explanation": "'Swim in the pool' yüzmek demektir. Fly=uçmak, climb=tırmanmak, run=koşmak farklı eylemlerdir."
+    },
+    {
+      "stem": "Bir diyalogda:\nA: 'Is it sunny today?'\nB: 'No, _______ cloudy.'\nBoşluğa hangi ifade gelir?",
+      "options": ["it is", "it are", "is it", "they are"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Weather Questions",
+      "skills": ["short answers", "weather"],
+      "explanation": "Hava durumu için 'It is + adjective' yapısı kullanılır. 'No, it is cloudy.' doğru yanıttır."
+    },
+    {
+      "stem": "Bir öğrenci doğum günündeki hediyelerden bahsediyor: 'I got a book, a toy car and a football.' Kaç hediye aldı?",
+      "options": ["3", "2", "4", "1"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Counting",
+      "skills": ["counting from context", "reading comprehension"],
+      "explanation": "Kitap, oyuncak araba ve futbol topu — toplam 3 hediye sayılmaktadır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi 'Bir köpek bahçede oynuyor.' ifadesini doğru İngilizceyle verir?",
+      "options": ["A dog is playing in the garden.", "A dog playing in the garden.", "A dog play in the garden.", "A dog plays in the garden now."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Continuous - Sentence Building",
+      "skills": ["is + V-ing structure", "present continuous"],
+      "explanation": "Şu an devam eden eylem Present Continuous ile aktarılır: 'is playing'. Diğerleri yardımcı fiil eksik veya yanlış form içeriyor."
+    },
+    {
+      "stem": "'What is your phone number?' sorusu ne soruyor?",
+      "options": ["Telefon numarasını", "Yaşını", "Adresini", "Doğum günü tarihini"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Personal Information",
+      "skills": ["question word comprehension"],
+      "explanation": "'Phone number' telefon numarası demektir. Bu soru kişinin telefon numarasını öğrenmeye yöneliktir."
+    },
+    {
+      "stem": "Bir öğrenci şöyle yazıyor: 'In my room there is a bed, a desk and a wardrobe.' Odada kaç nesne var?",
+      "options": ["3", "2", "4", "5"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Furniture and Rooms",
+      "skills": ["counting", "furniture vocabulary"],
+      "explanation": "Bed (yatak), desk (yazı masası) ve wardrobe (gardırop) olmak üzere 3 nesne sayılıyor."
+    },
+    {
+      "stem": "'She _______ her homework after school every day.' Boşluğa en uygun kelime hangisidir?",
+      "options": ["does", "do", "doing", "done"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Simple - Third Person",
+      "skills": ["does for third person", "grammar"],
+      "explanation": "Üçüncü tekil şahısla (she) 'does' kullanılır. 'Do' birinci/ikinci şahıs için, 'doing' Present Continuous, 'done' past participle."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi bir talebi (request) ifade eder?",
+      "options": ["Can you pass the salt, please?", "I like salt.", "Salt is in the kitchen.", "She bought salt yesterday."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Making Requests",
+      "skills": ["can for requests", "polite language"],
+      "explanation": "'Can you...please?' kibarca bir talepte bulunma yapısıdır. Tuzu uzatmasını istiyor. Diğerleri bilgi veya ifadedir."
+    },
+    {
+      "stem": "Bir öğrenci alışveriş yaparken şöyle soruyor: 'How much is this pencil?' Bu soru ne soruyor?",
+      "options": ["Kalemin fiyatını", "Kalemin rengini", "Kalemin boyutunu", "Kalemin nerede olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Shopping - How Much",
+      "skills": ["how much for price", "shopping"],
+      "explanation": "'How much is...?' fiyat sorusudur. Kalemin ne kadar tuttuğu sorulmaktadır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'old' ve 'new' kelimeleri hangi ilişkiyi gösterir?",
+      "options": ["Zıt anlamlı", "Eş anlamlı", "Anlam ilgisi yok", "Aynı kökten türemiş"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Opposites",
+      "skills": ["antonyms - old/new"],
+      "explanation": "'Old' eski/yaşlı, 'new' yeni demektir. Bunlar zıt anlamlı kelimelerdir."
+    },
+    {
+      "stem": "Bir öğrenci şöyle diyor: 'My sister can sing very well.' Bu öğrenci kız kardeşi hakkında ne söylüyor?",
+      "options": ["Çok iyi şarkı söyleyebilir.", "Çok iyi dans edebilir.", "Çok iyi yüzebilir.", "Çok iyi resim yapabilir."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Can - Ability",
+      "skills": ["can for ability", "reading"],
+      "explanation": "'Can sing very well' çok iyi şarkı söyleyebilir demektir."
+    },
+    {
+      "stem": "'Look at the picture. There _______ some flowers in the vase.' Boşluğa ne gelir?",
+      "options": ["are", "is", "am", "be"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "There are - Plural",
+      "skills": ["there are with plural nouns"],
+      "explanation": "'Flowers' çoğul isimdir; 'There are' kullanılır. 'There is' tekil için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi sınıfta kullanılan kibar bir izin isteme ifadesidir?",
+      "options": ["May I go to the toilet, please?", "I want to go to the toilet.", "The toilet is outside.", "Going to the toilet."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Asking for Permission",
+      "skills": ["may/can for permission", "polite language"],
+      "explanation": "'May I...please?' izin isteyen kibar bir ifadedir. Diğerleri ya talep değil bilgi içeriyor ya da dilbilgisel olarak hatalı."
+    },
+    {
+      "stem": "'What time does school start?' sorusunu Türkçeye çevirirseniz ne olur?",
+      "options": ["Okul saat kaçta başlar?", "Okul ne zaman biter?", "Bugün okul var mı?", "Okulun adı ne?"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Time Questions",
+      "skills": ["what time", "translation"],
+      "explanation": "'What time does...start?' ne zaman başlar anlamına gelir. Bu okulun başlangıç saatini soran bir sorudur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi bir yeri tarif etmektedir?",
+      "options": ["The park is next to the school.", "She goes to school every day.", "I like the park.", "He runs in the park."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Prepositions of Place",
+      "skills": ["next to", "location descriptions"],
+      "explanation": "'Next to' (yanında) bir yerin konumunu anlatır. Diğer cümleler konum değil aktivite veya tercih ifade eder."
+    },
+    {
+      "stem": "Bir öğrenci şöyle diyor: 'I don't like spiders because they are scary.' Bu öğrenci neden örümceklerden hoşlanmıyor?",
+      "options": ["Korkunç oldukları için", "Büyük oldukları için", "Çirkin oldukları için", "Hızlı oldukları için"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Giving Reasons - Because",
+      "skills": ["because for reasons", "reading"],
+      "explanation": "'Because they are scary' = korkunç oldukları için. Bu öğrencinin verdiği neden budur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde hangisi doğru 'have got' kullanımını içerir?",
+      "options": ["I have got a new backpack.", "I have got new backpack.", "I haves got a new backpack.", "I have a got new backpack."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Have Got",
+      "skills": ["have got for possession", "articles"],
+      "explanation": "'Have got' sahipliği bildirir. 'A new backpack' belirsiz tanımlıkla yazılmalıdır. Yapı: 'I have got a/an + isim' şeklindedir."
+    },
+    {
+      "stem": "Bir öğrenci şöyle söylüyor: 'My favourite season is summer because it is warm and sunny.' Bu öğrenci yazı neden seviyor?",
+      "options": ["Sıcak ve güneşli olduğu için", "Karlı olduğu için", "Yaprakların döküldüğü için", "Yağmurlu olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Seasons and Weather",
+      "skills": ["because for preference", "reading"],
+      "explanation": "'Warm' (sıcak) ve 'sunny' (güneşli) verilen nedenlerdir. Bu iki özellik yazı öğrenci için çekici kılıyor."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi alışveriş diyaloğuna uygundur?",
+      "options": ["How much is this T-shirt?", "Where is the hospital?", "What time is it?", "Who is your teacher?"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Shopping",
+      "skills": ["shopping dialogue", "how much"],
+      "explanation": "'How much is...?' alışverişte fiyat sorgulamak için kullanılır. Diğer sorular yer, zaman ve kişi soruludur."
+    },
+    {
+      "stem": "Bir öğrenci sınıf arkadaşını tanıtıyor: 'This is my friend, Ali. He is funny and kind.' Ali nasıl bir insandır?",
+      "options": ["Eğlenceli ve kibar", "Ciddi ve soğuk", "Eğlenceli ve tembel", "Sessiz ve kibar"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Personality Adjectives",
+      "skills": ["describing people", "character adjectives"],
+      "explanation": "'Funny' eğlenceli/komik, 'kind' nazik/kibar demektir. İki sıfat birlikte doğru yanıtı oluşturur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi 'Kütüphane okulun karşısındadır.' ifadesini doğru İngilizceyle aktarır?",
+      "options": ["The library is opposite the school.", "The library is next to the school.", "The library is behind the school.", "The library is in front of the school."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Prepositions of Place",
+      "skills": ["opposite vs next to vs behind", "location"],
+      "explanation": "'Opposite' karşısında demektir. 'Next to' yanında, 'behind' arkasında, 'in front of' önünde."
+    }
+  ]
+}

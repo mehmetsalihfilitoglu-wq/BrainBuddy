@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda aynı periyotta yer alan K, L ve M elementlerinin atom numaraları soldan sağa doğru artmaktadır. Buna göre bu elementlerle ilgili aşağıdaki ifadelerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Kimyasal özellikleri aynıdır.",
+        "Katman sayıları aynıdır.",
+        "Proton sayıları aynıdır.",
+        "Hepsi aynı fiziksel hâldedir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
+      "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. Ancak kimyasal özellikleri, proton sayıları ve fiziksel hâlleri farklı olabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Nötr X atomunun proton sayısı 13, nötron sayısı 14'tür. Buna göre X atomu ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Elektron sayısı 14'tür.",
+        "Atom numarası 27'dir.",
+        "Kütle numarası 27'dir.",
+        "Katman sayısı 13'tür."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "atom",
+        "proton",
+        "nötron",
+        "kutle_numarasi"
+      ],
+      "explanation": "Kütle numarası proton ve nötron sayılarının toplamıdır: 13 + 14 = 27. Nötr atomda elektron sayısı proton sayısına eşittir, yani 13'tür.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q02"
+    },
+    {
+      "stem": "Aşağıdaki tanımlardan hangisi bileşiğe aittir?",
+      "options": [
+        "Aynı tür atomlardan oluşur ve kimyasal yollarla ayrıştırılamaz.",
+        "Farklı maddelerin kendi özelliklerini kaybetmeden bir araya gelmesiyle oluşur.",
+        "Farklı tür atomların belirli oranlarda kimyasal bağlarla birleşmesiyle oluşur.",
+        "Tek tür atom içerir ve periyodik tabloda sembolle gösterilir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "bilesik",
+        "element",
+        "karisim",
+        "tanim"
+      ],
+      "explanation": "Bileşikler, farklı tür atomların belirli oranlarda kimyasal bağlarla birleşmesiyle oluşur. Elementler tek tür atomdan oluşur, karışımlar ise maddelerin kendi özelliklerini koruduğu yapılardır.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q03"
+    },
+    {
+      "stem": "Bir kapta 4 tane H2O, 3 tane CO2 ve 2 tane O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
+      "explanation": "H2O: 4×3=12 atom. CO2: 3×3=9 atom. O2: 2×2=4 atom. Toplam 12+9+4=25 atom.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q04"
+    },
+    {
+      "stem": "Periyodik tabloda aynı grupta bulunan elementler için aşağıdakilerden hangisi kesinlikle yanlıştır?",
+      "options": [
+        "Son katman elektron sayıları aynıdır.",
+        "Kimyasal özellikleri benzerdir.",
+        "Katman sayıları aynıdır.",
+        "Aynı sütunda yer alırlar."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "katman_sayisi",
+        "elektron"
+      ],
+      "explanation": "Aynı gruptaki elementlerin son katman elektron sayıları aynıdır, kimyasal özellikleri benzerdir ve aynı sütunda yer alırlar. Ancak katman sayıları aynı olmak zorunda değildir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "K, L ve M elementleriyle ilgili bazı bilgiler aşağıda verilmiştir:\n\nK: 2. periyot, 1. grup\nL: 2. periyot, 7. grup\nM: 3. periyot, 1. grup\n\nBuna göre aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "K ve L'nin katman sayıları farklıdır.",
+        "K ve M'nin kimyasal özellikleri benzerdir.",
+        "L ve M aynı periyottadır.",
+        "M'nin proton sayısı K'den küçüktür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "periyot",
+        "kimyasal_ozellik"
+      ],
+      "explanation": "Aynı grupta bulunan elementlerin kimyasal özellikleri benzerdir. K ve M 1. gruptadır. K ve L aynı periyotta oldukları için katman sayıları aynıdır. L ve M farklı periyottadır.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q06"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de bileşiktir?",
+      "options": [
+        "Demir",
+        "Hava",
+        "Karbondioksit",
+        "Deniz suyu"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "saf_madde",
+        "bilesik",
+        "element",
+        "karisim"
+      ],
+      "explanation": "Karbondioksit, farklı tür atomlardan oluşan saf bir bileşiktir. Demir elementtir, hava ve deniz suyu karışımdır.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q07"
+    },
+    {
+      "stem": "Bir iyonlaşma olayı dikkate alınmadan, nötr bir atom için aşağıdaki niceliklerden hangisi tek başına verildiğinde atom numarası kesin olarak belirlenebilir?",
+      "options": [
+        "Nötron sayısı",
+        "Katman sayısı",
+        "Proton sayısı",
+        "Kütle numarası"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "atom",
+        "proton",
+        "atom_numarasi"
+      ],
+      "explanation": "Atom numarası proton sayısına eşittir. Nötron sayısı, katman sayısı ya da kütle numarası tek başına atom numarasını belirlemez.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q08"
+    },
+    {
+      "stem": "Aşağıdaki tanecik modellerinden hangisi elemente ait olabilir?\n\nI. Yalnız aynı tür atomlardan oluşan tek atomlu tanecikler\nII. Aynı tür atomlardan oluşan iki atomlu moleküller\nIII. Farklı tür atomlardan oluşan iki atomlu moleküller",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "element",
+        "molekul",
+        "atom",
+        "yapisal_ozellik"
+      ],
+      "explanation": "Elementler aynı tür atomlardan oluşur. Bu nedenle tek atomlu yapıda da olabilir, aynı tür atomlardan oluşan molekül yapıda da olabilir. Farklı tür atomlar içeriyorsa bileşik olur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi karışımlar için doğrudur?",
+      "options": [
+        "Belirli ayırt edici formülleri vardır.",
+        "Bileşenleri kimyasal özelliklerini kaybeder.",
+        "Fiziksel yöntemlerle ayrılabilirler.",
+        "Tek tür atom içerirler."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "karisim",
+        "fiziksel_ayirma",
+        "ozellik"
+      ],
+      "explanation": "Karışımların bileşenleri kendi özelliklerini korur ve fiziksel yöntemlerle ayrılabilir. Belirli kimyasal formülleri yoktur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_003_q10"
+    }
+  ]
+}

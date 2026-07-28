@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Taban alanı 50 cm² olan bir cisim zemine 250 N kuvvet uygulamaktadır. Aynı cisim başka bir yüzeyi üzerine çevrildiğinde temas alanı 10 cm² oluyor. Buna göre ikinci durumda zemine uygulanan basınç kaç N/cm² olur?",
+      "options": [
+        "5",
+        "10",
+        "20",
+        "25"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu"
+      ],
+      "explanation": "Basınç = Kuvvet / Alan = 250 / 10 = 25 N/cm².",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q01"
+    },
+    {
+      "stem": "Kar üzerinde yürürken batmayı azaltmak için kuvvetin daha geniş alana yayılması istenir. Aşağıdaki seçeneklerden hangisi bu ilkeye en uygun olur?",
+      "options": [
+        "İnce topuklu ayakkabı",
+        "Dar tabanlı bot",
+        "Geniş tabanlı kar ayakkabısı",
+        "Metal çivili ayakkabı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "günlük_hayat",
+        "basinc_uygulamalari"
+      ],
+      "explanation": "Temas alanı arttıkça basınç azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q02"
+    },
+    {
+      "stem": "Aynı cins sıvı bulunan K, L ve M kaplarında sıvı yükseklikleri sırasıyla 3h, 2h ve 5h'tir. Kap tabanlarındaki sıvı basınçlarının sıralaması hangisidir?",
+      "options": [
+        "M > K > L",
+        "K > M > L",
+        "L > K > M",
+        "K = L = M"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
+      "explanation": "Sıvı basıncı derinlikle doğru orantılıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q03"
+    },
+    {
+      "stem": "Bir sıvıda derinlik ile basınç arasındaki ilişki grafikte doğrusal olarak artmaktadır. Bu grafik aşağıdakilerden hangisinin sabit olduğunu gösterir?",
+      "options": [
+        "Sıvı yoğunluğunun",
+        "Kap şeklinin",
+        "Kap hacminin",
+        "Sıvı miktarının"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "grafik",
+        "yogunluk"
+      ],
+      "explanation": "Basınç derinlik ile doğru orantılıdır ve yoğunluk sabit olduğunda doğrusal artış görülür.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q04",
+      "imageAsset": "quiz_images/fen/fen_basinc_006_fen_bas_006_q04_graph_line.png"
+    },
+    {
+      "stem": "Bir öğrenci aynı derinlikte bulunan su ve tuzlu su içinde basınç ölçümü yapıyor. Tuzlu suda basıncın daha büyük olduğunu gözlüyor. Bu durum aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Kap şekli",
+        "Sıvı miktarı",
+        "Sıvı yoğunluğu",
+        "Kap genişliği"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "yogunluk",
+        "deney"
+      ],
+      "explanation": "Sıvı yoğunluğu arttıkça sıvı basıncı artar.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q05"
+    },
+    {
+      "stem": "Bir öğrenci pipetle meyve suyu içerken, ağzından hava çektiğinde sıvının yukarı çıktığını gözlemliyor. Bu olayda sıvının yükselmesi aşağıdakilerden hangisiyle en iyi açıklanır?",
+      "options": [
+        "Açık hava basıncının pipet içindeki basınçtan fazla olması",
+        "Bıçağın kesme kuvveti",
+        "Katı basıncının artması",
+        "Sıvı yoğunluğunun değişmesi"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "acik_hava_basinci",
+        "günlük_hayat"
+      ],
+      "explanation": "Pipetle içecek içilmesi açık hava basıncı sayesinde olur.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q06"
+    },
+    {
+      "stem": "Taban alanı 30 cm² olan bir cisim zemine 150 N kuvvet uyguluyor. Zemine uygulanan basınç kaç N/cm² olur?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu"
+      ],
+      "explanation": "Basınç = 150 / 30 = 5 N/cm².",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q07"
+    },
+    {
+      "stem": "Dağa tırmanan bir kişi yükseklik arttıkça nefes almakta zorlandığını fark ediyor. Bilimsel olarak açık hava basıncının yükseklikle azalmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Atmosfer yoğunluğu azaldığı için",
+        "Yer çekimi arttığı için",
+        "Gaz miktarı arttığı için",
+        "Sıcaklık arttığı için"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "acik_hava_basinci",
+        "atmosfer"
+      ],
+      "explanation": "Yükseğe çıkıldıkça atmosfer yoğunluğu azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q08"
+    },
+    {
+      "stem": "Aynı sıvı bulunan kaplarda sıvı yükseklikleri sırasıyla 2h, 6h ve 4h'tir. Taban basınçlarının sıralaması hangisidir?",
+      "options": [
+        "P2 > P3 > P1",
+        "P3 > P1 > P2",
+        "P1 > P3 > P2",
+        "P1 = P2 = P3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
+      "explanation": "Derinlik arttıkça sıvı basıncı artar.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q09"
+    },
+    {
+      "stem": "Kapalı bir kaptaki gazın basıncı sabit hacimde sıcaklık artırıldığında yükselir. Bu durum aşağıdakilerden hangisiyle açıklanır?",
+      "options": [
+        "Moleküllerin hızlanması ve kabın çeperlerine daha sık çarpması",
+        "Kabın hacminin artması",
+        "Gaz miktarının azalması",
+        "Yer çekiminin artması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "gaz_basinci",
+        "sicaklik",
+        "molekul"
+      ],
+      "explanation": "Sıcaklık arttıkça gaz moleküllerinin çarpma sayısı artar ve basınç yükselir.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_006_q10"
+    }
+  ]
+}

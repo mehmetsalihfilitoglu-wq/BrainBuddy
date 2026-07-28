@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda X elementi 2. periyot 1. grupta, Y elementi 3. periyot 1. grupta, Z elementi ise 3. periyot 7. grupta bulunmaktadır. Buna göre aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "X ve Y'nin katman sayıları aynıdır.",
+        "Y ve Z'nin katman sayıları aynıdır.",
+        "X ve Z aynı gruptadır.",
+        "Z'nin atom numarası Y'den küçüktür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
+      "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. Y ve Z aynı periyottadır.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Bir atom 3 elektron aldığında oluşan tanecikle ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Pozitif iyon oluşur",
+        "Negatif iyon oluşur",
+        "Proton sayısı artar",
+        "Nötron sayısı azalır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "iyon",
+        "elektron",
+        "anyon"
+      ],
+      "explanation": "Elektron alan atom negatif yüklü iyon (anyon) oluşturur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q02"
+    },
+    {
+      "stem": "Bir tanecik modelinde farklı tür atomlardan oluşmuş ikili tanecikler görülmektedir. Bu model aşağıdaki maddelerden hangisine ait olabilir?",
+      "options": [
+        "O2",
+        "H2",
+        "CO",
+        "N2"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "PARTICLE_MODEL_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "tanecik_modeli",
+        "molekul",
+        "bilesik"
+      ],
+      "explanation": "CO molekülü iki farklı atomdan oluşan iki atomlu moleküldür.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q03"
+    },
+    {
+      "stem": "Bir kapta 3 tane CO2, 2 tane H2O ve 4 tane O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
+      "explanation": "CO2: 3×3=9 atom. H2O: 2×3=6 atom. O2: 4×2=8 atom. Toplam 9+6+8=23 atom.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q04"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de bileşiktir?",
+      "options": [
+        "Oksijen",
+        "Su",
+        "Hava",
+        "Azot"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "saf_madde",
+        "bilesik",
+        "element"
+      ],
+      "explanation": "Su farklı atomlardan oluşan saf bileşiktir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q05"
+    },
+    {
+      "stem": "Bir taneciğin proton sayısı 16, elektron sayısı 18 ise bu tanecik ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "2+ iyonudur",
+        "2- iyonudur",
+        "Nötr atomdur",
+        "Bileşiktir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "atom",
+        "iyon",
+        "proton",
+        "elektron"
+      ],
+      "explanation": "Elektron sayısı proton sayısından 2 fazla olduğu için tanecik 2- yüklü iyondur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q06"
+    },
+    {
+      "stem": "Bir elementin periyodik tablodaki yeri 4. periyot 2. grup olarak verilmiştir. Buna göre bu element ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "4 protona sahiptir",
+        "4 katmanı vardır",
+        "2 katmanı vardır",
+        "Son katmanında 4 elektron vardır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi",
+        "grup"
+      ],
+      "explanation": "Periyot numarası katman sayısını gösterir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q07",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Aynı kapta 5 tane O2 ve 3 tane O3 molekülü bulunmaktadır. Buna göre kaptaki toplam oksijen atomu sayısı kaçtır?",
+      "options": [
+        "16",
+        "18",
+        "19",
+        "21"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
+      "explanation": "O2 → 5 × 2 = 10 atom. O3 → 3 × 3 = 9 atom. Toplam 19 atom.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q08"
+    },
+    {
+      "stem": "Aşağıdaki eşleştirmelerden hangisi doğrudur?",
+      "options": [
+        "Altın — Karışım",
+        "Hava — Element",
+        "Su — Bileşik",
+        "Demir — Karışım"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "element",
+        "bilesik",
+        "karisim",
+        "siniflandirma"
+      ],
+      "explanation": "Su bir bileşiktir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q09"
+    },
+    {
+      "stem": "Bir deneyde X ve Y elementlerinin atom numaraları ile proton sayıları arasındaki ilişki incelenmiştir. Her iki element için de atom numarası ile proton sayısının eşit olduğu görülmüştür. Bu sonuç aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Atom numarası proton sayısına eşittir",
+        "Atom numarası nötron sayısına eşittir",
+        "Proton sayısı elektron sayısından büyüktür",
+        "Atom numarası katman sayısına eşittir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "atom_numarasi",
+        "proton",
+        "deney",
+        "grafik"
+      ],
+      "explanation": "Atom numarası proton sayısına eşittir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_008_q10",
+      "imageAsset": "quiz_images/fen/fen_madde_ve_endustr_fen_mad_008_q10_picture.png"
+    }
+  ]
+}

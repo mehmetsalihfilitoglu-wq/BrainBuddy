@@ -1,0 +1,1026 @@
+{
+  "rejected": [
+    {
+      "stem": "In the SI system, the pascal (Pa) is the unit of pressure. Which of the following quantities has exactly the same dimens",
+      "section": "physics",
+      "reasons": [
+        "verify_reject",
+        "bad_distractors"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "An inspector claims: \"All the crates in the depot are sealed.\" This claim is later shown to be false. Which of the follo",
+      "section": "logic",
+      "reasons": [
+        "verify_reject",
+        "bad_distractors"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "On an island every inhabitant is either a knight, who always tells the truth, or a knave, who always lies. Two inhabitan",
+      "section": "logic",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Points A, B, C and D lie on a circle, with C and D on opposite arcs cut off by chord AB. The inscribed angle ACB = 35°. ",
+      "section": "mathematics",
+      "reasons": [
+        "verify_reject",
+        "low_confidence",
+        "figure_inconsistent"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Il solido in figura è rappresentato in assonometria. La freccia indica la direzione di osservazione per il prospetto (vi",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "La figura mostra in assonometria un solido a gradini composto da cubi unitari uguali; è tracciata la quadrettatura unita",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Il particolare meccanico in figura è disegnato in scala 2:1. Sul disegno la lunghezza quotata misura 40 mm. Qual è la lu",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Di un oggetto sono dati il prospetto (in basso) e la pianta (in alto). Nella pianta i due segmenti verticali attraversan",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "La piastra a L in figura è disegnata in scala 1:2; le quote riportate (in mm) sono quelle del disegno. Qual è l'area rea",
+      "section": "representation",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "low_confidence",
+        "figure_inconsistent"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "How many integers from 1 to 200 inclusive are divisible by 3 or by 5 but NOT by 15?",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Consider the statement: 'If a student passes the exam, then the student submitted the project AND attended the review.' ",
+      "section": "logic",
+      "reasons": [
+        "verify_reject",
+        "bad_distractors"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The parabola shown crosses the x-axis at x = -1 and x = 3, has its lowest point (vertex) at (1, -4), and passes through ",
+      "section": "mathematics",
+      "reasons": [
+        "verify_reject",
+        "bad_distractors",
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The parabola shown crosses the x-axis at x = -3 and x = 1 and passes through the point (0, 3). What is the MAXIMUM value",
+      "section": "mathematics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC, with DE parallel to BC. Given AD = 4, DB = 6 and B",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "E",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "Read the following passage and answer the question below.\n\n\"For years, the town's librarians assumed that the quietest c",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the following passage and answer the question below.\n\n\"The negotiations had dragged on for months, and the delegate",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the following passage and answer the question below.\n\n\"Economists long predicted that as households grew richer, th",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The drawing below shows a rectangular steel plate produced at scale 1:2. On the paper, the plate's length measures 45 mm",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The figure shows the flat net of a cube, with its six faces labelled A-F. When the net is folded into a cube, which face",
+      "section": "representation",
+      "reasons": [
+        "answer_disagreement"
+      ],
+      "intended": "D",
+      "solve": "C",
+      "verify": "D"
+    },
+    {
+      "stem": "The pictorial (oblique) drawing shows a solid L-shaped prism; hidden edges are dashed. How many edges does the solid hav",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The pictorial drawing (top) shows a solid object; the face drawn facing you is its front face. Which of the candidate dr",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Two technical drawings, made at different scales, represent the SAME physical part. On Drawing 1 (scale 1:2) the part's ",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "E",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "The front view and top view of an object are given. The object is a rectangular block topped by a triangular 'roof' pris",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The net of a cube is shown, with faces labelled T, F, K, L, R and D (Top, Front, bacK, Left, Right, Down). Face T carrie",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The pictorial drawing shows a solid T-shaped prism (a prism whose cross-section is the letter T); hidden edges are dashe",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Simplify the expression √(7 + 4√3) − √(7 − 4√3), giving its exact value.",
+      "section": "mathematics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Determine the sum of all real solutions of the equation √(2x + 3) − √(x + 1) = 1.",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A planet has the same mean density as Earth but twice Earth's radius. Compared with Earth's surface gravitational accele",
+      "section": "physics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A small ball on the end of a light string of length 0.90 m is whirled in a vertical circle. What is the minimum speed it",
+      "section": "physics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "In the circuit shown, an 18 V battery drives current through R1 = 4 Ω, which is in series with a parallel combination of",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A 5 kg block is released from rest on a rough incline that makes an angle of 37° with the horizontal (sin37° = 0.6, cos3",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A block of mass m1 = 2 kg lies on a horizontal table and is connected by a light string over an ideal pulley to a hangin",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "In a class of 30 students, 18 play football, 15 play basketball, and 5 play neither sport. Assuming every other student ",
+      "section": "logic",
+      "reasons": [
+        "verify_reject",
+        "close_to_source"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Find the number that continues the series: 1, 4, 9, 61, 52, ?",
+      "section": "logic",
+      "reasons": [
+        "verify_reject",
+        "close_to_source",
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A fair ordinary six-sided die is rolled three times. What is the probability that at least one of the three rolls shows ",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Consider the equation sin(2x) = cos(x) on the interval 0 ≤ x < 2π. What is the sum of all its solutions in this interval",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Simplify the expression √(7 + 4√3) − √(7 − 4√3), giving its exact value.",
+      "section": "mathematics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Find the sum of all real solutions of the equation |2x − 3| = |x + 1|.",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Determine the sum of all real solutions of the equation √(2x + 3) − √(x + 1) = 1.",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "On a four-option multiple-choice question, a student genuinely knows the answer with probability 0.6 (and then answers c",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "What is the exact value of sin(π/12)?",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Evaluate the exact value of (√5 + √3)/(√5 − √3) + (√5 − √3)/(√5 + √3).",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The figure shows a square of side 12 with a circle inscribed in it, so the circle touches all four sides. The four shade",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A circle is inscribed in a square of side 4, touching all four sides. A second, smaller square is inscribed in the circl",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A 2.0 kg puck sliding at 6.0 m/s on a frictionless surface strikes a stationary 4.0 kg puck head-on and the two stick to",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "On a frictionless track a 0.50 kg ball moving at 4.0 m/s collides head-on and ELASTICALLY with a stationary 1.5 kg ball.",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A satellite is moved from a circular orbit of radius r to a new circular orbit of radius 4r about the same planet. By wh",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A curve of radius 30 m is banked at an angle θ with tan θ = 0.75. A car rounds it at the speed for which NO friction is ",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "An electric motor draws 500 W and is 80% efficient. It lifts a 20 kg load vertically at a constant speed. Taking g = 10 ",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A pump raises water from a well and delivers it at the surface 15 m above the water level, at a volumetric flow rate of ",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "In the circuit shown, three resistors are connected between terminals A and B: R1 = 2 Ω is in series with a parallel com",
+      "section": "physics",
+      "reasons": [
+        "low_confidence",
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "In the circuit shown, an 18 V battery drives current through R1 = 4 Ω, which is in series with a parallel combination of",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A 5 kg block is released from rest on a rough incline that makes an angle of 37° with the horizontal (sin37° = 0.6, cos3",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A 4 kg block rests on an incline at 37° to the horizontal (sin37° = 0.6, cos37° = 0.8). The coefficient of static fricti",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The velocity-time graph shows an object moving in a straight line. What is the total displacement of the object from t =",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A 2 kg object moves along a straight line with an initial velocity of +3 m/s. The graph shows the net force on the objec",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A block of mass m1 = 3 kg rests on a frictionless horizontal table and is connected by a light inextensible string over ",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A block of mass m1 = 2 kg lies on a horizontal table and is connected by a light string over an ideal pulley to a hangin",
+      "section": "physics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "In a class of 30 students, 18 play football, 15 play basketball, and 5 play neither sport. Assuming every other student ",
+      "section": "logic",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "On an island every inhabitant is either a knight (always tells the truth) or a knave (always lies). Ann, Bob and Carl ea",
+      "section": "logic",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Five people — P, Q, R, S and T — sit in one row of five seats numbered 1 to 5 from left to right. It is known that: (1) ",
+      "section": "logic",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "All three of the following statements are true. (1) If the museum is open, then the café is open. (2) If the café is ope",
+      "section": "logic",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Find the number that continues the series: 2, 3, 5, 9, 17, 33, ?",
+      "section": "logic",
+      "reasons": [
+        "close_to_source",
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Four teams — W, X, Y and Z — finished a race in positions 1st to 4th with no ties. It is known that: (1) W finished ahea",
+      "section": "logic",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "100 people were surveyed about three streaming services A, B and C. 55 use A, 45 use B, and 40 use C. 20 use both A and ",
+      "section": "logic",
+      "reasons": [
+        "close_to_source",
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nThe desert beetle Stenocara harvests water from fog. Along its back sit tiny ",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nCoral reefs occupy less than one percent of the ocean floor, yet they shelter",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nA study tracked how often people checked their phones during a two-hour dinne",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "E",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nEvery few years a new gadget is hailed as the device that will finally 'revol",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nWhen a company's stock is described as 'priced for perfection,' investors mea",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The pictorial view shows a solid made of a tall block on the left half and a lower block (a foot) on the right half; bot",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The stepped shaft below is drawn to SCALE 1:2. The two segment lengths shown (25 mm and 40 mm) are the lengths as MEASUR",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The staircase net below folds into a cube. When it is folded, which numbered face ends up directly OPPOSITE face 2?",
+      "section": "representation",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A farmer has 100 eggs and packs them into cartons that each hold exactly 6 eggs. She fills as many COMPLETE cartons as p",
+      "section": "computer_science",
+      "reasons": [
+        "verify_reject"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "What is the value printed by the following pseudocode?\n\n  result ← 0\n  FOR i FROM 1 TO 4 DO\n      FOR j FROM i TO 4 DO\n ",
+      "section": "computer_science",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Determine the complete set of real numbers x satisfying |2x − 3| ≥ |x + 1|.",
+      "section": "mathematics",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A uniform horizontal beam of length 6.0 m and weight 200 N rests on two supports: support A at the left end and support ",
+      "section": "physics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Two positive point charges lie on a straight line: q₁ = +2 μC at the origin and q₂ = +8 μC at x = 0.30 m. At which posit",
+      "section": "physics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nThe Eddystone Rocks lie nine miles off the English coast, submerged at high t",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nFor decades the small town's bakery had bought its flour from a single mill u",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Read the passage and answer the question.\n\nThe invention of cheap, reliable clocks did more than tell people the hour. B",
+      "section": "reading",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The figure shows a solid built only from identical unit cubes, seen in isometric (3D) view. No cube floats: every cube e",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The L-shaped solid shown is built from unit cubes and is exactly one cube thick (its depth is 1 unit). Suppose you draw ",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "E",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "The solid shown is built on a 2x2 base from identical unit cubes, with no gaps and no overhangs (every cube is supported",
+      "section": "representation",
+      "reasons": [
+        "verify_reject",
+        "low_confidence",
+        "figure_inconsistent"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The grid below is the plan (top view) of a solid made of unit cubes stacked on a 3x3 base. The number written in each ce",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "After a 20% discount, a jacket sells for 96 euros. What was its original price, before the discount?",
+      "section": "mathematics",
+      "reasons": [
+        "verify_reject"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "In how many ways can 7 distinct books be arranged in a row on a shelf if two particular books must NOT be placed next to",
+      "section": "mathematics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Six friends sit around a circular table (seatings are considered the same under rotation, so only who-sits-next-to-whom ",
+      "section": "mathematics",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A block of weight W is supported by two IDENTICAL springs (each of stiffness k) in two different arrangements, shown in ",
+      "section": "physics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A U-tube open to the atmosphere at both ends contains water (ρ = 1000 kg/m³). Oil (ρ = 800 kg/m³), which does not mix wi",
+      "section": "physics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "A block of mass m₁ = 2.0 kg rests on top of a block of mass m₂ = 4.0 kg, which sits on the floor (see figure). The coeff",
+      "section": "physics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Two positive point charges lie on the x-axis: q₁ = +4 μC at x = 0 and q₂ = +1 μC at x = 0.30 m (see figure). At what pos",
+      "section": "physics",
+      "reasons": [
+        "close_to_source",
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "In a certain code language, MODEM is written as OQFGO. Following exactly the same rule, how is LASER written?",
+      "section": "logic",
+      "reasons": [
+        "verify_reject",
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Two parallel lines r and s are cut by a transversal t (see figure). One angle at r measures (2x + 40)° and the angle at ",
+      "section": "mathematics",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A block A of mass mₐ = 4.0 kg rests on an incline at 30° to the horizontal. An ideal string runs from A up the slope, ov",
+      "section": "physics",
+      "reasons": [
+        "verify_reject",
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The cube on top shows faces labelled 1, 2 and 3 meeting at a single corner. Exactly one of the nets A-E folds into a cub",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The front view and top view of an object are given (third-angle projection). The object is a straight prism of uniform d",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "The front, top and right-side views of a solid are given. Which of the isometric drawings A-E represents that solid?",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "E",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "The isometric drawing shows a solid built from unit cubes. Assuming the solid is completely filled (no internal cavities",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The isometric drawing shows a solid made of unit cubes: a wide slab of height 1 carrying a narrower block of height 1 ce",
+      "section": "representation",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    }
+  ]
+}

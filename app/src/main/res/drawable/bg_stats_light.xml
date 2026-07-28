@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Subtle stats background: primary light → surface variant -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
             <gradient
                 android:angle="270"
-                android:startColor="#E8FBF7"
-                android:endColor="#F5FFFD"/>
+                android:startColor="@color/brand_primary_light"
+                android:endColor="@color/surface_variant"/>
         </shape>
     </item>
 </layer-list>

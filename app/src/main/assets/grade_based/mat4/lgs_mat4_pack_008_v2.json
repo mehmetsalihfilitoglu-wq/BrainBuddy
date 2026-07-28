@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0071",
+      "stem": "Bir sınıfta erkek ve kız öğrenci sayısı 3:5 oranındadır ve toplam 40 öğrenci vardır. Erkeklerin 4/5'i, kızların ise 2/5'i spor kulübüne üyedir.\n\nSpor kulübüne üye olan öğrenciler, sınıfın kaçta kaçını oluşturur?",
+      "options": [
+        "3/10",
+        "9/20",
+        "11/20",
+        "3/5"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "oran_kesir_karisik",
+      "topic": "kesirler",
+      "skills": [
+        "oran",
+        "kesir",
+        "zincirleme"
+      ],
+      "explanation": "Erkek: 40×3/8=15, Kız: 40×5/8=25. Spor üyesi: 15×4/5=12 erkek + 25×2/5=10 kız = 22. Oran: 22/40=11/20. A(3/10): yalnızca erkek grubu hesaplanmış, 12/40=3/10. B(9/20): kızlarda 3/5 uygulayarak 15 alınmış, 12+15=27/40 değil. D(3/5): öğrenciler eşit 20-20 bölünmüş sanılmış, 20×4/5+20×2/5=16+8=24/40=3/5.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0071",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0072",
+      "stem": "18 m uzunluğunda ve 6 m genişliğindeki bir dikdörtgen ile bir karenin çevreleri eşittir.\n\nKarenin alanı dikdörtgenin alanından kaç m² fazladır?",
+      "options": [
+        "24",
+        "30",
+        "36",
+        "42"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "esit_cevre_alan_farki",
+      "topic": "geometri",
+      "skills": [
+        "cevre",
+        "alan",
+        "karsilastirma"
+      ],
+      "explanation": "Dikdörtgen çevresi: 2×(18+6)=48 m. Kare kenarı: 48÷4=12 m. Kare alanı: 144 m². Dikdörtgen alanı: 18×6=108 m². Fark: 144−108=36 m². A(24): kare kenarını 11 almış. B(30): kare kenarını 11,5 ya da dikdörtgen alanını 114 hesaplamış. D(42): kare kenarını 13 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0072",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0073",
+      "stem": "Bir mağazada 480 ürün var. Pazartesi, stokun 3/8'i 15 TL'ye satıldı. Salı ise kalan stokun 5/12'si 20 TL'ye satıldı.\n\nİki günde toplam kaç TL gelir elde edildi?",
+      "options": [
+        "4 700",
+        "5 000",
+        "5 200",
+        "5 600"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "kademeli_satis",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "kesir",
+        "kademeli_hesap",
+        "para"
+      ],
+      "explanation": "Pazartesi: 3/8×480=180 adet × 15 TL = 2700 TL. Kalan: 300. Salı: 5/12×300=125 adet × 20 TL = 2500 TL. Toplam: 5200 TL. A(4700): Salı için 5/12×480=200 (orjinal stoğu kullanmış): 200×20=4000, 4000+700=4700? Veya başka hata. B(5000): Salı'yı 5/12×480=200 × 20 = 4000, ama Pazartesi'yi 1000 almış. D(5600): Salı'yı 140 adet saymış, 2700+2800=5500... yakın. Her iki gün için orjinal stok kullanmış olabilir.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0073",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0074",
+      "stem": "Usta A bir işi tek başına 6 günde, Usta B aynı işi 12 günde bitirir.\n\nİkisi birlikte çalışırsa bu işi kaç günde tamamlarlar?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "9"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "birlikte_calisma_hiz",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "kesir",
+        "ters_islem"
+      ],
+      "explanation": "A'nın günlük hızı: 1/6, B'ninki: 1/12. Birlikte: 1/6+1/12=2/12+1/12=3/12=1/4 iş/gün. Süre: 1÷(1/4)=4 gün. A(3): 1/4+1/12=4/12=1/3, 3 gün hata. C(5): hızları toplamak yerine ortalama almış, (6+12)/2÷... yanlış. D(9): sürelerin ortalaması (6+12)/2=9, sık yapılan klasik hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0074",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0075",
+      "stem": "İki sayının toplamı 100'dür. Küçük sayı, büyük sayının 3/7'si kadardır.\n\nBüyük sayı kaçtır?",
+      "options": [
+        "60",
+        "63",
+        "70",
+        "75"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "oran_denklem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
+      "explanation": "Büyük = x, Küçük = 3x/7. x+3x/7=10x/7=100 → x=70. Küçük: 30. Doğrulama: 70+30=100 ✓, 30=3/7×70 ✓. A(60): 100×3/5=60 hata, oranı 3:5 sanmış. B(63): 100×63/100=63 anlamsız. D(75): toplam 100'ü 4 eşit parçaya bölüp 3'ünü almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0075",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0076",
+      "stem": "10 m × 8 m'lik dikdörtgen bir tarlanın içine, tabanı 10 m ve yüksekliği 6 m olan bir üçgen şeklinde gölet kazıldı.\n\nGöletin alanı, tarlanın alanının kaçta kaçıdır?",
+      "options": [
+        "1/4",
+        "3/8",
+        "5/12",
+        "1/2"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "oran_alan",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "kesir",
+        "oran"
+      ],
+      "explanation": "Tarla: 10×8=80 m². Gölet (üçgen): 10×6÷2=30 m². Oran: 30/80=3/8. A(1/4): üçgen alanı için ÷2 yapmamış, 10×6=60 alıp 60/80=3/4, sonra yarıya bölmüş ama yanlış. C(5/12): yüksekliği 8 alarak 10×8÷2=40, 40/80=1/2 değil. D(1/2): üçgenin alanını ÷2 yapmadan 10×6=60÷80... veya tabanı 8 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0076",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0077",
+      "stem": "Bir sınıfta yapılan kısa sınavın sonuçları: 5, 8, 8, 10, 12, 15, 15, 15, 20.\n\nBu verilerin ortalaması, ortancası ve modu hakkında aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Ortalama = Ortanca = 12; Mod = 15",
+        "Ortalama = 12; Ortanca = 15; Mod = 15",
+        "Ortalama = 13; Ortanca = 12; Mod = 15",
+        "Ortalama = Ortanca = Mod = 12"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "istatistik_uclu_analiz",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "medyan",
+        "mod"
+      ],
+      "explanation": "Toplam: 5+8+8+10+12+15+15+15+20=108. Ortalama: 108÷9=12. Sıralı: ortanca=5. eleman=12. Mod: en çok tekrar eden=15 (3 kez). Yani Ortalama=Ortanca=12 ama Mod=15. B: ortancayı 15 almış (8. değeri bulmuş). C: ortalamayı yanlış 13 hesaplamış. D: mod=12 hata, mod=15.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0077",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0078",
+      "stem": "Bir fabrika ürünleri kademeli fiyatla satıyor. İlk 100 ürün 5 TL/adet, sonraki 150 ürün 4 TL/adet, 250'yi aşan her ürün 3 TL/adet. Müşteri 320 ürün sipariş etti.\n\nToplam maliyet kaç TL'dir?",
+      "options": [
+        "1 200",
+        "1 280",
+        "1 310",
+        "1 360"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "kademeli_fiyatlandirma",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dort_islem",
+        "kademeli_hesap",
+        "problem_cozme"
+      ],
+      "explanation": "100×5=500 TL. 150×4=600 TL. 70×3=210 TL. Toplam: 500+600+210=1310 TL. A(1200): 320×3,75=1200, tüm ürünlere ortalama fiyat uygulamış. B(1280): son grubu 80×3=240 almış (320−250=70 yerine 320−240=80). D(1360): 250×4+70×3=1000+210=1210 (kademeleri karıştırmış, +150 eklememiş).",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0078",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0079",
+      "stem": "Bir çiftçinin 540 m²'lik tarlasının 2/3'ü işlenmekte. İşlenen alanın 3/5'i buğday, buğday ekilen alanın 4/9'u ise sulanan bölge.\n\nSulanan buğday alanı kaç m²'dir?",
+      "options": [
+        "72",
+        "80",
+        "96",
+        "108"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "uc_adimli_kesir",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "zincirleme",
+        "problem_cozme"
+      ],
+      "explanation": "İşlenen: 2/3×540=360 m². Buğday: 3/5×360=216 m². Sulanan: 4/9×216=96 m². A(72): son iki adımı birleştirip 3/5×4/9=12/45=4/15, 4/15×540=144÷2=72 hata. B(80): 2/3×3/5=6/15=2/5, 2/5×200=80 yanlış. D(108): ilk iki adımı doğru yapıp 4/9 yerine 1/2 uygulamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0079",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0080",
+      "stem": "Bir proje 56 takvim günü sürmektedir. Ekip haftanın 5 günü çalışmakta, 2 gün tatil yapmaktadır.\n\nProje boyunca toplam kaç iş günü çalışılır?",
+      "options": [
+        "35",
+        "38",
+        "40",
+        "42"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "takvim_is_gunu",
+      "topic": "zaman",
+      "skills": [
+        "zaman",
+        "oran",
+        "problem_cozme"
+      ],
+      "explanation": "Her 7 günün 5'i iş günü. 56÷7=8 hafta. 8×5=40 iş günü. A(35): 56÷8×5=35, takvimi 8'erli dilimler sanmış. B(38): 56−18=38, 3 tatil günü çıkarmış. D(42): 56−14=42, yalnızca 14 tatil günü çıkarmış (56÷7×2=16 değil 14).",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0080",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

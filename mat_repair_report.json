@@ -1,0 +1,31 @@
+{
+  "repair_run_date": "2025-03-09",
+  "files_modified": [
+    "app/src/main/assets/lgs_import/mat/lgs_mat_gold_007.json",
+    "app/src/main/assets/lgs_import/mat/lgs_mat_gold_008.json",
+    "app/src/main/assets/lgs_import/mat/lgs_mat_gold_009.json",
+    "app/src/main/assets/lgs_import/mat/lgs_mat_gold_010.json",
+    "app/src/main/assets/lgs_import/mat/lgs_mat_gold_012.json"
+  ],
+  "total_questions_fixed": 16,
+  "answer_index_fixes": 0,
+  "explanation_fixes": 0,
+  "options_rewrites": 0,
+  "full_rewrites": 0,
+  "schema_fixes": 16,
+  "fix_details": {
+    "difficulty_invalid_to_2": "All difficulty=3 (invalid per MatQuestionValidator) changed to difficulty=2 in gold_007, 008, 009, 010, 012"
+  },
+  "note": "Python was not available in the execution environment. Answer/explanation validation via validate_mat_answers.py was NOT run. Please run 'python validate_mat_answers.py' locally to fix any remaining answerIndex, options, or explanation mismatches.",
+  "validator_rejected_after_note": "Prior audit: ~11 rejected (oran 10 + gold_005 q0). Post-repair: gold_005 q0 has difficulty 2; oran pack has full schema. Run audit_mat_lgs.py for exact count.",
+  "duplicate_count_note": "Run mat_duplicate_rescue.py for cross-file duplicate stem count.",
+  "total_mat_questions": "~478 (60 gold files + 2 packs)",
+  "estimated_active_mat_count": "~360-380 (after validator pass, dup dedup, LgsQualityRules)",
+  "ready_for_500": false,
+  "next_steps": [
+    "Run: python validate_mat_answers.py (for answerIndex/explanation fixes)",
+    "Run: python audit_mat_lgs.py (validator + per-file stats)",
+    "Run: python mat_duplicate_rescue.py (optional duplicate rescue)",
+    "mat_pack_repair.py is available for full automated repair when Python is installed"
+  ]
+}

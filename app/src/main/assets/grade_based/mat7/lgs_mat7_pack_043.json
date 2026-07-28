@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0420",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 2 : 4 oranındadır. Birinci sınıfa 4 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "22",
+        "32",
+        "12",
+        "27"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 5k, 4k. 2k + 4 = 5k → k = 1.3333333333333333. Toplam = 11·k = 22.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0420",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0421",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "107",
+        "90",
+        "102"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0421",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0422",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 4 : 2 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "55",
+        "35",
+        "45",
+        "50"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 2k. 3k + 5 = 4k → k = 5.0. Toplam = 9·k = 45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0422",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0423",
+      "stem": "Bir torbada 2 kırmızı, 4 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/9",
+        "13/18",
+        "13/19",
+        "12/18"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0423",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0424",
+      "stem": "Bir torbada 5 kırmızı, 2 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/46",
+        "1/10",
+        "31/45",
+        "30/45"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0424",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0425",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "12",
+        "10",
+        "9",
+        "8"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0425",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0426",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 3 katından 18 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "61",
+        "53",
+        "58",
+        "63"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 18. k+3 = 2(e+2) → e = 19, k = 39. Toplam = 58.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0426",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0427",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "10",
+        "8",
+        "6",
+        "7"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0427",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0428",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 72, 72, 72, 72, 73 puan almıştır. Altıncı sınava girince ortalaması 76 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "90",
+        "100",
+        "95",
+        "76"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 361. 6. sınav x ise (total5 + x)/6 = 76 → x = 95.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0428",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0429",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "3",
+        "2",
+        "4"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0429",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

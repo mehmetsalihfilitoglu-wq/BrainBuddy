@@ -1,0 +1,485 @@
+[
+  {
+    "id": "mio_chem_0123",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "The standard hydrogen electrode as reference: finding an unknown standard reduction potential from a cell EMF measured against the SHE",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "electrochemistry",
+      "standard hydrogen electrode",
+      "electrode potential",
+      "EMF",
+      "sign convention",
+      "galvanic cell"
+    ],
+    "learning_objective": "Use the standard hydrogen electrode (E° = 0) as the reference to deduce an unknown standard reduction potential from a measured cell EMF and the observed cell polarity.",
+    "question": "A half-cell consisting of a metal M dipping into a 1 mol dm⁻³ solution of its ions M²⁺ is connected through a salt bridge to a standard hydrogen electrode, and the complete cell is kept under standard conditions. The measured EMF of the cell is 0.45 V, and a high-resistance voltmeter shows that the standard hydrogen electrode is the positive terminal. What is the standard electrode (reduction) potential of the M²⁺/M half-cell?",
+    "choices": {
+      "A": "+0.90 V",
+      "B": "+0.45 V",
+      "C": "0.00 V",
+      "D": "−0.90 V",
+      "E": "−0.45 V"
+    },
+    "correct_answer": "E",
+    "explanation": "Because the standard hydrogen electrode (SHE) is the positive terminal, it is the cathode, where reduction occurs; metal M is therefore the anode and is oxidised. Applying E°(cell) = E°(cathode) − E°(anode) = E°(SHE) − E°(M²⁺/M) = 0 − E°(M²⁺/M) gives 0.45 = −E°(M²⁺/M), so E°(M²⁺/M) = −0.45 V. The metal is more readily oxidised than hydrogen, so its reduction potential lies below zero. Electrode potential is an intensive property and is independent of the number of electrons transferred.",
+    "option_analysis": {
+      "A": "Wrong: multiplies the potential by the number of electrons (n = 2) and also uses the wrong sign, mistakenly treating electrode potential as an extensive quantity that scales with the electrons transferred.",
+      "B": "Wrong: gives the correct magnitude but the wrong sign — it treats the metal electrode as the positive terminal, reversing the stated polarity so that M appears to have a positive reduction potential.",
+      "C": "Wrong: assumes that because the SHE is defined as the 0.00 V reference, the half-cell measured against it must also read zero, confusing the reference value with the measured potential.",
+      "D": "Wrong: uses the correct (negative) sign but multiplies the potential by n = 2, again wrongly assuming E° is proportional to the number of electrons transferred.",
+      "E": "Correct: the SHE is the cathode, so E°(cell) = 0 − E°(M²⁺/M) = 0.45 V, giving E°(M²⁺/M) = −0.45 V."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0124",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "Galvanic cell EMF from two standard reduction potentials and identification of the anode/negative electrode (potentials are intensive)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "electrochemistry",
+      "cell EMF",
+      "anode",
+      "cathode",
+      "electron flow",
+      "intensive property",
+      "galvanic cell"
+    ],
+    "learning_objective": "Calculate a standard cell EMF from two reduction potentials and correctly assign the anode, cathode, electrode polarity and external electron-flow direction, recognising that E° does not scale with stoichiometry.",
+    "question": "A galvanic cell is set up under standard conditions from a nickel half-cell (Ni²⁺/Ni, E° = −0.25 V) and a silver half-cell (Ag⁺/Ag, E° = +0.80 V), joined by a salt bridge. Which of the following correctly describes this cell?",
+    "choices": {
+      "A": "The nickel electrode is the cathode and the cell EMF is 1.05 V.",
+      "B": "The nickel electrode is the negative electrode (anode) and the cell EMF is 1.05 V.",
+      "C": "Electrons flow from the silver electrode to the nickel electrode in the external circuit, and the cell EMF is 1.05 V.",
+      "D": "The cell EMF is 1.85 V because two silver ions are reduced for every nickel atom oxidised.",
+      "E": "The silver electrode is the negative electrode and the cell EMF is 0.55 V."
+    },
+    "correct_answer": "B",
+    "explanation": "The half-cell with the more positive reduction potential (silver) is the cathode and positive electrode, where reduction occurs; nickel, with the more negative potential, is the anode and negative electrode, where oxidation occurs. E°(cell) = E°(cathode) − E°(anode) = 0.80 − (−0.25) = 1.05 V. In the external circuit, electrons flow from the anode (Ni) to the cathode (Ag). Because E° is an intensive property, balancing the overall equation (2Ag⁺ + Ni → 2Ag + Ni²⁺) does not change the electrode potentials or the EMF.",
+    "option_analysis": {
+      "A": "Wrong: reverses the electrodes — it takes the more negative (nickel) electrode as the cathode. The EMF value is correct, but the electrode assignment is inverted.",
+      "B": "Correct: nickel (more negative E°) is the anode and negative electrode, and E°(cell) = 0.80 − (−0.25) = 1.05 V.",
+      "C": "Wrong: uses the correct EMF but reverses the electron-flow direction; electrons leave the anode (Ni) and travel to the cathode (Ag), not the reverse.",
+      "D": "Wrong: multiplies the silver potential by 2 (2 × 0.80 + 0.25 = 1.85 V), treating electrode potential as an extensive quantity; E° does not scale with the stoichiometric coefficients.",
+      "E": "Wrong: obtains 0.80 − 0.25 = 0.55 V by dropping the negative sign of the nickel potential, and also mislabels silver (the positive electrode) as negative, a confusion carried over from electrolytic-cell polarity."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0125",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "Cell diagrams (IUPAC line notation): electrode/solution order, the salt-bridge double line and the inert electrode for an ion/ion couple",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "electrochemistry",
+      "cell diagram",
+      "line notation",
+      "salt bridge",
+      "inert electrode",
+      "anode",
+      "cathode"
+    ],
+    "learning_objective": "Construct a conventional (IUPAC) cell diagram, applying the left-anode/right-cathode rule, correct phase-boundary and salt-bridge notation, ordering within a same-phase couple, and the use of an inert electrode.",
+    "question": "A galvanic cell is built from a zinc electrode dipping into aqueous Zn²⁺ ions and, in a separate compartment joined by a salt bridge, a platinum electrode dipping into a solution containing both Fe²⁺ and Fe³⁺ ions. Zinc is oxidised as the cell operates. Which is the correct conventional (IUPAC) cell diagram?",
+    "choices": {
+      "A": "Pt(s) | Fe²⁺(aq), Fe³⁺(aq) || Zn²⁺(aq) | Zn(s)",
+      "B": "Zn(s) | Zn²⁺(aq) || Fe²⁺(aq), Fe³⁺(aq) | Pt(s)",
+      "C": "Zn(s) | Zn²⁺(aq) || Fe³⁺(aq), Fe²⁺(aq) | Pt(s)",
+      "D": "Zn(s) | Zn²⁺(aq) | Fe³⁺(aq), Fe²⁺(aq) | Pt(s)",
+      "E": "Zn²⁺(aq) | Zn(s) || Pt(s) | Fe³⁺(aq), Fe²⁺(aq)"
+    },
+    "correct_answer": "C",
+    "explanation": "By convention the anode (oxidation, negative electrode) is written on the left and the cathode (reduction, positive electrode) on the right; a single vertical line marks a phase boundary and a double vertical line marks the salt bridge. Zinc is oxidised, so it is the anode: Zn(s) | Zn²⁺(aq). The Fe³⁺/Fe²⁺ couple has no metallic conductor of its own, so an inert Pt electrode is required; the two iron ions are in the same aqueous phase and are separated by a comma, with the oxidised form (Fe³⁺, which is reduced at the cathode) written next to the salt bridge and Pt at the outer edge: || Fe³⁺(aq), Fe²⁺(aq) | Pt(s).",
+    "option_analysis": {
+      "A": "Wrong: places the cathode on the left and the anode on the right, reversing the required left-anode/right-cathode order.",
+      "B": "Wrong: at the cathode it writes the reduced form (Fe²⁺) before the oxidised form; convention places the oxidised species (Fe³⁺) next to the salt bridge on the right-hand side.",
+      "C": "Correct: anode on the left, salt bridge (||), then the cathode with the oxidised form (Fe³⁺) adjacent to the bridge and the inert Pt electrode at the outer edge.",
+      "D": "Wrong: represents the salt bridge with a single vertical line; a salt bridge must be shown as a double vertical line, distinct from a phase boundary.",
+      "E": "Wrong: reverses the electrode–solution order within each half-cell; the solid electrode belongs at the outer edge of the diagram, not next to the salt bridge."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0126",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "Selecting the half-cell pair giving the maximum cell EMF (strongest oxidant with strongest reductant) from a table of standard potentials",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "electrochemistry",
+      "maximum EMF",
+      "oxidising agent",
+      "reducing agent",
+      "standard reduction potential",
+      "cell EMF"
+    ],
+    "learning_objective": "From a table of standard reduction potentials, identify the pairing (strongest oxidant as cathode, strongest reductant as anode) that maximises the cell EMF and compute it correctly with the cathode-minus-anode rule.",
+    "question": "The table gives standard reduction potentials: Mg²⁺/Mg, E° = −2.37 V; Fe²⁺/Fe, E° = −0.44 V; Cu²⁺/Cu, E° = +0.34 V; Ag⁺/Ag, E° = +0.80 V. Two of these half-cells are connected to make a galvanic cell operating under standard conditions. Which combination gives the largest cell EMF, and what is that EMF?",
+    "choices": {
+      "A": "Magnesium and silver; +3.17 V",
+      "B": "Iron and silver; 1.24 V",
+      "C": "Magnesium and silver; −3.17 V",
+      "D": "Magnesium and copper; 2.71 V",
+      "E": "Magnesium and silver; 1.57 V"
+    },
+    "correct_answer": "A",
+    "explanation": "The largest EMF is obtained by pairing the strongest oxidising agent (the couple with the most positive E°, Ag⁺/Ag) as the cathode with the strongest reducing agent (the couple with the most negative E°, Mg²⁺/Mg) as the anode. E°(cell) = E°(cathode) − E°(anode) = 0.80 − (−2.37) = +3.17 V, which is larger than any other pairing.",
+    "option_analysis": {
+      "A": "Correct: Ag⁺/Ag as the cathode and Mg²⁺/Mg as the anode give the maximum EMF, 0.80 − (−2.37) = +3.17 V.",
+      "B": "Wrong: pairs silver with iron, failing to recognise Mg (the most negative E°) as the strongest reducing agent; 0.80 − (−0.44) = 1.24 V.",
+      "C": "Wrong: correct pair and magnitude but negative, obtained by taking magnesium as the cathode; the EMF of a spontaneously operating galvanic cell must be positive.",
+      "D": "Wrong: pairs magnesium with copper, failing to recognise Ag⁺ (the most positive E°) as the strongest oxidising agent; 0.34 − (−2.37) = 2.71 V is smaller than the true maximum.",
+      "E": "Wrong: chooses the correct pair but computes the EMF as the difference of the magnitudes (2.37 − 0.80 = 1.57 V) instead of E°(cathode) − E°(anode)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0127",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "Predicting disproportionation under standard conditions from two standard reduction potentials of the same element",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "electrochemistry",
+      "disproportionation",
+      "standard reduction potential",
+      "spontaneity",
+      "cell EMF",
+      "copper(I)"
+    ],
+    "learning_objective": "Decide whether a species disproportionates under standard conditions by treating the reaction as an internal galvanic cell and evaluating the sign of E°(cell) from the two relevant reduction potentials.",
+    "question": "Consider whether copper(I) ions disproportionate under standard conditions according to: 2Cu⁺(aq) → Cu²⁺(aq) + Cu(s). The relevant standard reduction potentials are E°(Cu²⁺/Cu⁺) = +0.16 V and E°(Cu⁺/Cu) = +0.52 V. Which conclusion is correct?",
+    "choices": {
+      "A": "Yes — the reaction is spontaneous, with a standard EMF of +0.68 V.",
+      "B": "No — both potentials are positive, so Cu⁺ is stable and cannot be simultaneously oxidised and reduced.",
+      "C": "It cannot be decided without the standard reduction potential of the Cu²⁺/Cu couple.",
+      "D": "Yes — the reaction is spontaneous, with a standard EMF of +0.36 V.",
+      "E": "No — the reaction is non-spontaneous, with a standard EMF of −0.36 V."
+    },
+    "correct_answer": "D",
+    "explanation": "In disproportionation, part of the Cu⁺ is reduced and part is oxidised, so the reaction behaves as an internal galvanic cell. The reduction half-cell is Cu⁺ + e⁻ → Cu (E° = +0.52 V, the cathode) and the oxidation half-cell is Cu⁺ → Cu²⁺ + e⁻, the reverse of Cu²⁺ + e⁻ → Cu⁺ (E° = +0.16 V, the anode). Thus E°(cell) = E°(cathode) − E°(anode) = 0.52 − 0.16 = +0.36 V. Because E°(cell) is positive the disproportionation is spontaneous under standard conditions — the reason Cu⁺ is unstable in aqueous solution.",
+    "option_analysis": {
+      "A": "Wrong: adds the two potentials (0.52 + 0.16 = 0.68 V) instead of subtracting them; the potentials of the two half-cells must be subtracted, not summed.",
+      "B": "Wrong: assumes a single species cannot be both oxidised and reduced, but that is exactly what disproportionation is; its feasibility is decided by the sign of E°(cell), not by the individual potentials being positive.",
+      "C": "Wrong: the two given couples already supply the cathode and anode potentials for the process; the Cu²⁺/Cu potential is not needed (it is itself a weighted average of the two values given).",
+      "D": "Correct: the Cu⁺/Cu couple (higher E°) is the cathode and the Cu²⁺/Cu⁺ couple is the anode, giving E°(cell) = 0.52 − 0.16 = +0.36 V > 0, so Cu⁺ disproportionates.",
+      "E": "Wrong: reverses the roles of the two couples (0.16 − 0.52 = −0.36 V) and so wrongly concludes the process is non-spontaneous."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0128",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrochemistry: galvanic cells",
+    "subtopic": "Operation of a galvanic cell: electron flow, salt-bridge ion migration for electroneutrality, electrode mass change and terminal polarity",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "electrochemistry",
+      "salt bridge",
+      "ion migration",
+      "electron flow",
+      "electrode mass",
+      "terminal polarity",
+      "galvanic cell"
+    ],
+    "learning_objective": "Integrate the direction of external electron flow, salt-bridge ion migration required to preserve electroneutrality, electrode mass changes and terminal polarity for a galvanic cell identified from standard potentials.",
+    "question": "A galvanic cell consists of a cadmium electrode in 1 mol dm⁻³ Cd²⁺(aq) and a copper electrode in 1 mol dm⁻³ Cu²⁺(aq), joined by a salt bridge containing aqueous potassium nitrate. The standard reduction potentials are E°(Cd²⁺/Cd) = −0.40 V and E°(Cu²⁺/Cu) = +0.34 V. Which statement about the cell in operation is correct?",
+    "choices": {
+      "A": "Potassium ions migrate through the salt bridge toward the cadmium half-cell to balance the charge there.",
+      "B": "The copper electrode is the anode and loses mass as the cell operates.",
+      "C": "The cadmium half-cell acts as the positive terminal of the cell.",
+      "D": "Electrons pass through the salt bridge from the cadmium half-cell to the copper half-cell.",
+      "E": "Nitrate ions migrate through the salt bridge toward the cadmium half-cell, and the cadmium electrode loses mass."
+    },
+    "correct_answer": "E",
+    "explanation": "Cadmium has the more negative E°, so it is the anode (negative electrode): Cd → Cd²⁺ + 2e⁻, and the cadmium electrode dissolves and loses mass. Copper is the cathode: Cu²⁺ + 2e⁻ → Cu, so the copper electrode gains mass. Electrons travel through the external wire (never through the salt bridge) from Cd to Cu. Within the salt bridge, charge is carried by migrating ions: the anode compartment accumulates positive Cd²⁺, so anions (NO₃⁻) migrate toward the cadmium (anode) compartment, while cations (K⁺) migrate toward the copper (cathode) compartment, where Cu²⁺ is being removed.",
+    "option_analysis": {
+      "A": "Wrong: cations (K⁺) migrate toward the cathode (copper), not the anode; only anions move toward the anode compartment.",
+      "B": "Wrong: copper is the cathode (more positive E°) and gains mass; this option reverses both the electrode role and the mass change.",
+      "C": "Wrong: in a galvanic cell the anode is the negative terminal, so the cadmium half-cell is the negative, not the positive, terminal.",
+      "D": "Wrong: electrons never travel through the salt bridge — they move through the external circuit; charge within the bridge is carried by migrating ions.",
+      "E": "Correct: NO₃⁻ migrates toward the anode (cadmium) compartment to neutralise the accumulating Cd²⁺, and the cadmium anode is oxidised and loses mass."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0129",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Oxidation of alcohols: deducing alcohol class from the dichromate colour change and tests on the product",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "alcohols",
+      "oxidation",
+      "dichromate",
+      "Tollens",
+      "primary secondary tertiary",
+      "carbonyl"
+    ],
+    "learning_objective": "Use the acidified dichromate colour change together with tests on the product to classify an alcohol as primary, secondary or tertiary and identify its structure.",
+    "question": "An alcohol Y has the molecular formula C4H10O. When Y is warmed with acidified potassium dichromate(VI), the orange solution turns green. The organic product formed gives no silver mirror with Tollens' reagent and has no effect on blue litmus paper. Which of the following is Y?",
+    "choices": {
+      "A": "Ethoxyethane",
+      "B": "Butan-2-ol",
+      "C": "2-methylpropan-2-ol",
+      "D": "Butan-1-ol",
+      "E": "2-methylpropan-1-ol"
+    },
+    "correct_answer": "B",
+    "explanation": "The orange-to-green change shows Cr(VI) is reduced to Cr(III), so Y is oxidised; this rules out tertiary alcohols and ethers, which are not oxidised. The product gives no silver mirror, so it is not an aldehyde, and it is neutral to litmus, so it is not a carboxylic acid. A primary alcohol would give an aldehyde (positive Tollens') or, on further oxidation, a carboxylic acid (acidic to litmus). Only a secondary alcohol yields a ketone, which neither reduces Tollens' reagent nor is acidic. The only secondary alcohol of formula C4H10O is butan-2-ol, which is oxidised to butanone.",
+    "option_analysis": {
+      "A": "Wrong: ethoxyethane is an ether isomer of C4H10O; it has no O-H group and is not oxidised, so the solution stays orange. Misconception: treating every C4H10O isomer as an oxidisable alcohol.",
+      "B": "Correct: butan-2-ol is the only secondary C4H10O alcohol; it is oxidised (orange to green) to butanone, a ketone that gives no silver mirror and is neutral to litmus.",
+      "C": "Wrong: 2-methylpropan-2-ol is tertiary and is not oxidised, so the solution would stay orange. Misconception: believing tertiary alcohols are oxidised by dichromate.",
+      "D": "Wrong: butan-1-ol is a primary alcohol; its oxidation product is either butanal (which gives a silver mirror) or butanoic acid (which turns litmus red). Misconception: assuming a primary alcohol yields a neutral, non-reducing product.",
+      "E": "Wrong: 2-methylpropan-1-ol is a primary alcohol, giving 2-methylpropanal (Tollens' positive) or 2-methylpropanoic acid (acidic to litmus). Misconception: overlooking that a branched primary alcohol still oxidises like any primary alcohol."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0130",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Distinguishing aldehydes from ketones: quantitative Tollens' (silver mirror) stoichiometry",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "aldehyde",
+      "ketone",
+      "Tollens",
+      "silver mirror",
+      "stoichiometry",
+      "molar mass"
+    ],
+    "learning_objective": "Identify a carbonyl compound from its formula and apply the 2:1 silver-to-aldehyde stoichiometry of the Tollens' reaction to a mass calculation.",
+    "question": "A carbonyl compound X has the molecular formula C2H4O. A 4.4 g sample of X is warmed with an excess of Tollens' reagent (ammoniacal silver nitrate) until reaction is complete, depositing a silver mirror. What mass of silver is deposited? (Ar: H = 1, C = 12, O = 16, Ag = 108)",
+    "choices": {
+      "A": "21.6 g",
+      "B": "5.4 g",
+      "C": "32.4 g",
+      "D": "43.2 g",
+      "E": "10.8 g"
+    },
+    "correct_answer": "A",
+    "explanation": "A carbonyl compound of formula C2H4O must be ethanal, CH3CHO (an aldehyde). Its molar mass is 44 g/mol, so 4.4 g is 0.10 mol. In the Tollens' reaction each aldehyde group is oxidised to a carboxylate while two Ag+ ions are reduced to silver (RCHO gives 2 Ag). Therefore 0.10 mol of ethanal deposits 0.20 mol of silver, which is 0.20 x 108 = 21.6 g. (A ketone would give no silver at all.)",
+    "option_analysis": {
+      "A": "Correct: X is ethanal (M = 44), 4.4 g = 0.10 mol, giving 0.20 mol Ag = 21.6 g.",
+      "B": "Wrong: 0.05 mol Ag, from taking the molar mass as 88 g/mol and one Ag per aldehyde. Misconception: doubling the molar mass and ignoring the 2:1 ratio.",
+      "C": "Wrong: 0.30 mol Ag, from assuming three Ag atoms per aldehyde. Misconception: inventing a 3:1 silver-to-aldehyde ratio.",
+      "D": "Wrong: 0.40 mol Ag, obtained by taking the molar mass of X as 22 g/mol (halving it). Misconception: miscalculating the molar mass of ethanal.",
+      "E": "Wrong: 0.10 mol Ag, obtained by assuming one Ag atom per aldehyde. Misconception: forgetting that each aldehyde reduces two silver ions."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0131",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Carboxylic acids as weak acids: liberation of CO2 from hydrogencarbonate and the pKa ordering separating carboxylic acids from phenols",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "carboxylic acid",
+      "weak acid",
+      "phenol",
+      "sodium hydrogencarbonate",
+      "pKa",
+      "acid strength"
+    ],
+    "learning_objective": "Reason from pKa values to predict which organic O-H compounds react with sodium hydroxide and which are strong enough to liberate carbon dioxide from hydrogencarbonate.",
+    "question": "The following pKa values are provided: ethanoic acid 4.76, carbonic acid (first ionisation) 6.35, phenol 9.99. Separate samples of ethanoic acid, phenol and ethanol are each tested with (i) aqueous sodium hydroxide and (ii) aqueous sodium hydrogencarbonate. Which statement is correct?",
+    "choices": {
+      "A": "Phenol releases carbon dioxide from the hydrogencarbonate but ethanoic acid does not, because phenol is aromatic.",
+      "B": "Ethanoic acid reacts with both reagents (giving CO2 with the hydrogencarbonate); phenol reacts with the hydroxide but not the hydrogencarbonate; ethanol reacts with neither.",
+      "C": "Neither phenol nor ethanoic acid reacts with sodium hydroxide, because only strong acids react with alkalis.",
+      "D": "Ethanoic acid reacts with sodium hydroxide but not with sodium hydrogencarbonate, because it is a weak acid.",
+      "E": "All three compounds react with sodium hydrogencarbonate to release carbon dioxide."
+    },
+    "correct_answer": "B",
+    "explanation": "Sodium hydroxide is a strong base and deprotonates any acid appreciably stronger than water, so both ethanoic acid (pKa 4.76) and phenol (pKa 9.99) react with it (ethanol, effectively non-acidic, does not). Carbon dioxide is liberated from hydrogencarbonate only by an acid stronger than carbonic acid, i.e. with pKa below about 6.35. Ethanoic acid (4.76) qualifies and gives effervescence; phenol (9.99) is too weak and gives no gas; ethanol reacts with neither. This bicarbonate test therefore distinguishes a carboxylic acid from a phenol.",
+    "option_analysis": {
+      "A": "Wrong: this reverses the truth; ethanoic acid, not phenol, liberates CO2, and aromaticity does not make phenol more acidic than carbonic acid. Misconception: linking aromatic character to greater acidity toward hydrogencarbonate.",
+      "B": "Correct: ethanoic acid is strong enough to react with both reagents; phenol reacts only with the stronger base NaOH; ethanol reacts with neither. The pKa ordering (4.76 < 6.35 < 9.99) accounts for every observation.",
+      "C": "Wrong: sodium hydroxide is a strong base and readily neutralises weak acids such as ethanoic acid and phenol. Misconception: believing only strong acids react with alkalis.",
+      "D": "Wrong: although ethanoic acid is weak, its pKa (4.76) is below that of carbonic acid, so it does release CO2 from hydrogencarbonate. Misconception: assuming a weak acid cannot displace a weaker one.",
+      "E": "Wrong: ethanol is essentially non-acidic and phenol (pKa 9.99) is weaker than carbonic acid, so neither releases CO2. Misconception: assuming any O-H compound is acidic enough to displace carbonic acid."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0132",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Dehydration of alcohols to alkenes: a tertiary alcohol that resists oxidation and gives a single alkene",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "alcohols",
+      "dehydration",
+      "alkene",
+      "tertiary alcohol",
+      "oxidation",
+      "elimination"
+    ],
+    "learning_objective": "Combine the resistance of tertiary alcohols to oxidation with the counting of possible elimination products to identify an alcohol that is not oxidised yet gives a single alkene.",
+    "question": "An oxygen-containing compound W does not react when warmed with acidified potassium dichromate(VI) (the solution stays orange), yet on heating with concentrated sulfuric acid it is readily dehydrated, giving a single alkene as the only organic product. Which of the following is W?",
+    "choices": {
+      "A": "2-methylbutan-2-ol",
+      "B": "2-methylpropan-2-ol",
+      "C": "2-methylpropan-1-ol",
+      "D": "Butan-1-ol",
+      "E": "Butan-2-ol"
+    },
+    "correct_answer": "B",
+    "explanation": "No colour change means W is not oxidised, so it has no hydrogen on the carbon bearing the -OH group: it is a tertiary alcohol (primary and secondary alcohols would turn the solution green). Among tertiary alcohols, dehydration must yield only one alkene. In 2-methylpropan-2-ol, (CH3)3C-OH, the -OH carbon is flanked only by three equivalent methyl groups, so elimination can give only 2-methylpropene. This satisfies both conditions.",
+    "option_analysis": {
+      "A": "Wrong: 2-methylbutan-2-ol is tertiary (not oxidised) but eliminates in two directions, giving 2-methylbut-2-ene and 2-methylbut-1-ene, so it does not give a single alkene. Misconception: assuming every tertiary alcohol yields only one alkene.",
+      "B": "Correct: 2-methylpropan-2-ol is tertiary (not oxidised, solution stays orange) and, because its three methyl groups are equivalent, dehydrates to the single alkene 2-methylpropene.",
+      "C": "Wrong: 2-methylpropan-1-ol is a primary alcohol and is oxidised by dichromate, so it fails the no-reaction condition even though it would give a single alkene. Misconception: focusing only on the single-alkene clue and overlooking the oxidation.",
+      "D": "Wrong: butan-1-ol is a primary alcohol and is oxidised by dichromate, so the solution would turn green. Misconception: ignoring the oxidation clue.",
+      "E": "Wrong: butan-2-ol is a secondary alcohol and is oxidised (orange to green) to butanone, so it fails the first condition; it also dehydrates to a mixture of but-1-ene and but-2-ene. Misconception: forgetting that secondary alcohols are oxidised."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0133",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Ester hydrolysis: deducing an ester's structure from its hydrolysis products",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 165,
+    "tags": [
+      "ester",
+      "hydrolysis",
+      "secondary alcohol",
+      "ketone",
+      "methanoic acid",
+      "Tollens"
+    ],
+    "learning_objective": "Deduce an ester's structure by working back from its hydrolysis products, using the alcohol's oxidation behaviour and the anomalous reducing property of methanoic acid.",
+    "question": "An ester E has the molecular formula C5H10O2. On hydrolysis it gives one carboxylic acid and one alcohol. The alcohol can be oxidised by acidified potassium dichromate(VI) to a ketone, and the carboxylic acid gives no silver mirror when warmed with Tollens' reagent. Which of the following is E?",
+    "choices": {
+      "A": "Ethyl propanoate",
+      "B": "1-methylethyl ethanoate (isopropyl ethanoate)",
+      "C": "1-methylpropyl methanoate (sec-butyl methanoate)",
+      "D": "Propyl ethanoate",
+      "E": "Methyl butanoate"
+    },
+    "correct_answer": "B",
+    "explanation": "Oxidation to a ketone means the alcohol released is secondary. No silver mirror with Tollens' means the acid is not methanoic acid, HCOOH, which is the single carboxylic acid that reduces Tollens' because it contains a -CHO group. For C5H10O2, a secondary alcohol combined with a non-methanoic acid can only be propan-2-ol with ethanoic acid, i.e. 1-methylethyl ethanoate. Propan-2-ol (secondary) is oxidised to propanone (a ketone), and ethanoic acid gives no silver mirror.",
+    "option_analysis": {
+      "A": "Wrong: ethyl propanoate gives ethanol, a primary alcohol, which cannot be oxidised to a ketone. Misconception: overlooking that only secondary alcohols yield ketones.",
+      "B": "Correct: 1-methylethyl ethanoate hydrolyses to propan-2-ol (secondary, oxidised to propanone, a ketone) and ethanoic acid (gives no silver mirror), satisfying both conditions.",
+      "C": "Wrong: this correctly gives butan-2-ol (secondary, oxidised to butanone) but its acid is methanoic acid, which DOES give a silver mirror with Tollens'. Misconception: forgetting that methanoic acid uniquely reduces Tollens' reagent.",
+      "D": "Wrong: propyl ethanoate hydrolyses to propan-1-ol, a primary alcohol that oxidises to an aldehyde/acid, not a ketone. Misconception: not distinguishing primary alcohols (giving aldehydes) from secondary alcohols (giving ketones).",
+      "E": "Wrong: methyl butanoate gives methanol, a primary alcohol oxidised to methanal, not a ketone. Misconception: ignoring the requirement that the alcohol be secondary."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0134",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry: oxygen-containing compounds",
+    "subtopic": "Esterification equilibrium: using excess alcohol with Kc to achieve a target conversion",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 170,
+    "tags": [
+      "esterification",
+      "equilibrium",
+      "Kc",
+      "Le Chatelier",
+      "conversion",
+      "excess reactant"
+    ],
+    "learning_objective": "Set up an equilibrium expression for a reversible esterification (volumes cancelling) and back-calculate the amount of an excess reactant needed to reach a specified conversion.",
+    "question": "The esterification CH3COOH(l) + C2H5OH(l) ⇌ CH3COOC2H5(l) + H2O(l) has Kc = 4.0 at a certain temperature. Starting from 1.0 mol of ethanoic acid, what amount (in mol) of ethanol must be mixed with it so that, at equilibrium, 80% of the ethanoic acid has been converted to ester? (Assume the total volume is constant.)",
+    "choices": {
+      "A": "1.6 mol",
+      "B": "0.8 mol",
+      "C": "1.8 mol",
+      "D": "2.0 mol",
+      "E": "4.0 mol"
+    },
+    "correct_answer": "A",
+    "explanation": "80% of 1.0 mol of acid reacts, forming 0.80 mol of ester and 0.80 mol of water and leaving 0.20 mol of acid. Let the initial ethanol be n mol; at equilibrium ethanol = (n - 0.80) mol. Because the amounts of gas/moles balance and the volume cancels (equal numbers of species on each side), Kc = (0.80 x 0.80)/(0.20 x (n - 0.80)) = 4.0. Hence 0.64 = 0.80(n - 0.80), so n - 0.80 = 0.80 and n = 1.6 mol. Using a large excess of alcohol drives the equilibrium to the right (Le Chatelier), raising the conversion of the acid.",
+    "option_analysis": {
+      "A": "Correct: with ester = water = 0.80, acid = 0.20 and ethanol = (n - 0.80), Kc = 0.64/(0.20(n - 0.80)) = 4.0 gives n = 1.6 mol.",
+      "B": "Wrong: 0.8 mol comes from putting the initial ethanol n in the denominator instead of the equilibrium amount (n - 0.80), i.e. forgetting that ethanol is consumed. Misconception: not subtracting the reacted alcohol.",
+      "C": "Wrong: 1.8 mol arises from omitting the water term and writing Kc = [ester]/([acid][alcohol]): 0.80/(0.20(n - 0.80)) = 4.0 gives n - 0.80 = 1.0, so n = 1.8. Misconception: leaving water out of the equilibrium expression.",
+      "D": "Wrong: 2.0 mol is a rule-of-thumb guess (treating the reaction as complete and simply doubling the reacted amount) that ignores the Kc constraint. Misconception: skipping the equilibrium calculation.",
+      "E": "Wrong: 4.0 mol results from omitting Kc (effectively setting it to 1): 0.64 = 0.20(n - 0.80) gives n - 0.80 = 3.2, so n = 4.0. Misconception: dropping the equilibrium constant."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  }
+]

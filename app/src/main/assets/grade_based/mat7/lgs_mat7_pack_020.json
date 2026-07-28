@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0190",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 30° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "240",
+        "330",
+        "150",
+        "180"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 30° ise diğerleri toplam 330°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0190",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0191",
+      "stem": "Kenarları 15 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "180",
+        "108",
+        "162",
+        "270"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-6)×(18-6) = 9×12 = 108 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0191",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0192",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "3",
+        "2",
+        "4"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0192",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0193",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "320",
+        "640",
+        "580",
+        "700"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +80 litre eklenince 4V/(8) dolu. Denklemden V=640 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0193",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0194",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "400",
+        "860",
+        "800",
+        "740"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +80 litre eklenince 4V/(10) dolu. Denklemden V=800 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0194",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0195",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 9 TL zam yapılmış, ardından 5 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "7",
+        "2",
+        "-7",
+        "-2"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 9 - 5 = 3x → x(1-3) = -4 → x = 2 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0195",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0196",
+      "stem": "Bir torbada 5 kırmızı, 3 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/46",
+        "31/45",
+        "1/10",
+        "30/45"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0196",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0197",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "320",
+        "580",
+        "640",
+        "700"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +80 litre eklenince 4V/(8) dolu. Denklemden V=640 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0197",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0198",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 79, 79, 79, 79, 83 puan almıştır. Altıncı sınava girince ortalaması 81 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "82",
+        "92",
+        "81",
+        "87"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 399. 6. sınav x ise (total5 + x)/6 = 81 → x = 87.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0198",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0199",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 13 TL zam yapılmış, ardından 1 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-7",
+        "7",
+        "-6",
+        "6"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 13 - 1 = 3x → x(1-3) = -12 → x = 6 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0199",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

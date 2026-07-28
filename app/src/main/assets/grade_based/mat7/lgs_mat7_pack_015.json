@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0140",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 2 : 6 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "39",
+        "29",
+        "49",
+        "44"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 5k, 6k. 2k + 8 = 5k → k = 2.6666666666666665. Toplam = 13·k = 39.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0140",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0141",
+      "stem": "Kenarları 15 m ve 10 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "150",
+        "84",
+        "114",
+        "36"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-6)×(10-6) = 9×4 = 36 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0141",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0142",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 30 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "19",
+        "22",
+        "24",
+        "14"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 30. k+3 = 2(e+2) → e = 7, k = 12. Toplam = 19.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0142",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0143",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "101",
+        "96",
+        "91"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0143",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0144",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "940",
+        "1000",
+        "500",
+        "1060"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +100 litre eklenince 4V/(10) dolu. Denklemden V=1000 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0144",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0145",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "96",
+        "91",
+        "101"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0145",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0146",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 85, 85, 85, 85, 86 puan almıştır. Altıncı sınava girince ortalaması 86 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "85",
+        "95",
+        "86",
+        "90"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 426. 6. sınav x ise (total5 + x)/6 = 86 → x = 90.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0146",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0147",
+      "stem": "Kenarları 10 m ve 15 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "14",
+        "136",
+        "66",
+        "150"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (10-8)×(15-8) = 2×7 = 14 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0147",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0148",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 2 : 6 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "41",
+        "36",
+        "26",
+        "46"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 4k, 6k. 2k + 5 = 4k → k = 2.5. Toplam = 12·k = 36.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0148",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0149",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 26 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "11",
+        "19",
+        "16",
+        "21"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 26. k+3 = 2(e+2) → e = 6, k = 10. Toplam = 16.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0149",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

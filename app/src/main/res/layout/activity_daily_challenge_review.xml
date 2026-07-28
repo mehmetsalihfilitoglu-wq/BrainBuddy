@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dcrvScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/page_padding_h"
+        android:paddingVertical="@dimen/space_24">
+
+        <TextView
+            android:id="@+id/dcrvQueueLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dc_review_title"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/edu_turquoise"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dcrvProgress"/>
+
+        <TextView
+            android:id="@+id/dcrvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/5"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/edu_text_dark"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/dcrvImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/dc_cd_question_figure"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/dcrvQueueLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dcrvQuestionCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@id/dcrvImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/dcrvQuestionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dc_question_placeholder"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/edu_text_dark"
+                android:lineSpacingMultiplier="1.2"
+                android:padding="20dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <RadioGroup
+            android:id="@+id/dcrvOptionsGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/dcrvQuestionCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioButton android:id="@+id/dcrvOptA" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_choice_button" android:textSize="16sp" android:textColor="@color/edu_text_dark"/>
+            <RadioButton android:id="@+id/dcrvOptB" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_choice_button" android:textSize="16sp" android:textColor="@color/edu_text_dark"/>
+            <RadioButton android:id="@+id/dcrvOptC" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_choice_button" android:textSize="16sp" android:textColor="@color/edu_text_dark"/>
+            <RadioButton android:id="@+id/dcrvOptD" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:padding="16dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_choice_button" android:textSize="16sp" android:textColor="@color/edu_text_dark"/>
+            <RadioButton android:id="@+id/dcrvOptE" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:padding="16dp" android:visibility="gone" android:background="@drawable/bg_choice_button" android:textSize="16sp" android:textColor="@color/edu_text_dark"/>
+        </RadioGroup>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dcrvExplanationCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/brand_primary_light"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/dcrvOptionsGroup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/dcrvVerdict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_primary_dark"/>
+
+                <TextView
+                    android:id="@+id/dcrvExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/edu_text_dark"
+                    android:lineSpacingMultiplier="1.15"/>
+
+                <TextView
+                    android:id="@+id/dcrvSolutionLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:minHeight="44dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/sol_view"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_primary_dark"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/dcrvPremiumHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/warning_text"
+            android:background="@color/warning_soft"
+            android:padding="12dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/dcrvExplanationCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/dcrvPrimaryBtn"
+            style="@style/Edu.Button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="@string/dc_review_check"
+            android:enabled="false"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintTop_toBottomOf="@id/dcrvPremiumHint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat5_0290",
+      "stem": "80 sayısının %25'i kaçtır?",
+      "options": [
+        "16",
+        "20",
+        "24",
+        "25"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "%25 = 1/4, 80÷4=20.",
+      "source": "edumio",
+      "sourceRef": "mat5_0290",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0291",
+      "stem": "120'nin %40'ı kaçtır?",
+      "options": [
+        "52",
+        "40",
+        "48",
+        "44"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "120 × 0,40 = 48 veya 120 × 40/100 = 48.",
+      "source": "edumio",
+      "sourceRef": "mat5_0291",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0292",
+      "stem": "Aynı doğru üzerinde olmayan 3 nokta birleştirildiğinde kaç üçgen oluşur?",
+      "options": [
+        "3",
+        "0",
+        "2",
+        "1"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Üç farklı nokta bir üçgen oluşturur.",
+      "source": "edumio",
+      "sourceRef": "mat5_0292",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0293",
+      "stem": "Bir açının ölçüsü 90 dereceden küçükse bu açıya ne denir?",
+      "options": [
+        "Dar açı",
+        "Dik açı",
+        "Tam açı",
+        "Geniş açı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "90°'den küçük açı dar açıdır.",
+      "source": "edumio",
+      "sourceRef": "mat5_0293",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0294",
+      "stem": "İki kenarı eşit olan üçgene ne denir?",
+      "options": [
+        "Eşkenar üçgen",
+        "Dik üçgen",
+        "İkizkenar üçgen",
+        "Çeşitkenar üçgen"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "İki kenarı eşit olan üçgen ikizkenar üçgendir.",
+      "source": "edumio",
+      "sourceRef": "mat5_0294",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0295",
+      "stem": "Kare ve dikdörtgenin ortak özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Açıları 90 derecedir",
+        "Dört köşesi vardır",
+        "Tüm kenarları eşittir",
+        "Köşegen sayısı 1'dir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Her ikisi de dörtgen olduğu için 4 köşesi vardır. (Dikdörtgenin kenarları eşit olmayabilir)",
+      "source": "edumio",
+      "sourceRef": "mat5_0295",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0296",
+      "stem": "2 m 45 cm kaç cm'dir?",
+      "options": [
+        "250",
+        "240",
+        "245",
+        "247"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2 m = 200 cm, 200 + 45 = 245 cm.",
+      "source": "edumio",
+      "sourceRef": "mat5_0296",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0297",
+      "stem": "3450 m kaç km kaç m'dir?",
+      "options": [
+        "345 km 0 m",
+        "3 km 450 m",
+        "3 km 45 m",
+        "34 km 50 m"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3450 m = 3000 m + 450 m = 3 km 450 m.",
+      "source": "edumio",
+      "sourceRef": "mat5_0297",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0298",
+      "stem": "Kenar uzunlukları 8 cm ve 5 cm olan dikdörtgenin alanı kaç cm²'dir?",
+      "options": [
+        "40",
+        "26",
+        "35",
+        "45"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Dikdörtgen alanı = 8 × 5 = 40 cm².",
+      "source": "edumio",
+      "sourceRef": "mat5_0298",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0299",
+      "stem": "Bir karenin bir kenarı 6 cm ise alanı kaç cm²'dir?",
+      "options": [
+        "24",
+        "36",
+        "30",
+        "12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "ucgen_dortgenler",
+      "skills": [
+        "ucgen_dort",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare alanı = 6 × 6 = 36 cm².",
+      "source": "edumio",
+      "sourceRef": "mat5_0299",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

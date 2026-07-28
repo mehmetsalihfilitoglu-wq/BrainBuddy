@@ -1,0 +1,34 @@
+{
+  "plan": "CEnT-S shared-candidate export plan",
+  "important": "NO CEnT-S official syllabus was provided among the sources, so shared-candidate selection is provisional and based on general transferability (quantitative reasoning, logic, reading). It MUST be re-validated against the real CEnT-S structure before any CEnT-S export. No CEnT-S bank is produced now (per instruction).",
+  "selectionModel": "As of bank v1.3, shared-candidate status is carried ON EACH QUESTION in til_i_official_bank.json via the boolean field `sharedCandidate: true` and the tag `shared_candidate_cents_s`. This file no longer enumerates every candidate; query the bank by that flag. Counts below are a snapshot.",
+  "isolationRules": [
+    "A shared question is copied into CEnT-S as a SEPARATE record with examProfile='CENTS_S' and a distinct id (e.g. cents_s_...).",
+    "Asset names are duplicated distinctly: til_i_<...>.png vs cents_s_<...>.png — never shared.",
+    "TIL-I and CEnT-S never coexist in the same bank/file."
+  ],
+  "snapshot": {
+    "totalSharedCandidates": 316,
+    "bySection": { "mathematics": 136, "physics": 91, "logic": 44, "reading_comprehension": 23, "computer_science": 17, "representation": 5 },
+    "asOfBankVersion": "1.3-verified"
+  },
+  "priorityTiers": {
+    "tier1_strong": {
+      "sections": ["logic", "reading_comprehension"],
+      "reason": "Exam-agnostic deductive/verbal reasoning; transferable to almost any aptitude test IF CEnT-S has logic/reading sections. Reading passages must travel with their questions.",
+      "count": 67
+    },
+    "tier2_quantitative": {
+      "sections": ["mathematics"],
+      "reason": "Word-problem / general-arithmetic math items are broadly transferable; symbol-heavy algebra/trig items are less so. Filter within mathematics by questionType=word_problem for the strongest subset.",
+      "count": 136
+    },
+    "tier3_provisional_engineering": {
+      "sections": ["physics", "computer_science", "representation"],
+      "reason": "Engineering-specific. Flagged sharedCandidate by the extractor on general-reasoning grounds, but physics/CS/representation overlap with CEnT-S is UNCONFIRMED and likely low. Do NOT export these until the CEnT-S syllabus proves overlap.",
+      "count": 113
+    }
+  },
+  "notSharedRationale": "Chemistry does not exist in TIL-I. TIL-I Representation and Computer-Science items are engineering/Politecnico-specific; physics is discipline-specific. All three are held in tier-3 (provisional) and are NOT recommended for CEnT-S until its syllabus confirms overlap.",
+  "nextStep": "Obtain the official CEnT-S structure/syllabus, then: (1) keep tier-1 + the word-problem subset of tier-2 as the initial shared pool, (2) re-tag tier-3 per real overlap, (3) generate cents_s_* records with fresh ids/assets."
+}

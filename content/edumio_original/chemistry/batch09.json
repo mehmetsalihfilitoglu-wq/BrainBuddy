@@ -1,0 +1,479 @@
+[
+  {
+    "id": "mio_chem_0099",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Measuring reaction rate: interpreting gas-volume-against-time curves to identify which variable was changed (rate vs final yield)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "reaction kinetics",
+      "rate of reaction",
+      "surface area",
+      "gas collection",
+      "limiting reactant",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret a volume-against-time curve for a gas-evolving reaction, using the plateau (fixed by the limiting reactant) and the initial gradient to deduce which experimental variable was altered.",
+    "question": "A student investigates the reaction between marble chips (calcium carbonate) and hydrochloric acid,\nCaCO3(s) + 2 HCl(aq) -> CaCl2(aq) + H2O(l) + CO2(g),\nby collecting the carbon dioxide evolved and plotting its volume against time. In the control run the acid is in large excess, so the marble is the limiting reactant; the curve rises and levels off at a final volume V. The student then alters ONE variable and obtains a curve that is steeper at the start yet levels off at the SAME final volume V, reaching the plateau sooner. Which change is consistent with this result?",
+    "choices": {
+      "A": "The same mass of marble is ground to a fine powder before the acid is added.",
+      "B": "A smaller mass of the same-sized marble chips is used.",
+      "C": "The acid is diluted with water before the reaction (it remains in excess).",
+      "D": "A larger volume of acid of the same concentration is used.",
+      "E": "The same mass of marble is used as a single large lump instead of small chips."
+    },
+    "correct_answer": "A",
+    "explanation": "The plateau volume is fixed by the amount of the limiting reactant (the marble): any change to the moles of CaCO3 available would move the plateau. A steeper rise to the SAME plateau therefore means the same quantity of marble reacts, but faster. Grinding the fixed mass to powder greatly increases the exposed surface area, raising the frequency of acid-solid collisions and hence the initial rate, while leaving the moles of CaCO3 (and thus the final CO2 volume) unchanged.",
+    "option_analysis": {
+      "A": "Correct: powdering the same mass sharply increases the exposed surface area, so more solid-acid collisions occur per second and the initial rate rises; the number of moles of CaCO3 (the limiting reactant) is unchanged, so the plateau stays at V.",
+      "B": "Wrong: using less marble reduces the moles of limiting reactant, so less CO2 is produced and the curve levels off at a LOWER volume, not the same V. Misconception: that the mass of solid affects only the speed and not the final gas volume.",
+      "C": "Wrong: diluting the acid lowers [H+], reducing the frequency of successful collisions, so the initial rate FALLS (shallower curve); the plateau would still be V but reached more slowly. Misconception: that diluting an excess reagent has no effect on rate or even increases it.",
+      "D": "Wrong: the acid is already in excess, so adding more of it at the same concentration changes neither the collision frequency at the solid surface nor the amount of marble; the curve is unchanged. Misconception: that increasing the volume of an already-excess reactant speeds the reaction.",
+      "E": "Wrong: a single lump exposes a smaller total surface area than chips, so the initial rate would be lower and the curve shallower, not steeper. Misconception: that consolidating the solid into one piece speeds the reaction, or that the degree of subdivision does not matter."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0100",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Temperature effect via the Maxwell-Boltzmann distribution: the steep rise in the fraction of molecules exceeding Ea as the dominant cause",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "reaction kinetics",
+      "collision theory",
+      "Maxwell-Boltzmann distribution",
+      "activation energy",
+      "temperature effect",
+      "Boltzmann factor"
+    ],
+    "learning_objective": "Explain, using collision theory and the Maxwell-Boltzmann distribution, why a small rise in temperature produces a large rise in rate, identifying the tail-fraction (Boltzmann) term rather than collision frequency as the dominant factor.",
+    "question": "For many reactions the rate roughly doubles when the temperature is raised from 25 C (298 K) to 35 C (308 K). Over this interval the mean kinetic energy of the molecules (proportional to the absolute temperature) rises by only about 3.4 %, and the mean molecular speed and hence the collision frequency (proportional to the square root of T) rise by only about 1.7 %. Which statement best explains why the rate nevertheless roughly doubles?",
+    "choices": {
+      "A": "Because the molecules move so much faster that they collide far more frequently, and rate is proportional to collision frequency.",
+      "B": "Because the mean kinetic energy of the molecules approximately doubles for a 10 C rise.",
+      "C": "Because the collisions become energetic enough that the average collision energy now exceeds the activation energy.",
+      "D": "Because the fraction of collisions with combined energy equal to or greater than the activation energy rises steeply and non-linearly with temperature, whereas the change in collision frequency is comparatively negligible.",
+      "E": "Because the activation energy of the reaction falls as the temperature is raised."
+    },
+    "correct_answer": "D",
+    "explanation": "In collision theory, rate is proportional to the collision frequency multiplied by the fraction of collisions whose energy reaches the activation energy Ea. That fraction is essentially the Boltzmann factor e^(-Ea/RT), the tail area of the Maxwell-Boltzmann distribution beyond Ea. A 10 K rise barely changes the collision frequency (about +1.7 %), but it shifts the distribution so that the small high-energy tail beyond Ea grows sharply; for a typical Ea (around 50 kJ/mol) this exponential factor increases by roughly a factor of two over 298-308 K, accounting for the doubling.",
+    "option_analysis": {
+      "A": "Wrong: the collision frequency scales with the square root of T, only about +1.7 % over this interval, far too small to double the rate. Misconception: attributing the temperature effect mainly to a large increase in the number of collisions.",
+      "B": "Wrong: mean kinetic energy is proportional to ABSOLUTE temperature, so from 298 K to 308 K it rises about 3.4 %, not 100 %. Misconception: treating energy as proportional to the Celsius temperature, or simply assuming energy doubles.",
+      "C": "Wrong: the activation energy lies well ABOVE the mean molecular energy; even after heating, only the small high-energy tail of molecules exceeds Ea, not the average. Misconception: that the average collision energy surpasses the activation energy.",
+      "D": "Correct: rate is proportional to (collision frequency) x (fraction with E >= Ea). The frequency term barely changes, but the fraction exceeding Ea - the tail of the Maxwell-Boltzmann distribution, given by e^(-Ea/RT) - rises steeply, roughly doubling over 10 K for a typical activation energy, and is therefore the dominant cause.",
+      "E": "Wrong: the activation energy is a property of the reaction pathway and is essentially independent of temperature; only a catalyst lowers Ea. Misconception: that heating reduces the activation energy."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0101",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Surface-area effect quantified: subdivision of a solid and the geometric scaling of exposed area with particle size",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "reaction kinetics",
+      "surface area",
+      "rate of reaction",
+      "geometry",
+      "scaling",
+      "heterogeneous reaction"
+    ],
+    "learning_objective": "Quantify the effect of subdividing a solid reactant on initial rate, recognising that for a fixed total volume the exposed surface area scales inversely with particle edge length.",
+    "question": "A single cube of a solid reactant, of edge length 12 mm, is dropped into an excess of acid; the initial rate of reaction is proportional to the total surface area of solid exposed to the acid. In a repeat experiment the same solid (same total volume and mass) is instead cut into identical small cubes of edge length 2 mm before being added to the same acid. By what factor does the initial rate of reaction change?",
+    "choices": {
+      "A": "It cannot be determined without knowing the rate constant of the reaction.",
+      "B": "It increases by a factor of 216.",
+      "C": "It increases by a factor of 36.",
+      "D": "It increases by a factor of 6.",
+      "E": "It is unchanged, because the total mass and volume of the solid are the same."
+    },
+    "correct_answer": "D",
+    "explanation": "The initial rate is proportional to the total exposed surface area. Large cube: area = 6 x 12^2 = 864 mm^2. Number of 2 mm cubes = 12^3 / 2^3 = 1728 / 8 = 216, each of area 6 x 2^2 = 24 mm^2, giving a total of 216 x 24 = 5184 mm^2. The ratio is 5184 / 864 = 6. Equivalently, for a fixed volume the total surface area is inversely proportional to the edge length, so the factor is simply 12 / 2 = 6.",
+    "option_analysis": {
+      "A": "Wrong: the factor is purely geometric (a ratio of surface areas); the rate constant is identical in both runs and cancels in the ratio, so it is not needed. Misconception: that a kinetic constant is required to compare rates under otherwise identical conditions.",
+      "B": "Wrong: 216 is the NUMBER of small cubes produced (1728/8). Rate is proportional to total surface area, not to the number of separate pieces. Misconception: equating rate with the count of fragments.",
+      "C": "Wrong: 36 is the square of the linear ratio (12/2)^2. Surface area scales as the square of size only for a single object of fixed shape; here the volume is conserved and split into many pieces, so the total-area factor is 6, not 36. Misconception: applying the length-squared scaling rule while ignoring conservation of volume.",
+      "D": "Correct: total area of the large cube = 6 x 12^2 = 864 mm^2; the 216 small cubes give 216 x (6 x 2^2) = 5184 mm^2; 5184 / 864 = 6. (For fixed volume, area is proportional to 1/edge, so the factor is 12/2 = 6.)",
+      "E": "Wrong: rate depends on exposed surface area, not on total mass or volume; subdividing the solid greatly increases the area even though the mass is conserved. Misconception: that only the amount of solid, and not its degree of subdivision, matters for rate."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0102",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Collision theory and the rate constant: distinguishing variables that change k (temperature, catalyst) from those that change rate only (concentration)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "reaction kinetics",
+      "collision theory",
+      "rate constant",
+      "Arrhenius equation",
+      "catalyst",
+      "concentration",
+      "temperature"
+    ],
+    "learning_objective": "Distinguish factors that change the rate constant k (temperature and catalyst, via the Arrhenius relationship) from factors that change only the reaction rate (reactant concentration).",
+    "question": "For the reaction 2 A + B -> products, taking place in solution, the rate is given by rate = k[A]^2[B], where k is the rate constant. A student makes several statements about the rate constant k. Which statement is correct?",
+    "choices": {
+      "A": "For a given reaction, k has the same value at every temperature.",
+      "B": "Adding a catalyst increases k because it opens an alternative pathway of lower activation energy, and k also increases when the temperature is raised.",
+      "C": "Adding a catalyst increases k because it raises the activation energy of the reaction.",
+      "D": "Raising the temperature leaves k unchanged but speeds the reaction by increasing the collision frequency.",
+      "E": "Doubling the concentration of A doubles the value of k."
+    },
+    "correct_answer": "B",
+    "explanation": "The rate constant follows the Arrhenius relationship k = A e^(-Ea/RT): it depends on temperature and on the activation energy, but NOT on reactant concentrations. Raising the concentration of a reactant increases the rate but leaves k unchanged. Raising the temperature increases k (the exponential term grows); adding a catalyst lowers Ea and therefore also increases k. Statement E correctly combines the catalyst (lower-Ea alternative pathway) and temperature effects on k.",
+    "option_analysis": {
+      "A": "Wrong: k is strongly temperature-dependent (k = A e^(-Ea/RT)) and is constant only at constant temperature. Misconception: that k is a fixed constant of the reaction independent of temperature.",
+      "B": "Correct: through k = A e^(-Ea/RT), lowering Ea with a catalyst increases k, and raising the temperature also increases k; changing a concentration, by contrast, alters the rate but not k.",
+      "C": "Wrong: a catalyst does increase k, but by LOWERING the activation energy, not raising it; raising Ea would decrease k. Misconception: that a catalyst works by increasing the activation energy.",
+      "D": "Wrong: raising the temperature increases k ITSELF through the Arrhenius factor; it does not leave k fixed. Misconception: that temperature acts only through collision frequency and not on the rate constant.",
+      "E": "Wrong: k is independent of concentration. Doubling [A] increases the rate (fourfold here, since rate is proportional to [A]^2) but does not change k. Misconception: that the rate constant depends on reactant concentration."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0103",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Defining reaction rate through stoichiometry: relating rates of different species and converting a measured gas-evolution rate",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "reaction kinetics",
+      "rate of reaction",
+      "stoichiometry",
+      "molar gas volume",
+      "rate measurement",
+      "gas collection"
+    ],
+    "learning_objective": "Convert a measured rate of gas evolution into moles per unit time and relate it, through the balanced equation, to the rate of disappearance of a reactant using the correct stoichiometric coefficient.",
+    "question": "Dinitrogen pentoxide decomposes according to\n2 N2O5(g) -> 4 NO2(g) + O2(g).\nThe progress of the reaction is followed by collecting the oxygen produced. At a particular instant, oxygen is being evolved at a rate of 12 cm^3 per minute, measured under conditions where the molar gas volume is 24 000 cm^3/mol. At that instant, what is the rate of disappearance of N2O5?",
+    "choices": {
+      "A": "2.5 x 10^-3 mol/min",
+      "B": "1.0 x 10^-3 mol/min",
+      "C": "2.0 x 10^-3 mol/min",
+      "D": "2.5 x 10^-4 mol/min",
+      "E": "5.0 x 10^-4 mol/min"
+    },
+    "correct_answer": "B",
+    "explanation": "First convert the oxygen volume rate to moles: n(O2) per minute = 12 cm^3 / 24 000 cm^3/mol = 5.0 x 10^-4 mol/min. The balanced equation shows that 2 mol of N2O5 are consumed for every 1 mol of O2 formed, so N2O5 disappears at twice the rate O2 appears: 2 x 5.0 x 10^-4 = 1.0 x 10^-3 mol/min.",
+    "option_analysis": {
+      "A": "Wrong: 2.5 x 10^-3 = 5 x 5.0 x 10^-4 multiplies by the total number of moles of gaseous product (4 + 1 = 5). Misconception: using the sum of all product coefficients instead of the coefficient of N2O5.",
+      "B": "Correct: n(O2)/min = 12 cm^3 / 24 000 cm^3/mol = 5.0 x 10^-4 mol/min; the stoichiometry 2 N2O5 : 1 O2 gives the rate of loss of N2O5 = 2 x 5.0 x 10^-4 = 1.0 x 10^-3 mol/min.",
+      "C": "Wrong: 2.0 x 10^-3 uses the coefficient of NO2 (4) rather than that of N2O5 (2); it is in fact the rate of NO2 formation. Misconception: applying the coefficient of the wrong species.",
+      "D": "Wrong: 2.5 x 10^-4 divides the O2 rate by 2 instead of multiplying, inverting the stoichiometric ratio. Misconception: dividing by the coefficient of N2O5 rather than multiplying by it.",
+      "E": "Wrong: 5.0 x 10^-4 mol/min is the rate of O2 formation itself; it assumes a 1 : 1 ratio between N2O5 and O2. Misconception: ignoring the stoichiometric coefficient (2) of N2O5."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0104",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "Degree of unsaturation: deducing skeletal features from the index of hydrogen deficiency and hydrogenation stoichiometry",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "organic chemistry",
+      "degree of unsaturation",
+      "index of hydrogen deficiency",
+      "hydrogenation",
+      "alkyne vs diene"
+    ],
+    "learning_objective": "Compute the degree of unsaturation of a hydrocarbon and combine it with catalytic-hydrogenation stoichiometry (and the fact that rings are not opened by H2) to constrain its structure.",
+    "question": "A pure hydrocarbon X has the molecular formula C6H10. On complete catalytic hydrogenation, 1 mol of X absorbs exactly 2 mol of hydrogen gas (H2) and the only product is hexane, C6H14. Under these conditions carbon–carbon multiple bonds add hydrogen but ordinary rings are not opened. Which conclusion about the structure of X is correct?",
+    "choices": {
+      "A": "X must contain two rings and no carbon–carbon multiple bond.",
+      "B": "X is acyclic and contains either two carbon–carbon double bonds or one carbon–carbon triple bond.",
+      "C": "X must contain one ring together with one carbon–carbon double bond.",
+      "D": "X must contain one ring and no carbon–carbon multiple bond.",
+      "E": "X must contain one carbon–carbon triple bond together with one ring."
+    },
+    "correct_answer": "B",
+    "explanation": "The degree of unsaturation of C6H10 is (2·6 + 2 − 10)/2 = 2, so X has two degrees of unsaturation. Adding 2 mol H2 (four H atoms) removes both degrees, and the product is the fully saturated, open-chain hexane (C6H14). Because catalytic hydrogenation adds H2 across π bonds but does not open ordinary rings, the fact that the product is acyclic means X contained no ring: both degrees of unsaturation must have been π bonds. That is satisfied by two C=C bonds (a diene) or by one C≡C bond (an alkyne counts as two degrees and consumes 2 mol H2). Hence X is acyclic with either two double bonds or one triple bond.",
+    "option_analysis": {
+      "A": "Wrong: two rings do give two degrees of unsaturation, but rings are not hydrogenated, so such a molecule would absorb no H2 and could not become open-chain hexane. Misconception: assuming rings consume H2.",
+      "B": "Correct: two degrees of unsaturation, all four added hydrogens accounted for, and an acyclic saturated product together require an acyclic molecule whose two degrees are π bonds — two C=C bonds or one C≡C bond.",
+      "C": "Wrong: a ring plus one C=C does give two degrees of unsaturation, but the ring would survive hydrogenation, so the product would be a cyclic C6H12 and only 1 mol H2 would be absorbed — inconsistent with obtaining acyclic hexane after 2 mol H2. Misconception: forgetting that rings are not opened by catalytic hydrogenation.",
+      "D": "Wrong: a single ring gives only one degree of unsaturation (formula C6H12) and would absorb no H2, contradicting both the formula C6H10 and the uptake of 2 mol H2. Misconception: miscounting C6H10 as having only one degree of unsaturation.",
+      "E": "Wrong: a triple bond is itself two degrees of unsaturation, so a triple bond plus a ring gives three degrees (formula C6H8, not C6H10); moreover the surviving ring could not yield open-chain hexane. Misconception: treating a C≡C bond as only one degree of unsaturation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0105",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "Structural (constitutional) isomerism: counting isomeric alcohols of a fixed molecular formula (chain + positional)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "organic chemistry",
+      "constitutional isomerism",
+      "isomer counting",
+      "alcohols",
+      "carbon skeletons"
+    ],
+    "learning_objective": "Systematically enumerate the constitutional isomers of a given molecular formula that belong to a specified functional-group class by working through each carbon skeleton and each distinct substitution position.",
+    "question": "How many constitutional (structural) isomers with the molecular formula C5H12O are alcohols? Count only alcohols (molecules containing a hydroxyl group) and treat stereoisomers as identical for this count.",
+    "choices": {
+      "A": "6",
+      "B": "8",
+      "C": "7",
+      "D": "5",
+      "E": "9"
+    },
+    "correct_answer": "B",
+    "explanation": "C5H12O has zero degrees of unsaturation, so each alcohol is a saturated five-carbon chain bearing one –OH. Work through the three C5 skeletons. Unbranched pentane gives 3 alcohols (–OH at C1, C2 or C3: pentan-1-ol, pentan-2-ol, pentan-3-ol). 2-methylbutane gives 4 (2-methylbutan-1-ol, 2-methylbutan-2-ol, 3-methylbutan-1-ol, 3-methylbutan-2-ol). 2,2-dimethylpropane (neopentane) gives 1 (2,2-dimethylpropan-1-ol). Total = 3 + 4 + 1 = 8 constitutional alcohols.",
+    "option_analysis": {
+      "A": "Wrong: this omits two of the branched-chain alcohols. Misconception: overlooking either the neopentyl alcohol or one of the 2-methylbutanol positions.",
+      "B": "Correct: 3 (pentane skeleton) + 4 (2-methylbutane skeleton) + 1 (neopentane skeleton) = 8 constitutional alcohols.",
+      "C": "Wrong: seven usually results from forgetting a single isomer, most often 2,2-dimethylpropan-1-ol (neopentyl alcohol) or 3-methylbutan-2-ol. Misconception: missing one valid substitution position.",
+      "D": "Wrong: counting the three straight-chain pentanols plus only two branched isomers misses several substitution positions on the 2-methylbutane skeleton. Misconception: incomplete enumeration of the branched skeletons.",
+      "E": "Wrong: nine arises from including an ether (a functional-group isomer, not an alcohol) or from double-counting a symmetry-equivalent position as two different alcohols. Misconception: not restricting the count to alcohols, or treating equivalent carbons as distinct."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0106",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "IUPAC nomenclature: naming a branched alkane by longest-chain selection and the lowest-locant rule",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "organic chemistry",
+      "IUPAC nomenclature",
+      "alkanes",
+      "longest chain",
+      "lowest locants"
+    ],
+    "learning_objective": "Assign the correct IUPAC name to a branched alkane by identifying the longest continuous carbon chain and numbering it to obtain the lowest set of locants.",
+    "question": "A saturated hydrocarbon has the condensed structure (CH3)2CH–CH2–C(CH3)2–CH2–CH3. What is its correct IUPAC name?",
+    "choices": {
+      "A": "2,2,4-trimethylhexane",
+      "B": "3,3,5-trimethylhexane",
+      "C": "2,4-dimethylheptane",
+      "D": "2,2,4-trimethylpentane",
+      "E": "2,4,4-trimethylhexane"
+    },
+    "correct_answer": "E",
+    "explanation": "The longest continuous carbon chain runs from a methyl of the isopropyl group through the chain to the terminal ethyl carbon: six carbons (a hexane parent). The remaining substituents are one methyl (on the isopropyl carbon) and two methyls (on the quaternary carbon). Numbering from the isopropyl end gives substituent locants {2,4,4}; numbering from the ethyl end gives {3,3,5}. Since {2,4,4} is the lower set, the name is 2,4,4-trimethylhexane (molecular formula C9H20).",
+    "option_analysis": {
+      "A": "Wrong: this places the geminal (two-on-one-carbon) methyls at C2 and the lone methyl at C4, i.e. it swaps which carbon (the CH versus the quaternary C) carries the pair of methyls, describing a different compound. Misconception: mis-assigning the geminal-dimethyl carbon.",
+      "B": "Wrong: this is the same skeleton numbered from the wrong end, giving locants {3,3,5} instead of the lower {2,4,4}. Misconception: failing to apply the lowest-set-of-locants rule.",
+      "C": "Wrong: there is no seven-carbon continuous chain in this molecule; reporting heptane absorbs one methyl into the main chain and undercounts the substituents. Misconception: incorrect longest-chain selection.",
+      "D": "Wrong: a pentane parent is too short (it corresponds to C8H18, isooctane), whereas the correct parent extends to six carbons giving C9H20. Misconception: truncating the parent chain.",
+      "E": "Correct: the six-carbon parent chain with methyls located to give the lowest locant set {2,4,4} yields 2,4,4-trimethylhexane."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0107",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "Geometric (cis–trans) isomerism: counting stereoisomers of a symmetric conjugated diene (symmetry-reduced count)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "organic chemistry",
+      "stereoisomerism",
+      "cis-trans",
+      "E/Z",
+      "molecular symmetry",
+      "conjugated diene"
+    ],
+    "learning_objective": "Count the geometric (cis–trans) stereoisomers of a diene by identifying stereogenic double bonds and recognising when molecular symmetry makes two E/Z combinations the same compound.",
+    "question": "How many distinct stereoisomers exist for hexa-2,4-diene, CH3–CH=CH–CH=CH–CH3? (Consider only configurational cis–trans isomerism about the double bonds.)",
+    "choices": {
+      "A": "2",
+      "B": "5",
+      "C": "6",
+      "D": "3",
+      "E": "4"
+    },
+    "correct_answer": "D",
+    "explanation": "Both C=C bonds are stereogenic, because each doubly-bonded carbon carries two different groups (an H and a carbon chain). Two independent stereogenic double bonds would naively give 2² = 4 configurations: (2E,4E), (2Z,4Z), (2E,4Z) and (2Z,4E). However, the molecule is symmetric end-to-end (both termini are CH3), so (2E,4Z) and (2Z,4E) are the same compound. The distinct stereoisomers are therefore trans,trans (2E,4E), cis,cis (2Z,4Z) and cis,trans (2E,4Z ≡ 2Z,4E): three in all.",
+    "option_analysis": {
+      "A": "Wrong: this treats the two double bonds as a single geometric feature, labelling the whole molecule simply cis or trans and ignoring that each double bond is independently E or Z. Misconception: not recognising two separate stereogenic centres.",
+      "B": "Wrong: five results from adding a supposed extra isomer such as an s-cis/s-trans arrangement. Misconception: confusing conformational (single-bond rotation) forms with configurational stereoisomers.",
+      "C": "Wrong: six results from assigning three states to each double bond or otherwise double-counting. Misconception: gross overcounting by treating conformers or equivalent forms as distinct stereoisomers.",
+      "D": "Correct: three distinct forms — trans,trans; cis,cis; and cis,trans — after the symmetry-related pair is merged.",
+      "E": "Wrong: applying 2ⁿ = 2² = 4 without noticing that the molecule's end-to-end symmetry makes the (E,Z) and (Z,E) forms identical. Misconception: ignoring molecular symmetry when counting."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0108",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "Optical isomerism / chirality: meso compounds — an enantiomeric pair plus an achiral diastereomer for two equivalent stereocentres",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "organic chemistry",
+      "optical isomerism",
+      "chirality",
+      "meso compound",
+      "enantiomers",
+      "stereocentres"
+    ],
+    "learning_objective": "Determine the number and optical activity of the stereoisomers of a molecule with two equivalent stereocentres, recognising the achiral meso form that arises from an internal mirror plane.",
+    "question": "2,3-dibromobutane, CH3–CHBr–CHBr–CH3, contains two chirality centres. Which statement correctly describes its stereoisomers?",
+    "choices": {
+      "A": "It has four stereoisomers, all of which are optically active.",
+      "B": "It has two stereoisomers, which are enantiomers of each other.",
+      "C": "It has three stereoisomers, all of which are optically active.",
+      "D": "It has four stereoisomers comprising two pairs of enantiomers.",
+      "E": "It has three stereoisomers: a pair of enantiomers together with an achiral meso form."
+    },
+    "correct_answer": "E",
+    "explanation": "The two chirality centres (C2 and C3) carry identical sets of substituents (each bears H, Br, CH3 and the other CHBr). Naively 2² = 4, but because the stereocentres are equivalent the (2R,3S) and (2S,3R) descriptors describe a single molecule that possesses an internal mirror plane: this is the meso compound, which is achiral and optically inactive. The (2R,3R) and (2S,3S) forms are a genuine pair of enantiomers and are optically active. There are therefore three stereoisomers: one enantiomeric pair plus one meso form.",
+    "option_analysis": {
+      "A": "Wrong: this uses 2ⁿ = 4 and assumes every stereoisomer of a molecule with chirality centres must be chiral, ignoring the internal symmetry that produces an achiral meso form. Misconception: 2ⁿ always gives the number of optically active isomers.",
+      "B": "Wrong: this undercounts by treating the molecule as though it had a single chirality centre (or by discarding a diastereomer), so it misses the meso form. Misconception: overlooking that two stereocentres generate a diastereomer in addition to the enantiomeric pair.",
+      "C": "Wrong: the count of three is right, but it fails to recognise that the (2R,3S) form has an internal mirror plane and is therefore achiral (optically inactive). Misconception: assuming any molecule containing stereocentres must be optically active.",
+      "D": "Wrong: this keeps the naive count of four and pairs them as two enantiomeric pairs, not seeing that (2R,3S) and (2S,3R) are the same (meso) molecule, leaving only three stereoisomers. Misconception: failing to merge the internally symmetric pair.",
+      "E": "Correct: (2R,3R)/(2S,3S) form an optically active enantiomeric pair, and (2R,3S) ≡ (2S,3R) is a single achiral meso compound — three stereoisomers in total."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0109",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry — structure & isomerism",
+    "subtopic": "Isomer enumeration: total isomer count (constitutional plus geometric, including rings) from a molecular formula",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "organic chemistry",
+      "isomer counting",
+      "degree of unsaturation",
+      "rings vs alkenes",
+      "cis-trans",
+      "constitutional isomers"
+    ],
+    "learning_objective": "Enumerate the total number of isomers of a molecular formula by combining degree-of-unsaturation reasoning (ring versus double bond) with constitutional and geometric (cis–trans) isomerism.",
+    "question": "Considering both constitutional isomers and geometric (cis–trans) stereoisomers, and including cyclic structures, how many distinct isomers have the molecular formula C4H8? (Ignore purely conformational differences and do not count optical isomers separately.)",
+    "choices": {
+      "A": "4",
+      "B": "7",
+      "C": "8",
+      "D": "6",
+      "E": "5"
+    },
+    "correct_answer": "D",
+    "explanation": "C4H8 has one degree of unsaturation, satisfied by either one C=C bond or one ring. The constitutional isomers are three acyclic alkenes — but-1-ene, but-2-ene and 2-methylprop-1-ene — plus two rings, cyclobutane and methylcyclopropane: five constitutional isomers. Of these, only but-2-ene has two different groups on each doubly-bonded carbon and restricted rotation, so it exists as cis and trans forms (methylcyclopropane's methyl-bearing ring carbon is not a stereocentre, and the other alkenes cannot show cis–trans isomerism). Adding the one extra geometric isomer gives 4 + 2 = 6 distinct isomers.",
+    "option_analysis": {
+      "A": "Wrong: four counts only the acyclic alkenes with their geometric forms (but-1-ene, cis- and trans-but-2-ene, 2-methylprop-1-ene) and forgets that one degree of unsaturation can instead be a ring. Misconception: ignoring cyclic isomers.",
+      "B": "Wrong: seven arises from inventing a cis/trans pair for methylcyclopropane, whose methyl-bearing ring carbon is not a stereocentre. Misconception: assigning geometric isomerism to a group that lacks two different substituents on each relevant carbon.",
+      "C": "Wrong: eight arises from assuming every alkene shows cis–trans isomerism, but but-1-ene and 2-methylprop-1-ene each have two identical groups on one double-bond carbon and cannot. Misconception: applying cis–trans isomerism indiscriminately to all double bonds.",
+      "D": "Correct: five constitutional isomers, with but-2-ene contributing an additional cis/trans pair, giving six distinct isomers in total.",
+      "E": "Wrong: five is the number of constitutional isomers (three alkenes + two rings) but overlooks that but-2-ene exists as separate cis and trans stereoisomers. Misconception: neglecting geometric isomerism."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0110",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Reaction kinetics",
+    "subtopic": "Determining the overall order of a reaction from initial-rate data",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "kinetics",
+      "reaction order",
+      "initial rates",
+      "rate law",
+      "method of initial rates"
+    ],
+    "learning_objective": "Use the method of initial rates to find the order of a reaction with respect to each reactant by comparing experiments in which one concentration is changed at a time, and hence state the overall order.",
+    "question": "For the reaction A + B → products, the initial rate was measured at 25 °C for three different sets of starting concentrations:\n\nExperiment 1: [A] = 0.10 mol dm⁻³, [B] = 0.10 mol dm⁻³, initial rate = 2.0×10⁻³ mol dm⁻³ s⁻¹\nExperiment 2: [A] = 0.20 mol dm⁻³, [B] = 0.10 mol dm⁻³, initial rate = 8.0×10⁻³ mol dm⁻³ s⁻¹\nExperiment 3: [A] = 0.20 mol dm⁻³, [B] = 0.20 mol dm⁻³, initial rate = 1.6×10⁻² mol dm⁻³ s⁻¹\n\nWhat is the overall order of the reaction?",
+    "choices": {
+      "A": "The order cannot be determined from these data.",
+      "B": "2",
+      "C": "1",
+      "D": "4",
+      "E": "3"
+    },
+    "correct_answer": "E",
+    "explanation": "Compare experiments in which only one concentration changes. From Experiment 1 to 2, [A] doubles (0.10→0.20) while [B] is constant, and the rate quadruples (2.0×10⁻³→8.0×10⁻³): rate ∝ [A]², so the order in A is 2. From Experiment 2 to 3, [B] doubles (0.10→0.20) while [A] is constant, and the rate doubles (8.0×10⁻³→1.6×10⁻²): rate ∝ [B]¹, so the order in B is 1. The overall order is 2 + 1 = 3.",
+    "option_analysis": {
+      "A": "Wrong: the data are sufficient — each comparison changes exactly one concentration, which is precisely what the method of initial rates requires.",
+      "B": "Wrong: order 2 counts only one of the two contributions (for example the order in A, or 1 + 1); it misses that A is second order while B is first order.",
+      "C": "Wrong: order 1 would mean doubling one reactant simply doubles the rate for that reactant and the other has no effect; here doubling [A] quadruples the rate, so A alone is second order.",
+      "D": "Wrong: order 4 would require, for example, the rate to change by a factor of 4 for each doubling; doubling [B] only doubles the rate, so B is first order, not second.",
+      "E": "Correct: doubling [A] quadruples the rate (order 2 in A) and doubling [B] doubles the rate (order 1 in B), so the overall order is 2 + 1 = 3."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  }
+]

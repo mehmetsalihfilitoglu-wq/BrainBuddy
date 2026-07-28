@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0066",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Electric fields and Coulomb's law",
+    "subtopic": "Electric-field null point on the line joining two like point charges",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "electric field",
+      "Coulomb's law",
+      "point charges",
+      "superposition",
+      "null point"
+    ],
+    "learning_objective": "Locate the point of zero electric field on the axis of two like point charges by balancing inverse-square field magnitudes.",
+    "question": "Two positive point charges are fixed on a straight line in a vacuum: a charge +q is placed at the origin and a charge +9q is placed at x = 40 cm. At which point on the line joining the two charges is the resultant electric field zero?",
+    "choices": {
+      "A": "There is no such point between them; the field vanishes only outside the segment, beyond the +q charge",
+      "B": "20 cm from the +q charge",
+      "C": "10 cm from the +q charge",
+      "D": "4 cm from the +q charge",
+      "E": "30 cm from the +q charge"
+    },
+    "correct_answer": "C",
+    "explanation": "Both charges are positive, so their fields point in opposite directions only between them; the null point therefore lies on the segment, nearer the weaker charge. Setting the field magnitudes equal at a distance x from +q: kq/x^2 = k(9q)/(0.40 - x)^2. Cancelling and taking the square root gives (0.40 - x)/x = 3, so 0.40 - x = 3x and x = 0.10 m = 10 cm from +q (hence 30 cm from +9q). Note the distance ratio is the square root of the charge ratio (3:1), not the charge ratio itself.",
+    "option_analysis": {
+      "A": "Wrong: for two like charges the null lies between them; it is for unlike (opposite) charges that the null lies outside the segment. This option confuses the two cases.",
+      "B": "Wrong: places the null at the geometric midpoint; this ignores that the fields have unequal magnitudes, so cancellation cannot occur halfway between charges of different size.",
+      "C": "Correct: Balancing kq/x^2 = 9kq/(0.40-x)^2 gives (0.40-x)/x = 3, so x = 10 cm from the smaller charge.",
+      "D": "Wrong: obtained by setting the distance ratio equal to the charge ratio directly (x/(0.40-x) = 1/9), forgetting that the inverse-square law requires the square root of the charge ratio.",
+      "E": "Wrong: puts the null 30 cm from +q, i.e. nearer the larger charge. The zero must lie closer to the weaker charge, because only there can the weaker field grow enough to match the stronger one."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0067",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Uniform electric fields — motion of a charge between parallel plates",
+    "subtopic": "Parabolic deflection of an electron traversing parallel plates (projectile analogue)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "parallel plates",
+      "uniform field",
+      "electron deflection",
+      "projectile motion",
+      "electric force"
+    ],
+    "learning_objective": "Analyse the motion of a charged particle in a uniform field between parallel plates as a projectile problem and compute the transverse deflection.",
+    "question": "An electron enters exactly midway between two horizontal parallel plates, moving horizontally and parallel to the plates at v0 = 3.0 x 10^7 m/s. The plates have length L = 4.0 cm along the direction of motion and are separated by d = 2.0 cm. A potential difference of 200 V is maintained across them. Taking e = 1.6 x 10^-19 C and the electron mass m = 9.1 x 10^-31 kg, what is the vertical deflection of the electron as it just leaves the region between the plates? (The electron does not strike a plate.)",
+    "choices": {
+      "A": "0.16 mm",
+      "B": "0.8 mm",
+      "C": "1.6 mm",
+      "D": "0.4 mm",
+      "E": "3.1 mm"
+    },
+    "correct_answer": "C",
+    "explanation": "Inside the plates the field is uniform: E = V/d = 200/0.020 = 1.0 x 10^4 V/m. The electron gains a constant transverse acceleration a = eE/m = (1.6 x 10^-19)(1.0 x 10^4)/(9.1 x 10^-31) = 1.76 x 10^15 m/s^2, while its horizontal velocity is unchanged (projectile analogue). The transit time is t = L/v0 = 0.040/(3.0 x 10^7) = 1.33 x 10^-9 s. The deflection is y = (1/2)a t^2 = 0.5 x 1.76 x 10^15 x (1.33 x 10^-9)^2 = 1.6 mm, which is less than the 10 mm to a plate, so the electron clears the plates. Key point: use the separation d for the field but the plate length L for the transit time.",
+    "option_analysis": {
+      "A": "Wrong: a unit-conversion slip in which 2.0 cm is written as 0.2 m, making the field ten times too small and the deflection 0.16 mm.",
+      "B": "Wrong: uses the field E = V/L (dividing by the plate length) instead of E = V/d (the separation), halving the acceleration and giving 0.8 mm.",
+      "C": "Correct: E = V/d = 1.0 x 10^4 V/m, a = eE/m = 1.76 x 10^15 m/s^2, t = L/v0 = 1.33 ns, so y = (1/2)a t^2 = 1.6 mm.",
+      "D": "Wrong: uses the transit time t = d/v0 (based on the separation) instead of t = L/v0 (based on the plate length the electron actually travels along), giving 0.4 mm.",
+      "E": "Wrong: omits the factor 1/2 in y = (1/2)a t^2, computing y = a t^2 instead; this doubles the true deflection to 3.1 mm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0068",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Magnetic force on a current-carrying conductor",
+    "subtopic": "Suspended current-carrying rod in equilibrium: swing angle from F = BIL and trigonometry",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "magnetic force",
+      "F=BIL",
+      "equilibrium",
+      "trigonometry",
+      "current-carrying wire"
+    ],
+    "learning_objective": "Apply F = BIL together with translational equilibrium and trigonometry to relate the current to the equilibrium swing angle of a suspended conductor.",
+    "question": "A rigid straight metal rod of length L = 0.20 m and mass m = 40 g hangs horizontally from two light, flexible conducting threads. A uniform magnetic field B = 0.50 T is directed vertically in the region of the rod. When a steady current flows along the rod, it swings sideways (remaining horizontal) and settles in equilibrium with the threads making an angle of 37 degrees with the vertical, where tan 37 degrees = 0.75. Taking g = 10 m/s^2, what is the current in the rod?",
+    "choices": {
+      "A": "3.2 A",
+      "B": "2.4 A",
+      "C": "5.3 A",
+      "D": "4.0 A",
+      "E": "3.0 A"
+    },
+    "correct_answer": "E",
+    "explanation": "With B vertical and the current horizontal, the force F = BIL is horizontal and constant as the rod swings. At equilibrium the rod feels its weight mg (down), the thread tension T (along the threads) and F (horizontal). Resolving: T cos(theta) = mg and T sin(theta) = BIL, so dividing gives tan(theta) = BIL/(mg). Hence I = mg tan(theta)/(BL) = (0.040 x 10 x 0.75)/(0.50 x 0.20) = 0.30/0.10 = 3.0 A.",
+    "option_analysis": {
+      "A": "Wrong: uses cos(theta) instead of tan(theta), i.e. I = mg cos(theta)/(BL) = 3.2 A, misidentifying which force components the angle relates.",
+      "B": "Wrong: uses sin(theta) instead of tan(theta), i.e. I = mg sin(theta)/(BL) = 2.4 A, treating the magnetic force as the component along the thread.",
+      "C": "Wrong: inverts the tangent, writing tan(theta) = mg/(BIL) and so I = mg/(BL tan(theta)) = 5.3 A.",
+      "D": "Wrong: sets BIL = mg (I = mg/(BL) = 4.0 A), assuming the magnetic force simply equals the weight and ignoring that only its horizontal component is balanced through the angle (tan, not equality).",
+      "E": "Correct: tan(theta) = BIL/(mg) gives I = mg tan(theta)/(BL) = (0.40 x 0.75)/0.10 = 3.0 A."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0069",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Motion of charges in electric and magnetic fields",
+    "subtopic": "Velocity selector: crossed E and B fields and the undeflected speed v = E/B",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "velocity selector",
+      "crossed fields",
+      "F=qvB",
+      "electric force",
+      "magnetic force"
+    ],
+    "learning_objective": "Explain the operation of a velocity selector and derive the selected speed v = E/B from the balance of electric and magnetic forces.",
+    "question": "A narrow beam of positive ions travels through a region in which a uniform electric field E = 3.0 x 10^4 V/m and a uniform magnetic field B = 0.20 T are mutually perpendicular and both perpendicular to the beam, arranged so that the electric and magnetic forces on an ion oppose each other. Ions that pass straight through undeflected have which speed?",
+    "choices": {
+      "A": "The speed cannot be found unless the charge-to-mass ratio of the ions is given",
+      "B": "7.5 x 10^4 m/s",
+      "C": "6.7 x 10^-6 m/s",
+      "D": "1.5 x 10^5 m/s",
+      "E": "6.0 x 10^3 m/s"
+    },
+    "correct_answer": "D",
+    "explanation": "An ion passes undeflected when the electric force qE exactly balances the magnetic force qvB: qE = qvB. The charge cancels, giving v = E/B = (3.0 x 10^4)/(0.20) = 1.5 x 10^5 m/s. Because q (and m) cancel, the device selects a single speed regardless of the ion's charge or mass.",
+    "option_analysis": {
+      "A": "Wrong: assumes the selected speed depends on the ion species; in fact q and m cancel in qE = qvB, which is precisely why the arrangement acts as a velocity selector.",
+      "B": "Wrong: introduces a spurious factor of one half (e.g. writing qE = (1/2)qvB), giving v = E/(2B) = 7.5 x 10^4 m/s.",
+      "C": "Wrong: inverts the ratio (v = B/E = 6.7 x 10^-6), solving the balance the wrong way round.",
+      "D": "Correct: qE = qvB gives v = E/B = 1.5 x 10^5 m/s, independent of the ion's charge and mass.",
+      "E": "Wrong: multiplies the fields (v = EB = 6.0 x 10^3), a dimensional error from mis-solving qE = qvB."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0070",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Electromagnetic induction",
+    "subtopic": "Induced EMF from a time-varying field through a multi-turn coil, with Lenz's-law direction",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "Faraday's law",
+      "Lenz's law",
+      "induced EMF",
+      "magnetic flux",
+      "coil"
+    ],
+    "learning_objective": "Compute the EMF induced in a multi-turn coil by a time-varying magnetic field (Faraday) and determine the direction of the induced current (Lenz).",
+    "question": "A flat circular coil of 200 turns and radius 5.0 cm is placed with its plane perpendicular to a uniform magnetic field. The field is increased steadily from 0.10 T to 0.50 T over a time of 0.20 s. Which of the following gives both the magnitude of the induced EMF and the sense of the induced current?",
+    "choices": {
+      "A": "3.1 V, with the induced current flowing so as to oppose the increasing field",
+      "B": "3.9 V, with the induced current opposing the increasing field",
+      "C": "3.1 V, with the induced current flowing so as to reinforce the increasing field",
+      "D": "0.016 V, with the induced current opposing the increasing field",
+      "E": "0.79 V, with the induced current opposing the increasing field"
+    },
+    "correct_answer": "A",
+    "explanation": "By Faraday's law the magnitude is |EMF| = N A (dB/dt), where A = pi r^2 = pi(0.050)^2 = 7.85 x 10^-3 m^2 and dB/dt = (0.50 - 0.10)/0.20 = 2.0 T/s. So |EMF| = 200 x 7.85 x 10^-3 x 2.0 = 3.1 V. By Lenz's law, because the flux through the coil is increasing, the induced current flows in the sense that opposes that increase (it sets up a magnetic field opposing the applied increase).",
+    "option_analysis": {
+      "A": "Correct: |EMF| = N A (dB/dt) = 200 x 7.85 x 10^-3 x 2.0 = 3.1 V, and by Lenz's law the induced current opposes the increasing flux.",
+      "B": "Wrong: uses the final field value (dB/dt = 0.50/0.20 = 2.5 T/s) instead of the change dB = 0.40 T, giving 3.9 V.",
+      "C": "Wrong: the magnitude 3.1 V is right, but the direction violates Lenz's law; an induced current that reinforced the increasing flux would create energy from nothing.",
+      "D": "Wrong: omits the number of turns N, using the single-turn EMF A(dB/dt) = 0.016 V.",
+      "E": "Wrong: treats the given 5.0 cm as the diameter (using r = 2.5 cm), which quarters the area and gives 0.79 V."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0071",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Charged particles in magnetic fields",
+    "subtopic": "Electron accelerated through a p.d. then in a perpendicular field: radius of the circular path",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 145,
+    "tags": [
+      "magnetic force",
+      "circular motion",
+      "F=qvB",
+      "work-energy theorem",
+      "acceleration through p.d."
+    ],
+    "learning_objective": "Integrate the work-energy theorem for electrostatic acceleration with circular motion in a magnetic field to find the radius r = sqrt(2mV/e)/B.",
+    "question": "An electron, starting from rest, is accelerated through a potential difference of 500 V. It then enters a region of uniform magnetic field of magnitude 2.0 mT directed perpendicular to its velocity, where it moves in a circle. Taking e = 1.6 x 10^-19 C and m = 9.1 x 10^-31 kg, what is the radius of the circular path?",
+    "choices": {
+      "A": "2.7 cm",
+      "B": "7.5 cm",
+      "C": "The radius cannot be found without knowing the length of the accelerating region",
+      "D": "3.8 x 10^-3 cm",
+      "E": "3.8 cm"
+    },
+    "correct_answer": "E",
+    "explanation": "The acceleration stage gives the electron kinetic energy equal to the work done by the field: eV = (1/2)m v^2, so v = sqrt(2eV/m) = sqrt(2 x 1.6 x 10^-19 x 500 / 9.1 x 10^-31) = 1.33 x 10^7 m/s (this depends only on V, not on the accelerator's geometry). In the magnetic field the magnetic force supplies the centripetal force: evB = m v^2 / r, so r = mv/(eB) = sqrt(2mV/e)/B = (9.1 x 10^-31 x 1.33 x 10^7)/(1.6 x 10^-19 x 2.0 x 10^-3) = 3.8 x 10^-2 m = 3.8 cm.",
+    "option_analysis": {
+      "A": "Wrong: omits the factor 1/2, writing eV = m v^2, so the speed is too small by a factor sqrt(2) and the radius comes out 2.7 cm.",
+      "B": "Wrong: gives the diameter (2r) instead of the radius, 7.5 cm.",
+      "C": "Wrong: the work-energy theorem gives the kinetic energy as eV, which depends only on the potential difference, not on the length or field profile of the accelerating region, so the radius is fully determined.",
+      "D": "Wrong: uses B = 2.0 T instead of 2.0 mT (a milli- unit slip), making the radius a thousand times too small.",
+      "E": "Correct: v = sqrt(2eV/m) = 1.33 x 10^7 m/s and r = mv/(eB) = 3.8 x 10^-2 m = 3.8 cm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0072",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Coulomb's law — superposition of forces",
+    "subtopic": "Vector sum of Coulomb forces: net force on one charge of an equilateral-triangle arrangement",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "Coulomb's law",
+      "superposition",
+      "vector addition",
+      "point charges",
+      "equilateral triangle"
+    ],
+    "learning_objective": "Use vector superposition of Coulomb forces to find the net electrostatic force on one charge in a symmetric multi-charge configuration.",
+    "question": "Three identical point charges, each of +2.0 microcoulombs, are fixed at the vertices of an equilateral triangle of side 0.20 m in a vacuum. Taking the Coulomb constant k = 9.0 x 10^9 N m^2 C^-2, what is the magnitude of the net electrostatic force on any one of the charges?",
+    "choices": {
+      "A": "0.9 N",
+      "B": "1.6 N",
+      "C": "1.8 N",
+      "D": "2.7 N",
+      "E": "1.3 N"
+    },
+    "correct_answer": "B",
+    "explanation": "Each of the other two charges repels the chosen charge with force F = k q^2 / a^2 = (9.0 x 10^9)(2.0 x 10^-6)^2 / (0.20)^2 = 0.90 N. These two force vectors point away from the two neighbours; the angle between them equals the 60-degree interior angle of the equilateral triangle. The resultant is therefore 2F cos(30 degrees) = sqrt(3) F = 1.732 x 0.90 = 1.6 N, directed radially outward (away from the centroid).",
+    "option_analysis": {
+      "A": "Wrong: gives only the force from a single neighbouring charge (F = 0.90 N), ignoring the second charge entirely.",
+      "B": "Correct: F = k q^2/a^2 = 0.90 N per neighbour, and the resultant of two such forces 60 degrees apart is 2F cos(30 degrees) = sqrt(3) F = 1.6 N.",
+      "C": "Wrong: adds the two force magnitudes arithmetically (2F = 1.8 N), as if the two Coulomb forces were parallel rather than 60 degrees apart.",
+      "D": "Wrong: multiplies the pair force by 3 (3F = 2.7 N), treating the net force as three equal contributions instead of the vector sum of two.",
+      "E": "Wrong: assumes the two Coulomb forces are perpendicular and adds them as sqrt(2) F = 1.3 N, using 90 degrees instead of the correct 60 degrees between the force vectors."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  }
+]

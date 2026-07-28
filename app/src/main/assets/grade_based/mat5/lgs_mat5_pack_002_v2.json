@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0011",
+      "stem": "İki zil A zili her 36 dakikada bir, B zili her 48 dakikada bir çalıyor. Sabah 08:00'de ikisi birlikte çaldı.\n\nBu iki zil birlikte kaç dakikada bir çalar? Bir sonraki birlikte çalma saati kaçtır?",
+      "options": [
+        "144 dakika; 10:24",
+        "144 dakika; 10:44",
+        "120 dakika; 10:00",
+        "168 dakika; 10:48"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "ekok_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ekok",
+        "ebob",
+        "zaman"
+      ],
+      "explanation": "EKOK(36,48): 36=2²×3², 48=2⁴×3. EKOK=2⁴×3²=144 dakika. 08:00+144 dk=08:00+2s24dk=10:24. B(10:44): 144 dk yanlış toplanmış. C(120 dk): EBOB yerine kullanılmış. D(168 dk): 36+48×2=132 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0011",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0012",
+      "stem": "Bir okulda 300 öğrenci var. Bunların 2/5'i kız. Erkek öğrencilerin 1/3'ü spor kulübüne üye.\n\nSpor kulübüne üye erkek öğrenci sayısı kaçtır?",
+      "options": [
+        "50",
+        "55",
+        "60",
+        "65"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kesir_zinciri",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "zincirleme",
+        "problem_cozme"
+      ],
+      "explanation": "Kız: 2/5×300=120. Erkek: 300−120=180. Spor kulübü: 1/3×180=60. A(50): 1/3×150=50, erkek sayısını 150 almış. B(55): yanlış kesir. D(65): erkek sayısını 195 hesaplamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0012",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0013",
+      "stem": "Bir manav 3,6 kg elma ile 2,4 kg armut sattı. Elmanın kilosu 12,50 TL, armudun kilosu 8,75 TL'dir.\n\nManavın bu satıştan elde ettiği toplam gelir kaç TL'dir?",
+      "options": [
+        "60,00",
+        "63,00",
+        "66,00",
+        "69,00"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ondalik_kesir_islem",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "çarpma",
+        "para"
+      ],
+      "explanation": "Elma: 3,6×12,50=45,00 TL. Armut: 2,4×8,75=21,00 TL. Toplam: 45+21=66,00 TL. A(60): 3,6×12=43,2 ve 2,4×7=16,8=60 (ondalık noktalarını atlayarak). B(63): 3×12,5=37,5 ve 2×12,75=25,5 hata. D(69): 3,6×12,50=45 ve 2,4×10=24 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0013",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0014",
+      "stem": "Bir öğrenci dört sınavdan 72, 85, 68 ve 91 puan aldı. Beşinci sınavda 79 puan alacak.\n\nBeş sınavın ortalaması kaç olur? Altıncı sınavda ortalamasını 80'e çıkarmak için kaç puan alması gerekir?",
+      "options": [
+        "Ortalama: 79; 6. sınav: 85",
+        "Ortalama: 79; 6. sınav: 80",
+        "Ortalama: 81; 6. sınav: 85",
+        "Ortalama: 79; 6. sınav: 90"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "ortalama_denklem",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "5 sınav toplamı: 72+85+68+91+79=395. Ortalama: 395÷5=79. 6 sınavda ortalama 80: toplam gerekli 80×6=480. 6. sınav: 480−395=85. B: 6. sınav 80 yanlış (480-395=85). C: ortalama 81 yanlış (395÷5=79). D: 6. sınav 90, 395+90=485, 485÷6=80,8≠80.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0014",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0015",
+      "stem": "Dikdörtgen bir tarlanın uzunluğu 15 m, genişliği 8 m'dir. Bu tarlanın bir köşesine tabanı 6 m ve yüksekliği 4 m olan üçgen biçiminde bir havuz yapılacak.\n\nHavuz yapıldıktan sonra tarlanın kullanılabilir alanı kaç m²'dir?",
+      "options": [
+        "100",
+        "104",
+        "108",
+        "112"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "alan_fark",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "dikdortgen",
+        "ucgen"
+      ],
+      "explanation": "Tarla alanı: 15×8=120 m². Havuz (üçgen) alanı: (6×4)÷2=12 m². Kalan: 120−12=108 m². A(100): 120−20=100, üçgen alanını 20 almış (6×4=24, bölmemiş... ya da 5×4=20). B(104): üçgen alanını 16 almış (8×4÷2=16). D(112): üçgen alanını 8 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0015",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0016",
+      "stem": "Bir tren saatte 90 km hızla gidiyor. 2 saat 30 dakika yol aldı.\n\nTren kaç km yol aldı? Aynı hızla 315 km gitmek için kaç saat kaç dakika gerekir?",
+      "options": [
+        "225 km; 3 saat 30 dakika",
+        "225 km; 3 saat 15 dakika",
+        "270 km; 3 saat 30 dakika",
+        "180 km; 3 saat 30 dakika"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "hiz_zaman_mesafe",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "zaman",
+        "mesafe"
+      ],
+      "explanation": "2,5 saat × 90 km/s = 225 km. 315÷90=3,5 saat = 3 saat 30 dakika. B: 315÷90=3,5 saat, ama 3s15dk yanlış dönüşüm. C(270): 3 saat × 90=270 km, zamanı tam aldı. D(180): 2 saat × 90=180 km, yarım saati unutmuş.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0016",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0017",
+      "stem": "Üç zil A: 12 dakikada, B: 15 dakikada, C: 20 dakikada bir çalıyor. Sabah 07:00'de hepsi birlikte çaldı.\n\nBu üç zil bir sonraki sefer kaçta birlikte çalar?",
+      "options": [
+        "07:47",
+        "08:00",
+        "07:50",
+        "08:15"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "ekok_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ekok",
+        "asal_carpan",
+        "zaman"
+      ],
+      "explanation": "EKOK(12,15,20): 12=2²×3, 15=3×5, 20=2²×5. EKOK=2²×3×5=60 dakika. 07:00+60 dk=08:00. A(07:47): 12+15+20=47 dk tuzağı. C(07:50): 12+15+20+... yanlış işlem. D(08:15): 75 dk hesaplamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0017",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0018",
+      "stem": "Bir okulda 840 öğrenci var. Bunların 3/7'si spor kulübüne üye. Spor kulübüne üye olanların 2/5'i futbol oynuyor.\n\nFutbol oynayan öğrenci sayısı kaçtır?",
+      "options": [
+        "120",
+        "144",
+        "168",
+        "200"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_zinciri",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "zincirleme",
+        "problem_cozme"
+      ],
+      "explanation": "3/7×840=360 spor kulübü. 2/5×360=144 futbol. A(120): 2/6×360=120 hata. C(168): 7/15×840 yanlış. D(200): 840'ın 2/5'ini kesirlerden almış (doğrudan 2/5×840=336÷2=168 değil 200 tuzağı).",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0018",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0019",
+      "stem": "İkizkenar üçgenin taban kenarı 10 m, eşit kenarlar 13 m'dir. Üçgenin yüksekliği 12 m olduğuna göre;\n\nBu üçgenin çevresi ve alanı kaçtır?",
+      "options": [
+        "Çevre: 36 m, Alan: 60 m²",
+        "Çevre: 36 m, Alan: 65 m²",
+        "Çevre: 33 m, Alan: 60 m²",
+        "Çevre: 36 m, Alan: 130 m²"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "ucgen_alan_cevre",
+      "topic": "geometri",
+      "skills": [
+        "ucgen",
+        "alan",
+        "cevre"
+      ],
+      "explanation": "Çevre: 10+13+13=36 m. Alan: (10×12)÷2=60 m². B(65): 13×10÷2=65 hata (yükseklik yerine kenar kullanmış). C(33): 10+13+10=33, eşit kenarlardan birini taban sanmış. D(130): 10×13=130, bölmemiş.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0019",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0020",
+      "stem": "2/3 ile 3/4'ü toplayıp, sonucu 5/6 ile topladı.\n\nEltede edilen sonuç nedir? Bu sonuç tam sayı mı yoksa kesir midir?",
+      "options": [
+        "9/4; tam sayı değil, 2'den büyük",
+        "9/4; tam sayıya eşit",
+        "7/4; tam sayı değil, 1'den büyük",
+        "11/6; tam sayı değil, 2'den küçük"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "kesir_toplama",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "ortak_payda",
+        "karsilastirma"
+      ],
+      "explanation": "OPD(3,4,6)=12. 2/3=8/12, 3/4=9/12, 5/6=10/12. Toplam: 27/12=9/4. 9/4=2,25 → tam sayı değil, 2'den büyük. B: 9/4 tam sayı değil. C(7/4): 2/3+3/4=17/12≠7/4 hata. D(11/6): yanlış payda birleştirme.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0020",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

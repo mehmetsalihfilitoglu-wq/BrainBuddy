@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Özdeş pil ve özdeş ampuller kullanılarak iki devre kuruluyor. K devresinde üç ampul seri, L devresinde üç ampul paralel bağlanıyor. Buna göre aşağıdaki yargılardan hangisi doğrudur?",
+      "options": [
+        "K devresindeki her bir ampul, L devresindeki her bir ampulden daha parlaktır.",
+        "L devresindeki her bir ampul, K devresindeki her bir ampulden daha parlaktır.",
+        "İki devrede de her bir ampul aynı parlaklıkta yanar.",
+        "Paralel bağlı L devresinde ampuller kesinlikle yanmaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_ANALYSIS",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "parlaklik"],
+      "explanation": "Seri devrede toplam direnç daha büyük olduğundan akım azalır ve ampuller daha sönük yanar. Paralel devrede her ampul pile daha uygun koşullarda bağlandığı için daha parlak yanar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q01"
+    },
+    {
+      "stem": "Özdeş bir ampul ve özdeş piller kullanılarak kurulan bir devrede pil sayısı 1'den 2'ye çıkarılıyor. Devrede başka hiçbir değişiklik yapılmıyor. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Ampulün parlaklığı azalır çünkü direnç artar.",
+        "Ampulün parlaklığı artar çünkü devreden geçen akım artar.",
+        "Ampulün parlaklığı değişmez çünkü ampul sayısı aynıdır.",
+        "Elektronlar yok olduğu için ampul söner."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CURRENT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["akim", "gerilim", "parlaklik"],
+      "explanation": "Pil sayısının artması devre gerilimini artırır. Bu da devreden geçen akımın artmasına ve ampulün daha parlak yanmasına yol açar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q02"
+    },
+    {
+      "stem": "Bir devrede özdeş iki ampul seri bağlıdır. Devreye özdeş üçüncü bir ampul daha seri olarak eklenirse aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Toplam direnç azalır, ampuller daha parlak yanar.",
+        "Toplam direnç artar, ampuller daha sönük yanar.",
+        "Toplam direnç değişmez, parlaklık aynı kalır.",
+        "Yalnız yeni eklenen ampul söner."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "RESISTANCE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc", "akim"],
+      "explanation": "Seri bağlı ampul sayısı arttıkça devrenin toplam direnci artar. Akım azaldığı için tüm ampuller daha sönük yanar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q03"
+    },
+    {
+      "stem": "Paralel bağlı özdeş iki ampullü bir devrede ampullerden biri çıkarılıyor. Pil özdeş ve ideal kabul edildiğine göre kalan ampul için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Parlaklığı azalır çünkü toplam akım azalır.",
+        "Parlaklığı artar çünkü devre basitleşir.",
+        "Parlaklığı değişmez çünkü ampul hâlâ pile doğrudan bağlıdır.",
+        "Kesinlikle söner çünkü devre bozulur."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "PARALLEL_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "parlaklik"],
+      "explanation": "Paralel devrede her kol pile bağımsız bağlanmış gibi davranır. Bir kol çıkarıldığında diğer koldaki ampul çalışmaya devam eder ve parlaklığı değişmez.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q04"
+    },
+    {
+      "stem": "Yüksüz bir elektroskopa pozitif yüklü bir cisim dokundurulmadan yaklaştırılıyor ve yaprakların açıldığı gözleniyor. Bu durum aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Elektroskopta yüklerin yer değiştirdiğini",
+        "Elektroskobun negatif yüklü olduğunu",
+        "Elektroskobun topraklandığını",
+        "Elektroskoptaki protonların hareket ettiğini"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "ELECTROSCOPE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektroskop", "etki_ile_elektriklenme"],
+      "explanation": "Yüklü cisim yaklaştırıldığında elektroskoptaki yükler yeniden dağılır. Bu olay etki ile elektriklenmedir ve yaprakların açılmasına neden olur.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q05"
+    },
+    {
+      "stem": "Bir cam çubuk ipek kumaşa sürtüldüğünde pozitif yükle yükleniyorsa aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Cam çubuk elektron almıştır.",
+        "Cam çubuk proton kaybetmiştir.",
+        "Cam çubuk elektron vermiştir.",
+        "İpek kumaş nötron kazanmıştır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CHARGE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektriklenme", "elektron", "surutme"],
+      "explanation": "Pozitif yüklenme, elektron kaybı ile gerçekleşir. Günlük elektriklenme olaylarında protonlar yer değiştirmez.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q06"
+    },
+    {
+      "stem": "X ve Y cisimleri birbirini itiyor, Y ve Z cisimleri ise birbirini çekiyor. Buna göre aşağıdaki ifadelerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "X ve Z aynı yüklüdür.",
+        "X ve Y aynı işaretli yüklüdür.",
+        "Z yüksüzdür.",
+        "Y ve Z aynı işaretli yüklüdür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CHARGE_INTERACTION",
+      "topic": "Elektrik",
+      "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
+      "explanation": "Birbirini iten cisimler aynı işaretli yüklüdür. Y ile Z'nin çekişmesinden Z'nin zıt yüklü ya da yüksüz olup olmadığı kesin olarak belirlenemez.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q07"
+    },
+    {
+      "stem": "K devresinde tek ampul, L devresinde ise özdeş iki ampul seri bağlıdır. Her iki devrede de özdeş tek pil vardır. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "K devresindeki ampul, L devresindeki her bir ampulden daha parlaktır.",
+        "L devresindeki her bir ampul, K devresindeki ampulden daha parlaktır.",
+        "K ve L devrelerindeki tüm ampuller eşit parlaklıktadır.",
+        "L devresindeki ampuller kesinlikle yanmaz."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_COMPARISON",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc", "parlaklik"],
+      "explanation": "Tek ampullü devrede toplam direnç daha küçüktür, dolayısıyla akım daha büyüktür. Bu nedenle K devresindeki tek ampul daha parlak yanar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q08"
+    },
+    {
+      "stem": "Özdeş ampullerden oluşan bir devrede önce tek ampul pile bağlanıyor. Daha sonra devreye aynı pille paralel bağlı ikinci özdeş ampul ekleniyor. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "İlk ampulün parlaklığı azalır çünkü akım paylaşılır.",
+        "İlk ampulün parlaklığı değişmez çünkü pile bağlı kalma biçimi değişmez.",
+        "İlk ampul söner çünkü devre karmaşıklaşır.",
+        "İlk ampulün parlaklığı kesin olarak iki katına çıkar."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "parlaklik"],
+      "explanation": "Paralel devrede her ampul pile ayrı bağlanmış gibi davranır. Yeni kol eklense de ilk ampulün pile bağlanma durumu değişmediği için parlaklığı değişmez.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi yanlıştır?",
+      "options": [
+        "Nötr bir cisim elektron alırsa negatif yüklü olur.",
+        "Seri devrede bir elemanın çıkarılması devreyi açık hâle getirebilir.",
+        "Paralel devrede bir kolun bozulması diğer kolları daima etkiler.",
+        "Zıt yüklü cisimler birbirini çeker."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "seri_devre", "yuk"],
+      "explanation": "Paralel devrede bir kolun bozulması diğer kolların çalışmasını her zaman engellemez. Bu, paralel devrenin temel avantajlarından biridir.",
+      "source": "edumio",
+      "sourceRef": "fen_el_004_q10"
+    }
+  ]
+}

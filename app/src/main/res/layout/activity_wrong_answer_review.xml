@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
+        <!-- ── Header row ── -->
         <Button
             android:id="@+id/btnBack"
             style="@style/BBButtonAlt"
@@ -26,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="İnceleme"
-            app:chipBackgroundColor="@color/bb_turquoise"
+            app:chipBackgroundColor="@color/edu_turquoise"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnBack"
             app:layout_constraintEnd_toStartOf="@id/headerRight"/>
@@ -47,34 +48,34 @@
                 android:text="1/5"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_turquoise"/>
+                android:textColor="@color/edu_turquoise"/>
+
+            <!-- Visual quota dots: ● ● ○ -->
+            <TextView
+                android:id="@+id/tvQuotaDots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:letterSpacing="0.15"
+                tools:text="● ● ○"/>
 
             <TextView
                 android:id="@+id/tvQuotaBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="12sp"
-                android:textColor="@color/bb_text_muted"
-                tools:text="Günlük kalan: 2"/>
-
-            <TextView
-                android:id="@+id/tvHintWatchAd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/wrong_review_hint_watch_ad"
+                android:layout_marginTop="2dp"
                 android:textSize="11sp"
-                android:textColor="@color/bb_turquoise"
-                android:visibility="gone"
-                tools:visibility="visible"/>
+                android:textColor="@color/edu_text_muted"
+                tools:text="Günlük kalan: 2"/>
         </LinearLayout>
 
+        <!-- ── Question card ── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/questionCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="@dimen/radius_md"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp"
@@ -88,6 +89,7 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <!-- Question text: visible when unlocked, hidden when locked -->
                 <TextView
                     android:id="@+id/questionText"
                     android:layout_width="match_parent"
@@ -95,15 +97,26 @@
                     android:text="Soru"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"
+                    android:textColor="@color/edu_text_dark"
                     android:lineSpacingMultiplier="1.2"/>
 
+                <ImageView
+                    android:id="@+id/questionImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:visibility="gone"
+                    android:contentDescription="@null"/>
+
+                <!-- ── UNLOCKED: summary section ── -->
                 <LinearLayout
                     android:id="@+id/summarySection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:visibility="gone">
 
                     <TextView
@@ -111,7 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_error"/>
+                        android:textColor="@color/edu_error"/>
 
                     <TextView
                         android:id="@+id/tvCorrectSummary"
@@ -119,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_turquoise"
+                        android:textColor="@color/edu_turquoise"
                         android:textStyle="bold"/>
 
                     <TextView
@@ -128,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"
+                        android:textColor="@color/edu_text_muted"
                         android:visibility="gone"/>
 
                     <Button
@@ -140,14 +153,72 @@
                         android:text="Tekrar Dene"
                         android:textAllCaps="false"/>
                 </LinearLayout>
+
+                <!-- ── LOCKED: gate section ── -->
+                <LinearLayout
+                    android:id="@+id/gateSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvGateIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="44sp"
+                        android:text="🔒"/>
+
+                    <TextView
+                        android:id="@+id/tvGateUserAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/edu_error"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvGateMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/edu_text_muted"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.3"/>
+
+                    <Button
+                        android:id="@+id/btnGateWatchAd"
+                        style="@style/Edu.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="20dp"
+                        android:textAllCaps="false"
+                        android:textSize="15sp"/>
+
+                    <Button
+                        android:id="@+id/btnGatePremium"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="13sp"/>
+                </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- ── Retry options ── -->
         <RadioGroup
             android:id="@+id/optionsGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/questionCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -161,7 +232,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
             <RadioButton
                 android:id="@+id/optB"
                 android:layout_width="match_parent"
@@ -171,7 +242,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
             <RadioButton
                 android:id="@+id/optC"
                 android:layout_width="match_parent"
@@ -181,7 +252,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
             <RadioButton
                 android:id="@+id/optD"
                 android:layout_width="match_parent"
@@ -190,7 +261,7 @@
                 android:padding="16dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
         </RadioGroup>
 
         <TextView
@@ -205,7 +276,7 @@
 
         <Button
             android:id="@+id/nextBtn"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:text="Sonraki"

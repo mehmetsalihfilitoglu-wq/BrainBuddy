@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0001",
+      "stem": "Bir şehrin nüfusu 2010'da 845 000 kişiydi. 2020'de 125 000 arttı, 2023'te ise 47 000 azaldı.\n\n2023 nüfusunu oluşturan rakamların toplamı kaçtır?\n(Örneğin: 123 için rakamlar toplamı 1+2+3=6)",
+      "options": [
+        "12",
+        "14",
+        "16",
+        "23"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "basamak",
+        "problem"
+      ],
+      "explanation": "2010→2020: 845000+125000=970000. 2020→2023: 970000−47000=923000. Rakam toplamı: 9+2+3+0+0+0=14. C(16): 970000 rakamları toplamı tuzağı (9+7=16). A(12): hesap hatası. D(23): yıl değeri karıştırılmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0001",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0002",
+      "stem": "36 litrelik bir su deposu dolu. Salı günü 1/4'ü, Çarşamba günü 2/9'u, Perşembe günü 1/6'sı kullanıldı.\n\nPerşembe akşamı depoda kaç litre su kalmıştır?",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kesir_islemleri",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "ortak_payda",
+        "problem"
+      ],
+      "explanation": "OPD=36. 1/4=9/36, 2/9=8/36, 1/6=6/36. Toplam kullanılan: 23/36. Kalan: 13/36 × 36 = 13 litre. A(11): 25/36 hata. B(12): 24/36 hata. D(14): 22/36 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0002",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0003",
+      "stem": "Mehmet kumaş mağazasından şunları satın aldı:\n• 3,5 m pamuk → 24,80 TL/m\n• 2,25 m ipek → 45,60 TL/m\n• 1,75 m yün → 32,40 TL/m\n\nMehmet'in toplam harcaması kaç TL'dir?",
+      "options": [
+        "189,40",
+        "243,50",
+        "246,10",
+        "249,90"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "ondalik_kesir_islem",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "çarpma",
+        "para"
+      ],
+      "explanation": "Pamuk: 3,5×24,80=86,80 TL. İpek: 2,25×45,60=102,60 TL. Yün: 1,75×32,40=56,70 TL. Toplam: 246,10 TL. A(189,40): yün atlandı. B(243,50): hesap hatası. D(249,90): hatalı çarpım.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0003",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0004",
+      "stem": "Bir sınıfta 40 öğrenci var. Bunların 3/5'i sınavı geçti. Sınavı geçenlerin 1/4'ü 90 üzerinde not aldı.\n\n90 üzerinde not alan öğrenci sayısı kaçtır?",
+      "options": [
+        "8",
+        "6",
+        "10",
+        "12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_zinciri",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem",
+        "zincirleme"
+      ],
+      "explanation": "3/5 × 40 = 24 öğrenci geçti. 1/4 × 24 = 6 öğrenci 90 üzeri aldı. A(8): 40'ın 1/5'ini almış. C(10): 40'ın 1/4'ünü almış. D(12): 3/10×40 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0004",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0005",
+      "stem": "Dikdörtgen bahçe 15 m × 10 m. Bir köşesinde 4 m kenarlı kare çiçeklik var. Bahçe sahibi çiçeklik dışındaki alana çim ekecek.\n\nÇim ekilecek alan kaç m²'dir ve tüm çim alanının çimlenmesi için 8 TL/m² fiyatıyla toplam kaç TL gerekir?",
+      "options": [
+        "Alan: 134 m², Maliyet: 1 072 TL",
+        "Alan: 150 m², Maliyet: 1 200 TL",
+        "Alan: 134 m², Maliyet: 1 024 TL",
+        "Alan: 146 m², Maliyet: 1 168 TL"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "alan_maliyet",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "dikdortgen",
+        "maliyet"
+      ],
+      "explanation": "Bahçe: 15×10=150 m². Çiçeklik: 4×4=16 m². Çim: 150-16=134 m². Maliyet: 134×8=1072 TL. B: çiçekliği çıkarmamış. C: alanı doğru ama 134×8=1072≠1024. D: 4×4=16 yerine 4×4=4 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0005",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0006",
+      "stem": "Beş arkadaşın sınav puanları: 72, 85, 91, 72, 68\n\nBu verilerin modu ve değer aralığı (en büyük − en küçük) kaçtır?",
+      "options": [
+        "Mod: 72, Aralık: 23",
+        "Mod: 85, Aralık: 23",
+        "Mod: 72, Aralık: 19",
+        "Mod: 77, Aralık: 23"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "istatistik_analiz",
+      "topic": "istatistik",
+      "skills": [
+        "mod",
+        "aralik",
+        "veri_analiz"
+      ],
+      "explanation": "Mod: en çok tekrarlanan = 72 (iki kez). Aralık: 91-68=23. B(Mod 85): mod tanımını bilmiyor. C(Aralık 19): 91-72=19 hata, min 68. D(Mod 77): ortalama hesaplamış, mod değil.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0006",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0007",
+      "stem": "Bir araba 12,5 km/L yakıt tüketimiyle çalışıyor. Depoda 8,4 litre yakıt var ve araç A şehrinden B şehrine gidecek. İki şehir arasındaki mesafe 98 km'dir.\n\nAraba B şehrine ulaşabilir mi ve yakıt bitiminde kaç km yol fazladan gidebilir?",
+      "options": [
+        "Evet, 5 km fazla gidebilir.",
+        "Hayır, 8 km eksik yakıtı var.",
+        "Evet, 7 km fazla gidebilir.",
+        "Evet, 12 km fazla gidebilir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ondalik_karar_problemi",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "mesafe",
+        "karar"
+      ],
+      "explanation": "12,5 × 8,4 = 105 km. 105 > 98, dolayısıyla ulaşabilir. 105 - 98 = 7 km fazla. A(5 km): 12,5×8=100, 100-98=2... yanlış. B: ulaşamaz yanlış. D(12 km): hesap hatası.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0007",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0008",
+      "stem": "Bir fırın günde 480 somun ekmek yapıyor. Sabah 2/5'i, öğleden sonra 1/3'ü satılıyor; kalan akşam satılıyor.\n\nAkşam satılan ekmek sayısı ve bunun günlük üreteme oranı nedir?",
+      "options": [
+        "128 ekmek; 4/15",
+        "160 ekmek; 1/3",
+        "300 ekmek; 5/8",
+        "224 ekmek; 7/15"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "kesir_oran",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "oran",
+        "problem"
+      ],
+      "explanation": "Sabah: 2/5×480=192. Öğle: 1/3×480=160. Akşam: 480-192-160=128. Oran: 128/480 = 4/15. B(160): öğle satışı. C(300): 5/8 yanlış kesir. D(224): 7/15 yanlış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0008",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0009",
+      "stem": "Bir çiftçi bahçesine dik üçgen biçiminde çit çekecek. Dik üçgenin iki dik kenarı 12 m ve 16 m'dir.\n\nÇitin toplam uzunluğu (çevre) ve üçgenin alanı kaçtır?",
+      "options": [
+        "Çevre: 48 m, Alan: 96 m²",
+        "Çevre: 48 m, Alan: 192 m²",
+        "Çevre: 44 m, Alan: 96 m²",
+        "Çevre: 40 m, Alan: 96 m²"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "dik_ucgen",
+      "topic": "geometri",
+      "skills": [
+        "dik_ucgen",
+        "hipotenüs",
+        "alan_cevre"
+      ],
+      "explanation": "Hipotenüs: √(12²+16²)=√(144+256)=√400=20 m. Çevre: 12+16+20=48 m. Alan: (12×16)÷2=96 m². B: alanı 2 ile bölmemiş. C, D: hipotenüsü yanlış hesaplamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0009",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0010",
+      "stem": "Bir mağazanın Pazartesi'den Cuma'ya günlük satış miktarları şöyledir:\nPzt: 1 372 — Sal: 2 445 — Çar: 1 780 — Per: 2 265 — Cum: 1 832\n\nHer gün yüzler basamağına yuvarlandığında elde edilen tahmini toplam ile gerçek toplam arasındaki fark kaçtır?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "yuvarlama_tahmin",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "yuvarlama",
+        "tahmin",
+        "veri_analiz"
+      ],
+      "explanation": "Gerçek toplam: 1372+2445+1780+2265+1832=9694. Yuvarlanmış: 1400+2400+1800+2300+1800=9700. Fark=9700−9694=6. A(4): 2265'i 2300 yerine 2200 sayma hatası. C(8): 1372'yi 1400 yerine 1300 yuvarlama hatası. D(10): birden fazla hata birleşimi.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0010",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

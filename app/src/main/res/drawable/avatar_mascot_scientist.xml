@@ -1,5 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#1BC5B0" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    <path android:fillColor="#37474F" android:pathData="M8,10 L16,10 L16,12 L8,12 Z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,90 C62,90 72,88 72,86 C72,84 62,82 48,82 C34,82 24,84 24,86 C24,88 34,90 48,90Z"/>
+
+    <!-- Body circle -->
+    <path
+        android:fillColor="#ECEFF1"
+        android:pathData="M48,10 C69,10 86,27 86,48 C86,69 69,86 48,86 C27,86 10,69 10,48 C10,27 27,10 48,10Z"/>
+
+    <!-- Lab coat collar left -->
+    <path
+        android:fillColor="#CFD8DC"
+        android:pathData="M30,60 L48,55 L40,80 L18,70Z"/>
+
+    <!-- Lab coat collar right -->
+    <path
+        android:fillColor="#CFD8DC"
+        android:pathData="M66,60 L48,55 L56,80 L78,70Z"/>
+
+    <!-- Hair (messy) -->
+    <path
+        android:fillColor="#5D4037"
+        android:pathData="M22,30 Q18,16 28,12 Q32,10 38,12 Q42,8 48,10 Q54,8 58,12 Q64,10 68,12 Q78,16 74,30 Q68,18 48,16 Q28,18 22,30Z"/>
+
+    <!-- Face area -->
+    <path
+        android:fillColor="#FFCC80"
+        android:pathData="M48,22 C62,22 72,32 72,46 C72,60 62,70 48,70 C34,70 24,60 24,46 C24,32 34,22 48,22Z"/>
+
+    <!-- Glasses bridge -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M44,42 L52,42"
+        android:strokeColor="#37474F"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+
+    <!-- Glasses frame left -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M28,42 m-1,0 a13,12 0,1 1,26 0 a13,12 0,1 1,-26 0"
+        android:strokeColor="#37474F"
+        android:strokeWidth="2.5"/>
+
+    <!-- Glasses frame right -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M56,42 m-1,0 a13,12 0,1 1,26 0 a13,12 0,1 1,-26 0"
+        android:strokeColor="#37474F"
+        android:strokeWidth="2.5"/>
+
+    <!-- Glasses arm left -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M28,38 L22,34"
+        android:strokeColor="#37474F"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+
+    <!-- Glasses arm right -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M68,38 L74,34"
+        android:strokeColor="#37474F"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+
+    <!-- Lens left -->
+    <path
+        android:fillColor="#11FFFFFF"
+        android:pathData="M28,42 m-1,0 a11,10 0,1 1,22 0 a11,10 0,1 1,-22 0"/>
+
+    <!-- Lens right -->
+    <path
+        android:fillColor="#11FFFFFF"
+        android:pathData="M58,42 m-1,0 a11,10 0,1 1,22 0 a11,10 0,1 1,-22 0"/>
+
+    <!-- Eye left -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M38,42 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Eye right -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M62,42 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Eye shine left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M37,40 m-1.3,0 a1.3,1.3 0,1 1,2.6 0 a1.3,1.3 0,1 1,-2.6 0"/>
+
+    <!-- Eye shine right -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M61,40 m-1.3,0 a1.3,1.3 0,1 1,2.6 0 a1.3,1.3 0,1 1,-2.6 0"/>
+
+    <!-- Curious smile -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M42,56 Q48,62 54,56"
+        android:strokeColor="#5D4037"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"/>
+
+    <!-- Flask -->
+    <path
+        android:fillColor="#B3E5FC"
+        android:pathData="M76,58 L80,58 L80,64 L84,74 Q84,78 80,78 L76,78 Q72,78 72,74 L76,64Z"/>
+
+    <!-- Flask liquid -->
+    <path
+        android:fillColor="#1BC5B0"
+        android:pathData="M73,72 L83,72 Q84,78 80,78 L76,78 Q72,78 73,72Z"/>
+
+    <!-- Flask bubbles -->
+    <path
+        android:fillColor="#4DD0C4"
+        android:pathData="M76,70 m-1.5,0 a1.5,1.5 0,1 1,3 0 a1.5,1.5 0,1 1,-3 0"/>
+    <path
+        android:fillColor="#4DD0C4"
+        android:pathData="M80,68 m-1,0 a1,1 0,1 1,2 0 a1,1 0,1 1,-2 0"/>
 </vector>

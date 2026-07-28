@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzdeler",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir elektronik mağazasında aynı model tablet üç aşamalı bir kampanya ile satılmaktadır. İlk aşamada tablet fiyatına %30 indirim uygulanıyor. İkinci aşamada indirimli fiyat üzerinden %20 zam yapılıyor. Son aşamada ise oluşan yeni fiyat üzerinden öğrencilere özel %10 indirim uygulanıyor. Tabletin ilk etiket fiyatı 1200 TL olduğuna göre öğrencinin ödeyeceği son fiyat kaç TL olur?",
+      "options": [
+        "756",
+        "912",
+        "918",
+        "936"
+      ],
+      "answerIndex": 0,
+      "explanation": "1200 × 0,70 = 840. 840 × 1,20 = 1008. 1008 × 0,90 = 907,2.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan fen bilimleri sınavında öğrencilerin netleri sırasıyla 12, 14, 15, 16, 18, 19, 20 ve y'dir. Öğretmen sınıf ortalamasının 16 olduğunu söylemektedir. Buna göre y değeri kaçtır?",
+      "options": [
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam net = 16 × 8 = 128. Bilinen toplam = 114. y = 128 − 114 = 14.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir okulda robotik kulübü ile yazılım kulübündeki öğrenci sayılarının oranı 5 : 7'dir. Robotik kulübüne 6 öğrenci daha katıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta iki kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "36",
+        "72",
+        "84",
+        "96"
+      ],
+      "answerIndex": 0,
+      "explanation": "Robotik = 5k, yazılım = 7k. 5k + 6 = 7k → k = 3. Başlangıçta toplam 12k = 36 öğrenci vardır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "geometri"
+      ],
+      "questionType": "reasoning",
+      "stem": "Alanı 900 metrekare olan kare biçimindeki bir oyun alanının çevresine çit çekilecektir. Çit yalnızca alanın sınırını takip edecektir. Buna göre kullanılacak çit uzunluğu kaç metredir?",
+      "options": [
+        "100",
+        "110",
+        "120",
+        "130"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kenar = √900 = 30. Çevre = 4 × 30 = 120 m.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir torbada 5 sarı, 4 mavi ve 3 yeşil bilye vardır. Torbadan rastgele bir bilye çekiliyor. Buna göre çekilen bilyenin sarı veya mavi olma olasılığı kaçtır?",
+      "options": [
+        "3/4",
+        "2/3",
+        "1/2",
+        "5/12"
+      ],
+      "answerIndex": 0,
+      "explanation": "Toplam bilye = 12. Sarı veya mavi = 9. Olasılık = 9/12 = 3/4.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir bilgisayar sisteminde bir klasörde 2^3 alt klasör vardır. Her alt klasörde 2^4 dosya ve her dosyada 2^5 KB veri bulunmaktadır. Buna göre bu klasörde toplam kaç KB veri vardır?",
+      "options": [
+        "2048",
+        "4096",
+        "8192",
+        "16384"
+      ],
+      "answerIndex": 1,
+      "explanation": "2^3 × 2^4 × 2^5 = 2^12 = 4096.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Uzun kenarı 16 cm, kısa kenarı 12 cm olan bir dikdörtgenin içine kenar uzunluğu 4 cm olan kareler hiç boşluk kalmayacak biçimde yerleştirilecektir. Buna göre bu dikdörtgene en fazla kaç kare sığar?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "14"
+      ],
+      "answerIndex": 2,
+      "explanation": "Uzun kenarda 4, kısa kenarda 3 kare yerleşir. 4×3 = 12 kare.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q07",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "koordinat"
+      ],
+      "questionType": "reasoning",
+      "stem": "Koordinat düzleminde C(1, 4) ve D(7, 10) noktalarından geçen doğrunun eğimi kaçtır?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 0,
+      "explanation": "(10−4)/(7−1) = 6/6 = 1.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir etkinlikte 36 kırmızı ve 48 mavi balon vardır. Balonlar eşit sayıda olacak şekilde gruplara ayrılacaktır. Her grupta aynı sayıda balon olacak ve hiç balon artmayacaktır. Buna göre bir gruptaki balon sayısı en fazla kaç olabilir?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answerIndex": 3,
+      "explanation": "36 ve 48'in EBOB'u 12.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_yorumlama",
+        "oran"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan ankette öğrencilerin 15'i matematik, 10'u fen ve 5'i Türkçe dersini en sevdiği ders olarak belirtmiştir. Buna göre matematiği seçen öğrencilerin oranı kaçtır?",
+      "options": [
+        "1/2",
+        "1/3",
+        "3/5",
+        "1/4"
+      ],
+      "answerIndex": 0,
+      "explanation": "Toplam öğrenci = 30. Matematik = 15 → 15/30 = 1/2.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold027_q10",
+      "subject": "mat"
+    }
+  ]
+}

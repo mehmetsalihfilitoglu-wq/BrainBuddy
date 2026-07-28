@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/page_padding_h"
+        android:paddingVertical="20dp">
+
+        <TextView
+            android:id="@+id/solTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sol_title"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:textAllCaps="true"
+            android:textColor="@color/edu_text_muted"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- ══ Full-solution content (bound ONLY for Premium) ══ -->
+        <LinearLayout
+            android:id="@+id/solContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/solFigure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                android:contentDescription="@string/dc_cd_question_figure"/>
+
+            <TextView
+                android:id="@+id/solStem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.3"
+                android:textColor="@color/edu_text_dark"/>
+
+            <!-- options with ✓/✗ markers, added programmatically -->
+            <LinearLayout
+                android:id="@+id/solOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/solAnswerSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/edu_text_dark"/>
+
+            <!-- structured solution sections, added programmatically -->
+            <LinearLayout
+                android:id="@+id/solBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Same action component as the wrong-question card: content-driven height with a 48dp
+                 floor, so this label cannot be clipped either (it was pinned to 52dp). -->
+            <Button
+                android:id="@+id/solRetryBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.EDUmio.WrongQuestion.Action"
+                android:layout_marginTop="18dp"
+                android:text="@string/sol_retry"/>
+        </LinearLayout>
+
+        <!-- ══ Locked state (Free / unknown entitlement) — no solution text ever bound here ══ -->
+        <LinearLayout
+            android:id="@+id/solLocked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="48dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_edumio_mascot_thoughtful"
+                android:contentDescription="@string/dc_cd_mascot"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sol_locked_title"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="@color/edu_text_dark"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/sol_locked_body"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.35"
+                android:textColor="@color/edu_text_muted"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/solLockedCta"
+                style="@style/Edu.Button"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/sol_locked_cta"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

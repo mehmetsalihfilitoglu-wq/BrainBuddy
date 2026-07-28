@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0450",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "102",
+        "90",
+        "107",
+        "97"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0450",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0451",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 76, 76, 76, 76, 77 puan almıştır. Altıncı sınava girince ortalaması 77 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "76",
+        "86",
+        "77",
+        "81"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 381. 6. sınav x ise (total5 + x)/6 = 77 → x = 81.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0451",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0452",
+      "stem": "Kenarları 18 m ve 10 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "84",
+        "180",
+        "20",
+        "160"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-8)×(10-8) = 10×2 = 20 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0452",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0453",
+      "stem": "Bir torbada 3 kırmızı, 4 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "13/18",
+        "12/18",
+        "13/19",
+        "1/9"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0453",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0454",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "12",
+        "10",
+        "11",
+        "14"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0454",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0455",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 79, 79, 79, 79, 81 puan almıştır. Altıncı sınava girince ortalaması 79 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "72",
+        "82",
+        "77",
+        "79"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 397. 6. sınav x ise (total5 + x)/6 = 79 → x = 77.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0455",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0456",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "104",
+        "94",
+        "99"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0456",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0457",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "99",
+        "94",
+        "104"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0457",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0458",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 9 TL zam yapılmış, ardından 4 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "2",
+        "-6",
+        "6",
+        "-2"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 3x → x(1-3) = -4 → x = 2 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0458",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0459",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 5 : 4 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "48",
+        "53",
+        "58",
+        "38"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 5k, 4k. 3k + 8 = 5k → k = 4.0. Toplam = 12·k = 48.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0459",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

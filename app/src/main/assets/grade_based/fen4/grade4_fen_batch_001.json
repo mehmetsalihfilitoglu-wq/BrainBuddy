@@ -1,0 +1,619 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "fen",
+  "questions": [
+    {
+      "stem": "Katı, sıvı ve gaz halindeki maddeleri birbirinden ayıran temel özellik nedir?",
+      "options": ["Taneciklerin dizilişi ve hareket serbestliği", "Renkleri", "Ağırlıkları", "Yalnızca sıcaklıkları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Maddenin halleri",
+      "skills": ["kavramsal anlama"],
+      "explanation": "Katıda tanecikler sıkı dizilmiş ve az hareket eder; sıvıda daha serbest; gazda ise çok uzak ve hızlı hareket ederler. Bu diziliş maddenin halini belirler."
+    },
+    {
+      "stem": "Bir demir parçasını mıknatısla dokundurduğumuzda demir iğne mıknatıs gibi davranmaya başlar. Bu duruma ne denir?",
+      "options": ["Manyetikleşme (mıknatıslanma)", "Statik elektrik", "Isınma", "Erime"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mıknatıslar",
+      "skills": ["fen kavramı"],
+      "explanation": "Bir mıknatısla temas ya da yakın tutma yoluyla demir gibi manyetik maddelerin geçici olarak mıknatıs özelliği kazanmasına mıknatıslanma denir."
+    },
+    {
+      "stem": "Fotosentez sırasında bitkiler hangi iki temel maddeyi kullanır?",
+      "options": ["Su ve karbondioksit", "Oksijen ve azot", "Azot ve su", "Oksijen ve karbondioksit"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fotosentez",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Bitkiler; kök aracılığıyla aldıkları su (H₂O) ve yapraklardan giren karbondioksiti (CO₂) kullanarak güneş enerjisiyle besin üretir ve oksijen açığa çıkarır."
+    },
+    {
+      "stem": "Güneş enerjisi dönüşüm zincirinde elektrik enerjisi nasıl elde edilir?",
+      "options": ["Güneş ışığı → güneş paneli → elektrik enerjisi", "Güneş ışığı → ısı → depolanır", "Güneş ışığı → rüzgâr → su buharı", "Güneş ışığı → kimyasal enerji → ses"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji dönüşümleri",
+      "skills": ["enerji bilgisi"],
+      "explanation": "Güneş panelleri (fotovoltaik hücreler), güneş ışığındaki foton enerjisini doğrudan elektrik enerjisine dönüştürür."
+    },
+    {
+      "stem": "Isı ile sıcaklık arasındaki fark nedir?",
+      "options": ["Isı maddeye aktarılan enerji miktarıdır; sıcaklık ise maddenin ısı seviyesini gösteren ölçümdür", "İkisi tamamen aynı şeydir", "Sıcaklık daha fazla enerji anlamına gelir", "Isı yalnızca metaller için geçerlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı ve sıcaklık",
+      "skills": ["kavramsal anlama"],
+      "explanation": "Sıcaklık termometreyle ölçülen bir derece değeridir; ısı ise maddenin kazandığı ya da yitirdiği enerji miktarıdır. Joule veya kalori cinsinden ölçülür."
+    },
+    {
+      "stem": "Işığın bir ortamdan diğerine geçerken hızının değişmesiyle kırılması hangi olayı açıklar?",
+      "options": ["Işığın kırılması (refraksiyon)", "Işığın yansıması", "Işığın soğrulması", "Işığın saçılması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve optik",
+      "skills": ["fizik kavramı"],
+      "explanation": "Refraksiyon: Işık hızı farklı ortamlarda (su, cam, hava) değişir; bu değişim ışığın yönünü kırar. Bardaktaki kaşığın kırık görünmesi buna örnektir."
+    },
+    {
+      "stem": "Besin zincirinde 'üretici' olarak adlandırılan canlılar kimlerdir?",
+      "options": ["Kendi besinini üreten bitkiler ve bazı mikroorganizmalar", "Ot yiyen hayvanlar", "Et yiyen hayvanlar", "Ayrıştırıcılar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Besin zinciri",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Üreticiler; fotosentez yoluyla güneş enerjisini kimyasal enerjiye dönüştüren bitkiler ve algleri kapsar; besin zincirinin başlangıcıdır."
+    },
+    {
+      "stem": "Toprakta yaşayan solucanların ekosisteme katkısı nedir?",
+      "options": ["Toprağı havalandırarak ve organik maddeleri ayrıştırarak toprak verimliliğini artırırlar", "Bitkileri yerler", "Su kaynaklarını kirletirler", "Toprağı sertleştirirler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekosistem",
+      "skills": ["çevre bilimi"],
+      "explanation": "Toprak solucanları; toprağı kazarak havalandırır, organik atıkları parçalayarak humus üretir; bitki besinlerinin döngüsüne katkı sağlar."
+    },
+    {
+      "stem": "Su döngüsünde 'yoğuşma' aşaması nasıl gerçekleşir?",
+      "options": ["Su buharı soğuyarak sıvı damlacıklara dönüşür ve bulutlar oluşur", "Su yüzeyden buharlaşır", "Yağmur olarak yere düşer", "Yeraltı suyuna sızar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su döngüsü",
+      "skills": ["fen bilgisi"],
+      "explanation": "Yoğuşma: Su buharı yükseklere çıkıp soğuyunca sıvı su damlacıklarına dönüşür; bu damlacıklar birikince bulutları oluşturur."
+    },
+    {
+      "stem": "Kemiklerin sağlıklı gelişimi için en önemli mineral hangisidir?",
+      "options": ["Kalsiyum", "Demir", "Sodyum", "Potasyum"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu ve sağlık",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Kalsiyum; kemik ve dişlerin temel yapı taşıdır. Büyüme çağındaki çocuklar için süt, yoğurt ve peynir başlıca kalsiyum kaynaklarıdır."
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi ısıyı en iyi iletir?",
+      "options": ["Bakır (metal)", "Tahta", "Plastik", "Cam yünü (izolasyon malzemesi)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Isı iletkenliği",
+      "skills": ["madde özellikleri"],
+      "explanation": "Metaller ısıyı iyi iletir (iletken); tahta, plastik ve cam yünü ısıyı zayıf iletir (yalıtkan). Bakır ve alüminyum en iyi ısı iletkenleri arasındadır."
+    },
+    {
+      "stem": "Gökyüzünde gökkuşağı oluşması için hangi iki koşulun bir arada olması gerekir?",
+      "options": ["Güneş ışığı ve hava da asılı su damlacıkları", "Sadece yağmur", "Rüzgâr ve bulut", "Kar ve güneş ışığı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve optik",
+      "skills": ["fen gözlemi"],
+      "explanation": "Gökkuşağı: Güneş ışığı, havadaki su damlacıklarına çarptığında kırılır ve farklı renklere ayrışır (dispersiyon); 7 renk görünür."
+    },
+    {
+      "stem": "Elektrik devresinde ampul yanmazsa önce ne yapılmalıdır?",
+      "options": ["Devrenin tüm bağlantılarını ve ampulün sağlamlığını kontrol etmek", "Pili hemen değiştirmek", "Ampulü söküp atmak", "Devreyi suyla ıslatmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Elektrik devreleri",
+      "skills": ["problem çözme"],
+      "explanation": "Devre arızasında sistematik yaklaşım: pil/priz, kablo bağlantıları ve ampul sırayla kontrol edilir; kısa devre veya kopuk kablo aranır."
+    },
+    {
+      "stem": "Bir maddenin 'erime noktası' nedir?",
+      "options": ["Katı halden sıvı hale geçişin gerçekleştiği sabit sıcaklık", "Maddenin yanmaya başladığı sıcaklık", "Maddenin buharlaşmaya başladığı sıcaklık", "Maddenin donduğu sıcaklık"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Maddenin halleri",
+      "skills": ["fen kavramı"],
+      "explanation": "Erime noktası: Sabit basınçta katı maddenin sıvıya dönüştüğü belirli sıcaklıktır. Suyun erime noktası 0°C'dir."
+    },
+    {
+      "stem": "Güneş, Dünya ve Ay'ın hizaya gelmesiyle oluşan 'güneş tutulması' sırasında ne olur?",
+      "options": ["Ay, Dünya ile Güneş arasına geçerek Güneş'in ışığını kısmen veya tamamen engeller", "Dünya, Güneş'in önüne geçer", "Ay, Güneş'ten uzaklaşır", "Yalnızca gece görülebilir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş sistemi",
+      "skills": ["astronomi bilgisi"],
+      "explanation": "Güneş tutulmasında Ay, Güneş ile Dünya arasına girerek Güneş'in gölgesini Dünya'nın bir bölümüne düşürür; bu bölgede gündüz karardı görülür."
+    },
+    {
+      "stem": "Kapalı bir kapta ısıtılan gazın basıncı neden artar?",
+      "options": ["Gaz tanecikleri daha hızlı hareket edip kap duvarlarına daha sık ve kuvvetli çarpar", "Gaz kütlesi artar", "Tanecikler büyür", "Sıcaklık gaz moleküllerini yok eder"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gazların özellikleri",
+      "skills": ["fizik kavramı"],
+      "explanation": "Sıcaklık arttığında gaz taneciklerinin kinetik enerjisi artar; daha hızlı çarpışmalar kap duvarına uygulanan basıncı artırır."
+    },
+    {
+      "stem": "İnsan vücudunda kalbin görevi nedir?",
+      "options": ["Kanı pompalaarak oksijen ve besinleri tüm vücuda taşımak", "Oksijeni havadan almak", "Sindirimi gerçekleştirmek", "Hormon salgılamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Kalp; kasılarak kanı damarlara pompalar, oksijen ve besin maddeleri taşıyan kanı tüm organ ve dokulara ulaştırır."
+    },
+    {
+      "stem": "Doğal kaynaklardan biri olan ormanların korunması neden önemlidir?",
+      "options": ["Oksijen üretimi, biyoçeşitlilik, iklim düzenleme ve su havzaları için hayati önem taşır", "Yalnızca ahşap elde etmek için önemlidir", "Yalnızca turizm açısından değeri vardır", "Ormanların önemi sınırlıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre ve ekosistem",
+      "skills": ["çevre bilinci"],
+      "explanation": "Ormanlar; CO₂ absorbe eder, O₂ üretir, su döngüsünü dengeler, erozyonu önler ve binlerce türe habitat sağlar."
+    },
+    {
+      "stem": "Kaldıraç kullanmanın temel amacı nedir?",
+      "options": ["Daha az kuvvetle daha ağır yükü kaldırmak veya taşımak", "Hız artırmak", "Ağırlık artırmak", "Yalnızca yön değiştirmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kuvvet ve makine",
+      "skills": ["fizik kavramı"],
+      "explanation": "Kaldıraç; destek noktası (fulcrum) etrafında dönerek küçük kuvvetle büyük yükü hareket ettirmeyi sağlayan basit bir makinedir."
+    },
+    {
+      "stem": "Havadaki nem oranı yüksek olduğunda neden bunaltıcı hissederiz?",
+      "options": ["Deriden terlemenin buharlaşması zorlaşır; vücut ısısını düşürme mekanizması engellenir", "Havanın oksijeni azalır", "Vücut daha az kan pompalar", "Güneş ışığı azalır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu ve çevre",
+      "skills": ["fen ve günlük hayat"],
+      "explanation": "Ter buharlaşması vücudu serinletir; hava nemli olduğunda buharlaşma yavaşlar ve soğuma mekanizması verimini yitirir, bu da sıcaklık hissini artırır."
+    },
+    {
+      "stem": "Deniz seviyesinden yükseldikçe atmosfer basıncı nasıl değişir?",
+      "options": ["Azalır, çünkü üstteki hava kolonu kısalır", "Artar", "Değişmez", "Önce artar sonra azalır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atmosfer ve basınç",
+      "skills": ["fizik kavramı"],
+      "explanation": "Atmosfer basıncı, üstündeki hava kütlesinin ağırlığından kaynaklanır. Yükseldikçe üstteki hava kütlesi azaldığından basınç düşer."
+    },
+    {
+      "stem": "Biyolojik çeşitliliği (biyoçeşitlilik) tehdit eden başlıca insan kaynaklı etken hangisidir?",
+      "options": ["Habitat yıkımı (orman kesimi, tarım alanı açma, kentleşme)", "Yalnızca doğal afetler", "Sadece avlanma", "Sadece iklim değişikliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Biyoçeşitlilik",
+      "skills": ["çevre bilinci"],
+      "explanation": "Doğal habitatların tahrip edilmesi; türlerin barınma, beslenme ve üreme alanlarını yok ederek en büyük biyoçeşitlilik kaybına neden olur."
+    },
+    {
+      "stem": "Bir cisim ne zaman 'yüzer'?",
+      "options": ["Cismin yoğunluğu, içinde bulunduğu sıvının yoğunluğundan küçük ya da eşit olduğunda", "Cismin kütlesi sıfır olduğunda", "Cisim hafif göründüğünde", "Her zaman yüzer"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kaldırma kuvveti",
+      "skills": ["fizik kavramı"],
+      "explanation": "Arşimet ilkesi: Sıvının kaldırma kuvveti cisme etkileyen yer çekimine eşit ya da büyükse cisim yüzer; yoğunluk sıvıdan küçükse yüzme gerçekleşir."
+    },
+    {
+      "stem": "Güneş sisteminde Dünya'dan sonra gelen ve 'kızıl gezegen' olarak bilinen gezegen hangisidir?",
+      "options": ["Mars", "Venüs", "Jüpiter", "Satürn"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş sistemi",
+      "skills": ["astronomi bilgisi"],
+      "explanation": "Mars, yüzeyindeki demir oksit (pas) nedeniyle kırmızımsı görünür ve 'Kızıl Gezegen' adıyla bilinir; Güneş'ten 4. sırada yer alır."
+    },
+    {
+      "stem": "Ses dalgaları havada hangi şekilde yayılır?",
+      "options": ["Boyuna (uzunlamasına) dalgalar olarak; tanecikler ileri-geri sıkışıp genişler", "Enine dalgalar olarak; tanecikler yukarı-aşağı hareket eder", "Elektromanyetik dalga olarak", "Işık gibi düz çizgide yayılır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses",
+      "skills": ["fizik kavramı"],
+      "explanation": "Ses boyuna dalgadır: Hava molekülleri ses kaynağına paralel yönde sıkışıp gevşeyerek enerjiyi iletir; boşlukta yayılamaz."
+    },
+    {
+      "stem": "Doğada 'ayrıştırıcıların' (mantar ve bakteriler) görevi nedir?",
+      "options": ["Ölü organik maddeleri parçalayarak besin döngüsüne kazandırmak", "Besin zincirinin tepesinde yer almak", "Fotosentez yapmak", "Ot yiyen hayvanları yemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Besin döngüsü",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Ayrıştırıcılar; ölü bitki ve hayvanları parçalayarak inorganik maddelere dönüştürür; bu maddeler tekrar toprağa döner ve bitkiler tarafından kullanılır."
+    },
+    {
+      "stem": "Bir maddenin 'yoğunluğu' nasıl hesaplanır?",
+      "options": ["Yoğunluk = Kütle ÷ Hacim", "Yoğunluk = Kütle × Hacim", "Yoğunluk = Hacim ÷ Kütle", "Yoğunluk = Kütle + Hacim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Madde özellikleri",
+      "skills": ["matematiksel fen"],
+      "explanation": "Yoğunluk (d) = m/V; birim hacme düşen kütle miktarını gösterir. Birimi genellikle g/cm³ veya kg/m³'tür."
+    },
+    {
+      "stem": "Pil kullanırken güvenli davranış hangisidir?",
+      "options": ["Pili yakmamak, delmemek, sökülmüş terminallere dokunmamak ve doğru geri dönüşüm noktasına vermek", "Pili sobada yakmak", "Pili çöpe atmak", "Pili suya batırmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenlik ve çevre",
+      "skills": ["fen ve güvenlik"],
+      "explanation": "Piller; kadmiyum, cıva gibi toksik maddeler içerir. Yakılmamalı, suyla temas ettirilmemeli ve özel geri dönüşüm kutusuna atılmalıdır."
+    },
+    {
+      "stem": "Vücudumuzda solunum sistemi hangi temel görevi üstlenir?",
+      "options": ["Havadan oksijeni kana aktarmak ve atık karbondioksiti dışarı atmak", "Besinleri sindirmek", "Kanı filtrelemek", "Hormon üretmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Solunum sistemi (akciğerler ve hava yolları); oksijeni kana aktarır ve hücresel solunumun atık ürünü olan CO₂'i dışarı atar."
+    },
+    {
+      "stem": "Deprem sırasında elektrik direncindeki değişimi ölçen alet hangisidir?",
+      "options": ["Sismograf", "Barometre", "Termometre", "Ohmmetre"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğal afetler ve ölçüm",
+      "skills": ["fen araçları"],
+      "explanation": "Sismograf (sismometre); yerin sarsıntısını kaydeden alettir ve depremlerin şiddetini ölçmek için kullanılır."
+    },
+    {
+      "stem": "Bir mum yanarken aynı anda hangi enerji dönüşümleri gözlemlenir?",
+      "options": ["Kimyasal enerji → ısı enerjisi + ışık enerjisi", "Elektrik enerjisi → ısı enerjisi", "Mekanik enerji → ses enerjisi", "Kinetik enerji → potansiyel enerji"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji dönüşümleri",
+      "skills": ["fen kavramı"],
+      "explanation": "Mumun yanması kimyasal bir tepkimedir; balmumundaki kimyasal enerji hem ısıya hem de görünür ışığa dönüşür."
+    },
+    {
+      "stem": "İnsanların sağlıklı gelişimi için günlük belirli miktarda su içmesi neden gereklidir?",
+      "options": ["Su; hücre işlevleri, sindirim, ısı düzenleme ve atık atılımı için zorunludur", "Yalnızca susuzluk hissini gidermek için", "Yalnızca eklemleri yağlamak için", "Su vücut için gerekli değildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Su; vücudun yaklaşık %60'ını oluşturur. Sindirim, dolaşım, sıcaklık dengesi ve toksin atılımı su olmadan gerçekleşemez."
+    },
+    {
+      "stem": "Bir elektrik devresinde direnç (R) arttığında, voltaj (V) sabitken akım (I) nasıl değişir?",
+      "options": ["Akım azalır (I = V/R formülüne göre)", "Akım artar", "Akım değişmez", "Voltaj düşer"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Elektrik",
+      "skills": ["fizik formül uygulaması"],
+      "explanation": "Ohm Yasası: I = V/R. Voltaj sabitken direnç artarsa akım azalır; direnç ile akım ters orantılıdır."
+    },
+    {
+      "stem": "Küresel ısınmaya katkıda bulunan başlıca 'sera gazı' hangisidir?",
+      "options": ["Karbondioksit (CO₂)", "Oksijen (O₂)", "Azot (N₂)", "Helyum (He)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İklim değişikliği",
+      "skills": ["çevre bilimi"],
+      "explanation": "CO₂; fosil yakıt yakımı sonucu atmosfere karışır ve ısıyı hapsederen sera etkisi yaratır; küresel ısınmanın temel nedenidir."
+    },
+    {
+      "stem": "Göz nasıl çalışır? Görme oluşumu hangi sırayla gerçekleşir?",
+      "options": ["Işık gözbebeğinden girer → mercek görüntüyü retinaya odaklar → sinir sinyali beyne gider", "Beyin ışık üretir → retina yansıtır → görüntü oluşur", "Göz ışık gönderir → nesneden geri döner", "Pupil görüntü oluşturur → mercekten geçer → bey görmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Duyu organları",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Işık kornea → pupil → lens → retina yolunu izler; retinada oluşan sinyal optik sinir aracılığıyla beyne ulaşır ve yorumlanır."
+    },
+    {
+      "stem": "Bir cisim yukarı atıldığında en yüksek noktada hızı sıfırken ivmesi neden sıfır değildir?",
+      "options": ["Yerçekimi ivmesi her noktada sürekli aşağı yönlü etki etmeye devam eder (g ≈ 10 m/s²)", "İvme sıfır olur çünkü cisim durmaktadır", "Sürtünme kuvveti etki eder", "Hava direnci ivmeyi sıfırlar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kuvvet ve hareket",
+      "skills": ["fizik kavramı"],
+      "explanation": "En yüksek noktada anlık hız sıfır olsa bile yerçekimi ivmesi (g) her an etki eder; bu yüzden cisim hemen geri dönmeye başlar."
+    },
+    {
+      "stem": "Güneş sisteminin en büyük gezegeni hangisidir ve en temel özelliği nedir?",
+      "options": ["Jüpiter; kütlesi ve hacmi diğer tüm gezegenlerin toplamından büyüktür", "Satürn; halkalarıyla ünlüdür", "Neptün; en soğuk gezegendir", "Uranüs; en uzak gezegendir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş sistemi",
+      "skills": ["astronomi bilgisi"],
+      "explanation": "Jüpiter, Güneş sisteminin en büyük ve en kütleli gezegenidir; kütlesi diğer 7 gezegenin toplamının 2,5 katıdır."
+    },
+    {
+      "stem": "Çevre kirliliğini azaltmak için 'geri dönüşüm' neden önemlidir?",
+      "options": ["Ham madde kullanımını ve enerji tüketimini azaltır; çöp miktarını düşürür; doğal kaynakları korur", "Yalnızca para kazandırır", "Yalnızca plastik için geçerlidir", "Çevre kirliliğini tamamen ortadan kaldırır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Geri dönüşüm; enerji tasarrufu sağlar, ham madde ihtiyacını azaltır, depolama alanı gereksinimini düşürür ve ekosistem üzerindeki baskıyı hafifletir."
+    },
+    {
+      "stem": "Işığın 'soğrulması' ne anlama gelir?",
+      "options": ["Işığın bir yüzeye çarptığında ısı veya başka enerjiye dönüşerek yüzey tarafından tutulması", "Işığın yüzeyden geri sekip dönmesi", "Işığın farklı ortamdan geçerken kırılması", "Işığın renklere ayrışması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve optik",
+      "skills": ["fizik kavramı"],
+      "explanation": "Soğrulma: Işık enerjisi yüzey tarafından absorbe edilir ve ısıya dönüşür. Koyu renkli yüzeyler ışığı daha çok soğurur; bu yüzden daha fazla ısınırlar."
+    },
+    {
+      "stem": "Bir bitki susuz kaldığında yaprakları neden solar?",
+      "options": ["Hücreler turgor basıncını kaybeder; suyun sağladığı gerginlik olmadan doku sarkık düşer", "Bitki uyku moduna girer", "Klorofil azalır", "Kökler fotosentez yapar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitkiler ve su",
+      "skills": ["biyoloji kavramı"],
+      "explanation": "Su, hücre zarını gererek turgor basıncı oluşturur; bu basınç bitkiyi dik tutar. Su azalınca basınç düşer, yapraklar gevşek ve sarkık hâle gelir."
+    },
+    {
+      "stem": "Asit yağmurlarının oluşmasına neden olan başlıca gazlar hangileridir?",
+      "options": ["Kükürt dioksit (SO₂) ve azot oksitler (NOₓ)", "Oksijen ve azot", "Karbondioksit ve oksijen", "Helyum ve argon"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava kirliliği",
+      "skills": ["çevre bilimi"],
+      "explanation": "Fabrika ve araç egzozlarından çıkan SO₂ ve NOₓ, atmosferdeki su buharıyla birleşerek sülfürik ve nitrik aside dönüşür; asit yağmuru olarak düşer."
+    },
+    {
+      "stem": "Bir taşın yukarıdan serbest bırakıldığında hızlanmasının nedeni nedir?",
+      "options": ["Yerçekimi kuvveti cismi aşağı doğru ivmelendirir (g ≈ 10 m/s²)", "Hava direnci hızlandırır", "Taşın kendi kütlesi iter", "Manyetik alan etkilidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kuvvet ve hareket",
+      "skills": ["fizik kavramı"],
+      "explanation": "Yer çekimi, Dünya'nın kütlesel çekim kuvvetinden kaynaklanır. Serbest düşen her cisim havada sürtünme olmasa g = 9,8 m/s² ile ivmelenir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi fiziksel değişime örnektir?",
+      "options": ["Buzun erimesi", "Demirin paslanması", "Kâğıdın yanması", "Yiyeceğin sindirilmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiziksel ve kimyasal değişim",
+      "skills": ["madde bilgisi"],
+      "explanation": "Buz eridiğinde yalnızca hali değişir (katı→sıvı), kimyasal yapısı bozulmaz; bu fiziksel değişimdir. Paslanma, yanma ve sindirim kimyasal değişimdir."
+    },
+    {
+      "stem": "Işığın prizmayla spektruma (gökkuşağı renklerine) ayrılması hangi olaya örnektir?",
+      "options": ["Dispersiyon (dağılım)", "Yansıma", "Kırılma olmadan geçme", "Soğrulma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Işık ve renk",
+      "skills": ["fizik kavramı"],
+      "explanation": "Dispersiyon: Beyaz ışık, farklı dalga boylarına sahip renklerin farklı kırılma açılarıyla ayrışmasıyla spektruma bölünür; prizma bu etkiyi görünür kılar."
+    },
+    {
+      "stem": "Omurgasız hayvanlar ile omurgalı hayvanlar arasındaki temel fark nedir?",
+      "options": ["Omurgalıların bir iç iskelet ve omurga kemikleri vardır; omurgasızlarda iç iskelet yoktur", "Omurgasızlar daha büyüktür", "Omurgasızlar yalnızca suda yaşar", "Omurgalılar soğukkanlıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvanlar âlemi",
+      "skills": ["biyoloji sınıflandırması"],
+      "explanation": "Omurgalılar: balık, amfibi, sürüngen, kuş ve memeliler. Omurgasızlar: böcekler, kabuklu deniz hayvanları, solucanlar vb. İç omurga varlığı temel ayrım kriteridir."
+    },
+    {
+      "stem": "Toprak erozyonunu önlemenin en etkili yolu nedir?",
+      "options": ["Bitki örtüsünü ve ormanları korumak; teraslama ve rüzgâr kıranlar oluşturmak", "Yalnızca taş duvar örmek", "Toprağı sulamak", "Kimyasal gübre kullanmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toprak ve çevre",
+      "skills": ["çevre bilimi"],
+      "explanation": "Bitki kökleri toprağı tutar, yapraklar yağmur darbelerini kırar; bu bitki örtüsü olmadığında yağmur ve rüzgâr üst toprağı aşındırır."
+    },
+    {
+      "stem": "Bir devrede seri bağlı 2 ampulden biri söndüğünde diğeri ne olur?",
+      "options": ["Diğeri de söner çünkü seri devre tek bir yol üzerindedir ve devre kesilir", "Diğeri daha parlak yanar", "Diğeri etkilenmez", "İkisi de daha soluk yanar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Elektrik devreleri",
+      "skills": ["devre analizi"],
+      "explanation": "Seri devrede tek bir yol vardır; bir ampul söndüğünde (devre kırıldığında) akım kesilir ve tüm ampuller söner."
+    },
+    {
+      "stem": "Güneş sisteminde 'asteroid kuşağı' nerede yer alır?",
+      "options": ["Mars ile Jüpiter'in yörüngeleri arasında", "Dünya ile Mars arasında", "Jüpiter ile Satürn arasında", "Neptün'ün ötesinde"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güneş sistemi",
+      "skills": ["astronomi bilgisi"],
+      "explanation": "Ana asteroid kuşağı; Mars ve Jüpiter'in yörüngeleri arasında yer alır ve milyonlarca kayaç parçacığından oluşur."
+    },
+    {
+      "stem": "Bir cismin ağırlığı ile kütlesi arasındaki fark nedir?",
+      "options": ["Kütle her yerde aynıdır; ağırlık ise yerçekimine bağlı olup yerden yere değişir", "İkisi aynı şeydir", "Ağırlık kilogramla ölçülür", "Kütle Ay'da sıfır olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kuvvet ve kütle",
+      "skills": ["fizik kavramı"],
+      "explanation": "Kütle (kg): madde miktarı, evrensel sabit. Ağırlık (N): yerçekimi kuvveti, F = m × g; Ay'da g daha küçük olduğundan ağırlık azalır ama kütle değişmez."
+    },
+    {
+      "stem": "Doğal bir ormanda yangın çıkması sonucunda uzun vadede ne gibi ekolojik etkiler görülebilir?",
+      "options": ["Başlangıçta biyoçeşitlilik azalır ancak bazı ekosistemler yangın sonrası yenilenebilir; öncü türler önce gelir", "Yangın her zaman kalıcı ve telafi edilemez zarar verir", "Yangın toprağı iyileştirir ve hemen daha fazla tür çıkar", "Ormanda hiçbir canlı kalmaz, ekosistem sona erer"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekosistem dinamiği",
+      "skills": ["ekoloji"],
+      "explanation": "Yangın sonrası bazı türler yok olurken öncü bitkiler ve fırsatçı türler alanı kolonize eder; uzun vadede yeni bir ekolojik denge kurulabilir. Ancak çoğu orman yangınında insan kaynaklı tahribat geri dönüşü zorlaştırır."
+    },
+    {
+      "stem": "Ses şiddetini (yüksekliğini) belirleyen fiziksel büyüklük nedir?",
+      "options": ["Genlik (amplitüd); ses dalgasının titreşim büyüklüğü", "Frekans; dalganın titreşim sayısı", "Dalga boyu", "Yayılma hızı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses",
+      "skills": ["fizik kavramı"],
+      "explanation": "Ses yüksekliği (şiddet) genlikle belirlenir; genlik büyüdükçe ses güçlenir. Frekans ise sesin tizlik-peslik (pitch) özelliğini belirler."
+    },
+    {
+      "stem": "Besin döngüsünde 'karbon döngüsü' neden önemlidir?",
+      "options": ["Karbon tüm canlı organizmaların temel yapı taşıdır ve atmosfer, canlılar ile toprak arasında sürekli dolaşır", "Yalnızca bitkilere karbon gereklidir", "Karbon döngüsü yalnızca denizlerde gerçekleşir", "Karbonun döngüsü yoktur, stabil kalır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Madde döngüleri",
+      "skills": ["çevre bilimi"],
+      "explanation": "Karbon döngüsü: CO₂ fotosentezle biyokütle oluyor, solunum ve ayrışmayla yeniden atmosfere dönüyor; bu döngü iklim ve yaşam için kritiktir."
+    },
+    {
+      "stem": "Vücudumuzdaki kasların çalışabilmesi için enerji nasıl sağlanır?",
+      "options": ["Hücresel solunum; kaslar kanda taşınan glikoz ve oksijeni kullanarak ATP üretir", "Kaslar güneş enerjisini doğrudan kullanır", "Yalnızca yağlar yakılır", "Su içildiğinde enerji oluşur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Kaslar; glikoz + O₂ → CO₂ + H₂O + ATP reaksiyonuyla hücresel solunum yaparak kasılma enerjisi elde eder."
+    },
+    {
+      "stem": "Türkiye'de jeothermal (jeotermal) enerji en çok hangi bölgede kullanılmaktadır?",
+      "options": ["Ege Bölgesi (özellikle Denizli ve Aydın çevresi)", "Karadeniz Bölgesi", "Doğu Anadolu Bölgesi", "Güneydoğu Anadolu Bölgesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji kaynakları",
+      "skills": ["fen ve coğrafya"],
+      "explanation": "Ege Bölgesi'nde volkanik aktiviteye bağlı yüksek jeotermal potansiyel vardır; Denizli-Pamukkale ve Aydın çevresi jeotermal santraller bakımından öncüdür."
+    },
+    {
+      "stem": "Bir pil devresi kurulurken yanlışlıkla kısa devre oluşursa ne tehlikesi ortaya çıkabilir?",
+      "options": ["Aşırı akım akması, ısınma, yangın veya patlama riski oluşabilir", "Devre sadece söner, risk yoktur", "Ampul daha parlak yanar", "Pil ömrü uzar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Elektrik güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Kısa devrede yük direnci çok düşer; aşırı akım ısı üretir, kablo ve pil hasar görebilir, yangın ve patlama riski doğabilir."
+    },
+    {
+      "stem": "Yer kabuğu, manto ve çekirdekten oluşan Dünya'nın yapısını insan yapımı bir şeye benzetirsek hangisi en uygun analoji olur?",
+      "options": ["Soyulmuş bir yumurta: kabuk (yer kabuğu), ak (manto), sarı (çekirdek)", "Bir portakal: yalnızca iki katman", "Bir taş: homojen yapı", "Bir buz küresi: tüm katmanlar aynı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya'nın yapısı",
+      "skills": ["fen kavramı"],
+      "explanation": "Dünya iç içe geçmiş katmanlardan oluşur: ince sert kabuk, sıcak yarı plastik manto ve sıvı dış + katı iç çekirdek. Yumurta benzetmesi bu katmanları güzel özetler."
+    },
+    {
+      "stem": "Bitkilerde çiçeğin biyolojik görevi nedir?",
+      "options": ["Üreme organıdır; çiçek tozu üretimi, döllenme ve tohum oluşumu burada gerçekleşir", "Yalnızca renk ve koku için vardır", "Fotosentez sadece çiçekte olur", "Bitki çiçekle su alır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitkiler",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Çiçek; erkek organ (stamen) ile dişi organ (pistil) barındırır. Tozlaşma ve döllenme sonucu tohum gelişir; bu tohumlar yeni bitkiye dönüşür."
+    },
+    {
+      "stem": "Elektrik enerjisini ısı enerjisine dönüştüren ev aletine örnek veriniz.",
+      "options": ["Elektrikli ısıtıcı (fırın, ütü)", "Elektrik motoru", "Hoparlör", "Güneş paneli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji dönüşümleri",
+      "skills": ["fen ve günlük hayat"],
+      "explanation": "Elektrikli ısıtıcı, ütü ve fırın; elektrik enerjisini direnç teli aracılığıyla ısıya dönüştürür. Bu dönüşüm Joule ısınması ilkesine dayanır."
+    },
+    {
+      "stem": "Hayvan davranışlarında 'göç' neden gerçekleşir?",
+      "options": ["Daha uygun beslenme, üreme ve iklim koşulları bulmak amacıyla mevsimsel uzun mesafeli seyahat", "Yalnızca tehlikeden kaçmak için", "Yalnızca yeni bölge keşfetmek için", "Rastgele gerçekleşen bir olaydır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvan davranışları",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Göç: Leylekler, balıklar ve kelebek gibi pek çok tür kış soğuğu, besin azlığı veya üreme sezonuna göre mevsimsel uzun yolculuklar yapar."
+    },
+    {
+      "stem": "Enerji tasarruf lambası (LED) ile geleneksel akkor ampul arasındaki temel fark nedir?",
+      "options": ["LED çok daha az enerji kullanarak aynı ışık miktarını verir; ömrü de çok daha uzundur", "Akkor ampul daha ucuzdur ve daha uzun ömürlüdür", "İkisi tamamen aynı enerji tüketir", "LED yalnızca soğuk bölgelerde çalışır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji verimliliği",
+      "skills": ["fen ve sürdürülebilirlik"],
+      "explanation": "LED lambalar; akan elektriğin %90'ından fazlasını ışığa dönüştürür. Akkor ampuller ise enerjinin büyük bölümünü ısıya dönüştürerek boşa harcar."
+    },
+    {
+      "stem": "Vücutta sindirim sistemi hangi sırayla çalışır?",
+      "options": ["Ağız → yemek borusu → mide → ince bağırsak → kalın bağırsak → dışkılama", "Mide → ağız → bağırsak", "Bağırsak → mide → ağız", "Ağız → mide → karaciğer → dışkılama"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Besin; ağızda mekanik ve kimyasal sindirimeyle başlar; yemek borusuyla mideye geçer; ince bağırsakta emilir; kalın bağırsakta su geri alınır; atıklar dışarı atılır."
+    },
+    {
+      "stem": "Bir cismin potansiyel enerjisi artışı için ne gereklidir?",
+      "options": ["Cismin yerçekimine karşı yükseltilmesi (yükseklik artışı)", "Cismin hızlandırılması", "Cismin soğutulması", "Cismin yatay hareket ettirilmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji türleri",
+      "skills": ["fizik kavramı"],
+      "explanation": "Yerçekimi potansiyel enerjisi Ep = mgh formülüyle hesaplanır. Yükseklik (h) arttıkça potansiyel enerji artar; örneğin kaldırılan bir taş."
+    },
+    {
+      "stem": "Havanın kirletici gazlar içerip içermediğini anlamak için hangi basit gözlem yöntemi kullanılabilir?",
+      "options": ["Açık alanda beyaz kâğıt veya filtre kâğıdı bırakmak; kirlenen kâğıt kirliliği gösterir", "Sadece koklayarak anlamak", "Termometre kullanmak", "Barometreyle ölçmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava kalitesi",
+      "skills": ["bilimsel yöntem"],
+      "explanation": "Beyaz filtre kâğıdı veya pamuk bezi açık havada bırakılırsa; kararmış veya renklenmiş yüzey, hava kirliliğinin kanıtı olabilir. Profesyoneller gaz sensörleri kullanır."
+    },
+    {
+      "stem": "Kâğıt, cam, plastik ve metali ayrı kutulara atmak çevreye nasıl katkı sağlar?",
+      "options": ["Geri dönüşüm verimliliğini artırır; farklı atık türlerinin ayrı işlenmesine olanak tanır ve daha az çöp depolama alanı gerektirir", "Yalnızca görünümü iyileştirir", "Çöp kamyonlarının işini zorlaştırır", "Hiçbir katkısı yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geri dönüşüm",
+      "skills": ["çevre bilinci"],
+      "explanation": "Kaynakta ayrıştırma; atıkların doğru tesislere giderek geri dönüşümünü kolaylaştırır, kirleticilerin birbirine karışmasını önler, ham madde tasarrufu sağlar."
+    },
+    {
+      "stem": "Güneş tutulması yalnızca 'yeni ay' evresinde görülebilirken Ay tutulması neden her yeni ayda gerçekleşmez?",
+      "options": ["Ay'ın yörünge düzlemi Dünya'nın yörünge düzlemine göre yaklaşık 5° eğik olduğundan, üç cisim her yeni/dolunayda tam hizaya gelmez", "Güneş çok uzaktır", "Ay her zaman Dünya'nın gölgesindedir", "Yeni ayda Dünya döner"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Astronomi",
+      "skills": ["analitik düşünme"],
+      "explanation": "Yörünge eğikliği (~5°) nedeniyle Ay çoğunlukla ekliptik düzlemin biraz yukarı ya da aşağısından geçer; tam hizaya gelmeden tutulma oluşmaz."
+    },
+    {
+      "stem": "Maddeyi oluşturan en küçük parçacık hangisidir?",
+      "options": ["Atom", "Molekül", "Hücre", "Parçacık"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Madde yapısı",
+      "skills": ["fen kavramı"],
+      "explanation": "Atom; bir kimyasal elementin özelliklerini koruyan en küçük birim parçacığıdır. Moleküller ise iki veya daha fazla atomun birleşmesiyle oluşur."
+    },
+    {
+      "stem": "Parmak izleri neden insanlar arasında farklıdır?",
+      "options": ["Genetik ve gelişim sürecindeki rastsal fiziksel etkiler her bireyin dermal çıkıntı desenini benzersiz kılar", "Herkesin yediği yemekler farklıdır", "Yalnızca iklim farkı etkilidir", "Parmak izleri aslında aynıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["biyoloji bilgisi"],
+      "explanation": "Parmak izleri; fetüs gelişimi sırasında genetik ve çevresel faktörlerin karmaşık etkileşimiyle oluşur. İkiz çocukların bile parmak izleri farklıdır."
+    },
+    {
+      "stem": "Yenilenebilir enerji kaynaklarının fosil yakıtlara göre en önemli çevresel avantajı nedir?",
+      "options": ["Kullanımları sırasında sera gazı salınımı çok düşük veya sıfırdır; iklim değişikliğini yavaşlatmaya katkıda bulunur", "Daha ucuzdur", "Daha fazla enerji üretir", "Yalnızca güneşli ülkelerde kullanılabilir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yenilenebilir enerji",
+      "skills": ["çevre bilinci"],
+      "explanation": "Güneş, rüzgâr, su gibi yenilenebilir kaynaklar enerji üretirken CO₂ gibi sera gazı salmaz veya çok az salar; bu da iklim değişikliğini sınırlamaya yardım eder."
+    }
+  ]
+}

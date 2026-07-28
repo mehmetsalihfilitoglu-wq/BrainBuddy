@@ -1,0 +1,736 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "2⁵ işleminin sonucu kaçtır?",
+      "options": ["32", "10", "25", "64"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üslü sayılar",
+      "skills": ["üs hesaplama"],
+      "explanation": "2⁵ = 2 × 2 × 2 × 2 × 2 = 32. Üslü sayılarda taban olan 2, üs olan 5 kez kendisiyle çarpılır."
+    },
+    {
+      "stem": "3/4 kesrinin ondalık gösterimi nedir?",
+      "options": ["0,75", "0,34", "0,43", "1,33"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir ve ondalık sayılar",
+      "skills": ["kesir-ondalık dönüşüm"],
+      "explanation": "3 ÷ 4 = 0,75. Pay 3'ü paydası 4'e böleriz: 3,00 ÷ 4 = 0,75."
+    },
+    {
+      "stem": "Bir üçgenin iç açıları toplamı kaç derecedir?",
+      "options": ["180°", "360°", "90°", "270°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometri",
+      "skills": ["açı bilgisi"],
+      "explanation": "Her üçgenin iç açıları toplamı 180°'dir. Bu temel geometri kuralıdır; açılardan biri bilinmezse diğerleri toplamından bulunur."
+    },
+    {
+      "stem": "15'in %40'ı kaçtır?",
+      "options": ["6", "5", "7,5", "4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde hesabı",
+      "skills": ["yüzde"],
+      "explanation": "15 × 40/100 = 15 × 0,40 = 6. Yüzde hesabında sayıyı 100'e böler, yüzdeyle çarparız."
+    },
+    {
+      "stem": "1 km² kaç m²'dir?",
+      "options": ["1.000.000 m²", "100.000 m²", "10.000 m²", "1.000 m²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan ve birim dönüşümü",
+      "skills": ["birim çevirme"],
+      "explanation": "1 km = 1.000 m, dolayısıyla 1 km² = 1.000 × 1.000 = 1.000.000 m²."
+    },
+    {
+      "stem": "Bir dairenin çevresi (çember uzunluğu) hangi formülle hesaplanır?",
+      "options": ["C = 2πr (veya πd)", "C = πr²", "C = 4πr", "C = r²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Daire ve çember",
+      "skills": ["formül uygulama"],
+      "explanation": "Çember uzunluğu C = 2πr (r: yarıçap) veya C = πd (d: çap). π ≈ 3,14 kullanılır."
+    },
+    {
+      "stem": "4² + 3² işleminin sonucu kaçtır?",
+      "options": ["25", "49", "14", "12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üslü sayılar",
+      "skills": ["işlem sırası"],
+      "explanation": "4² = 16, 3² = 9; 16 + 9 = 25. Pitagor bağıntısı da (3-4-5 üçgeni) bu sonucu doğrular."
+    },
+    {
+      "stem": "Bir dikdörtgenin uzunluğu 12 cm, genişliği 8 cm ise alanı kaç cm²'dir?",
+      "options": ["96 cm²", "40 cm²", "48 cm²", "20 cm²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan hesabı",
+      "skills": ["formül uygulama"],
+      "explanation": "Dikdörtgen alanı = uzunluk × genişlik = 12 × 8 = 96 cm²."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi asal sayıdır?",
+      "options": ["37", "27", "35", "51"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Asal sayılar",
+      "skills": ["sayı teorisi"],
+      "explanation": "37 yalnızca 1 ve kendisine bölünür → asal. 27 = 3×9, 35 = 5×7, 51 = 3×17 → asal değil."
+    },
+    {
+      "stem": "Bir kütüphanede 240 kitap var. Bunların 3/8'i roman ise kaç roman kitabı vardır?",
+      "options": ["90", "80", "60", "120"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir uygulamaları",
+      "skills": ["kesir çarpma"],
+      "explanation": "240 × 3/8 = 720/8 = 90 roman kitabı."
+    },
+    {
+      "stem": "720 ÷ 8 işleminin sonucu kaçtır?",
+      "options": ["90", "80", "72", "96"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["sayı işlemleri"],
+      "explanation": "720 ÷ 8: 8 × 90 = 720 → sonuç 90."
+    },
+    {
+      "stem": "0,6 + 0,75 işleminin sonucu nedir?",
+      "options": ["1,35", "1,3", "1,45", "0,135"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık sayılar",
+      "skills": ["ondalık toplama"],
+      "explanation": "0,60 + 0,75 = 1,35. Ondalık sayıları toplarken virgülleri alt alta hizalarız."
+    },
+    {
+      "stem": "Bir prizma şeklindeki kutunun hacmi nasıl hesaplanır?",
+      "options": ["Taban alanı × yükseklik", "Kenar × kenar × kenar", "2 × (uzunluk + genişlik) × yükseklik", "Taban çevresi × yükseklik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hacim",
+      "skills": ["formül uygulama"],
+      "explanation": "Dikdörtgenler prizmasının hacmi V = a × b × c (taban alanı × yükseklik). Genel prizma için V = Taban Alanı × h."
+    },
+    {
+      "stem": "Sayı doğrusunda -3 ile +5 arasındaki uzaklık kaçtır?",
+      "options": ["8", "2", "5", "3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tam sayılar",
+      "skills": ["sayı doğrusu"],
+      "explanation": "İki tam sayı arasındaki uzaklık: |+5 − (−3)| = |5 + 3| = 8."
+    },
+    {
+      "stem": "12 ile 18'in EBOB'u (en büyük ortak böleni) kaçtır?",
+      "options": ["6", "3", "9", "12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "EBOB ve EKOK",
+      "skills": ["bölenler ve katlar"],
+      "explanation": "12'nin bölenleri: 1,2,3,4,6,12. 18'in bölenleri: 1,2,3,6,9,18. En büyük ortak bölen = 6."
+    },
+    {
+      "stem": "4 ve 6'nın EKOK'u (en küçük ortak katı) kaçtır?",
+      "options": ["12", "24", "6", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "EBOB ve EKOK",
+      "skills": ["ortak katlar"],
+      "explanation": "4'ün katları: 4,8,12,… 6'nın katları: 6,12,… İlk ortak kat = 12 → EKOK = 12."
+    },
+    {
+      "stem": "(-4) × (-3) işleminin sonucu kaçtır?",
+      "options": ["12", "-12", "7", "-7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tam sayılar",
+      "skills": ["işaret kuralları"],
+      "explanation": "İki negatif sayının çarpımı pozitiftir: (−4) × (−3) = +12."
+    },
+    {
+      "stem": "Bir trenin 3 saatte 270 km gittiği biliniyorsa ortalama hızı kaç km/saat'tir?",
+      "options": ["90 km/saat", "81 km/saat", "80 km/saat", "100 km/saat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hız-yol-zaman",
+      "skills": ["oran ve orantı"],
+      "explanation": "Hız = Yol ÷ Zaman = 270 ÷ 3 = 90 km/saat."
+    },
+    {
+      "stem": "2/3 + 1/4 işleminin sonucu nedir?",
+      "options": ["11/12", "3/7", "7/12", "3/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir toplama",
+      "skills": ["ortak payda bulma"],
+      "explanation": "EKOK(3,4)=12. 2/3=8/12, 1/4=3/12 → 8/12+3/12=11/12."
+    },
+    {
+      "stem": "Bir karenin alanı 64 cm² ise kenar uzunluğu kaç cm'dir?",
+      "options": ["8 cm", "16 cm", "32 cm", "4 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kare ve alan",
+      "skills": ["karekök"],
+      "explanation": "Kare alanı = kenar²; kenar = √64 = 8 cm."
+    },
+    {
+      "stem": "72'nin %25'i kaçtır?",
+      "options": ["18", "24", "36", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde hesabı",
+      "skills": ["yüzde"],
+      "explanation": "72 × 25/100 = 72 × 1/4 = 18. %25 = 1/4 olduğu hatırlanırsa hesap kolaylaşır."
+    },
+    {
+      "stem": "Bir dikdörtgenin çevresi 46 cm, uzun kenarı 14 cm ise kısa kenarı kaç cm'dir?",
+      "options": ["9 cm", "18 cm", "11 cm", "32 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre hesabı",
+      "skills": ["denklem kurma"],
+      "explanation": "Çevre = 2(uzun + kısa) → 46 = 2(14 + kısa) → 23 = 14 + kısa → kısa = 9 cm."
+    },
+    {
+      "stem": "125 ÷ 0,5 işleminin sonucu kaçtır?",
+      "options": ["250", "62,5", "25", "2500"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık bölme",
+      "skills": ["ondalık işlemler"],
+      "explanation": "125 ÷ 0,5 = 125 × 2 = 250. Ondalık bölenle bölmek, kesir olarak yazmakla eşdeğerdir: 125/(1/2) = 250."
+    },
+    {
+      "stem": "Bir torbanın içinde 5 kırmızı, 3 mavi, 2 yeşil top var. Torbanın içinden rastgele çekilen topun mavi olma olasılığı nedir?",
+      "options": ["3/10", "3/8", "1/3", "3/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Olasılık",
+      "skills": ["temel olasılık"],
+      "explanation": "Toplam top = 5+3+2 = 10. Mavi olma olasılığı = 3/10."
+    },
+    {
+      "stem": "Aşağıdaki sayıların ortalaması (aritmetik ortalama) nedir? 10, 14, 18, 22",
+      "options": ["16", "14", "18", "20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İstatistik - ortalama",
+      "skills": ["ortalama hesaplama"],
+      "explanation": "Toplam = 10+14+18+22 = 64; sayı adedi = 4; ortalama = 64/4 = 16."
+    },
+    {
+      "stem": "5/6 − 1/3 işleminin sonucu nedir?",
+      "options": ["1/2", "2/3", "4/6", "1/6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir çıkarma",
+      "skills": ["ortak payda"],
+      "explanation": "1/3 = 2/6 → 5/6 − 2/6 = 3/6 = 1/2."
+    },
+    {
+      "stem": "Bir üçgenin iki kenarı 7 cm ve 10 cm, aralarındaki açı 90° ise hipotenüsü kaç cm'dir?",
+      "options": ["√149 cm ≈ 12,2 cm", "17 cm", "70 cm", "√70 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Pisagor bağıntısı",
+      "skills": ["formül uygulama"],
+      "explanation": "c² = 7² + 10² = 49 + 100 = 149 → c = √149 ≈ 12,2 cm. (3-4-5 üçgeni değil; genel Pisagor uygulaması.)"
+    },
+    {
+      "stem": "Negatif sayıların gerçek hayatta kullanım örneği hangisidir?",
+      "options": ["Deniz seviyesinin altındaki derinlik (−50 m), banka borcu (−500 TL) veya sıfırın altındaki sıcaklık (−10°C)", "Yalnızca matematiksel gösterimde kullanılır", "Sadece bilgisayar biliminde gereklidir", "Hiçbir gerçek hayat uygulaması yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tam sayılar",
+      "skills": ["sayı kavramı"],
+      "explanation": "Negatif sayılar; borç, düşük sıcaklık, deniz altı derinlik, yükseklik gibi 'sıfırın altında' olan durumları modellemek için kullanılır."
+    },
+    {
+      "stem": "Bir sınıftaki 30 öğrencinin %60'ı kız ise kaç erkek öğrenci vardır?",
+      "options": ["12", "18", "15", "20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde uygulamaları",
+      "skills": ["yüzde ve tam sayı"],
+      "explanation": "Kız sayısı = 30 × 0,60 = 18; erkek sayısı = 30 − 18 = 12."
+    },
+    {
+      "stem": "3,6 × 1,5 işleminin sonucu nedir?",
+      "options": ["5,4", "4,5", "5,1", "3,9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık çarpma",
+      "skills": ["ondalık işlemler"],
+      "explanation": "36 × 15 = 540; iki ondalık basamak → 5,40. Yani 3,6 × 1,5 = 5,4."
+    },
+    {
+      "stem": "Bir dikdörtgenler prizmasının boyutları 5 cm × 4 cm × 3 cm ise hacmi kaç cm³'tür?",
+      "options": ["60 cm³", "47 cm³", "94 cm³", "12 cm³"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hacim",
+      "skills": ["formül uygulama"],
+      "explanation": "V = 5 × 4 × 3 = 60 cm³."
+    },
+    {
+      "stem": "36'nın karekökü kaçtır?",
+      "options": ["6", "4", "9", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Karekök",
+      "skills": ["üslü sayılar"],
+      "explanation": "√36 = 6; çünkü 6² = 36."
+    },
+    {
+      "stem": "12, 18 ve 24'ün EKOK'u kaçtır?",
+      "options": ["72", "36", "48", "12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "EKOK",
+      "skills": ["sayı teorisi"],
+      "explanation": "12 = 2²×3, 18 = 2×3², 24 = 2³×3. EKOK = 2³×3² = 8×9 = 72."
+    },
+    {
+      "stem": "Bir mağazada 200 TL'lik ürüne %15 indirim uygulanıyor. İndirimli fiyat kaç TL'dir?",
+      "options": ["170 TL", "185 TL", "215 TL", "130 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde ve indirim",
+      "skills": ["oran ve yüzde"],
+      "explanation": "İndirim = 200 × 15/100 = 30 TL. İndirimli fiyat = 200 − 30 = 170 TL."
+    },
+    {
+      "stem": "Bir düzgün altıgenin iç açıları toplamı kaç derecedir?",
+      "options": ["720°", "540°", "360°", "900°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çokgenler",
+      "skills": ["açı hesabı"],
+      "explanation": "n kenarlı bir çokgenin iç açıları toplamı = (n−2) × 180°. Altıgen için: (6−2) × 180° = 4 × 180° = 720°."
+    },
+    {
+      "stem": "Koordinat düzleminde A(2, 3) noktasından B(6, 3) noktasına uzaklık kaç birimdir?",
+      "options": ["4 birim", "3 birim", "5 birim", "9 birim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Koordinat düzlemi",
+      "skills": ["uzaklık hesabı"],
+      "explanation": "Aynı ordinatlı (y=3) iki nokta arasındaki uzaklık: |6−2| = 4 birim."
+    },
+    {
+      "stem": "Bir kişi 1.200 TL maaşının 1/4'ini kira, 1/3'ünü gıdaya harcıyor. Geriye kaç TL kalır?",
+      "options": ["500 TL", "400 TL", "600 TL", "700 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir uygulamaları",
+      "skills": ["çok adımlı problem"],
+      "explanation": "Kira = 1200×1/4 = 300 TL; gıda = 1200×1/3 = 400 TL. Toplam harcama = 700 TL. Kalan = 1200−700 = 500 TL."
+    },
+    {
+      "stem": "Aşağıdaki sayı örüntüsünün bir sonraki terimi nedir? 2, 6, 18, 54, …",
+      "options": ["162", "108", "72", "216"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüleri",
+      "skills": ["örüntü analizi"],
+      "explanation": "Her terim bir öncekinin 3 katı: 2×3=6, 6×3=18, 18×3=54, 54×3=162."
+    },
+    {
+      "stem": "Bir eşkenar üçgenin bir kenarı 9 cm ise çevresi kaç cm'dir?",
+      "options": ["27 cm", "18 cm", "36 cm", "81 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre hesabı",
+      "skills": ["geometri"],
+      "explanation": "Eşkenar üçgen: 3 kenarı da eşit. Çevre = 3 × 9 = 27 cm."
+    },
+    {
+      "stem": "Tam sayılarda 5 − (−8) işleminin sonucu kaçtır?",
+      "options": ["13", "-3", "3", "-13"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tam sayılar",
+      "skills": ["işaret kuralları"],
+      "explanation": "Bir sayıdan negatif çıkarmak onu eklemekle aynıdır: 5 − (−8) = 5 + 8 = 13."
+    },
+    {
+      "stem": "Daire alanı formülü nedir?",
+      "options": ["A = πr²", "A = 2πr", "A = πd", "A = r²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Daire",
+      "skills": ["formül bilgisi"],
+      "explanation": "Dairenin alanı A = πr²; r yarıçaptır. π ≈ 3,14 veya 22/7 kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki sayılar küçükten büyüğe sıralandığında ortanca (medyan) değer nedir? 7, 3, 9, 5, 1",
+      "options": ["5", "3", "7", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İstatistik",
+      "skills": ["medyan bulma"],
+      "explanation": "Küçükten büyüğe: 1, 3, 5, 7, 9. Ortanca (3. eleman) = 5."
+    },
+    {
+      "stem": "Bir odanın zeminini döşemek için 2,5 m × 4 m boyutlarında halı alınacak. Bu odanın zeminine kaç m² halı gerekir?",
+      "options": ["10 m²", "6,5 m²", "13 m²", "5 m²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan ve ölçme",
+      "skills": ["gerçek hayat uygulaması"],
+      "explanation": "Alan = 2,5 × 4 = 10 m²."
+    },
+    {
+      "stem": "0,001 sayısı kesir olarak nasıl yazılır?",
+      "options": ["1/1000", "1/100", "1/10", "10/1000"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık ve kesir",
+      "skills": ["gösterim dönüşümü"],
+      "explanation": "0,001 → üç ondalık basamak → payda 1000; pay 1: 1/1000."
+    },
+    {
+      "stem": "150 öğrencinin %20'si spor yapıyor. Spor yapmayan öğrenci sayısı kaçtır?",
+      "options": ["120", "30", "80", "100"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde uygulamaları",
+      "skills": ["yüzde ve bütünleme"],
+      "explanation": "Spor yapan = 150 × 0,20 = 30. Yapmayan = 150 − 30 = 120."
+    },
+    {
+      "stem": "Bir küpün her kenarı 4 cm ise hacmi kaç cm³'tür?",
+      "options": ["64 cm³", "48 cm³", "16 cm³", "96 cm³"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hacim",
+      "skills": ["küp hacmi"],
+      "explanation": "Küp hacmi V = a³ = 4³ = 64 cm³."
+    },
+    {
+      "stem": "Bir araba 4 saatte 320 km yol aldı. Aynı hızla 7 saatte kaç km gider?",
+      "options": ["560 km", "480 km", "448 km", "700 km"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğru orantı",
+      "skills": ["hız-yol-zaman"],
+      "explanation": "Hız = 320/4 = 80 km/saat. 7 saatte: 80 × 7 = 560 km."
+    },
+    {
+      "stem": "3 işçi bir işi 12 günde bitiriyor. Aynı hızda 6 işçi aynı işi kaç günde bitirir?",
+      "options": ["6 gün", "4 gün", "24 gün", "18 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ters orantı",
+      "skills": ["orantı"],
+      "explanation": "İşçi sayısı arttıkça gün azalır (ters orantı): 3×12 = 6×x → x = 36/6 = 6 gün."
+    },
+    {
+      "stem": "Bir çocuğun 5 sınavdaki notları 80, 90, 70, 85, 75'tir. Ortalaması kaçtır?",
+      "options": ["80", "75", "85", "82"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İstatistik",
+      "skills": ["ortalama hesabı"],
+      "explanation": "Toplam = 80+90+70+85+75 = 400. Ortalama = 400/5 = 80."
+    },
+    {
+      "stem": "Bir üçgenin tabanı 10 cm, yüksekliği 6 cm ise alanı kaç cm²'dir?",
+      "options": ["30 cm²", "60 cm²", "16 cm²", "15 cm²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üçgen alanı",
+      "skills": ["formül uygulama"],
+      "explanation": "Üçgen alanı = (taban × yükseklik) / 2 = (10 × 6) / 2 = 30 cm²."
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi doğrudur? 2/5 □ 3/7",
+      "options": ["2/5 < 3/7", "2/5 > 3/7", "2/5 = 3/7", "Karşılaştırılamaz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir karşılaştırma",
+      "skills": ["kesir büyüklük analizi"],
+      "explanation": "Ortak payda ile: 2/5 = 14/35, 3/7 = 15/35. 14 < 15 → 2/5 < 3/7."
+    },
+    {
+      "stem": "Bir eşkenar üçgenin bir iç açısı kaç derecedir?",
+      "options": ["60°", "45°", "90°", "120°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üçgen açıları",
+      "skills": ["geometri"],
+      "explanation": "Eşkenar üçgenin 3 açısı birbirine eşit ve toplamları 180°: her açı = 180/3 = 60°."
+    },
+    {
+      "stem": "Aşağıdaki sayı dizisinin bir sonraki terimi nedir? 1, 4, 9, 16, 25, …",
+      "options": ["36", "30", "49", "32"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüleri",
+      "skills": ["kare sayılar"],
+      "explanation": "Dizi tam kare sayılardan oluşur: 1², 2², 3², 4², 5², 6² = 36."
+    },
+    {
+      "stem": "Bir depo tamamen doluyken 1/3'ü boşaltılıyor. Geriye kalan miktar depodaki miktarın kaçta kaçıdır?",
+      "options": ["2/3", "1/3", "1/6", "3/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler",
+      "skills": ["kesir çıkarma"],
+      "explanation": "1 − 1/3 = 2/3. Depodaki miktarın 2/3'ü kalmıştır."
+    },
+    {
+      "stem": "4,8 ÷ 1,2 işleminin sonucu nedir?",
+      "options": ["4", "0,4", "40", "0,04"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık bölme",
+      "skills": ["ondalık işlemler"],
+      "explanation": "4,8 ÷ 1,2 = 48 ÷ 12 = 4. Her iki sayıyı 10 ile çarpıp sadeleştiririz."
+    },
+    {
+      "stem": "Bir dikdörtgenin uzun kenarı kısa kenarının 3 katı, çevresi 64 cm ise uzun kenar kaç cm'dir?",
+      "options": ["24 cm", "16 cm", "8 cm", "32 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Denklem kurma",
+      "skills": ["problem çözme"],
+      "explanation": "Kısa = x, uzun = 3x. Çevre = 2(x + 3x) = 8x = 64 → x = 8. Uzun kenar = 3×8 = 24 cm."
+    },
+    {
+      "stem": "1'den 20'ye kadar olan çift sayıların toplamı kaçtır?",
+      "options": ["110", "100", "90", "120"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplam hesabı",
+      "skills": ["örüntü ve toplam"],
+      "explanation": "2+4+6+8+10+12+14+16+18+20 = 10 terim; ortalama = (2+20)/2 = 11; toplam = 10×11 = 110."
+    },
+    {
+      "stem": "Bir torba içinde 4 sarı, 6 kırmızı top var. Rastgele çekilen topun sarı olmaması olasılığı nedir?",
+      "options": ["3/5", "2/5", "1/2", "4/10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Olasılık",
+      "skills": ["olasılık hesabı"],
+      "explanation": "Toplam = 10. Sarı olmayan (kırmızı) = 6. P(sarı değil) = 6/10 = 3/5."
+    },
+    {
+      "stem": "Bir koordinat düzleminde A(−2, 3) noktası hangi bölgede (çeyrekte) yer alır?",
+      "options": ["II. Bölge (x negatif, y pozitif)", "I. Bölge", "III. Bölge", "IV. Bölge"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Koordinat düzlemi",
+      "skills": ["koordinat okuryazarlığı"],
+      "explanation": "I. Bölge: (+,+). II. Bölge: (−,+). III. Bölge: (−,−). IV. Bölge: (+,−). A(−2,3): x negatif, y pozitif → II. Bölge."
+    },
+    {
+      "stem": "Aritmetik dizide 5, 11, 17, 23, … örüntüsünün 7. terimi nedir?",
+      "options": ["41", "35", "47", "29"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Aritmetik dizi",
+      "skills": ["örüntü ve kural"],
+      "explanation": "Her terim 6 artıyor. 7. terim = 5 + (7−1)×6 = 5 + 36 = 41."
+    },
+    {
+      "stem": "İki farklı kesri bölmek için hangi kural kullanılır?",
+      "options": ["Birinci kesir ile ikinci kesrin tersini çarparız (çevir-çarp yöntemi)", "Her iki kesrin payını ve paydasını ayrı ayrı böleriz", "Paydaları toplama alırız", "Yalnızca paydaları bölürüz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir bölme",
+      "skills": ["kesir işlemleri"],
+      "explanation": "a/b ÷ c/d = a/b × d/c. İkinci kesrin payı ve paydası yer değiştirilir (ters alınır), sonra çarpma yapılır."
+    },
+    {
+      "stem": "Bir sınıfta en yüksek not 95, en düşük not 55 ise not 'aralığı' (range) kaçtır?",
+      "options": ["40", "50", "75", "25"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İstatistik - aralık",
+      "skills": ["veri analizi"],
+      "explanation": "Aralık (range) = Maksimum − Minimum = 95 − 55 = 40."
+    },
+    {
+      "stem": "Bir sayının 3/5'i 24 ise sayı kaçtır?",
+      "options": ["40", "14,4", "72", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Denklem kurma",
+      "skills": ["ters işlem"],
+      "explanation": "x × 3/5 = 24 → x = 24 × 5/3 = 120/3 = 40."
+    },
+    {
+      "stem": "Aşağıdaki açılardan hangisi 'geniş açı'dır?",
+      "options": ["120°", "90°", "45°", "180°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Açılar",
+      "skills": ["açı sınıflandırması"],
+      "explanation": "Geniş açı: 90° < açı < 180°. 120° bu aralıkta. 90° = dik açı; 45° = dar açı; 180° = düz açı."
+    },
+    {
+      "stem": "2³ × 2⁴ işlemi hangi kuralla çözülür ve sonucu kaçtır?",
+      "options": ["Üsler toplanır: 2⁷ = 128", "Üsler çarpılır: 2¹² = 4096", "Tabanlar toplanır: 4⁷", "Sonuç 2 × 2 = 4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üslü sayılar",
+      "skills": ["üs kuralları"],
+      "explanation": "Aynı tabanlı üslü sayıların çarpımında üsler toplanır: 2³ × 2⁴ = 2³⁺⁴ = 2⁷ = 128."
+    },
+    {
+      "stem": "Bir paralelkenarın tabanı 15 cm, yüksekliği 8 cm ise alanı kaç cm²'dir?",
+      "options": ["120 cm²", "46 cm²", "60 cm²", "90 cm²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dörtgen alanları",
+      "skills": ["formül uygulama"],
+      "explanation": "Paralelkenar alanı = taban × yükseklik = 15 × 8 = 120 cm²."
+    },
+    {
+      "stem": "Yarıçapı 7 cm olan bir dairenin alanı yaklaşık kaç cm²'dir? (π ≈ 22/7 kullanın)",
+      "options": ["154 cm²", "44 cm²", "98 cm²", "196 cm²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Daire alanı",
+      "skills": ["formül uygulama"],
+      "explanation": "A = πr² = (22/7) × 7² = (22/7) × 49 = 22 × 7 = 154 cm²."
+    },
+    {
+      "stem": "Bir fiyatı 120 TL olan ürün %25 zamlanıyor. Yeni fiyat kaç TL'dir?",
+      "options": ["150 TL", "145 TL", "90 TL", "130 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde artış",
+      "skills": ["yüzde uygulaması"],
+      "explanation": "Zam = 120 × 0,25 = 30 TL. Yeni fiyat = 120 + 30 = 150 TL."
+    },
+    {
+      "stem": "5 saat 45 dakika + 2 saat 30 dakika = ?",
+      "options": ["8 saat 15 dakika", "7 saat 75 dakika", "7 saat 15 dakika", "8 saat 45 dakika"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman hesabı",
+      "skills": ["zaman birimi"],
+      "explanation": "Dakika: 45+30 = 75 dk = 1 saat 15 dk. Saat: 5+2+1 = 8 saat. Toplam: 8 saat 15 dakika."
+    },
+    {
+      "stem": "Bir ürünün KDV dahil fiyatı 236 TL, KDV oranı %18 ise KDV hariç fiyat kaçtır?",
+      "options": ["200 TL", "218 TL", "180 TL", "192 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzde ve vergi",
+      "skills": ["ters yüzde hesabı"],
+      "explanation": "KDV dahil fiyat = KDV hariç × 1,18 → 236 / 1,18 = 200 TL."
+    },
+    {
+      "stem": "Bir sayı 4 ile çarpılıp 12 eklendiğinde 60 elde ediliyor. Bu sayı kaçtır?",
+      "options": ["12", "15", "48", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Denklem kurma",
+      "skills": ["birinci dereceden denklem"],
+      "explanation": "4x + 12 = 60 → 4x = 48 → x = 12."
+    },
+    {
+      "stem": "Aşağıdaki kesirlerden hangisi 1/2'den büyüktür?",
+      "options": ["5/8", "3/8", "4/9", "2/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir karşılaştırma",
+      "skills": ["kesir büyüklük analizi"],
+      "explanation": "5/8 = 0,625 > 0,5. 3/8 = 0,375; 4/9 ≈ 0,44; 2/5 = 0,4 → hepsi 1/2'den küçük. Yalnızca 5/8 > 1/2."
+    },
+    {
+      "stem": "90 sayısının asal çarpanlarına ayrılması nasıl yapılır?",
+      "options": ["90 = 2 × 3² × 5", "90 = 2 × 45", "90 = 3 × 30", "90 = 9 × 10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Asal çarpanlara ayırma",
+      "skills": ["sayı teorisi"],
+      "explanation": "90 = 2 × 45 = 2 × 9 × 5 = 2 × 3² × 5. Asal çarpan ayrışımı yalnızca asal sayıları içerir."
+    },
+    {
+      "stem": "Bir bardağın kapasitesi 250 mL ise 3,5 litre su kaç bardak eder?",
+      "options": ["14 bardak", "12 bardak", "10 bardak", "7 bardak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hacim ve sıvı ölçüsü",
+      "skills": ["birim çevirme"],
+      "explanation": "3,5 L = 3.500 mL. 3.500 ÷ 250 = 14 bardak."
+    },
+    {
+      "stem": "Bir çokgenin dış açıları toplamı her zaman kaç derecedir?",
+      "options": ["360°", "180°", "540°", "Kenara bağlı değişir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çokgenler",
+      "skills": ["geometri"],
+      "explanation": "Her tür dışbükey çokgenin dış açıları toplamı 360°'dir; bu kenar sayısından bağımsız bir kuraldır."
+    },
+    {
+      "stem": "Bir dikdörtgenin uzunluğu 2 katına çıkarılırken genişliği yarıya indirilirse alanı nasıl değişir?",
+      "options": ["Alan değişmez", "Alan iki katına çıkar", "Alan yarıya iner", "Alan dört katına çıkar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan değişim analizi",
+      "skills": ["analitik düşünme"],
+      "explanation": "Yeni alan = (2a) × (b/2) = ab = orijinal alan. Uzunluğun 2 katı ile genişliğin 1/2 katı çarpımı değişmez."
+    },
+    {
+      "stem": "Bir çanta fabrikasında günde 450 çanta üretiliyor. 6 günde kaç çanta üretilir?",
+      "options": ["2700", "2400", "3000", "1800"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["doğru orantı"],
+      "explanation": "450 × 6 = 2700 çanta."
+    },
+    {
+      "stem": "Aşağıdaki veriler için mod (tepe değer) nedir? 3, 7, 3, 9, 5, 3, 7",
+      "options": ["3", "7", "5", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İstatistik - mod",
+      "skills": ["veri analizi"],
+      "explanation": "Mod, en sık tekrarlanan değerdir. 3 → 3 kez, 7 → 2 kez, diğerleri 1 kez. Mod = 3."
+    },
+    {
+      "stem": "Rakamları 1, 0, 2, 5 olan en büyük dört basamaklı sayı kaçtır?",
+      "options": ["5210", "5201", "5120", "2510"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı oluşturma",
+      "skills": ["basamak değeri"],
+      "explanation": "En büyük sayı için rakamları büyükten küçüğe dizeriz: 5, 2, 1, 0 → 5210. (0 baş haraneye gelmez.)"
+    },
+    {
+      "stem": "Bir küp şeklindeki kutunun bir yüzünün alanı 25 cm² ise küpün tüm yüzeyinin toplam alanı kaç cm²'dir?",
+      "options": ["150 cm²", "25 cm²", "125 cm²", "600 cm²"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzey alanı",
+      "skills": ["formül uygulama"],
+      "explanation": "Küpün 6 eş yüzü vardır. Toplam yüzey alanı = 6 × 25 = 150 cm²."
+    },
+    {
+      "stem": "Bir öğrenci koridoru 45 adımda geçiyor. Her adımı 0,8 m ise koridor kaç metre uzunluğundadır?",
+      "options": ["36 m", "45 m", "40 m", "56,25 m"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ondalık çarpma",
+      "skills": ["gerçek hayat uygulaması"],
+      "explanation": "45 × 0,8 = 36 m."
+    }
+  ]
+}

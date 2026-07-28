@@ -1,0 +1,799 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "ing",
+  "questions": [
+    {
+      "stem": "Aşağıdaki cümlelerde hangi fiil geçmiş zaman (Past Simple) ifade etmektedir?\nA) She walks to school every day.\nB) They visited the museum last week.\nC) He is reading a book now.\nD) We will travel to Ankara tomorrow.",
+      "options": ["They visited the museum last week.", "She walks to school every day.", "He is reading a book now.", "We will travel to Ankara tomorrow."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Past Simple Tense",
+      "skills": ["tense identification", "reading comprehension"],
+      "explanation": "'Visited' fiili düzenli bir geçmiş zaman fiilidir (-ed eki almıştır). 'Last week' ifadesi de geçmişe işaret eder. Diğer seçenekler şimdiki, şimdiki süregelen veya gelecek zamanı gösterir."
+    },
+    {
+      "stem": "Mark has already done his homework. Bu cümlede 'already' kelimesi ne anlama gelir?",
+      "options": ["Bir şeyin şimdiye kadar yapılmış olduğunu vurgular.", "Bir şeyin henüz yapılmamış olduğunu belirtir.", "Bir şeyin her zaman yapıldığını ifade eder.", "Bir şeyin gelecekte yapılacağını gösterir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Perfect Tense",
+      "skills": ["adverb usage", "present perfect"],
+      "explanation": "'Already' kelimesi Present Perfect Tense ile kullanılır ve bir eylemin beklenenden önce veya şimdiye kadar tamamlanmış olduğunu vurgular. 'Yet' henüz yapılmamış, 'always' her zaman, 'will' gelecek için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde Present Perfect Tense doğru kullanılmıştır?",
+      "options": ["I have visited Paris twice.", "I visited Paris since 2010.", "I have visited Paris yesterday.", "I visit Paris two times."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Perfect Tense",
+      "skills": ["tense formation", "grammar accuracy"],
+      "explanation": "Present Perfect 'have/has + past participle' yapısıyla oluşturulur. 'Twice' (iki kez) deneyim bildiren ve Present Perfect ile uyumlu bir zaman zarfıdır. 'Yesterday' ve 'since 2010' ise bu zamanla yanlış kullanımlardır."
+    },
+    {
+      "stem": "Bir öğrenci şöyle yazıyor: 'Tom is taller than his brother.' Bu cümle hangi yapıyı kullanmaktadır?",
+      "options": ["Karşılaştırmalı sıfat (Comparative adjective)", "Üstünlük sıfatı (Superlative adjective)", "Eşitlik karşılaştırması (as...as)", "Olumsuz karşılaştırma (not as...as)"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Comparative Adjectives",
+      "skills": ["grammar identification", "comparison"],
+      "explanation": "'Taller than' yapısı iki şeyi karşılaştıran comparative (karşılaştırmalı) sıfat yapısıdır. Superlative en üstünü belirtir (the tallest), as...as eşitliği, not as...as eşitsizliği ifade eder."
+    },
+    {
+      "stem": "Boşluğu doğru şekilde tamamlayan seçenek hangisidir?\n'Mount Everest is _______ mountain in the world.'",
+      "options": ["the highest", "higher", "high", "the more high"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Superlative Adjectives",
+      "skills": ["superlative formation", "grammar"],
+      "explanation": "Bir grupta en üstünü ifade etmek için superlative yapısı kullanılır: 'the + -est' veya 'the most + adjective'. 'High' tek heceli sıfat olduğundan 'the highest' doğru formdur. 'Higher' comparative, 'the more high' hatalı bir yapıdır."
+    },
+    {
+      "stem": "Bir hikâyede şu bilgiler veriliyor: Ahmet, her sabah koşuya çıkar. Dün sabah ise hava yağmurlu olduğu için evde kaldı. Ahmet'in dünkü davranışı hakkında ne söylenebilir?",
+      "options": ["Ahmet alışılagelen rutinini bozmak zorunda kaldı.", "Ahmet her zaman yağmurlu havada koşmaktan zevk alır.", "Ahmet dün sabah alışılmışın dışında koşmaya gitti.", "Ahmet hiçbir zaman koşuya çıkmaz."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Reading Comprehension",
+      "skills": ["inference", "narrative understanding"],
+      "explanation": "Metinde Ahmet'in her sabah koştuğu (alışkanlık) ama dün yağmur yüzünden evde kaldığı anlatılıyor. Bu durum, bir rutinin beklenmedik bir nedenle bozulduğunu gösterir."
+    },
+    {
+      "stem": "She said, 'I am tired.' cümlesinin dolaylı anlatımı (reported speech) aşağıdakilerden hangisidir?",
+      "options": ["She said that she was tired.", "She said that I am tired.", "She said that she is tired.", "She told that she was tired."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Reported Speech",
+      "skills": ["indirect speech", "pronoun shift", "tense backshift"],
+      "explanation": "Reported speech'te zaman geriye kayar: 'am' → 'was'. Özne de değişir: 'I' → 'she'. 'Say' fiilinden sonra 'that' kullanılabilir ama 'tell' fiili nesne ister (told me that). Doğru form: 'She said that she was tired.'"
+    },
+    {
+      "stem": "He told me, 'I will call you tomorrow.' Bu cümlenin doğru dolaylı anlatımı nedir?",
+      "options": ["He told me that he would call me the next day.", "He told me that he will call me tomorrow.", "He said me that he would call me tomorrow.", "He told me that I would call him the next day."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Reported Speech",
+      "skills": ["indirect speech", "tense and adverb shift"],
+      "explanation": "'Will' → 'would', 'tomorrow' → 'the next day', 'you' → 'me' şeklinde değişir. 'Tell' fiili nesne alır (told me), 'say' almaz. Özne 'he' olarak kalır."
+    },
+    {
+      "stem": "Teknoloji konusundaki bir metinde şu cümle geçiyor: 'Smartphones have changed the way we communicate.' Bu cümle hakkında ne söylenebilir?",
+      "options": ["Akıllı telefonların iletişim biçimimizi dönüştürdüğünü anlatıyor.", "Akıllı telefonların iletişimi olumsuz etkilediğini savunuyor.", "Akıllı telefonların yalnızca konuşma için kullanıldığını söylüyor.", "Akıllı telefonların tarihsel gelişimini aktarıyor."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Technology",
+      "skills": ["reading comprehension", "main idea identification"],
+      "explanation": "'Have changed the way we communicate' ifadesi akıllı telefonların iletişim biçimimizi değiştirdiğini, yani dönüştürdüğünü ifade eder. Cümle olumlu ya da olumsuz bir yargı içermez, sadece bir değişimi aktarır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi bir teknoloji metninde geçen 'device' kelimesinin en uygun Türkçe karşılığıdır?",
+      "options": ["Cihaz", "Yazılım", "Ağ", "Sistem"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Technology Vocabulary",
+      "skills": ["vocabulary", "translation"],
+      "explanation": "'Device' kelimesi elektronik veya mekanik bir alet/cihaz anlamına gelir. 'Software' yazılım, 'network' ağ, 'system' sistem demektir."
+    },
+    {
+      "stem": "Boşluğu en iyi tamamlayan seçenek hangisidir?\n'The internet has made it easier for people _______ information.'",
+      "options": ["to find", "finding", "found", "finds"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Technology",
+      "skills": ["infinitive after adjective", "grammar"],
+      "explanation": "'Make it easier for someone to do something' yapısında infinitive (to + verb) kullanılır. Diğer formlar bu yapıyla dilbilgisel olarak uyumsuzur."
+    },
+    {
+      "stem": "Çevre hakkındaki bir metinde şu cümle yer alıyor: 'Deforestation destroys natural habitats and increases carbon dioxide levels.' Bu cümle neyi açıklamaktadır?",
+      "options": ["Ormansızlaşmanın hem biyoçeşitlilik hem de iklim üzerindeki olumsuz etkilerini", "Ormansızlaşmanın ekonomik faydalarını", "Ormanların sadece karbon depolama işlevi gördüğünü", "Biyoçeşitliliğin artmasının nedenlerini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment",
+      "skills": ["reading comprehension", "cause-effect"],
+      "explanation": "Cümle iki sonucu birlikte aktarıyor: doğal yaşam alanlarının tahrip edilmesi (biyoçeşitlilik etkisi) ve CO₂ artışı (iklim etkisi). Bu, ormansızlaşmanın çift yönlü olumsuz etkisini açıklar."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'çevre kirliliği' kavramıyla DOĞRUDAN ilişkilidir?",
+      "options": ["pollution", "migration", "tradition", "invention"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Environment Vocabulary",
+      "skills": ["vocabulary", "topic association"],
+      "explanation": "'Pollution' çevre kirliliği demektir ve doğrudan çevre konusuyla ilgilidir. 'Migration' göç, 'tradition' gelenek, 'invention' icat anlamına gelir."
+    },
+    {
+      "stem": "Boşluğu tamamlayan en doğru seçenek hangisidir?\n'We should use _______ energy sources such as solar and wind power to protect our planet.'",
+      "options": ["renewable", "fossil", "nuclear", "chemical"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment",
+      "skills": ["vocabulary in context", "environment"],
+      "explanation": "'Renewable energy' (yenilenebilir enerji) güneş ve rüzgar enerjisi gibi kaynakları kapsar. 'Fossil' fosil yakıt, 'nuclear' nükleer, 'chemical' kimyasal anlamındadır; bunlar çevre dostu olmayan seçeneklerdir."
+    },
+    {
+      "stem": "Sağlık konusunda bir diyalog: 'You should drink more water and sleep at least 8 hours a day.' Bu tavsiye kime yönelik olabilir?",
+      "options": ["Yorgun ve susuz hisseden birine", "Sağlıklı beslenen ve düzenli uyuyan birine", "Egzersiz programı arayana birine", "İlaç yazan bir doktora"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Health",
+      "skills": ["dialogue comprehension", "advice interpretation"],
+      "explanation": "Daha fazla su içmek ve yeterince uyumak tavsiyesi, bu temel ihtiyaçları karşılamayan, yani yorgun ve susuz olan birine verilir. Zaten sağlıklı davranan birine bu tavsiye gerekmez."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'should' tavsiye anlamında kullanılmıştır?",
+      "options": ["You should brush your teeth twice a day.", "He should arrive by noon.", "They should have left earlier.", "Should I open the window?"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Modal Verbs",
+      "skills": ["modal verb usage", "advice"],
+      "explanation": "'You should brush your teeth twice a day.' cümlesi sağlıkla ilgili bir tavsiye içerir. 'Should arrive' beklenti, 'should have left' geçmişe yönelik eleştiri, 'Should I' ise soru/öneri anlamı taşır."
+    },
+    {
+      "stem": "Seyahat metni: 'Cappadocia is famous for its unique rock formations and hot air balloon rides.' Bu cümle Kapadokya hakkında ne anlatmaktadır?",
+      "options": ["Kapadokya'nın kendine özgü jeolojik yapısı ve turistik aktivitesiyle ünlü olduğunu", "Kapadokya'nın tarihi müzeleri nedeniyle ziyaretçi çektiğini", "Kapadokya'da yalnızca balon turlarının düzenlendiğini", "Kapadokya'nın kaya oluşumlarının yakın zamanda keşfedildiğini"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel",
+      "skills": ["reading comprehension", "main idea"],
+      "explanation": "Cümle, Kapadokya'nın iki şeyle ünlü olduğunu söylüyor: özgün kaya oluşumları ve sıcak hava balonu turları. Bu hem jeolojik hem de turistik bir özelliği yansıtır."
+    },
+    {
+      "stem": "Bir seyahat broşüründe şu ifade geçiyor: 'Don't miss the chance to explore the ancient ruins of Ephesus.' 'Ruins' kelimesinin anlamı nedir?",
+      "options": ["Harabeler / yıkıntılar", "Saraylar", "Kütüphaneler", "Pazaryerleri"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel Vocabulary",
+      "skills": ["vocabulary", "context"],
+      "explanation": "'Ruins' kelimesi eski ve yıkılmış yapıların kalıntıları, yani harabeler anlamına gelir. Efes gibi antik kentler harabe olarak tanımlanır."
+    },
+    {
+      "stem": "Bir öğrenci şu soruyu soruyor: 'What _______ you _______ last summer?' Doğru soru formu hangisidir?",
+      "options": ["did / do", "do / do", "have / done", "were / doing"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Past Simple Questions",
+      "skills": ["question formation", "past simple"],
+      "explanation": "Past Simple soru yapısı: 'Did + subject + base verb?' şeklindedir. 'Last summer' geçmişe işaret ettiğinden Past Simple kullanılır. 'Have/done' Present Perfect, 'were/doing' Past Continuous'tur."
+    },
+    {
+      "stem": "Ali geçen hafta tatile gitti ve orada pek çok yer gördü. Bu durum için en uygun İngilizce cümle hangisidir?",
+      "options": ["Ali went on holiday last week and visited many places.", "Ali goes on holiday last week and visits many places.", "Ali has gone on holiday next week and saw many places.", "Ali is going on holiday last week and seen many places."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Past Simple Tense",
+      "skills": ["tense usage", "sentence construction"],
+      "explanation": "'Last week' ifadesi kesin bir geçmiş zaman belirtir, bu nedenle Past Simple kullanılmalıdır. 'went' ve 'visited' her ikisi de düzgün Past Simple formlarıdır."
+    },
+    {
+      "stem": "Bir metinde şu cümle geçiyor: 'I have never tried sushi before.' Bu cümle hakkında doğru olan yorum hangisidir?",
+      "options": ["Konuşmacı hayatında hiç suşi yememiştir.", "Konuşmacı daha önce suşiyi denemiş ama beğenmemiştir.", "Konuşmacı yakında suşi yiyecektir.", "Konuşmacı her zaman suşi yer."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Present Perfect - Experience",
+      "skills": ["present perfect interpretation", "never usage"],
+      "explanation": "'Have never tried' ifadesi Present Perfect Tense ile 'never' zarfını birleştirir ve hayat boyu hiç yaşanmamış bir deneyimi gösterir."
+    },
+    {
+      "stem": "Boşluğu doğru şekilde doldurunuz:\n'She _______ already _______ her project.'",
+      "options": ["has / finished", "have / finish", "did / finished", "is / finishing"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Perfect Tense",
+      "skills": ["auxiliary verb", "present perfect formation"],
+      "explanation": "'Already' Present Perfect ile kullanılır. 'She' üçüncü tekil şahıs olduğundan 'has' yardımcı fiili kullanılır, ardından past participle 'finished' gelir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'good' sıfatının superlative formudur?",
+      "options": ["the best", "the most good", "better", "the goodest"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Irregular Adjectives",
+      "skills": ["irregular superlatives", "grammar"],
+      "explanation": "'Good' düzensiz bir sıfattır. Comparative formu 'better', superlative formu 'the best'tir. 'The most good' ve 'the goodest' dilbilgisel olarak hatalıdır."
+    },
+    {
+      "stem": "Bir doğa metninde şu cümle yer alıyor: 'The Amazon rainforest produces about 20% of the world's oxygen.' Bu bilgi neyi vurgulamaktadır?",
+      "options": ["Amazon yağmur ormanlarının küresel oksijen üretimindeki kritik rolünü", "Amazon'un yalnızca biyoçeşitlilik bakımından değerli olduğunu", "Oksijen üretiminin insan faaliyetlerine bağlı olduğunu", "Amazon'un yüzde yüzünün korunduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nature",
+      "skills": ["reading comprehension", "significance of data"],
+      "explanation": "Dünyanın oksijeninin %20'sini üretmek, Amazon ormanlarını küresel iklim ve yaşam için vazgeçilmez kılar. Bu veri ormanların kritik rolünü vurgular."
+    },
+    {
+      "stem": "Cümleyi tamamlayan en uygun seçenek hangisidir?\n'The cheetah is _______ land animal in the world.'",
+      "options": ["the fastest", "the most fast", "faster than", "fast"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Superlative Adjectives",
+      "skills": ["superlative with irregular/regular adjectives"],
+      "explanation": "Kara hayvanları arasında en hızlıyı belirtmek superlative gerektirir. 'Fast' tek heceli düzenli sıfat olduğundan 'the fastest' doğrudur. 'The most fast' hatalı, 'faster than' comparative'dir."
+    },
+    {
+      "stem": "Bir öğrenci okuma parçasından şu bilgiyi ediniyor: 'In some countries, people greet each other by bowing instead of shaking hands.' Bu cümle ne hakkında bilgi vermektedir?",
+      "options": ["Farklı kültürlerdeki selamlama gelenekleri hakkında", "El sıkışmanın neden sağlıksız olduğu hakkında", "Tokalaşmanın evrensel bir nezaket kuralı olduğu hakkında", "Bazı ülkelerde selamlaşmanın yasaklandığı hakkında"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Culture and Travel",
+      "skills": ["reading comprehension", "cultural awareness"],
+      "explanation": "Cümle, bazı ülkelerde el sıkışmak yerine eğilerek selamlaşıldığını anlatıyor. Bu, kültürel farklılıklara dikkat çeken bir bilgidir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi 'if' koşul cümlesiyle gelecekteki olası bir durumu ifade etmektedir?",
+      "options": ["If it rains tomorrow, we will stay home.", "If it rained, we stayed home.", "If it rains, we stayed home.", "If it will rain, we stay home."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Conditional Sentences (Type 1)",
+      "skills": ["first conditional", "grammar"],
+      "explanation": "Birinci tip koşul cümlesinde (gerçek ve olası durum) if-clause'da Simple Present, ana cümlede will + base verb kullanılır: 'If it rains, we will stay home.' Diğer seçenekler hatalı yapılar içerir."
+    },
+    {
+      "stem": "Bir arkadaşınız size 'What are you going to do this weekend?' diye soruyor. Aşağıdaki yanıtların hangisi planlanan bir aktiviteyi doğru şekilde ifade eder?",
+      "options": ["I am going to visit my grandparents.", "I visited my grandparents.", "I visit my grandparents.", "I have visited my grandparents."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Future Plans (be going to)",
+      "skills": ["future plans", "be going to"],
+      "explanation": "'Be going to' yapısı önceden planlanmış gelecek eylemler için kullanılır. 'This weekend' geleceğe işaret ettiğinden 'am going to visit' doğrudur."
+    },
+    {
+      "stem": "Bir seyahat diyaloğunda yer alıyor:\nTourist: 'Excuse me, _______ the nearest bus stop?'\nLocal: 'It's two blocks away.'\nBoşluğa hangi seçenek gelmeli?",
+      "options": ["could you tell me where is", "where is", "can you tell me where is", "could you tell me where"],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "topic": "Indirect Questions",
+      "skills": ["polite indirect questions", "word order"],
+      "explanation": "Dolaylı soru (indirect question) yapısında fiil-özne sırası normal cümle gibi olur: 'Could you tell me where the nearest bus stop is?' Doğrudan 'Where is' yerine 'where + özne + fiil' sırası kullanılır. Seçenek D yalnızca 'could you tell me where' diyerek devamın doğal sırayı korumasına izin verir."
+    },
+    {
+      "stem": "Aşağıdaki metni okuyunuz:\n'Emma has been learning Spanish for two years. She has already taken three exams and passed all of them.'\nEmma hakkında doğru olan çıkarım hangisidir?",
+      "options": ["Emma İspanyolca öğrenmede tutarlı ve başarılı bir ilerleme göstermektedir.", "Emma İspanyolca sınavlarında başarısız olmaktadır.", "Emma İspanyolca öğrenmeye yeni başlamıştır.", "Emma İspanyolca öğrenmeyi bırakmıştır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Reading Comprehension",
+      "skills": ["inference", "present perfect for duration"],
+      "explanation": "İki yıldır öğreniyor ve üç sınavın hepsini geçti. Bu iki bilgi birleştirildiğinde tutarlı ve başarılı bir ilerleme olduğu çıkarılabilir."
+    },
+    {
+      "stem": "Boşluğu doğru şekilde tamamlayınız:\n'This is _______ book I have ever read.'",
+      "options": ["the most interesting", "more interesting", "most interesting", "the more interesting"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Superlative Adjectives",
+      "skills": ["superlative with multi-syllable adjectives", "article usage"],
+      "explanation": "Çok heceli sıfatların superlative formu 'the most + adjective' şeklindedir. 'Interesting' iki heceli bir sıfat olduğundan 'the most interesting' doğrudur. 'The' mutlaka kullanılmalıdır."
+    },
+    {
+      "stem": "Doğa konulu bir metinde: 'Coral reefs cover less than 1% of the ocean floor but support about 25% of all marine life.' Bu cümle hangi fikri desteklemektedir?",
+      "options": ["Küçük ekosistemlerin orantısız derecede büyük biyolojik öneme sahip olabileceğini", "Mercan resiflerinin deniz tabanının büyük bölümünü kapladığını", "Deniz canlılarının yalnızca mercan resiflerinde yaşadığını", "Mercan resiflerinin tehlike altında olmadığını"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Nature",
+      "skills": ["data interpretation", "critical reading"],
+      "explanation": "%1'den az bir alan, deniz yaşamının %25'ini barındırıyor. Bu orantısızlık, küçük ekosistemlerin biyolojik açıdan çok büyük bir değer taşıyabileceğini gösterir."
+    },
+    {
+      "stem": "Bir öğrenci arkadaşına şöyle diyor: 'You look pale. You should see a doctor.' Bu cümledeki 'should' ne anlam ifade etmektedir?",
+      "options": ["Tavsiye", "Zorunluluk", "İzin", "Yetenek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Modal Verbs - Should",
+      "skills": ["modal meaning", "advice"],
+      "explanation": "'Should' burada bir tavsiye ifade eder. 'Must/have to' zorunluluk, 'can/may' izin, 'can/could' yetenek için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi bir alışkanlığı değil, şu an devam eden bir eylemi ifade etmektedir?",
+      "options": ["She is talking on the phone right now.", "She talks on the phone every evening.", "She talked on the phone yesterday.", "She has talked on the phone before."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Continuous vs Simple",
+      "skills": ["tense distinction", "time expressions"],
+      "explanation": "'Right now' ifadesi ve '-ing' eki şu an devam eden eylemi gösterir (Present Continuous). 'Every evening' alışkanlık, 'yesterday' geçmiş, 'before' deneyim ifade eder."
+    },
+    {
+      "stem": "Bir fen metninde şu cümle geçiyor: 'Photosynthesis is the process by which plants convert sunlight into food.' Bu cümleye göre fotosentezin girdisi nedir?",
+      "options": ["Güneş ışığı", "Su buharı", "Karbondioksit çıktısı", "Toprak mineralleri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Science Reading",
+      "skills": ["reading comprehension", "process analysis"],
+      "explanation": "Cümle 'sunlight'ı (güneş ışığını) fotosentezin dönüştürdüğü enerji kaynağı olarak belirtiyor. Bu girdidir. CO₂ ve su da girdi olmasına rağmen cümlede doğrudan belirtilen 'sunlight'tır."
+    },
+    {
+      "stem": "Boşluğa gelmesi gereken doğru seçenek hangisidir?\n'He is not as _______ as his sister.'",
+      "options": ["tall", "taller", "tallest", "the tallest"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Equality Comparison (as...as)",
+      "skills": ["as...as structure", "base adjective"],
+      "explanation": "'Not as...as' yapısında sıfat temel formunda kullanılır: 'not as tall as'. Comparative veya superlative form kullanılmaz."
+    },
+    {
+      "stem": "Aşağıdaki diyaloğu okuyunuz:\nMaria: 'Have you ever been to Istanbul?'\nJohn: 'Yes, I went there two years ago.'\nBu diyalogda kaç farklı zaman formu kullanılmıştır?",
+      "options": ["İki: Present Perfect ve Past Simple", "Bir: yalnızca Present Perfect", "İki: Past Simple ve Future", "Üç: Present, Past ve Future"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Mixed Tenses",
+      "skills": ["tense identification", "dialogue analysis"],
+      "explanation": "Maria'nın sorusunda 'Have you ever been' (Present Perfect) ve John'un yanıtında 'I went' (Past Simple) kullanılmıştır. Bu iki farklı zaman formudur."
+    },
+    {
+      "stem": "Bir seyahat blogunda şu cümle yer alıyor: 'Travelling broadens your mind and helps you understand different cultures.' Bu cümle seyahatin hangi faydalarını vurgular?",
+      "options": ["Zihinsel gelişim ve kültürel anlayış", "Fiziksel sağlık ve para kazanma", "Dil öğrenme ve iş fırsatları", "Tarih araştırması ve bilim"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel Benefits",
+      "skills": ["reading comprehension", "main idea"],
+      "explanation": "'Broadens your mind' (zihinsel gelişim) ve 'understand different cultures' (kültürel anlayış) cümlede doğrudan belirtilen iki faydadır."
+    },
+    {
+      "stem": "Bir öğrenci şöyle yazıyor: 'If I have free time, I _______ read more books.' Doğru form hangisidir?",
+      "options": ["will", "would", "am", "can"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "First Conditional",
+      "skills": ["conditional clause", "will vs would"],
+      "explanation": "Birinci tip koşul cümlesinde (gerçek/olası durum) if-clause Simple Present, ana cümle will + base verb içerir. 'Would' ikinci tip koşul için, 'am' ve 'can' bu yapıya uymaz."
+    },
+    {
+      "stem": "Aşağıdaki cümlede altı çizili kısım hangi gramer yapısını göstermektedir?\n'She has been studying English **for five years**.'",
+      "options": ["Present Perfect Continuous ile süre zarfı", "Past Simple ile frekans zarfı", "Future tense ile zaman zarfı", "Present Simple ile alışkanlık"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Present Perfect Continuous",
+      "skills": ["for/since distinction", "duration"],
+      "explanation": "'For five years' Present Perfect (veya Present Perfect Continuous) ile kullanılan ve bir sürenin uzunluğunu belirten zarf tümlecidir. 'Since' ise başlangıç noktasını belirtir."
+    },
+    {
+      "stem": "Doğa konulu bir metni okurken 'endangered' kelimesiyle karşılaşıyorsunuz. Bu kelimenin en doğru anlamı hangisidir?",
+      "options": ["Nesli tehlike altında olan", "Vahşi doğada yaşayan", "Evcil hayvanları tanımlayan", "Yeni keşfedilen"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Nature Vocabulary",
+      "skills": ["vocabulary in context"],
+      "explanation": "'Endangered' kelimesi nesli tehlike altında olan veya tehlikeye girmiş demektir. 'Endangered species' tehlike altındaki türleri ifade eder."
+    },
+    {
+      "stem": "Bir sağlık bilgi kartında şu yazıyor: 'Avoid sugary drinks and processed foods to maintain a healthy weight.' Bu tavsiyenin amacı nedir?",
+      "options": ["Sağlıklı bir kilo korumak için zararlı besinlerden kaçınmayı önermek", "Tatlıların tamamen zararlı olduğunu kanıtlamak", "İşlenmiş gıdaların besin değerini açıklamak", "Kilo vermenin tek yolunun egzersiz olduğunu söylemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Health",
+      "skills": ["advice comprehension", "purpose identification"],
+      "explanation": "'Avoid... to maintain a healthy weight' yapısı, sağlıklı kilo için şekerli içecek ve işlenmiş gıdadan kaçınılmasını tavsiye eder. Amaç kilo korumaktır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi düzensiz (irregular) geçmiş zaman fiiline örnektir?",
+      "options": ["went", "walked", "played", "watched"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Irregular Verbs",
+      "skills": ["irregular past tense", "verb forms"],
+      "explanation": "'Went' fiilinin mastarı 'go'dur ve düzensiz bir geçmiş zaman formudur. 'Walked', 'played' ve 'watched' düzenli fiillerdir; -ed eki alırlar."
+    },
+    {
+      "stem": "Bir öğrenci hikâye anlatıyor:\n'Last year, I (go) to a science camp. I (meet) new friends and (learn) a lot about robots.'\nPayantez içindeki fiillerin doğru formu nedir?",
+      "options": ["went, met, learned", "go, meet, learn", "have gone, have met, have learned", "going, meeting, learning"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Past Simple Narrative",
+      "skills": ["past simple in narratives", "regular and irregular verbs"],
+      "explanation": "'Last year' kesin bir geçmiş zaman ifadesidir. 'Go' → 'went' (düzensiz), 'meet' → 'met' (düzensiz), 'learn' → 'learned' (düzenli). Hepsi Past Simple formundadır."
+    },
+    {
+      "stem": "Aşağıdaki cümleler arasında hangisinde 'since' doğru kullanılmıştır?",
+      "options": ["I have lived here since 2015.", "I have lived here since three years.", "I live here since 2015.", "I lived here since last year."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Perfect - since/for",
+      "skills": ["since vs for", "present perfect"],
+      "explanation": "'Since' belirli bir başlangıç noktasını (yıl, tarih, olay) belirtir ve Present Perfect ile kullanılır. 'Since 2015' doğrudur. 'Since three years' hatalıdır (for three years olmalı). 'I live/I lived' yanlış zamandır."
+    },
+    {
+      "stem": "Bir teknoloji metninde: 'Artificial intelligence is being used in healthcare to diagnose diseases more accurately.' Bu cümle AI'nın sağlık alanındaki hangi kullanımını açıklamaktadır?",
+      "options": ["Hastalıkların daha doğru teşhis edilmesi", "Ameliyatların robot tarafından yapılması", "İlaç üretiminin otomatikleşmesi", "Hastane inşaatlarının hızlandırılması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Technology in Healthcare",
+      "skills": ["reading comprehension", "specific detail"],
+      "explanation": "Cümle 'diagnose diseases more accurately' (hastalıkları daha doğru teşhis etmek) ifadesiyle AI'nın teşhis alanındaki kullanımına odaklanmaktadır."
+    },
+    {
+      "stem": "Boşluğa gelmesi gereken en uygun kelime hangisidir?\n'You _______ use your phone during the exam. It's strictly forbidden.'",
+      "options": ["mustn't", "don't have to", "should", "could"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Modal Verbs - Prohibition",
+      "skills": ["mustn't vs don't have to", "prohibition"],
+      "explanation": "'Mustn't' kesin yasak anlamı taşır. 'Don't have to' gereklilik yokluğunu gösterir (yasak değil). 'Should' tavsiye, 'could' olasılık/yetenek ifade eder."
+    },
+    {
+      "stem": "Aşağıdaki cümleyi okuyunuz: 'The more you practise, the better you become.' Bu cümle ne tür bir ilişkiyi anlatmaktadır?",
+      "options": ["Pratik ile gelişim arasında doğrusal bir orantı", "Pratik ile yorgunluk arasında ters orantı", "Gelişimin pratikten bağımsız olduğunu", "Pratiğin her zaman zararlı olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Comparative Structures",
+      "skills": ["the more...the more structure", "logical relationship"],
+      "explanation": "'The more...the better' yapısı bir artışın başka bir artışı tetiklediğini gösterir. Burada pratik arttıkça beceride de gelişim artar — doğrusal orantı."
+    },
+    {
+      "stem": "Bir çevre metninde: 'Recycling one tonne of paper saves 17 trees and reduces water usage by 50%.' Bu veriler neyi desteklemektedir?",
+      "options": ["Geri dönüşümün hem ormanlara hem de su kaynaklarına somut faydalar sağladığını", "Kağıt üretiminin çevreye hiç zarar vermediğini", "Ağaç dikmeden geri dönüşümün işe yaramadığını", "Su kullanımının geri dönüşümle tamamen sona erdiğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment - Recycling",
+      "skills": ["data analysis", "environmental impact"],
+      "explanation": "17 ağaç kurtarılır (orman faydası) ve su kullanımı %50 azalır (su faydası). Bu iki veri geri dönüşümün çevre üzerindeki somut çift etkisini gösterir."
+    },
+    {
+      "stem": "Bir öğrenci sınıf tartışmasında şöyle konuşuyor: 'I think we should spend more time outdoors because it is healthier than staying inside all day.' Bu görüşte hangi argüman kullanılmaktadır?",
+      "options": ["Açık havada zaman geçirmenin daha sağlıklı olduğu argümanı", "Teknolojinin zararlı olduğu argümanı", "Okulların daha fazla egzersiz saati koyması gerektiği argümanı", "Ebeveynlerin çocukları dışarı çıkarması gerektiği argümanı"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Persuasive Language",
+      "skills": ["argument identification", "opinion expressions"],
+      "explanation": "Konuşmacı 'healthier than staying inside' karşılaştırmasıyla açık havanın daha sağlıklı olduğunu argüman olarak sunuyor. Diğer seçenekler metinde geçmiyor."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'must' zorunluluk anlamında kullanılmıştır?",
+      "options": ["You must wear a seatbelt while driving.", "He must be at home now.", "She must have left early.", "It must be raining outside."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Modal Verbs - Must",
+      "skills": ["modal meanings: obligation vs deduction"],
+      "explanation": "'You must wear a seatbelt' bir kural veya zorunluluk bildirir. Diğer cümlelerde 'must' güçlü tahmin/çıkarım anlamı taşır ('He must be...' = muhtemelen evde)."
+    },
+    {
+      "stem": "Bir anlatı metninde şu cümle geçiyor: 'As soon as she opened the letter, her face lit up with joy.' Bu cümle karakterin duygusunu nasıl aktarıyor?",
+      "options": ["Yüz ifadesini ve anlık tepkiyi betimleyerek dolaylı bir şekilde", "Doğrudan 'She was happy' diyerek", "Sadece olayı aktararak duygu hakkında bir şey söylemeden", "Geçmişteki anılar üzerinden"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Narrative Writing",
+      "skills": ["show don't tell", "characterization"],
+      "explanation": "'Her face lit up with joy' ifadesi mutluluğu doğrudan söylemek yerine fiziksel bir tepkiyle (yüz aydınlandı) gösteriyor. Bu 'show don't tell' tekniğidir."
+    },
+    {
+      "stem": "Boşluğa en uygun kelimeyi seçiniz:\n'The students were _______ excited about the trip that they couldn't sleep the night before.'",
+      "options": ["so", "such", "very", "too"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Intensifiers - so/such",
+      "skills": ["so vs such", "intensifiers"],
+      "explanation": "'So + adjective + that' yapısı sonuç cümlesi kurmak için kullanılır: 'so excited that they couldn't sleep'. 'Such' isim önünde kullanılır: 'such an exciting trip that...'"
+    },
+    {
+      "stem": "Aşağıdaki cümleyi okuyunuz:\n'Despite the rain, they continued playing football.'\n'Despite' kelimesi burada ne anlam ifade etmektedir?",
+      "options": ["Olumsuz bir koşula rağmen eylemin devam ettiğini gösterir.", "İki olayın aynı anda gerçekleştiğini gösterir.", "Bir eylemin nedenini açıklar.", "Sonuç bildiren bir bağlaç görevi görür."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Contrast Connectors",
+      "skills": ["despite/although", "contrast"],
+      "explanation": "'Despite + noun/gerund' zıtlık (contrast) bağlacıdır. Yağmur olumsuz koşul, buna rağmen oynamaya devam etmek eylemin gerçekleştiğini gösterir."
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi yazıyor: 'I enjoy to swim in the sea.' Bu cümlede hangi hata vardır?",
+      "options": ["'enjoy' fiilinden sonra gerund (swimming) kullanılmalıdır.", "'enjoy' fiilinden sonra infinitive kullanımı doğrudur.", "Cümle tamamen doğrudur, hata yoktur.", "'I like swimming' daha doğru bir alternatiftir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerund vs Infinitive",
+      "skills": ["verbs followed by gerund", "grammar accuracy"],
+      "explanation": "'Enjoy' fiili her zaman gerund (V+ing) alır: 'enjoy swimming'. 'To swim' yanlıştır. 'Like' ise hem gerund hem infinitive alabilir."
+    },
+    {
+      "stem": "Bir seyahat forumunda: 'Travelling by train is more relaxing than flying.' Bu cümle iki ulaşım aracını nasıl karşılaştırıyor?",
+      "options": ["Tren yolculuğunun uçmaktan daha rahatlatıcı olduğunu söylüyor.", "Uçmanın her zaman daha iyi olduğunu savunuyor.", "Her iki aracın da eşit derecede rahatlatıcı olduğunu ifade ediyor.", "Trenin uçaktan daha hızlı olduğunu belirtiyor."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel Comparison",
+      "skills": ["comparative adjective reading", "travel"],
+      "explanation": "'More relaxing than' karşılaştırmalı yapısıyla tren yolculuğunun uçmaya kıyasla daha rahatlatıcı olduğu doğrudan ifade edilmektedir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede boşluğu doğru doldurunuz:\n'He _______ in this city for ten years before he moved abroad.'",
+      "options": ["had lived", "has lived", "lived", "was living"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Past Perfect",
+      "skills": ["past perfect for prior action", "narrative sequence"],
+      "explanation": "Yurt dışına taşınmadan önce on yıl yaşadı — bu iki geçmiş eylemden önce gerçekleşeni Past Perfect ile verilir: 'had lived'. 'Has lived' Present Perfect, 'lived' basit geçmiş, 'was living' süreç ifadesi."
+    },
+    {
+      "stem": "Bir kültür metni: 'In Japan, it is polite to remove your shoes before entering a house.' Bu bilgi ne hakkındadır?",
+      "options": ["Japonya'da ev içinde uyulan bir nezaket kuralı", "Japonya'da sokak temizliğine verilen önem", "Japonya'da ayakkabı üreticilerinin politikası", "Japonya'da resmi ziyaretlerde giyim kuralları"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Culture",
+      "skills": ["cultural information reading"],
+      "explanation": "'Before entering a house' (eve girerken) ve 'polite' (nezaket) ifadeleri bunun bir ev içi nezaket kuralı olduğunu açıkça göstermektedir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi bir öneri ifade etmektedir?",
+      "options": ["Why don't we visit the science museum this Saturday?", "We visited the science museum last Saturday.", "The science museum opens at nine.", "I have already visited the science museum."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Making Suggestions",
+      "skills": ["suggestion structures", "functional language"],
+      "explanation": "'Why don't we...?' yapısı İngilizce'de yaygın bir öneri ifadesidir. Diğer cümleler sırasıyla geçmiş, bilgi aktarımı ve deneyim ifade eder."
+    },
+    {
+      "stem": "Bir öğrenci arkadaşına bir şikayet aktarıyor: 'Tom said that the homework was too difficult.' Orijinal cümle hangisi olabilir?",
+      "options": ["'The homework is too difficult.'", "'The homework was too difficult.'", "'The homework has been too difficult.'", "'The homework will be too difficult.'"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Reported Speech",
+      "skills": ["backshift rule", "tense recognition"],
+      "explanation": "Reported speech'te 'was' ← 'is' zaman kayması yaşanır. Dolayısıyla 'was too difficult' ifadesi orijinalde 'is too difficult' şeklindeydi. Diğer seçenekler farklı zaman kaymalarına işaret eder."
+    },
+    {
+      "stem": "Bir fen metninde: 'The water cycle involves evaporation, condensation, and precipitation.' 'Precipitation' kelimesi en doğru hangi Türkçe kelimeyle karşılanır?",
+      "options": ["Yağış", "Buharlaşma", "Yoğunlaşma", "Akış"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Science Vocabulary",
+      "skills": ["scientific vocabulary", "reading science texts"],
+      "explanation": "Su döngüsünde 'evaporation' buharlaşma, 'condensation' yoğunlaşma, 'precipitation' yağış (yağmur, kar vb.) anlamına gelir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde hangisi bir durumu değil, anlık gerçekleşen bir eylemi ifade eder?",
+      "options": ["He is running towards the bus stop.", "He knows the answer.", "She owns a red bicycle.", "The book belongs to her."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "State vs Action Verbs",
+      "skills": ["dynamic vs stative verbs", "present continuous"],
+      "explanation": "'Running' bir hareket fiilidir ve şu an devam eden eylemi gösterir. 'Know', 'own', 'belong' durum fiillerdir; bunlar genellikle Present Continuous ile kullanılmaz."
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi okuyor: 'Junk food is cheaper but less nutritious than fresh food.' Bu cümleden çıkarılabilecek sonuç hangisidir?",
+      "options": ["Taze gıda daha besleyici ama daha pahalıdır.", "Hazır gıda her açıdan taze gıdadan üstündür.", "Taze gıda ucuz ve besleyicidir.", "Tüm gıdaların besin değeri eşittir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Health and Food",
+      "skills": ["comparative reading", "inference"],
+      "explanation": "Cümle, junk food'un daha ucuz (cheaper) ama daha az besleyici (less nutritious) olduğunu söylüyor. Bu, tersinin de doğru olduğu anlamına gelir: taze gıda daha besleyici ama daha pahalı."
+    },
+    {
+      "stem": "Boşluğa en uygun bağlacı seçiniz:\n'She studied hard, _______ she failed the exam.'",
+      "options": ["yet", "so", "because", "and"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Contrast Connectors",
+      "skills": ["yet/but/so/because", "contrast"],
+      "explanation": "'Yet' zıtlık bağlacıdır ve beklenenin aksini ifade eder: Çok çalıştı ama yine de başarısız oldu. 'So' sonuç, 'because' neden, 'and' ek bilgi için kullanılır."
+    },
+    {
+      "stem": "Bir karakter analizi metninde: 'Although Sara rarely spoke in class, her written assignments showed exceptional creativity.' Sara hakkında ne söylenebilir?",
+      "options": ["Sessiz bir kişiliği olmasına rağmen yazılı çalışmalarında yaratıcılığını ortaya koydu.", "Sara hem sözlü hem de yazılı olarak başarısızdı.", "Sara sınıfta çok konuşur ve yaratıcı yazılar yazardı.", "Sara'nın yaratıcılığı yalnızca sözlü katılımda görülürdü."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Character Description",
+      "skills": ["contrast comprehension", "character inference"],
+      "explanation": "'Although rarely spoke' ve 'showed exceptional creativity' zıtlık içeriyor: sessiz kişiliğine karşın yazılı çalışmalarında parlak bir yaratıcılık sergiledi."
+    },
+    {
+      "stem": "Seyahat kılavuzunda: 'Visitors are advised to carry sunscreen and stay hydrated when exploring desert regions.' Bu tavsiyenin amacı nedir?",
+      "options": ["Çöl bölgelerini keşfederken güneş yanığı ve susuzluktan korunmak", "Çöl turizmini caydırmak", "Güneş kreminin satın alınmasını teşvik etmek", "Çöl iklimini açıklamak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel Safety",
+      "skills": ["purpose of advice", "reading comprehension"],
+      "explanation": "'Sunscreen' güneş yanığına, 'stay hydrated' susuzluğa karşı korunmaya yöneliktir. Tavsiyenin amacı çöl koşullarında ziyaretçileri korumaktır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde hem Present Perfect hem de zaman zarfı doğru kullanılmıştır?",
+      "options": ["She has lived in London for six months.", "She has lived in London since six months.", "She has lived in London yesterday.", "She lived in London for six months now."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Present Perfect - for/since",
+      "skills": ["for vs since", "present perfect formation"],
+      "explanation": "'For' süre uzunluğunu (six months), 'since' başlangıç noktasını belirtir. 'For six months' Present Perfect ile doğru kullanımdır. 'Since six months' hatalı, 'yesterday' ve 'now' bu yapıya uymaz."
+    },
+    {
+      "stem": "Bir öğrenci şu soruyu soruyor: 'What does the word 'habitat' mean?' Doğru tanım hangisidir?",
+      "options": ["Bir canlının doğal olarak yaşadığı ortam", "Bir hayvanın besin zincirindeki konumu", "Canlıların birbirine bağımlı olduğu sistem", "Bir türün neslini sürdürme kapasitesi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Nature Vocabulary",
+      "skills": ["scientific vocabulary", "definitions"],
+      "explanation": "'Habitat' bir organizmanın doğal yaşam alanıdır. 'Food chain position' besin zinciri, 'ecosystem' ekosistem, 'reproductive capacity' üreme kapasitesi farklı kavramlardır."
+    },
+    {
+      "stem": "Bir teknoloji broşüründe: 'This app allows you to track your daily water intake and reminds you to stay hydrated.' Bu uygulamanın işlevi nedir?",
+      "options": ["Günlük su tüketimini takip etmek ve kullanıcıyı su içmeye hatırlatmak", "Kullanıcının spor programını oluşturmak", "Sağlıklı yemek tarifleri sunmak", "Kullanıcının uyku düzenini izlemek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Technology Applications",
+      "skills": ["reading for specific information", "technology"],
+      "explanation": "Cümle iki işlevi doğrudan belirtiyor: su alımını takip etmek ('track water intake') ve hidrasyon hatırlatıcısı ('reminds to stay hydrated')."
+    },
+    {
+      "stem": "Aşağıdaki cümlede boşluğu doldurunuz:\n'She looked _______ after the long journey.'",
+      "options": ["exhausted", "exhaustedly", "exhausting", "exhaust"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Adjectives after Linking Verbs",
+      "skills": ["adjective vs adverb", "linking verbs"],
+      "explanation": "'Look' bağlama fiilinden (linking verb) sonra sıfat (adjective) kullanılır, zarf değil. 'Exhausted' sıfat, 'exhaustedly' zarf, 'exhausting' eylemden etkilenen değil etkileyen anlamı taşır."
+    },
+    {
+      "stem": "Bir çevre kampanyası afişinde: 'Every small action counts. Turn off the tap while brushing your teeth.' Bu mesaj ne önermektedir?",
+      "options": ["Bireysel küçük alışkanlıkların su tasarrufuna katkı sağlayabileceğini", "Su tasarrufunun yalnızca büyük sanayi kuruluşlarına bağlı olduğunu", "Diş fırçalamanın su israfına neden olmadığını", "Büyük çevre projelerinin daha önemli olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment - Conservation",
+      "skills": ["implied message", "persuasive text"],
+      "explanation": "'Every small action counts' ifadesi bireysel alışkanlıkların önemli olduğunu vurgular. Diş fırçalarken musluğu kapatmak bu küçük ama etkili bir örnektir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'used to' doğru kullanılmıştır?",
+      "options": ["She used to live in a small village when she was young.", "She used to live in Paris right now.", "She is used to living there last year.", "She uses to walk to school every day."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Used to",
+      "skills": ["used to for past habits", "grammar"],
+      "explanation": "'Used to + base verb' geçmişteki alışkanlık veya durumu ifade eder ve artık devam etmediğini ima eder. 'When she was young' bu kullanımı destekler. Diğerleri yanlış zaman veya form içerir."
+    },
+    {
+      "stem": "Bir hikâyede kahraman zor bir karar vermek zorunda kalıyor ve düşüncelerini şöyle aktarıyor: 'I knew I had to make a choice, but both options seemed equally difficult.' Bu cümle kahramanın durumunu nasıl betimliyor?",
+      "options": ["İkisi de eşit derecede zor olan iki seçenek arasında sıkışıp kalmış birini", "Kolay bir karar vermek üzere olan birini", "Yalnızca bir seçeneği olan ama onu reddeden birini", "Kararı başkasına bırakmayı tercih eden birini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Narrative Comprehension",
+      "skills": ["character feelings", "narrative analysis"],
+      "explanation": "'Both options seemed equally difficult' ifadesi iki seçeneğin de zorluk bakımından birbirine denk olduğunu, yani ikilemde kalmayı anlatır."
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi yazıyor: 'My sister is more cleverer than me.' Bu cümlede hangi hata vardır?",
+      "options": ["'More cleverer' çift karşılaştırma hatasıdır; 'cleverer' veya 'more clever' yeterlidir.", "Cümle tamamen doğrudur.", "'Cleverer' yerine 'the cleverest' kullanılmalıdır.", "Özne olarak 'me' değil 'I' kullanılmalıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Comparative Adjectives - Common Errors",
+      "skills": ["double comparative error", "grammar correction"],
+      "explanation": "'More cleverer' hem '-er' hem de 'more' kullanarak çift karşılaştırma (double comparative) hatası yapar. Doğrusu ya 'cleverer' ya da 'more clever' olmalıdır."
+    },
+    {
+      "stem": "Bir okuma parçasından: 'Scientists warn that if we continue polluting the oceans, many marine species will disappear within decades.' Bu uyarı ne anlama gelmektedir?",
+      "options": ["Okyanus kirliliğinin devam etmesi durumunda birçok deniz türünün yok olabileceğini", "Deniz türlerinin zaten yok olduğunu", "Bilim insanlarının okyanus temizliği için çalıştığını", "Okyanus kirliliğinin yalnızca balıkları etkilediğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment",
+      "skills": ["conditional warning", "reading comprehension"],
+      "explanation": "'If we continue... will disappear' birinci tip koşul yapısıyla olası bir geleceği uyarı biçiminde aktarıyor. Uyarı: kirlilik devam ederse deniz türleri yok olacak."
+    },
+    {
+      "stem": "Aşağıdaki cümlede 'although' bağlacı hangi anlam işlevi görüyor?\n'Although he practised every day, he didn't win the competition.'",
+      "options": ["Beklenen bir sonucun gerçekleşmediğini (zıtlık) gösterir.", "İki eylemin aynı anda gerçekleştiğini gösterir.", "Birinci eylemin ikinciye neden olduğunu gösterir.", "Gelecekte gerçekleşecek bir durumu belirtir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Contrast Connectors",
+      "skills": ["although/though usage", "contrast"],
+      "explanation": "Her gün pratik yapmak normalde kazanmayı bekletir, ancak buna rağmen kazanamadı. 'Although' bu beklenti-gerçeklik zıtlığını kurar."
+    },
+    {
+      "stem": "Bir seyahat blogunda şu öneri yer alıyor: 'When visiting a new country, try the local food, interact with locals, and attend cultural festivals.' Bu öneri gezginlere ne tavsiye etmektedir?",
+      "options": ["Yerel kültürle bütünleşmek için aktif adımlar atmayı", "Yalnızca turistik mekânları ziyaret etmeyi", "Yerel halktan uzak durmayı", "Sadece tanıdık yiyecekler yemeyi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Travel and Culture",
+      "skills": ["reading comprehension", "advice interpretation"],
+      "explanation": "Üç öneri de (yemek, etkileşim, festivaller) yerel kültürle bütünleşmeyi teşvik eder. Amaç gezginin o kültürü içten deneyimlemesidir."
+    },
+    {
+      "stem": "Bir fen bilgisi metni: 'The human body is made up of approximately 60% water.' Bu bilgiyi destekleyen en mantıklı çıkarım hangisidir?",
+      "options": ["Su içmek insan sağlığı için temel bir ihtiyaçtır.", "Su yalnızca kanda bulunur.", "İnsan vücudu %40 su içerir.", "Suyun vücuttaki işlevi henüz bilinmemektedir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Health and Science",
+      "skills": ["data inference", "health"],
+      "explanation": "Vücudun %60'ı su ise, bu maddenin yaşam için temel olduğu açıktır ve yeterli su içmenin sağlık için kritik olduğu sonucu çıkar."
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi kullanıyor: 'I suggest going to the park instead of the cinema.' Bu cümlede 'suggest' fiilinden sonra hangi yapı kullanılmıştır?",
+      "options": ["Gerund (going)", "Infinitive (to go)", "Base verb (go)", "Past form (went)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerund after Certain Verbs",
+      "skills": ["verbs followed by gerund", "suggest"],
+      "explanation": "'Suggest' fiili her zaman gerund (V+ing) alır: 'suggest going'. 'Suggest to go' yanlıştır. Benzer fiiller: 'recommend', 'avoid', 'enjoy'."
+    },
+    {
+      "stem": "Bir makale: 'Social media allows people to connect instantly across the world, but it can also spread misinformation rapidly.' Bu cümle sosyal medya hakkında ne söylemektedir?",
+      "options": ["Sosyal medyanın hem fayda hem de risk içerdiğini", "Sosyal medyanın yalnızca zararlı olduğunu", "Sosyal medyanın yanlış bilgiyi önlediğini", "Sosyal medyanın yalnızca iletişim aracı olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Technology - Social Media",
+      "skills": ["balanced argument", "reading comprehension"],
+      "explanation": "'Allows to connect' (fayda) ve 'can spread misinformation' (risk) ifadeleri sosyal medyanın iki yönlü olduğunu — hem yarar hem tehlike barındırdığını — gösterir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi daha önce planlanmış bir etkinliği değil, o an verilen kararı ifade eder?",
+      "options": ["I'll take an umbrella. It looks like it's going to rain.", "I'm going to visit my aunt this weekend.", "We've already booked the restaurant.", "The concert starts at eight."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Future - Will vs Going to",
+      "skills": ["spontaneous decisions vs plans", "will"],
+      "explanation": "'Will' o an verilen ani kararlar için kullanılır. Yağmurlu havayı görünce şemsiye almaya karar verme anlık bir karardır. Diğerleri önceden yapılmış planlar veya programlardır."
+    },
+    {
+      "stem": "Bir çevre metni: 'Using reusable bags instead of plastic ones can prevent hundreds of plastic bags from ending up in landfills each year.' Bu bilgi hangi tutumu desteklemektedir?",
+      "options": ["Küçük tüketici tercihlerinin çevresel atık azaltımında ölçülebilir fark yaratabileceğini", "Plastik torbaların geri dönüştürülemez olduğunu", "Bez çanta kullanımının pratikte mümkün olmadığını", "Yalnızca büyük şirketlerin plastik atığı azaltabileceğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Environment - Sustainable Choices",
+      "skills": ["implication", "environmental reading"],
+      "explanation": "Yeniden kullanılabilir torba kullanımı yılda yüzlerce plastik torbanın çöplüğe gitmesini önler. Bu, bireysel küçük tercihler bile olsa çevreye ölçülebilir katkı sağlanabileceğini gösterir."
+    },
+    {
+      "stem": "Bir eğitim metninde: 'Reading regularly not only improves vocabulary but also enhances critical thinking skills.' 'Not only...but also' yapısı burada hangi işlevi görmektedir?",
+      "options": ["Birden fazla olumlu sonucu birbirine bağlar.", "İki zıt fikri birbirine bağlar.", "Bir neden-sonuç ilişkisi kurar.", "Bir koşul bildirir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Connectors - Not only...but also",
+      "skills": ["correlative conjunctions", "grammar function"],
+      "explanation": "'Not only A but also B' yapısı iki olumlu sonucu birlikte vurgular: hem kelime hazinesi gelişir hem de eleştirel düşünme becerisi artar."
+    },
+    {
+      "stem": "Boşluğa en uygun kelimeyi seçiniz:\n'The teacher told the students _______ their phones during the test.'",
+      "options": ["not to use", "to not use", "not using", "didn't use"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Reported Commands",
+      "skills": ["negative infinitive in reported speech", "told to do"],
+      "explanation": "'Tell someone (not) to do something' yapısında olumsuz infinitive için 'not to + verb' kullanılır. 'To not use' yanlış sıralama, 'not using' gerund, 'didn't use' reported speech değil."
+    },
+    {
+      "stem": "Bir öğrenci sınıfta bir makale sunuyor ve şöyle bitiriyor: 'In conclusion, both technology and face-to-face interaction are essential for a balanced social life.' Bu sonuç cümlesi hakkında ne söylenebilir?",
+      "options": ["Makale boyunca tartışılan iki tarafı dengeleyerek her ikisinin de önemini kabul ediyor.", "Yalnızca teknolojinin önemine vurgu yapıyor.", "Yüz yüze iletişimi gereksiz buluyor.", "Konuyu tartışmaya kapatmak yerine açıyor."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Essay Writing - Conclusion",
+      "skills": ["conclusion structure", "balanced argument"],
+      "explanation": "'Both...are essential' ifadesi iki farklı görüşü dengeleyerek sonuçlandırır. Bu klasik bir balanced conclusion yapısıdır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi bir sonuç-neden ilişkisini doğru şekilde ifade etmektedir?",
+      "options": ["She missed the bus, so she was late for school.", "She was late for school, so she missed the bus.", "Although she missed the bus, she was late.", "She missed the bus because she was late."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cause and Effect",
+      "skills": ["so/because", "logical sequence"],
+      "explanation": "Otobüsü kaçırmak (neden) → okula geç kalmak (sonuç). 'So' sonuç bağlacıdır. A seçeneği nedensel sırayı mantıksal olarak doğru verir. B seçeneği sırayı ters çevirir."
+    },
+    {
+      "stem": "Bir öğrenci şöyle yazıyor: 'Eating too much junk food, a person can become unhealthy.' Bu cümlede hangi sorun vardır?",
+      "options": ["Özne belirsizliği ve dangling participle hatası vardır.", "Fiil zamanı yanlıştır.", "Bağlaç eksiktir.", "Cümle tamamen doğrudur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Writing Mechanics",
+      "skills": ["dangling participle", "sentence structure"],
+      "explanation": "'Eating too much junk food' ile 'a person can become unhealthy' arasında özne uyuşmazlığı (dangling participle) vardır. Düzeltme: 'If a person eats too much junk food, they can become unhealthy.'"
+    },
+    {
+      "stem": "Bir öğrenci şu cümleyi okuyor: 'The earlier you start studying, the less stress you will feel before exams.' Bu cümle hangi öneriyi içermektedir?",
+      "options": ["Sınav öncesi stres azaltmak için erken çalışmaya başlamak gerektiği", "Daha uzun çalışmanın daha kısa çalışmaktan iyi olduğu", "Sınavların stres yaratmadığı", "Erken çalışmanın not üzerinde etkisi olmadığı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Comparative Structures - The...the",
+      "skills": ["the more...the less structure", "advice reading"],
+      "explanation": "'The earlier you start...the less stress' yapısı erken başlamanın stresi azalttığını gösterir. Bu dolaylı olarak erken çalışmaya başlama önerisini barındırır."
+    }
+  ]
+}

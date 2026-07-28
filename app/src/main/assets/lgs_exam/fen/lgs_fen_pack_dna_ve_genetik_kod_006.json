@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir karakter bakımından baskın fenotipli iki birey çaprazlanıyor. Oluşan yavrular arasında çekinik fenotipli bireyler de görülüyor. Bu yavrular arasından rastgele seçilen baskın fenotipli bir bireyin heterozigot olma olasılığı kaçtır?",
+      "options": [
+        "1/4",
+        "1/3",
+        "2/3",
+        "3/4"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik", "genotip_belirleme"],
+      "explanation": "Çekinik fenotipli yavru oluştuğuna göre ebeveynler Aa × Aa'dır. Yavru genotip oranı 1 AA : 2 Aa : 1 aa olur. Baskın fenotipli bireyler AA ve Aa olduğundan toplam 3 bireyin 2'si heterozigottur. Olasılık 2/3'tür.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam baz sayısı 2800'dür. Bu DNA'da adenin bazı sayısı, guanin bazı sayısından 200 fazladır. Buna göre sitozin bazı sayısı kaçtır?",
+      "options": [
+        "600",
+        "650",
+        "700",
+        "750"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "DNA'da A=T ve G=C'dir. Guanin sayısına x dersek sitozin de x, adenin ve timin ise x+200 olur. Toplam baz sayısı x + x + (x+200) + (x+200) = 2800 → 4x + 400 = 2800 → 4x = 2400 → x = 600 gibi görünür; ancak burada toplam baz sayısı değil toplam nükleotit sayısı değil mi diye karıştırılmamalıdır. Baz sayısı DNA'nın iki zincirindeki toplam bazların toplamıdır. Doğru kurulum 2x + 2(x+200)=2800 → 4x+400=2800 → x=600'dür. Sitozin 600 olmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q02"
+    },
+    {
+      "stem": "Bir DNA molekülünün bir zincirinde 130 adenin, 170 timin, 90 guanin ve 110 sitozin bazı bulunmaktadır. Buna göre bu DNA molekülünün tamamındaki guanin bazı sayısı kaçtır?",
+      "options": [
+        "90",
+        "110",
+        "180",
+        "200"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
+      "explanation": "Bir zincirdeki guanin sayısı 90'dır. Karşı zincirdeki guanin sayısı, ilk zincirdeki sitozin sayısına eşit olacağından 110'dur. Toplam guanin sayısı 90 + 110 = 200'dür.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q03"
+    },
+    {
+      "stem": "Mor çiçek rengi beyaz çiçeğe baskındır. Mor çiçekli bir bitki ile beyaz çiçekli bir bitki çaprazlandığında oluşan yavruların yarısı mor, yarısı beyaz oluyor. Buna göre mor çiçekli ebeveynin genotipi aşağıdakilerden hangisidir?",
+      "options": [
+        "MM",
+        "Mm",
+        "mm",
+        "Belirlenemez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "Beyaz çiçekli birey çekinik olduğundan mm'dir. Yavruların yarısı mor, yarısı beyaz olduğuna göre çaprazlama Mm × mm şeklindedir. Mor ebeveyn heterozigottur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q04"
+    },
+    {
+      "stem": "Bir canlı türünde çevredeki kimyasal maddeler nedeniyle DNA diziliminde değişiklik oluşuyor. Bu değişiklik vücut hücrelerinde gerçekleşiyor ve bireyin tüy rengini değiştiriyor. Ancak yavru bireylerde bu özellik görülmüyor. Bu olayla ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Modifikasyondur çünkü çevre etkisiyle oluşmuştur",
+        "Mutasyondur ancak üreme hücrelerinde olmadığı için kalıtsal değildir",
+        "Adaptasyondur çünkü bireye yeni özellik kazandırmıştır",
+        "Doğal seçilimdir çünkü çevre koşulları etkilidir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "kalitsal", "vucut_hucre"],
+      "explanation": "DNA dizilimindeki değişim mutasyondur. Ancak değişim vücut hücrelerinde gerçekleştiği için kalıtsal olarak yavrulara aktarılmaz.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q05"
+    },
+    {
+      "stem": "Aşağıdaki örneklerden hangisi doğal seçilim ile açıklanır?",
+      "options": [
+        "Aynı tohumdan çıkan iki bitkinin farklı ışık koşullarında farklı boylara ulaşması",
+        "Koyu renkli zeminde yaşayan böcekler arasında koyu renkli olanların daha çok hayatta kalması",
+        "Bir insanın yaz aylarında ten renginin koyulaşması",
+        "Bir sporcunun düzenli antrenmanla kaslarının gelişmesi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dogal_secilim", "adaptasyon", "modifikasyon"],
+      "explanation": "Çevreye daha uygun özellik taşıyan bireylerin hayatta kalıp daha çok çoğalması doğal seçilimdir. Diğer seçeneklerde çevreye bağlı modifikasyon örnekleri vardır.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q06"
+    },
+    {
+      "stem": "DNA ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+      "options": [
+        "Gen, DNA'nın görev birimlerinden biridir",
+        "Nükleotitler şeker, fosfat ve bazdan oluşur",
+        "Bir DNA molekülünde adenin sayısı her zaman guanin sayısına eşittir",
+        "Karşılıklı baz eşleşmesi DNA'nın çift zincirli yapısında görülür"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit"],
+      "explanation": "DNA'da adenin timine, guanin sitozine eşittir. Adenin ile guaninin eşit olması zorunlu değildir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q07"
+    },
+    {
+      "stem": "Bir karakter bakımından heterozigot iki birey çaprazlanıyor. Oluşan dört yavrudan ikisinin heterozigot, birinin homozigot baskın, birinin homozigot çekinik olabileceği biliniyor. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Baskın fenotipli yavruların tamamı heterozigottur",
+        "Çekinik fenotipli yavru oluşma olasılığı 1/2'dir",
+        "Heterozigot yavru oluşma olasılığı homozigot baskın yavru oluşma olasılığından fazladır",
+        "Homozigot baskın yavru oluşamaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_orani", "olasilik"],
+      "explanation": "Aa × Aa çaprazlamasında genotip oranı 1 AA : 2 Aa : 1 aa'dır. Heterozigot olasılığı 2/4, homozigot baskın olasılığı 1/4 olduğundan heterozigot oluşma olasılığı daha fazladır.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q08"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin bazları toplam bazların %15'ini oluşturmaktadır. Buna göre bu DNA molekülünde adenin bazlarının oranı yüzde kaçtır?",
+      "options": [
+        "15",
+        "30",
+        "35",
+        "70"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
+      "explanation": "DNA'da G=C olduğundan sitozin de %15'tir. G+C=%30 olur. Geriye A+T=%70 kalır. A=T olduğuna göre adenin %35'tir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q09"
+    },
+    {
+      "stem": "Bir öğrenci aşağıdaki yorumları yapıyor:\nI. Mutasyon her zaman zararlıdır.\nII. Modifikasyon çevre etkisiyle oluşur ve kalıtsal değildir.\nIII. Adaptasyon, bireyin yaşadığı süre içinde kazandığı bir uyum özelliğidir.\n\nBuna göre öğrencinin yorumlarından hangileri doğrudur?",
+      "options": [
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "modifikasyon", "adaptasyon", "ozellikler"],
+      "explanation": "Mutasyon her zaman zararlı değildir; faydalı veya etkisiz de olabilir. Modifikasyon çevre etkisiyle oluşur ve kalıtsal değildir. Adaptasyon bireyin yaşamı içinde sonradan kazandığı değil, nesiller boyunca seçilmiş kalıtsal uyum özellikleridir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_006_q10"
+    }
+  ]
+}

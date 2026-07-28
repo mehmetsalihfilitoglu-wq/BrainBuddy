@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat5_0400",
+      "stem": "45 678 sayısının binler bölüğündeki rakamların toplamı kaçtır?",
+      "options": [
+        "12",
+        "10",
+        "9",
+        "11"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Binler bölüğü 45'tir. 4 + 5 = 9.",
+      "source": "edumio",
+      "sourceRef": "mat5_0400",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0401",
+      "stem": "678 912 sayısında 7'nin basamak değeri ile 9'un basamak değerinin farkı kaçtır?",
+      "options": [
+        "70100",
+        "69900",
+        "69100",
+        "62000"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "7 onbinler basamağında: 70000; 9 yüzler basamağında: 900. Fark 69100.",
+      "source": "edumio",
+      "sourceRef": "mat5_0401",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0402",
+      "stem": "Bir çiftçi 3 günde 276 kg buğday topladı. Her gün eşit miktar topladığına göre 5 günde toplam kaç kg toplar?",
+      "options": [
+        "470",
+        "460",
+        "450",
+        "440"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Günde 276÷3=92 kg. 5 günde 92×5=460 kg.",
+      "source": "edumio",
+      "sourceRef": "mat5_0402",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0403",
+      "stem": "(48 + 52) × 3 işleminin sonucu kaçtır?",
+      "options": [
+        "297",
+        "306",
+        "300",
+        "303"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "48+52=100, 100×3=300.",
+      "source": "edumio",
+      "sourceRef": "mat5_0403",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0404",
+      "stem": "2/5 kesrinin 3/5 kesrine eşit olması için paya kaç eklenmelidir?",
+      "options": [
+        "1",
+        "0",
+        "3",
+        "2"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/5 + x/5 = 3/5 ise x=1. Pay 2'den 3'e çıkmalı, 1 eklenmeli.",
+      "source": "edumio",
+      "sourceRef": "mat5_0404",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0405",
+      "stem": "3 tam 2/7 kesrinin bileşik kesir olarak yazılışı aşağıdakilerden hangisidir?",
+      "options": [
+        "25/7",
+        "21/7",
+        "22/7",
+        "23/7"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3 tam 2/7 = (3×7+2)/7 = 23/7.",
+      "source": "edumio",
+      "sourceRef": "mat5_0405",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0406",
+      "stem": "2/3 + 1/6 işleminin sonucu kaçtır?",
+      "options": [
+        "5/6",
+        "4/6",
+        "1/2",
+        "3/9"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/3=4/6, 4/6+1/6=5/6.",
+      "source": "edumio",
+      "sourceRef": "mat5_0406",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0407",
+      "stem": "Bir pastanın 1/4'ü yendi. Kalan kısım pastanın kaçta kaçıdır?",
+      "options": [
+        "1/3",
+        "2/3",
+        "1/2",
+        "3/4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1 - 1/4 = 4/4 - 1/4 = 3/4.",
+      "source": "edumio",
+      "sourceRef": "mat5_0407",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0408",
+      "stem": "0,45 + 0,38 işleminin sonucu kaçtır?",
+      "options": [
+        "0,83",
+        "0,88",
+        "0,93",
+        "0,73"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "0,45 + 0,38 = 0,83.",
+      "source": "edumio",
+      "sourceRef": "mat5_0408",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0409",
+      "stem": "1,5 × 4 işleminin sonucu kaçtır?",
+      "options": [
+        "5",
+        "7",
+        "6",
+        "6,5"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "alan_olcme",
+      "skills": [
+        "alan_olcme",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1,5 × 4 = 6.",
+      "source": "edumio",
+      "sourceRef": "mat5_0409",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

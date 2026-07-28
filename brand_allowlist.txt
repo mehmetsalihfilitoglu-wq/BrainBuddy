@@ -1,0 +1,28 @@
+# EDUmio brand-compliance allowlist (repository-wide scan)
+#
+# Forbidden historical brands: BrainBuddy, Brain Buddy, Barjin, MioItalia, Mio Italia, Mioitalia,
+# MIOITALIA, MioAcademy, Mio Academy, mioacademy. Final and only brand: EDUmio.
+#
+# BrandComplianceTest walks the ENTIRE active repository (file contents + file names + directory
+# names) and FAILS if any forbidden token appears, EXCEPT under a path matching an entry below.
+#
+# Format: <repo-relative path substring> :: <reason> :: <removal condition>
+# Keep this list minimal. Every entry is either the enforcement machinery itself, migration
+# documentation that must name the old brands to record what was removed, or clearly-isolated archive.
+
+brand_allowlist.txt :: this allowlist necessarily lists the forbidden brands :: never (self-referential)
+BrandComplianceTest.kt :: the enforcement test necessarily names the forbidden brands :: never (self-referential)
+docs/archive/ :: archived pre-EDUmio historical documents; excluded from active docs :: when archives are deleted
+content/shared_ingestion/edumio_brand_migration_report.md :: migration report; names removed brands as historical fact :: when superseded
+content/shared_ingestion/edumio_brand_occurrence_audit.md :: migration report :: when superseded
+content/shared_ingestion/edumio_technical_exception_map.md :: migration report :: when superseded
+content/shared_ingestion/edumio_asset_migration_report.md :: migration report :: when superseded
+content/shared_ingestion/edumio_legal_brand_audit.md :: migration report :: when superseded
+content/shared_ingestion/edumio_brand_validation_checklist.md :: migration report :: when superseded
+content/shared_ingestion/legal_gap_report.md :: legal-gap report; records the historical product it replaced :: when superseded
+content/shared_ingestion/edumio_full_technical_migration_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_persistence_migration_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_package_namespace_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_repository_zero_occurrence_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_archive_cleanup_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_upgrade_compatibility_test_report.md :: eradication report :: when superseded

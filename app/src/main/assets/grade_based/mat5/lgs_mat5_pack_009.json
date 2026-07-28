@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat5_0080",
+      "stem": "45 678 sayısının binler bölüğündeki rakamların toplamı kaçtır?",
+      "options": [
+        "10",
+        "9",
+        "12",
+        "11"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "dogal_sayilarla_islemler",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Binler bölüğü 45'tir. 4 + 5 = 9.",
+      "source": "edumio",
+      "sourceRef": "mat5_0080",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0081",
+      "stem": "678 912 sayısında 7'nin basamak değeri ile 9'un basamak değerinin farkı kaçtır?",
+      "options": [
+        "69900",
+        "70100",
+        "69100",
+        "62000"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "dogal_sayilarla_islemler",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "7 onbinler basamağında: 70000; 9 yüzler basamağında: 900. Fark 69100.",
+      "source": "edumio",
+      "sourceRef": "mat5_0081",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0082",
+      "stem": "Bir çiftçi 3 günde 276 kg buğday topladı. Her gün eşit miktar topladığına göre 5 günde toplam kaç kg toplar?",
+      "options": [
+        "440",
+        "470",
+        "450",
+        "460"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "dogal_sayilarla_islemler",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Günde 276÷3=92 kg. 5 günde 92×5=460 kg.",
+      "source": "edumio",
+      "sourceRef": "mat5_0082",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0083",
+      "stem": "(48 + 52) × 3 işleminin sonucu kaçtır?",
+      "options": [
+        "306",
+        "303",
+        "300",
+        "297"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "dogal_sayilarla_islemler",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "48+52=100, 100×3=300.",
+      "source": "edumio",
+      "sourceRef": "mat5_0083",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0084",
+      "stem": "2/5 kesrinin 3/5 kesrine eşit olması için paya kaç eklenmelidir?",
+      "options": [
+        "1",
+        "3",
+        "0",
+        "2"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/5 + x/5 = 3/5 ise x=1. Pay 2'den 3'e çıkmalı, 1 eklenmeli.",
+      "source": "edumio",
+      "sourceRef": "mat5_0084",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0085",
+      "stem": "3 tam 2/7 kesrinin bileşik kesir olarak yazılışı aşağıdakilerden hangisidir?",
+      "options": [
+        "21/7",
+        "23/7",
+        "25/7",
+        "22/7"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3 tam 2/7 = (3×7+2)/7 = 23/7.",
+      "source": "edumio",
+      "sourceRef": "mat5_0085",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0086",
+      "stem": "2/3 + 1/6 işleminin sonucu kaçtır?",
+      "options": [
+        "5/6",
+        "1/2",
+        "4/6",
+        "3/9"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/3=4/6, 4/6+1/6=5/6.",
+      "source": "edumio",
+      "sourceRef": "mat5_0086",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0087",
+      "stem": "Bir pastanın 1/4'ü yendi. Kalan kısım pastanın kaçta kaçıdır?",
+      "options": [
+        "3/4",
+        "2/3",
+        "1/3",
+        "1/2"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1 - 1/4 = 4/4 - 1/4 = 3/4.",
+      "source": "edumio",
+      "sourceRef": "mat5_0087",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0088",
+      "stem": "0,45 + 0,38 işleminin sonucu kaçtır?",
+      "options": [
+        "0,83",
+        "0,88",
+        "0,73",
+        "0,93"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "0,45 + 0,38 = 0,83.",
+      "source": "edumio",
+      "sourceRef": "mat5_0088",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0089",
+      "stem": "1,5 × 4 işleminin sonucu kaçtır?",
+      "options": [
+        "7",
+        "6",
+        "6,5",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1,5 × 4 = 6.",
+      "source": "edumio",
+      "sourceRef": "mat5_0089",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

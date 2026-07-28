@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- BrainBuddy spacing scale -->
+    <!-- ═══ EDUmio Design System — 8dp grid ═══ -->
+
+    <!-- Spacing scale -->
     <dimen name="space_4">4dp</dimen>
     <dimen name="space_8">8dp</dimen>
     <dimen name="space_12">12dp</dimen>
     <dimen name="space_16">16dp</dimen>
     <dimen name="space_24">24dp</dimen>
     <dimen name="space_32">32dp</dimen>
+
+    <!-- Page frame: every scrollable screen uses the same outer padding -->
+    <dimen name="page_padding_h">24dp</dimen>
+    <dimen name="page_padding_top">16dp</dimen>
+    <dimen name="page_padding_bottom">32dp</dimen>
+
+    <!-- Vertical rhythm -->
+    <dimen name="section_gap">24dp</dimen>       <!-- between sections -->
+    <dimen name="card_gap">12dp</dimen>          <!-- between sibling cards -->
+    <dimen name="card_gap_sm">8dp</dimen>        <!-- between compact list rows -->
+
+    <!-- Corner radius scale: two tiers only -->
+    <dimen name="radius_md">16dp</dimen>         <!-- standard cards, rows, buttons -->
+    <dimen name="radius_lg">22dp</dimen>         <!-- hero cards -->
+
+    <!-- Elevation scale -->
+    <dimen name="elevation_flat">0dp</dimen>     <!-- stroked flat cards (default) -->
+    <dimen name="elevation_raised">2dp</dimen>   <!-- emphasized cards -->
+
+    <!-- Icons & touch targets -->
+    <dimen name="icon_action">24dp</dimen>       <!-- visual glyph size -->
+    <dimen name="touch_target">48dp</dimen>      <!-- min interactive size (a11y) -->
+
+    <!-- Filter / segmented-control chips (the ONE chip spec — see bg_filter_chip.xml) -->
+    <dimen name="chip_corner_radius">20dp</dimen>
+    <dimen name="chip_min_height">44dp</dimen>   <!-- visual height; touch is padded to 48dp -->
+    <dimen name="chip_padding_h">16dp</dimen>
+    <dimen name="chip_gap">8dp</dimen>
+    <dimen name="chip_text_size">13sp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="button_min_height">56dp</dimen>
 
     <!-- Reports screen spacing standard -->
     <dimen name="reports_card_gap">16dp</dimen>
@@ -15,15 +49,18 @@
     <dimen name="reports_card_inner">16dp</dimen>
     <dimen name="reports_title_content">8dp</dimen>
 
-    <!-- App card (Home + Parent Panel consistency) -->
+    <!-- App card (hero tier) -->
     <dimen name="app_card_radius">22dp</dimen>
     <dimen name="app_card_elevation">5dp</dimen>
     <dimen name="app_card_stroke_width">1.5dp</dimen>
     <dimen name="app_accent_bar_height">4dp</dimen>
 
+    <!-- Avatar grid -->
+    <dimen name="avatar_stroke_selected">3dp</dimen>
+    <dimen name="avatar_stroke_normal">1dp</dimen>
+
     <!-- Legacy / compatibility -->
     <dimen name="dot_size">12dp</dimen>
-    <dimen name="card_corner_radius">24dp</dimen>
+    <dimen name="card_corner_radius">22dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
-    <dimen name="button_min_height">56dp</dimen>
 </resources>

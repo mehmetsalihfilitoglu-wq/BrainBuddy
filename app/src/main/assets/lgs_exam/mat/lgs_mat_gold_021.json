@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "problem_cozme",
+        "akil_yurutme",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okul kulübü, etkinlikte kullanılmak üzere 72 kırmızı, 96 mavi ve 120 yeşil kartonu paketlere ayıracaktır. Her pakette yalnızca tek renk karton bulunacak, bütün paketlerde eşit sayıda karton olacak ve hiç karton artmayacaktır. Paket başına konulacak karton sayısının mümkün olan en büyük değer olması istendiğine göre toplam kaç paket hazırlanır?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "15"
+      ],
+      "answerIndex": 2,
+      "explanation": "72, 96 ve 120 sayılarının EBOB'u 24'tür. Paket sayıları 72/24=3, 96/24=4 ve 120/24=5 olur. Toplam 12 paket hazırlanır.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler",
+        "birim_donusturme",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir dijital arşivde A klasöründe 2^3 alt klasör, her alt klasörde 2^4 dosya ve her dosyada 2^5 KB veri vardır. B klasöründe ise 2^5 alt klasör, her alt klasörde 2^2 dosya ve her dosyada 2^6 KB veri bulunmaktadır. Buna göre B klasöründeki veri miktarı, A klasöründeki veri miktarından kaç MB fazladır? (1 MB = 1024 KB)",
+      "options": [
+        "2048",
+        "4",
+        "6",
+        "8"
+      ],
+      "answerIndex": 0,
+      "explanation": "A = 2^3·2^4·2^5 = 2^12 KB, B = 2^5·2^2·2^6 = 2^13 KB. Fark 2^13-2^12 = 2^12 = 4096 KB = 4 MB'dir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma",
+        "akil_yurutme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir kutuda 3 kırmızı, 5 mavi ve 4 yeşil kart bulunmaktadır. Kutudan art arda ve geri koymadan iki kart çekiliyor. Buna göre ilk çekilen kartın kırmızı, ikinci çekilen kartın mavi olması veya ilk çekilen kartın mavi, ikinci çekilen kartın kırmızı olması olasılığı kaçtır?",
+      "options": [
+        "5/22",
+        "5/33",
+        "5/44",
+        "10/33"
+      ],
+      "answerIndex": 0,
+      "explanation": "İki durum vardır: Kırmızı sonra mavi: 3/12·5/11 = 15/132. Mavi sonra kırmızı: 5/12·3/11 = 15/132. Toplam 30/132 = 5/22 olur.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "donusum_geometrisi",
+      "skills": [
+        "koordinat_duzlemi",
+        "yansima",
+        "oteleme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Koordinat düzleminde P noktası (-3, 2) konumundadır. Bu nokta önce y eksenine göre yansıtılıyor. Daha sonra oluşan yeni nokta 4 birim sola ve 5 birim aşağı öteleniyor. Buna göre son oluşan noktanın koordinatları aşağıdakilerden hangisidir?",
+      "options": [
+        "(-1, -3)",
+        "(1, -3)",
+        "(-1, 3)",
+        "(1, 3)"
+      ],
+      "answerIndex": 0,
+      "explanation": "Y eksenine göre yansıma ile (3, 2) elde edilir. 4 sola gidince x=-1, 5 aşağı gidince y=-3 olur.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir sahneye çıkmak için yapılan rampanın yatay uzunluğu 4 metre, yükseldiği dikey mesafe 60 santimetredir. Aynı eğime sahip ikinci bir rampa daha yüksek bir platform için yapılacaktır. Bu ikinci rampanın yatay uzunluğu 8 metre olduğuna göre yükseldiği dikey mesafe kaç santimetre olur?",
+      "options": [
+        "90",
+        "105",
+        "120",
+        "140"
+      ],
+      "answerIndex": 2,
+      "explanation": "İlk rampada eğim 60/400 = 3/20'dir. Aynı eğim 8 metre yani 800 cm için 800·3/20 = 120 cm yükselme verir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir sınıf panosunun kısa kenarı, uzun kenarından 3 metre daha kısadır. Panonun çevresi 30 metredir. Bu panonun ön yüzeyi, her biri 1 metrekare alan kaplayan koruyucu levhalarla kaplanacaktır. Levhalar 6'şarlı kutularda satıldığına göre bu iş için en az kaç kutu levha gerekir?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kısa kenar x, uzun kenar x+3 olsun. 2x+2(x+3)=30 ise 4x=24, x=6 ve uzun kenar 9 olur. Alan 54 m², 54/6=9 kutu gerekir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okulda üç şubenin matematik ortalamaları inceleniyor. 8A şubesinde 10 öğrenci vardır ve sınıf ortalaması 14'tür. 8B şubesinde 15 öğrenci vardır ve sınıf ortalaması 16'dır. 8C şubesinde 20 öğrenci vardır. Bu üç şubenin tamamının ortalaması 16 olduğuna göre 8C şubesinin ortalaması kaçtır?",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam öğrenci sayısı 45, toplam net 45·16 = 720'dir. 8A ve 8B toplamı 10·14 + 15·16 = 140 + 240 = 380. 8C toplamı 720-380 = 340, ortalama 340/20 = 17 olur.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q07",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzdeler",
+        "islem_onceligi",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir spor mağazasında forma fiyatı önce %20 indirimle satılıyor. Daha sonra indirimli fiyat üzerinden yeni sezon etiketiyle %25 zam yapılıyor. Son aşamada kulüp kartı olan müşterilere oluşan yeni fiyat üzerinden %10 indirim uygulanıyor. Formanın ilk fiyatı 500 TL olduğuna göre müşteri son olarak kaç TL öder?",
+      "options": [
+        "430",
+        "440",
+        "360",
+        "460"
+      ],
+      "answerIndex": 2,
+      "explanation": "500·0,80 = 400 TL olur. 400·1,25 = 500 TL olur. Son olarak 500·0,90 = 450 TL ödenir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "akil_yurutme",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir okulda A, B ve C kulüplerindeki öğrenci sayıları arasında A:B = 3:4 ve B:C = 2:3 oranı vardır. Daha sonra C kulübünden 9 öğrenci A kulübüne geçince A ve B kulüplerindeki öğrenci sayıları eşit oluyor. Buna göre başlangıçta üç kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "99",
+        "108",
+        "117",
+        "126"
+      ],
+      "answerIndex": 2,
+      "explanation": "Ortak oranla A:B:C = 3:4:6 olur. A=3k, B=4k, C=6k. Geçişten sonra 3k+9 = 4k ise k=9 bulunur. Toplam 13k = 117 olur.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Kare şeklindeki bir bahçenin alanı 576 metrekaredir. Bahçenin etrafına dıştan 3 metre genişliğinde yürüyüş yolu yapılacaktır. Yalnızca yürüyüş yolunun kaplayacağı alan için her biri 27 metrekarelik kaplama malzemesi kullanılacağına göre en az kaç parça malzeme gerekir?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 1,
+      "explanation": "Bahçenin bir kenarı √576 = 24 metredir. Dıştan 3'er metre eklenince dış karenin kenarı 30 metre olur. Yol alanı 30²-24² = 900-576 = 324 m², 324/27 = 12 parça gerekir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "gold021_q10",
+      "subject": "mat"
+    }
+  ]
+}

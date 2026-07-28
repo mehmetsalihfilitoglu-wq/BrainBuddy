@@ -1,0 +1,471 @@
+[
+  {
+    "id": "mio_chem_0219",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and salts",
+    "subtopic": "Preparing a pure insoluble salt by precipitation (mix two soluble salts, then filter, wash and dry)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "salt preparation",
+      "precipitation",
+      "insoluble salts",
+      "filtration",
+      "practical technique"
+    ],
+    "learning_objective": "Select the correct preparative route for an insoluble salt (precipitation from two soluble salts followed by filtration, washing and drying) and reject methods designed for soluble salts.",
+    "question": "Lead(II) iodide is an insoluble, bright-yellow salt. A student wishes to prepare a pure, dry sample of lead(II) iodide in the laboratory. Which of the following is the correct procedure?",
+    "choices": {
+      "A": "Mix aqueous lead(II) nitrate with aqueous potassium iodide, filter off the precipitate, wash it with distilled water and allow it to dry.",
+      "B": "Add excess solid lead(II) iodide to warm dilute nitric acid, then filter and evaporate the filtrate.",
+      "C": "Titrate lead(II) nitrate solution against potassium iodide solution using phenolphthalein, then evaporate the neutralised solution to dryness.",
+      "D": "React lead metal with excess dilute hydrochloric acid, filter off the excess lead, then evaporate the filtrate to dryness.",
+      "E": "Mix aqueous lead(II) nitrate with aqueous potassium iodide, then evaporate the whole mixture to dryness."
+    },
+    "correct_answer": "A",
+    "explanation": "Lead(II) iodide is insoluble, so it is made by a precipitation (double-decomposition) reaction between two soluble salts: Pb(NO3)2(aq) + 2KI(aq) -> PbI2(s) + 2KNO3(aq). The soluble by-product, potassium nitrate, is removed by filtering off the precipitate and washing it with distilled water; the residue is then dried. Titration and 'add excess solid then filter' are routes for making soluble salts, and evaporating the whole mixture would simply leave the soluble by-product mixed in with the product.",
+    "option_analysis": {
+      "A": "Correct: mixing two soluble salts precipitates insoluble PbI2; filtering, washing the residue with distilled water to remove the soluble KNO3, and drying gives a pure sample.",
+      "B": "Wrong: this is the 'add excess insoluble solid then filter' route used to make a SOLUBLE salt; lead(II) iodide is insoluble so it would not dissolve, and reacting it with nitric acid would tend to give lead(II) nitrate, not the wanted iodide. Misconception: applying the soluble-salt method to an insoluble product.",
+      "C": "Wrong: a precipitation reaction has no acid-base end point, so an indicator such as phenolphthalein is meaningless here, and evaporating the mixture would leave soluble potassium nitrate mixed with the product. Misconception: precipitation reactions must be carried out by titration with an indicator.",
+      "D": "Wrong: lead with hydrochloric acid would tend to give (sparingly soluble) lead(II) chloride, not lead(II) iodide, and lead is essentially unreactive with dilute acids in any case. Misconception: any metal + acid route yields the desired salt.",
+      "E": "Wrong: evaporating the whole mixture leaves the soluble by-product potassium nitrate behind, mixed with the lead(II) iodide, giving an impure product; the precipitate must instead be filtered off and washed. Misconception: evaporation, rather than filtration and washing, is used to isolate an insoluble product."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0220",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and salts",
+    "subtopic": "Choosing a soluble-salt preparation method from the solubility of the base (excess-solid-and-filter versus titration)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "salt preparation",
+      "soluble salts",
+      "titration method",
+      "alkali",
+      "crystallisation"
+    ],
+    "learning_objective": "Decide whether a soluble salt should be prepared by adding an insoluble reactant in excess and filtering, or by an indicator titration, based on whether the base or other reactant is soluble.",
+    "question": "A student needs pure crystals of potassium nitrate. Both potassium hydroxide and nitric acid are freely soluble in water. Which method should be used, and why?",
+    "choices": {
+      "A": "Add excess solid potassium hydroxide to the nitric acid, then filter off the excess and crystallise the filtrate.",
+      "B": "Mix potassium hydroxide and nitric acid in roughly equal volumes and evaporate the mixture to dryness.",
+      "C": "Titrate to find the exact volume of nitric acid that neutralises a fixed volume of potassium hydroxide, then repeat with those same volumes but no indicator and crystallise the resulting solution.",
+      "D": "Add excess potassium carbonate to the nitric acid, then filter off the excess carbonate and crystallise the filtrate.",
+      "E": "Add potassium metal to excess dilute nitric acid, then filter off the unreacted potassium and crystallise the filtrate."
+    },
+    "correct_answer": "C",
+    "explanation": "Potassium nitrate is a soluble salt of a soluble alkali (KOH) and an acid (HNO3). Because both reactants are soluble, an unreacted excess of either cannot be filtered off, and there is no visible sign of the exact end point. The correct route is therefore an acid-alkali titration: find the exact neutralising volumes using an indicator, then repeat with the same volumes but no indicator and crystallise the pure solution. The 'add excess and filter' method only works when the base, carbonate or metal is insoluble.",
+    "option_analysis": {
+      "A": "Wrong: potassium hydroxide is soluble, so any excess cannot be filtered off and would contaminate the crystals with alkali. Misconception: the excess-solid-and-filter method works for any base.",
+      "B": "Wrong: mixing in roughly equal volumes leaves an unknown excess of acid or alkali, and evaporation cannot separate these soluble impurities from the salt. Misconception: neutralisation is self-limiting, or evaporation purifies the salt.",
+      "C": "Correct: because both reactants are soluble and give no visible end point, a titration fixes the exact neutralising volumes; repeating without indicator and crystallising then yields pure potassium nitrate.",
+      "D": "Wrong: potassium carbonate is also soluble in water, so its 'excess' cannot be removed by filtration; that method needs an insoluble carbonate. Misconception: all carbonates are insoluble and therefore filterable.",
+      "E": "Wrong: a Group 1 metal reacts dangerously and uncontrollably with dilute acid (and with the water present), and leaves no filterable insoluble excess. Misconception: metal + acid is always a safe, controllable salt-preparation route."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0221",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and salts",
+    "subtopic": "Comparing a strong and a weak monoprotic acid at equal concentration (pH, conductivity and rate versus equal neutralising volume and equal total gas)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "strong vs weak acids",
+      "degree of ionisation",
+      "conductivity",
+      "reaction rate",
+      "neutralisation stoichiometry"
+    ],
+    "learning_objective": "Distinguish properties governed by the free H+ concentration (pH, conductivity, initial rate) from those governed by the total amount of acid (neutralising volume, total hydrogen released) when comparing equimolar strong and weak monoprotic acids.",
+    "question": "Two beakers each contain 50.0 cm^3 of 0.100 mol/dm^3 acid: beaker 1 contains hydrochloric acid and beaker 2 contains ethanoic acid (a weak acid, Ka approximately 1.8 x 10^-5). Which statement is correct?",
+    "choices": {
+      "A": "Beaker 2 has the lower pH.",
+      "B": "The two solutions have equal electrical conductivity because their concentrations are equal.",
+      "C": "On adding excess magnesium to each, beaker 1 evolves hydrogen faster at first, but the two beakers ultimately release the same total volume of hydrogen.",
+      "D": "Both solutions have a pH of 1.00.",
+      "E": "Beaker 2 requires a smaller volume of 0.100 mol/dm^3 sodium hydroxide to reach the equivalence point than beaker 1."
+    },
+    "correct_answer": "C",
+    "explanation": "At equal concentration and volume the two acids contain the same total moles of acid, but the strong acid is fully ionised while the weak acid is only slightly ionised. Properties set by the free [H+] differ: the strong acid has the lower pH, the higher conductivity and the faster initial reaction with magnesium. Properties set by the total moles of acid are identical: the same volume of standard NaOH neutralises each, and reaction with excess magnesium liberates the same total volume of hydrogen, because the weak-acid equilibrium keeps supplying H+ as it is consumed.",
+    "option_analysis": {
+      "A": "Wrong: the weak acid is only partially ionised, so it has a lower [H+] and therefore a HIGHER pH; the strong acid (beaker 1) has the lower pH. Misconception: reversing the strong/weak pH relationship.",
+      "B": "Wrong: the fully ionised strong acid contains many more free ions than the partially ionised weak acid, so it conducts much better. Misconception: equal concentration implies equal conductivity.",
+      "C": "Correct: the initial rate depends on [H+], which is higher for the strong acid, but the total hydrogen released depends on the total moles of acid, which are equal, so the final gas volumes match.",
+      "D": "Wrong: only the fully ionised strong acid has pH approximately 1.0; the weak acid has pH approximately 2.9. Misconception: pH is fixed by the stated concentration regardless of degree of ionisation.",
+      "E": "Wrong: both acids are monoprotic and equimolar, so they contain the same moles of acid and need the same volume of NaOH; as H+ is removed the weak acid's equilibrium shifts to release the rest. Misconception: a weak acid has 'fewer H+' and so needs less alkali."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0222",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and titration curves",
+    "subtopic": "Strong acid-strong base curve: a long steep section makes both methyl orange and phenolphthalein suitable",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "titration curve",
+      "strong acid strong base",
+      "indicators",
+      "equivalence point",
+      "titration error"
+    ],
+    "learning_objective": "Explain why any indicator changing colour within the long vertical section of a strong acid-strong base curve gives a negligible titration error, and that the indicator does not alter the true equivalence volume.",
+    "question": "25.0 cm^3 of 0.10 mol/dm^3 hydrochloric acid is titrated with 0.10 mol/dm^3 sodium hydroxide. The pH curve shows a near-vertical section stretching from about pH 3 to about pH 11 as the equivalence point is passed at pH 7. The student has methyl orange (colour change pH 3.1-4.4) and phenolphthalein (colour change pH 8.3-10.0). Which statement is correct?",
+    "choices": {
+      "A": "Only methyl orange is suitable, because the equivalence point lies below pH 7.",
+      "B": "Both indicators are suitable, because each changes colour within the near-vertical section, so the difference from the true equivalence volume is negligible.",
+      "C": "Only phenolphthalein is suitable, because the salt formed is slightly alkaline.",
+      "D": "Neither indicator is suitable, because the equivalence point is exactly pH 7 and neither indicator changes colour at pH 7.",
+      "E": "The choice of indicator changes the volume of sodium hydroxide needed to reach the true equivalence point."
+    },
+    "correct_answer": "B",
+    "explanation": "For a strong acid-strong base titration the pH changes almost vertically from about pH 3 to about pH 11 as one drop takes the mixture through the equivalence point at pH 7. Any indicator whose colour change lies within this range therefore signals the end point after essentially the same volume as the true equivalence point. Both methyl orange (3.1-4.4) and phenolphthalein (8.3-10.0) fall inside the vertical section, so both are suitable. The indicator only determines where the titration is stopped; the equivalence volume itself is fixed by the reaction stoichiometry.",
+    "option_analysis": {
+      "A": "Wrong: the equivalence point is at pH 7, not below it, and methyl orange is not the only suitable indicator. Misconception: the equivalence point of a strong acid-strong base titration is acidic.",
+      "B": "Correct: the equivalence point sits inside a vertical section running from about pH 3 to pH 11, so any indicator changing colour in that range (both methyl orange and phenolphthalein) signals the end point after essentially the equivalence volume.",
+      "C": "Wrong: the salt (NaCl) is neutral and the equivalence point is pH 7, not alkaline, and phenolphthalein is not the only suitable indicator. Misconception: the salt of a strong acid and a strong base is alkaline.",
+      "D": "Wrong: an indicator does not have to change exactly at pH 7; it only needs to change within the steep section so that the volume error is negligible. Misconception: the indicator must change colour precisely at the equivalence pH.",
+      "E": "Wrong: the equivalence volume is fixed by the reaction stoichiometry; the indicator only determines where the titration is stopped relative to it. Misconception: the indicator changes the true equivalence volume."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0223",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and titration curves",
+    "subtopic": "Weak base-strong acid curve: acidic equivalence point, methyl orange suitable, phenolphthalein gives a titre that is too small",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "titration curve",
+      "weak base strong acid",
+      "indicators",
+      "equivalence point",
+      "titration error direction"
+    ],
+    "learning_objective": "Reason from the acidic equivalence point and the location of the buffer region to select methyl orange for a weak base-strong acid titration and to predict the direction of the error caused by using phenolphthalein.",
+    "question": "25.0 cm^3 of 0.10 mol/dm^3 aqueous ammonia (a weak base) is titrated with 0.10 mol/dm^3 hydrochloric acid delivered from the burette. The equivalence point occurs at about pH 5.3, and the steep part of the curve runs from about pH 7 down to about pH 3.5. Consider methyl orange (3.1-4.4) and phenolphthalein (8.3-10.0). Which statement is correct?",
+    "choices": {
+      "A": "Phenolphthalein is suitable because it gives a sharp, easily seen colour change.",
+      "B": "Methyl orange changes colour within the steep section near the equivalence point and gives an accurate titre, whereas phenolphthalein would decolourise well before the equivalence point, making the titre too small.",
+      "C": "Both indicators give the same, correct titre because the equivalence point lies between their two colour-change ranges.",
+      "D": "No indicator can be used; the titration must be followed with a pH meter because the base is weak.",
+      "E": "Phenolphthalein is suitable but methyl orange is not, because the equivalence point is above pH 7."
+    },
+    "correct_answer": "B",
+    "explanation": "Titrating a weak base (ammonia) with a strong acid gives an acidic salt (NH4Cl), so the equivalence point lies below pH 7 (about 5.3) and the steep section runs roughly from pH 7 down to pH 3.5. Methyl orange (3.1-4.4) changes within this steep region, giving an accurate titre. Phenolphthalein (8.3-10.0) loses its pink colour at about pH 8-10, which is reached while the mixture is still on the alkaline buffer plateau, well before the equivalence point; the titration would be stopped too early, so the recorded acid titre would be too small.",
+    "option_analysis": {
+      "A": "Wrong: phenolphthalein changes at pH 8-10, which for this titration lies on the alkaline buffer plateau far from the equivalence point, so its 'sharp' change occurs at the wrong volume. Misconception: any indicator with a clear colour change is acceptable.",
+      "B": "Correct: methyl orange (3.1-4.4) changes within the steep section around the acidic equivalence point (~pH 5.3), giving an accurate titre, whereas phenolphthalein decolourises well before equivalence, so the acid titre would be too small.",
+      "C": "Wrong: merely lying somewhere on the pH axis is not enough; an indicator changing far from the steep section (as phenolphthalein does here) gives a large error, so the two indicators do not give the same titre. Misconception: any indicator with a range spanning the curve works.",
+      "D": "Wrong: a weak base-strong acid titration still has a steep enough section for a correctly chosen indicator (methyl orange), so a pH meter is not required. Misconception: any titration involving a weak reactant needs instrumental detection.",
+      "E": "Wrong: the equivalence point of a weak base-strong acid titration is acidic (below pH 7), so phenolphthalein is unsuitable and methyl orange is the correct choice. Misconception: the equivalence point is above pH 7, or the roles of the two indicators are reversed."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0224",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and titration curves",
+    "subtopic": "Weak acid-weak base titration: buffer regions on both sides remove the vertical jump, so no indicator works (use a pH meter or conductometric method)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "titration curve",
+      "weak acid weak base",
+      "no sharp end point",
+      "indicators",
+      "pH meter",
+      "conductometric titration"
+    ],
+    "learning_objective": "Explain why a weak acid-weak base titration lacks a sharp vertical section, so no indicator gives a sharp end point, and identify potentiometric or conductometric detection as the appropriate alternative.",
+    "question": "Ethanoic acid (a weak acid) is titrated with aqueous ammonia (a weak base). Which statement best describes this titration and the correct way to locate its equivalence point?",
+    "choices": {
+      "A": "The titration produces a curve identical to that of a strong acid titrated with a strong base.",
+      "B": "Methyl orange gives a sharp end point because the salt formed is strongly acidic.",
+      "C": "Buffer regions dominate both sides of the equivalence point, so there is no sharp vertical section; no indicator gives a sharp end point, and the equivalence point is best located with a pH meter or by a conductometric titration.",
+      "D": "No equivalence point exists, because two weak species cannot neutralise each other.",
+      "E": "The curve has a long, near-vertical section around pH 7, so phenolphthalein gives a sharp end point."
+    },
+    "correct_answer": "C",
+    "explanation": "When both reactants are weak, a buffer is present on each side of the equivalence point, so the pH rises only gradually and there is no near-vertical section. Any indicator would change colour slowly over several cubic centimetres, so no sharp end point can be seen. The reaction still goes essentially to completion (ammonium ethanoate forms, with a pH near 7 because Ka is approximately equal to Kb), so an equivalence point does exist; it is simply best located instrumentally, for example by following the pH with a meter or by a conductometric titration.",
+    "option_analysis": {
+      "A": "Wrong: a strong acid-strong base curve has a long steep section (about pH 3-11), whereas the weak-weak curve is shallow throughout. Misconception: all neutralisation curves have the same shape.",
+      "B": "Wrong: ammonium ethanoate is close to neutral because Ka is approximately equal to Kb, not strongly acidic, and there is no sharp jump for methyl orange to mark. Misconception: the salt of a weak acid and a weak base is strongly acidic.",
+      "C": "Correct: buffer action on both sides flattens the curve so there is no sharp vertical region; no indicator gives a sharp end point, so the equivalence point is best found with a pH meter or a conductometric titration.",
+      "D": "Wrong: the neutralisation still goes essentially to completion and an equivalence point exists; it is merely difficult to detect with an indicator. Misconception: two weak species cannot neutralise each other.",
+      "E": "Wrong: for a weak acid-weak base titration the vertical section is essentially absent, so phenolphthalein changes gradually over several cm^3 rather than sharply. Misconception: every titration has a long vertical jump."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0225",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Predicting cathode products: molten versus concentrated aqueous sodium chloride (preferential reduction of water over a reactive-metal ion)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "electrolysis",
+      "molten vs aqueous",
+      "product prediction",
+      "sodium chloride",
+      "cathode"
+    ],
+    "learning_objective": "Predict and contrast the products formed at the cathode when a salt is electrolysed molten and in concentrated aqueous solution, applying the rule that water is reduced in preference to the ion of a reactive metal.",
+    "question": "A student electrolyses molten sodium chloride in one experiment and, separately, a concentrated aqueous solution of sodium chloride in a second experiment, using inert graphite electrodes in both. Which row correctly identifies the principal product formed at the CATHODE in each experiment?",
+    "choices": {
+      "A": "Molten NaCl: sodium metal; concentrated NaCl(aq): sodium metal",
+      "B": "Molten NaCl: chlorine gas; concentrated NaCl(aq): hydrogen gas",
+      "C": "Molten NaCl: sodium metal; concentrated NaCl(aq): hydrogen gas",
+      "D": "Molten NaCl: sodium metal; concentrated NaCl(aq): oxygen gas",
+      "E": "Molten NaCl: hydrogen gas; concentrated NaCl(aq): hydrogen gas"
+    },
+    "correct_answer": "C",
+    "explanation": "In molten NaCl the only cation present is Na+, so it is reduced at the cathode to sodium metal (and Cl- is oxidised to Cl2 at the anode). In concentrated aqueous NaCl the cathode has a choice between Na+ and water; because sodium is a very reactive metal, water (H+) is reduced in preference to Na+, so hydrogen gas is evolved. Hence the cathode product differs between the two experiments: sodium metal when molten, hydrogen gas when aqueous.",
+    "option_analysis": {
+      "A": "Wrong: assumes the metal is always deposited at the cathode. In aqueous solution water is reduced in preference to the very reactive Na+, so hydrogen forms, not sodium (misconception: a reactive-metal ion is discharged from aqueous solution).",
+      "B": "Wrong: chlorine is produced by oxidation at the anode, not at the cathode; this confuses the two electrodes (misconception: swapping the electrode at which each product forms).",
+      "C": "Correct: molten NaCl reduces Na+ to sodium metal, while concentrated aqueous NaCl reduces water/H+ to hydrogen in preference to the reactive Na+ ion.",
+      "D": "Wrong: oxygen is an anode (oxidation) product and forms only from dilute solutions; it can never be produced at the cathode (misconception: swapping electrode roles for the aqueous case).",
+      "E": "Wrong: assumes hydrogen is evolved at every cathode. Molten NaCl contains no water, so the only species available for reduction is Na+, giving sodium metal (misconception: the cathode always produces H2)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0226",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Effect of electrolyte concentration on the anode product: chloride versus water discharge in dilute and concentrated brine (chlor-alkali basis)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "electrolysis",
+      "anode products",
+      "concentration effect",
+      "chlor-alkali",
+      "chlorine"
+    ],
+    "learning_objective": "Explain why the anode product of aqueous sodium chloride electrolysis depends on concentration, integrating standard electrode potentials with overpotential and the concentration of the halide.",
+    "question": "A very dilute solution and a saturated (concentrated) solution of sodium chloride are electrolysed separately with inert platinum electrodes. The industrial chlor-alkali process always uses concentrated brine. Given that the standard electrode potentials are E(Cl2/Cl-) = +1.36 V and E(O2/H2O) = +1.23 V, which statement best accounts for the products obtained at the ANODE?",
+    "choices": {
+      "A": "The concentrated solution gives chlorine while the very dilute solution gives oxygen; although the standard potentials predict water is oxidised more readily, the high chloride concentration and the oxygen overpotential cause chlorine to be discharged from concentrated brine.",
+      "B": "The concentrated solution gives oxygen and the dilute solution gives chlorine, because diluting the brine raises the chloride concentration at the electrode.",
+      "C": "Both solutions give oxygen, because water is always oxidised in preference to chloride ions regardless of concentration.",
+      "D": "The concentrated solution gives a mixture of hydrogen and chlorine at the anode, because both ions are attracted to the positive electrode.",
+      "E": "Both solutions give chlorine, because chloride ions are always oxidised in preference to water regardless of concentration."
+    },
+    "correct_answer": "A",
+    "explanation": "On standard-potential grounds water is oxidised slightly more readily than chloride (its potential, +1.23 V, is less positive than +1.36 V for chlorine), so oxygen would be expected. However, oxygen evolution has a large overpotential on the electrode, and in concentrated brine the very high chloride concentration shifts the discharge in favour of chlorine. In very dilute solution chloride is scarce and cannot compete, so water is oxidised to oxygen. This concentration dependence is exactly why the chlor-alkali industry electrolyses concentrated brine to obtain chlorine.",
+    "option_analysis": {
+      "A": "Correct: reconciles the thermodynamic prediction with kinetics (overpotential) and the concentration effect, giving Cl2 from concentrated brine and O2 from very dilute solution.",
+      "B": "Wrong: reverses the dependence and wrongly claims dilution raises the chloride concentration; dilution lowers it, so concentrated brine (not dilute) gives chlorine.",
+      "C": "Wrong: treats the standard-potential prediction as absolute and ignores that concentrated chloride, together with the oxygen overpotential, leads to chlorine being discharged (misconception: discharge is fixed by E values alone).",
+      "D": "Wrong: hydrogen is a reduction product formed at the cathode, never at the anode, where anions or water are oxidised (misconception: confusing which species are discharged at the positive electrode).",
+      "E": "Wrong: chloride is not always preferred; in very dilute solution the scarce chloride cannot compete and water is oxidised to oxygen (misconception: the halide is always discharged at the anode)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0227",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Faraday's laws in electroplating: thickness of a deposited metal layer from charge, molar mass, ionic charge, area and density",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "electrolysis",
+      "Faraday's laws",
+      "electroplating",
+      "thickness",
+      "density"
+    ],
+    "learning_objective": "Combine Faraday's laws with the geometric relation between mass, density and area to calculate the thickness of an electroplated layer.",
+    "question": "An object with a total surface area of 200 cm^2 is electroplated with a uniform layer of a divalent metal M (M^2+ + 2e- -> M). A steady current of 9.65 A is passed for 500 s. The metal has a molar mass of 64 g mol^-1 and a density of 8.0 g cm^-3. Assuming an even deposit and 100% current efficiency (F = 96 500 C mol^-1), what is the thickness of the plated layer?",
+    "choices": {
+      "A": "2.0 x 10^-3 cm",
+      "B": "2.0 x 10^-2 cm",
+      "C": "5.0 x 10^-4 cm",
+      "D": "1.0 x 10^-2 cm",
+      "E": "1.0 x 10^-3 cm"
+    },
+    "correct_answer": "E",
+    "explanation": "Charge Q = It = 9.65 x 500 = 4825 C. Moles of electrons = 4825 / 96 500 = 0.0500 mol. Since M is divalent, moles of metal = 0.0500 / 2 = 0.0250 mol, so mass = 0.0250 x 64 = 1.60 g. Volume = mass / density = 1.60 / 8.0 = 0.200 cm^3. Thickness = volume / area = 0.200 / 200 = 1.0 x 10^-3 cm (10 micrometres).",
+    "option_analysis": {
+      "A": "Wrong: omits the factor of 2 for M^2+, treating one electron per atom, which doubles the moles of metal and hence the thickness to 2.0 x 10^-3 cm.",
+      "B": "Wrong: combines both the missing charge factor and the area error (0.4 cm^3 / 20 cm^2).",
+      "C": "Wrong: applies the ionic charge twice (halves the moles of electrons and then halves again), underestimating the metal deposited.",
+      "D": "Wrong: misreads the plated area as 20 cm^2 instead of 200 cm^2, inflating the thickness tenfold.",
+      "E": "Correct: 0.0250 mol metal gives 1.60 g, a volume of 0.200 cm^3, and a thickness of 0.200/200 = 1.0 x 10^-3 cm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0228",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Hall-Heroult aluminium extraction: carbon-anode consumption from the anode oxygen-carbon reaction (electron bookkeeping across both electrodes)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "electrolysis",
+      "aluminium extraction",
+      "Hall-Heroult",
+      "carbon anode",
+      "stoichiometry"
+    ],
+    "learning_objective": "Integrate cathode and anode electron stoichiometry with the reaction of anode oxygen with carbon to calculate the mass of carbon consumed per mass of aluminium produced.",
+    "question": "In the Hall-Heroult process, aluminium is obtained by electrolysing Al2O3 dissolved in molten cryolite. At the cathode Al^3+ + 3e- -> Al, and at the carbon anode oxide ions are oxidised (2O^2- -> O2 + 4e-); the oxygen then reacts completely with the hot carbon anodes according to C + O2 -> CO2. What mass of carbon is consumed from the anodes for every 108 g of aluminium deposited? (Ar: Al = 27, C = 12)",
+    "choices": {
+      "A": "36 g",
+      "B": "48 g",
+      "C": "12 g",
+      "D": "72 g",
+      "E": "144 g"
+    },
+    "correct_answer": "A",
+    "explanation": "108 g of aluminium is 108/27 = 4 mol Al, which requires 4 x 3 = 12 mol of electrons at the cathode. The same 12 mol of electrons are released at the anode: 2O^2- -> O2 + 4e- gives 12/4 = 3 mol O2. Each mole of O2 burns one mole of carbon (C + O2 -> CO2), so 3 mol C = 3 x 12 = 36 g of carbon are consumed. This is consistent with the overall equation 2Al2O3 + 3C -> 4Al + 3CO2.",
+    "option_analysis": {
+      "A": "Correct: 4 mol Al needs 12 mol electrons, giving 3 mol O2 and hence 3 mol C = 36 g.",
+      "B": "Wrong: uses a 1:1 mole ratio of carbon to aluminium (4 mol C), ignoring the electron and oxygen bookkeeping.",
+      "C": "Wrong: treats aluminium as Al+ (one electron per atom), giving only 4 mol electrons and therefore one quarter of the oxygen and carbon.",
+      "D": "Wrong: assumes the anode gas is carbon monoxide (C + 1/2 O2 -> CO), which would require twice as much carbon (6 mol).",
+      "E": "Wrong: assumes one carbon atom is consumed per electron transferred (12 mol C); carbon is burned via O2 (four electrons per O2 and per C), so this overcounts by a factor of four."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0229",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Electrolytic cells in series (coulometer principle): relating a metal deposit to the gas volume at another electrode through equal charge and differing electron stoichiometry",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "electrolysis",
+      "cells in series",
+      "coulometer",
+      "Faraday's laws",
+      "gas volume"
+    ],
+    "learning_objective": "Apply the principle that cells in series pass the same charge to relate the mass deposited in one cell to the volume of gas evolved in another, accounting for different electron stoichiometries.",
+    "question": "Two electrolytic cells are connected in series. The first contains silver nitrate solution with silver electrodes; the second contains dilute sulfuric acid with inert platinum electrodes. When current flows, 10.8 g of silver is deposited on the cathode of the first cell. What volume of gas is liberated at the CATHODE of the second cell, measured at room temperature and pressure? (Ar: Ag = 108; molar gas volume at r.t.p. = 24.0 dm^3 mol^-1; F = 96 500 C mol^-1)",
+    "choices": {
+      "A": "2.4 dm^3",
+      "B": "0.60 dm^3",
+      "C": "1.2 dm^3",
+      "D": "1.12 dm^3",
+      "E": "4.8 dm^3"
+    },
+    "correct_answer": "C",
+    "explanation": "Cells in series pass the same quantity of charge. In the first cell Ag+ + e- -> Ag, so moles of silver = 10.8/108 = 0.100 mol and this equals 0.100 mol of electrons. The same 0.100 mol of electrons flows through the second cell, where the cathode reaction is 2H+ + 2e- -> H2. Moles of hydrogen = 0.100/2 = 0.0500 mol, so the volume = 0.0500 x 24.0 = 1.2 dm^3.",
+    "option_analysis": {
+      "A": "Wrong: ignores that each H2 molecule needs two electrons (2H+ + 2e- -> H2), doubling the volume.",
+      "B": "Wrong: takes the cathode gas to be oxygen (four electrons per molecule); oxygen is an anode product, and this quarters the moles of gas.",
+      "C": "Correct: 0.100 mol electrons gives 0.0500 mol H2 (two electrons per molecule), i.e. 1.2 dm^3 at r.t.p.",
+      "D": "Wrong: uses the STP molar volume 22.4 dm^3 mol^-1 instead of the r.t.p. value 24.0 dm^3 mol^-1.",
+      "E": "Wrong: sets the moles of gas equal to the moles of silver and then doubles for a diatomic molecule, mishandling both the charge passed and the stoichiometry."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0230",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Electrolysis and industrial electrochemistry",
+    "subtopic": "Electrolytic refining of copper: current efficiency from theoretical versus actual mass deposited",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "electrolysis",
+      "copper refining",
+      "current efficiency",
+      "Faraday's laws",
+      "quantitative"
+    ],
+    "learning_objective": "Calculate the current efficiency of an electrolytic deposition by comparing the actual mass deposited with the theoretical mass predicted by Faraday's laws.",
+    "question": "In the electrolytic refining of copper, impure copper is the anode and pure copper the cathode in acidified copper(II) sulfate solution (Cu^2+ + 2e- -> Cu). In one run a charge of 1.93 x 10^5 C is passed and the pure-copper cathode gains 60.8 g, some current being lost to a competing cathode reaction. What is the current efficiency for copper deposition? (Ar: Cu = 64; F = 96 500 C mol^-1)",
+    "choices": {
+      "A": "47.5%",
+      "B": "50.0%",
+      "C": "95.0%",
+      "D": "105%",
+      "E": "5.0%"
+    },
+    "correct_answer": "C",
+    "explanation": "Moles of electrons passed = 1.93 x 10^5 / 96 500 = 2.00 mol. Since Cu^2+ + 2e- -> Cu, the theoretical amount of copper = 2.00/2 = 1.00 mol = 64.0 g. The actual deposit is 60.8 g, so current efficiency = actual/theoretical x 100 = 60.8/64.0 x 100 = 95.0%. The missing 5% of the charge is consumed by the competing reaction.",
+    "option_analysis": {
+      "A": "Wrong: treats copper as Cu+, giving a theoretical mass of 128 g (2 mol); 60.8/128 = 47.5% (misconception: wrong ionic charge).",
+      "B": "Wrong: assumes without calculation that half the current is lost (e.g. to anode sludge), ignoring the measured mass.",
+      "C": "Correct: theoretical mass is 64.0 g and the actual deposit is 60.8 g, giving 60.8/64.0 = 95.0%.",
+      "D": "Wrong: inverts the ratio (theoretical/actual = 64.0/60.8), producing an impossible efficiency above 100% that should be rejected.",
+      "E": "Wrong: reports the wasted-current fraction (100% - 95%) instead of the efficiency itself."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  }
+]

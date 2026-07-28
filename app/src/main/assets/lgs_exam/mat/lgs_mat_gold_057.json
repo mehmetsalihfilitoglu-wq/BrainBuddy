@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir online eğitim platformunda yıllık abonelik ücreti 2400 TL'dir. Platform yılın belirli dönemlerinde önce %25 indirim uygulamaktadır. İndirimden sonra ödeme sayfasında 120 TL işlem ve hizmet bedeli eklenmektedir. Son olarak öğrencilere oluşan toplam ücret üzerinden %10 ek indirim uygulanmaktadır. Buna göre öğrenci bu platforma yıllık abonelik için toplam kaç TL öder?",
+      "options": [
+        "1728",
+        "1746",
+        "1782",
+        "1800"
+      ],
+      "answerIndex": 3,
+      "explanation": "2400 × 0,75 = 1800 TL. 120 TL eklenir → 1920 TL. %10 indirim uygulanır: 1920 × 0,90 = 1728 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir okul kulübünde satranç oynayan öğrenciler ile robotik kulübüne katılan öğrencilerin sayıları 3 : 4 oranındadır. Satranç kulübüne 6 öğrenci daha katıldığında iki kulüpteki öğrenci sayıları eşit olmaktadır. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "42",
+        "48",
+        "56",
+        "63"
+      ],
+      "answerIndex": 0,
+      "explanation": "Satranç = 3k, robotik = 4k. 3k + 6 = 4k → k = 6. Toplam öğrenci = 7k = 42.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir öğrencinin fen sınavlarından aldığı notlar 70, 75, 80 ve x olarak verilmiştir. Bu öğrencinin not ortalaması 82,5 olduğuna göre x kaçtır?",
+      "options": [
+        "95",
+        "100",
+        "105",
+        "110"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam not = 4 × 82,5 = 330. Bilinen notların toplamı 70+75+80 = 225. x = 330 − 225 = 105.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir kafede bir tostun fiyatı x TL, ayranın fiyatı ise x − 3 TL'dir. Bir öğrenci 4 tost ve 2 ayran aldığında toplam 42 TL ödüyor. Buna göre bir tostun fiyatı kaç TL'dir?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answerIndex": 2,
+      "explanation": "4x + 2(x − 3) = 42 → 6x − 6 = 42 → 6x = 48 → x = 8.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan"
+      ],
+      "questionType": "long_context",
+      "stem": "Kare şeklindeki bir okul bahçesinin alanı 1225 metrekaredir. Bahçenin etrafına dıştan 2 metre genişliğinde bir yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "284",
+        "288",
+        "292",
+        "296"
+      ],
+      "answerIndex": 3,
+      "explanation": "Bahçenin kenarı √1225 = 35 m. Dıştan 2 m eklenince dış kenar = 39 m. Yürüyüş yolu alanı = 39² − 35² = 1521 − 1225 = 296 m².",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir torbada 4 kırmızı, 5 mavi ve 3 yeşil top vardır. Torbadan geri koymadan iki top çekiliyor. Seçilen topların ikisinin de mavi olma olasılığı kaçtır?",
+      "options": [
+        "2/11",
+        "5/22",
+        "5/33",
+        "1/3"
+      ],
+      "answerIndex": 3,
+      "explanation": "5/12 × 4/11 = 20/132 = 5/33. Sonuç 1/3'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q07",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "alan",
+        "cevre"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir dikdörtgenin uzun kenarı kısa kenarından 7 metre fazladır. Dikdörtgenin çevresi 38 metredir. Buna göre bu dikdörtgenin alanı kaç metrekaredir?",
+      "options": [
+        "60",
+        "66",
+        "72",
+        "78"
+      ],
+      "answerIndex": 3,
+      "explanation": "Kısa kenar x, uzun kenar x+7. 2x + 2(x+7) = 38 → 4x = 24 → x = 6. Alan = 6 × 13 = 78 m².",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir veri merkezinde 2⁶ klasör vardır. Her klasörde 2³ dosya ve her dosyada 2⁴ KB veri bulunmaktadır. Buna göre toplam veri miktarı kaç KB'dir?",
+      "options": [
+        "4096",
+        "8192",
+        "16384",
+        "32768"
+      ],
+      "answerIndex": 1,
+      "explanation": "2⁶ × 2³ × 2⁴ = 2¹³ = 8192.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir etkinlik için 96 kırmızı, 144 mavi ve 192 beyaz kart hazırlanmıştır. Kartlar eşit sayıda olacak şekilde paketlenecektir. Bir paketteki kart sayısı en büyük olacak şekilde ayarlandığında toplam kaç paket hazırlanır?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answerIndex": 2,
+      "explanation": "EBOB(96,144,192) = 48 → paketler 2 + 3 + 4 = 9.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold057_q10",
+      "subject": "mat"
+    }
+  ]
+}

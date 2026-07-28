@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0032",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a suppressed (bridging) assumption linking a per-unit cost saving to a total-cost conclusion",
+    "difficulty": "medium",
+    "estimated_time_seconds": 65,
+    "tags": [
+      "critical thinking",
+      "unstated assumption",
+      "argument analysis",
+      "cost reasoning",
+      "necessary assumption"
+    ],
+    "learning_objective": "Identify the necessary unstated assumption that must hold for a conclusion about total cost to follow from evidence about cost per unit.",
+    "question": "A bakery wants to reduce the total cost of the ingredients it buys. It has decided to replace the butter in its cakes with a margarine that costs less per kilogram than butter. The owner reasons: 'Because margarine is cheaper per kilogram than butter, making this substitution will lower our ingredient costs.' Which of the following is an assumption on which the owner's argument depends?",
+    "choices": {
+      "A": "The price of butter is expected to rise faster than the price of margarine over the coming year.",
+      "B": "Margarine is nutritionally healthier for consumers than butter is.",
+      "C": "Customers will be unable to taste any difference between cakes made with butter and cakes made with margarine.",
+      "D": "No other bakery in the area has already switched from butter to margarine.",
+      "E": "Producing the same range of cakes will not require the bakery to use a substantially greater mass of margarine than the mass of butter it replaces."
+    },
+    "correct_answer": "E",
+    "explanation": "The conclusion is about total ingredient cost, but the evidence is only about price per kilogram. A lower price per kilogram guarantees a lower total cost only if the quantity used does not rise enough to cancel the saving. The argument therefore silently assumes the bakery will not need substantially more margarine (by mass) than the butter it replaces. Applying the negation test: if far more margarine were required, total cost could rise, and the argument would collapse, confirming this is a necessary assumption. Taste, health, future price trends and competitors' choices are all irrelevant to whether this substitution lowers cost.",
+    "option_analysis": {
+      "A": "Wrong: the argument concerns the present substitution, and a per-kilogram saving already exists now; future price trends are not needed for the conclusion. (Misconception: supplying an extra strengthening fact rather than a necessary assumption.)",
+      "B": "Wrong: nutritional health is irrelevant to a comparison of ingredient costs. (Misconception: importing an unrelated 'better product' consideration.)",
+      "C": "Wrong: whether customers can taste the difference bears on sales and revenue, not on whether ingredient costs fall; the conclusion is only about cost. (Misconception: treating an assumption about product acceptance as required by a cost argument.)",
+      "D": "Wrong: what rival bakeries have done has no bearing on this bakery's own costs. (Misconception: appeal to what others do.)",
+      "E": "Correct: a lower price per kilogram lowers total cost only if the mass used stays comparable; if far more margarine were required, the total cost could rise. Negating this assumption defeats the argument, so the argument depends on it."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0033",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Principal flaw: generalising from a self-selected, unrepresentative sample (representativeness, not sample size)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical thinking",
+      "detect the flaw",
+      "sampling bias",
+      "self-selection",
+      "unrepresentative sample"
+    ],
+    "learning_objective": "Diagnose an argument that generalises to a population from a self-selected sample, distinguishing representativeness bias from mere small sample size and from unrelated fallacies.",
+    "question": "A magazine aimed at keen runners emailed a survey to its 40,000 subscribers, asking whether they take vigorous exercise regularly. Of the 6,000 subscribers who chose to reply, 95% said they exercise at least five times a week. The magazine concluded that most adults in the country exercise at least five times a week. The reasoning is most vulnerable to which one of the following criticisms?",
+    "choices": {
+      "A": "It confuses a factor that is necessary for good health with one that is sufficient for it.",
+      "B": "It concludes that a property of a group as a whole must be shared by each individual member of that group.",
+      "C": "It assumes that because two variables are correlated, one of them must cause the other.",
+      "D": "It draws a conclusion about adults in general from a group of people who are unlikely to be representative of adults in general.",
+      "E": "It generalises to the whole population from a sample that is too small to be statistically reliable."
+    },
+    "correct_answer": "D",
+    "explanation": "The sample consists of people who subscribe to a runners' magazine and who then chose to reply, a doubly self-selected group of exercise enthusiasts. Generalising from them to 'most adults in the country' is unsound because the sample is unrepresentative of adults in general. Crucially, the defect is not sample size: 6,000 respondents is a large sample, yet a large biased sample is still misleading. The other options name fallacies (necessary/sufficient confusion, correlation-causation, fallacy of division) that the argument does not actually commit.",
+    "option_analysis": {
+      "A": "Wrong: no necessary-versus-sufficient condition is confused in this argument; that is a different flaw that is not present. (Misconception: mislabelling with an unrelated fallacy.)",
+      "B": "Wrong: this describes the fallacy of division (whole-to-part), which the argument does not commit; it reasons from a part (the sample) to a whole, if anything. (Misconception: mislabelling with a different structural fallacy.)",
+      "C": "Wrong: the argument makes no causal claim linking two correlated variables; it makes a generalisation from a sample. (Misconception: reaching reflexively for 'correlation is not causation'.)",
+      "D": "Correct: the respondents are self-selected readers of a runners' magazine, so they are unlikely to represent adults in general, making the leap to 'most adults' unwarranted. This names the actual flaw: generalisation from an unrepresentative, self-selected sample.",
+      "E": "Wrong: the sample was large (6,000 replies), so 'too small' is not the defect; a large but biased sample is still misleading. (Misconception: blaming sample size when the real problem is representativeness.)"
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0034",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative reasoning",
+    "subtopic": "Combined work/rate with a two-phase schedule (one pipe opened then closed)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "critical thinking",
+      "rate reasoning",
+      "work rate",
+      "pipes and cisterns",
+      "multi-step"
+    ],
+    "learning_objective": "Model a filling task with two phases (both agents then one alone) using additive rates and solve for an unknown duration.",
+    "question": "A cistern can be filled by pipe A alone in 20 minutes and by pipe B alone in 30 minutes. Both pipes are opened together on an empty cistern. After a while, pipe A is closed, and pipe B alone fills the rest of the cistern. The cistern becomes completely full exactly 18 minutes after the two pipes were first opened. For how many minutes was pipe A open?",
+    "choices": {
+      "A": "12 minutes",
+      "B": "8 minutes",
+      "C": "3 minutes",
+      "D": "9 minutes",
+      "E": "6 minutes"
+    },
+    "correct_answer": "B",
+    "explanation": "Let pipe A be open for t minutes. During those t minutes both pipes run at a combined rate of 1/20 + 1/30 = 1/12 of the cistern per minute; then pipe B runs alone at 1/30 per minute for the remaining (18 - t) minutes. Setting the filled fraction equal to 1: t(1/12) + (18 - t)(1/30) = 1. Multiplying through by 60 gives 5t + 2(18 - t) = 60, so 5t + 36 - 2t = 60, giving 3t = 24 and t = 8. Pipe A was open for 8 minutes.",
+    "option_analysis": {
+      "A": "Wrong: this ignores the second phase and reports how long the two pipes together would take to fill the cistern (1 ÷ 1/12 = 12 minutes). (Misconception: dropping the single-pipe finishing phase.)",
+      "B": "Correct: with both pipes on for t minutes then B alone for (18 - t) minutes, t(1/12) + (18 - t)(1/30) = 1 gives 5t + 2(18 - t) = 60, so t = 8.",
+      "C": "Wrong: this results from swapping the roles of the pipes (assuming pipe B is closed early and pipe A finishes), which solves a different scenario. (Misconception: misreading which pipe stops.)",
+      "D": "Wrong: 9 is half of 18, obtained by assuming pipe A was open for exactly half of the total time. (Misconception: unjustified symmetry assumption.)",
+      "E": "Wrong: this comes from adding the rates incorrectly as 1/20 + 1/30 = 1/10 instead of 1/12, which yields t = 6. (Misconception: faulty addition of fractional rates.)"
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0035",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data interpretation",
+    "subtopic": "Two-set overlap: greatest and least possible intersection via inclusion–exclusion bounds",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "critical thinking",
+      "set theory",
+      "Venn diagram",
+      "inclusion-exclusion",
+      "extremal reasoning"
+    ],
+    "learning_objective": "Determine the greatest and least possible size of the intersection of two subsets of a finite universe when some elements may belong to neither set, and combine the two extremes.",
+    "question": "At a conference of 150 delegates, 96 can speak French and 72 can speak German. Some delegates may speak neither language. Let b be the number of delegates who can speak both French and German. What is the difference between the greatest possible value of b and the least possible value of b?",
+    "choices": {
+      "A": "24",
+      "B": "18",
+      "C": "54",
+      "D": "90",
+      "E": "72"
+    },
+    "correct_answer": "C",
+    "explanation": "The greatest overlap occurs when the German speakers are contained as far as possible within the French speakers, so b can be at most min(96, 72) = 72 (feasible, since the remaining 150 - 96 = 54 delegates speak neither). The least overlap occurs when the two groups are spread as far apart as possible; because 96 + 72 = 168 exceeds 150, they must overlap by at least 168 - 150 = 18, so the least value of b is 18 (achieved when no delegate speaks neither language). The required difference is 72 - 18 = 54.",
+    "option_analysis": {
+      "A": "Wrong: 24 is the difference of the two group sizes (96 - 72), mistaken for the overlap answer. (Misconception: subtracting the group totals directly.)",
+      "B": "Wrong: 18 is only the least possible value of b, not the difference between the greatest and least. (Misconception: answering a different sub-question.)",
+      "C": "Correct: greatest b = min(96, 72) = 72; least b = 96 + 72 - 150 = 18; the difference is 72 - 18 = 54.",
+      "D": "Wrong: 90 comes from adding the greatest and least values (72 + 18) instead of subtracting them. (Misconception: sum-versus-difference slip.)",
+      "E": "Wrong: 72 is only the greatest possible value of b, not the difference. (Misconception: reporting one extreme instead of the difference.)"
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0036",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference",
+    "subtopic": "Resolving an apparent discrepancy: distinguishing an absolute count from a per-capita rate (exposure/volume effect)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical thinking",
+      "resolve the paradox",
+      "best explanation",
+      "rate versus count",
+      "exposure effect"
+    ],
+    "learning_objective": "Select the statement that best resolves an apparent paradox by recognising that a fall in per-person risk is consistent with a rise in an absolute count when exposure increases.",
+    "question": "In a certain country, a new law requiring all cyclists to wear helmets was introduced. In the year after the law took effect, the total number of cyclists admitted to hospital with head injuries was higher than in the year before, even though helmets are known to reduce a cyclist's risk of head injury. Which of the following, if true, best explains this apparent discrepancy?",
+    "choices": {
+      "A": "After the law was introduced, the number of people who regularly cycled increased substantially.",
+      "B": "Helmets are more effective at preventing head injuries in low-speed collisions than in high-speed collisions.",
+      "C": "In neighbouring countries that did not introduce a helmet law, the number of cycling head injuries stayed about the same over the same period.",
+      "D": "Many cyclists ignored the new law and continued to ride without wearing a helmet.",
+      "E": "Helmets protect the head but give no protection against injuries to other parts of the body."
+    },
+    "correct_answer": "A",
+    "explanation": "The claim that helmets reduce head-injury risk is a statement about the risk per cyclist (a rate), whereas the reported rise is in the absolute number of cyclists admitted (a count). If far more people cycle after the law, total exposure increases, so the absolute number of head injuries can rise even while each individual cyclist is safer. Only option D supplies the increase in exposure that reconciles the two facts. The other options attack helmet effectiveness, shift outside the scope of head injuries, or fail to explain any rise above the previous level.",
+    "option_analysis": {
+      "A": "Correct: helmets lower each cyclist's head-injury risk (a rate), but if many more people cycle after the law, total exposure rises, so the absolute number of head injuries can increase even though each cyclist is safer, reconciling the two facts.",
+      "B": "Wrong: variation in helmet effectiveness with collision speed does not explain why the total number of head injuries rose after helmets were introduced. (Misconception: attacking helmet efficacy without explaining an increase.)",
+      "C": "Wrong: a stable trend elsewhere does not explain the domestic rise; if anything it deepens the puzzle. (Misconception: offering a comparison that fails to account for the change.)",
+      "D": "Wrong: if many rode without helmets, their injury rate would resemble the pre-law situation, which explains no rise above the previous level. (Misconception: explaining reduced benefit rather than an actual increase.)",
+      "E": "Wrong: that helmets do not protect other body parts is irrelevant, since the discrepancy concerns head injuries specifically. (Misconception: shifting to injuries outside the scope of the puzzle.)"
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  }
+]

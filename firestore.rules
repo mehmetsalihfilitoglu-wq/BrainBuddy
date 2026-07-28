@@ -1,0 +1,107 @@
+rules_version = '2';
+
+// EDUmio Firestore security rules.
+// DEFAULT-DENY: anything not explicitly allowed below is denied by Firestore. A request is granted only if
+// a matching rule's condition evaluates true. No question/solution CONTENT is ever stored server-side; only
+// per-user identity + learning STATE (learning-state collections arrive in Phase 2 with their own rules).
+//
+// Test with the Emulator Suite:  firebase emulators:exec --only firestore "npm --prefix firestore-tests test"
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+
+    // ── users/{uid} : identity + preferences (Phase 1) ──────────────────────────────
+    match /users/{uid} {
+      // Owner-only read.
+      allow read: if isOwner(uid);
+
+      // Create: the doc's uid must equal the auth uid, and only known fields may be present. email /
+      // emailVerified are written from the auth token by the client but validated to match it, so they
+      // cannot be forged for another identity.
+      allow create: if isOwner(uid)
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.keys().hasOnly([
+             'uid','email','emailVerified','displayName','photoUrl','authProvider',
+             'selectedExam','locale','timezone','accountStatus','schemaVersion','createdAt','updatedAt'
+           ]);
+
+      // Update: uid + email are immutable; only preference/profile fields may change.
+      allow update: if isOwner(uid)
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.email == resource.data.email
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+             'displayName','photoUrl','authProvider','selectedExam','locale','timezone',
+             'emailVerified','schemaVersion','updatedAt'
+           ]);
+
+      // Delete: owner may delete (account deletion flow).
+      allow delete: if isOwner(uid);
+
+      // ── Learning-state sync mirror (Phase 2) ──────────────────────────────────────
+      // One doc per store snapshot (users/{uid}/syncRecords/{documentId}). Owner-only. Payload is the
+      // user's OWN learning state (never question/solution content). Shape-validated; areaId isolation is
+      // carried in the documentId by construction.
+      match /syncRecords/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if isOwner(uid)
+          && request.resource.data.scope in ['GLOBAL', 'STUDY_AREA']
+          && request.resource.data.storeKey is string
+          && request.resource.data.updatedAt is number;
+        allow delete: if isOwner(uid);
+      }
+
+      // Sync bookkeeping (server-time clock probe). Owner-only.
+      match /meta/{docId} {
+        allow read, write: if isOwner(uid);
+      }
+
+      // ── Server-authoritative: READ-ONLY to the client, written ONLY by Cloud Functions ────────────
+      // The Admin SDK bypasses these rules, so `write: if false` means "server-only". This is what makes
+      // the canonical Daily Challenge and Premium entitlement impossible for a client to forge.
+
+      // Canonical Daily Challenge, one immutable doc per local day (Phase 3).
+      match /challenges/{day} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (Cloud Function issues/locks the challenge)
+      }
+
+      // Premium entitlement, derived from verified Play purchases (Phase 4).
+      match /entitlements/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (purchase-verification function)
+      }
+
+      // Authoritative learning state written by Cloud Functions (e.g. server-computed streak, Phase 3).
+      match /learningState/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (completeDailyChallenge)
+      }
+
+      // FCM device tokens: the owner registers/removes its own; the server reads them to send pushes.
+      match /fcmTokens/{token} {
+        allow read, write: if isOwner(uid);
+      }
+
+      // Email + notification preferences / consent: owner-managed.
+      match /preferences/{docId} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    // Email suppression list + idempotency ledger: entirely server-only.
+    match /emailSuppression/{addr} { allow read, write: if false; }
+    match /emailSends/{key} { allow read, write: if false; }
+
+    // Play purchase-token → uid reverse index (written by the verification function; RTDN reads it).
+    // Entirely server-only: clients can neither read nor write it.
+    match /purchaseTokens/{token} {
+      allow read, write: if false;
+    }
+
+    // Everything else: denied by default (no matching rule → no access).
+  }
+}

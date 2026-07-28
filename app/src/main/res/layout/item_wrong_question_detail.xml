@@ -7,9 +7,9 @@
     android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="@dimen/radius_md"
     app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/bb_card">
+    app:cardBackgroundColor="@color/edu_card">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:text="@string/wrong_detail_locked_title"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text"/>
+                android:textColor="@color/edu_text"/>
 
             <TextView
                 android:id="@+id/tvLockedSubtitle"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/wrong_detail_tap_to_unlock"
                 android:textSize="13sp"
-                android:textColor="@color/bb_text_muted"/>
+                android:textColor="@color/edu_text_muted"/>
 
             <TextView
                 android:id="@+id/tvLockedIcon"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/wrong_detail_locked_badge"
                 android:textSize="12sp"
-                android:textColor="@color/bb_text_muted"/>
+                android:textColor="@color/edu_text_muted"/>
         </LinearLayout>
 
         <!-- Unlocked state: question + user choice (+ optional correct for parent) -->
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="@color/bb_text"
+                android:textColor="@color/edu_text"
                 android:maxLines="10"
                 android:ellipsize="end"/>
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:textSize="13sp"
-                android:textColor="@color/bb_error"/>
+                android:textColor="@color/edu_error"/>
 
             <TextView
                 android:id="@+id/tvCorrect"
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:textSize="14sp"
-                android:textColor="@color/bb_turquoise"
+                android:textColor="@color/edu_turquoise"
                 android:textStyle="bold"
                 android:visibility="gone"/>
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textSize="12sp"
-                android:textColor="@color/bb_text_muted"
+                android:textColor="@color/edu_text_muted"
                 android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>

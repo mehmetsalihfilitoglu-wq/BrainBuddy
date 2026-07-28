@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/BB.Card"
+    style="@style/Edu.Card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp">
@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/resultHeader"
-            android:textColor="@color/bb_text"
+            android:textColor="@color/edu_text"
             android:textStyle="bold"
             android:textSize="14sp"
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/resultQuestion"
             android:layout_marginTop="6dp"
-            android:textColor="@color/bb_text"
+            android:textColor="@color/edu_text"
             android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/resultStatus"
             android:layout_marginTop="8dp"
-            android:textColor="@color/bb_text_muted"
+            android:textColor="@color/edu_text_muted"
             android:textSize="13sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -39,7 +39,7 @@
             android:id="@+id/retryHint"
             android:layout_marginTop="6dp"
             android:text="Yanlışsa dokunup tekrar çözebilirsin."
-            android:textColor="@color/bb_tertiary"
+            android:textColor="@color/edu_tertiary"
             android:textSize="12sp"
             android:visibility="gone"
             android:layout_width="match_parent"

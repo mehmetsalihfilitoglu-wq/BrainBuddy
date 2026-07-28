@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0470",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 4 : 6 oranındadır. Birinci sınıfa 12 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "190",
+        "185",
+        "180",
+        "170"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 5k, 6k. 4k + 12 = 5k → k = 12.0. Toplam = 15·k = 180.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0470",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0471",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "96",
+        "97",
+        "101",
+        "91"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0471",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0472",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 11 TL zam yapılmış, ardından 11 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "-4",
+        "0",
+        "4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0472",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0473",
+      "stem": "Kenarları 15 m ve 10 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "36",
+        "150",
+        "84",
+        "114"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-6)×(10-6) = 9×4 = 36 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0473",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0474",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 22 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "16",
+        "8",
+        "18",
+        "13"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 22. k+3 = 2(e+2) → e = 5, k = 8. Toplam = 13.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0474",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0475",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 6 : 3 : 4 oranındadır. Birinci sınıfa 6 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "36",
+        "26",
+        "31",
+        "16"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 6k, 4k. 3k + 6 = 6k → k = 2.0. Toplam = 13·k = 26.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0475",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0476",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 16 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "7",
+        "12",
+        "17",
+        "15"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 16. k+3 = 2(e+2) → e = 4, k = 8. Toplam = 12.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0476",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0477",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 3 : 2 oranındadır. Birinci sınıfa 4 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "36",
+        "26",
+        "41",
+        "46"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 2k. 3k + 4 = 4k → k = 4.0. Toplam = 9·k = 36.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0477",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0478",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 19 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "64",
+        "61",
+        "66",
+        "56"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 19. k+3 = 2(e+2) → e = 20, k = 41. Toplam = 61.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0478",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0479",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 637 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "540",
+        "600",
+        "660",
+        "630"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-15/100) = 637. x = 600 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0479",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

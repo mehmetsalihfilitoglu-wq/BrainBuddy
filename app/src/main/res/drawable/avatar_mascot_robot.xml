@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#607D8B" android:pathData="M6,4 L18,4 L18,20 L6,20 Z"/>
-    <path android:fillColor="#1BC5B0" android:pathData="M9,8 L11,8 L11,10 L9,10 Z"/>
-    <path android:fillColor="#1BC5B0" android:pathData="M13,8 L15,8 L15,10 L13,10 Z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,90 C62,90 72,88 72,86 C72,84 62,82 48,82 C34,82 24,84 24,86 C24,88 34,90 48,90Z"/>
+
+    <!-- Antenna stem -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M48,14 L48,4"
+        android:strokeColor="#90A4AE"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+
+    <!-- Antenna light -->
+    <path
+        android:fillColor="#EF5350"
+        android:pathData="M48,4 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0"/>
+
+    <!-- Antenna glow -->
+    <path
+        android:fillColor="#33EF5350"
+        android:pathData="M48,4 m-7,0 a7,7 0,1 1,14 0 a7,7 0,1 1,-14 0"/>
+
+    <!-- Ear left -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M10,38 L16,34 L16,54 L10,50Z"/>
+
+    <!-- Ear right -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M86,38 L80,34 L80,54 L86,50Z"/>
+
+    <!-- Head - rounded square -->
+    <path
+        android:fillColor="#90A4AE"
+        android:pathData="M20,14 L76,14 Q84,14 84,22 L84,70 Q84,78 76,78 L20,78 Q12,78 12,70 L12,22 Q12,14 20,14Z"/>
+
+    <!-- Head highlight -->
+    <path
+        android:fillColor="#B0BEC5"
+        android:pathData="M24,18 L72,18 Q78,18 78,24 L78,36 C70,22 40,18 24,22Z"/>
+
+    <!-- Face plate -->
+    <path
+        android:fillColor="#CFD8DC"
+        android:pathData="M22,28 L74,28 Q78,28 78,32 L78,62 Q78,66 74,66 L22,66 Q18,66 18,62 L18,32 Q18,28 22,28Z"/>
+
+    <!-- Eye left - screen -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M28,36 L44,36 Q46,36 46,38 L46,50 Q46,52 44,52 L28,52 Q26,52 26,50 L26,38 Q26,36 28,36Z"/>
+
+    <!-- Eye right - screen -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M52,36 L68,36 Q70,36 70,38 L70,50 Q70,52 68,52 L52,52 Q50,52 50,50 L50,38 Q50,36 52,36Z"/>
+
+    <!-- LED pupil left -->
+    <path
+        android:fillColor="#1BC5B0"
+        android:pathData="M32,40 L40,40 Q42,40 42,42 L42,46 Q42,48 40,48 L32,48 Q30,48 30,46 L30,42 Q30,40 32,40Z"/>
+
+    <!-- LED pupil right -->
+    <path
+        android:fillColor="#1BC5B0"
+        android:pathData="M56,40 L64,40 Q66,40 66,42 L66,46 Q66,48 64,48 L56,48 Q54,48 54,46 L54,42 Q54,40 56,40Z"/>
+
+    <!-- LED shine left -->
+    <path
+        android:fillColor="#4DD0C4"
+        android:pathData="M32,41 L36,41 L36,44 L32,44Z"/>
+
+    <!-- LED shine right -->
+    <path
+        android:fillColor="#4DD0C4"
+        android:pathData="M56,41 L60,41 L60,44 L56,44Z"/>
+
+    <!-- Mouth - zigzag -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M34,58 L38,62 L42,58 L46,62 L50,58 L54,62 L58,58 L62,62"
+        android:strokeColor="#546E7A"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <!-- Bolt decoration left -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M16,70 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
+
+    <!-- Bolt decoration right -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M80,70 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
 </vector>

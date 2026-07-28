@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "mantik"
+      ],
+      "stem": "Bir spor kulübünde futbol, basketbol ve voleybol takımlarında toplam 120 sporcu bulunmaktadır. Futbolcuların sayısı toplam sporcuların %40'ına eşittir. Basketbolcuların sayısı ise futbolcuların sayısının %75'i kadardır. Buna göre voleybol takımındaki sporcu sayısı kaçtır?",
+      "options": [
+        "24",
+        "30",
+        "36",
+        "42"
+      ],
+      "answerIndex": 2,
+      "explanation": "Futbolcular 120 × 0.40 = 48. Basketbolcular 48 × 0.75 = 36. Toplam 48 + 36 = 84. Voleybol: 120 − 84 = 36 sporcu.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-003-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "denklem_kurma",
+      "skills": [
+        "denklem",
+        "mantik",
+        "problem_cozme"
+      ],
+      "stem": "Bir sınıftaki öğrencilerin yaş ortalaması 14'tür. Sınıfa yeni gelen bir öğrencinin yaşı ortalamayı 0,5 artırmaktadır. Buna göre sınıfa yeni gelen öğrencinin yaşı 17 ise başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "14.5",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 0,
+      "explanation": "Başlangıç öğrenci sayısı n olsun. Toplam yaş 14n olur. Yeni ortalama 14.5 olduğundan toplam yaş 14.5(n+1) olur. 14n + 17 = 14.5n + 14.5 → 2.5 = 0.5n → n = 5.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-003-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik_okuma",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin dört gün boyunca çözdüğü matematik soru sayıları şu şekildedir: Pazartesi 24 soru, salı günü pazartesiye göre %50 daha fazla soru, çarşamba günü salıdan 12 eksik soru çözmüştür. Perşembe günü çözdüğü soru sayısı ilk dört günün ortalaması 36 olacak şekilde belirlenmiştir. Buna göre perşembe günü kaç soru çözülmüştür?",
+      "options": [
+        "36",
+        "42",
+        "48",
+        "54"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pazartesi 24. Salı 36. Çarşamba 24. Ortalama 36 ise toplam 144. İlk üç gün 84 → Perşembe 48.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-003-3",
+      "subject": "mat"
+    }
+  ]
+}

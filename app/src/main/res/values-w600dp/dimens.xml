@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ═══ Wide windows ≥ 600dp — large phones unfolded, small tablets, iPad-Mini-class ═══
+     EDUmio is a READING app: a student reads a question stem and five options. Left full-bleed on a
+     tablet the stem runs ~104+ characters per line, roughly double the comfortable measure (45-75),
+     which is exactly what makes an app feel like a stretched-up phone build.
+
+     We widen the PAGE GUTTER per breakpoint instead of forking 67 layouts; every screen shares
+     @dimen/page_padding_h, so the reading column narrows automatically and the app stays centred.
+
+     NOTE the qualifier: `w` (current window width), NOT `sw` (fixed device size). `w` also responds
+     correctly in landscape, split-screen and on folded/unfolded foldables — the cases where an
+     `sw`-only rule would silently stop applying. Vertical padding is deliberately NOT scaled here;
+     screens set their own paddingVertical so the content never starts far down the page. -->
+<resources>
+
+    <!-- 600dp window → ≈440dp column; 719dp → ≈559dp. -->
+    <dimen name="page_padding_h">80dp</dimen>
+
+    <!-- Slightly more generous rhythm so the extra space reads as intentional, not empty. -->
+    <dimen name="section_gap">32dp</dimen>
+    <dimen name="card_gap">16dp</dimen>
+
+</resources>

@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir elektronik mağazasında bir hoparlörün etiket fiyatı 1500 TL'dir. Kampanya kapsamında önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 120 TL kargo ücreti ekleniyor. Son aşamada oluşan fiyat üzerinden %10 indirim yapılmaktadır. Buna göre müşteri hoparlörü kaç TL'ye satın alır?",
+      "options": [
+        "1188",
+        "1200",
+        "1215",
+        "1260"
+      ],
+      "answerIndex": 0,
+      "explanation": "1500 × 0,80 = 1200 TL. 120 TL eklenince 1320 TL olur. Son olarak %10 indirim uygulanır: 1320 × 0,90 = 1188 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold032_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir sınıftaki kız ve erkek öğrencilerin sayıları oranı 3 : 5'tir. Sınıfa 4 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "28",
+        "16",
+        "36",
+        "40"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kız = 3k, erkek = 5k olsun. 3k + 4 = 5k → 2k = 4 → k = 2. Başlangıçta toplam öğrenci sayısı 3k + 5k = 8k = Sonuç 16 olur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold032_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde öğrencilerin netleri 10, 12, 14, 15, 16, 18 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam öğrenci sayısı 7. Ortalama 15 olduğuna göre toplam net = 7 × 15 = 105. Bilinen toplam = 10+12+14+15+16+18 = 85. x = 105 − 85 = 20.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold032_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "oran_oranti"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir rampanın yatay uzunluğu 6 metre ve yükseldiği dikey mesafe 90 santimetredir. Aynı eğime sahip ikinci bir rampanın yatay uzunluğu 10 metre olduğuna göre bu rampanın yüksekliği kaç santimetre olur?",
+      "options": [
+        "120",
+        "135",
+        "150",
+        "165"
+      ],
+      "answerIndex": 2,
+      "explanation": "İlk rampada oran 90/600 = 3/20 olur. 10 metre = 1000 cm olduğuna göre yükseklik 1000 × 3/20 = 150 cm.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold032_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Alanı 900 metrekare olan kare biçimindeki bir bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "100",
+        "112",
+        "124",
+        "136"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin bir kenarı √900 = 30 metredir. Dıştan 1 metre eklenince dış karenin kenarı 32 metre olur. Alan farkı 32² − 30² = 1024 − 900 = 124 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold032_q05",
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen4_0150",
+      "stem": "Tablo: Farklı kuvvetlerin topun hızına etkisi. İtme kuvveti artınca hız arttı.\n\nBu tabloya göre kuvvet ile hız arasındaki ilişki nasıldır?",
+      "options": [
+        "İlişki yoktur",
+        "Kuvvet arttıkça hız azalır",
+        "Kuvvet hızı etkilemez",
+        "Aynı yöndeki kuvvet arttıkça hız artabilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Aynı yöndeki kuvvet arttıkça hız artabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0150",
+      "imageAsset": "quiz_images/fen/fen_016_fen4_0150_table.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0151",
+      "stem": "Cıvataların mıknatıslı tornavida ile toplandığı gözlemlendi.\n\nBu uygulamanın dayandığı bilimsel ilke nedir?",
+      "options": [
+        "Manyetizma camda da vardır",
+        "Tornavida elektrik üretir",
+        "Mıknatıs demir gibi maddeleri çeker",
+        "Cıvata mıknatıstır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Mıknatıs demir gibi maddeleri çeker\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0151",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0152",
+      "stem": "Yay sıkıştırıldığında kısaldığı, bırakıldığında eski haline döndüğü deneyle gösterildi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Kuvvet cisimlerin şeklini değiştirebilir",
+        "Kuvvet sadece hareketi etkiler",
+        "Yay genişlemez",
+        "Yay kuvvet üretir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kuvvet cisimlerin şeklini değiştirebilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0152",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0153",
+      "stem": "Eğik düzlem deneyinde rampa uzunluğu artırıldığında aynı yükseklik için daha az kuvvet yeterli oldu.\n\nBu sonucun nedeni nedir?",
+      "options": [
+        "Yükseklik kuvveti etkilemez",
+        "Kuvvet rampa uzunluğundan bağımsızdır",
+        "Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir",
+        "Kısa rampa daha hafiftir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Uzun rampa eğimi azaltır; aynı yükseklik daha az kuvvetle aşılabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0153",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0154",
+      "stem": "Öğrenciler topu iterek hareket ettirdi. Top durduğunda tekrar itilince hareket etti.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "İtme kuvvet değildir",
+        "Top kendiliğinden hareket eder",
+        "Kuvvet cisimleri hareket ettirebilir veya hızlandırabilir",
+        "Kuvvet sadece ağır cisimlere etki eder"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "gozlem_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kuvvet cisimleri hareket ettirebilir veya hızlandırabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0154",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0155",
+      "stem": "Fren yapan bisikletin yavaşladığı gözlemlendi.\n\nBu gözlemin sebebi aşağıdakilerden hangisidir?",
+      "options": [
+        "Yol engebelidir",
+        "Bisiklet kendiliğinden durur",
+        "Fren, hareket yönüne ters kuvvet uygulayarak yavaşlatır",
+        "Fren kuvvet değildir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adimli_dusunme",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Fren, hareket yönüne ters kuvvet uygulayarak yavaşlatır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0155",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0156",
+      "stem": "Mıknatısın toplu iğneyi çektiği deneyle gösterildi. Plastik çubuk iğneyi çekmedi.\n\nBu deneyin sonucu nedir?",
+      "options": [
+        "Mıknatıs manyetik maddelere kuvvet uygular",
+        "Tüm maddeler mıknatıstan etkilenir",
+        "Plastik manyetiktir",
+        "Mıknatıs sadece demiri çeker"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "grafik_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Mıknatıs manyetik maddelere kuvvet uygular\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0156",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0157",
+      "stem": "Tablo: Farklı kuvvetlerin topun hızına etkisi. İtme kuvveti artınca hız arttı.\n\nBu tabloya göre kuvvet ile hız arasındaki ilişki nasıldır?",
+      "options": [
+        "Kuvvet hızı etkilemez",
+        "Kuvvet arttıkça hız azalır",
+        "İlişki yoktur",
+        "Aynı yöndeki kuvvet arttıkça hız artabilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adimli_dusunme",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Aynı yöndeki kuvvet arttıkça hız artabilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0157",
+      "imageAsset": "quiz_images/fen/fen_016_fen4_0157_table.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0158",
+      "stem": "Cıvataların mıknatıslı tornavida ile toplandığı gözlemlendi.\n\nBu uygulamanın dayandığı bilimsel ilke nedir?",
+      "options": [
+        "Manyetizma camda da vardır",
+        "Tornavida elektrik üretir",
+        "Mıknatıs demir gibi maddeleri çeker",
+        "Cıvata mıknatıstır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "sebep_sonuc",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Mıknatıs demir gibi maddeleri çeker\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0158",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0159",
+      "stem": "Yay sıkıştırıldığında kısaldığı, bırakıldığında eski haline döndüğü deneyle gösterildi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Yay kuvvet üretir",
+        "Kuvvet sadece hareketi etkiler",
+        "Yay genişlemez",
+        "Kuvvet cisimlerin şeklini değiştirebilir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "kuvvet_ve_hareket",
+      "skills": [
+        "kuvvet_ve_",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kuvvet cisimlerin şeklini değiştirebilir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen4_0159",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

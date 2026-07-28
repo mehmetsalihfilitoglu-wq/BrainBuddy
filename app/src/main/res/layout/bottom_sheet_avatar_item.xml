@@ -55,7 +55,7 @@
         android:layout_marginTop="16dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/bb_text_dark"
+        android:textColor="@color/edu_text_dark"
         android:gravity="center"/>
 
     <LinearLayout
@@ -69,7 +69,7 @@
             android:id="@+id/detailChipRarity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:chipBackgroundColor="@color/bb_turquoise"/>
+            app:chipBackgroundColor="@color/edu_turquoise"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/detailChipLevel"
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:textSize="14sp"
-        android:textColor="@color/bb_text_muted"
+        android:textColor="@color/edu_text_muted"
         android:visibility="gone"/>
 
     <LinearLayout
@@ -96,7 +96,7 @@
 
         <Button
             android:id="@+id/btnDetailEquip"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -106,7 +106,7 @@
 
         <Button
             android:id="@+id/btnDetailBuy"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

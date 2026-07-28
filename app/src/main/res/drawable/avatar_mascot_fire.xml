@@ -1,5 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#FF5722" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    <path android:fillColor="#FFD700" android:pathData="M12,6 L14,10 L18,10 L15,13 L16,17 L12,15 L8,17 L9,13 L6,10 L10,10 Z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,92 C62,92 72,90 72,88 C72,86 62,84 48,84 C34,84 24,86 24,88 C24,90 34,92 48,92Z"/>
+
+    <!-- Outer flame glow -->
+    <path
+        android:fillColor="#18FF5722"
+        android:pathData="M48,2 Q72,2 80,24 Q88,46 78,62 Q68,80 48,86 Q28,80 18,62 Q8,46 16,24 Q24,2 48,2Z"/>
+
+    <!-- Main flame body -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M48,6 Q66,6 74,22 Q82,40 74,56 Q66,72 48,80 Q30,72 22,56 Q14,40 22,22 Q30,6 48,6Z"/>
+
+    <!-- Flame tip top -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M48,2 Q54,8 52,16 Q56,10 58,4 Q62,12 56,22 Q50,28 48,24 Q46,28 40,22 Q34,12 38,4 Q40,10 44,16 Q42,8 48,2Z"/>
+
+    <!-- Flame tip left -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M22,22 Q18,14 24,10 Q20,18 26,20Z"/>
+
+    <!-- Flame tip right -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M74,22 Q78,14 72,10 Q76,18 70,20Z"/>
+
+    <!-- Inner flame -->
+    <path
+        android:fillColor="#FF9800"
+        android:pathData="M48,14 Q62,14 68,28 Q74,42 68,54 Q62,66 48,72 Q34,66 28,54 Q22,42 28,28 Q34,14 48,14Z"/>
+
+    <!-- Core flame -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M48,24 Q58,24 62,34 Q66,44 62,52 Q58,60 48,64 Q38,60 34,52 Q30,44 34,34 Q38,24 48,24Z"/>
+
+    <!-- Bright center -->
+    <path
+        android:fillColor="#FFECB3"
+        android:pathData="M48,34 Q54,34 56,40 Q58,46 56,50 Q54,54 48,56 Q42,54 40,50 Q38,46 40,40 Q42,34 48,34Z"/>
+
+    <!-- Eye left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M37,40 C37,37 39,35 42,35 C45,35 47,37 47,40 C47,43 45,45 42,45 C39,45 37,43 37,40Z"/>
+
+    <!-- Eye right -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M53,40 C53,37 55,35 58,35 C61,35 63,37 63,40 C63,43 61,45 58,45 C55,45 53,43 53,40Z"/>
+
+    <!-- Pupil left -->
+    <path
+        android:fillColor="#E65100"
+        android:pathData="M42,39 m-2.5,0 a2.5,3 0,1 1,5 0 a2.5,3 0,1 1,-5 0"/>
+
+    <!-- Pupil right -->
+    <path
+        android:fillColor="#E65100"
+        android:pathData="M58,39 m-2.5,0 a2.5,3 0,1 1,5 0 a2.5,3 0,1 1,-5 0"/>
+
+    <!-- Eye shine left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M41,37.5 m-1.2,0 a1.2,1.2 0,1 1,2.4 0 a1.2,1.2 0,1 1,-2.4 0"/>
+
+    <!-- Eye shine right -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M57,37.5 m-1.2,0 a1.2,1.2 0,1 1,2.4 0 a1.2,1.2 0,1 1,-2.4 0"/>
+
+    <!-- Fierce smile -->
+    <path
+        android:fillColor="#E65100"
+        android:pathData="M40,52 Q48,60 56,52 Q52,56 48,56 Q44,56 40,52Z"/>
+
+    <!-- Sparkle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M80,10 L81.5,14 L86,13 L84,16 L88,18 L84,19 L86,22 L82,21 L80,24 L78,21 L74,22 L76,19 L72,18 L76,16 L74,13 L78,14Z"/>
 </vector>

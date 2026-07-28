@@ -1,0 +1,236 @@
+[
+  {
+    "id": "mio_math_0081",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Angle chasing: interior angles of regular polygons meeting at a point (tiling gap)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "polygons",
+      "interior angles",
+      "angles round a point",
+      "regular polygon",
+      "angle chasing"
+    ],
+    "learning_objective": "Compute the interior angle of a regular polygon and combine two of them with the fact that angles around a point sum to 360 degrees.",
+    "question": "A tiling designer places one regular hexagonal tile and one regular octagonal tile flat on a table so that they share a complete common edge. At each end of that shared edge, three angles meet around the point: the interior angle of the hexagon, the interior angle of the octagon, and a gap that will be left uncovered. Find the size of this gap angle.",
+    "choices": {
+      "A": "120°",
+      "B": "90°",
+      "C": "255°",
+      "D": "135°",
+      "E": "105°"
+    },
+    "correct_answer": "E",
+    "explanation": "The interior angle of a regular n-gon is (n − 2)·180°/n. For the hexagon this is (6 − 2)·180°/6 = 120°, and for the octagon it is (8 − 2)·180°/8 = 135°. At the shared vertex, three angles fill the full turn around the point, so they sum to 360°. The uncovered gap is therefore 360° − 120° − 135° = 105°. (Equivalently, the gap equals the sum of the two exterior angles, 60° + 45° = 105°.)",
+    "option_analysis": {
+      "A": "Wrong: reports only the hexagon's interior angle (120°), again mistaking a single polygon angle for the gap.",
+      "B": "Wrong: assumes the leftover space is a right angle (90°), a rough guess that ignores the exact interior-angle values and the 360° condition.",
+      "C": "Wrong: adds the two interior angles (120° + 135° = 255°). This ignores that the three angles meeting at the vertex fill the 360° around the point, so the gap is the remainder, not the sum.",
+      "D": "Wrong: reports only the octagon's interior angle (135°), treating one polygon's angle as if it were the gap.",
+      "E": "Correct: hexagon interior = 120°, octagon interior = 135°; angles round a point sum to 360°, so the gap = 360° − 120° − 135° = 105°."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0082",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Circle theorems: central angle = twice inscribed angle combined with the isosceles radii triangle",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "circle theorems",
+      "angle at centre",
+      "inscribed angle",
+      "isosceles triangle",
+      "radii"
+    ],
+    "learning_objective": "Apply the angle-at-the-centre theorem to obtain a central angle, then use the isosceles triangle formed by two radii to find a base angle.",
+    "question": "A, B and C are three distinct points on a circle with centre O. The inscribed angle BAC, which stands on the chord BC, measures 34°. Find the size of the angle OBC.",
+    "choices": {
+      "A": "68°",
+      "B": "112°",
+      "C": "56°",
+      "D": "73°",
+      "E": "34°"
+    },
+    "correct_answer": "C",
+    "explanation": "The inscribed angle BAC and the central angle BOC stand on the same chord BC, so by the angle-at-the-centre theorem the central angle is twice the inscribed angle: angle BOC = 2 × 34° = 68°. Triangle OBC has OB = OC (both radii), so it is isosceles and its two base angles are equal. Hence angle OBC = (180° − 68°)/2 = 56°.",
+    "option_analysis": {
+      "A": "Wrong: gives the central angle BOC (68°) itself, stopping after doubling the inscribed angle and failing to carry out the isosceles-triangle step for angle OBC.",
+      "B": "Wrong: computes 180° − 68° = 112° but forgets that the two base angles of the isosceles triangle are equal, i.e. omits dividing by 2.",
+      "C": "Correct: central angle BOC = 2 × 34° = 68°; triangle OBC is isosceles (OB = OC), so angle OBC = (180° − 68°)/2 = 56°.",
+      "D": "Wrong: uses the inscribed angle 34° directly as the apex of the isosceles triangle, (180° − 34°)/2 = 73°, forgetting to double the inscribed angle to obtain the true central angle.",
+      "E": "Wrong: equates angle OBC to the inscribed angle BAC (34°), ignoring both the central-angle theorem and the isosceles triangle."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0083",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Circle theorems: two tangents from an external point (tangent–radius) with the inscribed-angle theorem",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "circle theorems",
+      "tangents",
+      "tangent-radius",
+      "quadrilateral angle sum",
+      "inscribed angle"
+    ],
+    "learning_objective": "Use the perpendicularity of a tangent and radius and the quadrilateral angle sum to find a central angle, then halve it with the inscribed-angle theorem for a point on the major arc.",
+    "question": "From a point P outside a circle with centre O, two tangents are drawn, touching the circle at A and B. The angle APB between the two tangents is 48°. A further point C lies on the major arc AB. Find the size of the inscribed angle ACB.",
+    "choices": {
+      "A": "66°",
+      "B": "24°",
+      "C": "132°",
+      "D": "114°",
+      "E": "48°"
+    },
+    "correct_answer": "A",
+    "explanation": "A tangent is perpendicular to the radius at the point of contact, so angle OAP = angle OBP = 90°. In quadrilateral PAOB the angles sum to 360°, giving the central angle AOB = 360° − 90° − 90° − 48° = 132° (this is the angle subtending the minor arc AB). Point C is on the major arc, so the inscribed angle ACB stands on that same minor arc, and by the inscribed-angle theorem it is half the central angle: ACB = 132°/2 = 66°.",
+    "option_analysis": {
+      "A": "Correct: tangent–radius right angles give angle AOB = 360° − 90° − 90° − 48° = 132°; a point on the major arc gives ACB = 132°/2 = 66°.",
+      "B": "Wrong: halves the tangent angle, 48°/2 = 24°, incorrectly treating angle APB as the central angle to be halved.",
+      "C": "Wrong: reports the central angle AOB (132°) as the answer, omitting the halving step of the inscribed-angle theorem.",
+      "D": "Wrong: uses the reflex central angle (360° − 132° = 228°) and halves it to 114°, effectively placing C on the wrong (minor) arc.",
+      "E": "Wrong: sets the inscribed angle equal to the angle between the tangents (48°), confusing the tangent angle with the inscribed angle."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0084",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Similar triangles: a line parallel to one side and the area ratio equal to the square of the side ratio",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "similar triangles",
+      "parallel line",
+      "area ratio",
+      "ratio of sides",
+      "trapezium"
+    ],
+    "learning_objective": "Recognise that a line parallel to a side creates a similar triangle whose area ratio to the whole equals the square of the corresponding side ratio, and invert this to find a length.",
+    "question": "In triangle ABC, the point D lies on side AB and the point E lies on side AC, with DE parallel to BC. This divides the triangle into the smaller triangle ADE and the trapezium DBCE. The area of triangle ADE is 16 cm² and the area of the trapezium DBCE is 20 cm². Given that AD = 8 cm, find the length of AB.",
+    "choices": {
+      "A": "20 cm",
+      "B": "18 cm",
+      "C": "24 cm",
+      "D": "10 cm",
+      "E": "12 cm"
+    },
+    "correct_answer": "E",
+    "explanation": "Because DE is parallel to BC, triangle ADE is similar to triangle ABC. The area of the whole triangle ABC is 16 + 20 = 36 cm². For similar figures the ratio of areas equals the square of the ratio of corresponding sides, so (AD/AB)² = area(ADE)/area(ABC) = 16/36. Taking the square root, AD/AB = 4/6 = 2/3. Hence AB = AD × 3/2 = 8 × 3/2 = 12 cm.",
+    "option_analysis": {
+      "A": "Wrong: simply copies the given trapezium area (20) as the length, grabbing a number from the question without any similarity reasoning.",
+      "B": "Wrong: uses the area ratio 16/36 as if it were the length ratio (AD/AB = 4/9), giving AB = 8 × 9/4 = 18 cm; this omits taking the square root of the area ratio.",
+      "C": "Wrong: correctly finds the side ratio 2 : 3 but then multiplies AD by 3 (AB = 8 × 3 = 24), misreading the ratio AD : AB = 2 : 3 as a direct multiplier.",
+      "D": "Wrong: compares triangle ADE to the trapezium (16/20 = 4/5) instead of to the whole triangle, giving AB = 8 × 5/4 = 10 cm.",
+      "E": "Correct: area(ABC) = 36; (AD/AB)² = 16/36 so AD/AB = 2/3, giving AB = 8 × 3/2 = 12 cm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0085",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Intersecting chords length relation combined with the perpendicular-bisector property to identify a diameter",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 190,
+    "tags": [
+      "intersecting chords",
+      "power of a point",
+      "perpendicular bisector",
+      "diameter",
+      "radius"
+    ],
+    "learning_objective": "Apply the intersecting-chords length relation and recognise that a chord perpendicular to another chord at its midpoint passes through the centre, hence is a diameter.",
+    "question": "Two chords AC and BD of a circle cross at right angles at a point P inside the circle. The point P is the midpoint of AC, with AP = PC = 6 cm, and BP = 4 cm. Find the radius of the circle.",
+    "choices": {
+      "A": "9 cm",
+      "B": "6 cm",
+      "C": "6.5 cm",
+      "D": "4 cm",
+      "E": "13 cm"
+    },
+    "correct_answer": "C",
+    "explanation": "By the intersecting-chords theorem, AP × PC = BP × PD, so 6 × 6 = 4 × PD, giving PD = 9 cm. Now P is the midpoint of chord AC, and chord BD is perpendicular to AC at P. The perpendicular drawn to a chord at its midpoint is the perpendicular bisector of that chord, and the centre of a circle always lies on the perpendicular bisector of any chord. Therefore the centre O lies on line BD, which means BD passes through the centre and is a diameter. Hence 2R = BD = BP + PD = 4 + 9 = 13 cm, so R = 6.5 cm.",
+    "option_analysis": {
+      "A": "Wrong: finds PD = 9 cm from the chord relation and stops there, reporting the segment PD as the radius.",
+      "B": "Wrong: assumes AC is a diameter because P is its midpoint, giving R = AC/2 = 12/2 = 6 cm; being bisected by another chord does not make AC pass through the centre.",
+      "C": "Correct: intersecting chords give PD = 36/4 = 9; since P is the midpoint of AC and BD ⟂ AC at P, line BD is the perpendicular bisector of AC and passes through the centre, so BD is a diameter, 2R = 4 + 9 = 13, R = 6.5 cm.",
+      "D": "Wrong: mispairs the segments as AP × BP = PC × PD (6 × 4 = 6 × PD → PD = 4), then treats BD = 8 as the diameter to get R = 4 cm; the correct pairing multiplies the two parts of the SAME chord.",
+      "E": "Wrong: correctly obtains the diameter BD = 13 cm but forgets to halve it to get the radius."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0086",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane (Euclidean) geometry",
+    "subtopic": "Alternate segment theorem with a tangent parallel to a chord (arc-midpoint isosceles triangle)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 175,
+    "tags": [
+      "alternate segment theorem",
+      "tangent",
+      "parallel chord",
+      "isosceles triangle",
+      "angle chasing"
+    ],
+    "learning_objective": "Combine the alternate-segment theorem with the fact that a tangent parallel to a chord meets the circle at the midpoint of the arc (forming an isosceles triangle) to complete an angle chase.",
+    "question": "The tangent to a circle at the point A is parallel to the chord BC of the same circle. A second chord AB is drawn, and the acute angle between the tangent and this chord AB is 58°. Find the size of the angle BAC of triangle ABC.",
+    "choices": {
+      "A": "116°",
+      "B": "58°",
+      "C": "122°",
+      "D": "64°",
+      "E": "32°"
+    },
+    "correct_answer": "D",
+    "explanation": "By the alternate-segment theorem, the angle between the tangent at A and the chord AB equals the inscribed angle in the alternate segment, namely angle ACB; hence angle ACB = 58°. Because the tangent at A is parallel to the chord BC, the point A is the midpoint of arc BC, so the arcs AB and AC are equal and therefore AB = AC. Triangle ABC is thus isosceles with angle ABC = angle ACB = 58°. The remaining angle is angle BAC = 180° − 58° − 58° = 64°.",
+    "option_analysis": {
+      "A": "Wrong: doubles the tangent–chord angle (2 × 58° = 116°), or sums the two equal base angles and mislabels the total as the apex angle BAC.",
+      "B": "Wrong: reports the alternate-segment (base) angle 58° directly as angle BAC, confusing a base angle of the isosceles triangle with its apex angle.",
+      "C": "Wrong: takes angle BAC as the supplement of the tangent–chord angle (180° − 58° = 122°), an unjustified supplementary assumption.",
+      "D": "Correct: alternate segment gives angle ACB = 58°; tangent parallel to BC makes triangle ABC isosceles (AB = AC), so angle ABC = 58° and angle BAC = 180° − 58° − 58° = 64°.",
+      "E": "Wrong: computes 90° − 58° = 32°, wrongly invoking a tangent–radius right angle at A that does not apply to angle BAC."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  }
+]

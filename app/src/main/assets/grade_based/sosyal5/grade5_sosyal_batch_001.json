@@ -1,0 +1,799 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "sosyal",
+  "questions": [
+    {
+      "stem": "Türkiye'nin başkenti hangi şehirdir?",
+      "options": ["Ankara", "İstanbul", "İzmir", "Bursa"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'nin başkenti Ankara'dır. İstanbul en büyük şehirdir ancak başkent değildir."
+    },
+    {
+      "stem": "Türkiye kaç komşu ülkeyle sınır paylaşmaktadır?",
+      "options": ["8", "6", "10", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Türkiye 8 ülkeyle kara sınırı paylaşır: Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Azerbaycan (Nahçıvan), İran, Irak ve Suriye."
+    },
+    {
+      "stem": "Türkiye'nin en uzun nehri aşağıdakilerden hangisidir?",
+      "options": ["Kızılırmak", "Fırat", "Sakarya", "Yeşilırmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["fiziki coğrafya"],
+      "explanation": "Kızılırmak, Türkiye'nin tamamen Türkiye sınırları içinde akan en uzun nehridir."
+    },
+    {
+      "stem": "Türkiye hangi yarımkıreye aittir? Doğrusunu seçin.",
+      "options": ["Kuzey Yarımküresi ve Doğu Yarımküresi", "Güney Yarımküresi ve Batı Yarımküresi", "Kuzey Yarımküresi ve Batı Yarımküresi", "Güney Yarımküresi ve Doğu Yarımküresi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["harita okuma"],
+      "explanation": "Türkiye, Ekvator'un kuzeyinde ve Greenwich'in doğusunda yer alır; Kuzey ve Doğu Yarımküre'dedir."
+    },
+    {
+      "stem": "Haritada gösterilen semboller ve işaretlerin açıklamalarının bulunduğu bölüme ne denir?",
+      "options": ["Lejant (harita anahtarı)", "Ölçek", "Kuzey oku", "Koordinat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Lejant: Haritada kullanılan renk, sembol ve işaretlerin anlamlarının açıklandığı kısımdır."
+    },
+    {
+      "stem": "Haritada 1 cm, gerçekte 100 km'ye eşit ise bu haritanın ölçeği nedir?",
+      "options": ["1/10.000.000", "1/100.000", "1/1.000.000", "1/10.000"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["ölçek hesabı"],
+      "explanation": "1 cm = 100 km = 10.000.000 cm → Ölçek: 1/10.000.000."
+    },
+    {
+      "stem": "Türkiye'nin hangi bölgesinde Karadeniz iklimi görülür?",
+      "options": ["Karadeniz Bölgesi", "İç Anadolu Bölgesi", "Güneydoğu Anadolu Bölgesi", "Ege Bölgesi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İklim",
+      "skills": ["iklim bilgisi"],
+      "explanation": "Karadeniz kıyılarında her mevsim yağışlı, ılıman Karadeniz iklimi görülür."
+    },
+    {
+      "stem": "Ülkemizde Akdeniz ikliminin görüldüğü bölgede hangi bitki örtüsü yaygındır?",
+      "options": ["Maki", "Bozkır (step)", "Tayga", "Tundra"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İklim ve bitki örtüsü",
+      "skills": ["iklim-bitki ilişkisi"],
+      "explanation": "Akdeniz iklimi bölgelerinde yazları kurak, kışları ılık ve yağışlı olduğundan maki bitki örtüsü yaygındır."
+    },
+    {
+      "stem": "Türk toplumunda aile büyüklerine saygı göstermek hangi değerle ilişkilidir?",
+      "options": ["Saygı ve hoşgörü", "Rekabet", "Bireysellik", "Bağımsızlık"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["değer analizi"],
+      "explanation": "Büyüklere saygı, Türk toplumunun temel kültürel değerlerinden olan saygı ve hoşgörü anlayışıyla bağlantılıdır."
+    },
+    {
+      "stem": "Türkiye Cumhuriyeti ne zaman kurulmuştur?",
+      "options": ["29 Ekim 1923", "19 Mayıs 1919", "23 Nisan 1920", "30 Ağustos 1922"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti, 29 Ekim 1923'te Mustafa Kemal Atatürk'ün önderliğinde ilan edilmiştir."
+    },
+    {
+      "stem": "Türkiye'nin devlet yönetim şekli nedir?",
+      "options": ["Cumhuriyet", "Monarşi", "Federasyon", "Oligarşi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Yönetim",
+      "skills": ["siyasi bilgi"],
+      "explanation": "Türkiye, egemenliğin halka ait olduğu cumhuriyet yönetim şekliyle yönetilmektedir."
+    },
+    {
+      "stem": "Türk milletinin egemenliği kimden aldığını belirten ilke nedir?",
+      "options": ["Egemenlik kayıtsız şartsız milletindir", "Egemenlik devletindir", "Egemenlik cumhurbaşkanınındır", "Egemenlik hükümetindir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yönetim",
+      "skills": ["anayasa bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti Anayasası'na göre 'Egemenlik kayıtsız şartsız milletindir.'"
+    },
+    {
+      "stem": "Ulusal Egemenlik ve Çocuk Bayramı hangi tarihte kutlanır?",
+      "options": ["23 Nisan", "29 Ekim", "19 Mayıs", "30 Ağustos"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Milli bayramlar",
+      "skills": ["bilgi"],
+      "explanation": "23 Nisan 1920'de Türkiye Büyük Millet Meclisi açılmış; bu gün Ulusal Egemenlik ve Çocuk Bayramı olarak kutlanmaktadır."
+    },
+    {
+      "stem": "Atatürk'ün 'Gençliğe Hitabe'sinde gençlere verdiği temel görev nedir?",
+      "options": ["Türk bağımsızlığını ve Cumhuriyeti korumak", "Ekonomiyi büyütmek", "Siyasete girmek", "Bilim adamı olmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "Atatürk, Gençliğe Hitabe'de Türk gençliğine Türk bağımsızlığını ve Cumhuriyeti her koşulda koruma görevini vermiştir."
+    },
+    {
+      "stem": "Türkiye'nin yüzölçümü açısından dünyadaki konumu aşağıdakilerden hangisidir?",
+      "options": ["Yüzölçümü açısından orta büyüklükteki ülkeler arasında yer alır", "Dünyanın en büyük ülkesidir", "Dünyanın en küçük ülkesidir", "Yüzölçümü Avrupa'nın en küçüğüdür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["karşılaştırma"],
+      "explanation": "Türkiye yaklaşık 783.000 km² yüzölçümüyle dünyada orta büyüklükte bir ülke olarak kabul edilir."
+    },
+    {
+      "stem": "Türkiye'nin nüfusunun büyük bir bölümü hangi bölgede toplanmıştır?",
+      "options": ["Batı ve Kuzeybatı (Marmara-Ege) bölgeleri", "Doğu Anadolu", "Güneydoğu Anadolu", "İç Anadolu'nun doğusu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus",
+      "skills": ["nüfus coğrafyası"],
+      "explanation": "Türkiye nüfusunun yoğunlaştığı bölgeler ekonomik açıdan gelişmiş olan Marmara, Ege ve Akdeniz kıyılarıdır."
+    },
+    {
+      "stem": "Bir ülkenin tarım alanının verimliliğini artıran doğal faktör aşağıdakilerden hangisidir?",
+      "options": ["Verimli toprak ve yeterli yağış", "Sanayileşme", "Nüfus yoğunluğu", "Eğitim seviyesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomik coğrafya",
+      "skills": ["analiz"],
+      "explanation": "Tarım verimi doğal faktörlere bağlıdır: verimli toprak, yeterli yağış ve uygun iklim tarımı doğrudan etkiler."
+    },
+    {
+      "stem": "Türkiye'nin en önemli tarım ürünlerinden biri olan buğday en çok hangi bölgede yetiştirilir?",
+      "options": ["İç Anadolu", "Karadeniz", "Akdeniz", "Ege"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım",
+      "skills": ["ekonomi coğrafyası"],
+      "explanation": "Buğday, geniş düzlükleri ve karasal iklimi nedeniyle en çok İç Anadolu Bölgesi'nde yetiştirilir."
+    },
+    {
+      "stem": "Küreselleşme kavramı en iyi aşağıdaki ifadelerden hangisiyle açıklanır?",
+      "options": ["Dünya genelinde ekonomi, kültür ve iletişimde giderek artan bağlantı ve bütünleşme", "Ülkelerin birbirinden tamamen ayrılması", "Tek bir kültürün dünyaya egemen olması", "Sanayi devriminin başlaması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Küreselleşme",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Küreselleşme; insanların, malların, fikirlerin ve bilginin ülkeler arasında hızla dolaşımıyla dünya ülkelerinin birbirine bağlandığı süreçtir."
+    },
+    {
+      "stem": "Türkiye'nin üyesi olduğu ekonomik örgüt aşağıdakilerden hangisidir?",
+      "options": ["NATO ve G20", "Avrupa Birliği", "ASEAN", "Afrika Birliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uluslararası ilişkiler",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye NATO üyesidir ve G20 üyeleri arasında yer alır. AB'ye aday ülke statüsünde olmakla birlikte tam üye değildir."
+    },
+    {
+      "stem": "İnsanların tarih öncesinde araç yapımında kullandıkları ilk malzeme nedir?",
+      "options": ["Taş", "Demir", "Bronz", "Bakır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarih öncesi dönemler",
+      "skills": ["kronoloji"],
+      "explanation": "Tarih öncesi ilk dönem 'Taş Devri'dir; insanlar ilk araç gereçlerini taştan yapmışlardır."
+    },
+    {
+      "stem": "İnsanlık tarihinin yazının icadıyla birlikte başladığı dönem hangisidir?",
+      "options": ["Tarih Çağları", "Taş Devri", "Tunç Devri", "Demir Devri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarih",
+      "skills": ["kronoloji"],
+      "explanation": "Yazının icadıyla başlayan dönem 'Tarih Çağları'dır; yazı öncesi dönem 'Tarih Öncesi' olarak adlandırılır."
+    },
+    {
+      "stem": "Türkiye'nin en önemli turizm gelirleri hangi faktörden kaynaklanmaktadır?",
+      "options": ["Tarihi miras, doğal güzellikler ve kıyı turizmi", "Sanayi üretimi", "Tarım ihracatı", "Maden çıkarımı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["analiz"],
+      "explanation": "Türkiye; zengin tarihi miras (Efes, Troya, vb.), doğal güzellikler ve uzun Akdeniz kıyıları sayesinde turizm gelirleri elde eder."
+    },
+    {
+      "stem": "Osmanlı Devleti'nin kurucusu kimdir?",
+      "options": ["Osman Bey", "Orhan Bey", "Fatih Sultan Mehmet", "Yavuz Sultan Selim"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Osmanlı tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Osmanlı Devleti, Osman Bey tarafından 1299 yılında kurulmuştur."
+    },
+    {
+      "stem": "İstanbul'un Osmanlılar tarafından fethedildiği yıl hangisidir?",
+      "options": ["1453", "1071", "1299", "1683"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Osmanlı tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "İstanbul, Fatih Sultan Mehmet tarafından 1453 yılında fethedilmiştir."
+    },
+    {
+      "stem": "Türkiye'de yaşayan insanların haklarını güvence altına alan temel belgesi nedir?",
+      "options": ["Anayasa", "Yönetmelik", "Tüzük", "Kanun hükmünde kararname"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hukuk",
+      "skills": ["anayasa bilgisi"],
+      "explanation": "Anayasa, bir devletin temel yasasıdır ve vatandaşların hak ve özgürlüklerini güvence altına alır."
+    },
+    {
+      "stem": "Türkiye Büyük Millet Meclisi'nde milletvekilleri nasıl seçilir?",
+      "options": ["Genel oy ile halk tarafından seçilir", "Cumhurbaşkanı tarafından atanır", "Bakanlar kurulu tarafından belirlenir", "Belediye başkanları tarafından seçilir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yönetim",
+      "skills": ["demokrasi bilgisi"],
+      "explanation": "Milletvekilleri, 18 yaş ve üzerindeki tüm vatandaşların oy kullandığı genel seçimle belirlenir."
+    },
+    {
+      "stem": "Bireyin içinde yaşadığı toplumun kurallarına ve diğer insanların haklarına saygı göstermesi hangi kavramı ifade eder?",
+      "options": ["Vatandaşlık sorumluluğu", "Bireysel özgürlük", "Rekabet", "Liderlik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Vatandaşlık sorumluluğu: Toplumun kurallarına uymak, başkalarının haklarına saygı göstermek ve topluma katkıda bulunmaktır."
+    },
+    {
+      "stem": "Türkiye'de sosyal güvenlik sistemi neyi kapsar?",
+      "options": ["Hastalık, emeklilik ve iş kazaları gibi durumlarda vatandaşları korumayı", "Yalnızca emeklilik", "Yalnızca hastalık sigortası", "Yalnızca kamu görevlilerini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["bilgi"],
+      "explanation": "Sosyal güvenlik; hastalık, iş kazası, emeklilik ve işsizlik gibi risklere karşı vatandaşları güvence altına alan sistemdir."
+    },
+    {
+      "stem": "Türkiye'de insan hakları konusunda temel güvence hangi belgede yer alır?",
+      "options": ["Türkiye Cumhuriyeti Anayasası", "İl Yönetmeliği", "Vergi Kanunu", "Tüketici Hakları Kanunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan hakları",
+      "skills": ["anayasa bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti Anayasası'nın 2. bölümü temel hak ve hürriyetleri düzenler."
+    },
+    {
+      "stem": "Coğrafi bölgeler, insanların yaşam biçimini nasıl etkiler?",
+      "options": ["Farklı coğrafi özellikler; barınma, geçim kaynakları ve kültürü şekillendirir", "Coğrafi bölgeler yaşam biçimini etkilemez", "Yalnızca nüfusu etkiler", "Yalnızca ekonomiyi etkiler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafya-yaşam ilişkisi",
+      "skills": ["analiz"],
+      "explanation": "Coğrafi koşullar (iklim, toprak, yer şekilleri) insanların barınma biçimini, geçim kaynaklarını ve kültürel alışkanlıklarını doğrudan belirler."
+    },
+    {
+      "stem": "Bir ülkenin ihracatı nedir?",
+      "options": ["Yurt dışına satılan mal ve hizmetler", "Yurt dışından alınan mal ve hizmetler", "Ülke içindeki üretim", "Vergi gelirleri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İhracat: Bir ülkenin ürettiği mal ve hizmetleri başka ülkelere satmasıdır."
+    },
+    {
+      "stem": "Doğal kaynaklar aşağıdakilerin hangisini içerir?",
+      "options": ["Su, orman, maden ve güneş enerjisi", "Fabrikalar ve makineler", "Para ve finans kaynakları", "İnsan işgücü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğal kaynaklar",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Doğal kaynaklar; doğada kendiliğinden bulunan su, orman, maden ve güneş gibi varlıklardır."
+    },
+    {
+      "stem": "Türkiye'de öğrencilerin eğitim hayatı zorunlu olarak kaç yılı kapsar?",
+      "options": ["12 yıl", "8 yıl", "5 yıl", "9 yıl"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'de zorunlu eğitim 12 yıldır: 4 yıl ilkokul + 4 yıl ortaokul + 4 yıl lise."
+    },
+    {
+      "stem": "Atatürk'ün 'Hayatta en hakiki mürşit ilimdir.' sözünün temel mesajı nedir?",
+      "options": ["Hayatı yönlendiren en gerçek rehber bilimdir", "Din en önemli rehberdir", "Gelenek en doğru yoldur", "Siyaset en iyi rehberdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "Atatürk, bu sözüyle bilim ve akılcılığı hayatın temel rehberi olarak göstermektedir."
+    },
+    {
+      "stem": "Türkiye'nin en yüksek dağı hangisidir ve hangi bölgededir?",
+      "options": ["Ağrı Dağı – Doğu Anadolu", "Erciyes Dağı – İç Anadolu", "Uludağ – Marmara", "Kaçkar Dağı – Karadeniz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiziki coğrafya",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Ağrı Dağı (5.137 m), Türkiye'nin en yüksek zirvesidir ve Doğu Anadolu Bölgesi'ndedir."
+    },
+    {
+      "stem": "Aşağıdaki şehirlerden hangisi Ege Bölgesi'ndedir?",
+      "options": ["İzmir", "Trabzon", "Gaziantep", "Konya"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["bölge bilgisi"],
+      "explanation": "İzmir, Ege Bölgesi'nin en büyük şehridir."
+    },
+    {
+      "stem": "Türkiye'de okul öncesi eğitimden yükseköğretime kadar süren eğitim kademesini sıralayan seçenek hangisidir?",
+      "options": ["Okul öncesi – İlkokul – Ortaokul – Lise – Üniversite", "İlkokul – Ortaokul – Lise", "Okul öncesi – Lise – Üniversite", "Ortaokul – Lise – Üniversite"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim sistemi",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye eğitim kademeleri: Okul öncesi → İlkokul (4 yıl) → Ortaokul (4 yıl) → Lise (4 yıl) → Üniversite."
+    },
+    {
+      "stem": "Türkiye'nin Orta Doğu ülkelerine olan coğrafi yakınlığı dış politika açısından ne anlam taşır?",
+      "options": ["Bölgesel ilişkilerde daha aktif rol oynamayı gerektirir", "Hiçbir önemi yoktur", "Türkiye'yi izole eder", "Ticaretin azalmasına yol açar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafi konum",
+      "skills": ["analiz"],
+      "explanation": "Coğrafi konum, diplomatik ilişkileri, ticareti ve güvenlik politikalarını doğrudan etkiler; Türkiye'nin komşularıyla güçlü ilişkiler kurması stratejik bir zorunluluktur."
+    },
+    {
+      "stem": "Kültürel miras nedir?",
+      "options": ["Geçmişten bugüne taşınan maddi ve manevi değerler, eserler ve gelenekler", "Yalnızca müzeler", "Yalnızca binalar ve anıtlar", "Sadece efsaneler ve masallar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel miras",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Kültürel miras; önceki kuşaklardan devralınan dil, gelenek, sanat eserleri, mimari ve değerleri kapsar."
+    },
+    {
+      "stem": "Türkiye'nin İstanbul'da bulunan UNESCO Dünya Mirası alanları arasında hangisi yer almaz?",
+      "options": ["Çanakkale Boğazı", "Ayasofya çevresi", "Topkapı Sarayı", "Süleymaniye Camii çevresi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel miras",
+      "skills": ["bilgi"],
+      "explanation": "İstanbul Tarihi Alanları UNESCO listesindedir; Çanakkale Boğazı bu listede ayrı bir alan değildir."
+    },
+    {
+      "stem": "Yer altı kaynakları (madenler) bir ülke için neden önemlidir?",
+      "options": ["Sanayinin hammaddesi olur ve ekonomiye katkı sağlar", "Sadece ihracat için değerlidir", "Yalnızca bina inşaatında kullanılır", "Tarımsal verimi artırır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğal kaynaklar",
+      "skills": ["analiz"],
+      "explanation": "Maden kaynakları sanayide hammadde olarak kullanılır, ihracat geliri sağlar ve ülke ekonomisini güçlendirir."
+    },
+    {
+      "stem": "Nüfus yoğunluğu neyi ifade eder?",
+      "options": ["Birim alana düşen insan sayısı", "Bir ülkedeki toplam insan sayısı", "Bir şehrin büyüklüğü", "Nüfusun yaş dağılımı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Nüfus yoğunluğu: Belirli bir alana (genellikle km²) düşen kişi sayısını ifade eder."
+    },
+    {
+      "stem": "Bir bölgede nüfusun seyrek olmasının nedeni aşağıdakilerden hangisi olabilir?",
+      "options": ["Sert iklim, çorak toprak ve ulaşım güçlükleri", "Büyük şehirlerin varlığı", "Verimli tarım arazileri", "Fabrikaların çok olması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus",
+      "skills": ["analiz"],
+      "explanation": "Sert iklim, tarıma elverişsiz toprak ve ulaşım güçlüğü nüfusu azaltan itici faktörlerdir."
+    },
+    {
+      "stem": "Türkiye'de göç hareketleri genellikle hangi yönde gerçekleşir?",
+      "options": ["Kırdan kente (köyden şehre)", "Şehirden köye", "Doğudan Batıya ve değişkendir", "Yalnızca Batıdan Doğuya"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus hareketleri",
+      "skills": ["analiz"],
+      "explanation": "Türkiye'de sanayileşme ve iş imkânlarıyla birlikte kırdan kente iç göç yoğunluk kazanmıştır."
+    },
+    {
+      "stem": "Türkiye'nin jeopolitik konumu neden önemlidir?",
+      "options": ["Asya ile Avrupa arasında köprü konumundadır; kara ve deniz yolları üzerindedir", "Yalnızca turizm açısından önemlidir", "İzole bir coğrafyaya sahiptir", "Deniz bağlantısı yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafi konum",
+      "skills": ["analiz"],
+      "explanation": "Türkiye, Anadolu'da Asya ve Avrupa'nın kesiştiği bir noktada olup önemli ticaret ve ulaşım güzergâhları üzerindedir."
+    },
+    {
+      "stem": "İnsanların çevresini koruma sorumluluğu hangi kavramla ifade edilir?",
+      "options": ["Çevre bilinci ve sürdürülebilirlik", "Sanayileşme", "Kentleşme", "Modernleşme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre ve sürdürülebilirlik",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Çevre bilinci ve sürdürülebilirlik; doğal kaynakları koruyarak gelecek nesillere aktarma sorumluluğunu ifade eder."
+    },
+    {
+      "stem": "Ormansızlaşmanın (ormanların yok edilmesinin) çevreye etkisi nedir?",
+      "options": ["Erozyon artar, su kaynakları azalır ve iklim değişikliği hızlanır", "Tarım verimi artar", "Nüfus azalır", "Sanayi gelişir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre",
+      "skills": ["analiz"],
+      "explanation": "Ormanlar toprak tutma, yağış düzenleme ve karbon depolama işlevi görür; yok edilince erozyon ve iklim sorunları ortaya çıkar."
+    },
+    {
+      "stem": "Türkiye hangi denizlerle çevrilidir?",
+      "options": ["Karadeniz, Marmara, Ege ve Akdeniz", "Adriyatik, Karadeniz ve Ege", "Hint Okyanusu, Akdeniz ve Ege", "Kızıldeniz, Akdeniz ve Karadeniz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Türkiye; kuzeyde Karadeniz, kuzeybatıda Marmara, batıda Ege ve güneyde Akdeniz ile çevrilidir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi bir ülkenin kalkınmasını ölçmek için kullanılan göstergelerden biridir?",
+      "options": ["Kişi başına düşen gayri safi yurt içi hasıla (GSYİH)", "Yalnızca nüfus büyüklüğü", "Yalnızca askeri güç", "Şehir sayısı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "GSYİH ve kişi başına düşen gelir, bir ülkenin ekonomik gelişmişlik düzeyini gösteren temel göstergelerdir."
+    },
+    {
+      "stem": "Türkiye'de pazar ekonomisi ne demektir?",
+      "options": ["Fiyatların arz ve talebe göre oluştuğu, bireylerin serbest ticaret yaptığı ekonomi", "Devletin tüm fiyatları belirlediği ekonomi", "Tarıma dayalı ekonomi", "Yalnızca devlet işletmelerinin bulunduğu ekonomi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Piyasa ekonomisinde fiyatlar arz ve talep dengesine göre belirlenir; bireyler ve şirketler serbest ticaret yapar."
+    },
+    {
+      "stem": "Tarihte ilk yazılı kanunların hazırlandığı uygarlık hangisidir?",
+      "options": ["Sümerler (Hammurabi Kanunları – Babil)", "Mısırlılar", "Romalılar", "Persler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Dünya tarihinin ilk yazılı kanun metinleri arasında Hammurabi Kanunları önemli bir yere sahiptir; Mezopotamya'da Babil uygarlığına aittir."
+    },
+    {
+      "stem": "Türkiye'de seçme ve seçilme hakkı kaçıncı yaştan itibaren kullanılır?",
+      "options": ["18 yaşında seçme; seçilme için farklı koşullar", "21 yaşında", "25 yaşında", "16 yaşında"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["anayasa bilgisi"],
+      "explanation": "Türkiye'de 18 yaşını dolduran her vatandaş oy kullanabilir. Milletvekili olmak için 18 yaş şartı aranmaktadır."
+    },
+    {
+      "stem": "Türkiye'de belirli hizmetlerin sunumundan ve kamu düzeninden sorumlu olan temel birim hangisidir?",
+      "options": ["Belediye (yerel yönetim)", "Yalnızca merkezi hükümet", "Yalnızca muhtarlık", "Yalnızca valilik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yönetim",
+      "skills": ["bilgi"],
+      "explanation": "Belediyeler; su, ulaşım, temizlik ve park gibi yerel hizmetleri yürüten yerel yönetim birimleridir."
+    },
+    {
+      "stem": "Bir toplumda birbirini tanımayan iki kişi farklı adet ve geleneklere sahip olabilir. Bu durum neyi gösterir?",
+      "options": ["Kültürel çeşitliliği", "Toplumsal bozukluğu", "Yanlış eğitimi", "Ekonomik eşitsizliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel çeşitlilik",
+      "skills": ["sosyal kavram"],
+      "explanation": "Farklı adet ve geleneklere sahip bireyler, toplumun kültürel zenginliğini ve çeşitliliğini yansıtır."
+    },
+    {
+      "stem": "Orta Doğu coğrafyasında çöl ikliminin neden yaygın olduğunu açıklayan temel faktör nedir?",
+      "options": ["Düşük yağış miktarı ve subtropikal yüksek basınç kuşakları", "Denizden uzaklık yok", "Aşırı nüfus yoğunluğu", "Tarım faaliyetleri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya coğrafyası",
+      "skills": ["iklim analizi"],
+      "explanation": "Orta Doğu'da subtropikal yüksek basınç kuşakları ve az yağış çöl ikliminin oluşmasına yol açar."
+    },
+    {
+      "stem": "Türkiye'de 'Kurtuluş Savaşı' hangi yıllar arasında verilmiştir?",
+      "options": ["1919-1922", "1914-1918", "1923-1930", "1908-1913"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Kurtuluş Savaşı 1919'da başlamış ve 1922 yılında Türk kuvvetlerinin zaferiyle sona ermiştir."
+    },
+    {
+      "stem": "Atatürk'ün laiklik ilkesi neyi amaçlar?",
+      "options": ["Din işlerini devlet işlerinden ayırarak bireysel din özgürlüğünü güvence altına almak", "Dini tamamen yasaklamak", "Yalnızca bir dini resmi kabul etmek", "Devletin dini kurumları yönetmesini sağlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "Laiklik; din ve devlet işlerinin birbirinden ayrılması, bireyin inanç özgürlüğünün güvence altına alınması demektir."
+    },
+    {
+      "stem": "Türk alfabesi (Latin harfleri) hangi yılda kabul edilmiştir?",
+      "options": ["1928", "1923", "1934", "1920"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Harf devrimi 1928 yılında gerçekleştirilmiş; Arap alfabesi bırakılmış, Latin alfabesine geçilmiştir."
+    },
+    {
+      "stem": "Türkiye'de Çanakkale Savaşı'nın önemi nedir?",
+      "options": ["Türk milletinin Kurtuluş Savaşı'na zemin hazırladı ve ulusal ruhu pekiştirdi", "Osmanlı'nın I. Dünya Savaşı'nı kazandığı savaştır", "Rus ordusunun mağlup edildiği savaştır", "Cumhuriyetin ilan edildiği savaştır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["analiz"],
+      "explanation": "Çanakkale Savaşı (1915-1916), Türk milletinin yok olmamak için büyük fedakârlıkla verdiği bir savunma savaşıdır; ulusal kimliğin güçlenmesinde kritik rol oynadı."
+    },
+    {
+      "stem": "Bir ülkenin ekonomisi için neden ihracat önemlidir?",
+      "options": ["Döviz kazandırır, istihdamı artırır ve büyümeyi destekler", "Ülkeye mal girişini sağlar", "Yalnızca ham madde temin eder", "İthalatı artırır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["analiz"],
+      "explanation": "İhracat; ülkeye döviz girdisi sağlar, üretimi artırır, istihdam yaratır ve ekonomik büyümeyi destekler."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi doğal afet türlerinden biridir?",
+      "options": ["Deprem", "Trafik kazası", "Yangın (insan kaynaklı)", "Savaş"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Doğal afetler",
+      "skills": ["bilgi"],
+      "explanation": "Deprem, volkanik patlama, sel, tsunami doğal afetlerdir; insan kaynaklı olanlar doğal afet değildir."
+    },
+    {
+      "stem": "Türkiye'de deprem riskinin yüksek olmasının nedeni nedir?",
+      "options": ["Levha sınırlarında (fay hatları üzerinde) yer alması", "Çok yağış alması", "Sanayi faaliyetleri", "Nüfus yoğunluğu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğal afetler",
+      "skills": ["coğrafya analizi"],
+      "explanation": "Türkiye, Avrasya ve Afrika levhalarının sınırında yer alır; bu durum yoğun deprem aktivitesine neden olur."
+    },
+    {
+      "stem": "Yenilenebilir enerji kaynaklarına neden ihtiyaç duyulmaktadır?",
+      "options": ["Fosil yakıtlar tükeniyor ve çevre kirliliğine yol açıyor; yenilenebilir kaynaklar sürdürülebilir", "Fosil yakıtlar çok pahalıdır", "Yenilenebilir enerji daha az enerji üretir", "Fosil yakıtlar kirletmiyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji ve çevre",
+      "skills": ["analiz"],
+      "explanation": "Fosil yakıtların tükenmesi ve çevre kirliliği; sürdürülebilir, yenilenebilir enerji kaynaklarına geçişi zorunlu kılmaktadır."
+    },
+    {
+      "stem": "Medya araçları (televizyon, internet, gazete) toplumdaki işlevi açısından hangisidir?",
+      "options": ["Bilgi paylaşımı, kamuoyu oluşturma ve insanları haberdar etme", "Yalnızca eğlence sağlama", "Ekonomik üretim yapma", "Siyasi kararlar alma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Medya",
+      "skills": ["medya okuryazarlığı"],
+      "explanation": "Medya; bilgiyi yayar, kamuoyunu şekillendirir, insanları gelişmelerden haberdar eder ve demokratik süreçlerin bir parçasıdır."
+    },
+    {
+      "stem": "Türkiye'de bir vatandaşın temel görevlerinden biri aşağıdakilerden hangisidir?",
+      "options": ["Vergi ödemek ve kanunlara uymak", "Yalnızca oy kullanmak", "Yalnızca askere gitmek", "Yalnızca devleti eleştirmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["anayasa bilgisi"],
+      "explanation": "Vergi ödemek, kanunlara uymak, seçimlere katılmak ve devletin çağrısına uymak temel vatandaşlık görevleri arasındadır."
+    },
+    {
+      "stem": "İnsanlar arası iletişimi kolaylaştıran ve insanları birbirine bağlayan en temel araç nedir?",
+      "options": ["Dil", "Para", "Teknoloji", "Ulaşım"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İletişim",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Dil, insanların birbirleriyle iletişim kurmasını, bilgi paylaşmasını ve kültür aktarmasını sağlayan temel araçtır."
+    },
+    {
+      "stem": "Türkiye'de nüfus sayımı neden yapılır?",
+      "options": ["Nüfusun büyüklüğünü, dağılımını ve özelliklerini belirleyerek kamu hizmetlerini planlamak için", "Vergi toplamak için", "Seçim bölgelerini belirlemek için", "Yalnızca göçü kayıt altına almak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus",
+      "skills": ["analiz"],
+      "explanation": "Nüfus sayımı; eğitim, sağlık, ulaşım gibi kamu hizmetlerinin planlanması için nüfus büyüklüğünü ve özelliklerini tespit etmeye yarar."
+    },
+    {
+      "stem": "Aşağıdaki tanımların hangisi 'harita' için en doğrudur?",
+      "options": ["Yeryüzünün veya bir bölümünün küçültülerek düzlem üzerine aktarılmış çizimi", "Fotoğraf", "Üç boyutlu model", "Uydu görüntüsü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Harita: Yeryüzünün tamamının ya da bir bölümünün belirli ölçek ve sembollerle düz bir yüzeye aktarılmış temsilidir."
+    },
+    {
+      "stem": "Türkiye'de tarih boyunca birçok uygarlığın yaşamasının temel nedeni aşağıdakilerden hangisidir?",
+      "options": ["Avrupa ve Asya arasında köprü konumda olması, verimli topraklar ve iklim çeşitliliği", "Yalnızca deniz kıyısında olması", "Sert iklim koşulları", "Az nüfuslu olması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["analiz"],
+      "explanation": "Anadolu'nun verimli toprakları, ticaret yolları üzerindeki konumu ve iklim çeşitliliği pek çok uygarlığı bu topraklara çekmiştir."
+    },
+    {
+      "stem": "Bir ülkede demokratik yönetim anlayışının temel ilkesi nedir?",
+      "options": ["Egemenliğin halka ait olması ve çoğunluğun azınlık haklarına saygı göstermesi", "Güçlü liderin her şeye karar vermesi", "Çoğunluğun azınlığı ezebilmesi", "Yalnızca ekonomik büyüme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Demokraside egemenlik halkındır; çoğunluk ilkesi geçerlidir ancak azınlık hakları da korunur."
+    },
+    {
+      "stem": "Bir çocuğun eğitim hakkı hangi tür bir haktır?",
+      "options": ["Temel insan hakkı", "Sadece zenginlere tanınan hak", "Ülkeye göre değişen bir ayrıcalık", "Yalnızca yetişkinlere ait hak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan hakları",
+      "skills": ["analiz"],
+      "explanation": "Eğitim hakkı, BM İnsan Hakları Evrensel Beyannamesi'nde de güvence altına alınmış temel bir insan hakkıdır."
+    },
+    {
+      "stem": "İpek Yolu tarihsel açıdan neden önemlidir?",
+      "options": ["Asya, Orta Doğu ve Avrupa arasında ticaret, kültür ve fikir alışverişini sağlamıştır", "Yalnızca ipek taşımak için kullanılmıştır", "Osmanlı tarafından kurulmuştur", "Deniz ticaretini engellemiştir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya tarihi",
+      "skills": ["analiz"],
+      "explanation": "İpek Yolu; binlerce yıl boyunca doğu-batı ticaretini, kültür alışverişini ve teknoloji transferini sağlayan tarihi ticaret güzergâhıdır."
+    },
+    {
+      "stem": "Türk kültüründe 'misafirperverlik' ne anlam taşır?",
+      "options": ["Konuklara sıcak davranmak ve onları iyi ağırlamak", "Misafirleri reddetmek", "Yalnızca akrabaları ziyaret etmek", "Para karşılığı hizmet sunmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kültürel değerler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Misafirperverlik; Türk kültüründe konukları gönülden karşılamak ve onları en iyi şekilde ağırlamaktır."
+    },
+    {
+      "stem": "Türkiye'nin coğrafi yapısı tarım üretimini nasıl etkiler?",
+      "options": ["Farklı iklim ve toprak yapısı çeşitli tarım ürünlerinin yetiştirilmesine olanak tanır", "Dağlık arazi her yerde tarımı kolaylaştırır", "Karasal iklim her bölgede verimli tarım sağlar", "Deniz kenarı olması tarımı engeller"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım",
+      "skills": ["analiz"],
+      "explanation": "Türkiye'nin çeşitli iklim ve toprak yapısı; farklı bölgelerde pamuk, fındık, buğday, zeytin, çay gibi çok çeşitli ürünlerin yetiştirilmesine imkân tanır."
+    },
+    {
+      "stem": "Dünya üzerindeki yerleri bulmamıza yarayan koordinat sistemi hangi çizgilerden oluşur?",
+      "options": ["Enlem ve boylam çizgilerinden", "Yalnızca enlemlerden", "Yalnızca boylamlardan", "Kuzey ve güney kutup çizgilerinden"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Koordinat sistemi; yatay enlem (paralel) ve dikey boylam (meridyen) çizgilerinden oluşur."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi sürdürülebilir kalkınma için yapılabilecek en iyi eylemdir?",
+      "options": ["Doğal kaynakları gelecek nesiller düşünülerek tasarruflu kullanmak", "Hızlı büyüme için tüm ormanları kesmek", "Endüstriyi sadece kısa vadeli büyüme için planlamak", "Enerji kullanımını tamamen durdurmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sürdürülebilirlik",
+      "skills": ["analiz"],
+      "explanation": "Sürdürülebilir kalkınma; bugünün ihtiyaçlarını karşılarken gelecek nesillerin kaynaklarını tüketmemeyi hedefler."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi Türkiye'ye özgü bir el sanatıdır?",
+      "options": ["Çini sanatı ve halıcılık", "Japon origami", "Çin porselen sanatı", "Fransız danteli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel miras",
+      "skills": ["kültür bilgisi"],
+      "explanation": "Türk çini sanatı ve el dokuma halıcılığı, Türkiye'nin dünyaca tanınan özgün el sanatları arasında yer alır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'insan yapımı' (yapay) bir çevre unsurudur?",
+      "options": ["Köprü", "Dağ", "Nehir", "Orman"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çevre",
+      "skills": ["doğal-yapay ayrımı"],
+      "explanation": "Köprü insan yapımıdır. Dağ, nehir ve orman doğal çevre unsurlarıdır."
+    },
+    {
+      "stem": "Atatürk'ün 'Millî Mücadele'yi başlatmasının temel nedeni neydi?",
+      "options": ["Anadolu'nun işgaline son vererek Türk milletinin bağımsızlığını kazanmak", "Osmanlı hanedanını kurtarmak", "Yeni topraklar fethetmek", "Ekonomik büyüme sağlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["analiz"],
+      "explanation": "Atatürk, I. Dünya Savaşı sonrası Anadolu'nun işgali üzerine ulusal bağımsızlığı kurtarmak için Millî Mücadele'yi başlattı."
+    },
+    {
+      "stem": "Sosyal bilgiler dersinin temel amacı nedir?",
+      "options": ["Öğrencileri bilinçli vatandaşlar olarak yetiştirmek; tarih, coğrafya, ekonomi ve vatandaşlık becerilerini kazandırmak", "Yalnızca tarih ezberletmek", "Yalnızca harita okumayı öğretmek", "Matematik bilgisi vermek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal bilgiler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Sosyal bilgiler; eleştirel düşünen, tarih bilinci olan, sorumlu vatandaşlar yetiştirmeyi amaçlar."
+    },
+    {
+      "stem": "Birleşmiş Milletler (BM) hangi amaçla kurulmuştur?",
+      "options": ["Uluslararası barış ve güvenliği sağlamak, ülkeler arasında iş birliğini geliştirmek", "Ekonomik rekabeti artırmak", "Yalnızca silahlanma anlaşmaları yapmak", "Ülkeleri birleştirerek tek devlet oluşturmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uluslararası ilişkiler",
+      "skills": ["bilgi"],
+      "explanation": "BM, 1945'te II. Dünya Savaşı'nın ardından uluslararası barış, güvenlik ve insan hakları için iş birliği amacıyla kurulmuştur."
+    },
+    {
+      "stem": "Toplumda farklı düşüncelere saygı göstermek ve herkesin fikir özgürlüğüne sahip olması hangi ilkeye dayanır?",
+      "options": ["Hoşgörü ve çoğulculuk", "Birlik ve beraberlik", "Otoriteye itaat", "Çoğunluk kuralı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Hoşgörü ve çoğulculuk; farklı görüşlere, inançlara ve yaşam biçimlerine saygı göstermeyi içerir; demokratik toplumların temel ilkesidir."
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisi önce gerçekleşmiştir?",
+      "options": ["Osmanlı Devleti'nin kuruluşu (1299)", "İstanbul'un fethi (1453)", "Türkiye Cumhuriyeti'nin ilanı (1923)", "Harf devrimi (1928)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kronoloji",
+      "skills": ["tarih sıralaması"],
+      "explanation": "Kronolojik sıra: 1299 (Osmanlı'nın kuruluşu) → 1453 (İstanbul'un fethi) → 1923 (Cumhuriyetin ilanı) → 1928 (Harf devrimi). İlk olan 1299."
+    },
+    {
+      "stem": "Türkiye'nin enerji ihtiyacını karşılamak için geliştirdiği yenilenebilir kaynaklardan biri hangisidir?",
+      "options": ["Rüzgâr ve güneş enerjisi tesisleri", "Yalnızca petrol", "Yalnızca nükleer enerji", "Yalnızca kömür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye son yıllarda rüzgâr ve güneş enerjisi kapasitesini önemli ölçüde artırarak yenilenebilir kaynaklara yönelmiştir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi Türkiye'de kutlanan resmî milli bayramlardan biri değildir?",
+      "options": ["Nevruz Bayramı (resmi tatil değil)", "Cumhuriyet Bayramı", "Zafer Bayramı", "Atatürk'ü Anma Günü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli bayramlar",
+      "skills": ["bilgi"],
+      "explanation": "Nevruz Türkiye'de kutlanmakla birlikte resmî millî bayram statüsünde değildir. Cumhuriyet, Zafer Bayramı ve 19 Mayıs resmî bayramlardır."
+    },
+    {
+      "stem": "Türkiye'nin Kapadokya bölgesi özellikle neyle tanınır?",
+      "options": ["Peri bacaları ve yeraltı şehirleri gibi eşsiz doğal ve tarihi oluşumlarıyla", "Ege kıyıları", "Karadeniz ormanları", "Bozkır stebi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Kapadokya; volkanik kayaçların erozyonuyla oluşan peri bacaları ve tarihi yeraltı şehirleriyle dünyada eşsiz bir bölgedir."
+    },
+    {
+      "stem": "Bir ülkede bireysel hak ve özgürlüklerin güvence altına alınması için hangi mekanizma temel rol oynar?",
+      "options": ["Bağımsız yargı", "Ordu", "Ticaret odaları", "Medya"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hukuk ve adalet",
+      "skills": ["analiz"],
+      "explanation": "Bağımsız yargı; kişilerin haklarını korur, hukukun üstünlüğünü sağlar ve devlet erkini denetler."
+    }
+  ]
+}

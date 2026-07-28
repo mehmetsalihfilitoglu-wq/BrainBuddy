@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen5_0350",
+      "stem": "Karanlık odada el feneriyle duvara ışık tutulduğunda düz bir çizgi halinde ilerlediği gözlemlendi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Işık eğri yayılır",
+        "Işık sadece havada yayılır",
+        "Işık duvardan geri dönmez",
+        "Işık doğrusal (düz çizgi) yayılır"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işık doğrusal (düz çizgi) yayılır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0350",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0351",
+      "stem": "Işık opak (saydam olmayan) cisimden geçemez; gölge oluşur. Saydam cisimden geçer.\n\nBu bilgiye göre gölge oluşumunun koşulu nedir?",
+      "options": [
+        "Işığın az olması",
+        "Işığın opak cisim tarafından engellenmesi",
+        "Kaynağın yakın olması",
+        "Cismin büyük olması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işığın opak cisim tarafından engellenmesi\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0351",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0352",
+      "stem": "Işık kaynağına yaklaştıkça gölgenin büyüdüğü, uzaklaştıkça küçüldüğü deneyle gösterildi.\n\nBu gözlemin sebebi aşağıdakilerden hangisidir?",
+      "options": [
+        "Kaynak uzaklığı gölge boyunu etkiler",
+        "Gölge her zaman aynı büyüklüktedir",
+        "Cismin rengi gölgeyi etkiler",
+        "Işık miktarı değişmez"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kaynak uzaklığı gölge boyunu etkiler\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0352",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0353",
+      "stem": "Işık ayna yüzeyinden yansıdığında gelen açı ile yansıyan açının eşit olduğu deneyle gösterildi.\n\nBu deneyin yorumu aşağıdakilerden hangisidir?",
+      "options": [
+        "Işık düzgün yansımada gelme açısı = yansıma açısı",
+        "Işık kırılır",
+        "Açılar farklıdır",
+        "Ayna ışığı soğurur"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işık düzgün yansımada gelme açısı = yansıma açısı\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0353",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0354",
+      "stem": "Işık saydam maddelerden (cam, su) geçerken kırıldığı gözlemlendi. Kalem suda kırık göründü.\n\nBu gözlemin nedeni nedir?",
+      "options": [
+        "Kalem kırılmıştır",
+        "Suyun rengi değişmiştir",
+        "Işığın farklı ortamlarda farklı hızda ilerlemesi, kırılma",
+        "Işık kırılmaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "deney_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işığın farklı ortamlarda farklı hızda ilerlemesi, kırılma\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0354",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0355",
+      "stem": "Işığın beyaz ışık olduğunda prizmadan geçirilince gökkuşağı renklerine ayrıldığı deneyle gösterildi.\n\nBu deneyin sonucu nedir?",
+      "options": [
+        "Beyaz ışık farklı renklerin birleşimidir",
+        "Renkler ışıktan bağımsızdır",
+        "Prizma renk üretir",
+        "Işık tek renktir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Beyaz ışık farklı renklerin birleşimidir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0355",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0356",
+      "stem": "Işık kirliliğinin gece gökyüzünü aydınlatarak yıldızların görünmesini engellediği belirtildi.\n\nIşık kirliliğini azaltmak için ne yapılmalıdır?",
+      "options": [
+        "Tüm ışıkları kapatmak",
+        "Işık kirliliği önlenemez",
+        "Sadece ev içinde ışık kullanmak",
+        "Gereksiz dış aydınlatmayı azaltmak, ışığı yukarı değil yere yönlendirmek"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Gereksiz dış aydınlatmayı azaltmak, ışığı yukarı değil yere yönlendirmek\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0356",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0357",
+      "stem": "Karanlık odada el feneriyle duvara ışık tutulduğunda düz bir çizgi halinde ilerlediği gözlemlendi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Işık duvardan geri dönmez",
+        "Işık sadece havada yayılır",
+        "Işık doğrusal (düz çizgi) yayılır",
+        "Işık eğri yayılır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "grafik_yorumlama",
+      "topic": "isigin_yayilmasi",
+      "skills": [
+        "isigin_yay",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işık doğrusal (düz çizgi) yayılır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0357",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0358",
+      "stem": "Sesin duvara çarpıp geri dönmesi (eko) deneyinde uzak duvarda gecikme daha fazlaydı.\n\nBu gözlemin açıklaması nedir?",
+      "options": [
+        "Uzaklık sesi etkilemez",
+        "Eko sadece dağda olur",
+        "Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar",
+        "Ses duvardan geçer"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0358",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0359",
+      "stem": "Farklı kalınlıktaki tellerden çıkan sesler karşılaştırıldı. İnce tel daha tiz ses çıkardı.\n\nBu deneye göre sesin tizliği (perdesi) ile ilgili hangi ilişki kurulabilir?",
+      "options": [
+        "Ses tizliği ısıya bağlıdır",
+        "Kalın teller daha tiz ses çıkarır",
+        "Tüm teller aynı sesi çıkarır",
+        "Titreşen cisim inceyse ses tiz, kalınsa pes olur"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "sebep_sonuc",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Titreşen cisim inceyse ses tiz, kalınsa pes olur\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0359",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

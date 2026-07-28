@@ -1,0 +1,448 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir mağaza sezon sonu kampanyası düzenlemektedir. Etiket fiyatı 200 TL olan bir çantaya %20 indirim uygulanacaktır. Müşteri önce indirim tutarını hesaplayabilir, ardından indirimli fiyatı bulabilir. Buna göre çantanın indirimli satış fiyatı kaç TL olur?",
+      "options": [
+        "140",
+        "150",
+        "160",
+        "170"
+      ],
+      "answerIndex": 2,
+      "explanation": "%20 indirim → 0,80 ile çarpım. 200×0,80=160 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir spor kulübünün aylık üyelik aidatı 150 TL'dir. Kulüp yönetimi malzeme maliyetlerindeki artış nedeniyle aidata %20 zam kararı almıştır. Üyeler yeni dönem öncesi yönetime ödeyecekleri tutarı öğrenmek istemektedir. Buna göre zam sonrası aylık aidat kaç TL olacaktır?",
+      "options": [
+        "170",
+        "175",
+        "180",
+        "190"
+      ],
+      "answerIndex": 2,
+      "explanation": "%20 artış → 1,20 ile çarpım. 150×1,20=180 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir kurs merkezi yaz dönemi için normal ücreti 400 TL olan bir programa erken kayıt yapanlara %25 indirim tanımaktadır. Erken kayıt yapan bir veli önce tasarruf tutarını hesaplamakta, ardından ödeyeceği net ücreti belirlemektedir. Buna göre velinin ödeyeceği kurs ücreti kaç TL olur?",
+      "options": [
+        "250",
+        "280",
+        "300",
+        "320"
+      ],
+      "answerIndex": 2,
+      "explanation": "%25 indirim → 0,75 ile çarpım. 400×0,75=300 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Kitapçı yayınevinin talep ettiği fiyat güncellemesini uygulayacaktır. Bir kitabın mevcut satış fiyatı 120 TL'dir. Yayınevi %10 zam istemektedir. Önce zam miktarı hesaplanacak, ardından raf fiyatı güncellenecektir. Buna göre kitabın yeni fiyatı kaç TL olur?",
+      "options": [
+        "128",
+        "130",
+        "120",
+        "135"
+      ],
+      "answerIndex": 2,
+      "explanation": "%10 artış → 1,10 ile çarpım. 120×1,10=132 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Kitap fuarında stand açan yayınevi çocuk kitaplarını indirimli satmaktadır. Etiket fiyatı 80 TL olan bir kitaba %25 indirim uygulanacaktır. Satış personeli önce indirim tutarını hesaplar, sonra müşteriye söyleyeceği fiyatı belirler. Buna göre kitabın indirimli satış fiyatı kaç TL olur?",
+      "options": [
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "answerIndex": 1,
+      "explanation": "%25 indirim → 0,75 ile çarpım. 80×0,75=60 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir okul kantininde satılan öğle yemeği menüsünün fiyatı 300 TL'dir. Kantin hafta içi öğrencilere %10 indirim uygulamaktadır. Öğrenci kartı gösteren bir öğrenci menüyü alacaktır. Kantin kasiyeri önce indirim tutarını hesaplayıp sonra kasaya girecek tutarı belirlemektedir. Buna göre öğrencinin ödeyeceği tutar kaç TL olur?",
+      "options": [
+        "260",
+        "270",
+        "280",
+        "290"
+      ],
+      "answerIndex": 1,
+      "explanation": "%10 indirim → 0,90 ile çarpım. 300×0,90=270 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir kırtasiye dükkanında liste fiyatı 500 TL olan bir çanta seti kampanya döneminde %20 indirimle satılmaktadır. Bir veli çocuğu için bu seti alacaktır. Velinin önce indirim miktarını hesaplaması, ardından kasadaki ödemesini kontrol etmesi gerekmektedir. Buna göre velinin ödeyeceği tutar kaç TL olur?",
+      "options": [
+        "350",
+        "380",
+        "400",
+        "420"
+      ],
+      "answerIndex": 2,
+      "explanation": "%20 indirim → 0,80 ile çarpım. 500×0,80=400 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir otopark işletmesi aylık abonelik ücretini 250 TL'den artırmaya karar vermiştir. Artış oranı %20 olarak belirlenmiştir. Aboneler yeni dönemde ödeyecekleri tutarı öğrenmek için muhasebeyi aramaktadır. Muhasebe önce artış tutarını hesaplamakta, sonra yeni abonelik fiyatını söylemektedir. Buna göre yeni aylık abonelik ücreti kaç TL olacaktır?",
+      "options": [
+        "280",
+        "290",
+        "300",
+        "310"
+      ],
+      "answerIndex": 2,
+      "explanation": "%20 artış → 1,20 ile çarpım. 250×1,20=300 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Mağaza önce genel %10 indirim, kartlı müşterilere ek %10 indirim uygulamaktadır. Etiket fiyatı 200 TL olan ürüne önce genel indirim, sonra indirimli fiyat üzerinden kart indirimi yapılmaktadır. Müşteri iki adımda son fiyatı hesaplar. Buna göre ürünün son satış fiyatı kaç TL olur?",
+      "options": [
+        "160",
+        "162",
+        "170",
+        "180"
+      ],
+      "answerIndex": 3,
+      "explanation": "1. adım: 200×0,90=180 TL. 2. adım: 180×0,90=162 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Üretici maliyet artışını fiyata yansıtmaktadır. Maliyeti 100 TL olan bir ürünün satış fiyatına %30 kâr payı eklenmektedir. Muhasebe önce kâr tutarını hesaplar, sonra satış fiyatını belirler. Buna göre ürünün yeni satış fiyatı kaç TL olur?",
+      "options": [
+        "120",
+        "125",
+        "130",
+        "135"
+      ],
+      "answerIndex": 2,
+      "explanation": "%30 artış → 1,30 ile çarpım. 100×1,30=130 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-10",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir site yönetimi aidatları güncellemektedir. Mevcut aylık aidat 400 TL olan bir daireye yönetim %25 zam uygulama kararı almıştır. Yönetim önce zam tutarını hesaplayıp sakinlere duyuru yapmaktadır. Buna göre sakinin ödeyeceği yeni aylık aidat kaç TL olacaktır?",
+      "options": [
+        "450",
+        "480",
+        "500",
+        "520"
+      ],
+      "answerIndex": 2,
+      "explanation": "%25 artış → 1,25 ile çarpım. 400×1,25=500 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-11",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Outlet mağazası stok devri için etiket fiyatı 600 TL olan bir ürüne %50 indirim uygulamaktadır. Müşteri indirim oranına göre tasarrufunu hesaplayıp indirimli fiyatı kontrol etmektedir. Önce indirim tutarı bulunur, ardından ödenecek fiyat belirlenir. Buna göre ürünün indirimli fiyatı kaç TL olur?",
+      "options": [
+        "200",
+        "250",
+        "300",
+        "350"
+      ],
+      "answerIndex": 2,
+      "explanation": "%50 indirim → 0,50 ile çarpım. 600×0,50=300 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-12",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir müze öğrenci giriş ücretinde indirim uygulamaktadır. Tam bilet 150 TL iken öğrenci kartı gösterenlere %20 indirim tanınmaktadır. Bir öğrenci bilet alacaktır. Gişe görevlisi indirim tutarını hesaplayıp öğrenciye ödeyeceği tutarı söylemektedir. Buna göre öğrencinin ödeyeceği bilet ücreti kaç TL olur?",
+      "options": [
+        "110",
+        "115",
+        "120",
+        "125"
+      ],
+      "answerIndex": 2,
+      "explanation": "%20 indirim → 0,80 ile çarpım. 150×0,80=120 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-13",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Perakendeci hafta içi indirimi uygulamaktadır. Salı günleri tüm ürünlerde %10 indirim vardır. Normal fiyatı 180 TL olan bir ürünü alan müşteri önce indirim tutarını hesaplar, ardından kasadaki fiyatı kontrol eder. Buna göre ürünün indirim sonrası fiyatı kaç TL olur?",
+      "options": [
+        "150",
+        "160",
+        "162",
+        "170"
+      ],
+      "answerIndex": 2,
+      "explanation": "%10 indirim → 0,90 ile çarpım. 180×0,90=162 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-14",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "AVM yıl sonu indirimi düzenlemektedir. Etiket fiyatı 240 TL olan bir ürüne mağaza %25 indirim uygulamaktadır. Müşteri önce tasarruf tutarını hesaplar, sonra ödeyeceği indirimli fiyatı belirler. Buna göre ürünün indirimli fiyatı kaç TL olur?",
+      "options": [
+        "160",
+        "170",
+        "180",
+        "190"
+      ],
+      "answerIndex": 2,
+      "explanation": "%25 indirim → 0,75 ile çarpım. 240×0,75=180 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-15",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "İthalatçı kur artışı nedeniyle fiyat güncellemesi yapmaktadır. Yerel maliyeti 200 TL olan bir ürüne %15 zam uygulanacaktır. Satın alma önce zam tutarını hesaplar, ardından yeni liste fiyatını belirler. Buna göre ürünün yeni fiyatı kaç TL olur?",
+      "options": [
+        "220",
+        "225",
+        "230",
+        "235"
+      ],
+      "answerIndex": 2,
+      "explanation": "%15 artış → 1,15 ile çarpım. 200×1,15=230 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-16",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir tiyatro salonu bilet fiyatını 500 TL olarak belirlemiştir. Üyelere özel %10 indirim uygulanmaktadır. Üye kartıyla bilet alacak bir seyirci önce indirim tutarını hesaplamakta, ardından ödeyeceği net tutarı belirlemektedir. Buna göre üyenin ödeyeceği bilet fiyatı kaç TL olur?",
+      "options": [
+        "430",
+        "440",
+        "450",
+        "460"
+      ],
+      "answerIndex": 2,
+      "explanation": "%10 indirim → 0,90 ile çarpım. 500×0,90=450 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-17",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Küçük işletme sahibi maliyet artışını fiyata yansıtmaktadır. Alış fiyatı 80 TL olan bir ürüne %25 kâr marjı ekleyecektir. Önce kâr tutarı hesaplanacak, ardından satış fiyatı belirlenecektir. Buna göre ürünün yeni satış fiyatı kaç TL olur?",
+      "options": [
+        "95",
+        "80",
+        "105",
+        "110"
+      ],
+      "answerIndex": 1,
+      "explanation": "%25 artış → 1,25 ile çarpım. 80×1,25=100 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-18",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "İnternet mağazası sepete ekle indirimi uygulamaktadır. Sepete eklenen normal fiyatı 120 TL olan ürüne otomatik %20 indirim yansıtılmaktadır. Müşteri önce indirim tutarını görür, sonra ödeyeceği fiyatı sepette kontrol eder. Buna göre ürünün indirimli fiyatı kaç TL olur?",
+      "options": [
+        "90",
+        "96",
+        "100",
+        "104"
+      ],
+      "answerIndex": 1,
+      "explanation": "%20 indirim → 0,80 ile çarpım. 120×0,80=96 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-19",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Toptancı stok fazlası ürünlerde %30 indirim yapmaktadır. Etiket fiyatı 300 TL olan bir ürün bu kampanyaya dahildir. Alıcı önce indirim tutarını hesaplar, ardından ödeyeceği fiyatı belirler. Buna göre ürünün indirimli fiyatı kaç TL olur?",
+      "options": [
+        "180",
+        "190",
+        "200",
+        "210"
+      ],
+      "answerIndex": 3,
+      "explanation": "%30 indirim → 0,70 ile çarpım. 300×0,70=210 TL.",
+      "source": "edumio",
+      "sourceRef": "yuzde-20",
+      "subject": "mat"
+    }
+  ]
+}

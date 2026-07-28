@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0081",
+      "stem": "Ardışık iki çift sayının çarpımı 168'dir.\n\nBu iki sayının toplamı kaçtır?",
+      "options": [
+        "22",
+        "24",
+        "26",
+        "28"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "ardisik_cift_carpim",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "carpma",
+        "kural_bulma",
+        "problem_cozme"
+      ],
+      "explanation": "n×(n+2)=168 → 12×14=168 ✓. Toplam: 12+14=26. A(22): 10×12=120≠168, 10+12=22 yanlış çift. B(24): 11×13=143≠168, tek sayılar kullanmış. D(28): 13×15=195≠168, bir sonraki çift sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0081",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0082",
+      "stem": "24 m × 16 m'lik dikdörtgen bir bahçenin köşegeninden bir çizgiyle ikiye bölündü. Elde edilen iki üçgenden biri fidan ekilmek için seçildi. Fidan ekme maliyeti 45 TL/m².\n\nSeçilen üçgen bölgenin fidan maliyeti kaç TL'dir?",
+      "options": [
+        "7 200",
+        "7 920",
+        "8 640",
+        "17 280"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ucgen_maliyet",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "ucgen",
+        "maliyet"
+      ],
+      "explanation": "Dikdörtgen: 24×16=384 m². Üçgen: 384÷2=192 m². Maliyet: 192×45=8640 TL. A(7200): 160×45=7200, üçgen alanını 160 almış. B(7920): 176×45=7920, alanı 24+16=40÷2×... hata. D(17280): tüm dikdörtgen alanını kullanmış, 384×45=17280.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0082",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0083",
+      "stem": "Boş bir havuza A musluğu saatte kapasitesinin 1/4'ünü, B musluğu 1/3'ünü doldururken C musluğu 1/12'sini boşaltıyor. Üçü birden açıldı.\n\nBu havuz kaç saatte tamamen dolar?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "uc_borulu_havuz",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "kesir",
+        "doluluk",
+        "problem_cozme"
+      ],
+      "explanation": "Net dolum: 1/4+1/3−1/12=3/12+4/12−1/12=6/12=1/2 (saatte). Dolma: 1÷(1/2)=2 saat. B(3): dolum oranını 1/3 hesaplamış. C(4): dolum oranını 1/4 almış. D(6): yalnızca C'yi (boşaltma) oranı saymış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0083",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0084",
+      "stem": "Bir bahçeye her sıra bir öncekinden 3 fazla ağaç dikilecek şekilde planlama yapıldı. 1. sıraya 5, 2. sıraya 8, 3. sıraya 11 ağaç... bu kural devam ediyor.\n\nİlk 10 sıradaki toplam ağaç sayısı kaçtır?",
+      "options": [
+        "170",
+        "175",
+        "185",
+        "195"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "aritmetik_dizi_toplam",
+      "topic": "dizi_kural",
+      "skills": [
+        "dizi",
+        "toplam",
+        "formul"
+      ],
+      "explanation": "10. sıra: 5+(10−1)×3=5+27=32. Toplam: (5+32)÷2×10=37÷2×10=185. A(170): 10. sırayı 29 almış (5+(10−1)×3=32 değil). B(175): (5+30)÷2×10=175, 10. sırayı 30 almış. D(195): (5+34)÷2×10=195, d=3 yerine d=3,2 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0084",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0085",
+      "stem": "6 kişilik bir yemek tarifi: 3/4 su bardağı un, 1/2 su bardağı şeker, 2/3 su bardağı süt gerektiriyor. Aynı tarif 9 kişi için hazırlanacak.\n\n9 kişilik tarifteki toplam malzeme miktarı kaç su bardağıdır?",
+      "options": [
+        "2 5/8",
+        "2 7/8",
+        "2 3/4",
+        "3 1/8"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "tarif_olcekleme",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "olcekleme",
+        "toplama"
+      ],
+      "explanation": "Ölçek: 9÷6=3/2. Un: 3/4×3/2=9/8. Şeker: 1/2×3/2=3/4. Süt: 2/3×3/2=1. Toplam: 9/8+6/8+8/8=23/8=2 7/8. A(2 5/8): un'u 3/4×3/2=9/8 yerine 7/8 almış. C(2 3/4): süt için 1 yerine 3/4 almış, toplam 9/8+3/4+3/4=23/8−1/8=22/8=11/4=2 3/4. D(3 1/8): ölçek 3/2 yerine 2 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0085",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0086",
+      "stem": "5 mağazanın aynı ürün fiyatları: 120, 135, 140, 155, 200 TL. En pahalı mağaza fiyatını 160 TL'ye düşürdü.\n\nBu değişiklik ortalama fiyatı kaç TL düşürür?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "ortalama_degisimi",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "degisim",
+        "problem_cozme"
+      ],
+      "explanation": "Eski ortalama: (120+135+140+155+200)÷5=750÷5=150 TL. Yeni: (750−200+160)÷5=710÷5=142 TL. Düşüş: 150−142=8 TL. A(6): 200→160 farkı 40, 40÷... yanlış. Doğru: 40÷5=8. C(10): yeni toplamı 700 sanmış, 700÷5=140, 150-140=10. D(12): farkı 60 almış, 60÷5=12.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0086",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0087",
+      "stem": "A kişisi saatte 40 sayfa, B kişisi saatte 60 sayfa okuyor. İki kişi birlikte bir kitabı 5 saatte okudu.\n\nKitap kaç sayfadır? B kişisi tek başına aynı kitabı kaç saatte okurdu?",
+      "options": [
+        "500 sayfa; 8 saat 20 dakika",
+        "400 sayfa; 7 saat",
+        "500 sayfa; 8 saat",
+        "600 sayfa; 10 saat"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "ortak_okuma_hizi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "toplam",
+        "bolme"
+      ],
+      "explanation": "Birlikte: (40+60)×5=100×5=500 sayfa. B tek başına: 500÷60=8,33 saat=8 saat 20 dakika (25/3 saat). B(400): hızları 40+40=80 almış, 80×5=400. C(8 saat): 500÷60≠8, 8×60=480≠500. D(600): (40+60)×6=600, süreyi 6 saat almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0087",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0088",
+      "stem": "3 basamaklı sayılar arasında hem 12'ye hem 18'e tam bölünen en büyük sayı kaçtır?\n\nBu sayıyı 6'ya bölünce elde edilen sonuç kaçtır?",
+      "options": [
+        "960; 160",
+        "972; 162",
+        "990; 165",
+        "984; 164"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "ekok_en_buyuk_kat",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ekok",
+        "bolme",
+        "problem_cozme"
+      ],
+      "explanation": "EKOK(12,18)=36. En büyük 3 basamaklı: 999÷36=27,75 → 27×36=972. 972÷6=162. A(960): 960÷36=26,67 tam değil. C(990): 990÷36=27,5 tam değil. D(984): 984÷36=27,33 tam değil.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0088",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0089",
+      "stem": "Çiftçi A'nın 45 m kenarlı kare tarlasının çevresi ile Çiftçi B'nin 60 m × 30 m dikdörtgen tarlasının çevresi eşittir.\n\nHangi tarlanın alanı daha büyüktür ve fark kaç m²'dir?",
+      "options": [
+        "Dikdörtgen; 225 m²",
+        "Kare; 225 m²",
+        "Kare; 450 m²",
+        "Eşittir; 0 m²"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "esit_cevre_alan_karsilastirma",
+      "topic": "geometri",
+      "skills": [
+        "cevre",
+        "alan",
+        "karsilastirma"
+      ],
+      "explanation": "Kare çevresi: 4×45=180 m. Dikdörtgen: 2×(60+30)=180 m ✓ (eşit). Kare alanı: 45²=2025 m². Dikdörtgen: 60×30=1800 m². Kare daha büyük: 2025−1800=225 m². A: büyüklük ters. C(450): farkı 2 katına almış. D: eşit çevre=eşit alan diye yanılmış (klasik tuzak).",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0089",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0090",
+      "stem": "Bir depoda 300 ürün var. Birinci hafta toplam stokun 1/3'ü satıldı. İkinci hafta ise kalan stokun 2/5'i satıldı.\n\nİki hafta sonunda toplam kaç ürün satılmış olur?",
+      "options": [
+        "160",
+        "170",
+        "180",
+        "200"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kademeli_satis_stok",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "kademeli_hesap",
+        "problem_cozme"
+      ],
+      "explanation": "1. hafta: 1/3×300=100 satıldı. Kalan: 200. 2. hafta: 2/5×200=80. Toplam satış: 100+80=180. A(160): 2. hafta için 300'ün 2/5'ini kullanmış (orijinal stok), 120+40 yanlış. B(170): 2. haftada 1/3 ile 2/5 karıştırmış. D(200): tüm kalan stoku satılmış sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0090",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0061",
+      "stem": "Bir öğrenci 0,625 kesrini en sade kesir biçiminde yazmak istiyor.\n\n0,625 sayısının en sade kesir karşılığı nedir?",
+      "options": [
+        "625/1000",
+        "3/4",
+        "5/8",
+        "7/10"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ondalik_kesir_donusum",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "kesir",
+        "sadelestirme"
+      ],
+      "explanation": "0,625=625/1000. EBOB(625,1000)=125. 625÷125=5, 1000÷125=8 → 5/8. A: sadeleştirilmemiş biçim. B(3/4)=0,75≠0,625. D(7/10)=0,7≠0,625.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0061",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0062",
+      "stem": "Bir dizüstü bilgisayarın fiyatı 4 500 TL. Kampanya döneminde önce %20 indirim yapıldı, ardından indirimli fiyata %10 KDV eklendi.\n\nBilgisayarın KDV dahil son fiyatı kaç TL'dir?",
+      "options": [
+        "3 600",
+        "3 780",
+        "3 960",
+        "4 050"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "indirim_kdv_problem",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "kademeli_hesap",
+        "para"
+      ],
+      "explanation": "İndirimli: 4500×0,80=3600 TL. KDV'li: 3600×1,10=3960 TL. A(3600): KDV'yi eklemeyi unutmuş. B(3780): 4500×0,84=3780, yanlış oran. D(4050): indirimli fiyata orijinalin %10'unu eklemiş, 3600+450=4050.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0062",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0063",
+      "stem": "Bir kütüphanede 1 260 kitap var. Kitapların 5/9'u roman bölümünde. Roman bölümündeki kitapların 2/7'si çocuk romanı.\n\nKütüphanedeki çocuk romanı sayısı kaçtır?",
+      "options": [
+        "160",
+        "180",
+        "200",
+        "220"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kesir_zincirleme",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "zincirleme",
+        "problem_cozme"
+      ],
+      "explanation": "Roman: 5/9×1260=700. Çocuk romanı: 2/7×700=200. A(160): 2/7×560=160, romanı 560 almış. B(180): 2/7×630=180, romanı 630 almış. D(220): 2/7×770=220, 5/9 yerine 11/18 kullanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0063",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0064",
+      "stem": "Bir çiftçinin tarlası paralelkenar biçimindedir. Taban kenarı 18 m ve bu tabana ait yüksekliği 11 m.\n\nBu tarlanın alanı kaç m²'dir?",
+      "options": [
+        "176",
+        "184",
+        "198",
+        "216"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "paralelkenar_alani",
+      "topic": "geometri",
+      "skills": [
+        "paralelkenar",
+        "alan",
+        "formul"
+      ],
+      "explanation": "Paralelkenar alanı = taban × yükseklik = 18×11=198 m². A(176): 16×11=176, tabanı 16 almış. B(184): 18×10+4=184 hata. D(216): 18×12=216, yüksekliği 12 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0064",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0065",
+      "stem": "Bir alışveriş merkezinde üç farklı indirim kampanyası var. A kampanyası her 30 dakikada, B kampanyası her 45 dakikada, C kampanyası her 60 dakikada bir anons yapıyor. Saat 10:00'da üçü birlikte anons yaptı.\n\nBir sonraki aynı anda anons kaçta yapılır?",
+      "options": [
+        "12:00",
+        "13:00",
+        "13:30",
+        "14:00"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "ekok_zaman_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ekok",
+        "asal_carpan",
+        "zaman"
+      ],
+      "explanation": "EKOK(30,45,60): 30=2×3×5, 45=3²×5, 60=2²×3×5. EKOK=2²×3²×5=180 dakika=3 saat. 10:00+3 saat=13:00. A(12:00): EKOK'u 120 dk sanmış. C(13:30): 210 dk hesaplamış. D(14:00): 240 dk sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0065",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0066",
+      "stem": "Bir ürünün fiyatı geçen yıl 960 TL idi. Bu yıl fiyat %25 arttı.\n\nBu yılki fiyat kaç TL'dir? Aynı ürünü bu yıl 1 000 TL'ye satan bir mağaza ise geçen yıl fiyatını kaç TL olarak belirlemiş olurdu?",
+      "options": [
+        "1 200 TL; 800 TL",
+        "1 200 TL; 750 TL",
+        "1 160 TL; 800 TL",
+        "1 200 TL; 900 TL"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "yuzde_artis_ters",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "artis",
+        "ters_islem"
+      ],
+      "explanation": "Bu yıl: 960×1,25=1200 TL. Ters işlem: x×1,25=1000 → x=1000÷1,25=800 TL. B(750): 1000×0,75=750 (artış yerine azalma uygulamış). C(1160): 960+200=1160 (sabit 200 eklemiş). D(900): 1000×0,90=900 yanlış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0066",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0067",
+      "stem": "Dikdörtgen prizma biçiminde bir kutu 40 cm uzunluğunda, 30 cm genişliğinde ve 25 cm yüksekliğindedir.\n\nBu kutu kaç litre sıvı alabilir? (1 litre = 1 000 cm³)",
+      "options": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "hacim_litre",
+      "topic": "geometri",
+      "skills": [
+        "hacim",
+        "dikdortgen_prizma",
+        "birim_cevirme"
+      ],
+      "explanation": "Hacim: 40×30×25=30 000 cm³. 30 000 cm³ ÷ 1000=30 litre. A(20): 40×25×20=20 000 cm³, yanlış boyut. B(25): 40×25×25=25 000 cm³, genişliği 25 almış. D(35): 40×35×25=35 000 cm³ hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0067",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0068",
+      "stem": "Bir öğrenci şu işlemi yapıyor: 5/6 − 1/4 + 2/9\n\nSonuç nedir?",
+      "options": [
+        "7/12",
+        "3/4",
+        "29/36",
+        "31/36"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "kesir_karma_islem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "ortak_payda",
+        "karma_islem"
+      ],
+      "explanation": "OPD(6,4,9)=36. 5/6=30/36, 1/4=9/36, 2/9=8/36. İşlem: 30/36−9/36+8/36=29/36. A(7/12=21/36): yanlış işlem sırası veya hatalı payda. B(3/4=27/36): 30−9+... payları yanlış hesaplamış. D(31/36): 30−8+9=31, çıkarma ve toplama yerini değiştirmiş.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0068",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0069",
+      "stem": "5 sayının ortalaması 24'tür. Bu 5 sayıdan biri çıkarıldığında kalan 4 sayının ortalaması 21 oluyor.\n\nÇıkarılan sayı kaçtır?",
+      "options": [
+        "30",
+        "33",
+        "36",
+        "39"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ortalama_ters_islem",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "toplam",
+        "ters_islem"
+      ],
+      "explanation": "5 sayı toplamı: 5×24=120. 4 sayı toplamı: 4×21=84. Çıkarılan: 120−84=36. A(30): 5×24−4×24=24, ortalama değişmez zannetmiş. B(33): 4×21=84, 120-87=33 hata (toplamı 87 almış). D(39): 4×21=84, 123−84=39 (5 sayı toplamını 123 almış).",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0069",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0070",
+      "stem": "Bir kasanın 3 basamaklı şifresi şu kurallara göre belirlenmiş:\n• Birler basamağı 2'dir.\n• Onlar basamağı birler basamağının 3 katıdır.\n• Yüzler basamağı onlar basamağından 3 fazladır.\n\nBu şifrenin basamak değerleri toplamı kaçtır?",
+      "options": [
+        "14",
+        "15",
+        "17",
+        "19"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "basamak_kural_analiz",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "basamak",
+        "kural_bulma",
+        "toplam"
+      ],
+      "explanation": "Birler=2. Onlar=3×2=6. Yüzler=6+3=9. Şifre: 962. Basamak toplamı: 9+6+2=17. A(14): yüzler=6+2=8 almış, 8+4+2=14. B(15): onları 5 almış, 8+5+2=15. D(19): yüzler=6+4=10 almış (3 yerine 4 eklemiş), ama 10 tek basamak değil.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0070",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

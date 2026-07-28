@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="@dimen/radius_md"
     app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/bb_card">
+    app:cardBackgroundColor="@color/edu_card">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/bb_text"
+            android:textColor="@color/edu_text"
             android:maxLines="5"
             android:ellipsize="end"/>
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:textSize="13sp"
-            android:textColor="@color/bb_error"
+            android:textColor="@color/edu_error"
             android:visibility="gone"/>
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:textSize="14sp"
-            android:textColor="@color/bb_turquoise"
+            android:textColor="@color/edu_turquoise"
             android:textStyle="bold"/>
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="12sp"
-            android:textColor="@color/bb_text_muted"
+            android:textColor="@color/edu_text_muted"
             android:visibility="gone"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

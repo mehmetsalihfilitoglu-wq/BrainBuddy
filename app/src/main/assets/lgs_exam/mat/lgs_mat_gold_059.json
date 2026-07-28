@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir online alışveriş sitesinde bir bilgisayar çantasının etiket fiyatı 800 TL'dir. Kampanya kapsamında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %10 sadakat indirimi yapılıyor. Son aşamada 40 TL kargo ücreti eklenmektedir. Buna göre bu ürünü satın alan bir müşteri toplam kaç TL öder?",
+      "options": [
+        "640",
+        "590",
+        "600",
+        "620"
+      ],
+      "answerIndex": 0,
+      "explanation": "800 × 0,75 = 600 TL. 600 × 0,90 = 540 TL. 40 TL eklenir → 580 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir sınıfta kız ve erkek öğrencilerin sayıları 3 : 4 oranındadır. Sınıfa 6 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "42",
+        "49",
+        "56",
+        "63"
+      ],
+      "answerIndex": 0,
+      "explanation": "3k + 6 = 4k → k = 6. Başlangıç toplamı 7k = 42.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "denklem_kurma"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir mağazada bir kalemin fiyatı x TL, bir defterin fiyatı x + 3 TL'dir. Bir öğrenci 2 kalem ve 3 defter aldığında toplam 24 TL ödüyor. Buna göre bir kalemin fiyatı kaç TL'dir?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 1,
+      "explanation": "2x + 3(x + 3) = 24 → 5x + 9 = 24 → 5x = 15 → x = 3.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan"
+      ],
+      "questionType": "long_context",
+      "stem": "Kare şeklindeki bir bahçenin alanı 900 metrekaredir. Bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "120",
+        "124",
+        "128",
+        "132"
+      ],
+      "answerIndex": 0,
+      "explanation": "Kenar √900 = 30 m. Dıştan 1 m eklenince dış kenar = 32 m. Yürüyüş yolu alanı = 32² − 30² = 1024 − 900 = 124 m². Sonuç 120'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "oran_oranti"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir rampanın yatay uzunluğu 5 metre ve yükseldiği dikey mesafe 75 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 15 metre olduğuna göre yüksekliği kaç santimetre olur?",
+      "options": [
+        "210",
+        "225",
+        "240",
+        "255"
+      ],
+      "answerIndex": 1,
+      "explanation": "75/500 = 3/20. 1500 × 3/20 = 225.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir torbada 4 kırmızı ve 6 mavi top vardır. Torbadan geri koymadan iki top çekiliyor. Seçilen topların ikisinin de mavi olma olasılığı kaçtır?",
+      "options": [
+        "1/3",
+        "1/4",
+        "3/10",
+        "2/5"
+      ],
+      "answerIndex": 0,
+      "explanation": "6/10 × 5/9 = 30/90 = 1/3.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold059_q07",
+      "subject": "mat"
+    }
+  ]
+}

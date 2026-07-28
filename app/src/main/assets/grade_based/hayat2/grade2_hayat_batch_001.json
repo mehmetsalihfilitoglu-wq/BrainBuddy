@@ -1,0 +1,826 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "hayat",
+  "questions": [
+    {
+      "stem": "Sabahları uyandıktan sonra ilk yapılması gereken şey nedir?",
+      "options": ["Yüzümüzü yıkamak ve dişlerimizi fırçalamak", "Hemen televizyon açmak", "Uyumaya devam etmek", "Kahvaltı yapmadan okula gitmek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kişisel temizlik",
+      "skills": ["sağlık alışkanlıkları"],
+      "explanation": "Sabah kalkınca yüz yıkamak ve diş fırçalamak sağlıklı ve temiz bir güne başlamanın ilk adımıdır."
+    },
+    {
+      "stem": "Dişlerimizi günde kaç defa fırçalamak gerekir?",
+      "options": ["En az 2 kez (sabah ve gece)", "Sadece akşam", "Haftada 2 kez", "Yemekten önce bir kez"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kişisel temizlik",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Diş sağlığı için sabah ve gece en az 2 kez diş fırçalamak gerekir."
+    },
+    {
+      "stem": "Ellerimizi ne zaman yıkamalıyız?",
+      "options": ["Yemekten önce ve sonra, tuvaletten çıkınca", "Yalnızca tuvaletten sonra", "Yalnızca yemekten önce", "Günde bir kez"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kişisel temizlik",
+      "skills": ["hijyen bilgisi"],
+      "explanation": "Mikropların yayılmaması için yemekten önce ve sonra, tuvaletten çıktıktan sonra mutlaka ellerimizi yıkamalıyız."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi doğru beslenme alışkanlığı değildir?",
+      "options": ["Her gün çok miktarda şekerli yiyecek tüketmek", "Bol sebze ve meyve yemek", "Düzenli öğün yapmak", "Bol su içmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["beslenme bilgisi"],
+      "explanation": "Çok miktarda şekerli yiyecek yemek diş çürüğüne ve sağlık sorunlarına yol açar; doğru beslenme alışkanlığı değildir."
+    },
+    {
+      "stem": "Sağlıklı bir yaşam için hangileri doğru alışkanlıklardandır?",
+      "options": ["Düzenli uyumak, spor yapmak ve sebze yemek", "Çok televizyon izlemek ve az uyumak", "Sürekli oturmak ve fast food yemek", "Hiç su içmemek ve çok tatlı yemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Düzenli uyku, spor ve dengeli beslenme sağlıklı bir yaşamın temelidir."
+    },
+    {
+      "stem": "Hastalıktan korunmak için aşı yaptırmak neden önemlidir?",
+      "options": ["Bazı hastalıklara karşı bağışıklık sağlar", "Yalnızca acı çekmeden hastalık geçirmek için", "Aşı yaptırmak hastalığa yol açar", "Yalnızca yetişkinler için gereklidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlık",
+      "skills": ["bağışıklık bilgisi"],
+      "explanation": "Aşılar vücudun belirli hastalıklara karşı bağışıklık geliştirmesini sağlar ve koruyucu sağlık hizmetidir."
+    },
+    {
+      "stem": "Trafik ışıklarında kırmızı ışık ne anlama gelir?",
+      "options": ["Dur, geçme", "Yavaşla", "Geç", "Dikkat et, geçebilirsin"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Trafik kuralları",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Kırmızı ışık 'dur' anlamına gelir; ışık kırmızıyken karşıya geçilmez."
+    },
+    {
+      "stem": "Yaya olarak yolda yürürken nereyi kullanmalıyız?",
+      "options": ["Kaldırımı (yaya kaldırımı)", "Yolun ortasını", "Araçların yanından", "Bisiklet yolunu"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Trafik kuralları",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Yayalar kaldırımda yürümelidir; kaldırım yoksa yolun kenarında karşıdan gelen araçlara karşı yürünür."
+    },
+    {
+      "stem": "Zebradan (yaya geçidinden) geçerken ne yapmalıyız?",
+      "options": ["Işığın yeşil olmasını bekleyip her iki tarafa bakarak geçmeliyiz", "Işığa bakmadan hızla geçmeliyiz", "Yolun ortasından geçmeliyiz", "Araçların arasından koşarak geçmeliyiz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Trafik kuralları",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Yaya geçidini kullanırken trafik ışığını beklemek ve geçmeden önce iki tarafa bakmak zorunludur."
+    },
+    {
+      "stem": "Yangın çıktığında ilk ne yapılmalıdır?",
+      "options": ["Derhal binayı boşaltmak ve 112'yi aramak", "Yangını söndürmeye çalışmak", "Asansörü kullanmak", "Eşyaları toplamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Afet ve acil durum",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Yangında asansör kullanılmaz; önce bina boşaltılır ve acil yardım hattı (112) aranır."
+    },
+    {
+      "stem": "Deprem olduğunda kapalı alanda ne yapılmalıdır?",
+      "options": ["Sağlam bir masa ya da dolabın altına girerek başı ve boynu korumak", "Pencereden atlamak", "Asansöre binmek", "Koşarak dışarı çıkmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Afet ve acil durum",
+      "skills": ["deprem güvenliği"],
+      "explanation": "Depremde: çök, kapan, tutun. Sağlam bir masanın altına girip baş ve boyun korunmalıdır."
+    },
+    {
+      "stem": "Acil durumlarda aranacak telefon numarası hangisidir?",
+      "options": ["112", "155", "177", "100"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Acil durumlar",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "112 Acil Yardım hattı; ambulans, itfaiye ve polise ulaşmayı sağlar."
+    },
+    {
+      "stem": "Evimizde elektrik prizi ile oynanmamalıdır. Bunun nedeni nedir?",
+      "options": ["Elektrik çarpması tehlikesi vardır", "Faturayı artırır", "Pirizin kırılmasına yol açar", "Gürültü yaratır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ev güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Elektrik prizi ile oynamak elektrik çarpmasına ve hatta ölüme yol açabilir; tehlikelidir."
+    },
+    {
+      "stem": "Sokak hayvanlarına yaklaşırken nasıl davranmalıyız?",
+      "options": ["Sakin kalmalı, aniden hareket etmemeli ve bilmediğimiz hayvana dokunmamalıyız", "Doğrudan ellerimizi uzatmalıyız", "Bağırarak yaklaşmalıyız", "Koşarak kaçmalıyız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Tanımadığımız hayvanlara yavaş ve sakin yaklaşılmalı; aniden hareket edilmemelidir. Bilinmeyen hayvanlara dokunmak tehlikelidir."
+    },
+    {
+      "stem": "Arkadaşlarınla tartışırken ne yapmalısın?",
+      "options": ["Sakin konuşmalı ve birbirini dinlemeli", "Bağırmalı", "Kavga etmeli", "Arkadaşını görmezden gelmeli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal beceriler",
+      "skills": ["iletişim becerileri"],
+      "explanation": "Anlaşmazlıklarda sakin kalmak, birbirini dinlemek ve konuşarak çözüm aramak sağlıklı bir iletişim yoludur."
+    },
+    {
+      "stem": "Başkasının konuştuğu sırada ne yapmalıyız?",
+      "options": ["Sözünü kesmeden dinlemeliyiz", "Kendi konuşmamıza devam etmeliyiz", "Konuşmayı yarıda kesmeliyiz", "Başka tarafa bakmalıyız"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal beceriler",
+      "skills": ["dinleme becerileri"],
+      "explanation": "Başkası konuşurken saygıyla dinlemek ve sözünü kesmemek iyi iletişimin temelidir."
+    },
+    {
+      "stem": "Aile büyüklerimize nasıl davranmalıyız?",
+      "options": ["Saygılı ve yardımsever olmalıyız", "Onlara çok bağırmalıyız", "Onları dikkate almamalıyız", "Yalnızca bizim isteklerimizi söylemeliyiz"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Aile ve toplum",
+      "skills": ["sosyal değerler"],
+      "explanation": "Aile büyüklerine saygı ve yardımseverlik, Türk kültürünün temel değerlerindendir."
+    },
+    {
+      "stem": "Okulda arkadaşlarına zorbalık (bully) yapılmamalıdır. Bunun en önemli nedeni nedir?",
+      "options": ["Başkalarına zarar verir ve herkese saygılı davranmak gerekir", "Öğretmen görür diye", "Kötü not alınır diye", "Oyundan atılmamak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal beceriler",
+      "skills": ["değer eğitimi"],
+      "explanation": "Zorbalık başkasının duygusal ve fiziksel olarak zarar görmesine neden olur; her insana saygı göstermek temel bir değerdir."
+    },
+    {
+      "stem": "Başkasının eşyasını izin almadan kullanmak doğru mudur?",
+      "options": ["Hayır, izin istemek gerekir", "Evet, her zaman kullanabilirim", "Sadece yakın arkadaşların eşyası kullanılabilir", "Sadece kalemler kullanılabilir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal beceriler",
+      "skills": ["değer eğitimi"],
+      "explanation": "Başkasına ait eşyayı kullanmadan önce mutlaka izin istemek gerekir; bu saygı ve dürüstlüğün gereğidir."
+    },
+    {
+      "stem": "Yardıma ihtiyacı olan birine yardım etmek neden önemlidir?",
+      "options": ["Toplumda dayanışma ve yardımlaşma güçlenir, birlikte daha iyi yaşarız", "Sadece aile için önemlidir", "Öğretmen görür diye", "Hediye alınır diye"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değerler",
+      "skills": ["yardımseverlik"],
+      "explanation": "Yardımlaşma, toplumu birleştirir ve herkesi daha güçlü kılar; dayanışma temel bir toplumsal değerdir."
+    },
+    {
+      "stem": "Çevremizi temiz tutmak için ne yapabiliriz?",
+      "options": ["Çöpü çöp kutusuna atmak, plastik kullanımını azaltmak", "Her yere çöp atmak", "Yalnızca evde temizlik yapmak", "Çöpü yere atmak, sonra biri toplar"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çevre bilinci",
+      "skills": ["çevre duyarlılığı"],
+      "explanation": "Çöpleri doğru yere atmak ve plastik kullanımını azaltmak çevreyi korumaya yardımcı olur."
+    },
+    {
+      "stem": "Suyu tasarruflu kullanmak neden önemlidir?",
+      "options": ["Su kaynakları sınırlıdır; gelecek nesiller için su bırakmak gerekir", "Fatura az gelir diye", "Su çok boldur, tasarruf gerekmez", "Yalnızca kuraklık döneminde önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["doğal kaynaklar"],
+      "explanation": "Su dünyada sınırlı bir kaynaktır; israf edilmesi gelecekte su sıkıntısına yol açar."
+    },
+    {
+      "stem": "Ağaçları kesmek ve ormanlara zarar vermek neden yanlıştır?",
+      "options": ["Ağaçlar oksijen üretir, yuvalar ve su kaynaklarını korur; kesilmesi ekosisteme zarar verir", "Ağaçlar güzel olduğu için", "Ağaçlar meyve verdiği için", "Sadece görünümü bozar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["doğa koruma"],
+      "explanation": "Ağaçlar oksijen üretir, iklimi dengeler, yağışı düzenler ve pek çok canlıya yuva olur; kesilmesi ciddi çevre sorunlarına yol açar."
+    },
+    {
+      "stem": "Hayvanları korumak neden gereklidir?",
+      "options": ["Tüm canlılar doğanın dengesinin parçasıdır; hayvanlar yok olursa ekosistem bozulur", "Yalnızca evcil hayvanlar korunmalıdır", "Hayvanlar korunmasa da doğa devam eder", "Sadece nesli tükenmekte olanlar korunmalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["doğa koruma"],
+      "explanation": "Tüm canlılar doğal dengenin parçasıdır; bir türün yok olması tüm ekosistemi etkiler."
+    },
+    {
+      "stem": "Türkiye'nin başkenti hangisidir?",
+      "options": ["Ankara", "İstanbul", "İzmir", "Konya"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye bilgisi",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türkiye'nin başkenti Ankara'dır."
+    },
+    {
+      "stem": "Türk bayrağının renkleri ve şekli nedir?",
+      "options": ["Kırmızı zemin üzerine beyaz hilal ve yıldız", "Beyaz zemin üzerine kırmızı hilal ve yıldız", "Mavi ve beyaz çizgili", "Yeşil zemin üzerine kırmızı yıldız"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye bilgisi",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türk bayrağı kırmızı zemin üzerinde beyaz hilal (ay) ve yıldızdan oluşmaktadır."
+    },
+    {
+      "stem": "Cumhuriyet Bayramı hangi tarihte kutlanır?",
+      "options": ["29 Ekim", "23 Nisan", "19 Mayıs", "30 Ağustos"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Milli bayramlar",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti 29 Ekim 1923'te kurulmuştur; her yıl 29 Ekim'de Cumhuriyet Bayramı olarak kutlanır."
+    },
+    {
+      "stem": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı'nın önemi nedir?",
+      "options": ["TBMM'nin açıldığı ve egemenliğin millete verildiği gündür; Atatürk çocuklara armağan etmiştir", "Kurtuluş Savaşı'nın bitişidir", "Cumhuriyetin ilan edildiği gündür", "Atatürk'ün doğum günüdür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli bayramlar",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "23 Nisan 1920'de TBMM açılmış; Atatürk bu günü çocuklara armağan etmiştir."
+    },
+    {
+      "stem": "Atatürk kimdir?",
+      "options": ["Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı", "Osmanlı Devleti'nin son padişahı", "Türkiye'nin en büyük şehrinin kurucu belediye başkanı", "I. Dünya Savaşı'nı kazanan komutan"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Mustafa Kemal Atatürk, Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanıdır."
+    },
+    {
+      "stem": "Türkiye'nin millî marşı hangisidir?",
+      "options": ["İstiklal Marşı", "Cumhuriyet Marşı", "Zafer Marşı", "Hürriyet Marşı"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye bilgisi",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "İstiklal Marşı, Türkiye Cumhuriyeti'nin resmî millî marşıdır; Mehmet Akif Ersoy tarafından yazılmıştır."
+    },
+    {
+      "stem": "Okulumuzda öğrencilerin birlikte karar almak için oluşturdukları yönetime ne denir?",
+      "options": ["Öğrenci meclisi / sınıf başkanlığı", "Okul müdürlüğü", "Öğretmenler kurulu", "Veli birliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Öğrenci meclisi: Öğrencilerin demokratik seçimle oluşturdukları ve okul yaşamında söz sahibi oldukları temsilci kuruldur."
+    },
+    {
+      "stem": "Sınıfta kural koymak için oy kullanılırsa bu hangi ilkeyi yansıtır?",
+      "options": ["Demokratik karar alma", "Diktatörlük", "Öğretmenin tüm kararları vermesi", "Rastgele belirleme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["demokratik değerler"],
+      "explanation": "Oylamayla karar almak; herkesin görüşüne değer verilen, demokratik karar alma sürecinin örneğidir."
+    },
+    {
+      "stem": "Sorumluluk nedir?",
+      "options": ["Üstlenilen görevleri zamanında ve eksiksiz yapmak", "Her şeyi başkalarına bırakmak", "Yalnızca keyifli işleri yapmak", "Sorulan sorulara cevap vermek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal beceriler",
+      "skills": ["sorumluluk"],
+      "explanation": "Sorumluluk: Üstlenilen bir görevi ya da yükümlülüğü gerektiği gibi yerine getirmektir."
+    },
+    {
+      "stem": "Bir ailede herkesin farklı görevleri olmasının nedeni nedir?",
+      "options": ["İşlerin paylaşılarak birlikte yaşamın kolaylaşması ve dayanışmanın sağlanması", "Yalnızca büyüklerin çalışması için", "Bir kişinin her şeyi yapması için", "Küçüklerin hiç çalışmaması için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Aile ve toplum",
+      "skills": ["dayanışma"],
+      "explanation": "Ailede görev paylaşımı; yükü hafifletir, dayanışmayı güçlendirir ve herkesin sorumlu bireyler olarak yetişmesini sağlar."
+    },
+    {
+      "stem": "Komşularımıza nasıl davranmalıyız?",
+      "options": ["Saygılı, yardımsever ve güvenilir olmalıyız", "Sadece kapıda selam vermeliyiz", "Onları umursamamalıyız", "Gece geç vakitte müzik açmalıyız"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Toplumsal değerler",
+      "skills": ["sosyal beceriler"],
+      "explanation": "Komşuluk ilişkileri saygı, yardımlaşma ve güvenilirlik üzerine kurulmalıdır."
+    },
+    {
+      "stem": "İnsanlara yönelik saygısızlık ya da ayrımcılık yapmak neden yanlıştır?",
+      "options": ["Her insan eşit onur ve haklara sahiptir; ayrımcılık bu hakları çiğner", "Yalnızca yasal yaptırım olduğu için", "Sadece büyüklere saygı gösterilmelidir", "Ayrımcılık her zaman kasıtsızdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan hakları",
+      "skills": ["değer eğitimi"],
+      "explanation": "Tüm insanlar eşit haklara ve onura sahiptir; ayrımcılık bu eşitliği bozar ve zulme yol açar."
+    },
+    {
+      "stem": "Güvendiğimiz büyükler kimlerdir?",
+      "options": ["Anne, baba, öğretmen ve yakın aile büyükleri", "Yalnızca öğretmenler", "Yalnızca anne ve baba", "Tanımadığımız her yetişkin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Güvendiğimiz büyükler; aile üyeleri ve öğretmenler gibi tanıdığımız, güvenilir yetişkinlerdir."
+    },
+    {
+      "stem": "Tanımadığın biri seni arabaya binmeye davet ederse ne yapmalısın?",
+      "options": ["Kesinlikle reddetmeli ve güvenilir bir büyüğe haber vermelisin", "Güvende hissediyorsan binebilirsin", "Durumu arkadaşına sorabilirsin", "Hediye veriyorsa kabul edebilirsin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Tanımadığın birine güvenmemeli, arabasına binmemeli ve güvenilir bir yetişkine haber vermelisin."
+    },
+    {
+      "stem": "Günlük hayatta para ne için kullanılır?",
+      "options": ["İhtiyaç ve isteklerimizi karşılamak için mal ve hizmet satın almada", "Yalnızca oyun oynamak için", "Yalnızca tasarruf etmek için", "Yalnızca büyüklerin harcaması için"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Para; yiyecek, giysi, hizmet gibi ihtiyaç ve isteklerimizi karşılamak için kullanılan değişim aracıdır."
+    },
+    {
+      "stem": "İhtiyaçlar ile istekler arasındaki fark nedir?",
+      "options": ["İhtiyaçlar yaşam için zorunlu şeylerdir (yiyecek, barınak); istekler ise olsa iyi olur ama zorunlu değildir (oyuncak)", "İkisi aynı şeydir", "İstekler daha önemlidir", "İhtiyaçlar yalnızca büyükler içindir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "İhtiyaçlar (gıda, barınak, giysi) yaşam için zorunludur; istekler (oyuncak, şeker) sahip olmak güzel ama zorunlu değil."
+    },
+    {
+      "stem": "Tasarruf nedir ve neden önemlidir?",
+      "options": ["Harcamayı kontrol altında tutarak ileride kullanmak üzere para biriktirmek", "Hiç para harcamamak", "Yalnızca bankada para tutmak", "Parayı başkasına vermek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Tasarruf; gereksiz harcamalardan kaçınarak ilerideki ihtiyaçlar veya acil durumlar için para biriktirmektir."
+    },
+    {
+      "stem": "Havanın durumunu (yağmurlu, güneşli, karlı) günlük yaşama etkisine bir örnek verin.",
+      "options": ["Yağmurlu havada yağmurluk ve şemsiye almak gerekir", "Havanın durumu günlük yaşamı etkilemez", "Yalnızca kış mevsiminde hava önemlidir", "Hava sadece çiftçileri etkiler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava ve iklim",
+      "skills": ["günlük yaşam"],
+      "explanation": "Hava durumu; giydiğimiz kıyafetleri, yaptığımız etkinlikleri ve ulaşımı doğrudan etkiler."
+    },
+    {
+      "stem": "Dört mevsim sırayla nasıldır?",
+      "options": ["İlkbahar, Yaz, Sonbahar, Kış", "Kış, Yaz, İlkbahar, Sonbahar", "Yaz, İlkbahar, Kış, Sonbahar", "Sonbahar, Kış, Yaz, İlkbahar"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["doğa bilgisi"],
+      "explanation": "Mevsimler sırasıyla: İlkbahar → Yaz → Sonbahar → Kış."
+    },
+    {
+      "stem": "Sonbahar mevsiminde doğada ne olur?",
+      "options": ["Ağaç yaprakları sararır ve dökülür, günler kısalmaya başlar", "Ağaçlar çiçek açar", "Kar yağar", "Çok sıcak olur"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["doğa gözlemi"],
+      "explanation": "Sonbaharda yapraklar renk değiştirerek dökülür, hava serinler, günler kısalır."
+    },
+    {
+      "stem": "İlkbaharda çiçeklerin açması ve doğanın yeşermesi ne sayesinde olur?",
+      "options": ["Sıcaklığın artması ve yağışın artmasıyla birlikte bitkiler uyandığı için", "Yalnızca güneş ışığı sayesinde", "Çiftçilerin tohumları ektiği için", "Havanın soğuması sayesinde"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["doğa gözlemi"],
+      "explanation": "İlkbaharda artan sıcaklık ve yağışla birlikte bitkiler kış uykusundan uyanır, çiçekler açar, doğa yeşerir."
+    },
+    {
+      "stem": "Bitkiler büyümek için neye ihtiyaç duyar?",
+      "options": ["Su, ışık (güneş) ve toprağa (besin) ihtiyaç duyarlar", "Yalnızca suya", "Yalnızca güneş ışığına", "Yalnızca toprağa"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitkiler",
+      "skills": ["canlılar bilgisi"],
+      "explanation": "Bitkiler büyümek için su, güneş ışığı ve topraktaki minerallere ihtiyaç duyar."
+    },
+    {
+      "stem": "Hayvanlar neden yuva (ev) yaparlar?",
+      "options": ["Barınmak, yavruları beslemek ve korumak için", "Yalnızca uyumak için", "İnsanlarla yaşamak için", "Yiyecek bulmak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvanlar",
+      "skills": ["canlılar bilgisi"],
+      "explanation": "Hayvanlar yuva yaparak kendilerini ve yavrularını soğuktan, düşmanlardan ve olumsuz koşullardan korurlar."
+    },
+    {
+      "stem": "Fotosentez nedir? (Basit düzeyde)",
+      "options": ["Bitkilerin güneş ışığı yardımıyla su ve karbondioksitten besin üretmesi", "Bitkilerin uyku hali", "Tohumların filizlenmesi", "Hayvanların beslenme şekli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitkiler",
+      "skills": ["fen bilgisi"],
+      "explanation": "Fotosentez: Bitkiler güneş ışığını kullanarak su ve karbondioksiti glikoz (besin) ve oksijene dönüştürür."
+    },
+    {
+      "stem": "Su döngüsünde su önce nerede toplanır?",
+      "options": ["Okyanus, deniz, göl ve nehirlerde (su kütlelerinde)", "Bulutlarda", "Toprakta", "Havada"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su ve çevre",
+      "skills": ["fen bilgisi"],
+      "explanation": "Su döngüsünde su; deniz, göl ve nehirlerde bulunan kütlelerden buharlaşır, bulut oluşturur, yağış olarak geri döner."
+    },
+    {
+      "stem": "Hava kirliliğinin başlıca nedeni nedir?",
+      "options": ["Fabrika dumanı, araç egzozu ve fosil yakıtların yakılması", "Yağmur yağması", "Rüzgâr esmesi", "Ağaç dikimi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["çevre sorunları"],
+      "explanation": "Hava kirliliğinin başlıca kaynakları: fabrikalar, motorlu araç egzozları ve fosil yakıtların yakılmasıdır."
+    },
+    {
+      "stem": "Geri dönüşüm neden önemlidir?",
+      "options": ["Atıkları azaltır, doğal kaynakları korur ve çevre kirliliğini önler", "Yalnızca ekonomi için önemlidir", "Yalnızca cam şişeler için geçerlidir", "Çevreye fazla faydası yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["sürdürülebilirlik"],
+      "explanation": "Geri dönüşüm; atık miktarını azaltır, enerji tasarrufu sağlar ve doğal kaynakların ömrünü uzatır."
+    },
+    {
+      "stem": "Dünyamızı korumak için bireysel olarak neler yapabiliriz?",
+      "options": ["Çöp sıralama, su tasarrufu, toplu taşıma kullanma ve elektriği dikkatli kullanma", "Sadece ağaç dikmek", "Yalnızca geri dönüşüm sepeti kullanmak", "Hiçbir şey yapamayız; büyükler yapar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["sürdürülebilirlik"],
+      "explanation": "Bireyler; su tasarrufu, atık azaltımı, toplu taşıma kullanımı gibi küçük eylemlerle büyük fark yaratabilir."
+    },
+    {
+      "stem": "İşaret dili neden önemlidir?",
+      "options": ["İşitme engelli bireylerin iletişim kurmasını sağlar", "Yalnızca sağırlar için kullanılır ve başkaları öğrenemez", "Yalnızca televizyonda kullanılır", "İşaret dili evrenseldir ve dünyada tektir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Engeller ve haklar",
+      "skills": ["empati"],
+      "explanation": "İşaret dili, işitme engelli bireylerin iletişimini mümkün kılan görsel bir dildir ve herkes öğrenebilir."
+    },
+    {
+      "stem": "Engelli bireylere nasıl davranmalıyız?",
+      "options": ["Saygıyla, eşit ve destekleyici biçimde davranmalıyız", "Onları görmezden gelmeliyiz", "Fazladan ilgi göstermek zorundayız", "Onları üzücü durumlardan bahsetmemeliyiz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan hakları",
+      "skills": ["empati ve saygı"],
+      "explanation": "Engelli bireyler tam ve eşit haklara sahiptir; onlara saygı ve destekle davranmak insan onurunun gereğidir."
+    },
+    {
+      "stem": "Ailemizin bize sağladığı temel ihtiyaçlar hangileridir?",
+      "options": ["Yiyecek, giyecek, barınak, sevgi ve eğitim", "Yalnızca yiyecek ve giyecek", "Yalnızca okul", "Yalnızca para"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Aile ve toplum",
+      "skills": ["aile bilgisi"],
+      "explanation": "Aile; çocuğun temel ihtiyaçları olan beslenme, giyinme, barınma, güvenlik, sevgi ve eğitimi sağlar."
+    },
+    {
+      "stem": "Evdeki işleri paylaşmak neden önemlidir?",
+      "options": ["Herkesin katkısıyla ev daha düzenli olur, dayanışma sağlanır ve sorumluluk gelişir", "Yalnızca anneler ev işi yapmalıdır", "Yalnızca büyükler yapmalıdır", "Çocuklar ev işi yapmamalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Aile ve toplum",
+      "skills": ["sorumluluk"],
+      "explanation": "Ev işlerini paylaşmak; aileyi güçlendirir, her bireye sorumluluk bilinci kazandırır."
+    },
+    {
+      "stem": "Okulda öğrenilen bilgiler günlük hayatımıza nasıl katkı sağlar?",
+      "options": ["Okuma, yazma, matematik gibi beceriler günlük sorunları çözmemizi kolaylaştırır", "Okul bilgileri yalnızca sınav içindir", "Okulda öğrenilenler yalnızca öğretmenler içindir", "Günlük hayatta okul bilgisine gerek yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Okulda kazanılan bilgi ve beceriler (okuma-yazma, hesap, sosyal beceriler) günlük yaşamın her alanında kullanılır."
+    },
+    {
+      "stem": "Toplumda çeşitli meslekler neden önemlidir?",
+      "options": ["Her meslek toplumun ihtiyacını karşılar; hiçbiri diğerinden üstün değildir", "Yalnızca doktor ve öğretmen önemlidir", "Yalnızca kazancı yüksek meslekler önemlidir", "Meslekler yalnızca ekonomi için önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Meslekler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Toplumda fırıncı da, doktor da, mühendis de aynı ölçüde önemlidir; her meslek toplumun bir ihtiyacını karşılar."
+    },
+    {
+      "stem": "Doktor mesleğinin görevi nedir?",
+      "options": ["Hastaları muayene edip tedavi etmek ve sağlığı korumak", "Yalnızca ameliyat yapmak", "Yalnızca ilaç yazmak", "Yalnızca hastane kurmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Doktor: Hastaları muayene eder, tanı koyar, tedavi eder ve sağlığın korunmasına katkı sağlar."
+    },
+    {
+      "stem": "Öğretmen mesleğinin önemi nedir?",
+      "options": ["Bilgi ve beceri aktararak nesillerin yetişmesini sağlar", "Yalnızca okul yönetir", "Yalnızca ders kitabı okur", "Yalnızca sınav yapar"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Öğretmenler; bireylere bilgi ve beceri kazandırarak toplumun geleceğini inşa eder."
+    },
+    {
+      "stem": "İtfaiyecilerin görevi nedir?",
+      "options": ["Yangınları söndürmek, kurtarma operasyonu yapmak ve yangını önlemek", "Yalnızca yangın söndürmek", "Yalnızca bina kontrolü yapmak", "Yalnızca ambulans sürmek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "İtfaiyeciler yangınlarla mücadele eder, tehlikeli durumlardan kurtarma yapar ve yangın önleme çalışmalarına katkıda bulunur."
+    },
+    {
+      "stem": "Polis memurlarının topluma katkısı nedir?",
+      "options": ["Kamu düzenini ve güvenliği sağlamak, suçu önlemek", "Yalnızca trafik düzenlemek", "Yalnızca suçluları yakalamak", "Yalnızca okul güvenliğini sağlamak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Polisler; toplumun güvenliğini sağlar, suçu önler ve kamu düzenini korur."
+    },
+    {
+      "stem": "İnsanlar neden birlikte (topluluk hâlinde) yaşarlar?",
+      "options": ["Yardımlaşarak ihtiyaçlarını daha kolay karşılamak ve güvenli yaşamak için", "Yalnızca ekonomik nedenlerle", "Kanunlar zorladığı için", "Sadece eğlenmek için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplum ve sosyal yaşam",
+      "skills": ["toplum bilgisi"],
+      "explanation": "İnsanlar topluluk hâlinde yaşayarak birbirini korur, destekler ve iş bölümüyle ihtiyaçlarını karşılar."
+    },
+    {
+      "stem": "Okula gidip eğitim görmek bir hak mıdır, yoksa zorunluluk mudur?",
+      "options": ["Hem hak hem de zorunluluktur; her çocuğun eğitim hakkı vardır ve zorunlu eğitim yasayla güvenceye alınmıştır", "Yalnızca haktır", "Yalnızca zorunluluktur", "Ne hak ne de zorunluluktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim",
+      "skills": ["haklar ve sorumluluklar"],
+      "explanation": "Eğitim temel bir insan hakkıdır; aynı zamanda Türkiye'de belirli yaşa kadar zorunlu tutularak yasayla güvence altına alınmıştır."
+    },
+    {
+      "stem": "Türkiye'de milli birlik ve beraberliği simgeleyen önemli bir gün hangisidir?",
+      "options": ["19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramı", "Yılbaşı", "Ramazan Bayramı", "Dünya Çocuk Günü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli bayramlar",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "19 Mayıs 1919'da Atatürk Samsun'a çıkarak Kurtuluş Savaşı'nı başlattı; bu gün gençlik ve spor bayramı olarak kutlanır."
+    },
+    {
+      "stem": "Kütüphane neden önemlidir?",
+      "options": ["Kitaplara ücretsiz erişim sağlar, bilgiyi herkese açar ve okuma alışkanlığı geliştirir", "Yalnızca öğrenciler için açıktır", "Yalnızca büyük şehirlerde bulunur", "Okumak zorunda kalınır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Kütüphaneler; bilgiye eşit erişim sağlar, okuma kültürünü destekler ve toplumun eğitimine katkıda bulunur."
+    },
+    {
+      "stem": "Hastanenin toplumsal işlevi nedir?",
+      "options": ["Hastaları tedavi etmek ve sağlık hizmetleri sunmak", "Yalnızca ameliyat yapmak", "Yalnızca ilaç dağıtmak", "Okul gibi eğitim vermek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Hastaneler; muayene, tedavi, ameliyat ve koruyucu sağlık hizmetleri sunarak toplum sağlığını korur."
+    },
+    {
+      "stem": "Belediyenin görevi nedir?",
+      "options": ["Şehirdeki parklar, yollar, temizlik ve yerel hizmetleri yönetmek", "Yalnızca vergi toplamak", "Yalnızca ulaşım sağlamak", "Okulları yönetmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["yerel yönetim"],
+      "explanation": "Belediye; su, ulaşım, park, temizlik ve itfaiye gibi yerel hizmetleri yürüten yerel yönetim birimidir."
+    },
+    {
+      "stem": "Doğal çevre ile yapay (insan yapımı) çevre arasındaki fark nedir?",
+      "options": ["Doğal çevre kendi kendine oluşur (dağ, nehir, orman); yapay çevre insan tarafından yapılmıştır (köprü, bina, yol)", "İkisi aynıdır", "Yapay çevre doğaya zarar vermez", "Doğal çevre yalnızca dağlardan oluşur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre",
+      "skills": ["çevre bilgisi"],
+      "explanation": "Doğal çevre: Dağ, nehir, orman, hava. Yapay çevre: Köprü, bina, baraj – insan eli değmiş yapılardır."
+    },
+    {
+      "stem": "Türkiye'nin coğrafi bölgelerinin sayısı kaçtır?",
+      "options": ["7 bölge", "5 bölge", "10 bölge", "4 bölge"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Türkiye 7 coğrafi bölgeye ayrılmıştır: Marmara, Ege, Akdeniz, İç Anadolu, Karadeniz, Doğu ve Güneydoğu Anadolu."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi Türkiye'nin en büyük şehridir?",
+      "options": ["İstanbul", "Ankara", "İzmir", "Bursa"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "İstanbul, Türkiye'nin nüfus açısından en büyük şehridir."
+    },
+    {
+      "stem": "Komşu ülkelerle iyi ilişkiler sürdürmek neden önemlidir?",
+      "options": ["Barış ortamı oluşturur, ticaret ve iş birliği kolaylaşır", "Yalnızca ticaret için önemlidir", "Önemli değildir", "Yalnızca savaşı önler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uluslararası ilişkiler",
+      "skills": ["barış eğitimi"],
+      "explanation": "Komşu ülkelerle iyi ilişkiler; barışı, ticareti ve kültürel iş birliğini destekler."
+    },
+    {
+      "stem": "Bayrak neden bir ülke için önemlidir?",
+      "options": ["Milli birlik ve kimliği simgeler; bağımsızlığın işaretidir", "Yalnızca süs amacıyla kullanılır", "Sadece spor müsabakalarında önemlidir", "Yalnızca askeriye için önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["ulusal kimlik"],
+      "explanation": "Bayrak; bir ülkenin bağımsızlığını, kimliğini ve milli birliğini simgeleyen en önemli sembolüdür."
+    },
+    {
+      "stem": "Arkadaşınla farklı düşündüğünde ne yapmalısın?",
+      "options": ["Sakin bir şekilde kendi görüşünü anlatmalı ve dinlemelisin", "Tartışmayı kazanmak için bağırmalısın", "Arkadaşını dışlamalısın", "Her zaman pes etmelisin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal beceriler",
+      "skills": ["iletişim becerileri"],
+      "explanation": "Farklı düşünmek normaldir; sakin konuşmak ve birbirini dinlemek anlaşmazlıkları çözmenin sağlıklı yoludur."
+    },
+    {
+      "stem": "Bir sorunu çözmek için ilk adım nedir?",
+      "options": ["Sorunu tanımlamak ve ne olduğunu anlamak", "Hemen tepki vermek", "Başkasını suçlamak", "Sorundan kaçmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Problem çözme",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Problem çözmede ilk adım; sorunu doğru anlayıp tanımlamaktır. Ardından olası çözümler araştırılır."
+    },
+    {
+      "stem": "Sevdiğimiz bir arkadaşımız üzgün olduğunda ne yapmalıyız?",
+      "options": ["Yanında olmalı, dinlemeli ve nasıl yardımcı olabileceğimizi sormалıyız", "Onu yalnız bırakmalıyız", "Gülüp eğlenmeli, geçer zaten diye düşünmeliyiz", "Onun yerine karar vermeliyiz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Empati",
+      "skills": ["sosyal-duygusal öğrenme"],
+      "explanation": "Empati; başkasının hislerini anlamak ve yanında olmaktır. Dinlemek ve destek olmak temel empati becerisidir."
+    },
+    {
+      "stem": "Bir hata yaptığımızda ne yapmalıyız?",
+      "options": ["Kabul etmeli, özür dilemeli ve hatayı düzeltmeye çalışmalıyız", "Hatayı gizlemeliyiz", "Başkasını suçlamalıyız", "Umursamamalıyız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sorumluluk",
+      "skills": ["değer eğitimi"],
+      "explanation": "Hataları kabul etmek, özür dilemek ve düzeltmeye çalışmak sorumluluk ve dürüstlüğün göstergesidir."
+    },
+    {
+      "stem": "Neden başkalarının sırlarını saklamalıyız?",
+      "options": ["Güveni korumak ve paylaşılan bilgiye saygı göstermek için", "Söylediğimizde ceza alırız diye", "Sırrın değeri yoktur zaten", "Yalnızca büyüklerin sırları korunmalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güven ve dürüstlük",
+      "skills": ["değer eğitimi"],
+      "explanation": "Sırları saklamak güven ilişkisini pekiştirir; başkasının paylaştıklarına saygı göstermek dürüstlüğün gereğidir."
+    },
+    {
+      "stem": "Bize yapılmasını istemediğimiz bir şeyi başkasına yapmamalıyız. Bu hangi evrensel kurala işaret eder?",
+      "options": ["Altın Kural: Başkasına kendi istediğin gibi davran", "Yalnızca dinî bir kural", "Yasal zorunluluk", "Kültüre özgü bir değer"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Değerler",
+      "skills": ["etik"],
+      "explanation": "Altın Kural ya da Gümüş Kural olarak bilinen bu evrensel ilke; empati ve saygının temelidir."
+    },
+    {
+      "stem": "Su nasıl temizlenir ve içme suyu nasıl elde edilir?",
+      "options": ["Arıtma tesislerinde filtreleme ve sterilizasyon ile temizlenir", "Her su kaynağından doğrudan içilebilir", "Kaynatmak tek yöntemdir", "Güneş ışığı suyu temizler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su ve çevre",
+      "skills": ["fen bilgisi"],
+      "explanation": "İçme suyu; arıtma tesislerinde süzülerek, kimyasal ve fiziksel işlemlerle zararlı maddelerden arındırılır."
+    },
+    {
+      "stem": "Elektrik nereden gelir?",
+      "options": ["Enerji santrallerinden (su, güneş, rüzgâr, kömür gibi kaynaklardan)", "Yalnızca güneşten", "Yalnızca pil fabrikalarından", "Doğrudan bulutlardan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji",
+      "skills": ["fen bilgisi"],
+      "explanation": "Elektrik; su (hidroelektrik), güneş, rüzgâr, kömür gibi enerji kaynakları kullanılarak santrallerde üretilir."
+    },
+    {
+      "stem": "Okul kurallarına neden uymak gerekir?",
+      "options": ["Herkesin güvenli ve verimli öğrenmesini sağlamak için; düzenli bir ortam oluşturur", "Yalnızca ceza almamak için", "Yalnızca öğretmen istediği için", "Kurallar önemli değildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kurumlar ve kurallar",
+      "skills": ["vatandaşlık"],
+      "explanation": "Okul kuralları; öğrenme ortamını düzenler, güvenliği sağlar ve herkesin haklarını korur."
+    },
+    {
+      "stem": "Verilen bir sözü tutmak neden önemlidir?",
+      "options": ["Güvenilirlik ve dürüstlük sağlar; insanlar sözüne güvenilir kişileri tercih eder", "Yalnızca büyüklere verilen söz tutulmalıdır", "Söz vermek yalnızca formalitedir", "Sözü tutmak zordur, gerek yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Değerler",
+      "skills": ["güvenilirlik"],
+      "explanation": "Verilen sözü tutmak; güven inşa eder, dürüstlüğü pekiştirir ve sağlıklı ilişkilerin temelidir."
+    },
+    {
+      "stem": "Birlikte bir proje yaparken herkese ne kadar söz hakkı tanınmalıdır?",
+      "options": ["Herkese eşit söz hakkı tanınmalı ve herkesin görüşü değerlendirilmelidir", "Yalnızca en akıllı kişi konuşmalıdır", "En yüksek sesle konuşan karar vermelidir", "Yalnızca grup lideri konuşmalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi ve katılım",
+      "skills": ["demokratik değerler"],
+      "explanation": "Demokratik grup çalışmasında herkesin görüşü dinlenir; kararlar tartışılarak alınır."
+    },
+    {
+      "stem": "Toplumda neden kurallara ve kanunlara ihtiyaç vardır?",
+      "options": ["Düzeni sağlamak, herkesi korumak ve haklarını güvence altına almak için", "Yalnızca suçluları cezalandırmak için", "Yalnızca devleti güçlendirmek için", "Kurallara gerek yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplum ve hukuk",
+      "skills": ["vatandaşlık"],
+      "explanation": "Kurallar ve kanunlar; toplumsal düzeni sağlar, hakları güvence altına alır ve herkesin eşit koşullarda yaşamasını mümkün kılar."
+    },
+    {
+      "stem": "Bir çocuk olarak siz de haklara sahipsiniz. Çocuk hakları arasında hangisi yer alır?",
+      "options": ["Eğitim hakkı, sağlık hakkı, korunma hakkı ve oyun oynama hakkı", "Yalnızca eğitim hakkı", "Yalnızca sağlık hakkı", "Yalnızca büyüdüğünde hak sahibi olunur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çocuk hakları",
+      "skills": ["insan hakları"],
+      "explanation": "BM Çocuk Hakları Sözleşmesi; eğitim, sağlık, koruma ve oyun hakkı başta olmak üzere çocuklara kapsamlı haklar tanır."
+    },
+    {
+      "stem": "Spor yapmanın vücudumuza faydaları nelerdir?",
+      "options": ["Kasları güçlendirir, kalp-damar sağlığını iyileştirir, kiloya yardımcı olur ve stresi azaltır", "Yalnızca kilo verdirir", "Yalnızca kasları güçlendirir", "Yalnızca yorgunluk yapar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Düzenli spor; kasları ve kalbi güçlendirir, kilo dengesini korur, stres azaltır ve genel sağlığı destekler."
+    },
+    {
+      "stem": "Ekran süresini (TV, tablet, telefon) sınırlı tutmak neden önemlidir?",
+      "options": ["Göz ve uyku sağlığını korur, fiziksel aktiviteye ve sosyal ilişkilere zaman kalır", "Yalnızca pil tasarrufu için", "Ekranlar zararlı değildir, sınır gerekmez", "Yalnızca büyükler sınırlamalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Uzun süreli ekran kullanımı göz yorgunluğuna, uyku düzensizliğine ve hareketsizliğe yol açar."
+    },
+    {
+      "stem": "İnternet kullanırken nelere dikkat etmeliyiz?",
+      "options": ["Kişisel bilgilerimizi paylaşmamalı, güvenilir siteleri kullanmalı ve büyüklerimize danışmalıyız", "Her siteye girip her bilgiyi paylaşabiliriz", "İnternette kimse bize zarar veremez", "Yalnızca oyun sitelerini kullanabiliriz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dijital güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "İnternette kişisel bilgileri paylaşmak, zararlı içeriklere maruz kalmak ciddi riskler taşır; güvenli internet kullanımı öğrenilmelidir."
+    },
+    {
+      "stem": "Türkiye'de Kurban Bayramı'nda yemekler ve et komşulara paylaştırılır. Bu hangi değeri yansıtır?",
+      "options": ["Dayanışma ve paylaşma", "Rekabet", "Bireyselcilik", "Zorunluluk"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["değer eğitimi"],
+      "explanation": "Bayramlarda et ve yemek paylaşmak; dayanışma, yardımlaşma ve komşuluk değerlerini yansıtır."
+    },
+    {
+      "stem": "Bir toplumda farklı kültürlerin bir arada yaşamasına ne denir?",
+      "options": ["Kültürel çeşitlilik", "Kültürel baskı", "Asimilasyon", "Kültürel çatışma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel çeşitlilik",
+      "skills": ["sosyal kavramlar"],
+      "explanation": "Kültürel çeşitlilik: Farklı dil, gelenek ve inançtaki insanların bir arada yaşadığı toplumsal zenginliktir."
+    }
+  ]
+}

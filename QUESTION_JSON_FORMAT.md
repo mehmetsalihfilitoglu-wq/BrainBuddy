@@ -28,7 +28,7 @@
 | `choices` | array | Evet | 4 şık |
 | `correctIndex` | int | Evet | 0–3 |
 | `hint` | string | Hayır | İpucu |
-| `imageAsset` | string | Hayır | Görsel asset yolu |
+| `imageAsset` | string | Hayır | Görsel asset yolu (assets/ köküne göre, örn: `quiz_images/sample.png`). Desteklenen aliaslar: `visualAsset`, `graphicAsset`, `tableAsset` |
 | `levelGroup` | string | Hayır | GRADE_5_8 vb. (geri uyum) |
 | `gradeTag` | string | Hayır | "6" vb. (grade yoksa kullanılır) |
 

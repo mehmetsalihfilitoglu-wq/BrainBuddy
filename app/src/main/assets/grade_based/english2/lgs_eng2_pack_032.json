@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "eng2_0310",
+      "stem": "Teacher: Touch your nose.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "Touch your ear.",
+        "Touch your nose.",
+        "Sit down.",
+        "Touch your head."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Touch your nose.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0310",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0311",
+      "stem": "Friend: How many fingers do you have?\n\nYou: ---",
+      "options": [
+        "I don't know.",
+        "Ten.",
+        "I have ten fingers.",
+        "Fingers."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have ten fingers.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0311",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0312",
+      "stem": "\"I have two eyes. I have two ears. I have one nose.\"\n\nWhat is the text about?",
+      "options": [
+        "Face parts: eyes, ears, nose.",
+        "One thing.",
+        "Colours.",
+        "Numbers."
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "situation_response",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Face parts: eyes, ears, nose.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0312",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0313",
+      "stem": "Mum: Wash your hands before dinner.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "Go and wash your hands.",
+        "No.",
+        "Hands are clean.",
+        "Eat first."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "reading_comprehension",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Go and wash your hands.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0313",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0314",
+      "stem": "Teacher: Point to your head.\n\nYou: ---",
+      "options": [
+        "Point to your foot.",
+        "Point to your head.",
+        "Sit down.",
+        "Stand up."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Point to your head.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0314",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0315",
+      "stem": "Teacher: Touch your nose.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "Touch your head.",
+        "Touch your ear.",
+        "Touch your nose.",
+        "Sit down."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "meaning_inference",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Touch your nose.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0315",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0316",
+      "stem": "Friend: How many fingers do you have?\n\nYou: ---",
+      "options": [
+        "Fingers.",
+        "I have ten fingers.",
+        "I don't know.",
+        "Ten."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have ten fingers.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0316",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0317",
+      "stem": "\"I have two eyes. I have two ears. I have one nose.\"\n\nWhat is the text about?",
+      "options": [
+        "Colours.",
+        "One thing.",
+        "Face parts: eyes, ears, nose.",
+        "Numbers."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "picture_interpretation",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Face parts: eyes, ears, nose.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0317",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0318",
+      "stem": "Mum: Wash your hands before dinner.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "Hands are clean.",
+        "No.",
+        "Go and wash your hands.",
+        "Eat first."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "situation_response",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Go and wash your hands.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0318",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0319",
+      "stem": "Teacher: Point to your head.\n\nYou: ---",
+      "options": [
+        "Sit down.",
+        "Stand up.",
+        "Point to your foot.",
+        "Point to your head."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "body_parts",
+      "skills": [
+        "body_parts",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Point to your head.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "edumio",
+      "sourceRef": "eng2_0319",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

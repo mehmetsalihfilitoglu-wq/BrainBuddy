@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- ISEEmio brand header gradient: primary green → secondary teal -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
         android:angle="135"
-        android:startColor="#1BC5B0"
-        android:centerColor="#14B8A6"
-        android:endColor="#00897B"
+        android:startColor="@color/brand_primary"
+        android:endColor="@color/brand_secondary"
         android:type="linear"/>
 </shape>

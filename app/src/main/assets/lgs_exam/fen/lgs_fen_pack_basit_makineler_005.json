@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir kaldıraçta yük kolu 2 m, kuvvet kolu 10 m'dir. Bu kaldıraçla 250 N'luk bir yük dengelenmek isteniyor. Buna göre uygulanması gereken kuvvet kaç N'dur?",
+      "options": [
+        "25",
+        "50",
+        "75",
+        "125"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu = 10 / 2 = 5'tir. Uygulanan kuvvet = 250 / 5 = 50 N olur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q01"
+    },
+    {
+      "stem": "Kuvvet kazancı 4 olan bir makara sistemiyle bir yük 3 m yükseltiliyor. Buna göre ipin çekilme miktarı kaç metredir?",
+      "options": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "Basit makinelerde kuvvetten kazanç varsa yoldan aynı oranda kayıp vardır. 3 m yükseklik için 4 kat yol alınır: 3 × 4 = 12 m.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q02"
+    },
+    {
+      "stem": "Aynı yük, aynı yüksekliğe iki farklı eğik düzlem kullanılarak çıkarılıyor. K düzleminin uzunluğu 4 m, L düzleminin uzunluğu 8 m'dir. Sürtünmeler önemsiz olduğuna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "K düzleminde daha az kuvvet gerekir",
+        "L düzleminde daha az kuvvet gerekir",
+        "İki düzlemde gereken kuvvet eşittir",
+        "K düzleminde iş daha azdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "INCLINED_PLANE_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["egik_duzlem", "kuvvet", "uzunluk"],
+      "explanation": "Yükseklik sabitken eğik düzlem uzadıkça gereken kuvvet azalır. İş ise ideal durumda değişmez.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q03"
+    },
+    {
+      "stem": "120 N'luk bir yük, bir basit makine yardımıyla 5 m yukarı çıkarılıyor. Sürtünmeler önemsiz olduğuna göre yapılan iş kaç joule'dür?",
+      "options": [
+        "120",
+        "300",
+        "500",
+        "600"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "WORK_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["is", "kuvvet", "yol", "enerji"],
+      "explanation": "İş = Kuvvet × Yol = 120 × 5 = 600 J.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q04"
+    },
+    {
+      "stem": "Bir kaldıraçta kuvvet kazancı 3 ise aşağıdaki yorumlardan hangisi kesinlikle doğrudur?",
+      "options": [
+        "Yük kolu kuvvet kolunun 3 katıdır",
+        "Kuvvet kolu yük kolunun 3 katıdır",
+        "Yoldan da 3 kat kazanç vardır",
+        "İşten kazanç vardır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_kolu", "yuk_kolu"],
+      "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu olduğundan, kuvvet kazancı 3 ise kuvvet kolu yük kolunun 3 katıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q05"
+    },
+    {
+      "stem": "Bir dişli çark sisteminde büyük dişli küçük dişliyi döndürmektedir. Buna göre küçük dişlide aşağıdakilerden hangisi gözlenir?",
+      "options": [
+        "Hız artar, kuvvet azalır",
+        "Hız azalır, kuvvet artar",
+        "Hem hız hem kuvvet artar",
+        "Ne hız ne kuvvet değişir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GEAR_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["disli_cark", "kuvvet", "hiz"],
+      "explanation": "Büyük dişli küçük dişliyi döndürdüğünde küçük dişli daha hızlı döner, ancak kuvvet azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q06"
+    },
+    {
+      "stem": "Bir vida ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Kaldıracın geliştirilmiş hâlidir",
+        "Makaranın geliştirilmiş hâlidir",
+        "Eğik düzlemin geliştirilmiş hâlidir",
+        "Dişli çarkın geliştirilmiş hâlidir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "SCREW_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["vida", "egik_duzlem", "basit_makine"],
+      "explanation": "Vida, eğik düzlemin bir silindir etrafına sarılmış hâlidir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q07"
+    },
+    {
+      "stem": "Kuvvet kazancı 5 olan bir sistemle 400 N'luk bir yük kaldırılıyor. Buna göre sisteme uygulanan kuvvet kaç N'dur?",
+      "options": [
+        "40",
+        "60",
+        "80",
+        "100"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Uygulanan kuvvet = yük / kuvvet kazancı = 400 / 5 = 80 N.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q08"
+    },
+    {
+      "stem": "Bir öğrenci, uzun saplı bir anahtar ve kısa saplı bir anahtar kullanarak aynı cıvatayı gevşetmeye çalışıyor. Uzun saplı anahtarla işi daha kolay yaptığını gözlüyor. Bu durum aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Uzun saplı anahtarda yük kolu arttığı için",
+        "Uzun saplı anahtarda kuvvet kolu arttığı için",
+        "Uzun saplı anahtarda işten kazanç olduğu için",
+        "Uzun saplı anahtarda enerji üretildiği için"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "COMBINED_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kolu", "gunluk_hayat"],
+      "explanation": "Anahtar bir kaldıraç gibi davranır. Sap uzadıkça kuvvet kolu artar ve aynı işi daha küçük kuvvetle yapmak mümkün olur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q09"
+    },
+    {
+      "stem": "Basit makinelerle ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+      "options": [
+        "Kuvvetten kazanç sağlayabilirler",
+        "Yoldan kazanç sağlayabilirler",
+        "Hem kuvvetten hem yoldan aynı anda kazanç sağlayabilirler",
+        "İş yapmayı kolaylaştırırlar"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["basit_makine", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "Basit makinelerde aynı anda hem kuvvetten hem yoldan kazanç sağlanamaz. Kuvvetten kazanç varsa yoldan kayıp vardır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_005_q10"
+    }
+  ]
+}

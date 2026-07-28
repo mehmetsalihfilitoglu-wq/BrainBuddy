@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir teknoloji mağazasında bir kablosuz hoparlörün etiket fiyatı 1600 TL'dir. Hafta sonu kampanyasında önce ürün fiyatına %15 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 140 TL kargo ve kurulum bedeli ekleniyor. Son aşamada öğrenci indirimi olarak oluşan yeni fiyat üzerinden %8 indirim yapılıyor. Buna göre müşteri bu hoparlör için son olarak kaç TL öder?",
+      "options": [
+        "1368",
+        "1380",
+        "1392",
+        "1404"
+      ],
+      "answerIndex": 1,
+      "explanation": "1600 × 0,85 = 1360 TL olur. 140 TL eklenince 1500 TL olur. Son olarak %8 indirim yapılır: 1500 × 0,92 = 1380 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold033_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "tablo_okuma"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okulda yapılan matematik denemesinde üç şubenin öğrenci sayıları ve ortalama netleri inceleniyor. 8A şubesinde 10 öğrenci vardır ve ortalama net 14'tür. 8B şubesinde 15 öğrenci vardır ve ortalama net 18'dir. 8C şubesinde 15 öğrenci bulunmaktadır. Üç şubenin tamamının ortalaması 17 olduğuna göre 8C şubesinin ortalama neti kaçtır?",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam öğrenci sayısı 40'tır. Toplam net sayısı 40 × 17 = 680 olur. 8A ve 8B'nin toplam neti 10 × 14 + 15 × 18 = 140 + 270 = 410'dur. 8C'nin toplam neti 680 - 410 = 270 olur. 270 / 15 = 18 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold033_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Kare şeklindeki bir okul bahçesinin alanı 676 metrekaredir. Bu bahçenin etrafına dıştan 2 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "208",
+        "216",
+        "224",
+        "232"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin bir kenarı √676 = 26 metredir. Dıştan 2'şer metre eklendiğinde dış karenin bir kenarı 30 metre olur. Yürüyüş yolunun alanı 30² - 26² = 900 - 676 = 224 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold033_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir kutuda 4 kırmızı, 5 mavi ve 3 yeşil top vardır. Kutudan art arda ve geri koymadan iki top seçiliyor. Buna göre seçilen toplardan birinin kırmızı, diğerinin mavi olma olasılığı kaçtır?",
+      "options": [
+        "5/22",
+        "10/33",
+        "4/11",
+        "5/11"
+      ],
+      "answerIndex": 1,
+      "explanation": "İki durum vardır: önce kırmızı sonra mavi veya önce mavi sonra kırmızı. Olasılık 4/12 × 5/11 + 5/12 × 4/11 = 20/132 + 20/132 = 40/132 = 10/33 olur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold033_q05",
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,202 +1,4202 @@
 [
-  {"id":"q1","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"Bir kutuda 24 kalem vardır. Kalemlerin 1/3'ü kırmızı, geri kalanı mavidir. Kaç mavi kalem vardır?","choices":["8","12","16","18"],"correctIndex":2,"hint":"Önce 1/3'ünü bul, sonra 24'ten çıkar.","imageAsset":""},
-  {"id":"q2","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"EASY","stem":"Aşağıdaki cümlelerin hangisinde yazım yanlışı vardır?","choices":["Bu akşam ki toplantıya katılacağım.","Birazdan seni arayacağım.","Herkesin fikrine saygı duymalıyız.","Yarın sabah erken kalkacağım."],"correctIndex":0,"hint":"\"-ki\" eki yazımı kuralını hatırla.","imageAsset":""},
-  {"id":"q3","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"HARD","stem":"2x + 5 = 15 denkleminde x kaçtır?","choices":["3","4","5","6"],"correctIndex":2,"hint":"Önce 5'i karşı tarafa at.","imageAsset":""},
-  {"id":"q4","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"EASY","stem":"Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?","choices":["Venüs","Mars","Jüpiter","Satürn"],"correctIndex":1,"hint":"Merkür, Venüs, Dünya, Mars...","imageAsset":""},
-  {"id":"q5","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"MEDIUM","stem":"\"Koşmak\" fiilinin geniş zaman 1. tekil şahıs çekimi hangisidir?","choices":["koşarım","koşuyorum","koşar","koşarsın"],"correctIndex":0,"hint":"Geniş zaman -ar/-er eki alır.","imageAsset":""},
-  {"id":"q6","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"12 × 15 işleminin sonucu kaçtır?","choices":["160","170","180","190"],"correctIndex":2,"hint":"12×10=120, 12×5=60","imageAsset":""},
-  {"id":"q7","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"EASY","stem":"Türkiye Cumhuriyeti hangi yıl kurulmuştur?","choices":["1920","1922","1923","1924"],"correctIndex":2,"hint":"Lozan Antlaşması sonrası.","imageAsset":""},
-  {"id":"q8","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"EASY","stem":"\"Hello\" kelimesinin Türkçe karşılığı nedir?","choices":["Hoşça kal","Merhaba","Teşekkürler","Evet"],"correctIndex":1,"hint":"Selamlama sözcüğü.","imageAsset":""},
-  {"id":"q9","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"MEDIUM","stem":"Fotosentez olayında hangi gaz üretilir?","choices":["Karbondioksit","Azot","Oksijen","Hidrojen"],"correctIndex":2,"hint":"Bitkiler ışıkta ne üretir?","imageAsset":""},
-  {"id":"q10","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"HARD","stem":"Bir dikdörtgenin alanı 48 cm², uzun kenarı 8 cm ise kısa kenarı kaç cm'dir?","choices":["4","5","6","7"],"correctIndex":2,"hint":"Alan = Uzun × Kısa","imageAsset":""},
-  {"id":"q11","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"MEDIUM","stem":"\"Yazılı\" sözcüğü aşağıdakilerden hangisinde farklı anlamda kullanılmıştır?","choices":["Yazılı sınav yarın yapılacak.","Ona yazılı bir cevap verdi.","Yazılı bir anlaşma imzaladılar.","Duvarda yazılı bir uyarı vardı."],"correctIndex":0,"hint":"Sınav anlamı diğerlerinden farklı.","imageAsset":""},
-  {"id":"q12","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"EASY","stem":"Türkiye'nin başkenti neresidir?","choices":["İstanbul","İzmir","Ankara","Bursa"],"correctIndex":2,"hint":"Mustafa Kemal Atatürk'ün kararıyla.","imageAsset":""},
-  {"id":"q13","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"MEDIUM","stem":"\"I _____ to school every day.\" cümlesinde boşluğa hangisi gelmelidir?","choices":["go","goes","going","went"],"correctIndex":0,"hint":"I ile go kullanılır.","imageAsset":""},
-  {"id":"q14","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"HARD","stem":"Sindirim sisteminde proteinlerin kimyasal parçalanması nerede başlar?","choices":["Ağız","Mide","İnce bağırsak","Kalın bağırsak"],"correctIndex":1,"hint":"Pepsin enzimi nerede salgılanır?","imageAsset":""},
-  {"id":"q15","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"3/4 + 1/4 işleminin sonucu kaçtır?","choices":["1/2","3/4","1","4/4"],"correctIndex":2,"hint":"Paydalar aynı, payları topla.","imageAsset":""},
-  {"id":"q16","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"HARD","stem":"Aşağıdaki cümlelerin hangisinde özne gizlidir?","choices":["Ahmet bugün okula geldi.","Yağmur çok güzel yağıyor.","Kitabı dün okudum.","Kuşlar gökyüzünde uçuyor."],"correctIndex":2,"hint":"\"Okudum\" fiilinde kim okudu?","imageAsset":""},
-  {"id":"q17","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"MEDIUM","stem":"TBMM'nin açılış tarihi nedir?","choices":["19 Mayıs 1919","23 Nisan 1920","30 Ağustos 1922","29 Ekim 1923"],"correctIndex":1,"hint":"Ulusal Egemenlik ve Çocuk Bayramı.","imageAsset":""},
-  {"id":"q18","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"EASY","stem":"\"Thank you\" ifadesi ne anlama gelir?","choices":["Özür dilerim","Teşekkür ederim","Rica ederim","Hoşça kal"],"correctIndex":1,"hint":"Teşekkür etmek.","imageAsset":""},
-  {"id":"q19","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"MEDIUM","stem":"-5 + 8 işleminin sonucu kaçtır?","choices":["-13","-3","3","13"],"correctIndex":2,"hint":"Farklı işaretlerde çıkar, büyüğün işareti.","imageAsset":""},
-  {"id":"q20","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"EASY","stem":"Hangi gezegen \"Kırmızı Gezegen\" olarak bilinir?","choices":["Venüs","Mars","Jüpiter","Satürn"],"correctIndex":1,"hint":"Demir oksit rengi.","imageAsset":""},
-  {"id":"q21","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"MEDIUM","stem":"\"Kitaplar\" kelimesindeki çoğul eki hangisidir?","choices":["-lar","kitap-","-ap","kitab-"],"correctIndex":0,"hint":"Sondaki ek.","imageAsset":""},
-  {"id":"q22","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"HARD","stem":"Lozan Antlaşması hangi yıl imzalanmıştır?","choices":["1920","1921","1922","1923"],"correctIndex":3,"hint":"Kurtuluş Savaşı sonrası.","imageAsset":""},
-  {"id":"q23","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"MEDIUM","stem":"\"She _____ a doctor.\" cümlesinde boşluğa hangisi gelir?","choices":["am","is","are","be"],"correctIndex":1,"hint":"She/he/it ile is kullanılır.","imageAsset":""},
-  {"id":"q24","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"MEDIUM","stem":"√64 işleminin sonucu kaçtır?","choices":["6","7","8","9"],"correctIndex":2,"hint":"8×8=64","imageAsset":""},
-  {"id":"q25","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"EASY","stem":"Hücrenin yönetim merkezi neresidir?","choices":["Sitoplazma","Çekirdek","Hücre zarı","Mitokondri"],"correctIndex":1,"hint":"DNA burada bulunur.","imageAsset":""},
-  {"id":"q26","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"EASY","stem":"\"Güzel\" sıfatının zıt anlamlısı hangisidir?","choices":["İyi","Çirkin","Büyük","Küçük"],"correctIndex":1,"hint":"Görünüm ile ilgili.","imageAsset":""},
-  {"id":"q27","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"MEDIUM","stem":"Türkiye'nin en uzun nehri hangisidir?","choices":["Sakarya","Fırat","Kızılırmak","Dicle"],"correctIndex":2,"hint":"İç Anadolu'dan Karadeniz'e.","imageAsset":""},
-  {"id":"q28","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"HARD","stem":"\"I have _____ finished my homework.\" cümlesinde boşluğa hangisi gelir?","choices":["already","yet","since","for"],"correctIndex":0,"hint":"Tamamlanmış eylem için.","imageAsset":""},
-  {"id":"q29","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"120 ÷ 6 işleminin sonucu kaçtır?","choices":["15","18","20","24"],"correctIndex":2,"hint":"12÷6=2, 120÷6=20","imageAsset":""},
-  {"id":"q30","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"MEDIUM","stem":"Elektrik akımının birimi nedir?","choices":["Volt","Amper","Ohm","Watt"],"correctIndex":1,"hint":"A harfi ile gösterilir.","imageAsset":""},
-  {"id":"q31","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"HARD","stem":"\"Yazarken\" kelimesindeki fiilimsi türü nedir?","choices":["İsim-fiil","Sıfat-fiil","Zarf-fiil","Edat"],"correctIndex":2,"hint":"Zaman bildiren -ken eki.","imageAsset":""},
-  {"id":"q32","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"EASY","stem":"Türkiye hangi kıtada yer alır?","choices":["Sadece Avrupa","Sadece Asya","Avrupa ve Asya","Afrika"],"correctIndex":2,"hint":"Avrasya.","imageAsset":""},
-  {"id":"q33","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"0,25 kesir olarak nasıl yazılır?","choices":["1/2","1/3","1/4","1/5"],"correctIndex":2,"hint":"25/100 = 1/4","imageAsset":""},
-  {"id":"q34","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"MEDIUM","stem":"Hangi organ kanı temizler?","choices":["Kalp","Karaciğer","Böbrek","Akciğer"],"correctIndex":2,"hint":"Boşaltım sistemi.","imageAsset":""},
-  {"id":"q35","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"MEDIUM","stem":"\"Goodbye\" ne anlama gelir?","choices":["Merhaba","Hoşça kal","Teşekkürler","Lütfen"],"correctIndex":1,"hint":"Veda sözü.","imageAsset":""},
-  {"id":"q36","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"18 + 27 işleminin sonucu kaçtır?","choices":["43","44","45","46"],"correctIndex":2,"hint":"8+7=15, 1+2=3, taşan 1 ile 4 olur.","imageAsset":""},
-  {"id":"q37","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"Bir saatte kaç dakika vardır?","choices":["30","45","60","90"],"correctIndex":2,"hint":"1 saat = 60 dakika.","imageAsset":""},
-  {"id":"q38","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"56 − 29 işleminin sonucu kaçtır?","choices":["25","26","27","28"],"correctIndex":2,"hint":"6'dan 9 çıkmaz, 16'dan 9 = 7.","imageAsset":""},
-  {"id":"q39","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"MEDIUM","stem":"2/5 + 1/5 işleminin sonucu kaçtır?","choices":["2/10","3/5","3/10","1/5"],"correctIndex":1,"hint":"Paydalar aynı, payları topla.","imageAsset":""},
-  {"id":"q40","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"MEDIUM","stem":"1 km kaç metredir?","choices":["10","100","500","1000"],"correctIndex":3,"hint":"kilo = 1000","imageAsset":""},
-  {"id":"q41","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"144 ÷ 12 işleminin sonucu kaçtır?","choices":["10","11","12","13"],"correctIndex":2,"hint":"12×12=144","imageAsset":""},
-  {"id":"q42","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"Bir sayının 2/3'ü 20 ise sayı kaçtır?","choices":["25","28","30","35"],"correctIndex":2,"hint":"20÷2=10, 10×3=30","imageAsset":""},
-  {"id":"q43","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"HARD","stem":"5/6 − 1/3 işleminin sonucu kaçtır?","choices":["1/2","1/3","1/6","2/3"],"correctIndex":0,"hint":"Önce paydaları eşitle: 1/3=2/6","imageAsset":""},
-  {"id":"q44","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"7 × (−4) işleminin sonucu kaçtır?","choices":["28","-28","3","-3"],"correctIndex":1,"hint":"Farklı işaretler çarpılınca sonuç negatif.","imageAsset":""},
-  {"id":"q45","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"MEDIUM","stem":"3x − 6 = 12 ise x kaçtır?","choices":["4","5","6","7"],"correctIndex":2,"hint":"Önce 6'yı ekle, sonra 3'e böl.","imageAsset":""},
-  {"id":"q46","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"MEDIUM","stem":"2/3 ve 3/4 kesirlerinden hangisi daha büyüktür?","choices":["2/3","3/4","Eşit","Karşılaştırılamaz"],"correctIndex":1,"hint":"Paydaları eşitle: 8/12 ve 9/12","imageAsset":""},
-  {"id":"q47","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"EASY","stem":"(−3) × (−5) işleminin sonucu kaçtır?","choices":["-15","15","-8","8"],"correctIndex":1,"hint":"Aynı işaretler çarpılınca pozitif.","imageAsset":""},
-  {"id":"q48","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"MEDIUM","stem":"√144 işleminin sonucu kaçtır?","choices":["10","11","12","13"],"correctIndex":2,"hint":"12×12=144","imageAsset":""},
-  {"id":"q49","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"HARD","stem":"Bir karenin çevresi 36 cm ise alanı kaç cm²'dir?","choices":["64","72","81","100"],"correctIndex":2,"hint":"Kenar=36÷4=9, Alan=9×9=81","imageAsset":""},
-  {"id":"q50","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"25 × 4 işleminin sonucu kaçtır?","choices":["90","95","100","105"],"correctIndex":2,"hint":"25×4=100","imageAsset":""},
-  {"id":"q51","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"EASY","stem":"\"Ev\" kelimesinin çoğul hali hangisidir?","choices":["evler","evlar","evs","evden"],"correctIndex":0,"hint":"Çoğul eki -ler/-lar","imageAsset":""},
-  {"id":"q52","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"EASY","stem":"Hangi cümlede soru işareti yanlış kullanılmıştır?","choices":["Bugün hava nasıl?","Ne zaman geleceksin?","Acaba yağmur mu yağacak?","Sen de mi gideceksin."],"correctIndex":3,"hint":"Soru cümleleri ? ile biter.","imageAsset":""},
-  {"id":"q53","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"MEDIUM","stem":"\"Çalışkan\" kelimesinin eş anlamlısı hangisidir?","choices":["Tembel","Gayretli","Yavaş","İlgisiz"],"correctIndex":1,"hint":"Çok çalışan anlamı.","imageAsset":""},
-  {"id":"q54","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"MEDIUM","stem":"\"Okuyor\" fiilinin kişisi hangisidir?","choices":["1. tekil","2. tekil","3. tekil","1. çoğul"],"correctIndex":2,"hint":"O okur anlamı.","imageAsset":""},
-  {"id":"q55","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"EASY","stem":"Cümlede yüklemi bulmak için hangi soru sorulur?","choices":["Kim? Ne?","Nerede?","Ne yapıyor?","Nasıl?"],"correctIndex":2,"hint":"Yüklem eylemi bildirir.","imageAsset":""},
-  {"id":"q56","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"MEDIUM","stem":"\"Deyim\" nedir?","choices":["Gerçek anlamda kullanılan söz","Kalıplaşmış, mecaz anlamlı söz","Yabancı dilden gelen kelime","Eski Türkçe kelime"],"correctIndex":1,"hint":"Göz açıp kapayıncaya kadar gibi.","imageAsset":""},
-  {"id":"q57","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"HARD","stem":"\"Geldi\" fiilinin zamanı nedir?","choices":["Gelecek zaman","Geniş zaman","Görülen geçmiş zaman","Duyulan geçmiş zaman"],"correctIndex":2,"hint":"-di eki görülen geçmiş zaman.","imageAsset":""},
-  {"id":"q58","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"EASY","stem":"\"Atatürk\" özel isim midir?","choices":["Evet","Hayır","Bazen","Belirsiz"],"correctIndex":0,"hint":"Kişi adları özel isimdir.","imageAsset":""},
-  {"id":"q59","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"MEDIUM","stem":"Aşağıdakilerden hangisi sıfattır?","choices":["koşmak","güzel","ev","okulda"],"correctIndex":1,"hint":"Niteleme bildiren kelime.","imageAsset":""},
-  {"id":"q60","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"EASY","stem":"\"Türkçe\" kelimesinde kaç ünlü harf vardır?","choices":["1","2","3","4"],"correctIndex":2,"hint":"ü, e, e - ünlüler a,e,ı,i,o,ö,u,ü","imageAsset":""},
-  {"id":"q61","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"MEDIUM","stem":"\"Akıllı\" kelimesi hangi türdedir?","choices":["İsim","Sıfat","Zarf","Fiil"],"correctIndex":1,"hint":"Niteleme yapar.","imageAsset":""},
-  {"id":"q62","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"EASY","stem":"Canlıların temel yapı taşı nedir?","choices":["Organ","Doku","Hücre","Sistem"],"correctIndex":2,"hint":"En küçük canlı birimi.","imageAsset":""},
-  {"id":"q63","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"EASY","stem":"Güneş ne tür bir gök cismidir?","choices":["Gezegen","Uydu","Yıldız","Asteroid"],"correctIndex":2,"hint":"Işık ve ısı yayar.","imageAsset":""},
-  {"id":"q64","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"MEDIUM","stem":"Solunumda vücuda giren gaz hangisidir?","choices":["Karbondioksit","Oksijen","Azot","Hidrojen"],"correctIndex":1,"hint":"Akciğerlerde alınır.","imageAsset":""},
-  {"id":"q65","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"EASY","stem":"Işık bir enerji türü müdür?","choices":["Evet","Hayır","Bazen","Belirsiz"],"correctIndex":0,"hint":"Işık enerji taşır.","imageAsset":""},
-  {"id":"q66","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"MEDIUM","stem":"Sıvıların yoğunluğu nasıl ölçülür?","choices":["Terazi ile","Cetvel ile","Dereceli silindir ile","Termometre ile"],"correctIndex":2,"hint":"Hacim ölçümü gerekir.","imageAsset":""},
-  {"id":"q67","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"HARD","stem":"Saf suyun kaynama noktası kaç °C'dir?","choices":["90","95","100","105"],"correctIndex":2,"hint":"Deniz seviyesinde standart.","imageAsset":""},
-  {"id":"q68","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"EASY","stem":"Mıknatıs hangi metali çeker?","choices":["Bakır","Demir","Alüminyum","Altın"],"correctIndex":1,"hint":"Demir, nikel, kobalt.","imageAsset":""},
-  {"id":"q69","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"MEDIUM","stem":"Enerji dönüşümü nedir?","choices":["Enerjinin yok olması","Bir enerji türünün diğerine dönüşmesi","Enerjinin azalması","Enerjinin sabit kalması"],"correctIndex":1,"hint":"Örn: hareket → ısı","imageAsset":""},
-  {"id":"q70","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"EASY","stem":"Ses boşlukta yayılır mı?","choices":["Evet","Hayır","Bazen","Belirsiz"],"correctIndex":1,"hint":"Ses maddesel ortam gerektirir.","imageAsset":""},
-  {"id":"q71","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"MEDIUM","stem":"DNA'nın açılımı nedir?","choices":["Deoksiribonükleik asit","Ribonükleik asit","Protein","Enzim"],"correctIndex":0,"hint":"Kalıtım molekülü.","imageAsset":""},
-  {"id":"q72","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"EASY","stem":"Türkiye'nin yönetim biçimi nedir?","choices":["Krallık","Cumhuriyet","İmparatorluk","Şeyhlik"],"correctIndex":1,"hint":"Halkın egemenliği.","imageAsset":""},
-  {"id":"q73","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"EASY","stem":"İlk Türk devleti hangisidir?","choices":["Osmanlı","Selçuklu","Göktürk","Asya Hun"],"correctIndex":3,"hint":"MÖ 3. yüzyıl civarı.","imageAsset":""},
-  {"id":"q74","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"MEDIUM","stem":"Yasama yetkisi hangi kuruma aittir?","choices":["Cumhurbaşkanı","TBMM","Mahkeme","Belediye"],"correctIndex":1,"hint":"Kanun yapan kurum.","imageAsset":""},
-  {"id":"q75","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"EASY","stem":"Türkiye'nin komşu ülkelerinden biri hangisidir?","choices":["Fransa","Yunanistan","İtalya","Almanya"],"correctIndex":1,"hint":"Batı sınırında.","imageAsset":""},
-  {"id":"q76","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"MEDIUM","stem":"Cumhuriyet ne zaman ilan edilmiştir?","choices":["23 Nisan 1920","30 Ağustos 1922","29 Ekim 1923","1 Kasım 1922"],"correctIndex":2,"hint":"Cumhuriyet Bayramı.","imageAsset":""},
-  {"id":"q77","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"EASY","stem":"Sakarya Savaşı hangi yıl yapılmıştır?","choices":["1919","1920","1921","1922"],"correctIndex":2,"hint":"Kurtuluş Savaşı'nın dönüm noktası.","imageAsset":""},
-  {"id":"q78","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"MEDIUM","stem":"Osmanlı Devleti hangi şehirde kurulmuştur?","choices":["İstanbul","Bursa","Söğüt","Edirne"],"correctIndex":2,"hint":"1299'da küçük bir beylik olarak.","imageAsset":""},
-  {"id":"q79","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"EASY","stem":"Türkiye kaç coğrafi bölgeye ayrılır?","choices":["5","6","7","8"],"correctIndex":2,"hint":"Marmara, Ege, Akdeniz, İç Anadolu, Karadeniz, Doğu Anadolu, Güneydoğu Anadolu.","imageAsset":""},
-  {"id":"q80","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"MEDIUM","stem":"Atatürk'ün doğum yılı nedir?","choices":["1878","1880","1881","1882"],"correctIndex":2,"hint":"Selanik'te doğdu.","imageAsset":""},
-  {"id":"q81","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"EASY","stem":"\"One\" sayısının Türkçesi nedir?","choices":["Sıfır","Bir","İki","Üç"],"correctIndex":1,"hint":"1 sayısı.","imageAsset":""},
-  {"id":"q82","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"EASY","stem":"\"Cat\" ne demektir?","choices":["Köpek","Kedi","Kuş","Balık"],"correctIndex":1,"hint":"Evcil hayvan.","imageAsset":""},
-  {"id":"q83","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"MEDIUM","stem":"\"I am\" ifadesinin olumsuzu hangisidir?","choices":["I am not","I is not","I are not","I not am"],"correctIndex":0,"hint":"am + not = am not","imageAsset":""},
-  {"id":"q84","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"EASY","stem":"\"Monday\" hangi gündür?","choices":["Pazar","Pazartesi","Salı","Çarşamba"],"correctIndex":1,"hint":"Haftanın ilk iş günü.","imageAsset":""},
-  {"id":"q85","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"MEDIUM","stem":"\"They _____ playing football.\" boşluğa hangisi gelir?","choices":["am","is","are","be"],"correctIndex":2,"hint":"They ile are kullanılır.","imageAsset":""},
-  {"id":"q86","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"HARD","stem":"\"Have\" fiilinin 3. tekil şahıs hali hangisidir?","choices":["have","has","having","had"],"correctIndex":1,"hint":"He/she/it has","imageAsset":""},
-  {"id":"q87","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"EASY","stem":"\"Book\" kelimesinin Türkçesi nedir?","choices":["Kalem","Kitap","Defter","Sözlük"],"correctIndex":1,"hint":"Okuma nesnesi.","imageAsset":""},
-  {"id":"q88","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"MEDIUM","stem":"\"I _____ to the cinema yesterday.\" geçmiş zaman için boşluğa hangisi gelir?","choices":["go","goes","went","going"],"correctIndex":2,"hint":"Geçmiş zaman - went","imageAsset":""},
-  {"id":"q89","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"EASY","stem":"\"Please\" ne anlama gelir?","choices":["Teşekkürler","Lütfen","Özür dilerim","Evet"],"correctIndex":1,"hint":"Rica ederken kullanılır.","imageAsset":""},
-  {"id":"q90","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"MEDIUM","stem":"\"She _____ cooking dinner now.\" şimdiki zaman için boşluğa hangisi gelir?","choices":["am","is","are","be"],"correctIndex":1,"hint":"Şimdiki zaman: is + -ing","imageAsset":""},
-  {"id":"q91","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"HARD","stem":"Bir üçgenin iç açıları toplamı kaç derecedir?","choices":["90","180","270","360"],"correctIndex":1,"hint":"Tüm üçgenlerde geçerlidir.","imageAsset":""},
-  {"id":"q92","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"8 × 7 işleminin sonucu kaçtır?","choices":["54","55","56","57"],"correctIndex":2,"hint":"8×7=56","imageAsset":""},
-  {"id":"q93","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"12'nin asal çarpanları hangileridir?","choices":["2 ve 3","2 ve 6","3 ve 4","1 ve 12"],"correctIndex":0,"hint":"12=2×2×3","imageAsset":""},
-  {"id":"q94","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"0,5 ondalık sayısı kesir olarak nasıl yazılır?","choices":["1/3","1/4","1/2","2/3"],"correctIndex":2,"hint":"5/10 = 1/2","imageAsset":""},
-  {"id":"q95","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"HARD","stem":"−12 ÷ (−4) işleminin sonucu kaçtır?","choices":["-3","3","-8","8"],"correctIndex":1,"hint":"Negatif bölü negatif = pozitif.","imageAsset":""},
-  {"id":"q96","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"EASY","stem":"15² (15'in karesi) kaçtır?","choices":["200","215","225","250"],"correctIndex":2,"hint":"15×15=225","imageAsset":""},
-  {"id":"q97","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"MEDIUM","stem":"Bir üçgenin tabanı 10 cm, yüksekliği 6 cm ise alanı kaç cm²'dir?","choices":["25","30","35","40"],"correctIndex":1,"hint":"Alan = (taban × yükseklik) / 2","imageAsset":""},
-  {"id":"q98","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"HARD","stem":"\"Yazdı\" fiilinin öznesi hangi kişi olabilir?","choices":["Ben","Sen","O","Biz"],"correctIndex":2,"hint":"-dı eki 3. tekil şahıs.","imageAsset":""},
-  {"id":"q99","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"EASY","stem":"\"Okul\" kelimesi kaç hecelidir?","choices":["1","2","3","4"],"correctIndex":1,"hint":"O-kul","imageAsset":""},
-  {"id":"q100","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"EASY","stem":"\"Yazım\" ve \"imla\" kelimeleri arasındaki ilişki nedir?","choices":["Zıt anlamlı","Eş anlamlı","Yakın anlamlı","Eş sesli"],"correctIndex":1,"hint":"Aynı anlama gelirler.","imageAsset":""},
-  {"id":"q101","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"HARD","stem":"\"Koşarak geldi\" cümlesindeki \"koşarak\" hangi tür fiilimsidir?","choices":["İsim-fiil","Sıfat-fiil","Zarf-fiil","Bağ-fiil"],"correctIndex":2,"hint":"Durum bildirir, zarf görevi.","imageAsset":""},
-  {"id":"q102","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"HARD","stem":"Bitkiler fotosentezde hangi gazı kullanır?","choices":["Oksijen","Karbondioksit","Azot","Hidrojen"],"correctIndex":1,"hint":"Yapraklar havadan alır.","imageAsset":""},
-  {"id":"q103","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"EASY","stem":"Dünya'nın uydusu hangisidir?","choices":["Mars","Venüs","Ay","Güneş"],"correctIndex":2,"hint":"Geceleri gökyüzünde.","imageAsset":""},
-  {"id":"q104","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"EASY","stem":"Kuvvetin birimi nedir?","choices":["Metre","Newton","Saniye","Kilogram"],"correctIndex":1,"hint":"N ile gösterilir.","imageAsset":""},
-  {"id":"q105","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"HARD","stem":"Periyodik tabloda kaç element vardır? (bilinen)","choices":["90","100","118","150"],"correctIndex":2,"hint":"Modern periyodik tablo.","imageAsset":""},
-  {"id":"q106","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"HARD","stem":"Türkiye'nin en kalabalık şehri hangisidir?","choices":["Ankara","İzmir","İstanbul","Bursa"],"correctIndex":2,"hint":"İki kıtada toprağı olan şehir.","imageAsset":""},
-  {"id":"q107","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"EASY","stem":"Türk bayrağındaki ay ve yıldız ne renktir?","choices":["Mavi","Kırmızı","Beyaz","Sarı"],"correctIndex":2,"hint":"Al zemin üzerinde.","imageAsset":""},
-  {"id":"q108","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"HARD","stem":"Çanakkale Savaşı hangi yıllar arasında yapılmıştır?","choices":["1912-1913","1914-1915","1916-1917","1918-1919"],"correctIndex":1,"hint":"I. Dünya Savaşı sırasında.","imageAsset":""},
-  {"id":"q109","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"HARD","stem":"\"How old are you?\" sorusu ne anlama gelir?","choices":["Adın ne?","Kaç yaşındasın?","Neredesin?","Nasılsın?"],"correctIndex":1,"hint":"Yaş sormak.","imageAsset":""},
-  {"id":"q110","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"HARD","stem":"\"Neither...nor\" ifadesi ne anlama gelir?","choices":["Ya...ya da","Hem...hem","Ne...ne de","İster...ister"],"correctIndex":2,"hint":"İkisinden hiçbiri.","imageAsset":""},
-  {"id":"q111","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"100 − 37 işleminin sonucu kaçtır?","choices":["61","62","63","64"],"correctIndex":2,"hint":"100-37=63","imageAsset":""},
-  {"id":"q112","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"MEDIUM","stem":"4/8 kesri sadeleştirildiğinde hangisi olur?","choices":["2/4","1/2","3/4","2/8"],"correctIndex":1,"hint":"4 ve 8'in ortak böleni 4.","imageAsset":""},
-  {"id":"q113","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"96 ÷ 8 işleminin sonucu kaçtır?","choices":["10","11","12","13"],"correctIndex":2,"hint":"8×12=96","imageAsset":""},
-  {"id":"q114","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"2:3 oranı 20'ye kadar genişletilirse ilk sayı kaç olur?","choices":["6","8","10","12"],"correctIndex":1,"hint":"2k+3k=20 ise k=4, ilk sayı 2k=8.","imageAsset":""},
-  {"id":"q115","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"6 + (−2) işleminin sonucu kaçtır?","choices":["4","-4","8","-8"],"correctIndex":0,"hint":"6-2=4","imageAsset":""},
-  {"id":"q116","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"EASY","stem":"Bir dikdörtgenin kenarları 5 cm ve 12 cm ise çevresi kaç cm'dir?","choices":["30","32","34","36"],"correctIndex":2,"hint":"2×(5+12)=34","imageAsset":""},
-  {"id":"q117","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"EASY","stem":"Cümle sonuna hangi noktalama işareti konur?","choices":["Virgül","Nokta","Ünlem","Soru işareti"],"correctIndex":1,"hint":"Cümle biter.","imageAsset":""},
-  {"id":"q118","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"MEDIUM","stem":"\"Geçmiş\" kelimesinin zıt anlamlısı hangisidir?","choices":["Şimdi","Gelecek","Bugün","Yarın"],"correctIndex":1,"hint":"Zaman yönü.","imageAsset":""},
-  {"id":"q119","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"MEDIUM","stem":"\"Yapıyor\" fiilinin kökü hangisidir?","choices":["yap","yapı","yor","yapıyor"],"correctIndex":0,"hint":"Fiilin anlam taşıyan kısmı.","imageAsset":""},
-  {"id":"q120","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"MEDIUM","stem":"Yer çekimi kuvveti kim tarafından formüle edilmiştir?","choices":["Einstein","Newton","Galileo","Darwin"],"correctIndex":1,"hint":"Elma düşmesi hikayesi.","imageAsset":""},
-  {"id":"q121","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"MEDIUM","stem":"Maddenin üç hali hangileridir?","choices":["Katı, sıvı, gaz","Ateş, su, toprak","Kök, gövde, yaprak","Hücre, doku, organ"],"correctIndex":0,"hint":"Fiziksel haller.","imageAsset":""},
-  {"id":"q122","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"MEDIUM","stem":"Hız nasıl hesaplanır?","choices":["Kuvvet / Kütle","Yol × Zaman","Yol / Zaman","Zaman / Yol"],"correctIndex":2,"hint":"v = x / t","imageAsset":""},
-  {"id":"q123","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"MEDIUM","stem":"Yargı yetkisi hangi kuruma aittir?","choices":["TBMM","Başbakan","Mahkemeler","Belediye"],"correctIndex":2,"hint":"Adalet dağıtan kurum.","imageAsset":""},
-  {"id":"q124","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"EASY","stem":"Kurtuluş Savaşı'nın önderi kimdir?","choices":["İsmet İnönü","Mustafa Kemal Atatürk","Kazım Karabekir","Fevzi Çakmak"],"correctIndex":1,"hint":"Türkiye Cumhuriyeti'nin kurucusu.","imageAsset":""},
-  {"id":"q125","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"EASY","stem":"\"Red\" ne renktir?","choices":["Mavi","Yeşil","Kırmızı","Sarı"],"correctIndex":2,"hint":"Trafik ışığı rengi.","imageAsset":""},
-  {"id":"q126","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"EASY","stem":"\"Water\" ne demektir?","choices":["Ateş","Su","Toprak","Hava"],"correctIndex":1,"hint":"İçecek.","imageAsset":""},
-  {"id":"q127","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"9 × 9 işleminin sonucu kaçtır?","choices":["72","79","81","90"],"correctIndex":2,"hint":"9×9=81","imageAsset":""},
-  {"id":"q128","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"HARD","stem":"5, 10, 15, 20... dizisinde 8. terim kaçtır?","choices":["35","38","40","45"],"correctIndex":2,"hint":"5'in katları, 8. terim = 8×5=40","imageAsset":""},
-  {"id":"q129","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"MEDIUM","stem":"3⁴ (3 üssü 4) kaçtır?","choices":["12","27","64","81"],"correctIndex":3,"hint":"3×3×3×3=81","imageAsset":""},
-  {"id":"q130","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"MEDIUM","stem":"Bir dairenin yarıçapı 7 cm ise çevresi yaklaşık kaç cm'dir? (π≈3)","choices":["21","42","44","49"],"correctIndex":1,"hint":"Çevre = 2πr = 2×3×7=42","imageAsset":""},
-  {"id":"q131","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"MEDIUM","stem":"\"Anne\" kelimesi kaç harflidir?","choices":["3","4","5","6"],"correctIndex":1,"hint":"A-n-n-e","imageAsset":""},
-  {"id":"q132","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"MEDIUM","stem":"\"Dün okula gittim.\" cümlesinde \"dün\" hangi tür kelimedir?","choices":["İsim","Sıfat","Zarf","Fiil"],"correctIndex":2,"hint":"Zaman bildirir.","imageAsset":""},
-  {"id":"q133","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"EASY","stem":"İnsanda kaç kemik vardır? (yetişkin)","choices":["180","206","250","300"],"correctIndex":1,"hint":"Yetişkin insan iskeleti.","imageAsset":""},
-  {"id":"q134","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"EASY","stem":"Suyun kimyasal formülü nedir?","choices":["CO2","NaCl","H2O","O2"],"correctIndex":2,"hint":"Hidrojen ve oksijen.","imageAsset":""},
-  {"id":"q135","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"MEDIUM","stem":"Türkiye'nin en büyük gölü hangisidir?","choices":["Tuz Gölü","Van Gölü","Eğirdir Gölü","Beyşehir Gölü"],"correctIndex":1,"hint":"Doğu Anadolu'da.","imageAsset":""},
-  {"id":"q136","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"MEDIUM","stem":"\"What is your name?\" ne anlama gelir?","choices":["Nasılsın?","Adın ne?","Kaç yaşındasın?","Neredesin?"],"correctIndex":1,"hint":"İsim sormak.","imageAsset":""},
-  {"id":"q137","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"MEDIUM","stem":"1 ton kaç kilogramdır?","choices":["100","500","1000","2000"],"correctIndex":2,"hint":"1 ton = 1000 kg","imageAsset":""},
-  {"id":"q138","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"En küçük asal sayı kaçtır?","choices":["0","1","2","3"],"correctIndex":2,"hint":"2 tek çift asal sayı.","imageAsset":""},
-  {"id":"q139","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"|−7| mutlak değeri kaçtır?","choices":["-7","0","7","14"],"correctIndex":2,"hint":"Mutlak değer her zaman pozitif.","imageAsset":""},
-  {"id":"q140","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"HARD","stem":"x² = 49 ise x'in pozitif değeri kaçtır?","choices":["5","6","7","8"],"correctIndex":2,"hint":"7×7=49","imageAsset":""},
-  {"id":"q141","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"HARD","stem":"\"Durağı\" kelimesindeki \"-ı\" eki ne tür ektir?","choices":["Çoğul eki","İyelik eki","Hal eki","Yapım eki"],"correctIndex":2,"hint":"Belirtme (yükleme) hali.","imageAsset":""},
-  {"id":"q142","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"HARD","stem":"Fotosentez hangi organelde gerçekleşir?","choices":["Mitokondri","Ribozom","Kloroplast","Çekirdek"],"correctIndex":2,"hint":"Yeşil renk veren organel.","imageAsset":""},
-  {"id":"q143","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"MEDIUM","stem":"Magna Carta hangi ülkede imzalanmıştır?","choices":["Fransa","Almanya","İngiltere","İspanya"],"correctIndex":2,"hint":"1215'te krala karşı.","imageAsset":""},
-  {"id":"q144","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"MEDIUM","stem":"\"Can\" yardımcı fiili ne anlama gelir?","choices":["Zorunluluk","Yetenek","Geçmiş","Gelecek"],"correctIndex":1,"hint":"-ebilmek anlamı.","imageAsset":""},
-  {"id":"q145","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"72 ÷ 9 işleminin sonucu kaçtır?","choices":["6","7","8","9"],"correctIndex":2,"hint":"9×8=72","imageAsset":""},
-  {"id":"q146","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"1 metre kaç santimetredir?","choices":["10","50","100","1000"],"correctIndex":2,"hint":"1 m = 100 cm","imageAsset":""},
-  {"id":"q147","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"HARD","stem":"5x + 3 = 2x + 15 ise x kaçtır?","choices":["2","3","4","5"],"correctIndex":2,"hint":"5x-2x=15-3, 3x=12, x=4","imageAsset":""},
-  {"id":"q148","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"HARD","stem":"\"Gelen\" kelimesi hangi fiilimsi türüdür?","choices":["İsim-fiil","Sıfat-fiil","Zarf-fiil","Bağ-fiil"],"correctIndex":1,"hint":"-en/-an eki sıfat-fiil yapar.","imageAsset":""},
-  {"id":"q149","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"HARD","stem":"Besin zincirinde üreticiler hangileridir?","choices":["Hayvanlar","Bitkiler","Mantarlar","Bakteriler"],"correctIndex":1,"hint":"Fotosentez yapan canlılar.","imageAsset":""},
-  {"id":"q150","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"HARD","stem":"İlk yazılı Türk destanı hangisidir?","choices":["Oğuz Kağan","Ergenekon","Göktürk Kitabeleri","Dede Korkut"],"correctIndex":2,"hint":"Orhun Yazıtları.","imageAsset":""},
-  {"id":"q151","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"9","difficulty":"EASY","stem":"x + 7 = 15 ise x kaçtır?","choices":["6","7","8","9"],"correctIndex":2,"hint":"15-7=8","imageAsset":""},
-  {"id":"q152","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"9","difficulty":"EASY","stem":"2x = 18 ise x kaçtır?","choices":["8","9","10","11"],"correctIndex":1,"hint":"18÷2=9","imageAsset":""},
-  {"id":"q153","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"9","difficulty":"MEDIUM","stem":"(x+2)(x+3) ifadesinin açılımı hangisidir?","choices":["x²+5x+5","x²+5x+6","x²+6x+6","x²+6x+5"],"correctIndex":1,"hint":"x²+3x+2x+6=x²+5x+6","imageAsset":""},
-  {"id":"q154","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"10","difficulty":"MEDIUM","stem":"√81 + √16 işleminin sonucu kaçtır?","choices":["11","12","13","14"],"correctIndex":2,"hint":"9+4=13","imageAsset":""},
-  {"id":"q155","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"10","difficulty":"HARD","stem":"log₂8 ifadesinin değeri kaçtır?","choices":["2","3","4","8"],"correctIndex":1,"hint":"2³=8","imageAsset":""},
-  {"id":"q156","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"11","difficulty":"EASY","stem":"f(x)=2x+1 ise f(3) kaçtır?","choices":["5","6","7","8"],"correctIndex":2,"hint":"2×3+1=7","imageAsset":""},
-  {"id":"q157","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"12","difficulty":"MEDIUM","stem":"Bir aritmetik dizide a₁=3 ve d=4 ise a₅ kaçtır?","choices":["15","17","19","21"],"correctIndex":2,"hint":"a₅=a₁+4d=3+16=19","imageAsset":""},
-  {"id":"q158","levelGroup":"GRADE_9_12","subject":"TURKCE","gradeTag":"9","difficulty":"EASY","stem":"Paragrafta ana düşünce genellikle nerede bulunur?","choices":["İlk cümlede","Son cümlede","Ortada","Her cümlede"],"correctIndex":1,"hint":"Özetleyen, sonuç çıkaran.","imageAsset":""},
-  {"id":"q159","levelGroup":"GRADE_9_12","subject":"TURKCE","gradeTag":"9","difficulty":"MEDIUM","stem":"\"Anlatıcı\" metnin hangi öğesiyle ilgilidir?","choices":["Zaman","Mekan","Bakış açısı","Kişiler"],"correctIndex":2,"hint":"Kim anlatıyor?","imageAsset":""},
-  {"id":"q160","levelGroup":"GRADE_9_12","subject":"TURKCE","gradeTag":"10","difficulty":"EASY","stem":"Roman türünün en uzun parçası hangisidir?","choices":["Bölüm","Paragraf","Cümle","Kısım"],"correctIndex":0,"hint":"Bölümlerden oluşur.","imageAsset":""},
-  {"id":"q161","levelGroup":"GRADE_9_12","subject":"FEN","gradeTag":"9","difficulty":"EASY","stem":"Atomun çekirdeğinde hangi parçacıklar bulunur?","choices":["Elektron","Proton ve nötron","Sadece proton","Sadece nötron"],"correctIndex":1,"hint":"Pozitif yüklü merkez.","imageAsset":""},
-  {"id":"q162","levelGroup":"GRADE_9_12","subject":"FEN","gradeTag":"9","difficulty":"MEDIUM","stem":"Kimyasal tepkimelerde kütle korunur mu?","choices":["Hayır","Evet","Bazen","Belirsiz"],"correctIndex":1,"hint":"Kütlenin korunumu yasası.","imageAsset":""},
-  {"id":"q163","levelGroup":"GRADE_9_12","subject":"FEN","gradeTag":"10","difficulty":"MEDIUM","stem":"İnsanda kalbin kaç odacığı vardır?","choices":["2","3","4","5"],"correctIndex":2,"hint":"2 kulakçık, 2 karıncık.","imageAsset":""},
-  {"id":"q164","levelGroup":"GRADE_9_12","subject":"SOSYAL","gradeTag":"9","difficulty":"EASY","stem":"Osmanlı Devleti hangi yüzyılda kurulmuştur?","choices":["12. yy","13. yy","14. yy","15. yy"],"correctIndex":1,"hint":"1299 yılı.","imageAsset":""},
-  {"id":"q165","levelGroup":"GRADE_9_12","subject":"SOSYAL","gradeTag":"9","difficulty":"MEDIUM","stem":"Fransız İhtilali hangi yıl gerçekleşmiştir?","choices":["1776","1789","1799","1815"],"correctIndex":1,"hint":"Özgürlük, eşitlik, kardeşlik.","imageAsset":""},
-  {"id":"q166","levelGroup":"GRADE_9_12","subject":"SOSYAL","gradeTag":"10","difficulty":"EASY","stem":"Coğrafyada enlem neyi ölçer?","choices":["Boylam","Kuzey-güney uzaklığı","Yükseklik","Derinlik"],"correctIndex":1,"hint":"Ekvatora uzaklık.","imageAsset":""},
-  {"id":"q167","levelGroup":"GRADE_9_12","subject":"ING","gradeTag":"9","difficulty":"EASY","stem":"\"Although\" ne anlama gelir?","choices":["Çünkü","Buna rağmen","Bu yüzden","Ayrıca"],"correctIndex":1,"hint":"Zıtlık bildirir.","imageAsset":""},
-  {"id":"q168","levelGroup":"GRADE_9_12","subject":"ING","gradeTag":"9","difficulty":"MEDIUM","stem":"\"If I _____ rich, I would travel.\" boşluğa hangisi gelir?","choices":["am","was","were","be"],"correctIndex":2,"hint":"Şart cümlesi, were kullanılır.","imageAsset":""},
-  {"id":"q169","levelGroup":"GRADE_9_12","subject":"ING","gradeTag":"10","difficulty":"EASY","stem":"\"Therefore\" ne anlama gelir?","choices":["Ancak","Bu nedenle","Örneğin","Aslında"],"correctIndex":1,"hint":"Sonuç bildirir.","imageAsset":""},
-  {"id":"q170","levelGroup":"GRADE_9_12","subject":"ING","gradeTag":"10","difficulty":"MEDIUM","stem":"Passive voice'da \"The book was written\" ne anlama gelir?","choices":["Kitap yazdı","Kitap yazıldı","Kitap yazıyor","Kitap yazacak"],"correctIndex":1,"hint":"Edilgen çatı.","imageAsset":""},
-  {"id":"q171","levelGroup":"GRADE_9_12","subject":"MAT","gradeTag":"9","difficulty":"HARD","stem":"x² − 5x + 6 = 0 denkleminin köklerinden biri hangisidir?","choices":["1","2","4","6"],"correctIndex":1,"hint":"(x-2)(x-3)=0, x=2 veya 3","imageAsset":""},
-  {"id":"q172","levelGroup":"GRADE_9_12","subject":"TURKCE","gradeTag":"10","difficulty":"HARD","stem":"\"Anlam genişlemesi\" ne demektir?","choices":["Kelimenin anlamının daralması","Kelimenin yeni anlamlar kazanması","Kelimenin unutulması","Kelimenin değişmesi"],"correctIndex":1,"hint":"Örn: kol (uzuv → destek).","imageAsset":""},
-  {"id":"q173","levelGroup":"GRADE_9_12","subject":"FEN","gradeTag":"10","difficulty":"HARD","stem":"Işık hızı saniyede yaklaşık kaç km'dir?","choices":["150.000","200.000","300.000","400.000"],"correctIndex":2,"hint":"c ≈ 300.000 km/s","imageAsset":""},
-  {"id":"q174","levelGroup":"GRADE_9_12","subject":"SOSYAL","gradeTag":"10","difficulty":"HARD","stem":"Sanayi Devrimi ilk olarak hangi ülkede başlamıştır?","choices":["Fransa","Almanya","İngiltere","ABD"],"correctIndex":2,"hint":"18. yüzyıl.","imageAsset":""},
-  {"id":"q175","levelGroup":"GRADE_9_12","subject":"ING","gradeTag":"11","difficulty":"HARD","stem":"\"Neither the teacher nor the students _____ present.\" boşluğa hangisi gelir?","choices":["was","were","is","are"],"correctIndex":1,"hint":"En yakın özne students, çoğul.","imageAsset":""},
-  {"id":"q176","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"EASY","stem":"7 × 8 işleminin sonucu kaçtır?","choices":["54","55","56","58"],"correctIndex":2,"hint":"7×8=56","imageAsset":""},
-  {"id":"q177","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"EASY","stem":"45 + 55 işleminin sonucu kaçtır?","choices":["90","95","100","105"],"correctIndex":2,"hint":"45+55=100","imageAsset":""},
-  {"id":"q178","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"EASY","stem":"4 × (−6) işleminin sonucu kaçtır?","choices":["24","-24","10","-10"],"correctIndex":1,"hint":"Pozitif × negatif = negatif.","imageAsset":""},
-  {"id":"q179","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"EASY","stem":"\"Okumak\" fiilinin mastar eki hangisidir?","choices":["-mak","ok-","-u","-mak"],"correctIndex":0,"hint":"-mak/-mek mastar ekidir.","imageAsset":""},
-  {"id":"q180","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"6","difficulty":"EASY","stem":"\"Ay\" kelimesi kaç harflidir?","choices":["1","2","3","4"],"correctIndex":1,"hint":"A-y","imageAsset":""},
-  {"id":"q181","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"5","difficulty":"EASY","stem":"Bitkiler kökleriyle ne alır?","choices":["Oksijen","Su ve mineraller","Karbondioksit","Işık"],"correctIndex":1,"hint":"Topraktan emilim.","imageAsset":""},
-  {"id":"q182","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"EASY","stem":"Yer kabuğundaki en yaygın element hangisidir?","choices":["Demir","Oksijen","Karbon","Kalsiyum"],"correctIndex":1,"hint":"Silikatların yapısında.","imageAsset":""},
-  {"id":"q183","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"5","difficulty":"EASY","stem":"Türkiye'nin ulusal marşı nedir?","choices":["İstiklal Marşı","Türk Marşı","Milli Marş","Cumhuriyet Marşı"],"correctIndex":0,"hint":"Mehmet Akif Ersoy yazdı.","imageAsset":""},
-  {"id":"q184","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"5","difficulty":"EASY","stem":"\"Dog\" ne demektir?","choices":["Kedi","Köpek","Kuş","Balık"],"correctIndex":1,"hint":"Sadık evcil hayvan.","imageAsset":""},
-  {"id":"q185","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"8","difficulty":"EASY","stem":"(−2)³ işleminin sonucu kaçtır?","choices":["6","-6","8","-8"],"correctIndex":3,"hint":"(-2)×(-2)×(-2)=-8","imageAsset":""},
-  {"id":"q186","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"7","difficulty":"EASY","stem":"\"Öğretmen\" kelimesinin eş anlamlısı hangisi olabilir?","choices":["Öğrenci","Muallim","Müdür","Veli"],"correctIndex":1,"hint":"Arapça kökenli eş anlamlı.","imageAsset":""},
-  {"id":"q187","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"7","difficulty":"EASY","stem":"Güneş sistemindeki en büyük gezegen hangisidir?","choices":["Satürn","Jüpiter","Neptün","Uranüs"],"correctIndex":1,"hint":"Gaz devi.","imageAsset":""},
-  {"id":"q188","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"6","difficulty":"EASY","stem":"Türkiye'nin para birimi nedir?","choices":["Euro","Dolar","Lira","Mark"],"correctIndex":2,"hint":"₺ sembolü.","imageAsset":""},
-  {"id":"q189","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"7","difficulty":"EASY","stem":"\"School\" ne demektir?","choices":["Ev","Okul","Park","Market"],"correctIndex":1,"hint":"Eğitim yeri.","imageAsset":""},
-  {"id":"q190","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"5","difficulty":"MEDIUM","stem":"Bir dikdörtgenin kısa kenarı 4 cm, uzun kenarı 9 cm ise çevresi kaç cm'dir?","choices":["24","26","28","30"],"correctIndex":1,"hint":"2×(4+9)=26","imageAsset":""},
-  {"id":"q191","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"8","difficulty":"EASY","stem":"\"Türkçe\" kelimesinde kaç sessiz harf vardır?","choices":["2","3","4","5"],"correctIndex":2,"hint":"T, r, k - sessizler","imageAsset":""},
-  {"id":"q192","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"8","difficulty":"EASY","stem":"Omurgalılar kaç sınıfa ayrılır?","choices":["3","4","5","6"],"correctIndex":2,"hint":"Balık, kurbağa, sürüngen, kuş, memeli.","imageAsset":""},
-  {"id":"q193","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"8","difficulty":"EASY","stem":"İlk Türk alfabesi hangisidir?","choices":["Latin alfabesi","Göktürk alfabesi","Arap alfabesi","Kiril alfabesi"],"correctIndex":1,"hint":"Orhun Yazıtları.","imageAsset":""},
-  {"id":"q194","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"8","difficulty":"EASY","stem":"\"Teacher\" ne demektir?","choices":["Öğrenci","Öğretmen","Müdür","Veli"],"correctIndex":1,"hint":"Eğitmen.","imageAsset":""},
-  {"id":"q195","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"6","difficulty":"MEDIUM","stem":"0,75 kesir olarak nasıl yazılır?","choices":["1/2","2/3","3/4","4/5"],"correctIndex":2,"hint":"75/100=3/4","imageAsset":""},
-  {"id":"q196","levelGroup":"GRADE_5_8","subject":"MAT","gradeTag":"7","difficulty":"MEDIUM","stem":"x/4 = 5 ise x kaçtır?","choices":["18","19","20","21"],"correctIndex":2,"hint":"x=5×4=20","imageAsset":""},
-  {"id":"q197","levelGroup":"GRADE_5_8","subject":"TURKCE","gradeTag":"5","difficulty":"MEDIUM","stem":"\"Büyük\" kelimesinin zıt anlamlısı hangisidir?","choices":["Geniş","Küçük","Uzun","Kısa"],"correctIndex":1,"hint":"Boyutla ilgili.","imageAsset":""},
-  {"id":"q198","levelGroup":"GRADE_5_8","subject":"FEN","gradeTag":"6","difficulty":"MEDIUM","stem":"Saf suyun donma noktası kaç °C'dir?","choices":["-1","0","1","4"],"correctIndex":1,"hint":"Celsius ölçeğinde.","imageAsset":""},
-  {"id":"q199","levelGroup":"GRADE_5_8","subject":"SOSYAL","gradeTag":"7","difficulty":"MEDIUM","stem":"Mondros Ateşkes Antlaşması hangi yıl imzalanmıştır?","choices":["1916","1917","1918","1919"],"correctIndex":2,"hint":"I. Dünya Savaşı sonrası.","imageAsset":""},
-  {"id":"q200","levelGroup":"GRADE_5_8","subject":"ING","gradeTag":"6","difficulty":"MEDIUM","stem":"\"I _____ a student.\" boşluğa hangisi gelir?","choices":["am","is","are","be"],"correctIndex":0,"hint":"I ile am kullanılır.","imageAsset":""}
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "Bir kutuda 24 kalem vardır. Kalemlerin 1/3'ü kırmızı, geri kalanı mavidir. Kaç mavi kalem vardır?",
+    "options": [
+      "8",
+      "12",
+      "16",
+      "18"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Önce 1/3'ünü bul, sonra 24'ten çıkar.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0001"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "Aşağıdaki cümlelerin hangisinde yazım yanlışı vardır?",
+    "options": [
+      "Bu akşam ki toplantıya katılacağım.",
+      "Birazdan seni arayacağım.",
+      "Herkesin fikrine saygı duymalıyız.",
+      "Yarın sabah erken kalkacağım."
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "\"-ki\" eki yazımı kuralını hatırla.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0002"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "2x + 5 = 15 denkleminde x kaçtır?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Önce 5'i karşı tarafa at.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0003"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?",
+    "options": [
+      "Venüs",
+      "Mars",
+      "Jüpiter",
+      "Satürn"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Merkür, Venüs, Dünya, Mars...",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0004"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Koşmak\" fiilinin geniş zaman 1. tekil şahıs çekimi hangisidir?",
+    "options": [
+      "koşarım",
+      "koşuyorum",
+      "koşar",
+      "koşarsın"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Geniş zaman -ar/-er eki alır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0005"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "12 × 15 işleminin sonucu kaçtır?",
+    "options": [
+      "160",
+      "170",
+      "180",
+      "190"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "12×10=120, 12×5=60",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0006"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Türkiye Cumhuriyeti hangi yıl kurulmuştur?",
+    "options": [
+      "1920",
+      "1922",
+      "1923",
+      "1924"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Lozan Antlaşması sonrası.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0007"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Hello\" kelimesinin Türkçe karşılığı nedir?",
+    "options": [
+      "Hoşça kal",
+      "Merhaba",
+      "Teşekkürler",
+      "Evet"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Selamlama sözcüğü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0008"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Fotosentez olayında hangi gaz üretilir?",
+    "options": [
+      "Karbondioksit",
+      "Azot",
+      "Oksijen",
+      "Hidrojen"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Bitkiler ışıkta ne üretir?",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0009"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "Bir dikdörtgenin alanı 48 cm², uzun kenarı 8 cm ise kısa kenarı kaç cm'dir?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Alan = Uzun × Kısa",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0010"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Yazılı\" sözcüğü aşağıdakilerden hangisinde farklı anlamda kullanılmıştır?",
+    "options": [
+      "Yazılı sınav yarın yapılacak.",
+      "Ona yazılı bir cevap verdi.",
+      "Yazılı bir anlaşma imzaladılar.",
+      "Duvarda yazılı bir uyarı vardı."
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Sınav anlamı diğerlerinden farklı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0011"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin başkenti neresidir?",
+    "options": [
+      "İstanbul",
+      "İzmir",
+      "Ankara",
+      "Bursa"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Mustafa Kemal Atatürk'ün kararıyla.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0012"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"I _____ to school every day.\" cümlesinde boşluğa hangisi gelmelidir?",
+    "options": [
+      "go",
+      "goes",
+      "going",
+      "went"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "I ile go kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0013"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Sindirim sisteminde proteinlerin kimyasal parçalanması nerede başlar?",
+    "options": [
+      "Ağız",
+      "Mide",
+      "İnce bağırsak",
+      "Kalın bağırsak"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Pepsin enzimi nerede salgılanır?",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0014"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "3/4 + 1/4 işleminin sonucu kaçtır?",
+    "options": [
+      "1/2",
+      "3/4",
+      "1",
+      "4/4"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Paydalar aynı, payları topla.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0015"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "Aşağıdaki cümlelerin hangisinde özne gizlidir?",
+    "options": [
+      "Ahmet bugün okula geldi.",
+      "Yağmur çok güzel yağıyor.",
+      "Kitabı dün okudum.",
+      "Kuşlar gökyüzünde uçuyor."
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "\"Okudum\" fiilinde kim okudu?",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0016"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "TBMM'nin açılış tarihi nedir?",
+    "options": [
+      "19 Mayıs 1919",
+      "23 Nisan 1920",
+      "30 Ağustos 1922",
+      "29 Ekim 1923"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Ulusal Egemenlik ve Çocuk Bayramı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0017"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Thank you\" ifadesi ne anlama gelir?",
+    "options": [
+      "Özür dilerim",
+      "Teşekkür ederim",
+      "Rica ederim",
+      "Hoşça kal"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Teşekkür etmek.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0018"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "-5 + 8 işleminin sonucu kaçtır?",
+    "options": [
+      "-13",
+      "-3",
+      "3",
+      "13"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Farklı işaretlerde çıkar, büyüğün işareti.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0019"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Hangi gezegen \"Kırmızı Gezegen\" olarak bilinir?",
+    "options": [
+      "Venüs",
+      "Mars",
+      "Jüpiter",
+      "Satürn"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Demir oksit rengi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0020"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Kitaplar\" kelimesindeki çoğul eki hangisidir?",
+    "options": [
+      "-lar",
+      "kitap-",
+      "-ap",
+      "kitab-"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Sondaki ek.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0021"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "Lozan Antlaşması hangi yıl imzalanmıştır?",
+    "options": [
+      "1920",
+      "1921",
+      "1922",
+      "1923"
+    ],
+    "answerIndex": 3,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kurtuluş Savaşı sonrası.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0022"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"She _____ a doctor.\" cümlesinde boşluğa hangisi gelir?",
+    "options": [
+      "am",
+      "is",
+      "are",
+      "be"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "She/he/it ile is kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0023"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "√64 işleminin sonucu kaçtır?",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "8×8=64",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0024"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Hücrenin yönetim merkezi neresidir?",
+    "options": [
+      "Sitoplazma",
+      "Çekirdek",
+      "Hücre zarı",
+      "Mitokondri"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "DNA burada bulunur.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0025"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Güzel\" sıfatının zıt anlamlısı hangisidir?",
+    "options": [
+      "İyi",
+      "Çirkin",
+      "Büyük",
+      "Küçük"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Görünüm ile ilgili.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0026"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin en uzun nehri hangisidir?",
+    "options": [
+      "Sakarya",
+      "Fırat",
+      "Kızılırmak",
+      "Dicle"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "İç Anadolu'dan Karadeniz'e.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0027"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"I have _____ finished my homework.\" cümlesinde boşluğa hangisi gelir?",
+    "options": [
+      "already",
+      "yet",
+      "since",
+      "for"
+    ],
+    "answerIndex": 0,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Tamamlanmış eylem için.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0028"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "120 ÷ 6 işleminin sonucu kaçtır?",
+    "options": [
+      "15",
+      "18",
+      "20",
+      "24"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "12÷6=2, 120÷6=20",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0029"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Elektrik akımının birimi nedir?",
+    "options": [
+      "Volt",
+      "Amper",
+      "Ohm",
+      "Watt"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "A harfi ile gösterilir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0030"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Yazarken\" kelimesindeki fiilimsi türü nedir?",
+    "options": [
+      "İsim-fiil",
+      "Sıfat-fiil",
+      "Zarf-fiil",
+      "Edat"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Zaman bildiren -ken eki.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0031"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Türkiye hangi kıtada yer alır?",
+    "options": [
+      "Sadece Avrupa",
+      "Sadece Asya",
+      "Avrupa ve Asya",
+      "Afrika"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Avrasya.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0032"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "0,25 kesir olarak nasıl yazılır?",
+    "options": [
+      "1/2",
+      "1/3",
+      "1/4",
+      "1/5"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "25/100 = 1/4",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0033"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Hangi organ kanı temizler?",
+    "options": [
+      "Kalp",
+      "Karaciğer",
+      "Böbrek",
+      "Akciğer"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Boşaltım sistemi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0034"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Goodbye\" ne anlama gelir?",
+    "options": [
+      "Merhaba",
+      "Hoşça kal",
+      "Teşekkürler",
+      "Lütfen"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Veda sözü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0035"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "18 + 27 işleminin sonucu kaçtır?",
+    "options": [
+      "43",
+      "44",
+      "45",
+      "46"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "8+7=15, 1+2=3, taşan 1 ile 4 olur.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0036"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "Bir saatte kaç dakika vardır?",
+    "options": [
+      "30",
+      "45",
+      "60",
+      "90"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1 saat = 60 dakika.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0037"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "56 − 29 işleminin sonucu kaçtır?",
+    "options": [
+      "25",
+      "26",
+      "27",
+      "28"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "6'dan 9 çıkmaz, 16'dan 9 = 7.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0038"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "2/5 + 1/5 işleminin sonucu kaçtır?",
+    "options": [
+      "2/10",
+      "3/5",
+      "3/10",
+      "1/5"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Paydalar aynı, payları topla.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0039"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "1 km kaç metredir?",
+    "options": [
+      "10",
+      "100",
+      "500",
+      "1000"
+    ],
+    "answerIndex": 3,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "kilo = 1000",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0040"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "144 ÷ 12 işleminin sonucu kaçtır?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "12×12=144",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0041"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "Bir sayının 2/3'ü 20 ise sayı kaçtır?",
+    "options": [
+      "25",
+      "28",
+      "30",
+      "35"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "20÷2=10, 10×3=30",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0042"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "5/6 − 1/3 işleminin sonucu kaçtır?",
+    "options": [
+      "1/2",
+      "1/3",
+      "1/6",
+      "2/3"
+    ],
+    "answerIndex": 0,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Önce paydaları eşitle: 1/3=2/6",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0043"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "7 × (−4) işleminin sonucu kaçtır?",
+    "options": [
+      "28",
+      "-28",
+      "3",
+      "-3"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Farklı işaretler çarpılınca sonuç negatif.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0044"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "3x − 6 = 12 ise x kaçtır?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Önce 6'yı ekle, sonra 3'e böl.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0045"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "2/3 ve 3/4 kesirlerinden hangisi daha büyüktür?",
+    "options": [
+      "2/3",
+      "3/4",
+      "Eşit",
+      "Karşılaştırılamaz"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Paydaları eşitle: 8/12 ve 9/12",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0046"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "(−3) × (−5) işleminin sonucu kaçtır?",
+    "options": [
+      "-15",
+      "15",
+      "-8",
+      "8"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Aynı işaretler çarpılınca pozitif.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0047"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "√144 işleminin sonucu kaçtır?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "12×12=144",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0048"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "Bir karenin çevresi 36 cm ise alanı kaç cm²'dir?",
+    "options": [
+      "64",
+      "72",
+      "81",
+      "100"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kenar=36÷4=9, Alan=9×9=81",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0049"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "25 × 4 işleminin sonucu kaçtır?",
+    "options": [
+      "90",
+      "95",
+      "100",
+      "105"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "25×4=100",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0050"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Ev\" kelimesinin çoğul hali hangisidir?",
+    "options": [
+      "evler",
+      "evlar",
+      "evs",
+      "evden"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Çoğul eki -ler/-lar",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0051"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "Hangi cümlede soru işareti yanlış kullanılmıştır?",
+    "options": [
+      "Bugün hava nasıl?",
+      "Ne zaman geleceksin?",
+      "Acaba yağmur mu yağacak?",
+      "Sen de mi gideceksin."
+    ],
+    "answerIndex": 3,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Soru cümleleri ? ile biter.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0052"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Çalışkan\" kelimesinin eş anlamlısı hangisidir?",
+    "options": [
+      "Tembel",
+      "Gayretli",
+      "Yavaş",
+      "İlgisiz"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Çok çalışan anlamı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0053"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Okuyor\" fiilinin kişisi hangisidir?",
+    "options": [
+      "1. tekil",
+      "2. tekil",
+      "3. tekil",
+      "1. çoğul"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "O okur anlamı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0054"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "Cümlede yüklemi bulmak için hangi soru sorulur?",
+    "options": [
+      "Kim? Ne?",
+      "Nerede?",
+      "Ne yapıyor?",
+      "Nasıl?"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Yüklem eylemi bildirir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0055"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Deyim\" nedir?",
+    "options": [
+      "Gerçek anlamda kullanılan söz",
+      "Kalıplaşmış, mecaz anlamlı söz",
+      "Yabancı dilden gelen kelime",
+      "Eski Türkçe kelime"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Göz açıp kapayıncaya kadar gibi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0056"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Geldi\" fiilinin zamanı nedir?",
+    "options": [
+      "Gelecek zaman",
+      "Geniş zaman",
+      "Görülen geçmiş zaman",
+      "Duyulan geçmiş zaman"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "-di eki görülen geçmiş zaman.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0057"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Atatürk\" özel isim midir?",
+    "options": [
+      "Evet",
+      "Hayır",
+      "Bazen",
+      "Belirsiz"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kişi adları özel isimdir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0058"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "Aşağıdakilerden hangisi sıfattır?",
+    "options": [
+      "koşmak",
+      "güzel",
+      "ev",
+      "okulda"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Niteleme bildiren kelime.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0059"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "\"Türkçe\" kelimesinde kaç ünlü harf vardır?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "ü, e, e - ünlüler a,e,ı,i,o,ö,u,ü",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0060"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "\"Akıllı\" kelimesi hangi türdedir?",
+    "options": [
+      "İsim",
+      "Sıfat",
+      "Zarf",
+      "Fiil"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Niteleme yapar.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0061"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Canlıların temel yapı taşı nedir?",
+    "options": [
+      "Organ",
+      "Doku",
+      "Hücre",
+      "Sistem"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "En küçük canlı birimi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0062"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Güneş ne tür bir gök cismidir?",
+    "options": [
+      "Gezegen",
+      "Uydu",
+      "Yıldız",
+      "Asteroid"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Işık ve ısı yayar.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0063"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Solunumda vücuda giren gaz hangisidir?",
+    "options": [
+      "Karbondioksit",
+      "Oksijen",
+      "Azot",
+      "Hidrojen"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Akciğerlerde alınır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0064"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Işık bir enerji türü müdür?",
+    "options": [
+      "Evet",
+      "Hayır",
+      "Bazen",
+      "Belirsiz"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Işık enerji taşır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0065"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Sıvıların yoğunluğu nasıl ölçülür?",
+    "options": [
+      "Terazi ile",
+      "Cetvel ile",
+      "Dereceli silindir ile",
+      "Termometre ile"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Hacim ölçümü gerekir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0066"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Saf suyun kaynama noktası kaç °C'dir?",
+    "options": [
+      "90",
+      "95",
+      "100",
+      "105"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Deniz seviyesinde standart.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0067"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Mıknatıs hangi metali çeker?",
+    "options": [
+      "Bakır",
+      "Demir",
+      "Alüminyum",
+      "Altın"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Demir, nikel, kobalt.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0068"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Enerji dönüşümü nedir?",
+    "options": [
+      "Enerjinin yok olması",
+      "Bir enerji türünün diğerine dönüşmesi",
+      "Enerjinin azalması",
+      "Enerjinin sabit kalması"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Örn: hareket → ısı",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0069"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Ses boşlukta yayılır mı?",
+    "options": [
+      "Evet",
+      "Hayır",
+      "Bazen",
+      "Belirsiz"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Ses maddesel ortam gerektirir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0070"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "DNA'nın açılımı nedir?",
+    "options": [
+      "Deoksiribonükleik asit",
+      "Ribonükleik asit",
+      "Protein",
+      "Enzim"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kalıtım molekülü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0071"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin yönetim biçimi nedir?",
+    "options": [
+      "Krallık",
+      "Cumhuriyet",
+      "İmparatorluk",
+      "Şeyhlik"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Halkın egemenliği.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0072"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "İlk Türk devleti hangisidir?",
+    "options": [
+      "Osmanlı",
+      "Selçuklu",
+      "Göktürk",
+      "Asya Hun"
+    ],
+    "answerIndex": 3,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "MÖ 3. yüzyıl civarı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0073"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "Yasama yetkisi hangi kuruma aittir?",
+    "options": [
+      "Cumhurbaşkanı",
+      "TBMM",
+      "Mahkeme",
+      "Belediye"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kanun yapan kurum.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0074"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin komşu ülkelerinden biri hangisidir?",
+    "options": [
+      "Fransa",
+      "Yunanistan",
+      "İtalya",
+      "Almanya"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Batı sınırında.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0075"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Cumhuriyet ne zaman ilan edilmiştir?",
+    "options": [
+      "23 Nisan 1920",
+      "30 Ağustos 1922",
+      "29 Ekim 1923",
+      "1 Kasım 1922"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Cumhuriyet Bayramı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0076"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Sakarya Savaşı hangi yıl yapılmıştır?",
+    "options": [
+      "1919",
+      "1920",
+      "1921",
+      "1922"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kurtuluş Savaşı'nın dönüm noktası.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0077"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Osmanlı Devleti hangi şehirde kurulmuştur?",
+    "options": [
+      "İstanbul",
+      "Bursa",
+      "Söğüt",
+      "Edirne"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1299'da küçük bir beylik olarak.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0078"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "Türkiye kaç coğrafi bölgeye ayrılır?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Marmara, Ege, Akdeniz, İç Anadolu, Karadeniz, Doğu Anadolu, Güneydoğu Anadolu.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0079"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "Atatürk'ün doğum yılı nedir?",
+    "options": [
+      "1878",
+      "1880",
+      "1881",
+      "1882"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Selanik'te doğdu.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0080"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"One\" sayısının Türkçesi nedir?",
+    "options": [
+      "Sıfır",
+      "Bir",
+      "İki",
+      "Üç"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1 sayısı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0081"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"Cat\" ne demektir?",
+    "options": [
+      "Köpek",
+      "Kedi",
+      "Kuş",
+      "Balık"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Evcil hayvan.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0082"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"I am\" ifadesinin olumsuzu hangisidir?",
+    "options": [
+      "I am not",
+      "I is not",
+      "I are not",
+      "I not am"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "am + not = am not",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0083"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Monday\" hangi gündür?",
+    "options": [
+      "Pazar",
+      "Pazartesi",
+      "Salı",
+      "Çarşamba"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Haftanın ilk iş günü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0084"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"They _____ playing football.\" boşluğa hangisi gelir?",
+    "options": [
+      "am",
+      "is",
+      "are",
+      "be"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "They ile are kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0085"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Have\" fiilinin 3. tekil şahıs hali hangisidir?",
+    "options": [
+      "have",
+      "has",
+      "having",
+      "had"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "He/she/it has",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0086"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"Book\" kelimesinin Türkçesi nedir?",
+    "options": [
+      "Kalem",
+      "Kitap",
+      "Defter",
+      "Sözlük"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Okuma nesnesi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0087"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"I _____ to the cinema yesterday.\" geçmiş zaman için boşluğa hangisi gelir?",
+    "options": [
+      "go",
+      "goes",
+      "went",
+      "going"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Geçmiş zaman - went",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0088"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"Please\" ne anlama gelir?",
+    "options": [
+      "Teşekkürler",
+      "Lütfen",
+      "Özür dilerim",
+      "Evet"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Rica ederken kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0089"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"She _____ cooking dinner now.\" şimdiki zaman için boşluğa hangisi gelir?",
+    "options": [
+      "am",
+      "is",
+      "are",
+      "be"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Şimdiki zaman: is + -ing",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0090"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "Bir üçgenin iç açıları toplamı kaç derecedir?",
+    "options": [
+      "90",
+      "180",
+      "270",
+      "360"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Tüm üçgenlerde geçerlidir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0091"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "8 × 7 işleminin sonucu kaçtır?",
+    "options": [
+      "54",
+      "55",
+      "56",
+      "57"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "8×7=56",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0092"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "12'nin asal çarpanları hangileridir?",
+    "options": [
+      "2 ve 3",
+      "2 ve 6",
+      "3 ve 4",
+      "1 ve 12"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "12=2×2×3",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0093"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "0,5 ondalık sayısı kesir olarak nasıl yazılır?",
+    "options": [
+      "1/3",
+      "1/4",
+      "1/2",
+      "2/3"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "5/10 = 1/2",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0094"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "−12 ÷ (−4) işleminin sonucu kaçtır?",
+    "options": [
+      "-3",
+      "3",
+      "-8",
+      "8"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Negatif bölü negatif = pozitif.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0095"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "15² (15'in karesi) kaçtır?",
+    "options": [
+      "200",
+      "215",
+      "225",
+      "250"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "15×15=225",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0096"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "Bir üçgenin tabanı 10 cm, yüksekliği 6 cm ise alanı kaç cm²'dir?",
+    "options": [
+      "25",
+      "30",
+      "35",
+      "40"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Alan = (taban × yükseklik) / 2",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0097"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Yazdı\" fiilinin öznesi hangi kişi olabilir?",
+    "options": [
+      "Ben",
+      "Sen",
+      "O",
+      "Biz"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "-dı eki 3. tekil şahıs.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0098"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Okul\" kelimesi kaç hecelidir?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "O-kul",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0099"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Yazım\" ve \"imla\" kelimeleri arasındaki ilişki nedir?",
+    "options": [
+      "Zıt anlamlı",
+      "Eş anlamlı",
+      "Yakın anlamlı",
+      "Eş sesli"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Aynı anlama gelirler.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0100"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "\"Koşarak geldi\" cümlesindeki \"koşarak\" hangi tür fiilimsidir?",
+    "options": [
+      "İsim-fiil",
+      "Sıfat-fiil",
+      "Zarf-fiil",
+      "Bağ-fiil"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Durum bildirir, zarf görevi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0101"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Bitkiler fotosentezde hangi gazı kullanır?",
+    "options": [
+      "Oksijen",
+      "Karbondioksit",
+      "Azot",
+      "Hidrojen"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Yapraklar havadan alır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0102"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Dünya'nın uydusu hangisidir?",
+    "options": [
+      "Mars",
+      "Venüs",
+      "Ay",
+      "Güneş"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Geceleri gökyüzünde.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0103"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Kuvvetin birimi nedir?",
+    "options": [
+      "Metre",
+      "Newton",
+      "Saniye",
+      "Kilogram"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "N ile gösterilir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0104"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Periyodik tabloda kaç element vardır? (bilinen)",
+    "options": [
+      "90",
+      "100",
+      "118",
+      "150"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Modern periyodik tablo.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0105"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin en kalabalık şehri hangisidir?",
+    "options": [
+      "Ankara",
+      "İzmir",
+      "İstanbul",
+      "Bursa"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "İki kıtada toprağı olan şehir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0106"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türk bayrağındaki ay ve yıldız ne renktir?",
+    "options": [
+      "Mavi",
+      "Kırmızı",
+      "Beyaz",
+      "Sarı"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Al zemin üzerinde.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0107"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "Çanakkale Savaşı hangi yıllar arasında yapılmıştır?",
+    "options": [
+      "1912-1913",
+      "1914-1915",
+      "1916-1917",
+      "1918-1919"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "I. Dünya Savaşı sırasında.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0108"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"How old are you?\" sorusu ne anlama gelir?",
+    "options": [
+      "Adın ne?",
+      "Kaç yaşındasın?",
+      "Neredesin?",
+      "Nasılsın?"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Yaş sormak.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0109"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"Neither...nor\" ifadesi ne anlama gelir?",
+    "options": [
+      "Ya...ya da",
+      "Hem...hem",
+      "Ne...ne de",
+      "İster...ister"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "İkisinden hiçbiri.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0110"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "100 − 37 işleminin sonucu kaçtır?",
+    "options": [
+      "61",
+      "62",
+      "63",
+      "64"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "100-37=63",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0111"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "4/8 kesri sadeleştirildiğinde hangisi olur?",
+    "options": [
+      "2/4",
+      "1/2",
+      "3/4",
+      "2/8"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "4 ve 8'in ortak böleni 4.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0112"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "96 ÷ 8 işleminin sonucu kaçtır?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "8×12=96",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0113"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "2:3 oranı 20'ye kadar genişletilirse ilk sayı kaç olur?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2k+3k=20 ise k=4, ilk sayı 2k=8.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0114"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "6 + (−2) işleminin sonucu kaçtır?",
+    "options": [
+      "4",
+      "-4",
+      "8",
+      "-8"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "6-2=4",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0115"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "Bir dikdörtgenin kenarları 5 cm ve 12 cm ise çevresi kaç cm'dir?",
+    "options": [
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2×(5+12)=34",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0116"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "Cümle sonuna hangi noktalama işareti konur?",
+    "options": [
+      "Virgül",
+      "Nokta",
+      "Ünlem",
+      "Soru işareti"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Cümle biter.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0117"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Geçmiş\" kelimesinin zıt anlamlısı hangisidir?",
+    "options": [
+      "Şimdi",
+      "Gelecek",
+      "Bugün",
+      "Yarın"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Zaman yönü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0118"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Yapıyor\" fiilinin kökü hangisidir?",
+    "options": [
+      "yap",
+      "yapı",
+      "yor",
+      "yapıyor"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Fiilin anlam taşıyan kısmı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0119"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Yer çekimi kuvveti kim tarafından formüle edilmiştir?",
+    "options": [
+      "Einstein",
+      "Newton",
+      "Galileo",
+      "Darwin"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Elma düşmesi hikayesi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0120"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Maddenin üç hali hangileridir?",
+    "options": [
+      "Katı, sıvı, gaz",
+      "Ateş, su, toprak",
+      "Kök, gövde, yaprak",
+      "Hücre, doku, organ"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Fiziksel haller.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0121"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Hız nasıl hesaplanır?",
+    "options": [
+      "Kuvvet / Kütle",
+      "Yol × Zaman",
+      "Yol / Zaman",
+      "Zaman / Yol"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "v = x / t",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0122"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "Yargı yetkisi hangi kuruma aittir?",
+    "options": [
+      "TBMM",
+      "Başbakan",
+      "Mahkemeler",
+      "Belediye"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Adalet dağıtan kurum.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0123"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Kurtuluş Savaşı'nın önderi kimdir?",
+    "options": [
+      "İsmet İnönü",
+      "Mustafa Kemal Atatürk",
+      "Kazım Karabekir",
+      "Fevzi Çakmak"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Türkiye Cumhuriyeti'nin kurucusu.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0124"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Red\" ne renktir?",
+    "options": [
+      "Mavi",
+      "Yeşil",
+      "Kırmızı",
+      "Sarı"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Trafik ışığı rengi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0125"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"Water\" ne demektir?",
+    "options": [
+      "Ateş",
+      "Su",
+      "Toprak",
+      "Hava"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "İçecek.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0126"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "9 × 9 işleminin sonucu kaçtır?",
+    "options": [
+      "72",
+      "79",
+      "81",
+      "90"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "9×9=81",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0127"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "5, 10, 15, 20... dizisinde 8. terim kaçtır?",
+    "options": [
+      "35",
+      "38",
+      "40",
+      "45"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "5'in katları, 8. terim = 8×5=40",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0128"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "3⁴ (3 üssü 4) kaçtır?",
+    "options": [
+      "12",
+      "27",
+      "64",
+      "81"
+    ],
+    "answerIndex": 3,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "3×3×3×3=81",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0129"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "Bir dairenin yarıçapı 7 cm ise çevresi yaklaşık kaç cm'dir? (π≈3)",
+    "options": [
+      "21",
+      "42",
+      "44",
+      "49"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Çevre = 2πr = 2×3×7=42",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0130"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Anne\" kelimesi kaç harflidir?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "A-n-n-e",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0131"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "\"Dün okula gittim.\" cümlesinde \"dün\" hangi tür kelimedir?",
+    "options": [
+      "İsim",
+      "Sıfat",
+      "Zarf",
+      "Fiil"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Zaman bildirir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0132"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "İnsanda kaç kemik vardır? (yetişkin)",
+    "options": [
+      "180",
+      "206",
+      "250",
+      "300"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Yetişkin insan iskeleti.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0133"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Suyun kimyasal formülü nedir?",
+    "options": [
+      "CO2",
+      "NaCl",
+      "H2O",
+      "O2"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Hidrojen ve oksijen.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0134"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin en büyük gölü hangisidir?",
+    "options": [
+      "Tuz Gölü",
+      "Van Gölü",
+      "Eğirdir Gölü",
+      "Beyşehir Gölü"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Doğu Anadolu'da.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0135"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"What is your name?\" ne anlama gelir?",
+    "options": [
+      "Nasılsın?",
+      "Adın ne?",
+      "Kaç yaşındasın?",
+      "Neredesin?"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "İsim sormak.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0136"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "1 ton kaç kilogramdır?",
+    "options": [
+      "100",
+      "500",
+      "1000",
+      "2000"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1 ton = 1000 kg",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0137"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "En küçük asal sayı kaçtır?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2 tek çift asal sayı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0138"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "|−7| mutlak değeri kaçtır?",
+    "options": [
+      "-7",
+      "0",
+      "7",
+      "14"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Mutlak değer her zaman pozitif.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0139"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "x² = 49 ise x'in pozitif değeri kaçtır?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "7×7=49",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0140"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Durağı\" kelimesindeki \"-ı\" eki ne tür ektir?",
+    "options": [
+      "Çoğul eki",
+      "İyelik eki",
+      "Hal eki",
+      "Yapım eki"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Belirtme (yükleme) hali.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0141"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Fotosentez hangi organelde gerçekleşir?",
+    "options": [
+      "Mitokondri",
+      "Ribozom",
+      "Kloroplast",
+      "Çekirdek"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Yeşil renk veren organel.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0142"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "Magna Carta hangi ülkede imzalanmıştır?",
+    "options": [
+      "Fransa",
+      "Almanya",
+      "İngiltere",
+      "İspanya"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1215'te krala karşı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0143"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"Can\" yardımcı fiili ne anlama gelir?",
+    "options": [
+      "Zorunluluk",
+      "Yetenek",
+      "Geçmiş",
+      "Gelecek"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "-ebilmek anlamı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0144"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "72 ÷ 9 işleminin sonucu kaçtır?",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "9×8=72",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0145"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "1 metre kaç santimetredir?",
+    "options": [
+      "10",
+      "50",
+      "100",
+      "1000"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1 m = 100 cm",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0146"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "5x + 3 = 2x + 15 ise x kaçtır?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "5x-2x=15-3, 3x=12, x=4",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0147"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Gelen\" kelimesi hangi fiilimsi türüdür?",
+    "options": [
+      "İsim-fiil",
+      "Sıfat-fiil",
+      "Zarf-fiil",
+      "Bağ-fiil"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "-en/-an eki sıfat-fiil yapar.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0148"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Besin zincirinde üreticiler hangileridir?",
+    "options": [
+      "Hayvanlar",
+      "Bitkiler",
+      "Mantarlar",
+      "Bakteriler"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Fotosentez yapan canlılar.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0149"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "İlk yazılı Türk destanı hangisidir?",
+    "options": [
+      "Oğuz Kağan",
+      "Ergenekon",
+      "Göktürk Kitabeleri",
+      "Dede Korkut"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Orhun Yazıtları.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0150"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "x + 7 = 15 ise x kaçtır?",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "15-7=8",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0151"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "2x = 18 ise x kaçtır?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "18÷2=9",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0152"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "(x+2)(x+3) ifadesinin açılımı hangisidir?",
+    "options": [
+      "x²+5x+5",
+      "x²+5x+6",
+      "x²+6x+6",
+      "x²+6x+5"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "x²+3x+2x+6=x²+5x+6",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0153"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "√81 + √16 işleminin sonucu kaçtır?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "9+4=13",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0154"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "log₂8 ifadesinin değeri kaçtır?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "8"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Dogru yanit 2. secenek.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0155"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "f(x)=2x+1 ise f(3) kaçtır?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2×3+1=7",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0156"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "Bir aritmetik dizide a₁=3 ve d=4 ise a₅ kaçtır?",
+    "options": [
+      "15",
+      "17",
+      "19",
+      "21"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "a₅=a₁+4d=3+16=19",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0157"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "Paragrafta ana düşünce genellikle nerede bulunur?",
+    "options": [
+      "İlk cümlede",
+      "Son cümlede",
+      "Ortada",
+      "Her cümlede"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Özetleyen, sonuç çıkaran.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0158"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Anlatıcı\" metnin hangi öğesiyle ilgilidir?",
+    "options": [
+      "Zaman",
+      "Mekan",
+      "Bakış açısı",
+      "Kişiler"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kim anlatıyor?",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0159"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "Roman türünün en uzun parçası hangisidir?",
+    "options": [
+      "Bölüm",
+      "Paragraf",
+      "Cümle",
+      "Kısım"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Bölümlerden oluşur.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0160"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Atomun çekirdeğinde hangi parçacıklar bulunur?",
+    "options": [
+      "Elektron",
+      "Proton ve nötron",
+      "Sadece proton",
+      "Sadece nötron"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Pozitif yüklü merkez.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0161"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Kimyasal tepkimelerde kütle korunur mu?",
+    "options": [
+      "Hayır",
+      "Evet",
+      "Bazen",
+      "Belirsiz"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Kütlenin korunumu yasası.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0162"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "İnsanda kalbin kaç odacığı vardır?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2 kulakçık, 2 karıncık.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0163"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Osmanlı Devleti hangi yüzyılda kurulmuştur?",
+    "options": [
+      "12. yy",
+      "13. yy",
+      "14. yy",
+      "15. yy"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "1299 yılı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0164"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Fransız İhtilali hangi yıl gerçekleşmiştir?",
+    "options": [
+      "1776",
+      "1789",
+      "1799",
+      "1815"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Özgürlük, eşitlik, kardeşlik.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0165"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Coğrafyada enlem neyi ölçer?",
+    "options": [
+      "Boylam",
+      "Kuzey-güney uzaklığı",
+      "Yükseklik",
+      "Derinlik"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Ekvatora uzaklık.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0166"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Although\" ne anlama gelir?",
+    "options": [
+      "Çünkü",
+      "Buna rağmen",
+      "Bu yüzden",
+      "Ayrıca"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Zıtlık bildirir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0167"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"If I _____ rich, I would travel.\" boşluğa hangisi gelir?",
+    "options": [
+      "am",
+      "was",
+      "were",
+      "be"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Şart cümlesi, were kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0168"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Therefore\" ne anlama gelir?",
+    "options": [
+      "Ancak",
+      "Bu nedenle",
+      "Örneğin",
+      "Aslında"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Sonuç bildirir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0169"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "Passive voice'da \"The book was written\" ne anlama gelir?",
+    "options": [
+      "Kitap yazdı",
+      "Kitap yazıldı",
+      "Kitap yazıyor",
+      "Kitap yazacak"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Edilgen çatı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0170"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "x² − 5x + 6 = 0 denkleminin köklerinden biri hangisidir?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "6"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "(x-2)(x-3)=0, x=2 veya 3",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0171"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Anlam genişlemesi\" ne demektir?",
+    "options": [
+      "Kelimenin anlamının daralması",
+      "Kelimenin yeni anlamlar kazanması",
+      "Kelimenin unutulması",
+      "Kelimenin değişmesi"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Örn: kol (uzuv → destek).",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0172"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Işık hızı saniyede yaklaşık kaç km'dir?",
+    "options": [
+      "150.000",
+      "200.000",
+      "300.000",
+      "400.000"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "c ≈ 300.000 km/s",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0173"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Sanayi Devrimi ilk olarak hangi ülkede başlamıştır?",
+    "options": [
+      "Fransa",
+      "Almanya",
+      "İngiltere",
+      "ABD"
+    ],
+    "answerIndex": 2,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "18. yüzyıl.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0174"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"Neither the teacher nor the students _____ present.\" boşluğa hangisi gelir?",
+    "options": [
+      "was",
+      "were",
+      "is",
+      "are"
+    ],
+    "answerIndex": 1,
+    "difficulty": "HARD",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "En yakın özne students, çoğul.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0175"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "7 × 8 işleminin sonucu kaçtır?",
+    "options": [
+      "54",
+      "55",
+      "56",
+      "58"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "7×8=56",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0176"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "45 + 55 işleminin sonucu kaçtır?",
+    "options": [
+      "90",
+      "95",
+      "100",
+      "105"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "45+55=100",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0177"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "4 × (−6) işleminin sonucu kaçtır?",
+    "options": [
+      "24",
+      "-24",
+      "10",
+      "-10"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Pozitif × negatif = negatif.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0178"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Okumak\" fiilinin mastar eki hangisidir?",
+    "options": [
+      "-mak",
+      "ok-",
+      "-u",
+      "-mak"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "-mak/-mek mastar ekidir.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0179"
+  },
+  {
+    "grade": 6,
+    "subject": "turkce",
+    "stem": "\"Ay\" kelimesi kaç harflidir?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Dogru yanit 2. secenek.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0180"
+  },
+  {
+    "grade": 5,
+    "subject": "fen",
+    "stem": "Bitkiler kökleriyle ne alır?",
+    "options": [
+      "Oksijen",
+      "Su ve mineraller",
+      "Karbondioksit",
+      "Işık"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Topraktan emilim.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0181"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Yer kabuğundaki en yaygın element hangisidir?",
+    "options": [
+      "Demir",
+      "Oksijen",
+      "Karbon",
+      "Kalsiyum"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Silikatların yapısında.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0182"
+  },
+  {
+    "grade": 5,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin ulusal marşı nedir?",
+    "options": [
+      "İstiklal Marşı",
+      "Türk Marşı",
+      "Milli Marş",
+      "Cumhuriyet Marşı"
+    ],
+    "answerIndex": 0,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Mehmet Akif Ersoy yazdı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0183"
+  },
+  {
+    "grade": 5,
+    "subject": "ing",
+    "stem": "\"Dog\" ne demektir?",
+    "options": [
+      "Kedi",
+      "Köpek",
+      "Kuş",
+      "Balık"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Sadık evcil hayvan.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0184"
+  },
+  {
+    "grade": 8,
+    "subject": "mat",
+    "stem": "(−2)³ işleminin sonucu kaçtır?",
+    "options": [
+      "6",
+      "-6",
+      "8",
+      "-8"
+    ],
+    "answerIndex": 3,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "(-2)×(-2)×(-2)=-8",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0185"
+  },
+  {
+    "grade": 7,
+    "subject": "turkce",
+    "stem": "\"Öğretmen\" kelimesinin eş anlamlısı hangisi olabilir?",
+    "options": [
+      "Öğrenci",
+      "Muallim",
+      "Müdür",
+      "Veli"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Arapça kökenli eş anlamlı.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0186"
+  },
+  {
+    "grade": 7,
+    "subject": "fen",
+    "stem": "Güneş sistemindeki en büyük gezegen hangisidir?",
+    "options": [
+      "Satürn",
+      "Jüpiter",
+      "Neptün",
+      "Uranüs"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Gaz devi.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0187"
+  },
+  {
+    "grade": 6,
+    "subject": "sosyal",
+    "stem": "Türkiye'nin para birimi nedir?",
+    "options": [
+      "Euro",
+      "Dolar",
+      "Lira",
+      "Mark"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "₺ sembolü.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0188"
+  },
+  {
+    "grade": 7,
+    "subject": "ing",
+    "stem": "\"School\" ne demektir?",
+    "options": [
+      "Ev",
+      "Okul",
+      "Park",
+      "Market"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Eğitim yeri.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0189"
+  },
+  {
+    "grade": 5,
+    "subject": "mat",
+    "stem": "Bir dikdörtgenin kısa kenarı 4 cm, uzun kenarı 9 cm ise çevresi kaç cm'dir?",
+    "options": [
+      "24",
+      "26",
+      "28",
+      "30"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "2×(4+9)=26",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0190"
+  },
+  {
+    "grade": 8,
+    "subject": "turkce",
+    "stem": "\"Türkçe\" kelimesinde kaç sessiz harf vardır?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "T, r, k - sessizler",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0191"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Omurgalılar kaç sınıfa ayrılır?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answerIndex": 2,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Balık, kurbağa, sürüngen, kuş, memeli.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0192"
+  },
+  {
+    "grade": 8,
+    "subject": "sosyal",
+    "stem": "İlk Türk alfabesi hangisidir?",
+    "options": [
+      "Latin alfabesi",
+      "Göktürk alfabesi",
+      "Arap alfabesi",
+      "Kiril alfabesi"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Orhun Yazıtları.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0193"
+  },
+  {
+    "grade": 8,
+    "subject": "ing",
+    "stem": "\"Teacher\" ne demektir?",
+    "options": [
+      "Öğrenci",
+      "Öğretmen",
+      "Müdür",
+      "Veli"
+    ],
+    "answerIndex": 1,
+    "difficulty": "EASY",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Eğitmen.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0194"
+  },
+  {
+    "grade": 6,
+    "subject": "mat",
+    "stem": "0,75 kesir olarak nasıl yazılır?",
+    "options": [
+      "1/2",
+      "2/3",
+      "3/4",
+      "4/5"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "75/100=3/4",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0195"
+  },
+  {
+    "grade": 7,
+    "subject": "mat",
+    "stem": "x/4 = 5 ise x kaçtır?",
+    "options": [
+      "18",
+      "19",
+      "20",
+      "21"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Mat",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "x=5×4=20",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0196"
+  },
+  {
+    "grade": 5,
+    "subject": "turkce",
+    "stem": "\"Büyük\" kelimesinin zıt anlamlısı hangisidir?",
+    "options": [
+      "Geniş",
+      "Küçük",
+      "Uzun",
+      "Kısa"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Turkce",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Boyutla ilgili.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0197"
+  },
+  {
+    "grade": 6,
+    "subject": "fen",
+    "stem": "Saf suyun donma noktası kaç °C'dir?",
+    "options": [
+      "-1",
+      "0",
+      "1",
+      "4"
+    ],
+    "answerIndex": 1,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Fen",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "Celsius ölçeğinde.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0198"
+  },
+  {
+    "grade": 7,
+    "subject": "sosyal",
+    "stem": "Mondros Ateşkes Antlaşması hangi yıl imzalanmıştır?",
+    "options": [
+      "1916",
+      "1917",
+      "1918",
+      "1919"
+    ],
+    "answerIndex": 2,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Sosyal",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "I. Dünya Savaşı sonrası.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0199"
+  },
+  {
+    "grade": 6,
+    "subject": "ing",
+    "stem": "\"I _____ a student.\" boşluğa hangisi gelir?",
+    "options": [
+      "am",
+      "is",
+      "are",
+      "be"
+    ],
+    "answerIndex": 0,
+    "difficulty": "MEDIUM",
+    "questionType": "multiple_choice",
+    "topic": "Ing",
+    "skills": [
+      "reasoning"
+    ],
+    "explanation": "I ile am kullanılır.",
+    "source": "edumio_cleaned",
+    "sourceRef": "cleaned_questions_tr_0200"
+  }
 ]

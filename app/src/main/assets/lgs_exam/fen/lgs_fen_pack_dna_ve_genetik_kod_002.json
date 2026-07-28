@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir DNA molekülünde toplam 1200 nükleotit bulunmaktadır. Yapılan analizde sitozin bazının sayısının toplam nükleotitlerin %20'si olduğu belirlenmiştir.\n\nBuna göre guanin bazı sayısı kaçtır?",
+      "options": [
+        "120",
+        "240",
+        "360",
+        "480"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "guanin_sitozin"],
+      "explanation": "DNA'da C = G'dir. %20 C varsa %20 G vardır. 1200 x 0.20 = 240",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünün analizinde adenin bazı sayısının 300 olduğu belirlenmiştir. Guanin ve sitozin sayıları bilinmediği halde, baz eşleşme kuralına göre aşağıdakilerden hangisi kesin olarak söylenebilir?",
+      "options": [
+        "Timin sayısı 150'dir",
+        "Timin sayısı 300'dür",
+        "Guanin sayısı 300'dür",
+        "Sitozin sayısı 150'dir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "adenin_timin"],
+      "explanation": "DNA'da A = T olduğu için timin sayısı da 300'dür.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q02"
+    },
+    {
+      "stem": "Aa genotipli iki bezelye bitkisi çaprazlanıyor.\n\nBu çaprazlama sonucunda oluşabilecek fenotip oranı aşağıdakilerden hangisidir?",
+      "options": [
+        "1 : 1",
+        "3 : 1",
+        "1 : 2 : 1",
+        "4 : 0"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "fenotip"],
+      "explanation": "Aa x Aa çaprazlamasında fenotip oranı 3:1 olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q03"
+    },
+    {
+      "stem": "Bir bezelye bitkisinde boy uzunluğu geninde her iki alel de çekinik (aa) olarak belirlenmiştir. Baskın alel bulunmadığına göre bu bitkinin fenotipi için aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Baskın özellik görülür",
+        "Çekinik özellik görülür",
+        "Her iki özellik birlikte görülür",
+        "Fenotip oluşmaz"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["genotip", "fenotip", "baskin_ceknik"],
+      "explanation": "aa genotipinde çekinik özellik ortaya çıkar.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q04"
+    },
+    {
+      "stem": "Bir bakteride radyasyon etkisiyle DNA dizilimi değişmiş ve bakterinin antibiyotiklere karşı direnç kazandığı gözlenmiştir.\n\nBu olay aşağıdakilerden hangisine örnektir?",
+      "options": [
+        "Modifikasyon",
+        "Mutasyon",
+        "Adaptasyon",
+        "Klonlama"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "direnc", "dna_degisimi"],
+      "explanation": "DNA dizilimindeki kalıcı değişim mutasyondur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q05"
+    },
+    {
+      "stem": "Bir bölgede yaşayan tavşanların kürk rengi çevreye uyum sağlayacak şekilde nesiller boyunca koyulaşmıştır.\n\nBu durum aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Modifikasyon",
+        "Doğal seçilim",
+        "Klonlama",
+        "Gen aktarımı"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ADAPTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dogal_secilim", "adaptasyon", "evrim"],
+      "explanation": "Çevreye daha uyumlu bireylerin hayatta kalması doğal seçilimdir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q06"
+    },
+    {
+      "stem": "Bir öğrenci DNA yapısını özetlerken: nükleotitlerden oluşur, çift zincirlidir, A-T-G-C bazlarını içerir diye yazıyor. Arkadaşı \"Bunlardan biri yanlış; DNA yapısı için söylenemez.\" diyor. Arkadaşının kastettiği ifade aşağıdakilerden hangisidir?",
+      "options": [
+        "Nükleotitlerden oluşur",
+        "Çift zincirlidir",
+        "Proteinlerden oluşur",
+        "Baz çeşitleri içerir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "nukleotit", "yapi"],
+      "explanation": "DNA protein değil nükleotitlerden oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q07"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin bazının toplam nükleotitlere oranı %15 olarak ölçülüyor. Adenin ve timin oranları bilinmiyor olsa bile, baz eşleşme kuralına göre sitozin oranı hakkında ne söylenebilir?",
+      "options": [
+        "%15",
+        "%30",
+        "%35",
+        "%70"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "guanin_sitozin"],
+      "explanation": "G = C olduğu için sitozin de %15'tir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q08"
+    },
+    {
+      "stem": "Mutasyon ile ilgili aşağıdaki ifadelerden hangileri doğrudur?\n\nI. DNA diziliminde değişimdir\nII. Kalıtsal olabilir\nIII. Her zaman zararlıdır",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "kalitsal", "ozellikler"],
+      "explanation": "Mutasyonlar zararlı, faydalı veya nötr olabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q09"
+    },
+    {
+      "stem": "Bir öğrenci çevresel etkiyle ortaya çıkan değişim örneklerini listeliyor: güneşte bronzlaşma, sporla kas gelişimi, radyasyon sonucu DNA değişimi, bitkinin ışığa yönelmesi. Bu örneklerden hangisi DNA diziliminde kalıcı değişim yaptığı için modifikasyon değil, başka bir kavrama örnektir?",
+      "options": [
+        "Güneş ışığında bronzlaşma",
+        "Spor yapan kişinin kaslarının gelişmesi",
+        "Radyasyon sonucu DNA değişimi",
+        "Bitkinin ışığa doğru büyümesi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["modifikasyon", "mutasyon", "ayrim"],
+      "explanation": "DNA değişimi mutasyondur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_002_q10"
+    }
+  ]
+}

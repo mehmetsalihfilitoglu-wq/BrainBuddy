@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir kaldıraç sisteminde yük kolu 3 m, kuvvet kolu 9 m'dir. Bu sistemle 180 N'luk bir yük dengelenmek istenmektedir. Buna göre uygulanması gereken kuvvet kaç N'dur?",
+      "options": [
+        "20",
+        "40",
+        "60",
+        "90"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu = 9 / 3 = 3. Kuvvet = 180 / 3 = 60 N.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q01"
+    },
+    {
+      "stem": "Bir kaldıraçta destek noktası kuvvet ile yük arasında bulunuyorsa bu kaldıraç aşağıdaki araçlardan hangisine benzer?",
+      "options": [
+        "El arabası",
+        "Makas",
+        "Ceviz kıracağı",
+        "Olta"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "destek_noktasi", "ornekler"],
+      "explanation": "Destek ortadaysa birinci tip kaldıraçtır. Makas buna örnektir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q02"
+    },
+    {
+      "stem": "Bir makara sisteminde 1 sabit ve 2 hareketli makara bulunmaktadır. Buna göre sistemin kuvvet kazancı kaçtır?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "hareketli_makara", "kuvvet_kazanci"],
+      "explanation": "Kuvvet kazancı hareketli makara sayısının iki katıdır. 2 hareketli makara → 4 kuvvet kazancı.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q03"
+    },
+    {
+      "stem": "Bir yük, kuvvet kazancı 4 olan bir makara sistemi ile 2 m yükseltilmiştir. Buna göre ip kaç metre çekilmiştir?",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "Yoldan kayıp kuvvet kazancı kadardır. 2 × 4 = 8 m ip çekilir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q04"
+    },
+    {
+      "stem": "Aynı yüksekliğe çıkarılan bir yük için iki farklı eğik düzlem kullanılıyor. Birinci düzlemin uzunluğu 6 m, ikinci düzlemin uzunluğu 3 m'dir. Buna göre hangi yorum doğrudur?",
+      "options": [
+        "6 m olan düzlemde daha az kuvvet gerekir",
+        "3 m olan düzlemde daha az kuvvet gerekir",
+        "Her iki düzlemde kuvvet aynıdır",
+        "3 m olan düzlemde kuvvet kazancı vardır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "INCLINED_PLANE_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["egik_duzlem", "kuvvet_kazanci", "uzunluk"],
+      "explanation": "Eğik düzlem uzadıkça kuvvet azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q05"
+    },
+    {
+      "stem": "Bir basit makine ile 100 N'luk bir yük 2 m yukarı kaldırılıyor. Buna göre yapılan iş kaç joule'dür?",
+      "options": [
+        "50",
+        "100",
+        "200",
+        "400"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "WORK_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["is", "kuvvet", "yol", "enerji"],
+      "explanation": "İş = Kuvvet × Yol. 100 × 2 = 200 J.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q06"
+    },
+    {
+      "stem": "Bir dişli sisteminde küçük dişli çark büyük dişliyi döndürüyorsa aşağıdaki sonuçlardan hangisi gerçekleşir?",
+      "options": [
+        "Hız artar",
+        "Kuvvet artar",
+        "Yön değişmez",
+        "Enerji artar"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "GEAR_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["disli_cark", "kuvvet", "hiz"],
+      "explanation": "Büyük dişli döndüğünde kuvvet artar fakat hız azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q07"
+    },
+    {
+      "stem": "Vida ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Makaranın geliştirilmiş hâlidir",
+        "Kaldıracın geliştirilmiş hâlidir",
+        "Eğik düzlemin geliştirilmiş hâlidir",
+        "Dişli çarkın geliştirilmiş hâlidir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "SCREW_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["vida", "egik_duzlem", "basit_makine"],
+      "explanation": "Vida eğik düzlemin silindir etrafına sarılmış hâlidir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q08"
+    },
+    {
+      "stem": "Bir kaldıraçta yük kolu 2 m, kuvvet kolu 8 m'dir. Bu sistemle 160 N'luk bir yük kaldırılacaktır. Uygulanması gereken kuvvet kaç N olur?",
+      "options": [
+        "20",
+        "30",
+        "40",
+        "80"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet kazancı = 8/2 = 4. Kuvvet = 160 / 4 = 40 N.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q09"
+    },
+    {
+      "stem": "Basit makineler ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Enerji üretirler",
+        "İşten kazanç sağlarlar",
+        "Enerji kaybını ortadan kaldırırlar",
+        "İş yapmayı kolaylaştırırlar"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["basit_makine", "is", "ozellik"],
+      "explanation": "Basit makineler işten kazanç sağlamaz fakat işi kolaylaştırırlar.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_002_q10"
+    }
+  ]
+}

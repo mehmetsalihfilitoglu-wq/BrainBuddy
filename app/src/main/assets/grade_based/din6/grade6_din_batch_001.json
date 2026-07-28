@@ -1,0 +1,854 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "din",
+  "questions": [
+    {
+      "stem": "Kur'an-ı Kerim'in ilk inen suresinin ilk kelimesi aşağıdakilerden hangisidir?",
+      "options": ["İkra (Oku)", "Bismillah", "Elhamdülillah", "Allahu Ekber"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi", "Kur'an vahyi"],
+      "explanation": "İlk inen sure Alak suresidir. İlk ayet 'İkra bismi rabbike...' yani 'Yaratan Rabbinin adıyla oku!' diye başlar."
+    },
+    {
+      "stem": "Hz. Muhammed (s.a.v.)'in ilk eşi kimdir?",
+      "options": ["Hz. Hatice", "Hz. Aişe", "Hz. Fatıma", "Hz. Meryem"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Hz. Muhammed'in hayatı",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Muhammed'in ilk eşi Hz. Hatice'dir. Hz. Hatice, İslam'ı ilk kabul eden kişidir."
+    },
+    {
+      "stem": "İslamiyet'in beş şartından biri olan namaz kaç vakit kılınır?",
+      "options": ["5 vakit", "3 vakit", "7 vakit", "2 vakit"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İslam'ın şartları",
+      "skills": ["bilgi"],
+      "explanation": "Namaz günde 5 vakit kılınır: sabah, öğle, ikindi, akşam, yatsı."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi İslam'ın şartları arasında yer almaz?",
+      "options": ["Hac yapmak bir kere farz olmak için hem sağlıklı hem de zengin olmak gerekir", "Kelime-i şehadet getirmek", "Namaz kılmak", "Zekât vermek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam'ın şartları",
+      "skills": ["analiz", "din bilgisi"],
+      "explanation": "Bu seçenek bir şart değil, bir açıklamadır. İslam'ın 5 şartı: Kelime-i şehadet, namaz, oruç, zekât, hac'tır."
+    },
+    {
+      "stem": "Kur'an-ı Kerim'de kaç sure bulunmaktadır?",
+      "options": ["114", "99", "120", "100"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Kur'an-ı Kerim 114 sureden oluşmaktadır."
+    },
+    {
+      "stem": "İnsanları ve cinleri, Allah'ın emir ve yasaklarını iletmek üzere gönderilmiş kişilere ne ad verilir?",
+      "options": ["Peygamber", "Veli", "Halife", "Âlim"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Peygamberlik",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Allah tarafından insanlara vahiy ile mesaj iletmek üzere seçilen kişilere peygamber denir."
+    },
+    {
+      "stem": "Hz. Muhammed (s.a.v.) hangi şehirde doğmuştur?",
+      "options": ["Mekke", "Medine", "Kudüs", "Taif"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Hz. Muhammed'in hayatı",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Muhammed (s.a.v.) 571 yılında Mekke'de doğmuştur."
+    },
+    {
+      "stem": "Ramazan ayında her gün tutulan orucun açılış vakti hangisidir?",
+      "options": ["İftar - Akşam ezanı okunduğunda", "Sahur - Sabah ezanı okunduğunda", "İftar - Öğle ezanı okunduğunda", "Sahur - Gece yarısında"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Oruç",
+      "skills": ["din bilgisi"],
+      "explanation": "İftar, akşam ezanı okunduğunda (güneş batınca) orucun açılmasıdır."
+    },
+    {
+      "stem": "Allah'ın sıfatları arasında 'Varlığı zorunlu olan, yokluğu düşünülemeyen' anlamına gelen sıfat hangisidir?",
+      "options": ["Vücud", "Kıdem", "Beka", "Vahdaniyyet"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Allah'ın sıfatları",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Vücud: Allah'ın varlığının zorunlu olması, yokluğunun mümkün olmaması anlamına gelen zati sıfattır."
+    },
+    {
+      "stem": "Kur'an-ı Kerim'in en uzun suresi hangisidir?",
+      "options": ["Bakara Suresi", "Al-i İmran Suresi", "Nisa Suresi", "Fatiha Suresi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Kur'an'ın en uzun suresi 286 ayetten oluşan Bakara Suresi'dir."
+    },
+    {
+      "stem": "İslam'da abdest alırken farz olan fiillerden biri aşağıdakilerden hangisidir?",
+      "options": ["Yüzü yıkamak", "Ağzı çalkalamak", "Boynu meshetmek", "Kulakları meshetmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İbadetler",
+      "skills": ["fıkıh bilgisi"],
+      "explanation": "Abdestin farzları: Yüzü yıkamak, kolları yıkamak, başı meshetmek ve ayakları yıkamaktır. Ağzı çalkalamak ve burun temizlemek sünnet; boyun ve kulakları meshetmek de sünnettir."
+    },
+    {
+      "stem": "'Emanete ihanet etmemek' hangi ahlaki ilkenin kapsamına girer?",
+      "options": ["Emanet", "Adalet", "Doğruluk", "Cömertlik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Emanet: Güvenilirlik anlamına gelir. Emanete ihanet etmemek, dürüstlük ve güvenilirliğin bir gereğidir."
+    },
+    {
+      "stem": "Kur'an'da adı geçen ve Müslümanlara kıble olan şehir hangisidir?",
+      "options": ["Mekke", "Medine", "Kudüs", "Taif"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["din-coğrafya bilgisi"],
+      "explanation": "Müslümanların kıblesi Mekke'deki Kâbe'dir. Kâbe, Mescid-i Haram içinde yer alır."
+    },
+    {
+      "stem": "Hz. İbrahim'in oğlu Hz. İsmail ile birlikte inşa ettiği yapı hangisidir?",
+      "options": ["Kâbe", "Mescid-i Aksa", "Mescid-i Nebevi", "Mescid-i Haram"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["bilgi"],
+      "explanation": "Kur'an'a göre Hz. İbrahim ve Hz. İsmail, Allah'ın emriyle Kâbe'yi inşa etmişlerdir (Bakara 127)."
+    },
+    {
+      "stem": "Salih ameller arasında sayılan ve insanlara iyiliği emredip kötülükten alıkoymaya ne ad verilir?",
+      "options": ["Emr-i bi'l-ma'ruf nehy-i ani'l-münker", "Takva", "Tevbe", "İhsan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İyiliği emredip kötülükten alıkoymak İslam'ın önemli bir ilkesidir ve 'emr-i bi'l-maruf nehy-i ani'l-münker' olarak adlandırılır."
+    },
+    {
+      "stem": "Aşağıdaki meleklerden hangisi yağmur ve rızık için görevlendirilmiştir?",
+      "options": ["Mikail", "Cebrail", "İsrafil", "Azrail"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Meleklere iman",
+      "skills": ["bilgi"],
+      "explanation": "Mikail; tabiat olaylarını, rızkı ve yağmuru yönetmekle görevli melektir."
+    },
+    {
+      "stem": "İslam inancına göre Allah'ın sıfatlarından olan 'Kelam' ne anlama gelir?",
+      "options": ["Allah'ın konuşması, kelam sahibi olması", "Allah'ın her şeyi işitmesi", "Allah'ın her şeyi görmesi", "Allah'ın her şeyi bilmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Allah'ın sıfatları",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Kelam: Allah'ın konuşma sıfatıdır. Kur'an-ı Kerim Allah'ın kelamıdır."
+    },
+    {
+      "stem": "Hicret hangi tarihsel olaydır ve İslam takviminde neyin başlangıcı kabul edilir?",
+      "options": ["Hz. Muhammed'in Mekke'den Medine'ye göçü; hicri takvimin başlangıcı", "Mekke'nin fethi; İslam'ın yayılışı", "İslam'ın tebliği; Mekke döneminin başlangıcı", "İlk vahyin gelişi; peygamberliğin başlangıcı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["analiz"],
+      "explanation": "Hicret, Hz. Muhammed'in 622 yılında Mekke'den Medine'ye göç etmesidir. Hicri takvim bu olayla başlar."
+    },
+    {
+      "stem": "Kur'an-ı Kerim'in mushaf haline getirilmesi (kitap olarak derlenmesi) hangi halife döneminde gerçekleşmiştir?",
+      "options": ["Hz. Ebu Bekir", "Hz. Ömer", "Hz. Osman", "Hz. Ali"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Kur'an, Hz. Ebu Bekir döneminde sahifelere toplanmış, Hz. Osman döneminde ise çoğaltılıp yaygınlaştırılmıştır. İlk derleme Hz. Ebu Bekir döneminde yapıldı."
+    },
+    {
+      "stem": "Peygamberlerin sıfatlarından 'İsmet' ne anlama gelir?",
+      "options": ["Günahlardan korunmuşluk", "Doğru sözlülük", "Allah'tan haber iletmek", "Akıllı ve anlayışlı olmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamberlik",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İsmet: Peygamberlerin günah işlemekten ve hata yapmaktan Allah tarafından korunması anlamına gelir."
+    },
+    {
+      "stem": "İslam'a göre 'ahiret' inancının kapsamı aşağıdakilerden hangisidir?",
+      "options": ["Ölümden sonraki ebedi hayat; cennet ve cehennem", "Rüya ve kehanet âlemi", "Dünya hayatının devamı", "Ruhların gökyüzüne yolculuğu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahirete iman",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Ahiret: İnsanların öldükten sonra dirilecekleri, hesap verecekleri ve cennet veya cehennemde kalıcı olarak yaşayacakları ebedi hayattır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'büyük günahlar' arasında sayılır?",
+      "options": ["Şirk koşmak (Allah'a ortak tanımak)", "Namaz kılmayı bir vakit unutmak", "Yanlışlıkla yalan söylemek", "Abdesti tam yapmamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Günahlar ve sevaplar",
+      "skills": ["analiz"],
+      "explanation": "Şirk, Allah'a ortak koşmak, İslam'a göre en büyük günahtır. Kur'an'da 'Allah, kendisine şirk koşulmasını asla bağışlamaz' buyrulur (Nisa 48)."
+    },
+    {
+      "stem": "Hz. Muhammed'in ölümünden sonra ilk halife seçilen kişi kimdir?",
+      "options": ["Hz. Ebu Bekir", "Hz. Ömer", "Hz. Ali", "Hz. Osman"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İslam tarihi",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Muhammed'in vefatının ardından ilk halife Hz. Ebu Bekir seçilmiştir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi İslam'ın inanç esasları (iman esasları) arasında yer almaz?",
+      "options": ["Camilerin kıbleye göre inşa edilmesi", "Meleklere iman", "Kitaplara iman", "Kader ve kazaya iman"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İman esasları",
+      "skills": ["analiz"],
+      "explanation": "İmanın altı şartı: Allah'a, meleklere, kitaplara, peygamberlere, ahirete, kader ve kazaya iman. Camilerin kıbleye göre inşası inanç esası değil, ibadet uygulamasıdır."
+    },
+    {
+      "stem": "Kur'an'da 'Dürüstlük ve güvenilirlik' anlamına gelen 'sıdk' özelliğine sahip olan Hz. Muhammed'e lakabı neydi?",
+      "options": ["El-Emin (Güvenilir olan)", "El-Hakim (Hüküm veren)", "El-Aziz (Güçlü olan)", "El-Kerim (Cömert olan)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. Muhammed'in hayatı",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Muhammed, gençliğinden itibaren dürüstlüğü ve güvenilirliği nedeniyle 'El-Emin' lakabıyla anılmıştır."
+    },
+    {
+      "stem": "İslam'da zekâtın farz olması için gereken şartlardan biri olan 'nisap' ne demektir?",
+      "options": ["Zekât verebilmek için gerekli asgari servet miktarı", "Zekâtın dağıtılacağı kişi sayısı", "Zekâtın ödeneceği zaman dilimi", "Zekât oranı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zekât",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Nisap: Zekâtın farz olabilmesi için kişinin sahip olması gereken asgari zenginlik miktarıdır."
+    },
+    {
+      "stem": "Kur'an'a göre hangi gün 'hafta'nın kutsal günüdür ve Müslümanlar bu gün ne yapar?",
+      "options": ["Cuma – Cuma namazı kılınır", "Cumartesi – İbadet edilir", "Pazar – Dua edilir", "Perşembe – Namaz kılınır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İbadetler",
+      "skills": ["din bilgisi"],
+      "explanation": "Cuma, İslam'da kutsal gündür. Cuma günü öğle vakti Cuma namazı kılınmaktadır."
+    },
+    {
+      "stem": "Namaz kılmadan önce yapılması gereken temizliğe ne ad verilir?",
+      "options": ["Abdest", "Gusül", "Teyemmüm", "İstinca"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İbadetler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Abdest: Namaz kılabilmek için belirli organları yıkama ve meshetme şeklinde yapılan temizliktir."
+    },
+    {
+      "stem": "Aşağıdaki ibadetlerden hangisi hem beden hem de mal ile yapılan bir ibadettir?",
+      "options": ["Hac", "Namaz", "Oruç", "Zekât"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İbadetler",
+      "skills": ["analiz"],
+      "explanation": "Hac, hem bedensel (tavaf, sa'y, vakfe gibi) hem de mali harcama gerektiren bir ibadettir."
+    },
+    {
+      "stem": "Kur'an-ı Kerim'in Türkçe anlamını veren kitaba ne ad verilir?",
+      "options": ["Meal", "Tefsir", "Hadis", "Fıkıh"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kur'an ilimleri",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Meal: Kur'an-ı Kerim'in başka bir dile (örneğin Türkçeye) anlamsal çevirisidir."
+    },
+    {
+      "stem": "Hz. Muhammed'in söz ve davranışlarının derlendiği eserlere ne ad verilir?",
+      "options": ["Hadis kitapları", "Tefsir kitapları", "Fıkıh kitapları", "Kelam kitapları"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Hadis",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Hadis kitapları, Hz. Muhammed'in söz, fiil ve onaylarını derleyen kaynaklardır."
+    },
+    {
+      "stem": "İslam'a göre insan vücudu emanettir ve korunması gerekir. Bu anlayışa göre aşağıdakilerden hangisi yanlıştır?",
+      "options": ["İnsan vücuduna zarar vermek serbesttir", "Temizliğe önem verilmelidir", "Sağlıklı beslenmek gerekir", "Uyku ve dinlenme hakkı vardır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "İslam'a göre insan bedeni Allah'ın emaneti olduğundan ona zarar vermek yasaktır."
+    },
+    {
+      "stem": "Hz. Yusuf kıssasında, Yusuf peygamberin yaşadığı en büyük imtihan aşağıdakilerden hangisidir?",
+      "options": ["Kardeşleri tarafından kuyuya atılması ve köle olarak satılması", "Firavun tarafından hapse atılması", "Çölde susuz kalması", "Halkının kendisini reddetmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an kıssaları"],
+      "explanation": "Hz. Yusuf'un kardeşleri onu kuyuya attı, ardından köle olarak Mısır'a satıldı. Tüm bu sıkıntılara rağmen sabretti."
+    },
+    {
+      "stem": "'Kıyamet günü herkes yaptıklarının hesabını verir.' Bu inanç, aşağıdaki iman esaslarından hangisiyle ilgilidir?",
+      "options": ["Ahirete iman", "Meleklere iman", "Kitaplara iman", "Peygamberlere iman"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahirete iman",
+      "skills": ["ilişkilendirme"],
+      "explanation": "Ahirete iman; ölümden sonra diriliş, mahşer, hesap, cennet ve cehennemin gerçekliğine inanmayı kapsar."
+    },
+    {
+      "stem": "İslam'da 'içki içmek' neden yasaktır? Doğru açıklamayı bulunuz.",
+      "options": ["Akla ve sağlığa zarar verir, toplumsal bozulmaya yol açar", "Sadece kötü koku bıraktığı için", "Pahalı olduğu için", "Yalnızca Ramazan'da yasak olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Helal-Haram",
+      "skills": ["analiz"],
+      "explanation": "İslam'da içki yasaktır çünkü aklı giderir, sağlığa zarar verir ve toplumda ahlaki çöküşe neden olur."
+    },
+    {
+      "stem": "Kur'an'daki 'Fatiha Suresi' hangi isimlerle de anılır?",
+      "options": ["Ümmü'l-Kitab (Kitabın Anası)", "Yasin", "Bakara", "İhlas"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Fatiha Suresi; Ümmü'l-Kitap, Ümmü'l-Kur'an, Es-Seb'ul-Mesânî gibi isimlerle de anılır."
+    },
+    {
+      "stem": "Hz. Musa'nın peygamber olarak gönderildiği topluluk aşağıdakilerden hangisidir?",
+      "options": ["İsrailoğulları ve Firavun'a karşı", "Arap kabilelerine", "Mekke halkına", "Roma halkına"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Musa, İsrailoğullarını Mısır'da Firavun'un zulmünden kurtarmak için peygamber olarak gönderildi."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'sünnet'in doğru tanımıdır?",
+      "options": ["Hz. Muhammed'in söz, fiil ve onaylarından oluşan uygulamalar", "Kur'an'ın Arapça dışındaki dillere çevirisi", "İslam hukukunun yazılı kuralları", "Allah'ın isim ve sıfatları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hadis ve Sünnet",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Sünnet: Hz. Muhammed'in söylediği sözler, yaptığı eylemler ve onayladığı davranışlardan oluşur; İslam'ın ikinci kaynağıdır."
+    },
+    {
+      "stem": "Bir Müslüman namaz kılarken hangi yöne yönelir?",
+      "options": ["Kıble yönüne (Kâbe'ye)", "Güneşin doğduğu yöne", "Her namaz farklı yöne", "Kuzey yönüne"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Namaz",
+      "skills": ["din bilgisi"],
+      "explanation": "Müslümanlar namaz kılarken Mekke'deki Kâbe'nin bulunduğu kıble yönüne dönerler."
+    },
+    {
+      "stem": "Kur'an'a göre, 'İnsanları ve cinleri yalnızca kendisine kulluk etsinler diye yarattım.' (Zariyat 56) ayeti neyi öğretmektedir?",
+      "options": ["İnsanın yaratılış amacının Allah'a kulluk olduğunu", "İnsanların cinlerden üstün olduğunu", "Allah'ın sadece insanları yarattığını", "İnsanın dünyayı yönetmek için seçildiğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an ve anlam",
+      "skills": ["ayet yorumlama"],
+      "explanation": "Bu ayet, insanın yalnızca Allah'a kulluk etmek için yaratıldığını bildirmekte ve ibadet anlayışının temelini oluşturmaktadır."
+    },
+    {
+      "stem": "Oruç tutmayı engelleyen hastalık veya yolculuk durumlarında oruç tutamayanlar ne yapmalıdır?",
+      "options": ["Tutamadıkları günleri daha sonra kaza ederler", "Hiç kaza etmelerine gerek yoktur", "Para cezası öderler", "Ömür boyu oruç tutmaları gerekir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Oruç",
+      "skills": ["fıkıh bilgisi"],
+      "explanation": "Hastalık veya yolculuk nedeniyle oruç tutamayanlar, engel kalktıktan sonra tutamadıkları günleri kaza ederler."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi kişisel ahlakın bir göstergesidir?",
+      "options": ["Verdiği sözü tutmak", "Başkasının malını almak", "Dedikodu yapmak", "İnsanları küçümsemek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İslam ahlakı",
+      "skills": ["ahlak değerlendirmesi"],
+      "explanation": "Verilen sözü tutmak, İslam ahlakının temel ilkelerinden biri olan 'emanet ve sıdk' kapsamında değerlendirilen olumlu bir davranıştır."
+    },
+    {
+      "stem": "Hz. Nuh'un toplumuna gönderildiği temel mesaj aşağıdakilerden hangisidir?",
+      "options": ["Tek Allah'a iman etmek ve putlara tapmaktan vazgeçmek", "Zekât vermek", "Cihad etmek", "Hac yapmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an kıssaları"],
+      "explanation": "Hz. Nuh, kavmini Allah'a iman etmeye ve putlara tapmaktan vazgeçmeye çağırdı. Kavminin büyük çoğunluğu reddetince tufan gerçekleşti."
+    },
+    {
+      "stem": "İslam'da 'Salat' kavramı en temel biçimde ne demektir?",
+      "options": ["Namaz", "Oruç", "Dua", "Zikir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Namaz",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Salat, Arapçada namaz anlamına gelir; belirli vakitlerde kılınan namaz ibadetidir."
+    },
+    {
+      "stem": "Kur'an'da 'Oku! Yaratan Rabbinin adıyla...' ayetiyle başlayan sure hangisidir?",
+      "options": ["Alak Suresi", "İhlas Suresi", "Fatiha Suresi", "Bakara Suresi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "İlk inen sure Alak Suresi'dir ve 'İkra bismi rabbike...' (Yaratan Rabbinin adıyla oku!) ile başlar."
+    },
+    {
+      "stem": "Meleklerin özellikleri arasında hangisi doğrudur?",
+      "options": ["Nurdan yaratılmışlardır ve günah işlemezler", "Ateşten yaratılmışlardır", "İnsanlar gibi özgür iradeleri vardır", "Yiyip içerler ve uyurlar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Meleklere iman",
+      "skills": ["bilgi"],
+      "explanation": "Melekler nurdan yaratılmış, Allah'ın emirlerine uyan, günah işlemeyen varlıklardır."
+    },
+    {
+      "stem": "İslam'ın haram kıldığı yiyecekler arasında hangisi yer alır?",
+      "options": ["Domuz eti", "Koyun eti", "Tavuk eti", "Balık"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Helal-Haram",
+      "skills": ["din bilgisi"],
+      "explanation": "Domuz eti İslam'da haramdır. Kur'an'da (Bakara 173) açıkça yasaklanmıştır."
+    },
+    {
+      "stem": "'Sadaka-i cariye' kavramı ne anlama gelir?",
+      "options": ["Kişi öldükten sonra da devam eden hayırlı amel", "Her ay verilen bağış", "Oruç kefareti", "Zekâtın bir türü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Sadaka-i cariye: Kişi ölse bile devam eden, sürekli sevap kazandıran amel; okul, cami, çeşme gibi yapılar örnek verilebilir."
+    },
+    {
+      "stem": "Kur'an'da 'Allah hiçbir nefse gücünün yetmeyeceği bir yük yüklemez.' (Bakara 286) ayetinin öğrettiği temel mesaj nedir?",
+      "options": ["Allah'ın adaletli ve merhametli olduğu; sorumluluğun güce göre olduğu", "İnsanların her şeyi yapabileceği", "Güçlülerin daha çok sorumluluk taşıdığı", "Zayıfların ibadet etmesi gerekmediği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an ve anlam",
+      "skills": ["ayet yorumlama"],
+      "explanation": "Bu ayet, Allah'ın kullarına güçlerinin üzerinde yük yüklemeyeceğini, her sorumluluğun kişinin gücüyle orantılı olduğunu öğretir."
+    },
+    {
+      "stem": "Dört büyük kitaptan hangisi Hz. Davud'a indirilmiştir?",
+      "options": ["Zebur", "Tevrat", "İncil", "Kur'an"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kitaplara iman",
+      "skills": ["bilgi"],
+      "explanation": "Dört büyük kitap: Tevrat (Hz. Musa'ya), Zebur (Hz. Davud'a), İncil (Hz. İsa'ya), Kur'an (Hz. Muhammed'e) indirilmiştir."
+    },
+    {
+      "stem": "Kur'an'da Hz. İsa ile ilgili doğru bilgi hangisidir?",
+      "options": ["Annesi Hz. Meryem'den babasız dünyaya gelmiştir", "Babası Hz. Yusuf'tur", "Kardeşi Hz. Musa'dır", "Roma İmparatoru'nun oğludur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an bilgisi"],
+      "explanation": "Kur'an'a göre Hz. İsa, bir mucize olarak Hz. Meryem'den babasız doğmuştur."
+    },
+    {
+      "stem": "İslam ahlakında 'kibir' nasıl değerlendirilir?",
+      "options": ["Yerilmiş, kötü bir ahlak olarak", "Güzel ahlak olarak", "Gerekli bir özellik olarak", "Yalnızca liderlere uygun bir haslet olarak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "Kibir (büyüklük taslama), İslam'da yerilmiş, kişiyi Allah'tan uzaklaştıran kötü bir ahlaki özellik olarak değerlendirilir."
+    },
+    {
+      "stem": "Kur'an-ı Kerim hangi dilde indirilmiştir?",
+      "options": ["Arapça", "Türkçe", "Farsça", "İbranice"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Kur'an-ı Kerim, Arapça olarak indirilmiştir. Bu, Arapçanın kutsallığı değil, o topluluğun anlayabileceği dilde gönderilmesinden kaynaklanır."
+    },
+    {
+      "stem": "İslam'ın yayıldığı ilk şehir olan Medine'nin eski adı neydi?",
+      "options": ["Yesrib", "Halep", "Şam", "Hayber"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Medine'nin İslam öncesindeki adı Yesrib'dir. Hicret sonrası 'Medinetü'n-Nebi' (Peygamberin şehri) olarak anılmaya başlandı."
+    },
+    {
+      "stem": "Hz. Muhammed'e gelen ilk vahiy nerede, nasıl gelmiştir?",
+      "options": ["Hira Mağarası'nda, Cebrail vasıtasıyla", "Kâbe'de, rüya yoluyla", "Medine'de, mektupla", "Taif'te, ses olarak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. Muhammed'in hayatı",
+      "skills": ["bilgi"],
+      "explanation": "İlk vahiy, Hira Mağarası'nda Hz. Muhammed'in 40 yaşındayken Cebrail aracılığıyla gelmiştir."
+    },
+    {
+      "stem": "İslam ahlakında 'sabır' kavramı hangi anlamı taşır?",
+      "options": ["Zorluklara katlanmak, aceleyle hareket etmemek", "Tembel olmak ve beklemek", "Her şeyden kaçmak", "Kader karşısında hiçbir şey yapmamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Sabır: Zorluklara, musibetlere ve imtihanlara karşı sükûnetle direnmek, şikayet etmeden Allah'a güvenmek demektir."
+    },
+    {
+      "stem": "Hz. İbrahim, putlara tapan kavmine inanmamasının nedeni olarak ne söylemiştir?",
+      "options": ["Putların duyamayacağını, göremeyeceğini ve bir faydası olmadığını", "Putların güzel olmadığını", "Putların çok yer kapladığını", "Putların pahalı olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["analiz", "Kur'an kıssaları"],
+      "explanation": "Hz. İbrahim, putların duymadığını, görmediğini ve hiçbir fayda ya da zararı olmadığını söyleyerek tevhidi savundu."
+    },
+    {
+      "stem": "İslam'da namaz vakitlerinin belirlenmesinde temel ölçüt nedir?",
+      "options": ["Güneşin konumu", "Saat dilimi", "İmamın ilan etmesi", "Takvim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Namaz",
+      "skills": ["din bilgisi"],
+      "explanation": "Namaz vakitleri güneşin konumuna göre belirlenir: Sabah (şafak), öğle (güneş zirveyi geçince), ikindi, akşam (güneş batınca), yatsı."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'ibadet' kavramının en geniş anlamını yansıtır?",
+      "options": ["Allah'ın rızasına uygun her eylem ve niyetle yapılan iş", "Yalnızca camilerde yapılan ritüeller", "Sadece namaz, oruç ve hac", "Yalnızca Cuma namazı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İbadetler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İbadet, yalnızca ritüellerle sınırlı değildir; Allah'ın rızasını gözetilerek yapılan her eylem ibadet kapsamında değerlendirilebilir."
+    },
+    {
+      "stem": "Kur'an'da 'Aklını kullan, düşün' mesajı hangi gruba yöneliktir?",
+      "options": ["Tüm insanlara (ülü'l-elbab / akıl sahipleri)"],
+      "options": ["Tüm insanlara ve özellikle akıl sahiplerine (ülü'l-elbab)", "Yalnızca Müslümanlara", "Yalnızca âlimlere", "Yalnızca gençlere"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an ve anlam",
+      "skills": ["ayet yorumlama"],
+      "explanation": "Kur'an'da birçok ayette 'Aklınızı kullanmaz mısınız?' ve 'ülü'l-elbab (derin akıl sahipleri)' ifadeleri tüm insanlara yönelik düşünmeye teşvik içerir."
+    },
+    {
+      "stem": "Peygamberlerin sıfatlarından 'tebliğ' ne anlama gelir?",
+      "options": ["Allah'tan aldığı mesajı insanlara iletmek", "Mucize göstermek", "Günahsız olmak", "Akıllı ve bilgili olmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamberlik",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Tebliğ: Peygamberlerin Allah'tan aldıkları vahyi eksiksiz biçimde insanlara ulaştırma görevidir."
+    },
+    {
+      "stem": "Namaz kılınırken okunan 'Fatiha' suresinin kaçıncı ayeti 'Bizi doğru yola ilet' anlamına gelir?",
+      "options": ["6. ayet", "1. ayet", "4. ayet", "7. ayet"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Fatiha'nın 6. ayeti 'İhdina's-sırâta'l-mustakıym' yani 'Bizi doğru yola ilet' anlamındadır."
+    },
+    {
+      "stem": "İslam'da 'helal rızık' kavramı ne demektir?",
+      "options": ["Allah'ın izin verdiği, meşru yollarla elde edilen kazanç ve yiyecek", "Yalnızca dini içerikli işlerden elde edilen kazanç", "Zenginlik", "Bağış ve sadaka"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Helal-Haram",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Helal rızık: İslam'ın yasaklamadığı meşru yollarla kazanılan para, yiyecek ve diğer geçim kaynaklarıdır."
+    },
+    {
+      "stem": "Kur'an'da Hz. Lokman oğluna hangi temel öğüdü vermiştir?",
+      "options": ["Allah'a şirk koşmamasını, anne babaya saygılı olmasını ve insanları küçük görmemesini", "Çok para kazanmasını ve güçlü olmasını", "Hiç kimseyle konuşmamasını", "Her zaman savaşmasını"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an kıssaları",
+      "skills": ["ayet yorumlama"],
+      "explanation": "Lokman Suresi'nde Hz. Lokman; oğluna Allah'a şirk koşmamasını, ebeveyne saygıyı, alçakgönüllülüğü ve insanları küçümsememesini öğütledi."
+    },
+    {
+      "stem": "İslam ahlakında 'tevekkül' ne anlama gelir?",
+      "options": ["Gerekli çabayı gösterdikten sonra sonucu Allah'a bırakmak", "Hiçbir şey yapmadan beklemeye durmak", "Kadercilik anlayışıyla her şeyi kabullenme", "Mucize beklemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Tevekkül: Üzerine düşen çabayı ve tediri aldıktan sonra sonucu Allah'a havale etmek demektir; tembelliki meşrulaştırmaz."
+    },
+    {
+      "stem": "Hz. Muhammed'e ilk inanan kadın ve erkek kimlerdir?",
+      "options": ["Hz. Hatice (kadın) – Hz. Ali (erkek)", "Hz. Aişe – Hz. Ömer", "Hz. Fatıma – Hz. Ebu Bekir", "Hz. Hatice – Hz. Ebu Bekir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["bilgi"],
+      "explanation": "Kadınlar arasında ilk Müslüman Hz. Hatice, erkekler arasında ilk Müslüman Hz. Ali'dir (bir görüşe göre Hz. Ebu Bekir yetişkinler arasında ilktir)."
+    },
+    {
+      "stem": "İslam'da 'zekat' kimlere verilir? Doğru grubu seçin.",
+      "options": ["Fakirler, yolda kalanlar, borçlular ve Allah yolunda çalışanlar", "Yalnızca fakir komşulara", "Sadece dini hizmet verenlere", "Her ihtiyaç duyana"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zekât",
+      "skills": ["fıkıh bilgisi"],
+      "explanation": "Kur'an (Tevbe 60) zekâtın verileceği sekiz grup belirlemiştir: fakirler, miskinler, zekât görevlileri, kalpleri kazanılacaklar, köleler, borçlular, Allah yolundakiler ve yolda kalanlar."
+    },
+    {
+      "stem": "Mescid-i Haram, Mescid-i Nebevi ve Mescid-i Aksa'nın önemi konusunda doğru ifade hangisidir?",
+      "options": ["Bu üç mescit İslam'ın en kutsal ibadet yerleridir ve ziyaret sevap kazandırır", "Bu mescitlerde namaz kılmak farz değildir", "Sadece Mescid-i Haram kutsal sayılır", "Bu mescitler yalnızca hac döneminde açılır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["din bilgisi"],
+      "explanation": "Bu üç mescit İslam'ın en kutsal mescitleridir. Ziyaret etmek büyük sevap sayılır ve hadislerde özellikle belirtilmiştir."
+    },
+    {
+      "stem": "Oruç tutmanın insana kazandırdığı manevi erdem aşağıdakilerden hangisidir?",
+      "options": ["Takva (Allah'a karşı saygı ve sorumluluk bilinci)", "Zenginlik", "Gençlik", "Siyasi güç"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Oruç",
+      "skills": ["analiz"],
+      "explanation": "Kur'an'da (Bakara 183) orucun amacı 'takva'ya ulaşmak olarak belirtilmiştir. Takva; Allah'a karşı saygı, sorumluluk ve bilinç halidir."
+    },
+    {
+      "stem": "İslam'da yalan söylemek neden yasak sayılır?",
+      "options": ["Güveni zedeler, ilişkileri bozar ve Allah'ın razı olmadığı bir davranıştır", "Sadece büyüklere karşı yasaktır", "Yalnızca ticari hayatta yasaktır", "Zamanla unutulduğu için önemsizdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "Yalan; güveni yıkar, ilişkileri bozar, münafıklığın alametlerinden biri sayılır ve Allah'ın razı olmadığı bir davranıştır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'ulü'l-azm' peygamberler arasındadır?",
+      "options": ["Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa, Hz. Muhammed", "Hz. Adem, Hz. İdris, Hz. Yusuf", "Hz. Süleyman, Hz. Davud, Hz. İshak", "Hz. Lut, Hz. Yunus, Hz. Hud"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamberlik",
+      "skills": ["bilgi"],
+      "explanation": "Ulü'l-azm peygamberler: Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed olarak beş peygamber kabul edilir."
+    },
+    {
+      "stem": "Kur'an'da 'Rabbiniz dua edin, size karşılık vereyim.' (Mümin 60) ayeti ne öğretir?",
+      "options": ["Dua etmenin önemini ve Allah'ın duaları kabul ettiğini", "Dua etmenin farz olduğunu", "Duanın yalnızca Cuma günleri kabul edildiğini", "Duaların yalnızca Arapça söylenmesi gerektiğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dua",
+      "skills": ["ayet yorumlama"],
+      "explanation": "Bu ayet, Allah'a dua etmenin önemini ve Allah'ın kulların duasına cevap vereceğini öğretir."
+    },
+    {
+      "stem": "Hz. Muhammed'in hicret sırasında mağarada saklandığı ve Hz. Ebu Bekir'in de yanında olduğu yer neresidir?",
+      "options": ["Sevr Mağarası", "Hira Mağarası", "Uhud Tepesi", "Mina Vadisi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["bilgi"],
+      "explanation": "Hicret sırasında Hz. Muhammed ve Hz. Ebu Bekir, Mekkelilerin aramalarından kurtulmak için Sevr Mağarası'na sığındılar."
+    },
+    {
+      "stem": "İslam'da 'infak' kavramı ne anlama gelir?",
+      "options": ["Allah yolunda harcamak, vermek", "Oruç tutmak", "Namaz kılmak", "Hac yapmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İnfak: Allah yolunda, ihtiyaç sahiplerine veya hayırlı işlere harcama yapmak demektir."
+    },
+    {
+      "stem": "Kur'an'da belirtilen cennetin isimlerinden biri değildir?",
+      "options": ["Cehennem", "Firdevs", "Naim", "Adn"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahirete iman",
+      "skills": ["bilgi"],
+      "explanation": "Cehennem, cenneti değil; azap yerini ifade eder. Firdevs, Naim ve Adn ise cennetin isimlerindendir."
+    },
+    {
+      "stem": "İslam'da 'iman'ın tam tanımı hangisidir?",
+      "options": ["Kalple tasdik, dil ile ikrar ve gerektiğinde amelle desteklenmesi", "Sadece ibadet yapmak", "Dini törenlere katılmak", "Yalnızca Allah'ı zikretmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İman esasları",
+      "skills": ["kavram bilgisi"],
+      "explanation": "İman; kalple gerçekten inanmak (tasdik) ve dil ile ifade etmekten (ikrar) oluşur; ameller imanın göstergesidir."
+    },
+    {
+      "stem": "Kur'an'da Hz. Süleyman'a verilen özel nimetlerden biri aşağıdakilerden hangisidir?",
+      "options": ["Rüzgarı emrine vermesi ve hayvanların dilini bilmesi", "Denizlerin ayrılması", "Ölüleri diriltmesi", "Taştan su çıkarması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an kıssaları"],
+      "explanation": "Kur'an'a göre Hz. Süleyman'a rüzgar emrine verilmiş, hayvanların dili öğretilmiş ve büyük bir hükümranlık bahşedilmiştir."
+    },
+    {
+      "stem": "İslam'da 'hüsn-i zan' ne anlama gelir?",
+      "options": ["İnsanlar hakkında iyi düşünmek", "Kötü tahminlerde bulunmak", "Dedikodu yapmak", "Hile yapmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Hüsn-i zan: İnsanlar ve Allah hakkında iyi düşünmek, olumlu bakış açısına sahip olmak demektir."
+    },
+    {
+      "stem": "İslam'ın ilk yıllarında Müslümanlara işkence yapılan şehir hangisidir?",
+      "options": ["Mekke", "Medine", "Taif", "Hayber"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam tarihi",
+      "skills": ["bilgi"],
+      "explanation": "Hz. Muhammed'in peygamberliğinin ilk yıllarında Müslümanlar Mekke'de Kureyş müşrikleri tarafından ağır işkencelere maruz kaldı."
+    },
+    {
+      "stem": "Kur'an'daki 'Ayetü'l-Kürsi' hangi surededir?",
+      "options": ["Bakara Suresi", "Al-i İmran Suresi", "Yasin Suresi", "Fatiha Suresi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an-ı Kerim",
+      "skills": ["bilgi"],
+      "explanation": "Ayetü'l-Kürsi, Bakara Suresi'nin 255. ayetidir ve Allah'ın büyüklüğünü anlatır."
+    },
+    {
+      "stem": "Hz. Muhammed veda hutbesinde hangi temel ilkelerden söz etmiştir?",
+      "options": ["Eşitlik, adalet, insan hakları ve İslam'ın evrensel mesajı", "Sadece hac ibadeti", "Ticaret kuralları", "Savaş yöntemleri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. Muhammed'in hayatı",
+      "skills": ["analiz"],
+      "explanation": "Veda Hutbesi; insan haklarını, ırk eşitliğini, kadın haklarını ve İslam ahlakının evrensel ilkelerini içermektedir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi İslam'da 'yasak' olmayan bir davranıştır?",
+      "options": ["Sıla-i rahim (akrabaları ziyaret etmek)", "Kumar oynamak", "Haksız yere başkasının malını almak", "Gıybet (arkadan konuşmak)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Helal-Haram",
+      "skills": ["analiz"],
+      "explanation": "Sıla-i rahim, akrabaları ziyaret etmek, İslam'da teşvik edilen güzel bir davranıştır. Diğerleri ise haramdır."
+    },
+    {
+      "stem": "İslam'da 'israf' neden yerilmiştir?",
+      "options": ["Nimetlerin boşa harcanması ve şükrün terk edilmesidir", "İnsanı zengin yaptığı için", "Ekonomiyi güçlendirdiği için", "Topluma faydalı olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "İsraf; Allah'ın verdiği nimetleri gereksiz yere tüketmek, şükrü terk etmek anlamına gelir. Kur'an'da israf edenler yerilmiştir."
+    },
+    {
+      "stem": "Sehiv secdesi ne zaman yapılır?",
+      "options": ["Namaz içinde unutma veya hata olduğunda", "Her namazın sonunda", "Cuma namazından önce", "Sadece Ramazan'da"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Namaz",
+      "skills": ["fıkıh bilgisi"],
+      "explanation": "Sehiv secdesi: Namaz içinde unutma veya hata nedeniyle yapılan bir telafi secdesidir."
+    },
+    {
+      "stem": "Hz. Adem ile Hz. Havva'nın yaratıldığı ve önce yaşadığı yer olarak Kur'an'da geçen kavram hangisidir?",
+      "options": ["Cennet (bahçe)", "Mekke", "Kudüs", "Mısır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an bilgisi"],
+      "explanation": "Kur'an'a göre Hz. Adem ve Hz. Havva başlangıçta cennette yaşadılar, yasak meyveyi yedikten sonra yeryüzüne indirildi."
+    },
+    {
+      "stem": "İslam'da 'tövbe' kavramı ne anlama gelir?",
+      "options": ["Günahtan dönmek, pişman olmak ve tekrarlamamaya azmetmek", "Sadece namaz kılmak", "Allah'ı çok zikretmek", "Hacca gitmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Tövbe: Yapılan günahtan pişmanlık duymak, Allah'a dönmek ve bir daha yapmamaya karar vermek demektir."
+    },
+    {
+      "stem": "Kur'an'da Hz. Yahya hakkında verilen özel bilgi nedir?",
+      "options": ["Doğumunun olağanüstü koşullarda gerçekleştiği ve ona çocukken hikmet verildiği", "Mucizevi biçimde hastalıkları iyileştirdiği", "Tufandan kurtulan peygamber olduğu", "Denizi yararak İsrailoğullarını kurtardığı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber kıssaları",
+      "skills": ["Kur'an bilgisi"],
+      "explanation": "Meryem Suresi'nde Hz. Yahya'ya çocukken hikmet verildiği, yaşlı ebeveynlerden mucizevi biçimde doğduğu anlatılır."
+    },
+    {
+      "stem": "İslam'da 'adalet' ilkesinin toplumsal önemi nedir?",
+      "options": ["Toplumda huzur, güven ve dengeyi sağlar; zulmü önler", "Güçlülerin her zaman haklı olması anlamına gelir", "Sadece mahkemelerde uygulanır", "Yalnızca ekonomik ilişkilerde geçerlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "Adalet; toplumsal düzenin, barışın ve güvenin temelidir. Zulmü önler, herkesin hakkını korur."
+    },
+    {
+      "stem": "Kur'an'da 'Onları öldürmeyiz, biz akıl erdirmeye çalışırız.' ifadesinin özü ne öğretir?",
+      "options": ["İslam'ın diyalog ve ikna yöntemini benimsediğini", "İslam'ın şiddet temelli olduğunu", "Her daveti reddetmenin cezalandırılacağını", "Dini tartışmaların yasak olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["analiz"],
+      "explanation": "İslam diyalog ve ikna yolunu benimser. 'Dinde zorlama yoktur.' (Bakara 256) ilkesi bunu destekler."
+    },
+    {
+      "stem": "İslam'da 'fitne'nin tanımı aşağıdakilerden hangisidir?",
+      "options": ["Toplumu bölen, insanlar arasında kaos ve kargaşa yaratan eylemler", "Namaz kılmayı terk etmek", "Yalan söylemek", "İkiyüzlülük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Fitne; insanlar arasında ayrılık, kargaşa, savaş veya inanç bozulması yaratmak demektir ve İslam'da en tehlikeli sosyal kötülüklerden sayılır."
+    },
+    {
+      "stem": "Kur'an-ı Kerim'in son inen ayetinin genel içeriği nedir?",
+      "options": ["Dinin tamamlandığına ve İslam'ın nimet olduğuna dair haber (Maide 3)", "İlk vahiy olan 'Oku!' emri", "Namaz kılma emri", "Haccın farz kılınması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an tarihi",
+      "skills": ["bilgi"],
+      "explanation": "Son inen ayetlerden biri Maide 3'tür: 'Bugün size dininizi tamamladım, üzerinize nimetimi tamamladım, din olarak İslam'ı beğendim.'"
+    },
+    {
+      "stem": "Peygamberlerin sıfatlarından 'fetanet' ne anlama gelir?",
+      "options": ["Üstün zekâ ve anlayış", "Doğru sözlülük", "Günahsız olmak", "Allah'tan vahiy almak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamberlik",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Fetanet: Peygamberlerin üstün akıl, zekâ ve kavrayış yeteneğine sahip olması demektir."
+    },
+    {
+      "stem": "İslam'da 'şükür' ne anlama gelir ve neden önemlidir?",
+      "options": ["Allah'ın nimetlerine karşı minnettar olmak; şükür nimetleri artırır", "Çok oruç tutmak", "İnsanlara para dağıtmak", "Camiye sık gitmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ahlakı",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Şükür: Allah'ın verdiği nimetleri kalpten takdir etmek ve bunu sözle, davranışla ifade etmektir. 'Şükredersen artırırım.' (İbrahim 7)."
+    },
+    {
+      "stem": "Kur'an'da 'Allah hiçbir şeyi boşuna yaratmamıştır.' mesajı hangi ibadete teşvik eder?",
+      "options": ["Tefekkür ve evreni gözlemleyerek Allah'ı tanımak", "Yalnızca namaz kılmak", "Sadece oruç tutmak", "Hac ibadeti"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an ve anlam",
+      "skills": ["analiz"],
+      "explanation": "Kur'an, evreni incelemeyi ve düşünmeyi Allah'ı tanımanın yolu olarak sunar. 'Tefekkür' ve 'tedebbür' de ibadetin bir parçasıdır."
+    }
+  ]
+}

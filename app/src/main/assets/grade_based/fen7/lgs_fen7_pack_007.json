@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen7_0060",
+      "stem": "Öğrenciler bir ışık demetini düz ayna, çukur ayna ve tümsek aynaya yöneltti. Görüntülerin farklı oluştuğunu gözlemlediler. Düz aynada düz, çukur aynada büyütülmüş görüntü elde ettiler.\n\nBu deneyde farklı görüntülerin oluşmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Işığın yoğunluğu",
+        "Aynaların yansıtma yüzeylerinin şekli",
+        "Aynaların büyüklüğü",
+        "Işığın rengi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Aynaların yansıtma yüzeylerinin şekli. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0060",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0060_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0061",
+      "stem": "Bir öğrenci fasulye tohumlarını nemli pamuk üzerinde çimlendirdi. Bir hafta sonra kökün aşağı, gövdenin yukarı doğru büyüdüğünü gözlemledi. Aynı koşullarda farklı tohumlarda da benzer durum gördü.\n\nBu gözleme dayanarak tohum çimlenmesinde kök ve gövde büyüme yönüyle ilgili aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Her ikisi de yukarı büyür",
+        "Işık yönüne bağlıdır",
+        "Rastgele yönelir",
+        "Kök aşağı (yer çekimi), gövde yukarı yönelir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "senaryo_analiz",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Kök aşağı (yer çekimi), gövde yukarı yönelir. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0061",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0062",
+      "stem": "Öğrenciler basit bir elektrik devresi kurdular. Pil, ampul ve anahtardan oluşan seri devrede ampul yandı. Devreye ikinci bir pil ekleyince ampulün parlaklığı arttı. Anahtarı açınca ampul söndü.\n\nBu deneyde ampulün parlaklığının artmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Ampulün gücü",
+        "Devreye eklenen pil ile gerilim artışı",
+        "Devredeki tel uzunluğu",
+        "Anahtarın konumu"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Devreye eklenen pil ile gerilim artışı. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0062",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0062_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0063",
+      "stem": "Verilen bilgilere göre bir gezegenin Güneş'e uzaklığına göre yörünge periyodu (yıl süresi) gösterilmiştir. Güneş'e yakın gezegenlerin periyodu kısa, uzak gezegenlerinki uzundur. Bu Verilen bilgilere göre aşağıdakilerden hangisi çıkarılabilir?",
+      "options": [
+        "Tüm gezegenler aynı hızda döner",
+        "İç gezegenler daha hızlıdır",
+        "Güneş'e uzaklık arttıkça yörünge periyodu uzar",
+        "Gezegen boyutu periyodu etkiler"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Güneş'e uzaklık arttıkça yörünge periyodu uzar. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0063",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0064",
+      "stem": "Mitoz bölünmede bir hücre ikiye bölünür. Öğrenciler soğan kökü ucu preparatında farklı aşamaları gözlemledi: kromozomların yoğunlaştığı, ekvator düzleminde dizildiği ve kutuplara çekildiği aşamalar.\n\nBu gözlemlere dayanarak mitoz bölünmenin temel özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Yeni genetik çeşitlilik oluşturur",
+        "Tek aşamada gerçekleşir",
+        "Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur",
+        "Sadece üreme hücrelerinde görülür"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0064",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0065",
+      "stem": "Bir öğrenci sarkacın salınımını inceledi. Sarkacı farklı açılardan bıraktığında salınım süresinin değişmediğini, ancak sarkacın uzunluğunu değiştirdiğinde sürenin değiştiğini gözlemledi.\n\nBu deneyde salınım periyodunu etkileyen temel değişken aşağıdakilerden hangisidir?",
+      "options": [
+        "Sarkacın uzunluğu",
+        "Ortam sıcaklığı",
+        "Topun kütlesi",
+        "Bırakma açısı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Sarkacın uzunluğu. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0065",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0065_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0066",
+      "stem": "Filtreleme deneyinde tuzlu su-kum karışımı filtreden geçirildi. Kum filtrede kaldı, tuzlu su süzüldü. Süzüntü buharlaştırıldığında tuz geri elde edildi.\n\nBu deneyde kum ve tuzu ayırmada kullanılan yöntemlerin dayandığı özellikler aşağıdakilerden hangisinde doğru verilmiştir?",
+      "options": [
+        "Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir)",
+        "Kum süzülür, tuz eritilir",
+        "Kum çözünür, tuz çözünmez",
+        "Her ikisi de buharlaştırılır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0066",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0066_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0067",
+      "stem": "Işık prizma içinden geçirildiğinde gökkuşağı renklerine ayrıldı. Öğrenciler kırmızı ışığın en az, mor ışığın en çok kırıldığını gözlemledi.\n\nFarklı renklerin farklı açılarla kırılmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Prizma malzemesi",
+        "Ortam sıcaklığı",
+        "Işık şiddeti",
+        "Dalga boyu farkı (her rengin farklı kırılma indisi)"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Dalga boyu farkı (her rengin farklı kırılma indisi). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0067",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0068",
+      "stem": "Verilen bilgilere göre bir canlının büyüme eğrisi yaşa göre boy uzunluğu olarak verilmiştir. İlk yıllarda hızlı büyüme, sonra yavaşlama görülmektedir. Bu grafiğe dayanarak büyüme hızıyla ilgili aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Yaşamın belirli dönemlerinde daha hızlı olabilir",
+        "Sürekli artar",
+        "Sadece çocuklukta görülür",
+        "Her yaşta aynıdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Yaşamın belirli dönemlerinde daha hızlı olabilir. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0068",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0068_graph_line.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0069",
+      "stem": "Seri ve paralel bağlı ampullerin parlaklığı karşılaştırıldı. Seri bağlamada iki ampulden birini çıkarınca diğeri söndü. Paralel bağlamada bir ampul çıkarılınca diğeri yanmaya devam etti.\n\nBu deneyde seri ve paralel bağlamanın farkı aşağıdakilerden hangisiyle açıklanır?",
+      "options": [
+        "Tel kalınlığı",
+        "Ampul gücü",
+        "Pil sayısı",
+        "Devrede akımın tek veya çok yoldan geçmesi"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "gunes_sistemi_otesi",
+      "skills": [
+        "gunes_sist",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Devrede akımın tek veya çok yoldan geçmesi. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0069",
+      "imageAsset": "quiz_images/fen/fen_007_fen7_0069_experiment.png",
+      "subject": "fen"
+    }
+  ]
+}

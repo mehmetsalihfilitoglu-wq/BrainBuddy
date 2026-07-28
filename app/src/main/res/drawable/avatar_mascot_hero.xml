@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#1BC5B0" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    <path android:fillColor="#FFD700" android:pathData="M12,4 L14,8 L18,8 L15,11 L16,15 L12,13 L8,15 L9,11 L6,8 L10,8 Z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,90 C62,90 72,88 72,86 C72,84 62,82 48,82 C34,82 24,84 24,86 C24,88 34,90 48,90Z"/>
+
+    <!-- Cape left -->
+    <path
+        android:fillColor="#D32F2F"
+        android:pathData="M18,40 L8,75 Q12,80 22,78 L30,50Z"/>
+
+    <!-- Cape right -->
+    <path
+        android:fillColor="#D32F2F"
+        android:pathData="M78,40 L88,75 Q84,80 74,78 L66,50Z"/>
+
+    <!-- Body circle -->
+    <path
+        android:fillColor="#42A5F5"
+        android:pathData="M48,10 C69,10 86,27 86,48 C86,69 69,86 48,86 C27,86 10,69 10,48 C10,27 27,10 48,10Z"/>
+
+    <!-- Body highlight -->
+    <path
+        android:fillColor="#64B5F6"
+        android:pathData="M48,14 C63,14 76,25 78,40 C70,20 55,16 48,16 C35,16 22,26 18,42 C18,27 30,14 48,14Z"/>
+
+    <!-- Mask -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M20,34 L48,28 L76,34 L76,48 Q72,52 62,48 L48,52 L34,48 Q24,52 20,48Z"/>
+
+    <!-- Eye left - white -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,38 C30,34 33,31 37,31 C41,31 44,34 44,38 C44,42 41,45 37,45 C33,45 30,42 30,38Z"/>
+
+    <!-- Eye right - white -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,38 C52,34 55,31 59,31 C63,31 66,34 66,38 C66,42 63,45 59,45 C55,45 52,42 52,38Z"/>
+
+    <!-- Pupil left -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M36,37 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Pupil right -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M60,37 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Eye shine left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,35 m-1.5,0 a1.5,1.5 0,1 1,3 0 a1.5,1.5 0,1 1,-3 0"/>
+
+    <!-- Eye shine right -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M59,35 m-1.5,0 a1.5,1.5 0,1 1,3 0 a1.5,1.5 0,1 1,-3 0"/>
+
+    <!-- Confident smile -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M38,56 Q48,64 58,56"
+        android:strokeColor="#1565C0"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"/>
+
+    <!-- Star emblem -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M48,62 L50.5,67 L56,68 L52,72 L53,78 L48,75 L43,78 L44,72 L40,68 L45.5,67Z"/>
+
+    <!-- Star emblem outline -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M48,62 L50.5,67 L56,68 L52,72 L53,78 L48,75 L43,78 L44,72 L40,68 L45.5,67Z"
+        android:strokeColor="#FFC107"
+        android:strokeWidth="0.8"/>
 </vector>

@@ -1,0 +1,572 @@
+[
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir deney tüpündeki su 100°C'de kaynamaktadır. Tüpün üzerine ağırlıklı bir piston yerleştirildiğinde suyun kaynama noktasının yükseldiği gözlemlenir. Bu gözlem aşağıdakilerden hangisini açıklar?",
+    "options": [
+      "Basıncın artması moleküller arası çekimi azaltır.",
+      "Dış basınç arttıkça sıvının buharlaşması için daha fazla enerji gerekir.",
+      "Sıcaklık artışı basınç artışına doğrudan neden olur.",
+      "Pistonun ağırlığı ısı iletimini hızlandırarak kaynamayı kolaylaştırır."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Madde ve Isı",
+    "skills": ["reasoning", "science_concepts"],
+    "explanation": "Kaynama noktası dış basınca bağlıdır; basınç arttıkça su moleküllerinin buhar fazına geçebilmesi için daha fazla kinetik enerji (dolayısıyla daha yüksek sıcaklık) gerekir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0001"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir öğrenci 100 gram tuzlu suyu ısıtarak suyun tamamını buharlaştırıyor. İşlem sonunda kapta kalan tuzun kütlesini ölçüyor ve başlangıçtaki çözeltinin yoğunluğunu hesaplamak istiyor. Bunun için aşağıdaki bilgilerden hangisi de gerekmektedir?",
+    "options": [
+      "Tuzun erime noktası",
+      "Isıtma işleminin süresi",
+      "Çözeltinin başlangıç hacmi",
+      "Buharlaşan suyun sıcaklığı"
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Karışımlar ve Çözeltiler",
+    "skills": ["reasoning", "measurement"],
+    "explanation": "Yoğunluk = kütle / hacim. Kütle verilmiş (100 g), ancak hacim bilinmeden yoğunluk hesaplanamaz. Tuzun erime noktası, ısıtma süresi ve buharlaşma sıcaklığı yoğunluk hesabına katkı sağlamaz.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0002"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Işık hızıyla hareket eden bir araçtaki kişinin aynaya baktığında yüzünü göremeyeceği ileri sürülmektedir. Bu önermenin dayanağı aşağıdakilerden hangisidir?",
+    "options": [
+      "Araç hareket ederken aynadan yansıma olmaz.",
+      "Yüzden yansıyan ışık aynaya hiç ulaşamaz.",
+      "Aynanın yansıtma açısı hız arttıkça değişir.",
+      "Işık hızında hareket eden cisimler görünmez hale gelir."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Işığın Yansıması",
+    "skills": ["reasoning", "critical_thinking"],
+    "explanation": "Ayna önünde durabilmek için yüzden çıkan ışığın aynaya ulaşması gerekir. Araç ışık hızıyla gidiyorsa yüzden aynaya doğru giden ışık aynayı geçemez; dolayısıyla görüntü oluşmaz.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0003"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir devre elemanının uçlarına uygulanan gerilim 2 katına çıkarıldığında devreden geçen akım da 2 katına çıkıyorsa bu eleman için aşağıdaki sonuçlardan hangisi kesinlikle doğrudur?",
+    "options": [
+      "Elemanın direnci sıfırdır.",
+      "Eleman Ohm yasasına uymaktadır.",
+      "Elemanın gücü 4 katına çıkar.",
+      "Elemanın direnci gerilimle orantılı artar."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Elektrik Devreleri",
+    "skills": ["reasoning", "algebra"],
+    "explanation": "V/I = sabit olduğunda direnç sabittir ve Ohm yasası geçerlidir. Güç P=VI ise 4 katına çıkar (C de doğru görünür); ancak 'kesinlikle doğru' olan Ohm yasasına uymaktır çünkü güç ancak sabit direnç varsayımıyla 4 katına çıkar. C, B'nin doğruluğuna bağlıdır, dolayısıyla temel sonuç B'dir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0004"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir bitkinin yapraklarının alt yüzeyindeki stoma sayısı üst yüzeyine göre çok daha fazladır. Bu durumun bitkiye sağladığı başlıca avantaj aşağıdakilerden hangisidir?",
+    "options": [
+      "Fotosentez hızını artırarak besin üretimini maksimize eder.",
+      "Su kaybını azaltırken gaz alışverişini sürdürmesini sağlar.",
+      "Işık absorpsiyonunu artırarak klorofil verimliliğini yükseltir.",
+      "Toprak minerallerinin yaprağa taşınmasını kolaylaştırır."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Fotosentez ve Solunum",
+    "skills": ["reasoning", "biology"],
+    "explanation": "Alt yüzeydeki stomalar direkt güneş ışığına maruz kalmadığından buharlaşma yoluyla su kaybı azalır. Böylece bitki hem gaz alışverişini hem de su tasarrufunu dengeler.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0005"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Dünya'nın Güneş etrafındaki yörüngesinin elips şeklinde olduğu ve Ocak ayında Dünya'nın Güneş'e en yakın konumda bulunduğu bilinmektedir. Buna göre aşağıdaki yorumlardan hangisi yanlıştır?",
+    "options": [
+      "Kuzey yarımküre Ocak'ta kışı yaşarken Güneş'e en yakın konumdadır.",
+      "Mevsimler yalnızca Dünya'nın Güneş'e olan uzaklığına bağlıdır.",
+      "Güney yarımküre Ocak'ta yaz mevsimini yaşar.",
+      "Dünya-Güneş uzaklığı mevsimlerin tek belirleyicisi değildir."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Güneş Sistemi ve Uzay",
+    "skills": ["reasoning", "astronomy"],
+    "explanation": "Ocak'ta Dünya Güneş'e en yakınken Kuzey yarımküre kış yaşar; bu durum mevsimlerin uzaklıkla değil eksen eğikliğiyle belirlendiğini kanıtlar. 'Mevsimler yalnızca uzaklığa bağlıdır' ifadesi kesinlikle yanlıştır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0006"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir öğrenci iki farklı maddeyi karıştırıyor: biri asit özellikli sirke, diğeri baz özellikli kabartma tozu. Tepkime sonunda oluşan karışımın pH değeri 7'ye yakındır. Bu gözlem aşağıdakilerden hangisini gösterir?",
+    "options": [
+      "Sirke ve kabartma tozu eşit miktarda kullanılmıştır.",
+      "Asit-baz tepkimesi nötralleşme ürünleri oluşturur.",
+      "Karışımın yoğunluğu arttığında pH düşer.",
+      "Baz miktarı asit miktarından fazla olduğunda pH 7 olur."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Asit, Baz ve Tuz",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Asit ve baz tepkimesi nötralleşme reaksiyonudur; ürünler tuz ve su olup pH 7'ye yaklaşır. Eşit miktarda kullanılması gerekmez (A yanlış); pH yoğunlukla değil H⁺ konsantrasyonuyla ilgilidir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0007"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir araç ani fren yaptığında yolcuların öne doğru eğilmesi hangi kavramla doğrudan açıklanır?",
+    "options": [
+      "Yerçekimi ivmesinin fren kuvvetini aşması",
+      "Yolcuların sahip olduğu eylemsizlik özelliği",
+      "Fren sırasında oluşan sürtünme kuvvetinin artması",
+      "Aracın kinetik enerjisinin yolculara aktarılması"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Kuvvet ve Hareket",
+    "skills": ["reasoning", "physics"],
+    "explanation": "Yolcular hareket halindeyken aracın durmasıyla birlikte hareket etmeye devam etmek isterler; bu eylemsizlik ilkesidir (Newton'un 1. yasası).",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0008"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir atlet düz bir piste sürtünmesiz koştuğunda bir süre sonra durabilmek için kaslarını kullanmak zorundadır. Ancak buzda kayan bir buz patencisi kollarını yana açarak durabilir. Bu iki durum arasındaki fark aşağıdakilerden hangisiyle açıklanır?",
+    "options": [
+      "Buzun sürtünme katsayısı pistten farklıdır.",
+      "Atlet dururken enerji üretirken patenci enerji kullanmaz.",
+      "Patencinin kolları açması atalet momentini artırarak hızı düşürür.",
+      "Buzda serbest düşme ivmesi zeminden farklıdır."
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Kuvvet ve Hareket",
+    "skills": ["reasoning", "physics"],
+    "explanation": "Patenci kolları açtığında kütle merkezi uzaklığı artar, atalet momenti büyür. Açısal momentumun korunumu gereği dönüş hızı düşer. Bu etki sürtünmeden bağımsız bir mekanik prensiptir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0009"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir ekosistemdeki üretici organizma sayısı aniden yarıya düşerse bu durumdan en geç etkilenecek trofik seviye hangisidir?",
+    "options": [
+      "Birincil tüketiciler",
+      "İkincil tüketiciler",
+      "Üçüncül tüketiciler",
+      "Ayrıştırıcılar"
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Ekosistem ve Madde Döngüleri",
+    "skills": ["reasoning", "ecology"],
+    "explanation": "Besin zincirinde etki üreticilerden tüketicilere doğru yayılır. Birincil tüketiciler ilk etkilenir, ikincil tüketiciler biraz sonra; üçüncül tüketiciler en son etkilenir çünkü aralarındaki bağ dolaylıdır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0010"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "X elementinin atom numarası 11'dir. Bu elementin 2. periyotta yer aldığı iddia edilmektedir. Bu iddia aşağıdakilerden hangisi göz önüne alındığında yanlış olur?",
+    "options": [
+      "Elementlerin periyot sayısı elektron sayısına eşittir.",
+      "Elementlerin periyot numarası son enerji seviyesi numarasına eşittir.",
+      "Atom numarası 11 olan elementin 3 enerji seviyesi bulunur.",
+      "Periyodik tabloda atom numarası arttıkça periyot numarası da artar."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Periyodik Tablo",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Periyot numarası son enerji seviyesi numarasına (kabuk sayısına) eşittir. Atom numarası 11 olan Na'nın elektron dizilimi 2,8,1 şeklindedir; son enerji seviyesi 3 olduğundan 3. periyottadır, 2. periyotta değil.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0011"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "İnsan vücudunda midenin iç yüzeyindeki hücreler sürekli yenilenmektedir. Bu yenilenmede rol oynayan temel biyolojik süreç aşağıdakilerden hangisidir?",
+    "options": [
+      "Mayoz bölünme",
+      "Mitoz bölünme",
+      "Difüzyon",
+      "Fagositoz"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Hücre Bölünmesi",
+    "skills": ["reasoning", "biology"],
+    "explanation": "Vücut hücrelerinin büyüme ve yenilenmesi mitoz bölünmeyle gerçekleşir. Mayoz bölünme yalnızca üreme hücresi (gamet) üretiminde kullanılır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0012"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir transformatörün primer sargısında 220 V gerilim uygulandığında sekonder sargıda 44 V ölçülmektedir. Sekonder sargının sarım sayısı 100 ise primer sargının sarım sayısı kaçtır?",
+    "options": [
+      "20",
+      "200",
+      "500",
+      "2200"
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Elektromanyetik İndüksiyon",
+    "skills": ["reasoning", "algebra"],
+    "explanation": "V1/V2 = N1/N2 → 220/44 = N1/100 → N1 = 500.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0013"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Güneş enerjisinden elektrik üretmek için kullanılan fotovoltaik paneller bulutlu havalarda daha az elektrik üretir. Bu durum aşağıdakilerden hangisiyle doğrudan ilişkilidir?",
+    "options": [
+      "Bulutlu havalarda hava direncinin artması",
+      "Panellere ulaşan ışık şiddetinin azalması",
+      "Bulutların manyetik alanı bozması",
+      "Panellerin ısısının düşmesi ile verimliliğin azalması"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Yenilenebilir Enerji Kaynakları",
+    "skills": ["reasoning", "energy"],
+    "explanation": "Fotovoltaik paneller güneş ışığındaki fotonları elektriğe çevirir. Bulutlar ışığı kısmen engellediğinden panele ulaşan foton miktarı azalır ve üretilen elektrik düşer.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0014"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir kaldıraçta yük kolu 20 cm, kuvvet kolu 100 cm'dir. Bu kaldıraçla 500 N ağırlığındaki bir yükü kaldırmak için uygulanması gereken minimum kuvvet kaç Newton'dur?",
+    "options": [
+      "25",
+      "50",
+      "100",
+      "2500"
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Basit Makineler",
+    "skills": ["reasoning", "algebra"],
+    "explanation": "Kaldıraç dengesi: F × kuvvet kolu = Yük × yük kolu → F × 100 = 500 × 20 → F = 100 N.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0015"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir maddenin özgül ısı kapasitesi büyük olduğunda bu madde ısıtıldığında nasıl bir davranış sergiler?",
+    "options": [
+      "Aynı ısı miktarıyla diğer maddelere göre daha hızlı ısınır.",
+      "Aynı ısı miktarıyla diğer maddelere göre daha yavaş ısınır.",
+      "Daha az enerji depolayarak çevresini hızlı ısıtır.",
+      "Isıyı yalnızca iletimle değil ışımayla da iletir."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Madde ve Isı",
+    "skills": ["reasoning", "thermodynamics"],
+    "explanation": "Özgül ısı kapasitesi büyük olan maddeler birim kütlelerinin sıcaklığını 1°C artırmak için daha fazla enerji ister; dolayısıyla aynı ısı miktarıyla daha az ısınırlar.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0016"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "DNA'daki genetik bilginin protein üretimine aktarılması sürecinde ribozomun görevi aşağıdakilerden hangisidir?",
+    "options": [
+      "DNA'yı iki zincire ayırarak kopyalanmasını sağlar.",
+      "mRNA üzerindeki kodu okuyarak amino asitleri birleştirir.",
+      "tRNA molekülünü sentezleyerek amino asitleri taşır.",
+      "Proteinlerin hücre dışına salgılanmasını yönetir."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "DNA ve Genetik Kod",
+    "skills": ["reasoning", "biology"],
+    "explanation": "Ribozom, mRNA şablonunu okuyarak tRNA'nın getirdiği amino asitleri peptit bağlarıyla birleştirir ve protein zinciri oluşturur. DNA kopyalaması çekirdekte, tRNA sentezi de çekirdekte gerçekleşir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0017"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Sera etkisini artıran başlıca gaz hangisidir ve bu gazın atmosferdeki artışının temel insan kaynaklı nedeni nedir?",
+    "options": [
+      "Oksijen – Ormansızlaşma sonucu atmosferdeki oksijen dengesi bozulur.",
+      "Karbondioksit – Fosil yakıtların yakılması CO₂ miktarını artırır.",
+      "Nitrojen – Sanayi atıkları atmosferdeki azot oranını yükseltir.",
+      "Su buharı – Barajlar ve sulama alanları buharlaşmayı artırır."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "İklim Değişikliği ve Çevre",
+    "skills": ["reasoning", "environmental_science"],
+    "explanation": "CO₂ en önemli sera gazıdır; fosil yakıt yakımı ve ormansızlaşma atmosferdeki CO₂ miktarını artırarak küresel ısınmayı hızlandırır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0018"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir cisim 10 m yüksekten serbest bırakıldığında yere çarpmadan hemen önce en büyük değerine ulaşan nicelik aşağıdakilerden hangisidir? (Hava direnci ihmal edilecektir.)",
+    "options": [
+      "Potansiyel enerji",
+      "Kinetik enerji",
+      "Toplam mekanik enerji",
+      "Yerçekimi ivmesi"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Enerji Dönüşümleri",
+    "skills": ["reasoning", "physics"],
+    "explanation": "Serbest düşmede hava direnci yoksa toplam mekanik enerji sabit kalır; potansiyel enerji azalırken kinetik enerji artar. Yere çarpmadan önce tüm potansiyel enerji kinetik enerjiye dönüşmüş olduğundan kinetik enerji maksimum değerine ulaşır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0019"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir öğrenci tuz ve kum karışımını ayırmak için suya koyuyor. Tuz suda çözünürken kum çözünmüyor. Bu aşamadan sonra saf tuzu elde etmek için hangi işlem sırası doğrudur?",
+    "options": [
+      "Filtrasyon → Buharlaştırma",
+      "Buharlaştırma → Filtrasyon",
+      "Damıtma → Kristalleştirme",
+      "Mıknatısla ayırma → Filtrasyon"
+    ],
+    "answerIndex": 0,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Karışımları Ayırma Yöntemleri",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Önce filtrasyonla çözünmemiş kum ayrılır; ardından tuzlu su buharlaştırılarak saf tuz kristalleri elde edilir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0020"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir hücrenin mitoz bölünme geçirmesi için gerekli olan ön koşul aşağıdakilerden hangisidir?",
+    "options": [
+      "Hücrenin mayoz bölünme evresini tamamlamış olması",
+      "DNA'nın kendini eşleyerek iki kopya oluşturması",
+      "Hücre zarının eriyerek serbest kalması",
+      "Sitoplazmanın hacminin iki katına çıkması"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Hücre Bölünmesi",
+    "skills": ["reasoning", "biology"],
+    "explanation": "Mitoz öncesinde interfazda DNA replikasyonu gerçekleşir; her yavru hücrenin ana hücreyle aynı genetik bilgiyi alması için DNA'nın önceden eşlenmesi şarttır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0021"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Aşağıdaki elementlerden hangisi hem metal hem de ametal özellikleri gösterdiği için yarı iletken olarak sınıflandırılır?",
+    "options": [
+      "Demir (Fe)",
+      "Silisyum (Si)",
+      "Altın (Au)",
+      "Klor (Cl)"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Elementler ve Periyodik Tablo",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Silisyum metaloid (yarı metal) özellik taşır; elektrik iletkenliği metaller ile ametaller arasındadır. Bu özelliği nedeniyle elektronik sanayiinde yaygın kullanılır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0022"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Işığın farklı ortamlarda farklı hızlarda ilerlemesi hangi optik olayın temel nedenidir?",
+    "options": [
+      "Yansıma",
+      "Soğurma",
+      "Kırılma",
+      "Saçılma"
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Işığın Kırılması",
+    "skills": ["reasoning", "optics"],
+    "explanation": "Kırılma, ışığın bir ortamdan diğerine geçerken hız değiştirmesi sonucu yol değiştirmesidir. Yansıma, soğurma ve saçılma farklı mekanizmalardır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0023"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir atık pil toprağa gömüldüğünde çevreye verdiği zarar öncelikle aşağıdakilerden hangisi aracılığıyla gerçekleşir?",
+    "options": [
+      "Pillerin ürettiği elektrik akımının toprağı ısıtması",
+      "Pil içindeki ağır metallerin toprağa ve yeraltı sularına sızması",
+      "Pilin bozunmasıyla açığa çıkan gazların atmosferi kirletmesi",
+      "Toprağın manyetik alanını değiştirerek bitkilere zarar vermesi"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Çevre ve Sürdürülebilirlik",
+    "skills": ["reasoning", "environmental_science"],
+    "explanation": "Piller cıva, kurşun, kadmiyum gibi toksik ağır metaller içerir. Bu maddeler toprağa karışır ve yeraltı sularına sızarak canlılara zarar verir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0024"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "İki mıknatısın zıt kutupları birbirine yaklaştırıldığında çekim kuvveti, aralarındaki mesafe iki katına çıkarıldığında nasıl değişir?",
+    "options": [
+      "Dört katına çıkar.",
+      "Yarıya düşer.",
+      "Dörtte birine düşer.",
+      "Değişmez."
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Mıknatıslar ve Manyetizma",
+    "skills": ["reasoning", "physics"],
+    "explanation": "Manyetik (ve elektrik) kuvvetler mesafenin karesiyle ters orantılıdır. Mesafe 2 katına çıkınca kuvvet 1/2² = 1/4 oranına düşer.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0025"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir deney sırasında bir maddenin fiziksel özellikleri korunurken bileşiminin değiştiği gözlemlenmektedir. Bu durum aşağıdakilerden hangisine örnektir?",
+    "options": [
+      "Fiziksel değişim",
+      "Kimyasal değişim",
+      "Nükleer tepkime",
+      "Faz geçişi"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Fiziksel ve Kimyasal Değişimler",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Bileşimin (kimyasal yapının) değişmesi kimyasal değişimin tanımıdır. Fiziksel değişimde bileşim korunur; nükleer tepkimeler atom çekirdeğini etkiler.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0026"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir öğrenci deneyinde saf su ile tuzlu suyu ısıtmaktadır. Eşit koşullarda tuzlu su, saf suya kıre daha geç kaynamaktadır. Bu gözlem aşağıdakilerden hangisini açıklar?",
+    "options": [
+      "Tuz, suyun ısı iletkenliğini azaltır.",
+      "Tuz molekülleri suyu daha yoğun hale getirerek erime noktasını yükseltir.",
+      "Çözünmüş tuz iyonları, su moleküllerinin buharlaşmasını güçleştirir ve kaynama noktasını yükseltir.",
+      "Saf su daha az enerji içerdiğinden daha hızlı ısınır."
+    ],
+    "answerIndex": 2,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Kaynama Noktasının Yükselmesi",
+    "skills": ["reasoning", "chemistry"],
+    "explanation": "Kaynama noktası yükselmesi bir koligatif özelliktir. Çözünmüş iyonlar su molekülleri arasındaki etkileşimi artırarak buharlaşmayı zorlaştırır ve kaynama noktasını yükseltir.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0027"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Besin zincirinde ayrıştırıcıların bulunmaması durumunda ekosisteme en doğrudan etkisi aşağıdakilerden hangisi olur?",
+    "options": [
+      "Fotosentez yapan organizmalar artar.",
+      "Üreticilere mineral sağlanamaması nedeniyle besin döngüsü bozulur.",
+      "Tüketicilerin nüfusu aniden artarak üreticileri tüketir.",
+      "İklim değişikliği hızlanır."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Ekosistem ve Madde Döngüleri",
+    "skills": ["reasoning", "ecology"],
+    "explanation": "Ayrıştırıcılar ölü organik maddeyi mineral besinlere dönüştürür. Olmazlarsa mineraller toprağa geri dönmez, üreticiler besinsiz kalır ve besin döngüsü çöker.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0028"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir insan hücresinde 46 kromozom bulunmaktadır. Mitoz bölünme tamamlandığında oluşan yavru hücrelerde kaç kromozom bulunur?",
+    "options": [
+      "23",
+      "46",
+      "92",
+      "Bölünme tipine göre değişir."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Hücre Bölünmesi",
+    "skills": ["reasoning", "biology"],
+    "explanation": "Mitoz bölünmede DNA önceden eşlenir ve eşit paylaşılır; her yavru hücre ana hücrenin 46 kromozomunu alır. Mayozda ise sayı yarıya iner (23).",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0029"
+  },
+  {
+    "grade": 8,
+    "subject": "fen",
+    "stem": "Bir cisim sabit hızla düzgün çizgisel hareket yaparken bu cisme etki eden net kuvvet kaçtır?",
+    "options": [
+      "Cismin ağırlığına eşittir.",
+      "Sıfırdır.",
+      "Hız yönünde pozitif bir değer taşır.",
+      "Cismin kütlesiyle orantılı bir değer taşır."
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Newton'un Hareket Yasaları",
+    "skills": ["reasoning", "physics"],
+    "explanation": "Newton'un 1. yasasına göre net kuvvet sıfır olduğunda cisim sabit hızla ya da durgun halde kalır. Düzgün çizgisel harekette ivme yoktur, dolayısıyla net kuvvet sıfırdır.",
+    "source": "edumio_original",
+    "sourceRef": "generated_lgs_fen_0030"
+  }
+]

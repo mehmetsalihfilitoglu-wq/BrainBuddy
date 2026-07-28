@@ -1,0 +1,477 @@
+[
+  {
+    "id": "mio_chem_0075",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Evaluating Kc from an ICE table for a Δn(gas) = 0 gas-phase reaction (volume cancels)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "chemical equilibrium",
+      "equilibrium constant",
+      "Kc",
+      "ICE table",
+      "hydrogen iodide",
+      "stoichiometry"
+    ],
+    "learning_objective": "Construct an ICE table and evaluate Kc from equilibrium amounts, recognising that the vessel volume cancels when Δn(gas) = 0.",
+    "question": "Hydrogen and iodine vapour react in a sealed, rigid 2.0 L flask:\n\nH2(g) + I2(g) ⇌ 2 HI(g)\n\nInitially the flask holds 2.0 mol of H2 and 2.0 mol of I2 and no HI. When equilibrium is reached at the reaction temperature, the flask is found to contain 3.0 mol of HI. What is the value of the equilibrium constant Kc at this temperature?",
+    "choices": {
+      "A": "0.028",
+      "B": "24",
+      "C": "36",
+      "D": "2.25",
+      "E": "144"
+    },
+    "correct_answer": "C",
+    "explanation": "Work in molar concentrations. Initial: [H2] = [I2] = 2.0 mol / 2.0 L = 1.0 M; [HI] = 0. At equilibrium [HI] = 3.0 mol / 2.0 L = 1.5 M. Forming 1.5 M of HI consumes 1.5/2 = 0.75 M of each reactant (2 HI per H2 and per I2), so [H2] = [I2] = 1.0 - 0.75 = 0.25 M. Then Kc = [HI]^2 / ([H2][I2]) = (1.5)^2 / (0.25 × 0.25) = 2.25 / 0.0625 = 36. Because there are 2 moles of gas on each side (Δn = 0), the volume actually cancels, so the same value is obtained directly from the mole ratios.",
+    "option_analysis": {
+      "A": "Wrong: 0.028 ≈ 1/36 is the reciprocal, obtained by writing the quotient upside down (reactants over products). Kc is defined as products raised to their coefficients over reactants.",
+      "B": "Wrong: 24 = (1.5)/(0.25×0.25) comes from forgetting to square the HI concentration. The stoichiometric coefficient 2 for HI must appear as an exponent in the Kc expression.",
+      "C": "Correct: [H2] = [I2] = 0.25 M and [HI] = 1.5 M give Kc = (1.5)^2/(0.25×0.25) = 36. The volume cancels because Δn(gas) = 0.",
+      "D": "Wrong: this is [HI]^2 divided by the INITIAL reactant concentrations, (1.5)^2/(1.0×1.0) = 2.25. It fails to subtract the amount of reactant consumed; equilibrium expressions must use equilibrium concentrations, not initial ones.",
+      "E": "Wrong: 144 = (3.0)^2/(0.25×0.25) uses the amount of HI in moles (3.0) instead of its concentration (1.5 M) while correctly converting the reactants. All species in Kc must be expressed in the same concentration units."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0076",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Le Chatelier: adding an inert gas at constant volume versus constant total pressure",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "chemical equilibrium",
+      "Le Chatelier",
+      "inert gas",
+      "partial pressure",
+      "pressure and volume",
+      "ammonia synthesis"
+    ],
+    "learning_objective": "Predict the effect of adding an inert gas on a gaseous equilibrium, distinguishing the constant-volume case from the constant-total-pressure case.",
+    "question": "A mixture is at equilibrium according to:\n\nN2(g) + 3 H2(g) ⇌ 2 NH3(g)\n\nArgon, which takes no part in the reaction, is now introduced into the system. Which one of the following statements is correct?",
+    "choices": {
+      "A": "Adding argon at constant volume shifts the equilibrium towards the reactants (less NH3).",
+      "B": "Adding argon at constant total pressure shifts the equilibrium towards the reactants (less NH3).",
+      "C": "Adding argon at constant total pressure shifts the equilibrium towards the products (more NH3).",
+      "D": "In both cases the equilibrium is shifted towards the reactants (less NH3).",
+      "E": "Adding argon at constant volume shifts the equilibrium towards the products (more NH3)."
+    },
+    "correct_answer": "B",
+    "explanation": "The position of equilibrium responds only to changes in the concentrations (partial pressures) of the reacting species. At CONSTANT VOLUME, adding argon raises the total pressure but leaves the partial pressures and molar concentrations of N2, H2 and NH3 unchanged, so Q is still equal to Kc and there is no shift. At CONSTANT TOTAL PRESSURE, the vessel must expand to accommodate the argon; this dilutes the reacting gases, lowering their partial pressures. A reduction in the effective pressure of the reacting system shifts equilibrium towards the side with more moles of gas. Here the reactant side has 1 + 3 = 4 mol of gas versus 2 mol on the product side, so the shift is towards the reactants and NH3 decreases.",
+    "option_analysis": {
+      "A": "Wrong: same misconception as A (that total pressure alone drives the shift), merely in the opposite direction. At constant volume the concentrations of the reacting gases are unchanged and the equilibrium does not move.",
+      "B": "Correct: at constant total pressure the volume increases, the reacting gases are diluted, and equilibrium shifts to the side with more moles of gas, the reactants (4 mol vs 2 mol), so NH3 falls.",
+      "C": "Wrong: it treats the added argon as raising the pressure on the reacting system, favouring the fewer-moles (product) side. In fact keeping total pressure constant forces expansion and dilution, which favours the greater-moles reactant side.",
+      "D": "Wrong: it applies a leftward shift to both scenarios, ignoring that the constant-volume case produces no shift because the partial pressures of the reacting gases do not change.",
+      "E": "Wrong: it assumes the rise in total pressure at constant volume favours the fewer-moles (product) side. Adding an inert gas at constant volume leaves every partial pressure and concentration unchanged, so there is no shift at all."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0077",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Reaction quotient Q versus Kc to predict direction; molar-concentration (not mole) requirement when Δn ≠ 0",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "chemical equilibrium",
+      "reaction quotient",
+      "Q vs Kc",
+      "direction of reaction",
+      "concentration",
+      "phosgene"
+    ],
+    "learning_objective": "Calculate the reaction quotient from molar concentrations and compare it with Kc to predict the direction of net reaction, converting amounts to concentrations when Δn(gas) ≠ 0.",
+    "question": "For the equilibrium\n\nCO(g) + Cl2(g) ⇌ COCl2(g)\n\nKc = 5.0 at the temperature of interest. A rigid 2.0 L vessel is charged so that it momentarily contains 0.40 mol CO, 0.40 mol Cl2 and 0.80 mol COCl2. In which direction, if any, will the reaction proceed to reach equilibrium?",
+    "choices": {
+      "A": "The direction cannot be determined without knowing the temperature.",
+      "B": "Q = 5.0, so the system is already at equilibrium and no net reaction occurs.",
+      "C": "Q = 0.10 < Kc, so net reaction proceeds to the right, forming more COCl2.",
+      "D": "Q = 10 > Kc, so net reaction proceeds to the left, decomposing COCl2.",
+      "E": "Q = 10 > Kc, so net reaction proceeds to the right, forming more COCl2."
+    },
+    "correct_answer": "D",
+    "explanation": "Because the numbers of gas moles differ across the equation (2 on the left, 1 on the right), the volume does NOT cancel and amounts must first be converted to molar concentrations: [CO] = 0.40/2.0 = 0.20 M, [Cl2] = 0.20 M, [COCl2] = 0.80/2.0 = 0.40 M. Then Q = [COCl2]/([CO][Cl2]) = 0.40/(0.20 × 0.20) = 0.40/0.04 = 10. Since Q (10) > Kc (5.0), there is too much product relative to equilibrium, so the reaction runs in reverse (to the left), consuming COCl2 until Q falls to 5.0.",
+    "option_analysis": {
+      "A": "Wrong: Kc is already supplied for this temperature, so Q can be computed and compared directly. No further data are needed to predict the direction.",
+      "B": "Wrong: 5.0 is obtained by inserting amounts in MOLES, 0.80/(0.40×0.40), instead of concentrations. Because Δn(gas) ≠ 0 the volume does not cancel, so this shortcut is invalid and the apparent match with Kc is coincidental.",
+      "C": "Wrong: 0.10 = [CO][Cl2]/[COCl2] is the reciprocal (reactants over products). Q must be written as products over reactants, each raised to its stoichiometric coefficient.",
+      "D": "Correct: using concentrations, Q = 0.40/(0.20×0.20) = 10 > Kc = 5.0, so the reaction proceeds to the left, decomposing COCl2 until Q = Kc.",
+      "E": "Wrong: the value Q = 10 is correct but the direction rule is reversed. When Q > Kc there is excess product, so the net reaction goes backwards (left), not forwards."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0078",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Temperature dependence of Kc to deduce the sign of ΔH, with a Δn(gas) = 0 pressure trap",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "chemical equilibrium",
+      "Le Chatelier",
+      "temperature",
+      "enthalpy sign",
+      "Kc",
+      "pressure effect",
+      "delta n"
+    ],
+    "learning_objective": "Deduce the sign of the reaction enthalpy from how Kc varies with temperature and recognise that a pressure change has no effect when Δn(gas) = 0.",
+    "question": "For the gas-phase equilibrium\n\nA(g) + B(g) ⇌ 2 C(g)\n\nit is observed that the value of Kc increases as the temperature is raised. Which one of the following statements is correct?",
+    "choices": {
+      "A": "The forward reaction is exothermic, and increasing the pressure increases the equilibrium yield of C.",
+      "B": "The forward reaction is endothermic, and raising the temperature further increases the equilibrium yield of C.",
+      "C": "The forward reaction is exothermic, and cooling the mixture increases the equilibrium yield of C.",
+      "D": "The forward reaction is endothermic, and compressing the mixture increases the equilibrium yield of C.",
+      "E": "Changing the temperature alters only the reaction rate, not the position of equilibrium."
+    },
+    "correct_answer": "B",
+    "explanation": "Two independent ideas are combined. (1) Temperature is the only variable that changes the numerical value of Kc. If Kc increases when the temperature rises, then heating drives the reaction forward, which by Le Chatelier means heat is absorbed in the forward direction, so the forward reaction is ENDOTHERMIC. Raising the temperature further therefore continues to increase the yield of C. (2) The reaction has 2 mol of gas on each side (Δn = 0), so changing the pressure or volume shifts neither side, it has NO effect on the position of equilibrium. Statement B is the only one consistent with both facts.",
+    "option_analysis": {
+      "A": "Wrong on both counts: an increase of Kc with temperature indicates an endothermic (not exothermic) forward reaction, and because Δn(gas) = 0 a pressure change cannot alter the yield of C.",
+      "B": "Correct: Kc rising with temperature means the forward reaction is endothermic, so further heating shifts the equilibrium towards C and increases its yield.",
+      "C": "Wrong: it assigns the wrong enthalpy sign. If the forward reaction were exothermic, Kc would DECREASE with rising temperature, contrary to the observation.",
+      "D": "Wrong: the enthalpy sign is right, but compression cannot help because the number of gas moles is equal on both sides (Δn = 0). This is the common error of assuming higher pressure always favours product formation.",
+      "E": "Wrong: temperature is precisely the factor that changes the equilibrium constant itself, not merely the rate; the observed change in Kc proves the position of equilibrium moves."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0079",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Manipulating equilibrium constants: reversing and adding two reactions to obtain K = K1/K2",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "chemical equilibrium",
+      "equilibrium constant",
+      "combining reactions",
+      "Hess-type manipulation",
+      "water-gas shift",
+      "K algebra"
+    ],
+    "learning_objective": "Combine equilibria by reversing and adding reactions and obtain the overall equilibrium constant through the corresponding multiplication or division of the individual constants.",
+    "question": "At a certain temperature the following equilibria have the constants shown:\n\n(1) CO(g) + ½ O2(g) ⇌ CO2(g)      K1 = 2.4 × 10^3\n(2) H2(g) + ½ O2(g) ⇌ H2O(g)      K2 = 3.0 × 10^2\n\nWhat is the equilibrium constant K for the reaction\n\nCO(g) + H2O(g) ⇌ CO2(g) + H2(g)\n\nat the same temperature?",
+    "choices": {
+      "A": "8.0",
+      "B": "7.2 × 10^5",
+      "C": "2.4 × 10^3",
+      "D": "0.125",
+      "E": "2.7 × 10^3"
+    },
+    "correct_answer": "A",
+    "explanation": "The target reaction is obtained by taking reaction (1) as written and ADDING the REVERSE of reaction (2). Reversing reaction (2) gives H2O(g) ⇌ H2(g) + ½ O2(g) with constant 1/K2. Adding this to reaction (1), the ½ O2 terms cancel and the half-reactions combine to CO(g) + H2O(g) ⇌ CO2(g) + H2(g). When reactions are added, their equilibrium constants MULTIPLY; reversing a reaction takes the reciprocal of its constant. Hence K = K1 × (1/K2) = K1/K2 = (2.4 × 10^3)/(3.0 × 10^2) = 8.0.",
+    "option_analysis": {
+      "A": "Correct: K = K1 × (1/K2) = K1/K2 = (2.4 × 10^3)/(3.0 × 10^2) = 8.0.",
+      "B": "Wrong: 7.2 × 10^5 = K1 × K2 assumes both reactions are added in the forward direction. But reaction (2) must be reversed (so its constant becomes 1/K2), which means dividing, not multiplying.",
+      "C": "Wrong: quoting K1 alone assumes reaction (2) can be ignored once the O2 terms cancel. Reaction (2), reversed, still contributes the factor 1/K2 to the overall constant.",
+      "D": "Wrong: 0.125 = K2/K1 reverses the wrong reaction. Reversing reaction (1) instead of (2) inverts the ratio; here it is reaction (2) that appears backwards in the target.",
+      "E": "Wrong: 2.7 × 10^3 = K1 + K2 comes from adding the two constants. Combining reactions multiplies (or divides) their constants; it never adds them (adding logarithms, i.e. multiplying K, is the correct operation)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0080",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical equilibrium",
+    "subtopic": "Heterogeneous equilibrium: writing Kc without pure solids and the null effect of adding more solid",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "chemical equilibrium",
+      "heterogeneous equilibrium",
+      "Kc expression",
+      "pure solid",
+      "Le Chatelier",
+      "Boudouard reaction"
+    ],
+    "learning_objective": "Write the equilibrium constant for a heterogeneous system by omitting pure solids, evaluate it, and recognise that adding more of a pure solid does not shift the equilibrium.",
+    "question": "The heterogeneous equilibrium\n\nC(s) + CO2(g) ⇌ 2 CO(g)\n\nis established in a rigid 1.0 L vessel at a fixed temperature. At equilibrium the vessel contains 0.30 mol CO, 0.10 mol CO2 and a quantity of solid carbon. A further amount of solid carbon is then added, with the temperature and volume held constant. Which one of the following statements is correct?",
+    "choices": {
+      "A": "Kc = 0.90, and adding the carbon does not change the equilibrium concentrations of the gases.",
+      "B": "Kc = 9.0, and adding the carbon does not change the equilibrium concentrations of the gases.",
+      "C": "Kc = 6.0, and adding the carbon shifts the position to the right.",
+      "D": "Kc = 0.90, and adding the carbon increases the value of Kc because more reactant is present.",
+      "E": "Kc = 0.90, and adding the carbon shifts the position to the right, increasing [CO]."
+    },
+    "correct_answer": "A",
+    "explanation": "Pure solids (and pure liquids) have constant activity and are omitted from the equilibrium expression, so Kc = [CO]^2/[CO2]. With V = 1.0 L the concentrations equal the mole values: [CO] = 0.30 M, [CO2] = 0.10 M, giving Kc = (0.30)^2/0.10 = 0.09/0.10 = 0.90. Because the amount of solid carbon does not appear in Kc, adding more of it changes nothing about the gas-phase equilibrium: the concentrations of CO and CO2 are unchanged, and Kc itself depends only on temperature.",
+    "option_analysis": {
+      "A": "Correct: Kc = [CO]^2/[CO2] = (0.30)^2/0.10 = 0.90, and since a pure solid has constant activity, adding more carbon leaves the gas concentrations and Kc unchanged.",
+      "B": "Wrong: 9.0 = ([CO]/[CO2])^2 squares the whole ratio, i.e. it squares the CO2 term as well. Only the CO term carries the exponent 2; CO2 has coefficient 1. (The effect statement is right.)",
+      "C": "Wrong: 6.0 = 2 × [CO]/[CO2] treats the stoichiometric coefficient 2 as a multiplier instead of an exponent, and it also wrongly predicts a shift on adding solid.",
+      "D": "Wrong: the Kc value is correct, but Kc depends only on temperature. Adding a pure solid does not change Kc; the amount of solid never enters the equilibrium expression.",
+      "E": "Wrong: the Kc value is right, but it applies the rule 'adding a reactant shifts to the right' to a pure solid. A solid's activity is fixed, so adding more of it produces no shift."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0081",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids and bases",
+    "subtopic": "Strong acids: pH of a mixture of two strong-acid solutions of different concentration",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "acids and bases",
+      "strong acid",
+      "pH",
+      "mixing",
+      "logarithms"
+    ],
+    "learning_objective": "Combine the hydrogen-ion contributions of two strong-acid solutions on mixing and convert the resulting concentration to pH, recognising that pH values cannot be averaged.",
+    "question": "Equal volumes of two hydrochloric acid solutions, one of pH 2.00 and the other of pH 4.00, are mixed at 25 °C. Taking the volumes to be additive and both acids to be fully dissociated, what is the pH of the resulting mixture? (log 5.05 ≈ 0.70)",
+    "choices": {
+      "A": "2.00",
+      "B": "4.00",
+      "C": "6.00",
+      "D": "3.00",
+      "E": "2.30"
+    },
+    "correct_answer": "E",
+    "explanation": "Because HCl is fully dissociated, work with hydrogen-ion concentrations, not pH values. The two solutions have [H⁺] = 1.0×10⁻² and 1.0×10⁻⁴ mol dm⁻³. Mixing equal volumes halves each and adds the contributions: [H⁺] = (1.0×10⁻² + 1.0×10⁻⁴)/2 = 5.05×10⁻³ mol dm⁻³. Hence pH = −log(5.05×10⁻³) = 3 − 0.70 = 2.30. The value lies just above the pH of the more concentrated acid, because the dilute solution lowers [H⁺] only slightly. pH is logarithmic and must never be arithmetically averaged.",
+    "option_analysis": {
+      "A": "Wrong: keeps the pH of the more concentrated acid, ignoring both the second solution and the twofold dilution that occurs on mixing.",
+      "B": "Wrong: adopts the pH of the more dilute acid, wrongly assuming the weaker (higher-pH) solution controls the mixture.",
+      "C": "Wrong: adds the two pH values (2.00 + 4.00 = 6.00), treating pH as if it were directly additive.",
+      "D": "Wrong: takes the arithmetic mean of the two pH values, (2.00 + 4.00)/2 = 3.00; because pH is a logarithmic quantity, its values cannot be averaged this way.",
+      "E": "Correct: [H⁺] = (1.0×10⁻² + 1.0×10⁻⁴)/2 = 5.05×10⁻³ mol dm⁻³, so pH = −log(5.05×10⁻³) = 2.30."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0082",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and buffers",
+    "subtopic": "Basic buffers: pH from pKb via pOH (Henderson–Hasselbalch for a weak base)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "buffers",
+      "weak base",
+      "Kb",
+      "pOH",
+      "Henderson-Hasselbalch"
+    ],
+    "learning_objective": "Apply the Henderson–Hasselbalch relationship in its base form to obtain pOH from pKb and the conjugate-acid/base ratio, then convert to pH using Kw.",
+    "question": "A buffer solution contains 0.20 mol dm⁻³ of a weak base B together with 0.40 mol dm⁻³ of its conjugate acid BH⁺ (added as the chloride salt). The base dissociation constant is Kb = 1.0×10⁻⁴ at 25 °C. What is the pH of this buffer? (log 2 ≈ 0.30; Kw = 1.0×10⁻¹⁴)",
+    "choices": {
+      "A": "4.30",
+      "B": "10.00",
+      "C": "9.70",
+      "D": "3.70",
+      "E": "10.30"
+    },
+    "correct_answer": "C",
+    "explanation": "For a base/conjugate-acid buffer, pOH = pKb + log([BH⁺]/[B]). Here pKb = −log(1.0×10⁻⁴) = 4.00 and [BH⁺]/[B] = 0.40/0.20 = 2, so pOH = 4.00 + log 2 = 4.00 + 0.30 = 4.30. Converting: pH = 14.00 − 4.30 = 9.70. The solution is basic, as expected for a buffer built on a weak base, and lies below pKa (= 14 − pKb = 10.00) because the conjugate acid is in excess.",
+    "option_analysis": {
+      "A": "Wrong: calculates the pOH correctly (4.30) but reports it as the pH, forgetting that pH = 14 − pOH.",
+      "B": "Wrong: uses pH = 14 − pKb = 10.00, omitting the log([BH⁺]/[B]) buffer-ratio term.",
+      "C": "Correct: pOH = pKb + log([BH⁺]/[B]) = 4.00 + 0.30 = 4.30, so pH = 14.00 − 4.30 = 9.70.",
+      "D": "Wrong: applies the acid form pH = pKb + log([B]/[BH⁺]) = 4.00 − 0.30 = 3.70, treating pKb as though it were a pKa.",
+      "E": "Wrong: inverts the ratio to log([B]/[BH⁺]), giving pOH = 3.70 and pH = 10.30."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0083",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acid–base stoichiometry",
+    "subtopic": "Back-titration: percentage of carbonate in a sample found by difference",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "stoichiometry",
+      "back-titration",
+      "neutralisation",
+      "carbonate",
+      "percentage composition"
+    ],
+    "learning_objective": "Carry out a back-titration calculation: subtract the back-titrated excess acid to find the acid that reacted with the solid, then apply the correct 2:1 acid:carbonate ratio and molar mass to obtain a percentage by mass.",
+    "question": "A 5.00 g sample of impure limestone, in which calcium carbonate is the only acid-reactive component, is added to 50.0 mL of 1.00 mol dm⁻³ hydrochloric acid, which is in excess. When the reaction is complete, the unreacted acid requires 20.0 mL of 0.500 mol dm⁻³ sodium hydroxide to neutralise it. What is the percentage by mass of calcium carbonate in the sample? (CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂; molar mass of CaCO₃ = 100 g mol⁻¹)",
+    "choices": {
+      "A": "20.0%",
+      "B": "10.0%",
+      "C": "50.0%",
+      "D": "80.0%",
+      "E": "40.0%"
+    },
+    "correct_answer": "E",
+    "explanation": "Total HCl added = 0.0500 L × 1.00 = 0.0500 mol. Excess HCl = NaOH used = 0.0200 L × 0.500 = 0.0100 mol. HCl that reacted with the carbonate = 0.0500 − 0.0100 = 0.0400 mol. Since CaCO₃ reacts with 2 HCl, moles CaCO₃ = 0.0400/2 = 0.0200 mol, giving a mass of 0.0200 × 100 = 2.00 g. Percentage = 2.00/5.00 × 100 = 40.0%.",
+    "option_analysis": {
+      "A": "Wrong: mistakes the back-titrated excess (0.0100 mol HCl) for the reacting acid and applies a 1:1 ratio: 0.0100 mol → 1.00 g → 20.0%.",
+      "B": "Wrong: uses the excess HCl (0.0100 mol) with the correct 2:1 ratio: 0.00500 mol → 0.50 g → 10.0%.",
+      "C": "Wrong: ignores the back-titration and treats all the added HCl as reacting with carbonate: 0.0500/2 = 0.0250 mol → 2.50 g → 50.0%.",
+      "D": "Wrong: uses a 1:1 CaCO₃:HCl ratio on the reacted acid (0.0400 mol → 4.00 g), ignoring that each carbonate consumes two HCl.",
+      "E": "Correct: reacted HCl = 0.0500 − 0.0100 = 0.0400 mol → 0.0200 mol CaCO₃ → 2.00 g → 40.0%."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0084",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and buffers",
+    "subtopic": "Common-ion effect: suppression of weak-acid ionisation by a strong acid",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "common-ion effect",
+      "weak acid",
+      "Ka",
+      "strong acid",
+      "equilibrium"
+    ],
+    "learning_objective": "Recognise that a strong acid fixes [H⁺] and suppresses a weak acid's ionisation, then use the Ka expression to obtain the small equilibrium concentration of the weak acid's conjugate base.",
+    "question": "A solution is 0.20 mol dm⁻³ in hydrochloric acid (a strong acid) and 0.30 mol dm⁻³ in hydrofluoric acid, HF, for which Ka = 6.0×10⁻⁴ at 25 °C. Taking the volume change and the self-ionisation of water to be negligible, what is the equilibrium concentration of fluoride ions, [F⁻]?",
+    "choices": {
+      "A": "4.0×10⁻⁴ mol dm⁻³",
+      "B": "9.0×10⁻⁴ mol dm⁻³",
+      "C": "1.3×10⁻² mol dm⁻³",
+      "D": "1.8×10⁻³ mol dm⁻³",
+      "E": "6.0×10⁻⁴ mol dm⁻³"
+    },
+    "correct_answer": "B",
+    "explanation": "The strong acid sets the hydrogen-ion concentration: [H⁺] ≈ 0.20 mol dm⁻³, which is far larger than anything HF could supply, so HF ionisation is strongly suppressed and [HF] ≈ 0.30 mol dm⁻³. Rearranging Ka = [H⁺][F⁻]/[HF] gives [F⁻] = Ka[HF]/[H⁺] = (6.0×10⁻⁴ × 0.30)/0.20 = 1.8×10⁻⁴/0.20 = 9.0×10⁻⁴ mol dm⁻³. The added strong acid pushes the HF equilibrium far to the left (common-ion effect), so [F⁻] is much smaller than in a solution of HF alone.",
+    "option_analysis": {
+      "A": "Wrong: inverts the two concentrations, using Ka×0.20/0.30 = 4.0×10⁻⁴ mol dm⁻³.",
+      "B": "Correct: with [H⁺] fixed at 0.20 by HCl, [F⁻] = Ka[HF]/[H⁺] = (6.0×10⁻⁴ × 0.30)/0.20 = 9.0×10⁻⁴ mol dm⁻³.",
+      "C": "Wrong: treats HF as if it were alone, [F⁻] ≈ [H⁺] = √(Ka·C) = √(6.0×10⁻⁴ × 0.30) = 1.3×10⁻² mol dm⁻³, ignoring the common-ion suppression by HCl.",
+      "D": "Wrong: takes [H⁺] as the difference of the two concentrations (0.30 − 0.20 = 0.10), giving Ka×0.30/0.10 = 1.8×10⁻³ mol dm⁻³.",
+      "E": "Wrong: sets [F⁻] = Ka = 6.0×10⁻⁴, equivalent to assuming [HF]/[H⁺] = 1."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0085",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids and bases",
+    "subtopic": "pH of a very dilute strong acid: water autoionisation via charge balance",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "pH",
+      "strong acid",
+      "Kw",
+      "water autoionisation",
+      "charge balance"
+    ],
+    "learning_objective": "Apply charge balance including the autoionisation of water to compute the pH of an extremely dilute strong acid, and recognise that adding acid must give pH just below 7 rather than the naive −log C value.",
+    "question": "What is the pH of a 1.0×10⁻⁸ mol dm⁻³ aqueous solution of hydrochloric acid at 25 °C? (Kw = 1.0×10⁻¹⁴; √(4.01) ≈ 2.00; log 1.05 ≈ 0.02)",
+    "choices": {
+      "A": "6.96",
+      "B": "8.00",
+      "C": "7.00",
+      "D": "6.00",
+      "E": "6.98"
+    },
+    "correct_answer": "E",
+    "explanation": "At such a low acid concentration, water's own ionisation cannot be neglected. Charge balance requires [H⁺] = [Cl⁻] + [OH⁻] = 1.0×10⁻⁸ + Kw/[H⁺]. This gives the quadratic [H⁺]² − 1.0×10⁻⁸[H⁺] − 1.0×10⁻¹⁴ = 0, so [H⁺] = (1.0×10⁻⁸ + √(1.0×10⁻¹⁶ + 4.0×10⁻¹⁴))/2 = (1.0×10⁻⁸ + 2.00×10⁻⁷)/2 = 1.05×10⁻⁷ mol dm⁻³. Hence pH = 7 − log 1.05 = 6.98. Adding any acid must make the solution acidic (pH < 7), but here the acid is so dilute that the pH is only just below neutral.",
+    "option_analysis": {
+      "A": "Wrong: simply adds the acid's 1.0×10⁻⁸ to water's 1.0×10⁻⁷ ([H⁺] = 1.1×10⁻⁷), double-counting the hydrogen ions instead of using charge balance.",
+      "B": "Wrong: takes pH = −log(1.0×10⁻⁸) = 8.00, ignoring water; this absurdly predicts a basic solution from adding an acid.",
+      "C": "Wrong: assumes the acid is too dilute to matter and the solution stays exactly neutral at pH 7.00.",
+      "D": "Wrong: treats the 1.0×10⁻⁸ as [OH⁻] and computes [H⁺] = Kw/[OH⁻] = 1.0×10⁻⁶, giving pH 6.00.",
+      "E": "Correct: charge balance gives [H⁺] = (1.0×10⁻⁸ + 2.00×10⁻⁷)/2 = 1.05×10⁻⁷ mol dm⁻³, so pH = 6.98."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0086",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acids, bases and buffers",
+    "subtopic": "pH of a buffer with unequal acid and conjugate-base concentrations (Henderson–Hasselbalch)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "buffer",
+      "Henderson-Hasselbalch",
+      "weak acid",
+      "pKa",
+      "conjugate base"
+    ],
+    "learning_objective": "Calculate the pH of a buffer from the pKa and the ratio of conjugate base to weak acid, handling a non-equal ratio with a logarithm.",
+    "question": "A buffer solution is prepared containing 0.30 mol dm⁻³ ethanoic (acetic) acid and 0.15 mol dm⁻³ sodium ethanoate. The acid dissociation constant of ethanoic acid is Ka = 1.8×10⁻⁵ at 25 °C. What is the pH of the buffer? (Take log 1.8 ≈ 0.26 and log 2 ≈ 0.30.)",
+    "choices": {
+      "A": "5.04",
+      "B": "4.44",
+      "C": "4.15",
+      "D": "4.74",
+      "E": "5.34"
+    },
+    "correct_answer": "B",
+    "explanation": "Using pH = pKa + log([A⁻]/[HA]): first pKa = −log(1.8×10⁻⁵) = 5 − log 1.8 = 5 − 0.26 = 4.74. The conjugate base (ethanoate) is at 0.15 and the acid at 0.30, so [A⁻]/[HA] = 0.15/0.30 = 0.5, and log 0.5 = −log 2 = −0.30. Therefore pH = 4.74 + (−0.30) = 4.44. Because there is less conjugate base than acid, the buffer is more acidic than its pKa.",
+    "option_analysis": {
+      "A": "Wrong: 5.04 adds 0.30 instead of subtracting it, as if there were more conjugate base than acid (ratio 2 rather than 0.5).",
+      "B": "Correct: pKa = 4.74 and log([A⁻]/[HA]) = log 0.5 = −0.30, giving pH = 4.74 − 0.30 = 4.44.",
+      "C": "Wrong: 4.15 corresponds to subtracting log 1.8 again (treating the ratio wrongly); the only ratio correction is log 0.5 = −0.30.",
+      "D": "Wrong: 4.74 is the pKa alone; it ignores that the base-to-acid ratio is 0.5 (not 1), which lowers the pH by log 2.",
+      "E": "Wrong: 5.34 both mis-signs the log term and adds an extra 0.30, doubling the error."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  }
+]

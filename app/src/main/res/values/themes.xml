@@ -1,28 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Material3 colorScheme: turquoise primary, light surfaces, premium look.
-         Single source of truth - no hardcoded colors in layouts. -->
-    <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/bb_primary</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        EDUmio Design System — Material3 theme.
+        Primary: #25D366 (EDUmio green / WhatsApp Green)
+        Secondary: #14B8A6 (teal accent)
+        Surfaces: clean white + #F8FAFC variant
+        Single source of truth — no hardcoded colors in layouts.
+        NOTE: the style id `Theme.EDUmio` is an internal identifier retained for
+        migration/reference stability; it is not user-facing.
+    -->
+    <style name="Theme.EDUmio" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Brand -->
+        <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/bb_secondary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/brand_primary_dark</item>
+
+        <item name="colorSecondary">@color/brand_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorTertiary">@color/bb_accent</item>
-        <item name="colorOnTertiary">@color/black</item>
-        <item name="colorError">@color/bb_error</item>
-        <item name="colorSurface">@color/bb_bg</item>
-        <item name="colorOnSurface">@color/bb_text</item>
-        <item name="colorSurfaceContainer">@color/bb_surface_container</item>
-        <item name="colorOutlineVariant">@color/bb_outline_variant</item>
-        <item name="colorOnSurfaceVariant">@color/bb_text_muted</item>
-        <item name="colorPrimaryContainer">@color/emerald_light</item>
-        <item name="colorOnPrimaryContainer">@color/emerald_dark</item>
-        <item name="colorSurfaceVariant">@color/emerald_light</item>
+
+        <item name="colorTertiary">@color/brand_secondary</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Surfaces -->
+        <item name="colorSurface">@color/surface_bg</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceContainer">@color/surface_variant</item>
+        <item name="colorSurfaceVariant">@color/brand_primary_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <!-- Outline -->
+        <item name="colorOutlineVariant">@color/border</item>
+
+        <!-- Surface-container roles. Material3 draws dialogs, menus and bottom sheets on these;
+             leaving them undefined made every dialog fall back to the Material BASELINE
+             (purple-tinted) surface instead of EDUmio white. -->
+        <item name="colorSurfaceContainerHigh">@color/surface_bg</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_variant</item>
+        <item name="colorSurfaceContainerLow">@color/surface_bg</item>
+        <item name="colorSurfaceContainerLowest">@color/white</item>
+
+        <!-- ONE dialog look app-wide (container, radius, title/body, button treatment). -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.EDUmio.Dialog</item>
+
+        <!-- Window & system bars.
+             targetSdk 35 enforces edge-to-edge on Android 15; the app's layouts
+             are built for fitted windows, so we opt out and keep classic insets.
+             Status bar: transparent over the light window gradient, dark icons.
+             Nav bar: solid white with dark icons — clean production look. -->
         <item name="android:windowBackground">@drawable/bg_gradient</item>
-        <item name="android:textColorPrimary">@color/bb_text</item>
-        <item name="android:textColorSecondary">@color/bb_text_muted</item>
-        <item name="materialButtonStyle">@style/BBButton</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surface_bg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- Typography -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+
+        <!-- Default button style -->
+        <item name="materialButtonStyle">@style/BBButton</item>
+
+        <!-- Keyboard: RESIZE the window rather than pan it, so a focused field never pushes the
+             screen's primary CTA out of view (the onboarding footer button sits outside the step
+             ViewFlipper and was vulnerable to this). Declared once here so every screen behaves the
+             same — previously only the now-dead AuthActivity declared a soft-input mode, leaving the
+             real input screens on the OEM-dependent default. -->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+        <!-- Cohesive, subtle screen transitions across the whole app -->
+        <item name="android:windowAnimationStyle">@style/Animation.Mio</item>
+    </style>
+
+    <!--
+        EDUmio splash — Android 12+ SplashScreen API shows the mascot on launch over a clean
+        white background, then hands off to Theme.EDUmio. Platform attrs are ignored gracefully on
+        API < 31 (standard window background), so no extra dependency is required.
+    -->
+    <style name="Theme.EDUmio.Splash" parent="Theme.EDUmio">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_edumio_mascot</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@color/white</item>
     </style>
 
 </resources>

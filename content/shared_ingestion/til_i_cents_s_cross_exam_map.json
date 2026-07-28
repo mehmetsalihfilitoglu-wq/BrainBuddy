@@ -1,0 +1,2047 @@
+{
+  "note": "Maps logical shared source questions to their two SEPARATE production records (one per exam). A shared question always has two distinct ids, two banks, two asset files; only crossExamRelationId is common.",
+  "format": {
+    "crossExamRelationId": "shared_source_0001",
+    "sourceFile": "",
+    "sourcePage": null,
+    "tilQuestionId": "til_i_...",
+    "centsQuestionId": "cents_s_...",
+    "sharedSubjects": [],
+    "compatibilityReason": "",
+    "tilDifficulty": "",
+    "centsDifficulty": "",
+    "separateAssetsVerified": true
+  },
+  "relations": [
+    {
+      "crossExamRelationId": "shared_0001",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0001",
+      "centsQuestionId": "cents_s_orig_math_0001",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "3(x-4)=2x+5 → 3x-12=2x+5 → x=17 (verified: both sides =39). Exactly one correct option (A). Distractors map to genuine error paths: B)9 = failure to distribute the 3 (3x-4=2x+5); E)-17 = sign/negation error on the answer; C)-7 and D)7 = plausible sign/arithmetic slips. None are also-correct, none duplicate/overlap. No ambiguity, consistent notation, single variable. Fits both TIL-I and CEnT-S (elementary linear algebra; no calculus/chem/bio). Generic item, not a copy of a known published question. Only reservation: difficulty is on the easy/near-trivial edge for admission level — valid but low challenge; acceptable as an easy warm-up item.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0002",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0002",
+      "centsQuestionId": "cents_s_orig_math_0002",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "log_2(32) - log_2(4) = 5 - 2 = 3, so A is uniquely correct. Distractors are all well-motivated: D)5 = forgetting to subtract (just log_2 32); E)7 = adding the two logs (5+2); B)8 = dividing the arguments 32/4=8 (confusing log_2(32/4) with 32/4, or forgetting the outer log); C)28 = subtracting the arguments 32-4. No duplicates, none also-correct, no overlap. Notation log_2(...) is unambiguous; no unit/assumption issues. Logarithm properties are core algebra, in scope for both TIL-I (Polito math, no calculus needed) and CEnT-S (CISIA math). closeToSourceRisk low — generic, non-copied. Only caveat: it is on the easy end (single-step evaluation, borderline trivial for admission level) but still acceptable. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0003",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0003",
+      "centsQuestionId": "cents_s_orig_math_0003",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Delta = k^2 - 36 = 0 -> k = +/-6, so C is correct and complete. Only genuine adversarial angle: A (k=6) and B (k=-6) are each individually values for which the equation does have exactly one solution, so they are \"partially true.\" However, the stem asks for value(s)/the full set, and only C lists both; this is the standard find-all MC pattern where single-value options are legitimate incomplete distractors. Not a fatal defect. D (k=+/-3) baits k^2=9 (forgetting the 4x factor); E (k=9) baits copying the constant term. Both good distractors, none also fully correct, none overlapping. Clean notation; \"exactly one real solution\" correctly denotes the Delta=0 repeated-root case. Pure discriminant algebra: fits both TIL-I and CEnT-S math syllabi, no calculus/chem/bio. Easy difficulty (on the low end for an admission exam but not trivial). Generic textbook template, not a copy of a specific published item.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0004",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0004",
+      "centsQuestionId": "cents_s_orig_math_0004",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified: 2^(2x)=2^(3x-3) => 2x=3x-3 => x=3. A) 4^3=64=8^2 correct. All distractors wrong and non-overlapping: E (x=2) plausible off-by-one on (x-1); D (3/5) plausible from exponent manipulation error; B, C clearly wrong. Exactly one correct answer, clean notation, no units issue. Fits both TIL-I and CEnT-S math (exponentials, no calculus). Difficulty is easy — solid low-end warm-up item, not trivial-free since it requires common-base rewriting. Generic stock problem type but not a copy of a specific known exam item; close-to-source risk low. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0005",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0005",
+      "centsQuestionId": "cents_s_orig_math_0005",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently: |2x-3|<5 -> -5<2x-3<5 -> -2<2x<8 -> -1<x<4 = A. Exactly one correct option. Distractors are all valid procedural/sign errors: B truncates lower bound, C is the >-case flip (x<-1 or x>4), D mishandles signs, E keeps only the upper bound. No overlap or duplication with A; none also-correct. No ambiguity, notation/units consistent. Syllabus: absolute-value linear inequality is core algebra, no calculus/chem/bio/representation/CS, so it fits both TIL-I and CEnT-S Math. Difficulty is easy (mildly on the trivial side but acceptable as an entry-level item). Generic textbook template, not a copy of a specific recognizable published exam question -> low closeToSourceRisk. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0006",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0006",
+      "centsQuestionId": "cents_s_orig_math_0006",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently: from 3x - y = 7, y = 3x - 7; substitute into x + 2y = 7 → 7x - 14 = 7 → x = 3, y = 2. Product x·y = 6, so A is correct. Exactly one correct option; no other option equals 6. Distractors are well-constructed and diagnostic of specific errors: B) 5 = x + y (adds instead of multiplying), C) 9 = x² or (x+y)+something/common miscalc, D) 1 = x - y, E) -1 = y - x. None is also-correct, none duplicates. No ambiguity, consistent notation, no unstated assumptions; standard real-coefficient linear system. Syllabus: linear systems / simultaneous equations fit both TIL-I Math and CEnT-S Math (no calculus, chem/bio, representation, or CS involved). closeToSourceRisk low — generic textbook-style system with original numbers. Only caveat: difficulty is on the easy end (routine 2x2 system plus a multiply), acceptable for a lower-difficulty admission item but not challenging; still production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0007",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0007",
+      "centsQuestionId": "cents_s_orig_math_0007",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Worked it: log(x)+log(x-3)=1 → log[x(x-3)]=1 → x(x-3)=10 → x²-3x-10=0 → (x-5)(x+2)=0 → x=5 or x=-2. Domain requires x>0 AND x-3>0, i.e. x>3, so x=-2 is extraneous. Only x=5 survives → A. Exactly one correct option.\n\nDistractors are all valid and non-overlapping: B (5 and -2) = the classic error of skipping the domain check and keeping both roots — the intended trap; C (-2) = keeping only the extraneous root; D (5 and 2) = arithmetic slip (2 is not even a root, but plausible for a careless solver); E (no real solution) = plausible if one wrongly thinks both roots fail. None of the distractors is also-correct, none duplicates another.\n\nNotation is disambiguated (\"log denotes base-10\"), so no ambiguity; base choice does not affect the answer anyway since RHS scales. No unit/notation issues.\n\nSyllabus: logarithm equation with domain reasoning — squarely within TIL-I Polito Math (algebra/logs, no calculus, no chem/bio) and within CEnT-S CISIA Math. Fits both.\n\nDifficulty: standard admission level — the domain-restriction trap lifts it above trivial without requiring anything university-advanced. Medium for both tracks.\n\ncloseToSourceRisk: this is a very generic textbook template (log x + log(x-3)=1 style), but the form is a common type rather than a recognizable copy of a specific published exam item; judged not a source-copy risk, though the template is unoriginal. Production-ready.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0008",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0008",
+      "centsQuestionId": "cents_s_orig_math_0008",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently. Domain: x+4≥0 → x≥-4. Case RHS<0 (x<2): LHS≥0 always > negative, so all -4≤x<2 hold. Case x≥2: square both nonneg sides: x+4>(x-2)²=x²-4x+4 → x²-5x<0 → 0<x<5, intersect x≥2 gives 2≤x<5. Union = [-4,5) → answer A. Verified boundaries: x=-4 (0>-6 T, included), x=5 (3>3 F, excluded), x=4.9 T, x=2 T. Exactly one fully-correct option. Distractors are strong: B(0<x<5) and D(2≤x<5) are incomplete subsets (miss the -4≤x<2 region where squaring isn't needed) — classic error of forgetting the RHS-negative case; C(x<5) forgets the domain lower bound; E is a plausible sign-analysis mistake. None also-correct, none overlapping-as-correct. No ambiguity, consistent notation, no units. Pure algebra (irrational inequality) — no calculus/chem/bio, so fits both TIL-I and CEnT-S math syllabi. Requires domain + case split + squaring, so genuinely medium, not trivial. Template is a common prep-book type but not a recognizable verbatim copy of a specific published item; close-to-source risk low.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0009",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0009",
+      "centsQuestionId": "cents_s_orig_math_0009",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Formula: a_n = 7 + (n-1)*4 = 4n+3. Set 4n+3=63 -> n=15. Answer C confirmed. Term values: 13th=55, 14th=59, 15th=63, 16th=67, 56th=227. Exactly one correct option (C); no other option evaluates to 63.\n\nDistractors are all plausible error-traps: B(14th) = classic off-by-one from solving 7+4n=63 (forgetting the -1) -> n=14; D(16th) = opposite off-by-one; A(13th) = arithmetic slip; E(56th) = 63-7=56 (subtracting first term without dividing by d). None also-correct, none duplicate/overlap.\n\nNo ambiguity: units/notation consistent, standard arithmetic-sequence phrasing, term index unambiguous. Syllabus: arithmetic sequences fit both TIL-I (Polito math/algebra, no calculus) and CEnT-S (CISIA math). No chem/bio/representation/CS dependency, so it is neutral/valid for both.\n\nDifficulty: easy for both tracks -- requires the general-term formula and avoiding the off-by-one trap, so not fully trivial but on the low end.\n\ncloseToSourceRisk: low. This is a generic, high-frequency textbook problem type; numbers (7, d=4, target 63) are not identifiable to a specific published exam item, so not a recognizable copy. Production-ready -> approve.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0010",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0010",
+      "centsQuestionId": "cents_s_orig_math_0010",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math verified: 80*0.75=60, 60*0.90=54 -> B. Exactly one correct. Distractors all well-motivated traps: A)52=80*0.65 (adding 25%+10%=35% off), D)60=80*0.75 (only first discount), E)72=80*0.90 (only second discount), C)58 near-correct filler. None also-correct, none duplicate. No ambiguity — \"further 10% off the already reduced price\" explicitly forces sequential application; units consistent (euros). Fits TIL-I Math and CEnT-S Math (percentages, no calculus/chem/bio/representation). Difficulty is easy but genuinely two-step, acceptable and not trivial. Generic successive-discount template, not a recognizable copy of a specific published exam item -> low close-to-source risk. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0011",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0011",
+      "centsQuestionId": "cents_s_orig_math_0011",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Other integer = GCD*LCM/72 = 12*360/72 = 60 (answer C). Uniquely forced by product identity a*b=GCD*LCM; verified 60=2^2*3*5 gives GCD(72,60)=12 and LCM=360. Setup is consistent: 72 is a multiple of 12 and divisor of 360. All distractors fail (A GCD=6, B GCD=24, D GCD=18, E GCD=24) — none also-correct, none overlap, all plausible. No ambiguity/units issues. Fits both TIL-I and CEnT-S math (elementary number theory, no calculus/chem/bio dependence). Admission-level; generic textbook GCD/LCM type, not a copy of a specific published item.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0012",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0012",
+      "centsQuestionId": "cents_s_orig_math_0012",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Computed independently: total = C(12,2)=66; same-color = C(4,2)+C(3,2)+C(5,2)=6+3+10=19; P=19/66 = option A. Correct.\n\nSingle correct: A only. Values A=0.288, B=0.347, C=0.132, D=0.167, E=0.091 — all distinct, no also-correct or overlap.\n\nDistractors all trace to real errors: B) 25/72 = with-replacement answer (16+9+25)/144 = 50/144 = 25/72 — excellent trap. C) 19/144 = correct numerator over 12² (mixing combinations with naive squared denominator). D) 1/6 ≈ round-number lure (also ~= P of a single pairing). E) 1/11 = 6/66 = C(4,2)/C(12,2), i.e. only-red. All wrong-but-plausible.\n\nNo ambiguity: \"at the same time (without replacement)\" fixes unordered no-replacement sampling; totals stated consistently (4+3+5=12); notation clean.\n\nSyllabus: basic combinatorics/probability, no calculus, no chem/bio, no representation/CS. Fits both TIL-I (Polito math/logic) and CEnT-S (CISIA math). Admission-level, not trivial, not university-advanced.\n\ncloseToSourceRisk: the marble/same-color archetype is common, but the specific 4/3/5 split is generic and not a recognizable copy of a named published exam item. Production-ready.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0013",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0013",
+      "centsQuestionId": "cents_s_orig_math_0013",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Correct answer A=7: (√50+√8)/√2 = √25+√4 = 5+2 = 7 (equivalently 7√2/√2 = 7). Exactly one correct option. Distractors all valid and distinct: B) 7√2 = forgetting final division by √2; C) √29 = illegal √50+√8→√58 then /√2; D) 29 = square of that / 58÷2; E) 5√2 = simplifying only √50 and dropping √8. No ambiguity, clean notation. Fits Math on both TIL-I and CEnT-S (no calculus/chem/bio). Generic radical-simplification form, low copy risk. Only mild note: difficulty is on the easy end for admission level, but acceptable (non-trivial multi-step simplification).",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0014",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0014",
+      "centsQuestionId": "cents_s_orig_math_0014",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "10 parts total; largest(5)-smallest(2)=3 parts=90€ → 1 part=30€ → total=300€ (C). Exactly one correct. Distractors plausible: A)150=largest share value; D)450 mis-scale; E)900=90×10 (difference as single part); B)270=90×3. None also-correct or overlapping. Units (euros) consistent, no unstated assumptions. Basic ratio/proportion — fits TIL-I Math and CEnT-S Math, no calculus/chem/bio. Easy but valid admission warm-up. Generic archetype, not a copy of a specific published item.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0015",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0015",
+      "centsQuestionId": "cents_s_orig_math_0015",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified: div by 3 = floor(200/3)=66; div by 5 = floor(200/5)=40; div by 15 = floor(200/15)=13. Div by 3 or 5 = 66+40-13=93. Remove multiples of 15 (all of which are in the union): 93-13=80. Answer B is correct and unique. Note: \"div by 3 or 5 but not by 15\" is logically identical to \"div by exactly one of 3 and 5\" since div-by-15 = div-by-both — no ambiguity, both readings give 80. Distractors are all valid, wrong, and diagnostically motivated: C)93 = forgot to remove multiples of 15; D)106 = 66+40 forgot inclusion-exclusion overlap; A)67 = plausible off-by/miscount (e.g. 80-13 or subtracting 13 twice); E)120 = gross overcount. No option is also-correct or a duplicate. Pure divisibility counting / inclusion-exclusion — fits both TIL-I Math and CEnT-S Math (no chem/bio/calculus/representation/CS involved). Admission-level medium difficulty: requires knowing floor counts + inclusion-exclusion + the subtlety of removing multiples of 15. Very common textbook archetype but generic numbers, not a copy of a specific famous published item — low source risk. Production-ready.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0016",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0016",
+      "centsQuestionId": "cents_s_orig_math_0016",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math: a+ar+ar^2=26; ar^3+ar^4+ar^5=r^3(a+ar+ar^2)=26r^3=702, so r^3=27, r=3. Over the reals r^3=27 has the unique root 3 (other two roots complex), so EXACTLY one valid option -> B. Full consistency: a(1+r+r^2)=26 -> a=2, terms 2,6,18 (sum 26), 54,162,486 (sum 702). Checks out.\n\nDistractors all wrong but well-motivated, none also-correct/duplicated: E)27 is the trap r^3=702/26 (compute-and-stop error); C)9 = r^2 = the last first-three term ratio component; D)13 = 1+r+r^2 (the bracket factor); A)2 is actually the first term a (nice near-miss trap). Good spread, no overlap.\n\nNo ambiguity: 'geometric sequence' with real terms is standard; ratio determined uniquely; units/notation clean. Minor pedantic point only — the problem does not state terms are real, but admission-level convention assumes real sequences and the intended/only sensible answer is 3; not a defect.\n\nSyllabus: geometric progressions are core algebra for both TIL-I (Polito Math) and CEnT-S (CISIA Math); no calculus/chem/bio/representation/CS involved -> fits both.\n\nDifficulty medium for both: requires the insight to factor r^3 out of the second sum rather than solving a full system; not trivial, not university-level.\n\ncloseToSourceRisk low: this is a common archetype (sum-of-consecutive-GP-terms) but the specific 26/702 -> r=3 construction is generic/reproducible, not a recognizable copy of a named published exam item.\n\nProduction-ready: approve.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0017",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0017",
+      "centsQuestionId": "cents_s_orig_phys_0017",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "P_gauge = rho*g*h = 1000*10*2.0 = 20000 Pa = 20 kPa -> A. Exactly one correct option. Distractors are all plausible and none also-correct: B=120 kPa is gauge+atm (~100 kPa) confusion, i.e. absolute pressure; C=40 kPa doubles the value (e.g. counting depth twice or 2*rho*g*h); D=2.0 kPa is an order-of-magnitude/dropped-g error; E=10 kPa halves or drops depth. The stem explicitly defines gauge pressure as \"the pressure due to the water column alone,\" which pre-empts the main ambiguity (gauge vs absolute) and neutralizes any argument that B could be correct — so no ambiguity and no duplicate/overlap. Units consistent (SI), g and density given, \"open tank\" is consistent with gauge framing. Syllabus: fluid statics/hydrostatic pressure is standard physics, no calculus, no chem/bio needed — fits both TIL-I (Physics) and CEnT-S (Physics). Difficulty is a single-formula plug-in, on the easy end but acceptable for admission level; not trivial-guessable given the well-constructed distractors. closeToSourceRisk low: generic hydrostatic-pressure item, not a recognizable copy of a specific published exam question. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0018",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0018",
+      "centsQuestionId": "cents_s_orig_phys_0018",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics verified: R_eq = (6*3)/(6+3) = 2.0 ohm; I = 12/2.0 = 6.0 A -> A correct. Exactly one correct option. Distractors all map to specific plausible errors: B=1.3 (12/9, series mistake), C=2.0 (6-ohm branch current or confusing R_eq value), D=4.0 (3-ohm branch current), E=3.0 (weakest, loose value confusion but still wrong). Branch currents C+D=6.0 sum to key and neither equals total, so no second correct answer. Ideal battery + negligible internal resistance is explicitly stated, so no unstated assumptions; units/notation consistent. Two-step reasoning is appropriate admission difficulty for both TIL-I (Physics, no calculus) and CEnT-S (Physics). Only caveat: numbers (6/3/12) are a highly canonical stock template — not a copy of a specific named exam, but check the bank for near-duplicate parallel-resistor items and consider varying values. Optionally strengthen E with a more principled wrong derivation.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0019",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0019",
+      "centsQuestionId": "cents_s_orig_phys_0019",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Q=mcΔT=0.50*4200*60=126000 J=126 kJ → A, exactly one correct. Distractors all traceable to specific errors: B uses final temp 80 as ΔT (168 kJ), C uses m=1 kg (252 kJ), D halves ΔT to 30 (63 kJ), E drops ΔT to 1 (2.1 kJ). None also-correct, none duplicate/overlap. No phase change (liquid range), C-to-K interval identical so no unit trap, specific heat given so no unstated assumption. Fits TIL-I Physics (no calculus/chem/bio) and CEnT-S Physics. Only caveat: difficulty is easy — single-step plug-and-chug, borderline trivial for admission level but acceptable. Generic textbook calorimetry item, not a copy of a specific published exam question. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0020",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0020",
+      "centsQuestionId": "cents_s_orig_phys_0020",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Coulomb's law: F = k q1 q2 / r^2 = (9.0e9)(2.0e-6)^2/(0.30)^2 = (9.0e9)(4.0e-12)/0.09 = 0.036/0.09 = 0.40 N. Author's answer A is correct and unique.\n\nSingle correct: verified only A equals 0.40 N. No distractor coincides.\n\nDistractors all map to real, distinct error modes and none is also-correct:\n- B 0.12 N = forgetting to square r (0.036/0.30).\n- D 0.20 N = half (e.g., treating force as shared/using one q factor incorrectly).\n- C 0.80 N = spurious factor of 2 (double-counting the pair).\n- E 4.0 N = order-of-magnitude / power-of-ten slip.\nNo duplicates or overlaps.\n\nAmbiguity: none material. \"Small spheres\" correctly implies point charges; vacuum stated; k supplied; charges like-signed so force is repulsive but only magnitude is asked, so sign is irrelevant. Units consistent (microcoulomb -> 1e-6 C conversion is the one required step besides squaring). Notation clean.\n\nSyllabus: pure electrostatics plug-in, no calculus, no chem/bio, no representation/CS. Fits both TIL-I (Physics strand) and CEnT-S (Physics strand).\n\nDifficulty: standard admission-level. Requires unit conversion of microcoulombs and squaring both charge and distance, so not purely trivial, but it is a single-formula substitution — rated easy for both tracks.\n\ncloseToSourceRisk: generic textbook-style Coulomb problem; not a recognizable copy of a specific published/prep item. Low.\n\nProduction-ready: approve.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0021",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0021",
+      "centsQuestionId": "cents_s_orig_phys_0021",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Continuity equation A1v1=A2v2 -> v2 = 6.0*2.0/2.0 = 6.0 m/s. Author's answer A is correct and uniquely so. Distractors each map to a distinct plausible error: B=inverted ratio (0.67), C=v1x2 or area-difference misuse (4.0), D=A1v1 product not divided by A2 (12), E=pure area ratio ignoring speed (3.0). No overlap, none also-correct. All assumptions stated (horizontal, steady, incompressible, smooth narrowing); cm^2 cancels in the ratio so no unit-conversion trap. Fits both TIL-I and CEnT-S physics (fluid continuity, no calculus). Slightly on the easy side but acceptable for admission level. Generic textbook archetype, not a recognizable copy of a specific published item -> low close-to-source risk. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0022",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0022",
+      "centsQuestionId": "cents_s_orig_phys_0022",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Gay-Lussac (isochoric): P1/T1 = P2/T2 with T in Kelvin. T1 = 27 C = 300 K. Doubling pressure doubles absolute temperature: T2 = 600 K = 327 C. Answer A is correct and uniquely so.\n\nSingle correct: only A (327 C = 600 K) satisfies. Verified no other option also works.\n\nDistractors all wrong and pedagogically sound:\n- B) 54 C = doubling the Celsius value (27x2) — the classic \"forgot to convert to Kelvin\" trap.\n- C) 600 C = reporting the Kelvin answer (600 K) but forgetting to convert back to Celsius.\n- D) 300 C = mistaking T1 in Kelvin (300 K) for the target in Celsius.\n- E) 273 C = spurious use of the 273 offset. Weakest distractor but still unambiguously wrong; no overlap or duplication.\n\nAmbiguity/units: clean. Rigid + constant volume is stated redundantly but not contradictory; \"fixed amount,\" \"ideal gas,\" \"sealed\" all support a well-posed isochoric problem. Notation consistent (10^5 Pa, Celsius throughout).\n\nSyllabus: ideal-gas / thermodynamics gas laws sit within both TIL-I Physics and CEnT-S Physics; no chem/bio/calculus/representation required. Fits both.\n\nDifficulty: medium for both — the Kelvin-conversion step lifts it above trivial while staying below university level.\n\ncloseToSourceRisk: low. This is a generic textbook-template isochoric problem (double P -> double T), not a recognizable copy of a specific published admission/prep item.\n\nProduction-ready: approve.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0023",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0023",
+      "centsQuestionId": "cents_s_orig_phys_0023",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Computation: W_ext = ΔPE = kQ1Q2/r (ΔKE=0 since both rest to rest) = (9.0e9)(3.0e-6)(1.0e-6)/0.60 = 0.027/0.60 = 0.045 J = 45 mJ. Answer A confirmed.\n\nSingle correct: yes, only A. No other option equals 45 mJ.\n\nDistractors all wrong-but-plausible with identifiable error traps:\n- B) 75 mJ = 0.027/0.36 → using 1/r² (Coulomb-force formula) instead of 1/r for PE. Classic trap.\n- C) 90 mJ = 0.045×2 → doubling error (or misreading r as 0.30 m). Wrong, not also-correct.\n- D) 22.5 mJ = 45/2 → spurious factor-of-½ (capacitor-energy confusion). Plausible.\n- E) 0.045 mJ → correct J magnitude mislabeled as mJ (1000× unit-conversion error). Plausible.\nNo duplicates/overlaps; none also-correct.\n\nAmbiguity/assumptions: well-posed. \"Fixed in place,\" \"from very far away where PE=0,\" and \"both start and end at rest\" explicitly nail ΔKE=0 and the reference point, so external work equals ΔPE unambiguously. Both charges positive → external work is positive (correct sign, no sign trap). Units consistent (μC, m, mJ).\n\nSyllabus: electrostatic potential energy of point charges — standard admission physics, no calculus. Fits TIL-I Physics (Polito) and CEnT-S Physics (CISIA). Not chem/bio-dependent.\n\nDifficulty: medium both — requires the U=kq1q2/r relation plus careful μC and J→mJ conversions; not trivial, not university-advanced.\n\ncloseToSourceRisk: low/false — canonical textbook problem TYPE, but the specific numbers (3.0/1.0 μC, 0.60 m) are generic and not a recognizable copy of a named published/prep item.\n\nProduction-ready. Approve.",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0024",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0024",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0024",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Statement is Certified→Inspection. Logical equivalence = contrapositive: ¬Inspection→¬Certified = option C. Exactly one correct. Distractors are the classic wrong forms: A=converse (Inspection→Certified), B=inverse (¬Certified→¬Inspection), E=biconditional (not equivalent since original is one-directional), D=contradiction/nonsense. None also-correct, none overlapping — clean, canonical distractor set. No ambiguity, no units/notation issues. Logic/contrapositive is core TIL-I Logic and standard CEnT-S reasoning; no chem/bio/calculus/representation/CS dependencies, so it fits both syllabi. Difficulty is admission-appropriate but on the easy end — contrapositive recognition is a well-drilled skill; still non-trivial due to the converse/inverse traps. closeToSourceRisk low: generic template (\"certified/inspection\"), not a recognizable copy of a specific published item, though the contrapositive-identification format itself is ubiquitous. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0025",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0025",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0025",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Valid Celarent syllogism: DebateClub⊆Logic, Logic∩FirstYear=∅ ⟹ DebateClub∩FirstYear=∅ = A. Exactly one correct. Distractors well-designed: C = illicit converse of P1 (classic trap), B/D = contradictions of A, E = inversion of P2. A is an E-proposition, so it holds without any existential-import assumption. No ambiguity or notation issues. Logic reasoning fits TIL-I (Logic) and CISIA Ragionamento. Easy admission-level, not trivial due to converse trap. Generic framing, not a recognizable copy of a published item.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0026",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0026",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0026",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Clean necessary/sufficient item. \"must hold a valid ticket\" = necessary; \"does not by itself permit boarding\" (needs also reaching platform in time) = not sufficient => C. Exactly one correct; distractors all plausible and mutually exclusive, none also-correct. E (\"necessity cannot be determined\") is a good trap but false since the stem fixes necessity. No ambiguity or notation issues. Fits Logic (TIL) and Reasoning (CEnT). Only caveat: the stem is fairly explicit (\"must\"/\"does not by itself\"), so it telegraphs the answer and lands on the easy side — challenge is mainly knowing the terminology, not reasoning. Generic ticket/train illustration, not a copy of a specific published question. Production-ready as an easy logic item.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0027",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0027",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0027",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Claim is P→Q (P=sensor active, Q=alarm armed). Negation of a material conditional is P∧¬Q = option C. Exactly one correct. Distractors are all valid, distinct, and pedagogically sound: A=P→¬Q (negate consequent only), B=¬P→¬Q (inverse), D=¬P∧Q (wrong conjunction), E=¬Q→¬P (contrapositive — logically EQUIVALENT to the original claim, a strong trap for students who confuse contrapositive with negation; it is wrong as the negation, so not also-correct). No overlap/duplication, no ambiguity, consistent notation. Fits TIL-I Logic; also fits CEnT-S reasoning/logic. Standard admission-level item (easy-medium); the contrapositive distractor keeps it from being trivial. Sensor/alarm conditional framing is generic textbook material, not a recognizable copy of a specific published exam — low close-to-source risk. Production-ready.",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0028",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0028",
+      "centsQuestionId": "cents_s_orig_math_0028",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "AB is horizontal (y=1) with length 6; height from C(y=6) is 5; area = 1/2*6*5 = 15 = C. Confirmed via shoelace: 1/2|(-2)(1-6)+4(6-1)+1(1-1)| = 1/2|10+20| = 15. ",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0029",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0029",
+      "centsQuestionId": "cents_s_orig_math_0029",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math check: OP = 8, r = 4, tangent-radius perpendicularity gives PT = sqrt(OP^2 - r^2) = sqrt(64-16) = sqrt(48) = 4√3 = option B. Confirmed intended answer.\n\nSi",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0030",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0030",
+      "centsQuestionId": "cents_s_orig_math_0030",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "DE ∥ BC ⇒ △ADE ~ △ABC. AB = AD+DB = 4+6 = 10. Ratio AD/AB = 4/10 = 2/5 = DE/BC ⇒ BC = 5 · (10/4) = 12.5. Answer D, uniquely correct.\n\nDistractors all wrong, eac",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0031",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0031",
+      "centsQuestionId": "cents_s_orig_math_0031",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math: rectangle 20x10 = 200; two semicircles on width-10 ends form one full circle of radius 5 -> pi*5^2 = 25pi. Total = 200 + 25pi. Intended answer E is correc",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0032",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0032",
+      "centsQuestionId": "cents_s_orig_math_0032",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "P(1,3) lies on x²+y²=10 (1+9=10). Tangent at P: x·1+y·3=10 → x+3y=10. X-intercept Q(10,0); y-intercept R(0,10/3). Area OQR = ½·10·(10/3) = 50/3 = option C. Veri",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0033",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0033",
+      "centsQuestionId": "cents_s_orig_math_0033",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Classic reflection-minimization. Reflect A(1,4) across x-axis to A'(1,-4). Min AP+PB = |A'B| = sqrt((5-1)^2+(2-(-4))^2)=sqrt(16+36)=sqrt52=2√13 → B. Verified un",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0034",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0034",
+      "centsQuestionId": "cents_s_orig_math_0034",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Intersecting chords theorem (power of a point): AE·EB = CE·ED → 6·4 = 8·ED → ED = 24/8 = 3. Answer D is uniquely correct.\n\nDistractors: B)24 = AE·EB product (fo",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0035",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0035",
+      "centsQuestionId": "cents_s_orig_phys_0035",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics: a = g(sinθ - μk cosθ) = 10(0.6 - 0.2·0.8) = 10(0.6 - 0.16) = 10·0.44 = 4.4 m/s². Gravity component down = mg sinθ = 12 N; kinetic friction up = μk mg c",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0036",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0036",
+      "centsQuestionId": "cents_s_orig_phys_0036",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Independent solution: B descends (weight 50 N) vs A's gravity-along-incline mg·sin37 = 30 N, so system moves with A up the slope; kinetic friction opposes motio",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0037",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0037",
+      "centsQuestionId": "cents_s_orig_phys_0037",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Correct answer A = 2.0 A. R1∥R2 = 18/9 = 2 Ω; series with R3=4 gives 6 Ω; I = 12/6 = 2.0 A. Exactly one correct option. Distractors are all sound: B=0.92 (12/13",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0038",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0038",
+      "centsQuestionId": "cents_s_orig_phys_0038",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Verified independently. R2∥R3 = 72/18 = 4Ω; total R = 8Ω; total I = 1.5A; V across parallel block = 6V; I(R2) = 6/6 = 1.0A → C. Consistency check: I(R3)=0.5A, s",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0039",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0039",
+      "centsQuestionId": "cents_s_orig_phys_0039",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Vertical component v_y = 25*sin37 = 25*0.6 = 15 m/s. Max height H = v_y^2/(2g) = 225/20 = 11.25 m => E. Exactly one correct option.\n\nDistractor analysis (all va",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0040",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0040",
+      "centsQuestionId": "cents_s_orig_phys_0040",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Solution: 45° below horizontal means vy = vx. vx stays 12 m/s, so vy = 12 m/s. Time t = vy/g = 12/10 = 1.2 s. Horizontal distance x = vx·t = 12·1.2 = 14.4 m → A",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0041",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0041",
+      "centsQuestionId": "cents_s_orig_phys_0041",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Torque about hinge (beam length L): T·sin30°·L = 100·(L/2) + 300·L → 0.5T = 50 + 300 = 350 → T = 700 N. Uniquely C.\n\nDistractor analysis — all plausible, distin",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0042",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0042",
+      "centsQuestionId": "cents_s_orig_phys_0042",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics: smooth wall gives horizontal N_wall only; rough floor gives N_floor (vertical) and f (horizontal). Vertical: N_floor = W. Horizontal: f = N_wall. Torqu",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0043",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0045",
+      "centsQuestionId": "cents_s_orig_math_0043",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Rates: a+b=1/6, b+c=1/10, a+b+c=1/5. c = (a+b+c) - (a+b) = 1/5 - 1/6 = 1/30 → C alone = 30h. Independently confirms C. Consistency check: a=1/5-1/10=1/10, b=1/6",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0044",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0046",
+      "centsQuestionId": "cents_s_orig_math_0044",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Mixture/alligation problem. Let x = litres of 40% solution: 0.40x + 0.15(15-x) = 0.24(15) → 0.25x + 2.25 = 3.6 → 0.25x = 1.35 → x = 5.4. Answer B is correct and",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0045",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0047",
+      "centsQuestionId": "cents_s_orig_math_0045",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solve: a+2d=7, a+7d=22 => 5d=15, d=3, a=1. S20 = 20/2*(2*1 + 19*3) = 10*(2+57) = 10*59 = 590 = D. Exactly one correct option. Distractors (710, 620, 530, 560) a",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0046",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0048",
+      "centsQuestionId": "cents_s_orig_math_0046",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently: a_n = S_n - S_{n-1} for n>=2. General term = (2n^2+3n) - (2(n-1)^2+3(n-1)) = 4n+1 (also valid at n=1 since a_1=S_1=5). a_10 = 4(10)+1 = 41",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0047",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0049",
+      "centsQuestionId": "cents_s_orig_math_0047",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified by brute force: N=33 is the unique smallest solution (general class N≡33 mod 36; next is 69). Only option E satisfies all three congruences (33 mod4=1,",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0048",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0050",
+      "centsQuestionId": "cents_s_orig_math_0048",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Total marbles = 4+3+3 = 10. P(not green) = 6/10 = 3/5 = B. Confirmed exactly one correct option. Distractor analysis: A) 2/5 = 4/10 = P(green) — the trap for re",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0049",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0051",
+      "centsQuestionId": "cents_s_orig_math_0049",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Conditional probability. Sum=8 ordered outcomes: (2,6),(3,5),(4,4),(5,3),(6,2) = 5 equally likely. At least one 5: (3,5),(5,3) = 2. P = 2/5 = D. Confirmed corre",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0050",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0052",
+      "centsQuestionId": "cents_s_orig_phys_0050",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics: absolute pressure = P_atm + rho*g*h = 1.0e5 + (1000*10*15) = 1.0e5 + 1.5e5 = 2.5e5 Pa. Answer C is correct and uniquely correct. Distractors are all pe",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0051",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0053",
+      "centsQuestionId": "cents_s_orig_phys_0051",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Combined gas law (fixed n): T2 = T1 * (P2V2)/(P1V1) = 300 * (3.0e5*0.50)/(1.0e5*2.0) = 300 * (1.5e5/2.0e5) = 300 * 0.75 = 225 K. B is uniquely correct.\n\nDistrac",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0052",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0054",
+      "centsQuestionId": "cents_s_orig_phys_0052",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Verified: all ice melts (heat available 25200 J > 16800 J to melt). Balance 630(40-T)=16800+210T gives T=10C exactly. Answer D correct, unique. Distractors: A)3",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0053",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0055",
+      "centsQuestionId": "cents_s_orig_phys_0053",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "W = kQq(1/r1 - 1/r2) = 0.09 * (10 - 3.333) = +0.6 J. Like charges repel; moving apart -> force does positive work, so sign is correct (+). Exactly one correct o",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0054",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0056",
+      "centsQuestionId": "cents_s_orig_phys_0054",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Verified: k(4Q)/x²=kQ/(0.30−x)² → 2/x=1/(0.30−x) → x=0.20 m = E. Exactly one correct on-segment solution. Distractors valid: B=naive midpoint, C=inverted ratio ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0055",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0057",
+      "centsQuestionId": "cents_s_orig_phys_0055",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics/derivation: For a floating body, submerged fraction = ρ_block/ρ_fluid. In water: ρ_block = 0.60 × 1000 = 600 kg/m³. In oil: fraction = 600/800 = 0.75 = ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0056",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0058",
+      "centsQuestionId": "cents_s_orig_phys_0056",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Worked it independently. Incline (d=5 m): driving force mg sinθ = 2·10·0.6 = 12 N; N = mg cosθ = 16 N; kinetic friction = 0.25·16 = 4 N; net = 8 N; KE at base =",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0057",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0059",
+      "centsQuestionId": "cents_s_orig_phys_0057",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Verified: ṁ = 600 L/min = 10 kg/s. Useful power = PE (10·10·15=1500) + KE (0.5·10·36=180) = 1680 W. Input = 1680/0.8 = 2100 W = D. Exactly one correct. Distract",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0058",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0060",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0058",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Positions: B=2, D=4, G=7, K=11, P=16. First differences: +2,+3,+4,+5 → next is +6, giving 16+6=22=V. finalAnswer=B (V), matching author. Exactly one correct opt",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0059",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0061",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0059",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Full enumeration confirms exactly one correct answer (C). Deductive key: last place (pos 5) cannot be Eli (constraint 3) or Dan (constraint 4); Ada is ahead of ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0060",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0062",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0060",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Verified independently. Let a=exactly-one, b=exactly-two, c=exactly-three=8. Sum of site counts 30+25+20=75 counts each tourist by number of sites: a+2b+3c=75. ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0061",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0063",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0061",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Pigeonhole/worst-case item. Counts: 10R,8G,6B,3Y (total 27). Worst case without 5 of any single colour = max 4 of each colour that has >=4, but yellow is capped",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0062",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0065",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0062",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Sorites/syllogism. Formalization: (1) Violinist→ReadMusic; (2) ReadMusic→¬Beginner; (3) ∃ member Beginner. Chain: Violinist→¬Beginner, so Beginner→¬Violinist. T",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0063",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0066",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0063",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Consecutive differences are perfect squares: +1, +4, +9, +16, +25, so next is +36 → 56+36=92 = D. Closed form a_n = 1 + (n-1)n(2n-1)/6, n=7 gives 92. Pattern is",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0064",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0067",
+      "centsQuestionId": "cents_s_orig_math_0064",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Right segment slope = (3-5)/(6-2) = -1/2. At x=0: y = 5 + (-1/2)(-2) = 6. Answer A confirmed. Figure fully verified: pixel mapping origin (120,175), 1 unit=25px",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0065",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0068",
+      "centsQuestionId": "cents_s_orig_math_0065",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math verified: L1: y=1+x/2 (slope 1/2 through (0,1),(4,3)); L2: y=5-x (slope -1 through (0,5),(2,3)). Intersection x=8/3, y=7/3. Answer A correct, exactly one c",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0066",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0069",
+      "centsQuestionId": "cents_s_orig_math_0066",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Only A satisfies all three points (4,2,1) and the y=0 asymptote: 4·(1/2)^x gives 4,2,1 at x=0,1,2. B grows (x=1→8); D fails (0,4) since x=0→0.25; E gives 1.33 a",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0067",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0070",
+      "centsQuestionId": "cents_s_orig_math_0067",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified via SVG pixel geometry (32 px/unit, origin pixel (136,153)). y=2|x-1|-3; f(5)=5=A. Polyline endpoints decode to (-2,3),(1,-3),(4,3), all on the curve; ",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0068",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0071",
+      "centsQuestionId": "cents_s_orig_math_0068",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified. Solid graph = reflect y=|x| over x-axis then translate up 2 → y=-|x|+2. Checks: x=0→2 (vertex), x=±2→0. Only A satisfies vertex (0,2) AND passes throu",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0069",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0072",
+      "centsQuestionId": "cents_s_orig_math_0069",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified A = 4-2^x satisfies all four constraints: f(0)=3, f(2)=0, asymptote y=4 (from below as x->-inf), decreasing. Distractors: B/C wrong direction and wrong",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0070",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0073",
+      "centsQuestionId": "cents_s_orig_math_0070",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Area via complement: bounding rect 12x9=108; cut-out corner is (12-5)x(9-4)=7x5=35; L = 108-35 = 73 = C. Cross-check by decomposition: bottom strip 12x4=48 plus",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0071",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0074",
+      "centsQuestionId": "cents_s_orig_math_0071",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified: segment = sector(60°) − triangle = 8π/3 − 4√3; ×3 alternating = 8π − 12√3 = B. Distractors all map to real errors: A=all 6 segments (16π−24√3), C=tria",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0072",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0075",
+      "centsQuestionId": "cents_s_orig_math_0072",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Geometry verified: minor arc AB = 84°, D on minor arc so angle ADB subtends the major arc (276°) → 138° = option D. Figure fully consistent: all four points lie",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0073",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0076",
+      "centsQuestionId": "cents_s_orig_math_0073",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solution chain verified. In quadrilateral PAOB the tangent-radius angles at A and B are 90° each, so central angle AOB = 360 - 90 - 90 - 48 = 132°. This 132° su",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0074",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0077",
+      "centsQuestionId": "cents_s_orig_math_0074",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Independently verified: right angle at C, AC=9, AB=15 → BC=12 (9-12-15/3-4-5). Altitude CH = AC·BC/AB = 108/15 = 7.2 = B. Exactly one correct. Distractors well-",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0075",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0078",
+      "centsQuestionId": "cents_s_orig_math_0075",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "l=√(81+144)=15; TSA=πr²+πrl=81π+135π=216π → C, uniquely correct. Distractors all valid, none also-correct: A=135π lateral-only, B=189π uses h not l (81+108), D=",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0076",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0079",
+      "centsQuestionId": "cents_s_orig_math_0076",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Box V = 10·6·4 = 240. Hole is a cylinder r=2, depth = the 4 cm dimension (drilled through the 10×6 face, so height = distance between the two 10×6 faces = 4). C",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0077",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0091",
+      "centsQuestionId": "cents_s_orig_math_0098",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solution: strictly greater than 4 = {5,6}, so p=2/6=1/3 per roll. P(none>4)=(2/3)^3=8/27. P(at least one)=1-8/27=19/27 → A. Verified single correct answer.\n\nDis",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0078",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0092",
+      "centsQuestionId": "cents_s_orig_math_0099",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified: cos(x)(2sin x − 1)=0 gives x = π/6, π/2, 5π/6, 3π/2 on [0,2π); sum = 3π = A. Exactly one correct. Strong pedagogy: option D (π) is the answer you get ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0079",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0093",
+      "centsQuestionId": "cents_s_orig_math_0100",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved two ways. Case split: 2x-3=x+1 gives x=4; 2x-3=-(x+1) gives x=2/3. Both valid (no extraneous roots since |LHS|=|RHS| with real values). Sum = 4 + 2/3 = 1",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0080",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0094",
+      "centsQuestionId": "cents_s_orig_math_0101",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Standard Bayes' theorem item. P(correct) = 0.6(1) + 0.4(0.25) = 0.7. P(knew|correct) = 0.6/0.7 = 6/7 → A. Exactly one correct option. Distractors are all well-c",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0081",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0095",
+      "centsQuestionId": "cents_s_orig_math_0102",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Numerically verified: sin(pi/12)=0.258819 = (sqrt6-sqrt2)/4 = option A, exactly and uniquely. Distractors: B=0.9659 (cos15/sin75, subtraction-to-addition sign e",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0082",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0096",
+      "centsQuestionId": "cents_s_orig_math_0103",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified: common denominator (√5−√3)(√5+√3)=5−3=2. Numerator (√5+√3)²+(√5−√3)²=(8+2√15)+(8−2√15)=16. Total 16/2=8 = option A. Exactly one correct. Distractors a",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0083",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0097",
+      "centsQuestionId": "cents_s_orig_math_0104",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Correct: inscribed circle diameter = side = 12, so r = 6. Shaded = 144 − 36π = A. Distractors all encode plausible radius errors (r=12→B, r=3→C, side 6 & r 3→D,",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0084",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0098",
+      "centsQuestionId": "cents_s_orig_math_0105",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Circle inscribed in square side 4 => radius 2, area = 4π. Smaller square inscribed in circle: its diagonal equals the diameter = 4, so area = d²/2 = 16/2 = 8. S",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0085",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0099",
+      "centsQuestionId": "cents_s_orig_phys_0106",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Perfectly inelastic collision. Momentum: p = 2.0*6.0 = 12 kg·m/s; combined mass 6.0 kg; v_f = 2.0 m/s. KE_i = 0.5*2*36 = 36 J; KE_f = 0.5*6*4 = 12 J. Fraction d",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0086",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0100",
+      "centsQuestionId": "cents_s_orig_phys_0107",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Elastic 1D collision. v1'=((m1-m2)/(m1+m2))v1=-2.0 m/s; v2'=(2m1/(m1+m2))v1=+2.0 m/s. Verified: momentum 2.0 kg·m/s conserved; KE 4.0 J conserved (truly elastic",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0087",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0101",
+      "centsQuestionId": "cents_s_orig_phys_0108",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics verified: v=√(GM/r) so v∝r^(-1/2); r→4r gives speed ×4^(-1/2)=1/2. Kepler T²∝r³ so T∝r^(3/2); factor 4^(3/2)=8. Answer A correct. Distractors map to ide",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0088",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0102",
+      "centsQuestionId": "cents_s_orig_phys_0109",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Frictionless banked-curve design speed: tanθ = v²/(rg) → v = sqrt(r·g·tanθ) = sqrt(30·10·0.75) = sqrt(225) = 15 m/s exactly. Author's intended answer A is corre",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0089",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0103",
+      "centsQuestionId": "cents_s_orig_phys_0110",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics: P_out = 0.8 x 500 = 400 W. At constant speed F = mg = 20 x 10 = 200 N. v = P_out/F = 400/200 = 2.0 m/s. Answer A confirmed, exactly one correct.\n\nDistr",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0090",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0104",
+      "centsQuestionId": "cents_s_orig_phys_0111",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Solution: mass flow = ρQ = 1000×0.020 = 20 kg/s. Useful hydraulic power = ṁgh = 20×10×15 = 3000 W. Input = useful/efficiency = 3000/0.75 = 4000 W. Answer A conf",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0091",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0105",
+      "centsQuestionId": "cents_s_orig_phys_0112",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Verified: R2∥R3 = 16/8 = 2Ω; series with R1 = 2+2 = 4Ω → C. Exactly one correct answer. Distractors all map to realistic errors: B=parallel value or R1 alone, D",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0092",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0106",
+      "centsQuestionId": "cents_s_orig_phys_0113",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics/statics friction item. Driving force down-incline = mg sin37 = 4*10*0.6 = 24 N. Max static friction = μs*N = μs*mg cos37 = 0.9*4*10*0.8 = 28.8 N. Since ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0093",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0107",
+      "centsQuestionId": "cents_s_orig_phys_0114",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Figure decodes to v-t trapezoid: 0→8 m/s over 0-2s, constant 8 m/s 2-6s, 8→0 over 6-8s. Area = 8+32+8 = 48 m = C. Velocity non-negative throughout, so displacem",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0094",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0108",
+      "centsQuestionId": "cents_s_orig_phys_0115",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Figure calibration: F=+4 N for t=0-2 s, F=-6 N for t=2-4 s (15 px/N vertical, 60 px/s horizontal, both consistent; dashed connector at t=2). Impulse = area: +4*",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0095",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0109",
+      "centsQuestionId": "cents_s_orig_phys_0116",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Standard horizontal-table Atwood system. Correct physics: a = m2·g/(m1+m2) = (2·10)/(3+2) = 20/5 = 4 m/s² → B. Exactly one correct option.\n\nDistractor analysis ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0096",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0112",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0117",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Valid two-step contrapositive chain: Library open (3) → via contrapositive of (2) café closed → via contrapositive of (1) museum closed = C. Distractors all cle",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0097",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0113",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0118",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Two independent rules converge on the same answer, which is a strength (no ambiguity): (a) recurrence a(n+1)=2*a(n)-1 → 33*2-1=65; (b) first differences are pow",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0098",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0115",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0119",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Inclusion-exclusion: |A∪B∪C| = 55+45+40 - 20-15-25 + 10 = 140-60+10 = 90. None = 100-90 = 10 → B. Confirmed single correct.\n\nConsistency check (data is internal",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0099",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0116",
+      "centsQuestionId": "cents_s_orig_math_0127",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Math verified: geometric mean relations give AH=CA^2/AB=3.6, BH=CB^2/AB=6.4, sum=10. Longer segment=6.4=A. Exactly one correct. Distractors all map to real misc",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0100",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0117",
+      "centsQuestionId": "cents_s_orig_math_0128",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solution: ADE ~ ABC, so area(ADE)/area(ABC) = (AD/AB)². Equal areas means ADE = 1/2 of total, so (AD/AB)² = 1/2, AD/AB = 1/√2, AD = 10/√2 = 5√2. Answer A confir",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0101",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0118",
+      "centsQuestionId": "cents_s_orig_math_0129",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Distance from O(0,0) to line 2x−y+k=0 is |k|/√5; tangency to radius √5 gives |k|=5, so k=±5 (A). Distractors are valid single-fault traps: B=radius √5, C=±5/3, ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0102",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0119",
+      "centsQuestionId": "cents_s_orig_math_0130",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "D = A + C − B = (0,−3) via diagonal-bisection property; matches intended answer A. Distractors are all plausible, distinct errors: B=(12,1)=B+C−A wrong pairing,",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0103",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0120",
+      "centsQuestionId": "cents_s_orig_math_0131",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified with exact coordinates: AC = (-3/2, √3/2), BE = (-1, -√3); dot product = 0, so the diagonals are exactly perpendicular → 90°, confirming intended answe",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0104",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0121",
+      "centsQuestionId": "cents_s_orig_math_0132",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Correct answer A=27√3. Hexagon area=(3√3/2)·36=54√3; triangle ACE equilateral side 6√3, area=27√3 (exactly half hexagon); shaded=54√3−27√3=27√3. Verified indepe",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0105",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0122",
+      "centsQuestionId": "cents_s_orig_phys_0133",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Math: g = GM/R² with M = ρ·(4/3)πR³ gives g = (4/3)πGρR, so g ∝ ρR. Same density, radius doubled → g doubles. FinalAnswer A, matches author. Exactly one correct",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0106",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0123",
+      "centsQuestionId": "cents_s_orig_phys_0134",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Solved independently. Critical constraint is at the TOP: minimum tautness requires mg = m v_top^2 / r, so v_top^2 = gr. Energy conservation bottom-to-top: v_bot",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0107",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0139",
+      "centsQuestionId": "cents_s_orig_math_0151",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Factor theorem: (x−3) divides P ⇒ P(3)=0. P(3)=27−36+3a−6=3a−15=0 ⇒ a=5. Answer A is uniquely correct. Verified no other option satisfies P(3)=0, so exactly one",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0108",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0140",
+      "centsQuestionId": "cents_s_orig_math_0152",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Vieta: α+β=5, αβ=3. Expression = αβ(α+β)+(α+β) = (α+β)(αβ+1) = 5·(3+1) = 20. Exactly one correct option (A). Distractors are all well-motivated error traps and ",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0109",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0141",
+      "centsQuestionId": "cents_s_orig_math_0153",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Full factorization: P(x) = 2x³+3x²−11x−6 = (x−2)(2x+1)(x+3). Verified via factor theorem: P(2)=16+12−22−6=0 (A is a factor). All other options fail: P(−2)=12 (B",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0110",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0142",
+      "centsQuestionId": "cents_s_orig_math_0154",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Ratio 2662/2420 = 1.1 gives rate = 10%. Principal = 2420/1.1^2 = 2420/1.21 = 2000. Uniquely satisfies P*(1.1)^2=2420, so exactly one correct option (A). Distrac",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0111",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0143",
+      "centsQuestionId": "cents_s_orig_math_0155",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "A: 12 days / 3-day half-life = 4 halvings; 96→48→24→12→6, so A=6 g. B: 12/4 = 3 halvings; 40→20→10→5, so B=5 g. Ratio 6:5, already lowest terms = option A. Corr",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0112",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0144",
+      "centsQuestionId": "cents_s_orig_math_0156",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Correct answer E. Infinitely many solutions requires full proportionality k/3=2/(k-1)=4/k. Coefficient condition k^2-k-6=0 gives k=3 or k=-2, but neither satisf",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0113",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0145",
+      "centsQuestionId": "cents_s_orig_math_0157",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified independently. Units digit of 3^n cycles [3,9,7,1] period 4; 47 mod 4 = 3 → 3^47 ends in 7. Units digit of 7^n cycles [7,9,3,1] period 4; 53 mod 4 = 1 ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0114",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0146",
+      "centsQuestionId": "cents_s_orig_phys_0158",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Graph maps: x=60→t=0, x=164→t=4, x=320→t=10, x=424→t=14; y=280→v=0, y=40→v=8. Polyline (60,280)-(164,40)-(320,40)-(424,280) = accelerate 0-4s to 8 m/s, constant",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0115",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0147",
+      "centsQuestionId": "cents_s_orig_phys_0159",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Computation verified: v(2)=6, v(5)=6, v(8)=0. Displacement 6+18+9=33 m → C, exactly one correct option. Distractors each encode a distinct error: A=0 confuses n",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0116",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0148",
+      "centsQuestionId": "cents_s_orig_phys_0160",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics moment/torque balance. Massless rigid beam, pivot at centre, so only the two hanging weights contribute torque. Balance: 30 N x 2.0 m = 60 N.m clockwise",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0117",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0149",
+      "centsQuestionId": "cents_s_orig_phys_0161",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Independently verified: F12 = 9e9*(6e-6)(1e-6)/0.20^2 = 1.35 N pointing +x (repulsion, q1 left of q2). F32 = 9e9*(1e-6)(4e-6)/0.30^2 = 0.40 N pointing +x (attra",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0118",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0150",
+      "centsQuestionId": "cents_s_orig_phys_0162",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics: horizontal 30 = 10·t → t = 3 s; vertical h = ½·g·t² = ½·10·9 = 45 m → C, unambiguous. Exactly one correct.\n\nDistractor analysis (all plausible, mechani",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0119",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0151",
+      "centsQuestionId": "cents_s_orig_phys_0163",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Worked independently. Fall time: 0.80 = ½·10·t² → t² = 0.16 → t = 0.4 s. Horizontal v₀ = 1.20/0.4 = 3 m/s. Vertical v_y = g·t = 4 m/s. Impact speed = √(3²+4²) =",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0120",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0152",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0164",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Sequence 2,5,10,17,26 = n^2+1 (1+1,4+1,9+1,16+1,25+1). First differences 3,5,7,9 grow by +2; next difference 11 gives 26+11=37, and 6^2+1=37. Exactly one correc",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0121",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0153",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0165",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Two interleaved subsequences by position parity. Odd positions (1,3,5,7,9): 3,6,12,24,? each x2 -> 48. Even positions (2,4,6,8): 8,11,14,17 each +3 (next term 2",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0122",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0154",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0166",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Unique solution: Anna=Law/tea, Bruno=Medicine/coffee, Carla=Engineering/water. Chain: Anna≠Medicine & ≠water ⇒ ≠Engineering(water) ⇒ Anna=Law; Bruno=coffee ⇒ ≠E",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0123",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0155",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0167",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Solved: AA+BB = 11(A+B) = CBC must be a 3-digit multiple of 11 between 110-187 (since A+B >= 10, <= 17 for distinct digits). Only 121 satisfies first digit = la",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0124",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0169",
+      "centsQuestionId": "cents_s_orig_math_0174",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "By AM-GM, x + 9/x >= 2*sqrt(x * 9/x) = 2*sqrt(9) = 6, with equality at x = 3 (which is > 0, valid). So min = 6, answer B is correct. Verified: exactly one corre",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0125",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0170",
+      "centsQuestionId": "cents_s_orig_math_0175",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently: y=2 (eq3−eq1), x+2z=7 (eq2−eq1), x+z=4 (eq1) → x=1, y=2, z=3. All three equations verify. x−y+z = 1−2+3 = 2 = option C, matching author in",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0126",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0171",
+      "centsQuestionId": "cents_s_orig_math_0176",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solved independently. Let n5=x, n20=x+10, n10=30-(2x+10)=20-2x. Value in cents: 5x+10(20-2x)+20(x+10)=5x+400=430 -> x=6. So n5=6, n10=8, n20=16. Check: 6+8+16=3",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0127",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0172",
+      "centsQuestionId": "cents_s_orig_math_0177",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Independent solve via internal section formula. AP:PB = 3:1 internal, so P = (3·B + 1·A)/4. x = (3·6 + (−2))/4 = 16/4 = 4; y = (3·(−5) + 3)/4 = −12/4 = −3. P = ",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0128",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0173",
+      "centsQuestionId": "cents_s_orig_math_0178",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Point on x-axis = (x,0). Equidistant: (x-2)^2+9=(x-6)^2+25 → -4x+13=-12x+61 → 8x=48 → x=6. Verify: (6,0) to A(2,3)=sqrt(16+9)=5; to B(6,5)=sqrt(0+25)=5. Confirm",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0129",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0174",
+      "centsQuestionId": "cents_s_orig_phys_0179",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "k = mg/x = (0.40*10)/0.080 = 50 N/m → D, exactly one correct. Distractors map to distinct real errors: A=mg*x (0.32), B=mg/x with x uncorverted cm 4/8 (0.50), C",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0130",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0175",
+      "centsQuestionId": "cents_s_orig_phys_0180",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Physics solution verified. Equal cross-section => left water surface (oil-water interface) drops by h and right surface rises by h, so the two water surfaces di",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0131",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0176",
+      "centsQuestionId": "cents_s_orig_phys_0181",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Correct answer C = 18.0 N. System: a = (30 − μMg)/M = (30 − 12.5)/5 = 3.5 m/s²; on m₂: N = m₂a + μm₂g = 10.5 + 7.5 = 18.0 N. Because μ is equal for both blocks,",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0132",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_phys_0177",
+      "centsQuestionId": "cents_s_orig_phys_0182",
+      "sharedSubjects": [
+        "physics"
+      ],
+      "compatibilityReason": "Independent calc: E1=k·2μC/0.2²=4.5e5 N/C (points +x, away from +q1); E2=k·3μC/0.2²=6.75e5 N/C (points +x, toward −q2). Both same direction → sum=1.125e6≈1.13e6",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0133",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0178",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0183",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Chain resolves cleanly and uniquely to A. \"my grandfather's only child\" = Marco's parent; the possessive \"the wife of\" that child forces the child to be male (h",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0134",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0179",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0184",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Net displacement: E = 20-5 = 15, N = 8. Distance = sqrt(15^2+8^2) = sqrt(289) = 17 km, NE. Answer A confirmed. Distractors are all well-targeted traps: C ~21.5 ",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0135",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0181",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0185",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Valid sorites/existential-chain item. Derivation of A: (ii) gives ∃X (reads ∧ never-lesson); (iii) never-lesson → practises daily, so X practises daily and X re",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0136",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0182",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0186",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Chain resolves cleanly: paternal grandfather's only son = Paolo's father; the grandfather's ONLY daughter-in-law = wife of that only son = Paolo's mother (daugh",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0137",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0183",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0187",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Verified: final position (12,5), heading north, distance √(144+25)=13. Answer A correct. Turn sequence checked: N→right→E→right→S→left→E→left→N. Net north = 6-3",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0138",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_logic_0184",
+      "centsQuestionId": "cents_s_orig_reasoning_texts_data_0188",
+      "sharedSubjects": [
+        "logic"
+      ],
+      "compatibilityReason": "Solved with clockwise seats 0-7, A=0: C=3, B=7, E=5, D=1 (forced: beside A but seat7=B, and not adjacent to B), G=2, then remaining seats 4/6 give F=6 (seat4 ad",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0139",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0185",
+      "centsQuestionId": "cents_s_orig_math_0189",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solution: exterior angle ACD = 130° => interior angle ACB = 180-130 = 50°. AB=AC so base angles ABC=ACB=50°. Apex BAC = 180-50-50 = 80° (equivalently exterior a",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0140",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0186",
+      "centsQuestionId": "cents_s_orig_math_0190",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Straight line ℓ at A: 68 + BAC + 47 = 180, so BAC = 65 (B). Figure independently verified: AB makes ~67.9° with ℓ, AC makes ~47.1° with ℓ, ℓ (y=60) parallel to ",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0141",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0187",
+      "centsQuestionId": "cents_s_orig_math_0191",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Area = (1/2)·r·s = (1/2)·9·6π = 27π; cross-check θ = s/r = 6π/9 = 2π/3, Area = (1/2)r²θ = (1/2)·81·(2π/3) = 27π. Answer C is uniquely correct. Distractors are w",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0142",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0188",
+      "centsQuestionId": "cents_s_orig_math_0192",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Segment = sector - triangle = (1/4)(pi)(8^2) - (1/2)(8^2)sin90 = 16pi - 32 = B. Uniquely correct. Distractors: D=16pi (forgot triangle), C=16pi-16 (triangle mis",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0143",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0189",
+      "centsQuestionId": "cents_s_orig_math_0193",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Solution: AB diameter => angle ACB = 90° (Thales/angle in semicircle). Triangle ABC angle sum: BAC = 180 - 90 - 32 = 58° = B. Exactly one correct.\n\nDistractor a",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0144",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0190",
+      "centsQuestionId": "cents_s_orig_math_0194",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "Verified two ways. Chord-angle: BPC=(arcBC+arcAD)/2=100 -> arcBC+arcAD=200; ABD=52 -> arcAD=104; arcBC=96 -> BAC=48. Triangle ABP: ABP=52, APB=180-100=80, BAP=4",
+      "tilDifficulty": "medium",
+      "centsDifficulty": "medium",
+      "separateAssetsVerified": true
+    },
+    {
+      "crossExamRelationId": "shared_0145",
+      "sourceFile": null,
+      "sourcePage": null,
+      "tilQuestionId": "til_i_orig_math_0191",
+      "centsQuestionId": "cents_s_orig_math_0195",
+      "sharedSubjects": [
+        "mathematics"
+      ],
+      "compatibilityReason": "M=midpoint BC=(3,2); AM=√((3-(-3))²+(2-(-1))²)=√45=3√5 → C, matches author. Figure decodes exactly (origin pixel (150,180), 24px/unit): A(78,204)=(-3,-1), B(270",
+      "tilDifficulty": "easy",
+      "centsDifficulty": "easy",
+      "separateAssetsVerified": true
+    }
+  ]
+}

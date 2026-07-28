@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir ekosistemde otlarla beslenen tavşan ve çekirgeler; çekirgelerle beslenen kurbağalar; tavşan ve kurbağayla beslenen tilkiler bulunmaktadır. Bu ekosistemde çekirge sayısının belirgin biçimde azalması aşağıdaki sonuçlardan hangisine doğrudan yol açabilir?",
+      "options": [
+        "Kurbağa sayısının azalmasına",
+        "Ot miktarının kesin olarak azalmasına",
+        "Tavşan sayısının kesin olarak azalmasına",
+        "Tilki sayısının hemen artmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_agi", "avci_av", "populasyon"],
+      "explanation": "Kurbağalar çekirgelerle beslendiği için çekirge sayısındaki azalma, kurbağaların besin kaynağını azaltır. Bu nedenle kurbağa sayısında azalma görülebilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q01"
+    },
+    {
+      "stem": "Bir enerji piramidinde üreticilerde 9000 birim enerji bulunduğu kabul ediliyor. Enerjinin yaklaşık %10'u bir üst basamağa aktarılıyorsa üçüncül tüketicilere ulaşan enerji yaklaşık kaç birim olur?",
+      "options": [
+        "900",
+        "90",
+        "9",
+        "0,9"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "enerji_akis", "trofik_duzey"],
+      "explanation": "Üreticilerden birincil tüketicilere 900, ikincil tüketicilere 90, üçüncül tüketicilere 9 birim enerji aktarılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q02"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisinin artması atmosferdeki karbondioksit miktarını artırıcı etki yapar?",
+      "options": [
+        "Fotosentez hızının artması",
+        "Fosil yakıt kullanımının artması",
+        "Orman alanlarının genişlemesi",
+        "Denizlerdeki fitoplankton miktarının artması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "fosil_yakit", "karbondioksit"],
+      "explanation": "Fosil yakıtların yanması atmosfere karbondioksit verilmesine neden olur. Diğer seçenekler karbondioksitin kullanılmasını artırabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q03"
+    },
+    {
+      "stem": "Bir bölgede geniş yüzeyli su kaynaklarının azalması, öncelikle su döngüsündeki hangi olayı doğrudan etkiler?",
+      "options": [
+        "Yoğuşmayı",
+        "Buharlaşmayı",
+        "Yağış miktarını",
+        "Yer altı sularının oluşumunu"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "WATER_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["su_dongusu", "buharlasma", "cevre"],
+      "explanation": "Açık su yüzeylerinin azalması, doğrudan buharlaşma miktarını etkiler. Diğer olaylar bunun dolaylı sonuçları olabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q04"
+    },
+    {
+      "stem": "Aşağıdaki eşleştirmelerden hangisi doğrudur?",
+      "options": [
+        "Güneş paneli — Isı enerjisini elektrik enerjisine dönüştürür",
+        "Rüzgar türbini — Hareket enerjisini elektrik enerjisine dönüştürür",
+        "Ampul — Elektrik enerjisini yalnızca ışık enerjisine dönüştürür",
+        "Hidroelektrik santral — Kimyasal enerjiyi elektrik enerjisine dönüştürür"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_donusumu", "elektrik", "ruzgar_turbini"],
+      "explanation": "Rüzgar türbinleri havanın hareket enerjisinden yararlanarak elektrik enerjisi üretir. Diğer seçeneklerde dönüşüm yanlış veya eksiktir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q05"
+    },
+    {
+      "stem": "Bir tarım alanında azot döngüsünü sağlayan bakteri sayısının azalması sonucunda bitki gelişiminin yavaşladığı gözleniyor. Bu durum aşağıdakilerden hangisiyle en iyi açıklanır?",
+      "options": [
+        "Bitkilerin kullanabileceği azotlu bileşiklerin azalmasıyla",
+        "Güneş ışınlarının toprağa daha az ulaşmasıyla",
+        "Topraktaki suyun tamamen yok olmasıyla",
+        "Bitkilerin fotosentez yapma yeteneğini kaybetmesiyle"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "NITROGEN_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["azot_dongusu", "bakteri", "bitki"],
+      "explanation": "Azot döngüsündeki bakteriler, bitkilerin yararlanabileceği azotlu bileşiklerin oluşumunda görev alır. Bu canlıların azalması bitki gelişimini olumsuz etkiler.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q06"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi hem asit yağmurlarının hem de hava kirliliğinin azaltılmasına doğrudan katkı sağlar?",
+      "options": [
+        "Fabrika bacalarında arıtma ve filtre sistemlerinin kullanılması",
+        "Plastik kullanımının artırılması",
+        "Tarım alanlarının genişletilmesi",
+        "Şehir içi yol sayısının artırılması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["asit_yagmuru", "hava_kirliligi", "aritma"],
+      "explanation": "Fabrika bacalarında filtre ve arıtma sistemleri kullanılması, zararlı gazların atmosfere karışmasını azaltır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q07"
+    },
+    {
+      "stem": "Bir ekosistemde trofik düzeylere göre canlı sayıları şöyledir:\nÜreticiler: 4000\nBirincil tüketiciler: 600\nİkincil tüketiciler: 70\nÜçüncül tüketiciler: 8\n\nBu verilere göre aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Üst basamaklara çıkıldıkça canlı sayısı genellikle azalır",
+        "Üçüncül tüketiciler en fazla enerjiye sahiptir",
+        "Birincil tüketiciler üreticilerden daha çoktur",
+        "Canlı sayısı ile enerji akışı arasında ilişki yoktur"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "veri_yorumlama", "trofik_duzey"],
+      "explanation": "Veriler, üst trofik düzeylere doğru canlı sayısının azaldığını göstermektedir. Bu durum enerji kaybıyla ilişkilidir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q08"
+    },
+    {
+      "stem": "Aşağıdaki enerji yatırımlarından hangisi iklim değişikliğiyle mücadelede diğerlerine göre daha etkili bir yaklaşım olarak değerlendirilebilir?",
+      "options": [
+        "Kömür santrallerinin sayısını artırmak",
+        "Doğal gaz tüketimini sınırsız artırmak",
+        "Güneş ve rüzgar enerjisi kullanımını yaygınlaştırmak",
+        "Daha fazla fosil yakıt depolamak"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "RENEWABLE_ENERGY_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "iklim_degisikligi", "sera_gazi"],
+      "explanation": "Güneş ve rüzgar gibi yenilenebilir enerji kaynakları, sera gazı salınımını azaltmaya yardımcı olur.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Enerji ekosistemde sürekli geri dönüşür, maddeler tek yönlü akar",
+        "Madde döngüleri canlılar için önemsizdir",
+        "Enerji akışı tek yönlüdür, maddeler ise döngülerle yeniden kullanılır",
+        "Küresel ısınma yalnızca su döngüsünü etkiler"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_akis", "madde_dongusu", "ekosistem"],
+      "explanation": "Enerji ekosistemde tek yönlü akar ve bir kısmı ısı olarak kaybedilir. Maddeler ise çeşitli biyokimyasal döngülerle tekrar kullanılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_007_q10"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir şehirde yıl boyunca ölçülen gündüz süreleri grafiğinde haziran ayında en uzun, aralık ayında en kısa gündüz süresi gözlenmiştir. Aynı şehirde öğle vakti ölçülen gölge boylarının da haziranda en kısa, aralıkta en uzun olduğu belirlenmiştir.\n\nBu şehirle ilgili aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "Şehir Güney Yarım Küre'dedir.",
+        "Şehir Kuzey Yarım Küre'dedir.",
+        "Şehir Ekvator üzerindedir.",
+        "Şehir kutuplardadır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "gunduz_suresi",
+        "golge_boyu",
+        "yarim_kure",
+        "grafik_yorumlama"
+      ],
+      "explanation": "Haziranda en uzun gündüz ve en kısa gölge Kuzey Yarım Küre özelliğidir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q01"
+    },
+    {
+      "stem": "Bir öğretmen Dünya modeli kullanarak yaptığı deneyde Dünya'nın eksenini sabit tutarak modeli Güneş'i temsil eden ışık kaynağı etrafında döndürmektedir.\n\nBu deney aşağıdaki olaylardan hangisini açıklamak için yapılmıştır?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Yer çekimi kuvveti",
+        "Dünya'nın şekli"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "mevsimlerin_olusumu",
+        "dolanim",
+        "eksen_egikligi",
+        "deney"
+      ],
+      "explanation": "Dolanım ve eksen eğikliği birlikte modelleniyorsa amaç mevsimlerin oluşumunu göstermektir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q02",
+      "imageAsset": "quiz_images/fen/fen_mevsimler_ve_ikl_fen_mvs_006_q02_experiment.png"
+    },
+    {
+      "stem": "Aynı gün K, L ve M şehirlerinde öğle vakti ölçülen gölge boyları şöyledir:\n\nK: 22 cm\nL: 50 cm\nM: 78 cm\n\nBuna göre şehirlerin Güneş ışınlarını alma açılarıyla ilgili aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "M şehri ışınları en dik alır.",
+        "K şehri ışınları en dik alır.",
+        "L şehri Ekvator üzerindedir.",
+        "M şehri kutuplardadır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "golge_boyu",
+        "gunes_isinlarinin_gelis_acisi"
+      ],
+      "explanation": "Gölge boyu kısa olan yerde Güneş ışınları daha dik gelir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q03"
+    },
+    {
+      "stem": "Mevsimlerin oluşması için aşağıdaki faktörlerden hangileri gereklidir?\n\nI. Dünya'nın eksen eğikliği\nII. Dünya'nın Güneş etrafında dolanımı\nIII. Dünya'nın kendi ekseni etrafında dönmesi",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "mevsimlerin_olusumu",
+        "eksen_egikligi",
+        "dolanim"
+      ],
+      "explanation": "Mevsimler eksen eğikliği ve dolanım sonucu oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q04"
+    },
+    {
+      "stem": "Bir şehirde 21 Aralık tarihinde gündüz süresi yıl içindeki en kısa değeri alıyorsa bu şehir hangi yarım kürede bulunur?",
+      "options": [
+        "Kuzey Yarım Küre",
+        "Güney Yarım Küre",
+        "Ekvator",
+        "Kutup"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "gundonumu",
+        "gunduz_suresi",
+        "yarim_kure"
+      ],
+      "explanation": "21 Aralık Kuzey Yarım Küre'de kış gündönümüdür.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q05"
+    },
+    {
+      "stem": "Bir öğrenci masa üzerine yerleştirdiği yüzeye el feneri ile farklı açılarda ışık gönderiyor. Işık yüzeye eğik geldikçe aydınlanan alanın büyüdüğünü gözlemliyor.\n\nBu deney aşağıdaki yorumlardan hangisini destekler?",
+      "options": [
+        "Işınlar eğik geldikçe enerji daha geniş alana yayılır.",
+        "Işık hızının değeri değişir.",
+        "Yer çekimi kuvveti artar.",
+        "Dünya'nın dönüş hızı değişir."
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "gunes_isinlarinin_gelis_acisi",
+        "deney",
+        "enerji"
+      ],
+      "explanation": "Eğik gelen ışınlar daha geniş alanı aydınlatır.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q06"
+    },
+    {
+      "stem": "Türkiye'de kış yaşanırken Avustralya'da yaz yaşanmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Dünya'nın eksen eğikliği",
+        "Yer çekimi",
+        "Güneş'in büyüklüğü",
+        "Atmosfer basıncı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "eksen_egikligi",
+        "mevsimlerin_olusumu",
+        "yarim_kure"
+      ],
+      "explanation": "Eksen eğikliği nedeniyle yarım kürelerde farklı mevsimler yaşanır.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q07"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi iklimi değil hava olayını anlatır?",
+      "options": [
+        "Akdeniz Bölgesi'nde yazlar sıcak ve kuraktır.",
+        "Karadeniz Bölgesi yıl boyunca yağışlıdır.",
+        "Bugün İstanbul'da sağanak yağış bekleniyor.",
+        "Doğu Anadolu'da kışlar uzun ve sert geçer."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "iklim",
+        "hava_olaylari",
+        "ayirt_etme"
+      ],
+      "explanation": "Kısa süreli ve anlık olaylar hava olayıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q08"
+    },
+    {
+      "stem": "Bir bilim insanı bir bölgenin son 50 yıllık sıcaklık ve yağış verilerini inceleyerek genel özelliklerini belirlemeye çalışmaktadır.\n\nBu bilim insanı hangi bilim dalıyla ilgilenmektedir?",
+      "options": [
+        "Meteoroloji",
+        "Klimatoloji",
+        "Jeoloji",
+        "Astronomi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "iklim",
+        "klimatoloji",
+        "meteoroloji"
+      ],
+      "explanation": "Uzun yıllara ait verilerle iklim incelenir ve bu alan klimatolojidir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q09"
+    },
+    {
+      "stem": "Dünya'nın eksen eğikliği olmasaydı aşağıdaki olaylardan hangisi gerçekleşmezdi?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Dünya'nın dolanımı",
+        "Yer çekimi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": [
+        "eksen_egikligi",
+        "mevsimlerin_olusumu"
+      ],
+      "explanation": "Mevsimler eksen eğikliği sayesinde oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_006_q10"
+    }
+  ]
+}

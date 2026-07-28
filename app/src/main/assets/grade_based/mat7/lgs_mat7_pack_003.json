@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0020",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 72° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "288",
+        "108",
+        "198",
+        "180"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 72° ise diğerleri toplam 288°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0020",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0021",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 23 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "68",
+        "76",
+        "78",
+        "73"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 23. k+3 = 2(e+2) → e = 24, k = 49. Toplam = 73.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0021",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0022",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 487 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "525",
+        "500",
+        "450",
+        "550"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-25/100) = 487. x = 500 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0022",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0023",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 6 : 3 : 2 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "33",
+        "23",
+        "43",
+        "38"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 6k, 2k. 3k + 8 = 6k → k = 2.6666666666666665. Toplam = 11·k = 33.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0023",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0024",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "99",
+        "90",
+        "104",
+        "94"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0024",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0025",
+      "stem": "Kenarları 15 m ve 18 m olan dikdörtgen bahçenin her kenarından 2 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "116",
+        "208",
+        "154",
+        "270"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-4)×(18-4) = 11×14 = 154 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0025",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0026",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 72, 72, 72, 72, 74 puan almıştır. Altıncı sınava girince ortalaması 75 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "88",
+        "93",
+        "75",
+        "83"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 362. 6. sınav x ise (total5 + x)/6 = 75 → x = 88.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0026",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0027",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "101",
+        "96",
+        "97",
+        "91"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0027",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0028",
+      "stem": "Kenarları 8 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "24",
+        "120",
+        "144",
+        "75"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (8-6)×(18-6) = 2×12 = 24 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0028",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0029",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 71, 71, 71, 71, 73 puan almıştır. Altıncı sınava girince ortalaması 75 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "88",
+        "93",
+        "98",
+        "75"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 357. 6. sınav x ise (total5 + x)/6 = 75 → x = 93.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0029",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

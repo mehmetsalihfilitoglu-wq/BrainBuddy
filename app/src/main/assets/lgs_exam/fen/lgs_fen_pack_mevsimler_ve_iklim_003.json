@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "21 Haziran tarihinde K şehrinde gündüz süresi 15 saat, L şehrinde ise 9 saat ölçülmüştür. Aynı gün her iki şehirde de öğle vakti gölge boyu ölçülmüş ve K şehrinde gölge boyunun L şehrine göre daha kısa olduğu belirlenmiştir.\n\nBuna göre aşağıdaki yorumlardan hangisi kesinlikle doğrudur?",
+      "options": [
+        "K şehri Kuzey Yarım Küre'dedir.",
+        "L şehri Ekvator üzerindedir.",
+        "K ve L şehirleri aynı yarım kürededir.",
+        "L şehrinde yaz mevsimi yaşanmaktadır."
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "iklim", "gunes_isi", "golge", "yarim_kure"],
+      "explanation": "21 Haziran'da Kuzey Yarım Küre'de gündüz süresi uzundur ve Güneş ışınları daha dik gelir. Bu nedenle K şehri Kuzey Yarım Küre'dedir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q01"
+    },
+    {
+      "stem": "Bir öğrenci Dünya modeli üzerinde iki farklı düzenek kurmuştur. Birinci düzende Dünya'nın ekseni dik tutulmuştur. İkinci düzende ise Dünya'nın ekseni 23,5° eğik olacak şekilde ayarlanmıştır. Her iki düzenek de aynı ışık kaynağı etrafında döndürülmüştür.\n\nBu deney sonucunda aşağıdaki olaylardan hangisinin yalnızca ikinci düzende gözlemlenmesi beklenir?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Dünya'nın dolanımı",
+        "Güneş ışınlarının yayılması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "deney"],
+      "explanation": "Eksen eğikliği olmadan mevsimler oluşmaz.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q02"
+    },
+    {
+      "stem": "Aynı gün üç şehirde ölçülen gündüz süreleri şöyledir:\n\nK: 14 saat\nL: 12 saat\nM: 10 saat\n\nBu şehirlerin konumları ile ilgili aşağıdaki yorumlardan hangisi yapılabilir?",
+      "options": [
+        "K şehri Ekvator üzerindedir.",
+        "M şehri Güney Yarım Küre'dedir.",
+        "K şehri L şehrine göre Güneş ışınlarını daha dik alır.",
+        "L şehri kutup bölgesindedir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "INTERPRETATION",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "gunduz_suresi", "gunes_isi", "yarim_kure"],
+      "explanation": "Gündüz süresi uzun olan bölgeler Güneş ışınlarını daha dik alır.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q03"
+    },
+    {
+      "stem": "Bir şehirde yıl boyunca ölçülen gündüz süreleri grafiğinde haziran ayında en yüksek, aralık ayında en düşük değer görülmektedir.\n\nBu şehir için aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "Güney Yarım Küre'dedir",
+        "Kuzey Yarım Küre'dedir",
+        "Ekvator üzerindedir",
+        "Kutup bölgesindedir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "INTERPRETATION",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "gunes_isi", "grafik_yorumlama", "yarim_kure"],
+      "explanation": "Haziran ayında en uzun gündüz Kuzey Yarım Küre özelliğidir.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q04"
+    },
+    {
+      "stem": "Bir öğretmen masa üzerine yerleştirilen yüzeye farklı açılarla ışık tutmuştur. Işınlar yüzeye eğik geldikçe aydınlanan alanın genişlediği gözlenmiştir.\n\nBu deney aşağıdaki hangi sonucu açıklar?",
+      "options": [
+        "Işınlar eğik geldikçe enerji daha geniş alana yayılır.",
+        "Güneş ışınlarının hızı değişir.",
+        "Yer çekimi kuvveti değişir.",
+        "Dünya'nın dönüş yönü değişir."
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["gunes_isi", "deney", "enerji"],
+      "explanation": "Eğik gelen ışınlar daha geniş alanı aydınlatır ve enerji yoğunluğu azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q05"
+    },
+    {
+      "stem": "Dünya'nın eksen eğikliği olmasaydı aşağıdaki olaylardan hangisi gerçekleşmezdi?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Dünya'nın dolanımı",
+        "Yer çekimi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi"],
+      "explanation": "Mevsimler eksen eğikliği sayesinde oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q06"
+    },
+    {
+      "stem": "Bir şehirde 21 Aralık tarihinde gündüz süresi yıl içindeki en kısa değeri alıyorsa bu şehir için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Kuzey Yarım Küre'dedir",
+        "Güney Yarım Küre'dedir",
+        "Ekvator üzerindedir",
+        "Kutup üzerindedir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "gunduz_suresi", "yarim_kure", "gundonumu"],
+      "explanation": "21 Aralık Kuzey Yarım Küre'de kış gündönümüdür.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q07"
+    },
+    {
+      "stem": "Mevsimlerin oluşması için aşağıdaki faktörlerden hangileri gereklidir?\n\nI. Dünya'nın eksen eğikliği\nII. Dünya'nın Güneş etrafında dolanımı\nIII. Dünya'nın kendi ekseni etrafında dönmesi",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "dolanim"],
+      "explanation": "Mevsimler eksen eğikliği ve dolanım sonucu oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q08"
+    },
+    {
+      "stem": "Türkiye'de kış yaşanırken Avustralya'da yaz yaşanmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Dünya'nın eksen eğikliği",
+        "Güneş'in büyüklüğü",
+        "Yer çekimi",
+        "Atmosfer basıncı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "yarim_kure"],
+      "explanation": "Eksen eğikliği nedeniyle yarım küreler farklı mevsimler yaşar.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q09"
+    },
+    {
+      "stem": "Dünya'nın Güneş etrafındaki dolanımı sırasında eksen yönünün değişmemesi aşağıdaki sonuçlardan hangisini doğurur?",
+      "options": [
+        "Yarım kürelerde zıt mevsimler oluşur",
+        "Dünya'nın şekli değişir",
+        "Gece ve gündüz oluşmaz",
+        "Yer çekimi ortadan kalkar"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "dolanim"],
+      "explanation": "Eksen yönü sabit kaldığı için yarım kürelerde zıt mevsimler oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_mvs_003_q10"
+    }
+  ]
+}

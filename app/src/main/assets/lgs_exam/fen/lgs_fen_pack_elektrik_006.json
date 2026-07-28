@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Özdeş bir pil ve özdeş ampullerle kurulan bir devrede iki ampul seri bağlıdır. Devreye üçüncü özdeş ampul paralel bir kol olacak şekilde ekleniyor. Buna göre ampullerin parlaklığı için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Seri bağlı ampuller en parlaktır.",
+        "Paralel bağlanan ampul en parlaktır.",
+        "Tüm ampuller eşit parlaklıktadır.",
+        "Seri ampuller kesinlikle yanmaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_ANALYSIS",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "parlaklik"],
+      "explanation": "Paralel bağlanan ampul pile doğrudan bağlanmış gibi çalışır. Seri bağlı ampuller ise daha yüksek toplam direnç nedeniyle daha sönük yanar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q01"
+    },
+    {
+      "stem": "Özdeş ampuller ve özdeş bir pil kullanılarak kurulan bir devrede önce tek ampul pile bağlanıyor. Daha sonra ikinci özdeş ampul paralel olarak ekleniyor. Buna göre ilk ampul için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Parlaklığı azalır.",
+        "Parlaklığı artar.",
+        "Parlaklığı değişmez.",
+        "Kesinlikle söner."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "parlaklik"],
+      "explanation": "Paralel devrede her ampul pile doğrudan bağlıdır. Yeni kol eklense bile ilk ampulün pile bağlanma şekli değişmediği için parlaklığı değişmez.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q02"
+    },
+    {
+      "stem": "Bir elektrik devresinde pil sayısı sabitken ampul sayısı seri olarak artırılırsa aşağıdakilerden hangisi gözlenir?",
+      "options": [
+        "Toplam direnç artar.",
+        "Toplam direnç azalır.",
+        "Akım artar.",
+        "Elektronlar yok olur."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "RESISTANCE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc"],
+      "explanation": "Seri bağlı her ampul devrenin toplam direncini artırır.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q03"
+    },
+    {
+      "stem": "Bir elektrik devresinde pil sayısının artırılması aşağıdaki sonuçlardan hangisine doğrudan yol açar?",
+      "options": [
+        "Akımın artmasına",
+        "Direncin artmasına",
+        "Elektronların yok olmasına",
+        "Ampul sayısının azalmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CURRENT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["akim", "gerilim", "devre"],
+      "explanation": "Pil sayısının artması devredeki gerilimi artırır ve akım artar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q04"
+    },
+    {
+      "stem": "Negatif yüklü bir elektroskopa negatif yüklü bir cisim yaklaştırıldığında yaprakların daha fazla açıldığı gözleniyor. Bunun nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Elektronların yapraklara doğru itilmesi",
+        "Protonların hareket etmesi",
+        "Yüklerin yok olması",
+        "Elektrik akımı oluşması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "ELECTROSCOPE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektroskop", "yuk", "etki"],
+      "explanation": "Aynı işaretli yükler birbirini iter. Elektronlar yapraklara doğru itildiği için yapraklar daha fazla açılır.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q05"
+    },
+    {
+      "stem": "X ve Y cisimleri birbirini itiyor, Y ve Z cisimleri birbirini çekiyor. Buna göre aşağıdakilerden hangisi kesin olarak doğrudur?",
+      "options": [
+        "X ve Z aynı işaretli yüklüdür.",
+        "X ve Y aynı işaretli yüklüdür.",
+        "Z yüksüzdür.",
+        "Y ve Z aynı işaretli yüklüdür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CHARGE_INTERACTION",
+      "topic": "Elektrik",
+      "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
+      "explanation": "Birbirini iten cisimler aynı işaretli yüklüdür.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q06"
+    },
+    {
+      "stem": "Bir cisim elektron kaybettiğinde aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Pozitif yük kazanır.",
+        "Negatif yük kazanır.",
+        "Nötr olur.",
+        "Nötron sayısı artar."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CHARGE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektriklenme", "elektron", "yuk"],
+      "explanation": "Elektron kaybeden cisim pozitif yükle yüklenir.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q07"
+    },
+    {
+      "stem": "K devresinde tek ampul, L devresinde iki özdeş ampul seri bağlıdır. Her iki devrede de özdeş pil vardır. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "K devresindeki ampul daha parlaktır.",
+        "L devresindeki ampuller daha parlaktır.",
+        "Tüm ampuller aynı parlaklıktadır.",
+        "L devresindeki ampuller kesinlikle yanmaz."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_COMPARISON",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "parlaklik", "direnc"],
+      "explanation": "Seri devrede toplam direnç daha büyüktür ve ampuller daha sönük yanar.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q08"
+    },
+    {
+      "stem": "Özdeş üç ampul paralel bağlanmıştır. Ampullerden biri devreden çıkarıldığında diğerleri için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Daha parlak yanar.",
+        "Aynı parlaklıkta yanar.",
+        "Söner.",
+        "Pil çalışmaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "PARALLEL_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "elektrik_devresi"],
+      "explanation": "Paralel devrede bir kol çıkarılsa bile diğer kollar pile bağlı kalır.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q09"
+    },
+    {
+      "stem": "Bir elektrik devresinde ampul yandığına göre devrede aşağıdakilerden hangisi kesinlikle gerçekleşmektedir?",
+      "options": [
+        "İletken teldeki serbest elektronlar yönlü hareket etmektedir.",
+        "Pil içindeki protonlar devrede dolaşmaktadır.",
+        "Nötronlar iletken boyunca yer değiştirmektedir.",
+        "Işık enerjisi tel üzerinden taşınmaktadır."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektrik_akimi", "elektron", "devre"],
+      "explanation": "Akım, iletkendeki serbest elektronların yönlü hareketiyle oluşur. Ampulün yanması bu akımın varlığını gösterir.",
+      "source": "edumio",
+      "sourceRef": "fen_el_006_q10"
+    }
+  ]
+}

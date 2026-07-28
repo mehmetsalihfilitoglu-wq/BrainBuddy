@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0230",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %20 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 672 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "800",
+        "840",
+        "720",
+        "880"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+20/100) · (1-30/100) = 672. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0230",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0231",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "620",
+        "280",
+        "500",
+        "560"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +80 litre eklenince 3V/(7) dolu. Denklemden V=560 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0231",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0232",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 75, 75, 75, 75, 79 puan almıştır. Altıncı sınava girince ortalaması 76 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "72",
+        "77",
+        "82",
+        "76"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 379. 6. sınav x ise (total5 + x)/6 = 76 → x = 77.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0232",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0233",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 120 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "900",
+        "780",
+        "840",
+        "420"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +120 litre eklenince 3V/(7) dolu. Denklemden V=840 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0233",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0234",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 5 : 3 oranındadır. Birinci sınıfa 11 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "142",
+        "137",
+        "122",
+        "132"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 5k, 3k. 4k + 11 = 5k → k = 11.0. Toplam = 12·k = 132.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0234",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0235",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 30 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "24",
+        "22",
+        "14",
+        "19"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 30. k+3 = 2(e+2) → e = 7, k = 12. Toplam = 19.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0235",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0236",
+      "stem": "Bir torbada 2 kırmızı, 4 yeşil ve 5 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "38/56",
+        "1/11",
+        "38/55",
+        "37/55"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0236",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0237",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 2 : 6 oranındadır. Birinci sınıfa 12 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "57",
+        "62",
+        "52",
+        "42"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 5k, 6k. 2k + 12 = 5k → k = 4.0. Toplam = 13·k = 52.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0237",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0238",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "12",
+        "9",
+        "8",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0238",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0239",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "580",
+        "320",
+        "640",
+        "700"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +80 litre eklenince 4V/(8) dolu. Denklemden V=640 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0239",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

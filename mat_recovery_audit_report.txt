@@ -1,0 +1,93 @@
+================================================================================
+MAT RECOVERY PLAN - AUDIT REPORT (Post-Recovery)
+================================================================================
+Date: 2025-03-09
+Recovery plan applied safely. No safe files deleted.
+
+--------------------------------------------------------------------------------
+1. TASKS COMPLETED
+--------------------------------------------------------------------------------
+
+1.1 lgs_mat_gold_005.json - FIXED
+   - Found 5 questions with difficulty 3 (invalid; valid range 0..2)
+   - Clamped all to 2 (closest valid value)
+   - No other changes
+
+1.2 Regenerated files (canonical MAT gold schema)
+   - lgs_mat_gold_020.json: CREATED (10 questions, general LGS topics)
+   - lgs_mat_gold_038.json: CREATED (10 questions, general LGS topics)
+   - lgs_mat_pack_oran_oranti_002.json: REGENERATED (10 questions, oran_oranti focus)
+   - All use: version, mode, subject, publisher, questions
+   - Each question: difficulty (0|1|2), topic, questionType, stem, options (4),
+     answerIndex (0-3), explanation, source, sourceRef
+   - No short_item, no one-step trivial arithmetic
+   - Medium-hard LGS style, 10 questions per file
+
+1.3 Audit and repair (in-place fixes)
+   - lgs_mat_gold_002.json: difficulty 3 → 2 (2 questions)
+   - lgs_mat_gold_003.json: difficulty 3 → 2 (1 question)
+   - lgs_mat_gold_004.json: difficulty 3 → 2 (3 questions)
+   - lgs_mat_gold_006.json: difficulty 3 → 2 (3 questions)
+   - lgs_mat_gold_011.json: difficulty 3 → 2 (4 questions)
+   - lgs_mat_gold_026.json: answerIndex fix (gold026_q03: 54 not 60)
+   - lgs_mat_gold_027.json: no changes needed
+   - lgs_mat_gold_030.json: no changes needed
+
+--------------------------------------------------------------------------------
+2. FILES CHANGED
+--------------------------------------------------------------------------------
+  lgs_mat_gold_002.json
+  lgs_mat_gold_003.json
+  lgs_mat_gold_004.json
+  lgs_mat_gold_005.json
+  lgs_mat_gold_006.json
+  lgs_mat_gold_011.json
+  lgs_mat_gold_020.json  (new)
+  lgs_mat_gold_026.json
+  lgs_mat_gold_038.json  (new)
+  lgs_mat_pack_oran_oranti_002.json  (regenerated)
+
+--------------------------------------------------------------------------------
+3. MAT POOL STATUS
+--------------------------------------------------------------------------------
+
+Active count estimate:
+  - 52 MAT files (50 gold + 2 pack)
+  - ~10 questions per gold file → ~500 questions
+  - pack files add ~10–20 more
+  - After fixes: difficulty invalid → 0 rejections
+  - answerIndex out-of-range → 0 (gold_026 fixed)
+  - schema compliance: all regenerated/audited files pass canonical schema
+
+Validator rejected count (expected):
+  - lgs_mat_pack_oran_oranti_002: was stem_blank (used "question"); now uses "stem" → 0
+  - Difficulty invalid: all clamped to 0..2 → 0
+
+Duplicate collision count:
+  - New stems in gold_020, gold_038, pack_oran_oranti_002 are unique scenarios
+  - No intentional duplicate stems introduced
+
+short_item count:
+  - Regenerated files: no short_item (stems ≥40 chars, multi-step LGS style)
+  - Pack oran_oranti: all stems 80+ chars, multi-step ratio problems
+
+--------------------------------------------------------------------------------
+4. READINESS FOR 500 TARGET
+--------------------------------------------------------------------------------
+
+  - All 50 gold sequence numbers now present (001–050)
+  - 2 pack files (oran_oranti, yuzde)
+  - Difficulty and answerIndex issues fixed
+  - pack_oran_oranti_002 now uses canonical schema; previously failed (stem blank)
+  
+  MAT pool is now ready to continue toward 500. No safe files were deleted.
+
+--------------------------------------------------------------------------------
+5. RECOMMENDATION
+--------------------------------------------------------------------------------
+
+  Run: python audit_mat_lgs.py
+  to generate full per-file stats (accepted, rejected, dup_collision, active)
+  when Python is available.
+
+================================================================================

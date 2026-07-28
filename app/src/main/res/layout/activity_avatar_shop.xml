@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/bb_primary"
+        android:background="@color/edu_primary"
         app:titleTextColor="@color/white"
         app:title="Avatar Mağazası"
         app:navigationIcon="?attr/homeAsUpIndicator" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="@dimen/radius_md"
         app:cardElevation="4dp"
         app:cardBackgroundColor="@color/white">
 
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:text="XP Bakiye"
                     android:textSize="12sp"
-                    android:textColor="@color/bb_text_muted"/>
+                    android:textColor="@color/edu_text_muted"/>
                 <TextView
                     android:id="@+id/tvXpBalance"
                     android:layout_width="wrap_content"
@@ -50,13 +50,13 @@
                     android:text="0 XP"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/edu_turquoise"/>
             </LinearLayout>
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="40dp"
-                android:background="@color/bb_text_muted"/>
+                android:background="@color/edu_text_muted"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="Seviye"
                     android:textSize="12sp"
-                    android:textColor="@color/bb_text_muted"/>
+                    android:textColor="@color/edu_text_muted"/>
                 <TextView
                     android:id="@+id/tvLevelBadge"
                     android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                     android:text="Lv 1"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_secondary"/>
+                    android:textColor="@color/edu_secondary"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -88,8 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Mağaza veli tarafından kapatıldı. Sadece önizleme yapabilirsiniz."
-        android:textColor="@color/bb_error"
+        android:text="Mağaza şu an kullanılamıyor. Sadece önizleme yapabilirsiniz."
+        android:textColor="@color/edu_error"
         android:visibility="gone"/>
 
     <com.google.android.material.tabs.TabLayout
@@ -98,9 +98,9 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:tabMode="scrollable"
-        app:tabTextColor="@color/bb_text_muted"
-        app:tabSelectedTextColor="@color/bb_primary"
-        app:tabIndicatorColor="@color/bb_primary"/>
+        app:tabTextColor="@color/edu_text_muted"
+        app:tabSelectedTextColor="@color/edu_primary"
+        app:tabIndicatorColor="@color/edu_primary"/>
 
     <FrameLayout
         android:id="@+id/previewSection"
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:text="Avatar Önizleme"
             android:textSize="14sp"
-            android:textColor="@color/bb_text_muted"/>
+            android:textColor="@color/edu_text_muted"/>
 
         <FrameLayout
             android:id="@+id/previewContainer"
@@ -159,27 +159,14 @@
         </FrameLayout>
     </FrameLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollShop"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerItems"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerItems"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:clipToPadding="false"
-            tools:listitem="@layout/item_avatar_shop_card"/>
-    </androidx.core.widget.NestedScrollView>
-
-    <Button
-        android:id="@+id/btnShopBack"
-        style="@style/BBButtonAlt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Geri"/>
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_avatar_shop_card"/>
 </LinearLayout>

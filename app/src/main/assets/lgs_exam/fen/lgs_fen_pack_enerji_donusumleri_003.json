@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir ekosistemde üreticilerden başlayarak birincil, ikincil ve üçüncül tüketicilere doğru çıkılan enerji piramidinde üst basamaklara çıkıldıkça toplam biyokütle ve canlı sayısı azalabilmektedir. Bu durumun temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Üreticilerin yalnızca gece besin üretmesi",
+        "Her basamakta enerjinin bir kısmının ısı olarak çevreye yayılması",
+        "Üst basamaklardaki canlıların fotosentez yapamaması",
+        "Tüm canlıların aynı miktarda enerji kullanması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "enerji_piramidi",
+        "enerji_akis",
+        "trofik_duzey"
+      ],
+      "explanation": "Enerji aktarımı sırasında her trofik düzeyde enerjinin bir kısmı ısı olarak kaybedilir. Bu nedenle üst basamaklara daha az enerji aktarılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q01"
+    },
+    {
+      "stem": "Bir besin zinciri şu şekildedir:\nOt → Çekirge → Kurbağa → Yılan → Şahin\n\nBu ekosistemde yılan sayısının belirgin şekilde azalması kısa vadede aşağıdakilerden hangisine neden olabilir?",
+      "options": [
+        "Kurbağa sayısının artmasına",
+        "Şahin sayısının artmasına",
+        "Çekirge sayısının azalmasına",
+        "Ot miktarının artmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "FOOD_CHAIN_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "besin_zinciri",
+        "avci_av",
+        "populasyon"
+      ],
+      "explanation": "Yılanlar kurbağaları tüketir. Yılan sayısı azaldığında kurbağalar üzerindeki av baskısı azalır ve kısa vadede kurbağa sayısı artabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q02"
+    },
+    {
+      "stem": "Bir ekosistemde tavşan hem tilki hem kartal tarafından tüketilmektedir. Tavşan popülasyonunun ani şekilde azalmasıyla ilgili aşağıdaki yorumlardan hangisi kesinlikle yanlıştır?",
+      "options": [
+        "Tavşanla beslenen canlılar besin bulmakta zorlanabilir",
+        "Tavşanın tükettiği bitkilerin miktarı bir süre artabilir",
+        "Tilki ve kartal popülasyonu aynı anda kesin olarak artar",
+        "Ekosistemdeki denge etkilenebilir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "besin_agi",
+        "populasyon",
+        "ekosistem"
+      ],
+      "explanation": "Tavşan sayısının azalması, onu tüketen canlılar için besin azalması demektir. Bu yüzden tilki ve kartalın kesin olarak artacağı söylenemez.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q03"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisinin artması atmosferdeki karbondioksit miktarını azaltıcı etki yapar?",
+      "options": [
+        "Fosil yakıt tüketiminin artması",
+        "Orman alanlarının genişlemesi",
+        "Sanayi bacalarından çıkan gaz miktarının artması",
+        "Motorlu taşıt kullanımının yaygınlaşması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "karbon_dongusu",
+        "orman",
+        "fotosentez"
+      ],
+      "explanation": "Orman alanlarının artması fotosentezi artırır. Fotosentez sırasında atmosferdeki karbondioksit kullanılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q04"
+    },
+    {
+      "stem": "Sera etkisinin tamamen ortadan kalkması durumunda aşağıdakilerden hangisinin gerçekleşmesi beklenir?",
+      "options": [
+        "Dünya'nın ortalama sıcaklığının yaşamı zorlaştıracak düzeyde azalması",
+        "Bitkilerin fotosentez hızının kesin olarak artması",
+        "Atmosferdeki oksijen miktarının bir anda yok olması",
+        "Dünya'nın Güneş etrafındaki dolanım süresinin değişmesi"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GREENHOUSE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "sera_etkisi",
+        "kuresel_isinma",
+        "iklim"
+      ],
+      "explanation": "Doğal sera etkisi Dünya'nın yaşanabilir sıcaklıkta kalmasına yardımcı olur. Tamamen ortadan kalkarsa ortalama sıcaklık ciddi biçimde düşer.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q05"
+    },
+    {
+      "stem": "Aşağıdaki eşleştirmelerden hangisi yanlıştır?",
+      "options": [
+        "Güneş paneli — Işık enerjisini elektrik enerjisine dönüştürür",
+        "Rüzgar türbini — Hareket enerjisini elektrik enerjisine dönüştürür",
+        "Hidroelektrik santral — Suyun potansiyel enerjisinden elektrik elde eder",
+        "Ampul — Elektrik enerjisini kimyasal enerjiye dönüştürür"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "enerji_donusumu",
+        "elektrik",
+        "aletler"
+      ],
+      "explanation": "Ampul elektrik enerjisini başlıca ışık ve ısı enerjisine dönüştürür, kimyasal enerjiye değil.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q06"
+    },
+    {
+      "stem": "Bir ülkenin enerji politikalarında fosil yakıt kullanımını azaltıp güneş, rüzgar ve jeotermal kaynaklara yönelmesi aşağıdakilerden hangisini doğrudan hedefler?",
+      "options": [
+        "Sera gazı salınımını azaltmayı",
+        "Dünya'nın eksen eğikliğini değiştirmeyi",
+        "Fotosentezi durdurmayı",
+        "Atmosfer basıncını artırmayı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "RENEWABLE_ENERGY_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "yenilenebilir_enerji",
+        "sera_gazi",
+        "enerji_politikasi"
+      ],
+      "explanation": "Yenilenebilir enerji kaynaklarına yönelmek, fosil yakıtlardan kaynaklanan sera gazı salınımını azaltmayı amaçlar.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q07"
+    },
+    {
+      "stem": "Azot döngüsünde bazı bakteriler atmosferdeki azotu bitkilerin kullanabileceği bileşiklere dönüştürür. Bu canlıların ekosistemden tamamen yok olması durumunda aşağıdakilerden hangisi öncelikle etkilenir?",
+      "options": [
+        "Bitkilerin azotlu bileşiklere ulaşması",
+        "Güneş ışınlarının Dünya'ya geliş açısı",
+        "Su döngüsündeki buharlaşma miktarı",
+        "Açık hava basıncı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "NITROGEN_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "azot_dongusu",
+        "bakteri",
+        "bitki"
+      ],
+      "explanation": "Azot bağlayıcı bakteriler, atmosferik azotu bitkilerin kullanabileceği forma dönüştürür. Bu canlılar olmazsa bitkilerin azot kaynağı azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q08"
+    },
+    {
+      "stem": "Bir araştırmada aynı ekosistemdeki canlı gruplarının toplam enerjileri şu şekilde verilmiştir:\nÜreticiler: 10000 birim\nBirincil tüketiciler: 1000 birim\nİkincil tüketiciler: 100 birim\nÜçüncül tüketiciler: 10 birim\n\nBu verilere göre aşağıdaki yorumlardan hangisi yapılabilir?",
+      "options": [
+        "Enerji her basamakta yaklaşık onda bire düşmektedir",
+        "Üçüncül tüketiciler en fazla biyokütleye sahiptir",
+        "Birincil tüketiciler üreticilerden daha fazla enerjiye sahiptir",
+        "Enerji ekosistemde artarak aktarılır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "enerji_piramidi",
+        "veri_yorumlama",
+        "trofik_duzey"
+      ],
+      "explanation": "Verilen sayısal değerler, her basamakta enerjinin yaklaşık 1/10 oranında aktarıldığını göstermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q09",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi hem doğal kaynakların korunmasına hem de küresel ısınmanın azaltılmasına katkı sağlar?",
+      "options": [
+        "Tek kullanımlık ürünlerin yaygınlaştırılması",
+        "Toplu taşıma kullanımının artırılması",
+        "Fosil yakıt tüketiminin teşvik edilmesi",
+        "Orman alanlarının yerleşime açılması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": [
+        "kuresel_isinma",
+        "toplu_tasima",
+        "cevre"
+      ],
+      "explanation": "Toplu taşıma kullanımı yakıt tüketimini ve sera gazı salınımını azaltır. Böylece hem kaynak kullanımı azalır hem çevre korunur.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_003_q10"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0460",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "600",
+        "540",
+        "300",
+        "660"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +60 litre eklenince 4V/(10) dolu. Denklemden V=600 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0460",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0461",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "560",
+        "280",
+        "500",
+        "620"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +80 litre eklenince 3V/(7) dolu. Denklemden V=560 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0461",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0462",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 5 katından 18 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "21",
+        "18",
+        "13",
+        "23"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 5e - 18. k+3 = 2(e+2) → e = 6, k = 12. Toplam = 18.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0462",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0463",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 562 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "550",
+        "500",
+        "450",
+        "525"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-10/100) = 562. x = 500 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0463",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0464",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0464",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0465",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "8",
+        "10",
+        "7",
+        "6"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0465",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0466",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 72° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "288",
+        "108",
+        "180",
+        "198"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 72° ise diğerleri toplam 288°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0466",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0467",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "10",
+        "7",
+        "8",
+        "6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0467",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0468",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0468",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0469",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 5 : 3 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "106",
+        "101",
+        "96",
+        "86"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 5k, 3k. 4k + 8 = 5k → k = 8.0. Toplam = 12·k = 96.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0469",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

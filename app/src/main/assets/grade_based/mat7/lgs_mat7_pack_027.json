@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0260",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 621 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "540",
+        "630",
+        "600",
+        "660"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-10/100) = 621. x = 600 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0260",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0261",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "300",
+        "120",
+        "210",
+        "180"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0261",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0262",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "96",
+        "91",
+        "101"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0262",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0263",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "10"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0263",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0264",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "120",
+        "210",
+        "180",
+        "300"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0264",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0265",
+      "stem": "Kenarları 8 m ve 15 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "0",
+        "120",
+        "44",
+        "1"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (8-8)×(15-8) = 0×7 = 0 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0265",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0266",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "91",
+        "96",
+        "101",
+        "97"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0266",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0267",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 83, 83, 83, 83, 83 puan almıştır. Altıncı sınava girince ortalaması 81 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "66",
+        "81",
+        "71",
+        "76"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 415. 6. sınav x ise (total5 + x)/6 = 81 → x = 71.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0267",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0268",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 4 katından 21 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "37",
+        "29",
+        "34",
+        "39"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 4e - 21. k+3 = 2(e+2) → e = 11, k = 23. Toplam = 34.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0268",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0269",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 2 : 3 : 6 oranındadır. Birinci sınıfa 12 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "142",
+        "132",
+        "122",
+        "137"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 3k, 6k. 2k + 12 = 3k → k = 12.0. Toplam = 11·k = 132.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0269",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

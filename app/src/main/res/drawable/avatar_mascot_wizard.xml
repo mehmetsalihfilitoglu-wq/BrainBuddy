@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#1BC5B0" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    <path android:fillColor="#7B1FA2" android:pathData="M10,2 L14,2 L14,0 L12,-2 L10,0 Z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,92 C62,92 72,90 72,88 C72,86 62,84 48,84 C34,84 24,86 24,88 C24,90 34,92 48,92Z"/>
+
+    <!-- Body circle -->
+    <path
+        android:fillColor="#7E57C2"
+        android:pathData="M48,24 C67,24 82,39 82,58 C82,77 67,92 48,92 C29,92 14,77 14,58 C14,39 29,24 48,24Z"/>
+
+    <!-- Body highlight -->
+    <path
+        android:fillColor="#9575CD"
+        android:pathData="M48,28 C61,28 72,37 76,50 C68,34 56,30 48,30 C38,30 26,38 20,52 C22,37 34,28 48,28Z"/>
+
+    <!-- Hat -->
+    <path
+        android:fillColor="#5E35B1"
+        android:pathData="M48,2 L68,30 L28,30Z"/>
+
+    <!-- Hat brim -->
+    <path
+        android:fillColor="#4527A0"
+        android:pathData="M22,28 L74,28 Q78,32 74,36 L22,36 Q18,32 22,28Z"/>
+
+    <!-- Hat band -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M28,30 L68,30 L66,34 L30,34Z"/>
+
+    <!-- Hat star -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M48,8 L50,13 L55,14 L51,17 L52,22 L48,19 L44,22 L45,17 L41,14 L46,13Z"/>
+
+    <!-- Hat star small -->
+    <path
+        android:fillColor="#FFECB3"
+        android:pathData="M58,16 L59,18 L61,18.5 L59.5,20 L60,22 L58,21 L56,22 L56.5,20 L55,18.5 L57,18Z"/>
+
+    <!-- Eye left - white -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M33,50 C33,46 36,43 40,43 C44,43 47,46 47,50 C47,54 44,57 40,57 C36,57 33,54 33,50Z"/>
+
+    <!-- Eye right - white -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M53,50 C53,46 56,43 60,43 C64,43 67,46 67,50 C67,54 64,57 60,57 C56,57 53,54 53,50Z"/>
+
+    <!-- Pupil left -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M39,49 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Pupil right -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M61,49 m-3,0 a3,3.5 0,1 1,6 0 a3,3.5 0,1 1,-6 0"/>
+
+    <!-- Eye shine left -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,47 m-1.5,0 a1.5,1.5 0,1 1,3 0 a1.5,1.5 0,1 1,-3 0"/>
+
+    <!-- Eye shine right -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,47 m-1.5,0 a1.5,1.5 0,1 1,3 0 a1.5,1.5 0,1 1,-3 0"/>
+
+    <!-- Wise smile -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M40,64 Q48,72 56,64"
+        android:strokeColor="#4527A0"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"/>
+
+    <!-- Beard hint -->
+    <path
+        android:fillColor="#EDE7F6"
+        android:pathData="M40,68 Q48,82 56,68 Q52,78 48,78 Q44,78 40,68Z"/>
+
+    <!-- Wand -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M74,40 L84,20"
+        android:strokeColor="#8D6E63"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"/>
+
+    <!-- Wand tip sparkle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M84,14 L85.5,18 L90,17 L87,20 L90,23 L86,22 L84,26 L83,22 L79,23 L81,20 L78,17 L82,18Z"/>
 </vector>

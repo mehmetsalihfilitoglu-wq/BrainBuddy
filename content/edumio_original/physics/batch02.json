@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0010",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Impulse–momentum theorem from a force–time graph",
+    "difficulty": "medium",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "impulse",
+      "momentum",
+      "force-time graph",
+      "area under graph",
+      "work-energy theorem"
+    ],
+    "learning_objective": "Compute the impulse of a time-varying force as the area under a force–time graph and apply the impulse–momentum theorem to find the resulting speed.",
+    "question": "A trolley of mass 2.0 kg rests on a straight, frictionless horizontal track. A single horizontal force is then applied to it. The force is zero at t = 0, rises linearly to 6.0 N at t = 2.0 s, remains constant at 6.0 N until t = 5.0 s, and then drops immediately to zero. What is the speed of the trolley just after t = 5.0 s?",
+    "choices": {
+      "A": "9.0 m/s",
+      "B": "4.9 m/s",
+      "C": "15 m/s",
+      "D": "3.0 m/s",
+      "E": "12 m/s"
+    },
+    "correct_answer": "E",
+    "explanation": "The impulse equals the area under the force–time graph: a triangle for the ramp, ½ × 2.0 s × 6.0 N = 6.0 N·s, plus a rectangle for the constant phase, 6.0 N × 3.0 s = 18 N·s, giving a total impulse of 24 N·s. By the impulse–momentum theorem this equals the change of momentum. Starting from rest, p = 24 kg·m/s, so v = p/m = 24 / 2.0 = 12 m/s.",
+    "option_analysis": {
+      "A": "Wrong: counts only the constant-force rectangle (impulse 18 N·s) and omits the initial ramp, giving 18/2.0 = 9.0 m/s.",
+      "B": "Wrong: treats the area under a force–time graph as work in joules and sets ½mv² = 24 J, confusing impulse with energy (v = √24 ≈ 4.9 m/s).",
+      "C": "Wrong: treats the force as constant at its peak value 6.0 N for the whole 5.0 s (impulse 30 N·s), giving 15 m/s.",
+      "D": "Wrong: counts only the triangular ramp (impulse 6.0 N·s) and ignores the constant-force phase, giving 6.0/2.0 = 3.0 m/s.",
+      "E": "Correct: total impulse = 6.0 + 18 = 24 N·s = Δp; from rest v = 24/2.0 = 12 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0011",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Work–energy theorem with an angled applied force and friction",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "work-energy theorem",
+      "friction",
+      "normal force",
+      "components",
+      "net work"
+    ],
+    "learning_objective": "Apply the work–energy theorem on a horizontal surface, correctly resolving an angled pull into its work-doing horizontal component and its effect on the normal force and friction.",
+    "question": "A crate of mass 4.0 kg is initially at rest on a rough horizontal floor. A worker pulls it a distance of 4.0 m along the floor using a rope held at a constant angle above the horizontal, applying a constant force of 25 N along the rope (take cos θ = 0.80 and sin θ = 0.60). The coefficient of kinetic friction between crate and floor is 0.30 and g = 10 m/s². What is the speed of the crate after it has moved 4.0 m?",
+    "choices": {
+      "A": "5.0 m/s",
+      "B": "6.3 m/s",
+      "C": "4.0 m/s",
+      "D": "5.9 m/s",
+      "E": "2.6 m/s"
+    },
+    "correct_answer": "A",
+    "explanation": "Only the horizontal component of the pull does work: W_pull = F cos θ × d = 25 × 0.80 × 4.0 = 80 J. The upward component of the pull lightens the crate, so the normal force is N = mg − F sin θ = 40 − 15 = 25 N; kinetic friction is 0.30 × 25 = 7.5 N, doing W_fric = −7.5 × 4.0 = −30 J. Net work = 80 − 30 = 50 J = ½(4.0)v², so v = 5.0 m/s.",
+    "option_analysis": {
+      "A": "Correct: net work = 80 J − 30 J = 50 J = ½(4.0)v² ⇒ v = 5.0 m/s.",
+      "B": "Wrong: neglects friction entirely and equates the pull's work (80 J) to the kinetic energy, giving 6.3 m/s.",
+      "C": "Wrong: uses N = mg and ignores that the upward component of the pull reduces the normal force (and hence friction), giving 4.0 m/s.",
+      "D": "Wrong: uses the full force (25 N) rather than its horizontal component F cos θ when computing the work done by the pull, overstating the work as 100 J (v ≈ 5.9 m/s).",
+      "E": "Wrong: takes N = mg + F sin θ, treating the rope's upward pull as increasing the normal force; this overestimates friction and gives 2.6 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0012",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Energy conservation with friction and a spring on a curved track",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "conservation of energy",
+      "friction",
+      "spring potential energy",
+      "energy accounting",
+      "curved track"
+    ],
+    "learning_objective": "Track mechanical energy through a sequence of gravitational, frictional and elastic stages to find the maximum compression of a spring.",
+    "question": "A block of mass 2.0 kg is released from rest at a height of 1.8 m on a frictionless curved ramp. At the bottom the ramp joins a horizontal surface. The block first crosses a rough patch of length 3.0 m (coefficient of kinetic friction 0.20) and then reaches an ideal spring (spring constant 1200 N/m) mounted on a smooth section. Taking g = 10 m/s², what is the maximum compression of the spring?",
+    "choices": {
+      "A": "0.22 m",
+      "B": "0.20 m",
+      "C": "0.24 m",
+      "D": "0.28 m",
+      "E": "0.14 m"
+    },
+    "correct_answer": "B",
+    "explanation": "The gravitational energy released is mgh = 2.0 × 10 × 1.8 = 36 J. Friction on the rough patch dissipates μmgL = 0.20 × 2.0 × 10 × 3.0 = 12 J. The remaining 24 J is stored in the spring at maximum compression: ½kx² = 24 J, so x² = 48/1200 = 0.04 and x = 0.20 m.",
+    "option_analysis": {
+      "A": "Wrong: treats μ as a fractional energy loss, storing mgh(1 − μ) = 28.8 J instead of subtracting the friction work μmgL, giving x ≈ 0.22 m.",
+      "B": "Correct: mgh − μmgL = 36 − 12 = 24 J = ½(1200)x² ⇒ x = 0.20 m.",
+      "C": "Wrong: neglects the friction loss on the rough patch and stores the full 36 J in the spring, giving x ≈ 0.24 m.",
+      "D": "Wrong: adds the friction energy to mgh instead of subtracting it (48 J stored), giving x ≈ 0.28 m.",
+      "E": "Wrong: omits the factor ½ in the spring energy, setting kx² = 24 J, giving x = √0.02 ≈ 0.14 m."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0013",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Elastic collision: fraction of kinetic energy transferred",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "elastic collision",
+      "momentum conservation",
+      "kinetic energy transfer",
+      "unequal masses",
+      "1D collision"
+    ],
+    "learning_objective": "Use the head-on elastic-collision velocity relations to determine the fraction of kinetic energy transferred between unequal masses.",
+    "question": "On a frictionless surface, a ball of mass m moving with speed v makes a head-on elastic collision with a stationary ball of mass 3m. After the collision, what fraction of the incident ball's kinetic energy has been transferred to the 3m ball?",
+    "choices": {
+      "A": "25%",
+      "B": "75%",
+      "C": "50%",
+      "D": "100%",
+      "E": "33%"
+    },
+    "correct_answer": "B",
+    "explanation": "For a head-on elastic collision the struck ball moves off with v₂' = [2m₁/(m₁ + m₂)]v = [2m/(4m)]v = v/2. Its kinetic energy is ½(3m)(v/2)² = 0.375 mv², while the incident energy is ½mv² = 0.5 mv². The fraction transferred is 0.375/0.5 = 0.75, equivalently 4m₁m₂/(m₁ + m₂)² = 12/16 = 75%.",
+    "option_analysis": {
+      "A": "Wrong: squares the velocity ratio (v₂'/v)² = 1/4 but forgets to weight the kinetic energy by the mass 3m, giving 25%.",
+      "B": "Correct: v₂' = v/2, so KE₂'/KE_i = 3 × (1/2)² = 3/4 = 75% (= 4m₁m₂/(m₁ + m₂)²).",
+      "C": "Wrong: assumes kinetic energy is simply shared equally between the two balls, giving 50%.",
+      "D": "Wrong: assumes the incident ball stops and gives up all its kinetic energy, which holds only for equal masses, giving 100%.",
+      "E": "Wrong: assumes the transferred fraction equals the mass ratio m₁/m₂ = 1/3 ≈ 33%."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0014",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Vertical circular motion over a crest (apparent weight)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "circular motion",
+      "vertical circle",
+      "apparent weight",
+      "normal force",
+      "centripetal acceleration"
+    ],
+    "learning_objective": "Apply Newton's second law in the radial direction at the top of a vertical arc to relate speed to the apparent weight (normal force).",
+    "question": "A car travels over the top of a hill whose crest is a circular arc of radius 45 m in a vertical plane. At what speed will the driver experience an apparent weight (the normal force from the seat) equal to half of their true weight? Take g = 10 m/s².",
+    "choices": {
+      "A": "21 m/s",
+      "B": "30 m/s",
+      "C": "15 m/s",
+      "D": "26 m/s",
+      "E": "10.6 m/s"
+    },
+    "correct_answer": "C",
+    "explanation": "At the crest, gravity and the normal force both act vertically and provide the centripetal force: mg − N = mv²/R. Setting the apparent weight N = mg/2 gives mg − mg/2 = mv²/R, so v² = gR/2 = 10 × 45 / 2 = 225 and v = 15 m/s.",
+    "option_analysis": {
+      "A": "Wrong: sets N = 0 (solves for weightlessness/loss of contact) rather than N = mg/2, giving v = √(gR) ≈ 21 m/s.",
+      "B": "Wrong: uses v = √(2gR), confusing the circular-motion condition with a free-fall/energy speed, giving 30 m/s.",
+      "C": "Correct: mg − N = mv²/R with N = mg/2 ⇒ v = √(gR/2) = √225 = 15 m/s.",
+      "D": "Wrong: uses the bottom-of-arc relation N − mg = mv²/R (i.e. mg + N = mv²/R), giving v = √(3gR/2) ≈ 26 m/s.",
+      "E": "Wrong: halves the loss-of-contact speed √(gR) directly, halving the speed instead of the apparent weight, giving ≈ 10.6 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0015",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Gravitation",
+    "subtopic": "Orbital energy: work to raise a circular orbit",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 195,
+    "tags": [
+      "gravitation",
+      "orbital mechanics",
+      "total mechanical energy",
+      "kinetic vs potential energy",
+      "orbit transfer"
+    ],
+    "learning_objective": "Use the total-mechanical-energy expression for a circular orbit to determine the energy required to raise an orbit, recognising that kinetic energy decreases while total energy increases.",
+    "question": "A small satellite is in a circular orbit around a planet, where its orbital speed is 8.0 km/s. Mission control wishes to transfer it to a new circular orbit of four times the original radius. Treating the manoeuvre as ideal, how much energy per unit mass must be supplied to (or released by) the satellite? (For a circular orbit the total mechanical energy per unit mass is −½v².)",
+    "choices": {
+      "A": "24 MJ/kg is released",
+      "B": "32 MJ/kg must be supplied",
+      "C": "48 MJ/kg must be supplied",
+      "D": "24 MJ/kg must be supplied",
+      "E": "8 MJ/kg must be supplied"
+    },
+    "correct_answer": "D",
+    "explanation": "For a circular orbit v² = GM/r, so quadrupling r halves the orbital speed: v_f = 4.0 km/s. The specific total energy is e = −½v²: e_i = −½(8000)² = −3.2×10⁷ J/kg and e_f = −½(4000)² = −8.0×10⁶ J/kg. The energy that must be supplied per unit mass is Δe = e_f − e_i = +2.4×10⁷ J/kg = 24 MJ/kg. Note that the kinetic energy actually falls, but the potential energy rises by more, so net energy must be added.",
+    "option_analysis": {
+      "A": "Wrong: uses the change in kinetic energy (½Δv² = −24 MJ/kg) and interprets the drop in KE as energy released, ignoring the larger rise in potential energy.",
+      "B": "Wrong: quotes only the magnitude of the initial orbit's total (binding) energy (½v_i² = 32 MJ/kg) instead of the change between orbits.",
+      "C": "Wrong: uses only the change in gravitational potential energy (ΔU = +48 MJ/kg), ignoring the compensating decrease in kinetic energy.",
+      "D": "Correct: e = −½v²; Δe = −8.0×10⁶ − (−3.2×10⁷) = +2.4×10⁷ J/kg, i.e. 24 MJ/kg must be supplied.",
+      "E": "Wrong: quotes only the magnitude of the final orbit's total energy (½v_f² = 8 MJ/kg), not the change between the two orbits."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0016",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Oscillations",
+    "subtopic": "SHM: amplitude from two speed–displacement data points",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 190,
+    "tags": [
+      "simple harmonic motion",
+      "amplitude",
+      "velocity-displacement relation",
+      "angular frequency",
+      "simultaneous equations"
+    ],
+    "learning_objective": "Use the SHM relation v² = ω²(A² − x²) with two measured states to solve simultaneously for the angular frequency and amplitude.",
+    "question": "A particle moves with simple harmonic motion along a straight line. When its displacement from the equilibrium position is 3.0 cm its speed is 0.40 m/s, and when its displacement is 4.0 cm its speed is 0.30 m/s. What is the amplitude of the motion?",
+    "choices": {
+      "A": "4.0 cm",
+      "B": "5.3 cm",
+      "C": "7.0 cm",
+      "D": "3.5 cm",
+      "E": "5.0 cm"
+    },
+    "correct_answer": "E",
+    "explanation": "For SHM the speed obeys v² = ω²(A² − x²). Substituting both states (in SI units): 0.16 = ω²(A² − 0.0009) and 0.09 = ω²(A² − 0.0016). Subtracting eliminates A²: 0.07 = ω²(0.0007), so ω² = 100. Then A² − 0.0009 = 0.16/100 = 0.0016, giving A² = 0.0025 and A = 0.050 m = 5.0 cm.",
+    "option_analysis": {
+      "A": "Wrong: assumes the larger displacement, where the speed is smaller, is already the turning point (amplitude), giving 4.0 cm.",
+      "B": "Wrong: uses the incorrect relation v² ∝ (A − x) rather than v² ∝ (A² − x²), yielding A ≈ 5.3 cm.",
+      "C": "Wrong: simply adds the two displacements, 3.0 + 4.0 = 7.0 cm.",
+      "D": "Wrong: takes the amplitude as the average of the two measured displacements, (3.0 + 4.0)/2 = 3.5 cm.",
+      "E": "Correct: solving v² = ω²(A² − x²) at both points gives ω² = 100 and A² = 0.0025, so A = 5.0 cm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  }
+]

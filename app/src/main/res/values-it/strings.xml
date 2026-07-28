@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BrainBuddy</string>
-    <string name="parent_title">Pannello Genitori</string>
+    <string name="app_name">EDUmio</string>
     <string name="settings_title">Impostazioni</string>
-    <string name="gate_title">Quiz Richiesto</string>
-    <string name="gate_quiz_required">Devi superare il quiz per usare le app bloccate.</string>
     <string name="btn_start_quiz">Inizia Quiz</string>
-    <string name="lock_failed_title">Test Fallito</string>
-    <string name="lock_failed_message">Più di 3 risposte sbagliate. App bloccata fino al superamento.</string>
-    <string name="lock_permission_title">Permesso di blocco disabilitato</string>
-    <string name="lock_permission_message">Il permesso di blocco app è stato disabilitato. PIN genitore può correggere.</string>
-    <string name="btn_parent_unlock">Sblocca con PIN genitore</string>
-    <string name="btn_practice">Pratica (Mini Test)</string>
-    <string name="perm_checklist_title">Permessi</string>
+    <string name="lock_failed_message">Non ancora — prova un altro round per migliorare il punteggio.</string>
     <string name="perm_status_ok">OK</string>
     <string name="perm_status_missing">Mancante</string>
     <string name="perm_status_optional">Opzionale</string>
     <string name="perm_status_recommended">Consigliato</string>
-    <string name="perm_enable">Abilita</string>
-    <string name="perm_recheck">Controlla</string>
-    <string name="perm_open_settings">Apri Impostazioni</string>
     <string name="reports_title">Report</string>
     <string name="report_daily">Giornaliero</string>
     <string name="report_weekly">Settimanale</string>

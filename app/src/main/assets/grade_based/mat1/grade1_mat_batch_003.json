@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "66 + 28 = ?",
+      "options": ["94", "84", "104", "88"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["elde alarak toplama"],
+      "explanation": "66 + 28: Birlikler 6+8=14 (4 yaz, 1 elde). Onluklar 6+2+1=9 → 94."
+    },
+    {
+      "stem": "150 − 75 = ?",
+      "options": ["75", "85", "65", "25"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["üç basamaklı çıkarma"],
+      "explanation": "150 − 75 = 75."
+    },
+    {
+      "stem": "8 × 9 = ?",
+      "options": ["72", "63", "81", "64"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "8 × 9 = 72."
+    },
+    {
+      "stem": "Bir örüntüde 3, 6, 9, 12, ___ gelir. Boşluğa ne gelir?",
+      "options": ["15", "13", "16", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüsü",
+      "skills": ["3'ün katları"],
+      "explanation": "3'er artan dizi: 3, 6, 9, 12, 15."
+    },
+    {
+      "stem": "Bir okul otobüsü 9 duraksıyor; her durakta 4 öğrenci biniyor. 9. duraktan sonra kaç öğrenci vardır?",
+      "options": ["36", "13", "45", "27"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "9 × 4 = 36 öğrenci."
+    },
+    {
+      "stem": "77 ÷ 7 = ?",
+      "options": ["11", "7", "14", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "77 ÷ 7 = 11. 7 × 11 = 77."
+    },
+    {
+      "stem": "Bir kâğıdı 4 eşit parçaya böldüğümüzde her parça bütünün kaçı olur?",
+      "options": ["1/4", "4", "1/2", "3/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler",
+      "skills": ["eşit parçalar"],
+      "explanation": "1 bütün ÷ 4 = 1/4. Her parça dörtte bir."
+    },
+    {
+      "stem": "İki komşu (ardışık) sayının toplamı 25 ise bu sayılar hangileridir?",
+      "options": ["12 ve 13", "11 ve 14", "10 ve 15", "12 ve 12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ardışık sayılar",
+      "skills": ["problem çözme"],
+      "explanation": "Ardışık sayılar n ve n+1: n + (n+1) = 25 → 2n+1 = 25 → n = 12. Sayılar 12 ve 13."
+    },
+    {
+      "stem": "Bir yüzme havuzuna saatte 30 litre su dolduruluyor. 4 saatte kaç litre dolar?",
+      "options": ["120 litre", "34 litre", "90 litre", "150 litre"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["doğru orantı"],
+      "explanation": "30 × 4 = 120 litre."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi doğrudur?",
+      "options": ["5 + 4 = 4 + 5 (toplama değişme özelliği)", "5 + 4 = 5 × 4", "5 − 4 = 4 − 5", "5 ÷ 4 = 4 ÷ 5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplamanın özellikleri",
+      "skills": ["değişme özelliği"],
+      "explanation": "Toplamada değişme özelliği: a + b = b + a. 5 + 4 = 9 = 4 + 5."
+    },
+    {
+      "stem": "100 sayısından 5'er 5'er sayarak geriye gidilince: 100, 95, 90, ___, 80",
+      "options": ["85", "75", "84", "88"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geriye sayma",
+      "skills": ["5'lik azalma örüntüsü"],
+      "explanation": "100, 95, 90, 85, 80. Her adım 5 azalıyor."
+    },
+    {
+      "stem": "Bir çocuk haftada 4 saat ders çalışıyor. 3 haftada toplam kaç saat ders çalışır?",
+      "options": ["12 saat", "7 saat", "9 saat", "16 saat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "4 × 3 = 12 saat."
+    },
+    {
+      "stem": "Birlik hanesi 0 olan iki basamaklı sayılar hangi sayıların katıdır?",
+      "options": ["10'un katları", "Yalnızca 2'nin katları", "Yalnızca 5'in katları", "Her sayının katı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak ve bölünebilme",
+      "skills": ["sayı teorisi"],
+      "explanation": "Birlik hanesi 0 olan sayılar: 10, 20, 30, … Bunların hepsi 10'un katıdır (aynı zamanda 2 ve 5'in de katıdır)."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 15'in çarpanlarından biri değildir?",
+      "options": ["6", "1", "3", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpanlar",
+      "skills": ["bölenler"],
+      "explanation": "15'in çarpanları: 1, 3, 5, 15. 6, 15'i tam olarak bölmez (15 ÷ 6 = 2 kalan 3)."
+    },
+    {
+      "stem": "500 TL'nin yarısı kaç TL'dir?",
+      "options": ["250 TL", "100 TL", "50 TL", "200 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para hesabı",
+      "skills": ["bölme"],
+      "explanation": "500 ÷ 2 = 250 TL."
+    },
+    {
+      "stem": "5 × 0 + 10 = ?",
+      "options": ["10", "0", "50", "15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İşlem sırası",
+      "skills": ["çarpma önce gelir"],
+      "explanation": "Önce çarpma: 5 × 0 = 0. Sonra toplama: 0 + 10 = 10."
+    },
+    {
+      "stem": "Bir çocuğun boyu 130 cm; babası 175 cm. Aralarındaki fark kaç cm'dir?",
+      "options": ["45 cm", "55 cm", "35 cm", "40 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma uygulaması",
+      "skills": ["gerçek hayat problemi"],
+      "explanation": "175 − 130 = 45 cm."
+    },
+    {
+      "stem": "Bir koşucunun 3 km'lik parkurun 1/3'ünü tamamladığını farz edersek, kaç km koşmuştur?",
+      "options": ["1 km", "2 km", "3 km", "0,3 km"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir uygulaması",
+      "skills": ["kesir ve bölme"],
+      "explanation": "3 km × 1/3 = 1 km."
+    },
+    {
+      "stem": "6 tane 100, 3 tane 10 ve 8 tane 1'den oluşan sayı kaçtır?",
+      "options": ["638", "863", "368", "836"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak değeri",
+      "skills": ["yüzlük-onluk-birlik"],
+      "explanation": "6×100=600, 3×10=30, 8×1=8 → 600+30+8 = 638."
+    },
+    {
+      "stem": "Aşağıdaki çokgenlerin kaçı dörtgen sınıfına girer? Kare, dikdörtgen, eşkenar dörtgen, üçgen",
+      "options": ["3", "4", "2", "1"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometrik şekiller",
+      "skills": ["şekil sınıflandırma"],
+      "explanation": "Dörtgen: 4 kenarlı şekil. Kare, dikdörtgen, eşkenar dörtgen (baklava) → 3 dörtgen. Üçgen dörtgen değil."
+    },
+    {
+      "stem": "Bir dükkânda sabah 48 ekmek var; gün boyunca 29 ekmek satıldı. Kaç ekmek kaldı?",
+      "options": ["19", "29", "77", "21"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "48 − 29 = 19 ekmek."
+    },
+    {
+      "stem": "4 artı 4'ün 4 katı kaçtır?",
+      "options": ["20", "16", "32", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İşlem sırası",
+      "skills": ["çok adımlı hesap"],
+      "explanation": "4'ün 4 katı = 4×4 = 16. 4 + 16 = 20. İşlem sırasında önce çarpma yapılır."
+    },
+    {
+      "stem": "Bir sayıyı kendisiyle çarparsak sonuca ne denir?",
+      "options": ["Sayının karesi", "Sayının yarısı", "Sayının iki katı", "Sayının kökü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üslü sayılar",
+      "skills": ["kare kavramı"],
+      "explanation": "a × a = a² → a sayısının karesi. Örn. 5² = 25."
+    },
+    {
+      "stem": "110 + 220 = ?",
+      "options": ["330", "320", "230", "300"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["üç basamaklı toplama"],
+      "explanation": "110 + 220 = 330."
+    },
+    {
+      "stem": "Bir torbada 14 yeşil, 6 kırmızı elma var. Yeşil elma kırmızıdan kaç kat fazladır?",
+      "options": ["14/6 ≈ 2,3 kat (yaklaşık 2 katından fazla)", "8 kat", "2 kat tam", "3 kat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme ve oran",
+      "skills": ["oran kavramı"],
+      "explanation": "14 ÷ 6 = 2 tam, 2 kalan. Yani yaklaşık 2,3 kat. En doğru seçenek 2 katından fazla."
+    },
+    {
+      "stem": "5² = ?",
+      "options": ["25", "10", "15", "52"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üslü sayılar",
+      "skills": ["kare hesaplama"],
+      "explanation": "5² = 5 × 5 = 25."
+    },
+    {
+      "stem": "Bir kare bahçenin çevresi 36 m ise kenar uzunluğu kaç m'dir?",
+      "options": ["9 m", "4 m", "12 m", "18 m"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre hesabı",
+      "skills": ["denklem kurma"],
+      "explanation": "Kare çevre = 4 × kenar → 36 = 4 × kenar → kenar = 9 m."
+    },
+    {
+      "stem": "Aşağıdaki sayıların hangisinin rakamları toplamı 9'a bölünür?",
+      "options": ["81", "82", "83", "80"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölünebilme kuralı",
+      "skills": ["9 bölünebilme"],
+      "explanation": "81: 8+1=9, 9÷9=1 → 9'a bölünür. Diğerleri: 82→10, 83→11, 80→8; 9'a bölünmez."
+    },
+    {
+      "stem": "Bir sayı 10 ile çarpılırsa sonuç ne olur?",
+      "options": ["Sayının birlik hanesine bir sıfır eklenir", "Sayı 10 artar", "Sayı 10'a bölünür", "Sayı değişmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "10 ile çarpma",
+      "skills": ["ondalık kaydırma"],
+      "explanation": "Herhangi bir tamsayı 10 ile çarpılınca birlik hanesine 0 eklenir: 5×10=50, 23×10=230."
+    },
+    {
+      "stem": "Bir kutuda 64 top var; 8 kişi eşit paylaştı. Her kişi kaç top aldı?",
+      "options": ["8", "7", "9", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["eşit paylaştırma"],
+      "explanation": "64 ÷ 8 = 8 top."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi hem 2'nin hem de 3'ün katıdır?",
+      "options": ["18", "14", "21", "16"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ortak katlar",
+      "skills": ["EKOK temeli"],
+      "explanation": "18 = 2×9 (2'nin katı) ve 18 = 3×6 (3'ün katı). 14 = 2×7 (3'ün katı değil); 21 = 3×7 (2'nin katı değil); 16 = 2×8 (3'ün katı değil)."
+    },
+    {
+      "stem": "400 + 350 = ?",
+      "options": ["750", "700", "450", "800"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["üç basamaklı toplama"],
+      "explanation": "400 + 350 = 750."
+    },
+    {
+      "stem": "Bir kişi 1.000 TL tasarruf hedefliyor; her ay 125 TL biriktiriyor. Kaç ayda hedefe ulaşır?",
+      "options": ["8 ay", "10 ay", "6 ay", "12 ay"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "1000 ÷ 125 = 8 ay."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 4'e tam bölünür?",
+      "options": ["68", "70", "66", "74"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölünebilme kuralı",
+      "skills": ["4 bölünebilme"],
+      "explanation": "4 bölünebilme: Son iki rakam 4'e bölünür mü? 68: 68÷4=17 tam ✓. 70÷4=17,5; 66÷4=16,5; 74÷4=18,5."
+    },
+    {
+      "stem": "200 ile 500 arasındaki yüzün katlarını say. Kaç tane vardır?",
+      "options": ["3", "2", "4", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüzün katları",
+      "skills": ["sayma"],
+      "explanation": "200 ile 500 arasında (bu sınırlar dahil): 200, 300, 400, 500 → 4 tane. 'Arasında' ifadesi sınırları içeriyorsa 4; hariç ise 300 ve 400 → 2. Dahil anlamında 4."
+    },
+    {
+      "stem": "Bir annenin 3 çocuğu var; her çocuk için günde 2 bardak süt içmesi gerekiyor. Bir günde toplam kaç bardak süt gerekir?",
+      "options": ["6", "5", "9", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "3 × 2 = 6 bardak."
+    },
+    {
+      "stem": "1000 − 1 = ?",
+      "options": ["999", "1001", "900", "989"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["temel çıkarma"],
+      "explanation": "1000 − 1 = 999."
+    },
+    {
+      "stem": "Bir çocuk 78 TL birikimiyle 35 TL'lik oyuncak, 22 TL'lik kitap aldı. Kaç TL para üstü kaldı?",
+      "options": ["21 TL", "57 TL", "19 TL", "23 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para hesabı",
+      "skills": ["çok adımlı problem"],
+      "explanation": "Toplam harcama = 35 + 22 = 57 TL. Kalan = 78 − 57 = 21 TL."
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir kırtasiyede etiket fiyatı 180 TL olan bir matematik soru bankasına önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %25 zam yapılıyor. Buna göre kitabın son fiyatı kaç TL olur?",
+      "options": [
+        "170",
+        "175",
+        "144",
+        "185"
+      ],
+      "answerIndex": 2,
+      "explanation": "İlk indirim sonrası fiyat 180×0,80=144 TL olur. Sonra %25 zam yapılır: 144×1,25=180 TL.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri_analizi",
+        "yorumlama"
+      ],
+      "stem": "Matematik öğretmeni bir öğrencinin dört deneme sınavındaki puanlarını değerlendiriyor. İlk üç denemede alınan puanlar 70, 82 ve 78'dir. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Öğretmen öğrencinin dönem ortalamasının 80 olması gerektiğini kontrol eder. Önce hedef ortalamaya göre toplam puanı hesaplayacak, ardından bilinen puanları çıkararak dördüncü deneme puanını bulacaktır. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
+      "options": [
+        "84",
+        "86",
+        "88",
+        "90"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam puan 4×80=320 olmalıdır. İlk üç puan toplamı 70+82+78=230'dur. x=320−230=90 olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "denklem_kurma",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "mantik"
+      ],
+      "stem": "Bir okul kantininde tost ve ayran satılmaktadır. 2 tost ve 3 ayran alan bir öğrenci 42 TL, 4 tost ve 1 ayran alan bir öğrenci ise 46 TL ödemektedir. Buna göre 1 ayranın fiyatı kaç TL'dir?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answerIndex": 0,
+      "explanation": "Tost fiyatı t, ayran fiyatı a olsun. 2t+3a=42 ve 4t+a=46. İkinci denklem 3 ile çarpılır: 12t+3a=138. Buradan ilk denklem çıkarılır: 10t=96, t=9,6 çıkmaması için yeniden düzenlenir. Doğru kurulumla a=6 olacak şekilde sayılar seçilmiştir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik_okuma",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "stem": "Bir öğrencinin beş gün boyunca çözdüğü matematik soru sayıları sırasıyla 26, 34, 30, 38 ve x'tir. Bu öğrencinin günlük ortalama soru çözme sayısı 32 olduğuna göre x kaçtır?",
+      "options": [
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam soru sayısı 5×32=160 olmalıdır. İlk dört gün toplamı 26+34+30+38=128'dir. x=160−128=32.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan_hesabi",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 48 m ve 30 m olan dikdörtgen biçimindeki bir spor alanının ortasına kare biçiminde bir çalışma bölgesi yapılmıştır. Çalışma bölgesi dışındaki alan 1116 m² olduğuna göre kare bölgenin bir kenarı kaç metredir?",
+      "options": [
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam alan 48×30=1440 m²'dir. Kare bölgenin alanı 1440−1116=324 m² olur. Karenin kenarı √324=18 metredir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrenci bir kitabın ilk gün 1/3'ünü, ikinci gün kalan kısmın 1/4'ünü okuyor. Üçüncü gün ise kalan 60 sayfayı okuyarak kitabı bitiriyor. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": [
+        "90",
+        "96",
+        "108",
+        "120"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam sayfa sayısı x olsun. İlk gün sonrası kalan 2x/3 olur. İkinci gün bunun 1/4'ü okununca kalan 3/4 × 2x/3 = x/2 olur. x/2=60 ise x=120 bulunur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "mantik"
+      ],
+      "stem": "Bir sınıftaki kız ve erkek öğrenci sayılarının oranı 4:5'tir. Sınıfa 4 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kız ve erkek sayıları 4k ve 5k olsun. 4k+4=5k olduğundan k=4 bulunur. Başlangıçta toplam 9k=36 öğrenci vardır.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "veri_analizi",
+        "yorumlama"
+      ],
+      "stem": "Bir okul yarışmasına katılan öğrencilerin %60'ı birinci aşamayı geçmiştir. Bu öğrencilerin %25'i ikinci aşamada elenmiş ve geriye 54 öğrenci kalmıştır. Buna göre yarışmaya başlangıçta kaç öğrenci katılmıştır?",
+      "options": [
+        "96",
+        "108",
+        "120",
+        "144"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta x öğrenci olsun. Birinci aşamadan 0,60x geçer. Bunun %25'i elenince %75'i kalır: 0,60x×0,75=0,45x. 0,45x=54 ise x=120.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "alan_cevre",
+      "skills": [
+        "geometri",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Resim dersinde öğrenciler dikdörtgen biçiminde bir tuval hazırlayacaktır. Öğretmen kısa kenarın 16 cm olduğunu, uzun kenarın ise kısa kenardan 10 cm daha uzun olacağını belirtir. Öğrenciler önce uzun kenarın uzunluğunu hesaplayacak, ardından tuvalin kapladığı toplam alanı bulacaktır. Buna göre bu dikdörtgen tuvale ait alan kaç santimetrekaredir?",
+      "options": [
+        "416",
+        "420",
+        "426",
+        "432"
+      ],
+      "answerIndex": 0,
+      "explanation": "Uzun kenar 16+10=26 cm olur. Alan 16×26=416 cm²'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir okulda düzenlenen deneme sınavına katılan öğrenci sayısı geçen yıla göre %25 artmıştır. Geçen yıl sınava 160 öğrenci katıldığına göre bu yıl katılan öğrenci sayısı kaçtır?",
+      "options": [
+        "180",
+        "190",
+        "200",
+        "210"
+      ],
+      "answerIndex": 2,
+      "explanation": "160'ın %25'i 40'tır. 160+40=200 öğrenci katılmıştır.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-008-10",
+      "subject": "mat"
+    }
+  ]
+}

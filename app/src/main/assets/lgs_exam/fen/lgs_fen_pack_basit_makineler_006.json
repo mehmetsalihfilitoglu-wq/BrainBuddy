@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir kaldıraçta yük kolu 3 m, kuvvet kolu 12 m'dir. Bu kaldıraçla 360 N'luk bir yük dengelenmek isteniyor. Buna göre uygulanması gereken kuvvet kaç N'dur?",
+      "options": [
+        "60",
+        "75",
+        "90",
+        "120"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu = 12 / 3 = 4'tür. Uygulanan kuvvet = 360 / 4 = 90 N olur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q01"
+    },
+    {
+      "stem": "Kuvvet kazancı 6 olan ideal bir makara sistemiyle bir yük 2 m yükseltiliyor. Buna göre ip kaç metre çekilmiştir?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "İdeal sistemde kuvvetten kazanç kadar yoldan kayıp vardır. İp çekilme miktarı = 2 × 6 = 12 m olur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q02"
+    },
+    {
+      "stem": "Yüksekliği 2 m olan iki eğik düzlemden K'nin uzunluğu 4 m, L'nin uzunluğu 8 m'dir. Aynı yük bu düzlemlerle yukarı çıkarılıyor. İdeal sistem kabul edildiğinde aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "K düzleminde daha az kuvvet gerekir.",
+        "L düzleminde daha az kuvvet gerekir.",
+        "İki düzlemde yapılan iş farklıdır.",
+        "K düzleminde kuvvet kazancı daha fazladır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "INCLINED_PLANE_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["egik_duzlem", "kuvvet", "uzunluk"],
+      "explanation": "Eğik düzlem uzadıkça uygulanan kuvvet azalır. Aynı yük aynı yüksekliğe çıkarıldığından ideal durumda yapılan iş aynıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q03"
+    },
+    {
+      "stem": "240 N'luk bir yük, sürtünmelerin önemsenmediği bir sistemle 3 m yukarı çıkarılıyor. Bu işlem sırasında yapılan iş kaç joule'dür?",
+      "options": [
+        "360",
+        "480",
+        "600",
+        "720"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "WORK_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["is", "kuvvet", "yol", "enerji"],
+      "explanation": "İş = Kuvvet × Yol = 240 × 3 = 720 J.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q04"
+    },
+    {
+      "stem": "Bir dişli sisteminde 40 dişli büyük çark, 10 dişli küçük çarkı döndürmektedir. Büyük çark 1 tur attığında küçük çark kaç tur atar?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "GEAR_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["disli_cark", "tur_sayisi", "oran"],
+      "explanation": "Dişli sayısı ile tur sayısı ters orantılıdır. 40 dişli çark 1 tur attığında 10 dişli çark 40/10 = 4 tur atar.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q05"
+    },
+    {
+      "stem": "Bir öğrenci aynı ağırlıktaki iki yükü farklı sistemlerle kaldırıyor. K sisteminde kuvvet kazancı 3 olan kaldıraç, L sisteminde kuvvet kazancı 3 olan makara kullanıyor. Sistemler ideal kabul edildiğine göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "K sisteminde yapılan iş daha azdır.",
+        "L sisteminde uygulanan kuvvet daha azdır.",
+        "Her iki sistemde uygulanan kuvvet eşittir.",
+        "Her iki sistemde hem kuvvet hem yol aynıdır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "COMBINED_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "makara", "kuvvet_kazanci"],
+      "explanation": "Aynı yük ve aynı kuvvet kazancı olduğundan ideal sistemlerde gereken kuvvet aynıdır. İşten kazanç yoktur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q06"
+    },
+    {
+      "stem": "Bir kaldıraçta destek noktası yüke yaklaştırılırsa, diğer her şey sabit kalırken aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Kuvvet kolu kısalır, kuvvet kazancı azalır.",
+        "Kuvvet kolu uzar, kuvvet kazancı artar.",
+        "Yük kolu uzar, kuvvet kazancı artar.",
+        "Yük kolu kısalır, kuvvet kazancı azalır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "destek_noktasi", "kuvvet_kazanci"],
+      "explanation": "Destek yüke yaklaştırıldığında yük kolu kısalır, kuvvet kolu uzar. Böylece kuvvet kazancı artar.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q07"
+    },
+    {
+      "stem": "Aynı kalınlıkta iki vidadan K'nın diş aralığı daha küçük, L'nin diş aralığı daha büyüktür. Aynı ortama vidalanacak bu vidalar için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "K vidası daha az turla ilerler ve daha az kuvvet gerektirir.",
+        "L vidası daha çok turla ilerler ve daha çok kuvvet gerektirir.",
+        "K vidası daha çok turla ilerler ve daha az kuvvet gerektirir.",
+        "İki vida da aynı tur sayısı ve aynı kuvvetle ilerler."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "SCREW_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["vida", "dis_araligi", "kuvvet_kazanci"],
+      "explanation": "Diş aralığı küçüldükçe vida bir turda daha az ilerler. Bu nedenle daha çok tur gerekir ancak daha küçük kuvvetle iş yapılabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q08"
+    },
+    {
+      "stem": "Kuvvet kazancı 4 olan bir kaldıraçla 320 N'luk bir yük dengeleniyor. Bu sistemde yük 1 m yükseltilmek istenirse ideal koşullarda kuvvetin uygulandığı uç kaç metre yol almalıdır?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "İdeal basit makinelerde kuvvetten kazanç kadar yoldan kayıp vardır. Kuvvet kazancı 4 ise yük 1 m yükselirken kuvvet uygulanan uç 4 m yol alır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q09"
+    },
+    {
+      "stem": "Basit makinelerle ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+      "options": [
+        "Kuvvetin yönünü değiştirebilirler.",
+        "Kuvvetten kazanç sağlanıyorsa yoldan kayıp vardır.",
+        "İdeal koşullarda yapılan işi azaltırlar.",
+        "Enerji üretmezler."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["basit_makine", "is", "enerji"],
+      "explanation": "İdeal koşullarda basit makineler yapılan işi azaltmaz; sadece işi kolaylaştırır. İşten kazanç yoktur.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_006_q10"
+    }
+  ]
+}

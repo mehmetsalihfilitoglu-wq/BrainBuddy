@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler_ve_tablo",
+      "skills": [
+        "veri_analizi",
+        "yuzde_hesabi",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okul yararına düzenlenen kitap fuarında soru bankaları 48 TL, deneme sınavı kitapçıkları ise 30 TL'den satılmaktadır. Fuarda birinci gün 16 soru bankası ve 24 deneme satılmıştır. İkinci gün soru bankası satış sayısı birinci güne göre %25 artmış, deneme satış sayısı ise 6 azalmıştır. Salon kirası iki gün için toplam 2400 TL olduğuna göre fuardan elde edilen net kâr kaç TL'dir?",
+      "options": [
+        "528",
+        "558",
+        "588",
+        "618"
+      ],
+      "answerIndex": 2,
+      "explanation": "1. gün gelir: 16×48 + 24×30 = 1488. 2. gün soru bankası 20, deneme 18 olur. 2. gün gelir: 20×48 + 18×30 = 1500. Toplam gelir 2988, kira 2400 olduğundan kâr 588 TL'dir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-001",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler_ve_ortalama",
+      "skills": [
+        "oran_oranti",
+        "veri_analizi",
+        "problem_cozme"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir öğrenci beş gün boyunca çözdüğü matematik soru sayılarını çalışma çizelgesine yazmıştır. Pazartesi 24 soru çözmüştür. Salı günü, pazartesi gününden %50 daha fazla soru çözmüştür. Çarşamba günü salı gününden 8 eksik soru çözmüştür. Perşembe günü çözdüğü soru sayısı, ilk dört günün ortalaması 30 olacak şekilde belirlenmiştir. Cuma günü ise perşembe gününden %25 daha fazla soru çözmüştür. Buna göre öğrenci cuma günü kaç soru çözmüştür?",
+      "options": [
+        "36",
+        "38",
+        "40",
+        "42"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pazartesi 24, salı 36, çarşamba 28'dir. İlk dört gün ortalaması 30 ise toplam 120 olmalıdır. Perşembe 120 - 88 = 32 olur. Cuma, 32'nin %25 fazlası yani 40'tır.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-002",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "alan_hesabi",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "questionType": "geometri_yorum",
+      "stem": "Kenar uzunlukları 36 m ve 24 m olan dikdörtgen biçimindeki bir okul bahçesinin etrafına, her kenardan içeriye doğru 3'er metre bırakılarak yürüyüş yolu yapılacaktır. Geriye kalan iç bölge çimle kaplanacaktır. Buna göre yürüyüş yolu olarak ayrılan kısmın alanı kaç metrekaredir?",
+      "options": [
+        "300",
+        "312",
+        "324",
+        "336"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin tamamı 36×24 = 864 m²'dir. İçte kalan dikdörtgenin kenarları 30 m ve 18 m olur, alanı 540 m²'dir. Yol alanı 864 - 540 = 324 m²'dir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-003",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "kesirler_ve_oran",
+      "skills": [
+        "kesirler",
+        "mantik",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir sınıftaki öğrencilerin 2/5'i robotik kulübüne katılmıştır. Robotik kulübüne katılmayan öğrencilerin 1/3'ü ise satranç kulübüne katılmıştır. Geriye kalan 24 öğrenci de müzik kulübüne katılmıştır. Buna göre satranç kulübüne katılan öğrenci sayısı kaçtır?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam öğrenci sayısı x olsun. Robotikten sonra geriye 3x/5 kalır. Bunun 1/3'ü satranç olduğundan satranç x/5 olur. Geriye 2x/5 kalır ve bu 24'e eşit olduğundan x = 60 bulunur. Satranç kulübü x/5 = 12 öğrencidir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-004",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "questionType": "mantik",
+      "stem": "Bir kütüphanedeki üç rafta bulunan matematik kitaplarının sayıları 2 : 3 : 5 oranındadır. Üçüncü raftan 12 kitap alınarak birinci rafa konulduğunda, birinci raftaki kitap sayısı ikinci raftaki kitap sayısına eşit oluyor. Buna göre başlangıçta üç rafta toplam kaç kitap vardır?",
+      "options": [
+        "96",
+        "108",
+        "120",
+        "132"
+      ],
+      "answerIndex": 2,
+      "explanation": "Raflardaki kitap sayıları 2k, 3k ve 5k olsun. Aktarma sonrası 2k + 12 = 3k olur, buradan k = 12 bulunur. Toplam kitap sayısı 10k = 120'dir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-005",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "rasyonel_sayilar_ve_is_orani",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir su deposunu A musluğu tek başına 4 saatte, B musluğu ise tek başına 6 saatte doldurmaktadır. Depo önce 1,5 saat boyunca iki musluk birlikte açık kalacak şekilde dolduruluyor. Daha sonra A musluğu kapatılıyor ve B musluğu 1 saat daha tek başına çalışıyor. Buna göre deponun dolmayan kısmı deponun kaçta kaçıdır?",
+      "options": [
+        "1/6",
+        "5/24",
+        "7/24",
+        "1/3"
+      ],
+      "answerIndex": 0,
+      "explanation": "A'nın hızı 1/4, B'nin hızı 1/6 depodur. Birlikte hızları 5/12 olur. 1,5 saatte 5/8 depo dolar. Sonraki 1 saatte B, 1/6 depo daha doldurur. Toplam dolan kısım 5/8 + 1/6 = 19/24 olur. Kalan kısım 5/24'tür.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-006",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "denklem_kurma",
+      "skills": [
+        "denklem",
+        "tablo_okuma",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okul kantininde bir gün boyunca sadece simit ve meyve suyu satılmıştır. Bir simit 12 TL, bir meyve suyu 8 TL'dir. Gün sonunda toplam 35 ürün satıldığı ve elde edilen gelirin 360 TL olduğu bilinmektedir. Buna göre satılan simit sayısı kaçtır?",
+      "options": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
+      "answerIndex": 2,
+      "explanation": "Simit sayısı x, meyve suyu sayısı 35 - x olsun. 12x + 8(35 - x) = 360 denkleminden 4x = 80, buradan x = 20 bulunur.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-007",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "problem_cozme",
+        "mantik"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir sınıfta kız ve erkek öğrenci sayılarının oranı 2 : 3'tür. Sınıfa 4 kız öğrenci daha geldiğinde kız öğrenci sayısının erkek öğrenci sayısına oranı 3 : 4 oluyor. Buna göre sınıftaki başlangıç öğrenci sayısı kaçtır?",
+      "options": [
+        "64",
+        "72",
+        "80",
+        "96"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta kız ve erkek sayıları 2k ve 3k olsun. Yeni durumda (2k + 4) / 3k = 3 / 4 olur. İçler dışlar çarpımından 8k + 16 = 9k, buradan k = 16 bulunur. Başlangıç toplamı 5k = 80'dir.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-008",
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir ekosistemde üreticilerden başlayarak tüketicilere doğru enerji aktarımı gerçekleşir. Enerji aktarımı sırasında her basamakta enerjinin bir kısmı ısı olarak kaybedilir. Buna göre aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "Enerji miktarı besin zincirinde yukarı çıktıkça artar",
+        "Enerji üreticilerde en azdır",
+        "Enerji miktarı besin zincirinde yukarı çıktıkça azalır",
+        "Enerji tüketiciler arasında eşit dağılır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "ENERGY_FLOW_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_akis", "besin_zinciri", "ekosistem"],
+      "explanation": "Enerji aktarımı sırasında her basamakta enerji kaybı olur. Bu nedenle enerji miktarı üst basamaklara çıkıldıkça azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q01"
+    },
+    {
+      "stem": "Bir besin zinciri aşağıdaki gibidir:\n\nOt → Tavşan → Tilki\n\nBu zincirde tilkinin sayısının artması aşağıdakilerden hangisine yol açabilir?",
+      "options": [
+        "Ot sayısının azalmasına",
+        "Tavşan sayısının azalmasına",
+        "Tilki sayısının azalmasına",
+        "Ot sayısının artmasına"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "FOOD_CHAIN_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "avci_av", "ekosistem"],
+      "explanation": "Tilki sayısı arttığında tavşanlar daha fazla avlanır ve sayıları azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q02"
+    },
+    {
+      "stem": "Enerji piramidinde üreticiler en alt basamakta yer alır. Bunun temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "En fazla enerjiye sahip olmaları",
+        "En az canlı sayısına sahip olmaları",
+        "Enerji üretmemeleri",
+        "Sadece hayvanlardan oluşmaları"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "uretici", "ekosistem"],
+      "explanation": "Enerji piramidinde en fazla enerji üreticilerde bulunur.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q03"
+    },
+    {
+      "stem": "Atmosferde sera gazlarının artması aşağıdaki sonuçlardan hangisine neden olur?",
+      "options": [
+        "Küresel sıcaklığın artmasına",
+        "Dünyanın daha hızlı dönmesine",
+        "Atmosfer basıncının azalmasına",
+        "Yer çekiminin artmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["sera_gazi", "kuresel_isinma", "iklim"],
+      "explanation": "Sera gazları atmosferde ısı tutulmasına neden olur ve küresel sıcaklık artar.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q04"
+    },
+    {
+      "stem": "Bir belediye enerji politikası için fosil yakıt alternatifi arıyor. Aşağıdaki kaynaklardan hangisi tüketildikçe kısa sürede doğal yollarla yenilenebildiği ve sera gazı salınımı açısından fosil yakıtlardan farklı değerlendirildiği için tercih edilebilir?",
+      "options": [
+        "Petrol",
+        "Kömür",
+        "Güneş",
+        "Doğal gaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "RENEWABLE_ENERGY_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "gunes", "enerji_kaynagi"],
+      "explanation": "Güneş enerjisi yenilenebilir bir enerji kaynağıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q05"
+    },
+    {
+      "stem": "Bir hidroelektrik santralinde aşağıdaki enerji dönüşümlerinden hangisi gerçekleşir?",
+      "options": [
+        "Kimyasal → Elektrik",
+        "Potansiyel → Elektrik",
+        "Isı → Kimyasal",
+        "Elektrik → Işık"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_donusumu", "potansiyel_enerji", "elektrik"],
+      "explanation": "Barajdaki suyun potansiyel enerjisi elektrik enerjisine dönüşür.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q06"
+    },
+    {
+      "stem": "Karbon döngüsünde bitkilerin temel görevi aşağıdakilerden hangisidir?",
+      "options": [
+        "Karbonu atmosfere vermek",
+        "Karbonu toprakta yok etmek",
+        "Karbonu fotosentez ile kullanmak",
+        "Karbonu suya dönüştürmek"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "fotosentez", "bitki"],
+      "explanation": "Bitkiler fotosentez sırasında karbondioksiti kullanır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q07"
+    },
+    {
+      "stem": "Bir enerji raporunda şu kaynaklar karşılaştırılıyor: rüzgar, güneş, kömür, jeotermal. Bunlardan hangisi milyonlarca yıl önce organik kalıntıların basınç ve sıcaklık altında dönüşmesiyle oluşan ve yenilenemeyen sınıfta yer alır?",
+      "options": [
+        "Rüzgar",
+        "Güneş",
+        "Kömür",
+        "Jeotermal"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "ENERGY_SOURCE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["fosil_yakit", "enerji_kaynagi", "komur"],
+      "explanation": "Kömür fosil yakıt kaynaklarındandır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q08"
+    },
+    {
+      "stem": "Bir besin zincirinde üretici → birincil tüketici → ikincil tüketici sıralaması bulunmaktadır. Buna göre en fazla enerji hangi canlı grubunda bulunur?",
+      "options": [
+        "Üreticiler",
+        "Birincil tüketiciler",
+        "İkincil tüketiciler",
+        "Hepsinde eşit"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "enerji_piramidi", "uretici"],
+      "explanation": "Enerji piramidinde en fazla enerji üreticilerde bulunur.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q09"
+    },
+    {
+      "stem": "Sera gazı salınımını azaltmak amacıyla önerilen politikalar arasında hangisi bilimsel olarak küresel ısınmayı yavaşlatmada etkili kabul edilir?",
+      "options": [
+        "Fosil yakıt tüketimini artırmak",
+        "Orman alanlarını azaltmak",
+        "Yenilenebilir enerji (güneş, rüzgar vb.) kullanımını artırmak",
+        "Sanayi ve ulaşım faaliyetlerini artırmak"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["kuresel_isinma", "yenilenebilir_enerji", "cevre"],
+      "explanation": "Yenilenebilir enerji kullanımı sera gazı salınımını azaltır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_001_q10"
+    }
+  ]
+}

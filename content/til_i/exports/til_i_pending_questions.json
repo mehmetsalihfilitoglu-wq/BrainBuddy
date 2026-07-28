@@ -1,0 +1,1210 @@
+{
+ "note": "Questions extracted from likely-TIL sources but HELD BACK from the official bank. 50 flagged examConfidence=uncertain (possible TOLC leakage); 36 from Mock_Test-1 (authorship unconfirmed). Re-verify before any promotion to official.",
+ "count": 86,
+ "questions": [
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "logic",
+   "source": "src_repr",
+   "stem": "Consider an arbitrary sequence of 51 consecutive numbers. We want to find what is the minimum number of multiples of 9 that can be contained in the sequence. We can say that",
+   "options": {
+    "A": "the minimum number is 5",
+    "B": "the minimum number is 6",
+    "C": "we cannot answer, since the required number depends on the starting point of the sequence",
+    "D": "all the other answers are wrong",
+    "E": "the minimum number is 4"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "mathematics",
+   "source": "src_repr",
+   "stem": "Consider the equation sin^2 x - 4 sin x + 4 = 0, we can say that",
+   "options": {
+    "A": "x = 1 + π/2 is one of its solutions",
+    "B": "x = π/4 is one of its solutions",
+    "C": "it has an infinite number of solutions",
+    "D": "it has no solutions",
+    "E": "x = 5π/2 is one of its solutions"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "mathematics",
+   "source": "src_repr",
+   "stem": "The inequality (x - 2)/(x^2 + 3) < 1 is verified",
+   "options": {
+    "A": "for all real numbers",
+    "B": "never",
+    "C": "only for x = 0",
+    "D": "only for x < -1 or x > 1",
+    "E": "only for 2 < x < √3"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "mathematics",
+   "source": "src_repr",
+   "stem": "[Frequency table of weight classes: 150-169 -> 70; 170-189 -> 50; 190-209 -> 20; at least 210 -> 20; Total 320. Upper rows of the table are cut off.] If an individual is chosen at random, then",
+   "options": {
+    "A": "the probability that his weight is not less than 110 lbs is 25/32",
+    "B": "the probability that his weight is at least 110 lbs but less than 170 lbs is 17/32",
+    "C": "the probability that his weight is less than 130 lbs is 1/2",
+    "D": "the probability that his weight is less than 190 lbs but not less than 90 lbs is 11/16",
+    "E": "the probability that his weight is at least 150 lbs is 1/3"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Two homogeneous bodies have the same mass but different volumes. If they are hung from two identical dynamometers fixed to the ceiling of a room (filled with air), what is expected to happen and why?",
+   "options": {
+    "A": "The dynamometer from which the larger body is hung indicates a larger force, because of the buoyant force due to air",
+    "B": "The dynamometer from which the larger body is hung indicates a smaller force, due to the presence of voids inside",
+    "C": "It is impossible to answer without knowing the shape of the bodies",
+    "D": "The dynamometer from which the larger body is hung indicates a smaller force, because of the buoyant force due to air",
+    "E": "The two dynamometers will indicate the same force because the bodies have the same mass"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "In a thermodynamic cycle, an ideal thermal engine absorbs an amount of heat Q2 > 0 from a hot reservoir and uses it to perform a work L > 0, exchanging an amount of heat Q1 = -4L < 0 with a cold reservoir. What is its efficiency?",
+   "options": {
+    "A": "1.2",
+    "B": "0.8",
+    "C": "0.3",
+    "D": "0.2",
+    "E": "0.4"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "A body is moving with a velocity whose magnitude is constant. What can be said about the forces applied to it?",
+   "options": {
+    "A": "That their sum is zero only if the trajectory of the body is straight",
+    "B": "That their sum is never zero",
+    "C": "That their sum is zero",
+    "D": "That their sum is zero only if the trajectory is straight or circular",
+    "E": "That they are all zero"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "A stone falls from a height of 20 m. When it touches the ground, its speed will be (consider g = 10 m/s^2):",
+   "options": {
+    "A": "17 m/s",
+    "B": "20 m/s",
+    "C": "25 m/s",
+    "D": "5 m/s",
+    "E": "15 m/s"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Four coins are thrown starting from the same height and with initial velocities equal to: coin A (v0x, v0y) = (0, +1) m/s; coin B (v0x, v0y) = (+2, 0) m/s; coin C (v0x, v0y) = (+2, +5) m/s; coin D (v0x, v0y) = (+2, +2) m/s. The components refer to two Cartesian axes x (horizontal) and y (vertical, directed upwards). Which coin falls on the floor last?",
+   "options": {
+    "A": "coin C",
+    "B": "they hit the ground at the same time",
+    "C": "coin A",
+    "D": "coin B",
+    "E": "coin D"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "In the International System, the measurement unit of the angular acceleration is:",
+   "options": {
+    "A": "m^-2 s^-2",
+    "B": "s^-2",
+    "C": "m^-2 s^-1",
+    "D": "kg m s^-2",
+    "E": "m s^-1"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "In an oscillating simple pendulum, the tension of the rope is:",
+   "options": {
+    "A": "minimal when the rope is vertical",
+    "B": "zero when the rope forms the maximum angle with the vertical",
+    "C": "maximum when the rope forms the maximum angle with the vertical",
+    "D": "maximum when the rope is vertical",
+    "E": "constant"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Let a = (ax, ay) = (5, 2) and b = (bx, by) = (2, 5) be two vectors in the (x, y) Cartesian plane. What is the magnitude of the vector difference d = a - b?",
+   "options": {
+    "A": "d = 3",
+    "B": "d = 7",
+    "C": "d = 7√2",
+    "D": "d = 0",
+    "E": "d = 3√2"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "What is, and how is measured (in the International System of Units) the latent heat of melting of a substance?",
+   "options": {
+    "A": "it is the heat necessary to melt that substance at the melting temperature and is measured in J",
+    "B": "it is the heat necessary to melt 1 kg of that substance and is measured in J/kg",
+    "C": "it is the heat necessary to increase the temperature of that substance by 1 K and is measured in J/K",
+    "D": "it is the heat necessary to melt 1 kg of that substance and is measured in J/(kg K)",
+    "E": "it is the heat necessary to increase the temperature of 1 kg of that substance by 1 K and is measured in J/(kg K)"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "A point-like object is dropped, with zero initial velocity, from a tower of height h1 = 20m. Let v1 be its speed when it reaches the ground. If, instead, the same object is dropped from a tower of height h2 = 80m, what will be its final speed?",
+   "options": {
+    "A": "√2 v1",
+    "B": "v1",
+    "C": "4 v1",
+    "D": "1/(4 v1)",
+    "E": "2 v1"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Two carriages of mass m1 = 300 kg and m2 = 200 kg, connected by a rigid rod of negligible mass, are pushed with a force F = 1000 N on a horizontal rail without friction (see figure). What is the force T that the rod exerts on the 200 kg carriage?",
+   "options": {
+    "A": "T=2500 N",
+    "B": "T=1000 N",
+    "C": "T=400 N",
+    "D": "T=600 N",
+    "E": "T=1666 N"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "A body moves with uniform circular motion on a circumference of radius R = 4 m. The magnitude of its velocity is v = 2 m/s. What is the magnitude of its centripetal acceleration?",
+   "options": {
+    "A": "1 m/s",
+    "B": "0.5 m/s",
+    "C": "it is not possible to calculate it",
+    "D": "1 m/s^2",
+    "E": "0.5 m/s^2"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "An ideal gas, which initially occupies a volume equal to 10 l and whose absolute temperature is equal to T, undergoes a thermodynamic transformation at constant pressure at the end of which the temperature becomes 1.2 T. What can be said about the volume at the end of the transformation?",
+   "options": {
+    "A": "it has increased by 1 l",
+    "B": "it has not changed",
+    "C": "it has decreased by 2 l",
+    "D": "it has decreased by 1 l",
+    "E": "it has increased by 2 l"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Is it possible that two non-null vectors a and b have null scalar product?",
+   "options": {
+    "A": "Yes if they are antiparallel",
+    "B": "No",
+    "C": "Yes if they are parallel",
+    "D": "Yes if they have length 1",
+    "E": "Yes if they are perpendicular"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Calculate the average speed of a motorcycle that is moving along a straight line, always in the same direction, covering 80 m with speed v1 = 20 m/s and the following 20 m with v2 = 10 m/s.",
+   "options": {
+    "A": "about 13 m/s",
+    "B": "about 15 m/s",
+    "C": "about 17 m/s",
+    "D": "18 m/s",
+    "E": "about 22 m/s"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_repr",
+   "stem": "Given a Cartesian coordinate system, a point-like object of mass m moves with speed v along the x axis, in the negative direction of the axis itself. What is the kinetic energy of the object?",
+   "options": {
+    "A": "mv",
+    "B": "None of the other answers is correct",
+    "C": "(1/2)mv^2",
+    "D": "-mv",
+    "E": "-(1/2)mv^2"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "reading_comprehension",
+   "source": "src_4c",
+   "stem": "The thinnest solar cell",
+   "options": {
+    "A": "has a fragile power-to-weight ratio",
+    "B": "is too light for use with balloons",
+    "C": "can be used to make soap bubbles",
+    "D": "is approximately six times more efficient",
+    "E": "performs better than silicon-based cells"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "reading_comprehension",
+   "source": "src_4c",
+   "stem": "To produce very thin solar cells,",
+   "options": {
+    "A": "glass and plastic layers are put together",
+    "B": "a typical method of fabrication is used",
+    "C": "all contaminants are eliminated",
+    "D": "the layers are all produced separately",
+    "E": "three components are made simultaneously"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "reading_comprehension",
+   "source": "src_4c",
+   "stem": "The researchers believe that to make future solar cells",
+   "options": {
+    "A": "parylene must always be used",
+    "B": "various materials can be combined",
+    "C": "perovskite is the best material",
+    "D": "paper and fabric are good coatings",
+    "E": "different surfaces are necessary"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "reading_comprehension",
+   "source": "src_4c",
+   "stem": "The researchers Adenis and Landrain",
+   "options": {
+    "A": "discovered a new bacteria",
+    "B": "produced blue antibiotics",
+    "C": "extracted ink from antibiotics",
+    "D": "used bacteria to obtain ink",
+    "E": "grew bacteria in a biology lab"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "reading_comprehension",
+   "source": "src_4c",
+   "stem": "Demirel's polymer",
+   "options": {
+    "A": "is useful in extreme environments",
+    "B": "comes from squid teeth",
+    "C": "makes the original material stronger",
+    "D": "is used to repair fibre-optic cables",
+    "E": "can break hydrogen bonds"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Two point-like charges q1 = 8 nC and q2 = -2 nC are placed at a distance r from each other. Is there a point, in the straight segment connecting them, where the electrostatic potential is zero? Let M be the midpoint of such segment.",
+   "options": {
+    "A": "yes, and it lies between M and the position of q2",
+    "B": "yes, and [unreadable] M an[d] [unreadable] of q1",
+    "C": "yes, and it coincides with the position of q2",
+    "D": "yes, and it coincides with M",
+    "E": "no, it does not exist"
+   },
+   "correctAnswer": "A"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Two iron wires have the same length but different cross-section areas S1 and S2. What is the relation between the resistances R1 and R2 of the two wires, if S2 = 4 S1?",
+   "options": {
+    "A": "2R1 = R2",
+    "B": "R1 = 4R2",
+    "C": "4R1 = R2",
+    "D": "R1 = R2",
+    "E": "R1 = 2R2"
+   },
+   "correctAnswer": "B"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Four coins are thrown starting from the same height and with initial velocities equal to: coin A (v0x, v0y) = (0, +1) m/s; coin B (v0x, v0y) = (+2, 0) m/s; coin C (v0x, v0y) = (+2, +5) m/s; coin D (v0x, v0y) = (+2, +2) m/s. The components refer to two Cartesian axes x (horizontal) and y (vertical, directed upwards). Which coin falls on the floor last?",
+   "options": {
+    "A": "coin C",
+    "B": "they hit the ground at the same time",
+    "C": "coin A",
+    "D": "coin B",
+    "E": "coin D"
+   },
+   "correctAnswer": "C"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "In the International System, the measurement unit of the angular acceleration is",
+   "options": {
+    "A": "m^-2 s^-2",
+    "B": "s^-2",
+    "C": "m^-2 s^-1",
+    "D": "kg m s^-2",
+    "E": "m s^-1"
+   },
+   "correctAnswer": "D"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Two homogeneous bodies have the same mass but different volumes. If they are hung from two identical dynamometers fixed to the ceiling of a room (filled with air), what is expected to happen and why?",
+   "options": {
+    "A": "The dynamometer from which the larger body is hung indicates a larger force, because of the buoyant force due to air",
+    "B": "The dynamometer from which the larger body is hung indicates a smaller force, due to the presence of voids inside",
+    "C": "It is impossible to [unreadable] knowing the shape of the bodies",
+    "D": "The dynamometer from which the larger body is hung indicates a smaller force, because of the buoyant force due to air",
+    "E": "The two dynamometers will indicate the same force because the bodies have the same mass"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "In a thermodynamic cycle, an ideal thermal engine absorbs an amount of heat Q2 > 0 from a hot reservoir and uses it to perform a work L > 0, exchanging an amount of heat Q1 = -4L < 0 with a cold reservoir. What is its efficiency?",
+   "options": {
+    "A": "1.2",
+    "B": "0.8",
+    "C": "0.3",
+    "D": "0.2",
+    "E": "0.4"
+   },
+   "correctAnswer": "D"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A body is moving with a velocity whose magnitude is constant. What can be said about the forces applied to it?",
+   "options": {
+    "A": "That their sum is zero only if the trajectory of the body is straight",
+    "B": "That their sum is never zero",
+    "C": "That their sum is zero",
+    "D": "That their sum is zero only if the trajectory is straight or circular",
+    "E": "That they are all zero"
+   },
+   "correctAnswer": "C"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "What is, and how is measured (in the International System of Units) the latent heat of melting of a substance?",
+   "options": {
+    "A": "it is the heat necessary to melt that substance at the melting temperature and is measured in J",
+    "B": "it is the heat [unreadable] 1 kg of that substance and is measured in J/kg",
+    "C": "it is the heat necessary to increase the temperature of that substance by 1 K and is measured in J/K",
+    "D": "is the heat necessary to melt 1 kg of that substance and is measured in J/(kg K)",
+    "E": "it is the heat necessary to increase the temperature of 1 kg of that substance by 1 K and is measured in J/(kg K)"
+   },
+   "correctAnswer": "A"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A point-like object is dropped, with zero initial velocity, from a tower of height h1 = 20 m. Let v1 be its speed when it reaches the ground. If, instead, the same object is dropped from a tower of height h2 = 80 m, what will be its final speed?",
+   "options": {
+    "A": "√2 v1",
+    "B": "v1",
+    "C": "4 v1",
+    "D": "1/(4 v1)",
+    "E": "2 v1"
+   },
+   "correctAnswer": "E"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A stone falls from a height of 20 m. When it touches the ground, its speed will be (consider g = 10 m/s^2):",
+   "options": {
+    "A": "17 m/s",
+    "B": "20 m/s",
+    "C": "25 m/s",
+    "D": "5 m/s",
+    "E": "15 m/s"
+   },
+   "correctAnswer": "B"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A stone is thrown vertically upward. Considered a non negligible friction of the air proportional to the speed of stone and in the opposite direction of its motion. If g is acceleration of gravity. [The deceleration/acceleration of the stone]:",
+   "options": {
+    "A": "is greater than g.",
+    "B": "is equal to g.",
+    "C": "is zero.",
+    "D": "is lower than g.",
+    "E": "has a value that depends on the initial speed of stone."
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "If we considered a solid body with uniform density ρ that is floating partially immersed in a fluid of density ρ'. Which of the following statement is correct?",
+   "options": {
+    "A": "ρ is smaller than ρ' and the fraction of the total volume that is submerged is equal to the ratio ρ/ρ'.",
+    "B": "none of the others answer is correct.",
+    "C": "[not present]",
+    "D": "[not present]",
+    "E": "[not present]"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Unit of measure of electric field in international system.",
+   "options": {
+    "A": "V/s",
+    "B": "Vs",
+    "C": "Vm",
+    "D": "Nc",
+    "E": "N/C."
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A homogeneous object of mass m and volume V, placed in a container filled with a liquid of density ρ, floats on the surface of the liquid, partially emerging from it. Which of the following statements is correct?",
+   "options": {
+    "A": "The buoyant force is equal to the density of the body multiplied by the acceleration of gravity",
+    "B": "The buoyant force is equal to the weight of the body",
+    "C": "The buoyant force is equal to the mass of the body",
+    "D": "The buoyant force is greater than the mass of the body",
+    "E": "The buoyant force is smaller than the weight of the body"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A horizontal force F drags two boxes of mass m1 and m2, connected by a rope (see figure) on a frictionle[ss] [plane]. [F is applied to m1 via] the rope. What is the relationship between F and T?",
+   "options": {
+    "A": "to answer it is necessary to know the value of the masses m1 e m2",
+    "B": "F=T",
+    "C": "none of the other answers",
+    "D": "F>T",
+    "E": "F<T"
+   },
+   "correctAnswer": "D"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Three capacitors of capacitance C1, C2 and C3 (with C2 = 2C1 and C3 = 2C2) are connected in series. Let V1, V2 and V3 the potential differences between their plates. Which of the following sentences is correct?",
+   "options": {
+    "A": "V3 = 4V1",
+    "B": "V3 = 8V1",
+    "C": "V3 = 0.5V1",
+    "D": "V3 = V1",
+    "E": "V3 = 0.25V1"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A body moves with uniform circular motion on a circumference of radius R = 4 m. The magnitude of its velocity is v = 2 m/s. What is the magnitude of its angular velocity?",
+   "options": {
+    "A": "0.5 m/s",
+    "B": "4 rad/s",
+    "C": "it is not possible to calculate it",
+    "D": "0.5 rad/s",
+    "E": "1 rad/s"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Two bodies A and B of masses mA = 1 kg and mB = 2 kg are initially at rest at the same height y0 = 80 cm above a horizontal plane. At t = 0, they are both released. A slides along a plane inclined by an angle θ = 45° while B falls vertically. Let tA and tB be the time required for A and B to reach the horizontal plane, vA and vB the corresponding speed at tA and tB. Which of the following results is correct? (assume g = 10 m/s²)",
+   "options": {
+    "A": "vA = vB = 4 m/s and tA = √2 tB",
+    "B": "vA = 2vB and tA = tB = 0.4 s",
+    "C": "vA = vB = 4 m/s and tA = (1/2)tB = 0.8 s",
+    "D": "vA = (1/2)vB and tA = tB = 0.4 s",
+    "E": "vA = vB = 4 m/s and tA = (1/√2) tB"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A mass m = 10 kg is hung from a dynamometer whose upper end is fixed to the ceiling of an elevator. If the dynamometer reads a force P = 90 N, what can we say about the motion of the elevator? (assume g = 10 m/s²)",
+   "options": {
+    "A": "the elevator has an acceleration a = 9 m/s² directed upward",
+    "B": "the elevator has an acceleration a = 1 m/s² directed upward",
+    "C": "the elevator is moving downward",
+    "D": "the elevator has an acceleration a = 9 m/s² directed downward",
+    "E": "the elevator has an acceleration a = 1 m/s² directed downward"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A referee tosses the coin to decide which team has to start the match. If the coins reaches a height of 1 m above the release point, which was its initial speed? (assume for simplicity that g = 10 m/s^2)",
+   "options": {
+    "A": "about 20 m/s",
+    "B": "it is impossible to answer unless the time of flight is given",
+    "C": "about 3.3 m/s",
+    "D": "about 4.5 m/s",
+    "E": "about 1 m/s"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A bullet of mass m = 2 g is fired with speed v = 300 m/s into a wooden block (fixed to the floor). The bullet penetrates into the block for a distance s = 30 cm, then it stops and remains embedded in the block. Calculate the frictional force that the wood exerts on the bullet, supposed to be constant.",
+   "options": {
+    "A": "P = 450 N",
+    "B": "P = 150 N",
+    "C": "P = 225 N",
+    "D": "P = 90 N",
+    "E": "P = 300 N"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A body can move along the x axis. At t = 0 it is at rest, then starts moving with acceleration a = 15 m/s^2. What is its position after 10 seconds?",
+   "options": {
+    "A": "150 m",
+    "B": "75 m",
+    "C": "250 m",
+    "D": "there are not enough data to answer",
+    "E": "750 m"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Consider two perpendicular vectors a and b, both different from zero. Their scalar product a . b is:",
+   "options": {
+    "A": "A vector that forms an angle of 45° with both of them",
+    "B": "A vector whose magnitude is 0",
+    "C": "A scalar equal to zero",
+    "D": "A scalar equal to ab",
+    "E": "A vector perpendicular to the plane on which a and b lie"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "Two objects of the same material and mass m1 = 2m2 are at the initial temperature T1 = 5°C and T2 = 20°C, respectively. They are placed in the same adiabatic container and after a while they reach a balance temperature Teq = 10°C. Calculate the specific heat of the material",
+   "options": {
+    "A": "c = 2,2 kJ/(kg·K)",
+    "B": "c = 4,18 kJ/(kg·K)",
+    "C": "c = 3,3 kJ/(kg·K)",
+    "D": "With the data of the problem it is not possible to determine the specific heat of the material",
+    "E": "c = 8 kJ/(kg·K)"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "exam_confidence_uncertain",
+   "section": "physics",
+   "source": "src_physics",
+   "stem": "A body, initially stopped, is pushed along a frictionless plane with a force of 20 N. After 3 s the body speed is 4 m/s. What is the mass of the body?",
+   "options": {
+    "A": "M = 2 kg",
+    "B": "M = 1.5 kg",
+    "C": "M = 5 kg",
+    "D": "M = 1.3 kg",
+    "E": "M = 15 kg"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "if the angle X (measured in radians) is such that 2π < X < (5/2)π then it turns out that :",
+   "options": {
+    "A": "cos(X/2) < sin(X/2) < -√2/2",
+    "B": "sin(X/2) < -√2/2 < cos(X/2)",
+    "C": "sin(X/2) < cos(X/2) < √2/2",
+    "D": "cos(X/2) < -√2/2 < sin(X/2)",
+    "E": "-√2/2 < cos(X/2) < sin(X/2)"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let a and b be non-negative real numbers, simplifying the expression √(a³ + 3a²b + ab²) - √a³ + √(ab²) you get :",
+   "options": {
+    "A": "√a (b² - a²)",
+    "B": "2a√b",
+    "C": "√b (a² - b²)",
+    "D": "b√a",
+    "E": "2b√a"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let A and B be two natural numbers whose sum is 500. How much does their product decrease if each of them is decreased by 5?",
+   "options": {
+    "A": "25",
+    "B": "2475",
+    "C": "525",
+    "D": "1375",
+    "E": "75"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let n be a positive natural number. The expression n^(4n) - (2n)^(2n) is equivalent to:",
+   "options": {
+    "A": "n(n^(2n) - 4^n)",
+    "B": "n^(2n)(n² - 4^n)",
+    "C": "n(n^(3n) - 4^n)",
+    "D": "n^(2n)(n^n - 2^n)(n^n + 2^n)",
+    "E": "n^n(n^4 - 4^n)"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Fixed a system of coordination in the plane. Consider the curve C having equation y = (x - 2)². The line X + y - 2 = 0 intersects C in :",
+   "options": {
+    "A": "0 point",
+    "B": "1 point",
+    "C": "2 point",
+    "D": "3 point",
+    "E": "infinitely many points"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let C₁ and C₂ be circles in the plane having, respectively, radiuses 1 and 3 and having distance between the centers equal 5. Find the correct statement:",
+   "options": {
+    "A": "C₁ and C₂ have no point in common",
+    "B": "C₁ and C₂ have more than two point in common",
+    "C": "C₁ and C₂ have exactly two points in common",
+    "D": "C₁ and C₂ are tangent to each other",
+    "E": "C₁ and C₂ have no point in common and C₂ is inside the disk bounded by C₁"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "The letters C, O, P, R have already been extracted from a bag that originally contained 26 letters: the 21 letters of the Italian alphabet (without J K W X Y) with the 5 vowels (A E I O U) repeated twice. What is the possibility that after the next draw, one can for the word CORPO?",
+   "options": {
+    "A": "1/11",
+    "B": "1",
+    "C": "1/22",
+    "D": "1/13",
+    "E": "1/26"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "For which of the following values a and p there exist a non-degenerate triangle with one side of length a and perimeter p?",
+   "options": {
+    "A": "a = 5, p = 4",
+    "B": "a = 3, p = 5",
+    "C": "a = 2, p = 5",
+    "D": "a = 4, p = 8",
+    "E": "a = 6, p = 10"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "The equation x^(11/3) - 9x = 0 :",
+   "options": {
+    "A": "has 11 distinct real roots.",
+    "B": "has 9 (and only 9) distinct real roots",
+    "C": "has 2 (and only 2) distinct real roots",
+    "D": "has 3 (and only 3) distinct real roots",
+    "E": "cannot be solved"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "For any real number a, it is true that:",
+   "options": {
+    "A": "(3|a|-4)/(3|a|+9) ≥ 1",
+    "B": "(3|a|-4)/(3|a|+9) < -4/9",
+    "C": "-4/9 ≤ (3|a|-4)/(3|a|+9) < 1",
+    "D": "-4/9 < (3|a|-4)/(3|a|+9) ≤ 1",
+    "E": "-4/9 < (3|a|-4)/(3|a|+9) < 1"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Fixed a system of coordinates in the plane, consider the points A= (1,1) B=(1,-1) C=(1,-3) Let r_AB, r_BC and r_CA be the lines joining respectively, the points A,B and B,C and C,A. Find the correct statement:",
+   "options": {
+    "A": "The lines r_AB and r_BC are orthogonal",
+    "B": "The lines r_AB and r_CA are orthogonal",
+    "C": "The lines r_BC and r_CA are orthogonal",
+    "D": "The lines r_AB, r_BC and r_CA have no point in common",
+    "E": "The 3 lines are coincide"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let x₁ and x₂ be the roots of polynomial 3x² + 6x - 9. Find the correct answer:",
+   "options": {
+    "A": "the roots are not real numbers.",
+    "B": "x₁ + x₂ = -2",
+    "C": "x₁ + x₂ = -6",
+    "D": "x₁x₂ = 9",
+    "E": "x₁x₂ = 3"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "If x = log_5 90 and y = log_26 90, then:",
+   "options": {
+    "A": "26x = 5y",
+    "B": "x > 2y",
+    "C": "x < 2y",
+    "D": "x < y",
+    "E": "none of the other alternatives is correct"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "consider two straight lines, one equation y = ax - 1 and the other one y = bx + 11. Knowing that the two lines meet at the point of abscissa x = 4 and that, we conduct that:",
+   "options": {
+    "A": "a = 1",
+    "B": "a = 2",
+    "C": "a = 3",
+    "D": "a = 4",
+    "E": "a = 5"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "A polygon consists of a square and two congurent isosceles triangles, whose bases coincide with two opposite sides of the square. The polygon's perimeter is 36 cm long, and the square's perimeter is 32 cm long. Then the polygon's area is",
+   "options": {
+    "A": "76 cm2",
+    "B": "88 cm2",
+    "C": "64 cm2",
+    "D": "176 cm2",
+    "E": "100cm2"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "mathematics",
+   "source": "src_mock1",
+   "stem": "Let S1 and S2 be spheres in the space respectively with radius 5 and 3 and with centers whose distance is 1 Then",
+   "options": {
+    "A": "S1 and S2 have no common points",
+    "B": "S1 and S2 intersect in a plane",
+    "C": "S1 and S2 have exactly one common point",
+    "D": "S1 and S2 have exactly two common points",
+    "E": "S1 and S2 intersect in a circle"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "logic",
+   "source": "src_mock1",
+   "stem": "Five identical scales are labelled from 1 to 5. we know that for each M = 1, ... ,5 the scale with label M adds M kg to each weighing. The labels are then removed and the scaled are shuffled. A bag is weighed on each scale, producing the following measures in kg: 9,10,11,12,13. How many kg does it weigh?",
+   "options": {
+    "A": "7",
+    "B": "8",
+    "C": "9",
+    "D": "10",
+    "E": "11"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "logic",
+   "source": "src_mock1",
+   "stem": "The negation of proposition \"All participants at the Politechnico entrance test are 19y old\" corresponds to :",
+   "options": {
+    "A": "There is a participant who is under 19y old",
+    "B": "There is a participant who is not 19y old",
+    "C": "There is a participant who is over 19y old",
+    "D": "None of the participants is 19y old",
+    "E": "None of the participants is under 19y old"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "logic",
+   "source": "src_mock1",
+   "stem": "In a prize game, a lot of discount coupons is randomly distributed among 10 competitors who receive 2 coupons each. The lot consist of 2 coupons of the value of n for any integer n from 1 to 10. If the coupons of the first competitor have a total of 17$, then it is true:",
+   "options": {
+    "A": "it is possible that there are 3 competitors each of them obtaining coupons with a total value of 3$",
+    "B": "it is possible that another competitor obtains a coupon with a total value of 17$",
+    "C": "at least a competitor obtains coupons with a total value of 16$",
+    "D": "at least a competitor obtains coupons with a total value of 28$",
+    "E": "it is possible that there are 2 competitors each of them obtaining coupons with a total value of 20$"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "logic",
+   "source": "src_mock1",
+   "stem": "At the end of summer a group of fiends meet to talk about the holidays just ended. 63% of them was on vacation at sea and 57% of them was on holiday in mountains. We can state that:",
+   "options": {
+    "A": "more than half of them have been on holiday on mountains but not at the sea",
+    "B": "less than half of them have been on holiday at sea but not in the mountains",
+    "C": "those who have done one of these two types are more than four times who did both",
+    "D": "those who have done both are more than half of those who have been at sea alone",
+    "E": "those who have done both are less than half of those who have been in mountains alone"
+   },
+   "correctAnswer": "E"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "logic",
+   "source": "src_mock1",
+   "stem": "Five suspects of a crime, when questioned by the police, made the following statements: Ark: it was Ben or Carl; Ben: Eric and I both are innocent; Carl: Ark and Ben are both lying; Dan: one of the Ark and ben is lying, while the other one is telling the truth; Eric: Dans statement is false. Three of them spoke the truth, while two of them made a false statement. If only one of them was guilty, who was it?",
+   "options": {
+    "A": "Ark",
+    "B": "Ben",
+    "C": "Carl",
+    "D": "Dan",
+    "E": "Eric"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "what is the volume occupied by n moles of an ideal gas at pressure p and absolute temperature T ?",
+   "options": {
+    "A": "V = nT/(Rp)",
+    "B": "V = Tp/(nR)",
+    "C": "V = p/(nRT)",
+    "D": "V = nRT/p",
+    "E": "V = nR/(Tp)"
+   },
+   "correctAnswer": "D"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "Two identical glasses placed on the same horizontal table contain the same value of two different fluids. In one case it is water, in the other olive oil (that has a density smaller than of water). In which case the pressure at bottom will be larger?",
+   "options": {
+    "A": "olive oil",
+    "B": "water",
+    "C": "the pressure is the same it is not influenced by density",
+    "D": "it is impossible to answer without knowing the atmospheric pressure",
+    "E": "it depends on the value of acceleration gravity"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "Two objects made of the same material and of masses m1 and m2, with m1 = a·m2, are initially at temperatures T1 = 5°c and T2 = 20°c, respectively. They are then put in same adiabatic container and, after some time, reach the equilibrium temperature Teq = 10°c . What is the value of a ?",
+   "options": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "5",
+    "E": "10"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "If 200 N is the minimum horizontal force F that a man has to apply to a 80kg box to make it move, what is the coefficient of static friction μ between the box and the floor? (g=10)",
+   "options": {
+    "A": "0.2",
+    "B": "0.25",
+    "C": "0.3",
+    "D": "0.4",
+    "E": "0.5"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "A car starts from rest and accelerates steadily, reaching the speed of 40 m/s after traveling a distance of 80m . What is its constant acceleration?",
+   "options": {
+    "A": "1m/s",
+    "B": "5m/s",
+    "C": "7m/s",
+    "D": "10m/s",
+    "E": "15m/s"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "In the international system, the unit of measurement of work is equivalent to:",
+   "options": {
+    "A": "kgm/s",
+    "B": "kgm/s^2",
+    "C": "kgm^2/s^2",
+    "D": "kgm^2/s",
+    "E": "kgs^2/m^2"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "Is it possible that two non-null vectors a and b have null scalar product",
+   "options": {
+    "A": "Yes if they are antiparallel",
+    "B": "No",
+    "C": "Yes if they are parallel",
+    "D": "Yes if they have length 1",
+    "E": "Yes if they are perpendicular"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "One ball has a mass of 10 g and a volume of 10 cm3. If it is completely immersed in a container full of distilled water (density 1 gr/cm3) what happens ?",
+   "options": {
+    "A": "the ball sinks",
+    "B": "it is impossible to answer without knowing if the ball has a cavity or not",
+    "C": "the ball floats on the surface, with half of its volume submerged",
+    "D": "the ball remains in equilibrium where it is placed, without sinking or rising to the surface",
+    "E": "the ball rises and falls into the liquid without stopping."
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "The passenger of a convertible car travelling at speed v on a straight line throws a baseball upwards (vertically with respect to himself) so that it reaches the maximum altitude of 15 meters. If the frivtion with the air is negligible, what must the driver of the car do to make the ball fall back into the hand of the passenger who threw it ?",
+   "options": {
+    "A": "the driver must accelerate but not turn",
+    "B": "the driver must maintain constant speed and not turn",
+    "C": "the driver should stop immediately",
+    "D": "the driver must slow down but not turn",
+    "E": "there are not enough data to answer"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "physics",
+   "source": "src_mock1",
+   "stem": "In a oscillating simple pendulum, the tension of the rope is",
+   "options": {
+    "A": "always greater than the component of the weight force in the direction of the rope",
+    "B": "constant",
+    "C": "always smaller than the component of the weight force in the direction of the rope",
+    "D": "greater than or equal to the component of the weight force in the direction of the rope",
+    "E": "always equal to the component of the weight force in the direction of the rope"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "representation",
+   "source": "src_mock1",
+   "stem": "Given a length of 80 cm, what will its representation correspond to on a scale 1:10?",
+   "options": {
+    "A": "4 cm",
+    "B": "10 cm",
+    "C": "160 mm",
+    "D": "88 mm",
+    "E": "8 cm"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "computer_science",
+   "source": "src_mock1",
+   "stem": "How many operating systems are typically installed on a new smartphone",
+   "options": {
+    "A": "3",
+    "B": "1",
+    "C": "0",
+    "D": "2",
+    "E": "None of the other options"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "representation",
+   "source": "src_mock1",
+   "stem": "Given the two orthogonal projections of the object (top view and front view), identify the thirt corresponding view (side view)",
+   "options": {
+    "A": "[see figure] option 1",
+    "B": "[see figure] option 2",
+    "C": "[see figure] option 3",
+    "D": "[see figure] option 4",
+    "E": "[see figure] option 5"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "computer_science",
+   "source": "src_mock1",
+   "stem": "[Scratch code block] set a to 5; set b to 2.45; if (a > 2.4) and (b < 2.4) then say 'Accettato!' else say 'Non accettato!'. What is the printed output at the end of the program",
+   "options": {
+    "A": "The program stops on the if waiting for input",
+    "B": "Non accettato!",
+    "C": "Accettato!",
+    "D": "The program does not print anything",
+    "E": "The program contains an error"
+   },
+   "correctAnswer": "unknown"
+  },
+  {
+   "reason": "practice_source_unconfirmed_authorship_Mock_Test-1",
+   "section": "representation",
+   "source": "src_mock1",
+   "stem": "What kind of representation is used in the figure ?",
+   "options": {
+    "A": "section",
+    "B": "elevated projection",
+    "C": "perspective",
+    "D": "front elevation",
+    "E": "Axonometry"
+   },
+   "correctAnswer": "unknown"
+  }
+ ]
+}

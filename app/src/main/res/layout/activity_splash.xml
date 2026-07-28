@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_edumio_mascot"
+        android:contentDescription="@string/dc_cd_mascot"
+        android:layout_marginBottom="18dp"/>
+
+    <!-- Wordmark: EDU (green) + mio (black) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDU"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:letterSpacing="-0.01"
+            android:textColor="@color/brand_primary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mio"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:letterSpacing="-0.01"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/splash_tagline"
+        android:textSize="13sp"
+        android:textColor="@color/text_secondary"/>
+
+</LinearLayout>

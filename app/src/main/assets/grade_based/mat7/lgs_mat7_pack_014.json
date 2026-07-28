@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0130",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 5) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "92",
+        "97",
+        "80",
+        "87"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+5) = 44 → x = 6. Alan = x(2x+5) = 92 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0130",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0131",
+      "stem": "Kenarları 8 m ve 15 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "120",
+        "44",
+        "0",
+        "1"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (8-8)×(15-8) = 0×7 = 0 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0131",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0132",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 75, 75, 75, 75, 78 puan almıştır. Altıncı sınava girince ortalaması 76 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "78",
+        "76",
+        "73",
+        "83"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 378. 6. sınav x ise (total5 + x)/6 = 76 → x = 78.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0132",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0133",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 10 TL zam yapılmış, ardından 9 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "10",
+        "-9",
+        "1",
+        "0"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 10 - 9 = 2x → x(1-2) = -1 → x = 1 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0133",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0134",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0134",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0135",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "10",
+        "9",
+        "12",
+        "8"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0135",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0136",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "8",
+        "10",
+        "6",
+        "7"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0136",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0137",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 90° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "90",
+        "180",
+        "270",
+        "271"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 90° ise diğerleri toplam 270°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0137",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0138",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 20 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "64",
+        "59",
+        "69",
+        "67"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 20. k+3 = 2(e+2) → e = 21, k = 43. Toplam = 64.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0138",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0139",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 12 TL zam yapılmış, ardından 15 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "6",
+        "2",
+        "-6",
+        "-2"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 3x → x(1-3) = -4 → x = 2 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0139",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

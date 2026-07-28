@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat3_0420",
+      "stem": "4 öğrencinin sınav puanları 70, 80, 90, 80'dir. Ortalama kaçtır?",
+      "options": [
+        "81",
+        "320",
+        "79",
+        "80"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "70+80+90+80=320, 320÷4=80.",
+      "source": "edumio",
+      "sourceRef": "mat3_0420",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0421",
+      "stem": "5, 5, 6, 7, 5 sayılarında en çok tekrar eden hangisidir?",
+      "options": [
+        "Hiçbiri",
+        "7",
+        "6",
+        "5"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "5 üç kez, diğerleri daha az. Tepe değer 5.",
+      "source": "edumio",
+      "sourceRef": "mat3_0421",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0422",
+      "stem": "3 çocuğun yaşları 8, 9, 10'dur. Yaşları toplamı kaçtır?",
+      "options": [
+        "9",
+        "26",
+        "27",
+        "28"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+9+10=27.",
+      "source": "edumio",
+      "sourceRef": "mat3_0422",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0423",
+      "stem": "6 öğrencinin boyları 120, 122, 120, 125, 120, 121 cm. En kısa boy kaç cm'dir?",
+      "options": [
+        "121",
+        "125",
+        "119",
+        "120"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En küçük değer 120 cm.",
+      "source": "edumio",
+      "sourceRef": "mat3_0423",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0424",
+      "stem": "4 öğrencinin sınav puanları 70, 80, 90, 80'dir. Ortalama kaçtır?",
+      "options": [
+        "80",
+        "320",
+        "79",
+        "81"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "70+80+90+80=320, 320÷4=80.",
+      "source": "edumio",
+      "sourceRef": "mat3_0424",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0425",
+      "stem": "5, 5, 6, 7, 5 sayılarında en çok tekrar eden hangisidir?",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "Hiçbiri"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "5 üç kez, diğerleri daha az. Tepe değer 5.",
+      "source": "edumio",
+      "sourceRef": "mat3_0425",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0426",
+      "stem": "3 çocuğun yaşları 8, 9, 10'dur. Yaşları toplamı kaçtır?",
+      "options": [
+        "9",
+        "27",
+        "28",
+        "26"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+9+10=27.",
+      "source": "edumio",
+      "sourceRef": "mat3_0426",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0427",
+      "stem": "6 öğrencinin boyları 120, 122, 120, 125, 120, 121 cm. En kısa boy kaç cm'dir?",
+      "options": [
+        "125",
+        "120",
+        "119",
+        "121"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En küçük değer 120 cm.",
+      "source": "edumio",
+      "sourceRef": "mat3_0427",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0428",
+      "stem": "4 öğrencinin sınav puanları 70, 80, 90, 80'dir. Ortalama kaçtır?",
+      "options": [
+        "81",
+        "79",
+        "80",
+        "320"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "70+80+90+80=320, 320÷4=80.",
+      "source": "edumio",
+      "sourceRef": "mat3_0428",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0429",
+      "stem": "5, 5, 6, 7, 5 sayılarında en çok tekrar eden hangisidir?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "Hiçbiri"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "5 üç kez, diğerleri daha az. Tepe değer 5.",
+      "source": "edumio",
+      "sourceRef": "mat3_0429",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

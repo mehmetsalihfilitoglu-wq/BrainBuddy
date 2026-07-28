@@ -1,0 +1,15 @@
+{
+  "total_issues": 1,
+  "files_changed": [
+    "app\\src\\main\\assets\\lgs_import\\mat\\lgs_mat_gold_032.json"
+  ],
+  "issues": [
+    {
+      "file": "C:\\Users\\39351\\AndroidStudioProjects\\EDUmio\\app\\src\\main\\assets\\lgs_import\\mat\\lgs_mat_gold_032.json",
+      "question_index": 1,
+      "issue": "inconsistent_explanation",
+      "detail": "explanation contradicts: says '16 değildir' but correct answer is 16",
+      "fix_applied": "Updated explanation to remove contradiction"
+    }
+  ]
+}

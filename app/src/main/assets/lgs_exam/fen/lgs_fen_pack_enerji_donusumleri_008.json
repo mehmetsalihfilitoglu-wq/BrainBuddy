@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir ekosistemde çimenlerle beslenen tavşan ve çekirgeler; çekirgelerle beslenen kurbağalar; tavşan ve kurbağalarla beslenen tilkiler bulunmaktadır. Bu ekosistemde çekirge popülasyonunun büyük ölçüde azalması aşağıdaki sonuçlardan hangisine en doğrudan yol açabilir?",
+      "options": [
+        "Kurbağa sayısının azalmasına",
+        "Tavşan sayısının kesin olarak azalmasına",
+        "Tilki sayısının hemen artmasına",
+        "Çimen miktarının kesin olarak azalmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_agi", "avci_av", "populasyon"],
+      "explanation": "Kurbağalar çekirgelerle beslendiği için çekirge sayısındaki azalma kurbağaların besin kaynağını azaltır ve sayılarının azalmasına yol açabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q01"
+    },
+    {
+      "stem": "Bir ekosistemde üreticilerde 15000 birim enerji bulunmaktadır. Enerjinin yaklaşık %10'u bir üst trofik düzeye aktarılıyorsa ikincil tüketicilerde yaklaşık kaç birim enerji bulunur?",
+      "options": [
+        "1500",
+        "150",
+        "15",
+        "1,5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "enerji_akis", "trofik_duzey"],
+      "explanation": "Üreticilerden birincil tüketicilere 1500, ikincil tüketicilere yaklaşık 150 birim enerji aktarılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q02"
+    },
+    {
+      "stem": "Bir araştırmada son 50 yılda atmosferdeki karbondioksit miktarı ile ortalama küresel sıcaklık değerlerinin birlikte arttığı görülmüştür. Bu veri aşağıdakilerden hangisini destekler?",
+      "options": [
+        "Karbondioksit ile sıcaklık arasında ilişki olabileceğini",
+        "Sıcaklık artışının tek nedeni karbondioksit olduğunu",
+        "Karbondioksitin Dünya'nın dönmesini hızlandırdığını",
+        "Sıcaklık artışının karbondioksiti tamamen yok ettiğini"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["veri_yorumlama", "karbondioksit", "kuresel_isinma"],
+      "explanation": "Veriler iki değişken arasında ilişki olduğunu gösterir ancak tek neden olduğunu kanıtlamaz.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q03"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisinin artması atmosferdeki karbondioksit miktarını azaltıcı etki yapar?",
+      "options": [
+        "Fosil yakıt kullanımının artması",
+        "Ormanların yok edilmesi",
+        "Fotosentez hızının artması",
+        "Sanayi faaliyetlerinin artması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "fotosentez", "karbondioksit"],
+      "explanation": "Fotosentez sırasında bitkiler karbondioksiti kullanır ve oksijen üretir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q04"
+    },
+    {
+      "stem": "Azot döngüsünde görev yapan bakterilerin yok olması aşağıdaki sonuçlardan hangisine en doğrudan yol açar?",
+      "options": [
+        "Bitkilerin azotlu bileşiklere ulaşmasının zorlaşmasına",
+        "Güneş ışınlarının Dünya'ya ulaşamamasına",
+        "Atmosferdeki oksijenin yok olmasına",
+        "Su döngüsünün durmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "NITROGEN_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["azot_dongusu", "bakteri", "bitki"],
+      "explanation": "Azot döngüsündeki bakteriler atmosfer azotunu bitkilerin kullanabileceği forma dönüştürür.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q05"
+    },
+    {
+      "stem": "Aşağıdaki enerji üretim yöntemlerinden hangisinde doğrudan yenilenebilir enerji kaynağı kullanılmaktadır?",
+      "options": [
+        "Kömür santrali",
+        "Petrol santrali",
+        "Rüzgar türbini",
+        "Doğal gaz santrali"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "ruzgar", "elektrik_uretim"],
+      "explanation": "Rüzgar enerjisi yenilenebilir bir enerji kaynağıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q06"
+    },
+    {
+      "stem": "Bir bölgede sıcaklığın artması buharlaşma miktarını artırmaktadır. Bu durum aşağıdaki olaylardan hangisini doğrudan etkileyebilir?",
+      "options": [
+        "Bulut oluşumunu",
+        "Yer kabuğunun yapısını",
+        "Dünya'nın dönme hızını",
+        "Yer çekimi kuvvetini"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "WATER_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["su_dongusu", "buharlasma", "bulut"],
+      "explanation": "Buharlaşmanın artması atmosferdeki su buharını artırarak bulut oluşumunu etkiler.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q07"
+    },
+    {
+      "stem": "Bir besin zincirinde üretici → fare → yılan → kartal sıralaması vardır. Fare sayısının ciddi biçimde azalması aşağıdaki sonuçlardan hangisine neden olabilir?",
+      "options": [
+        "Yılan sayısının azalmasına",
+        "Üretici sayısının azalmasına",
+        "Kartal sayısının kesin olarak artmasına",
+        "Yılan sayısının kesin olarak artmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "FOOD_CHAIN_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "avci_av", "populasyon"],
+      "explanation": "Yılanlar farelerle beslendiği için fare sayısının azalması yılanların besin miktarını azaltır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q08"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi küresel ısınmanın azaltılmasına katkı sağlar?",
+      "options": [
+        "Fosil yakıt kullanımının artırılması",
+        "Ormanların korunması",
+        "Sanayi faaliyetlerinin artırılması",
+        "Motorlu taşıt sayısının artırılması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["kuresel_isinma", "orman", "karbon_dongusu"],
+      "explanation": "Ormanlar fotosentez yaparak atmosferdeki karbondioksit miktarını azaltır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q09"
+    },
+    {
+      "stem": "Enerji akışı ve madde döngüsü karşılaştırıldığında aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Enerji ve madde ekosistemde aynı şekilde dolaşır",
+        "Enerji tek yönlü akar, maddeler döngü halinde tekrar kullanılır",
+        "Madde tek yönlü akar, enerji döngü yapar",
+        "Enerji ve madde ekosistemde hiç değişmez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_akis", "madde_dongusu", "ekosistem"],
+      "explanation": "Enerji ekosistemde tek yönlü akar ve ısı olarak kaybedilir. Maddeler ise döngüler aracılığıyla tekrar kullanılır.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_008_q10"
+    }
+  ]
+}

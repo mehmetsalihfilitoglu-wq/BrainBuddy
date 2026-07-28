@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ========== BrainBuddy Design System ========== -->
+    <!-- ========== EDUmio Design System ========== -->
 
-    <!-- Widget.BrainBuddy.Card: shared card style for Home + ParentHub + Reports.
+    <!-- Widget.EDUmio.Card: shared card style for Home + ParentHub + Reports.
          Premium look: 24dp radius, surface container bg, light stroke, soft elevation. -->
-    <style name="Widget.BrainBuddy.Card" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
         <item name="cardElevation">@dimen/card_elevation</item>
         <item name="cardBackgroundColor">?attr/colorSurfaceContainer</item>
@@ -14,83 +14,141 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
     <!-- Premium CTA card: primaryContainer bg for premium highlight -->
-    <style name="Widget.BrainBuddy.Card.PremiumCTA" parent="Widget.BrainBuddy.Card">
+    <style name="Widget.EDUmio.Card.PremiumCTA" parent="Widget.EDUmio.Card">
         <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
         <item name="strokeColor">?attr/colorOutlineVariant</item>
         <item name="android:foreground">@null</item>
     </style>
 
     <!-- Reports typography: card titles (TitleMedium + semiBold) -->
-    <style name="TextAppearance.BrainBuddy.Reports.CardTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Reports.CardTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
     <!-- Reports typography: descriptions (BodySmall/BodyMedium + onSurfaceVariant) -->
-    <style name="TextAppearance.BrainBuddy.Reports.CardDescription" parent="TextAppearance.Material3.BodyMedium">
+    <style name="TextAppearance.EDUmio.Reports.CardDescription" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Reports.CardDescriptionSmall" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Reports.CardDescriptionSmall" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
     <!-- Premium CTA card: title + body on primaryContainer -->
-    <style name="TextAppearance.BrainBuddy.Reports.PremiumTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Reports.PremiumTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Reports.PremiumBody" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Reports.PremiumBody" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
 
     <!-- ========== Global App Card (Home + Parent Panel) ========== -->
-    <style name="Widget.BrainBuddy.AppCardWhite" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.AppCardWhite" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">@dimen/app_card_radius</item>
         <item name="cardElevation">@dimen/app_card_elevation</item>
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="strokeColor">@color/emerald_primary</item>
+        <item name="strokeColor">?attr/colorOutlineVariant</item>
         <item name="strokeWidth">@dimen/app_card_stroke_width</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.AppTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.AppTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/app_title</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.AppSubtitle" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.AppSubtitle" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/app_subtitle</item>
     </style>
 
     <!-- Parent Panel: emerald cards with white text (deprecated - use AppCardWhite) -->
-    <style name="Widget.BrainBuddy.ParentEmeraldCard" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.ParentEmeraldCard" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/emerald_primary</item>
         <item name="strokeWidth">0dp</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Parent.Title" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Parent.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_on_emerald</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Parent.Caption" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Parent.Caption" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/text_on_emerald_muted</item>
     </style>
 
     <!-- Typography -->
-    <style name="TextAppearance.BrainBuddy.Title" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Body" parent="TextAppearance.Material3.BodyMedium">
+    <style name="TextAppearance.EDUmio.Body" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Caption" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Caption" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- ========== Dialogs: ONE component look app-wide ==========
+         Material3 draws dialogs on colorSurfaceContainerHigh. The theme never defined the
+         surface-container roles, so every dialog and bottom sheet fell back to the Material
+         BASELINE (purple-tinted) surface instead of EDUmio white. These three styles fix that
+         centrally: same white container, same 22dp radius, same title/body/button treatment,
+         everywhere — no per-dialog styling. -->
+    <style name="ShapeAppearance.EDUmio.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_lg</item>
+    </style>
+
+    <style name="Widget.EDUmio.AlertDialog" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.EDUmio.Dialog</item>
+        <item name="backgroundTint">@color/surface_bg</item>
+    </style>
+
+    <!--
+        Dialog title. MUST be a WIDGET style descending from MaterialAlertDialog.*.Title.Text, never a
+        bare TextAppearance.
+
+        Material applies this attribute to a view that declares NO layout params of its own:
+            mtrl_alert_dialog_title.xml:36-38
+              <androidx.appcompat.widget.DialogTitle
+                  android:id="@+id/alertTitle"
+                  style="?attr/materialAlertDialogTitleTextStyle"/>
+        The width/height come from the style. Pointing the attribute at a TextAppearance (which carries
+        none) left the view with no width and crashed every titled dialog in the app with
+        "UnsupportedOperationException: Binary XML file line #38: You must supply a layout_width
+        attribute." — the vc19/vc20 production crash. Inheriting the Material style restores the params;
+        the three items below keep the EDUmio look identical.
+    -->
+    <style name="Widget.EDUmio.Dialog.TitleText" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.EDUmio.Dialog.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Dialog actions are TEXT buttons (never the tall filled CTA) so they read as dialog
+         actions, and confirm/cancel keep a consistent weight and order. -->
+    <style name="Widget.EDUmio.Dialog.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">@dimen/touch_target</item>
+    </style>
+
+    <style name="ThemeOverlay.EDUmio.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/Widget.EDUmio.AlertDialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.EDUmio.Dialog.TitleText</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.EDUmio.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.EDUmio.Dialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.EDUmio.Dialog.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.EDUmio.Dialog.Button</item>
     </style>
 
     <!-- ========== Legacy styles ========== -->
@@ -107,7 +165,7 @@
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardElevation">4dp</item>
-        <item name="cardBackgroundColor">@color/bb_card</item>
+        <item name="cardBackgroundColor">@color/edu_card</item>
     </style>
 
     <!-- Input: TextInputLayout + TextInputEditText -->
@@ -118,52 +176,54 @@
         <item name="boxCornerRadiusBottomEnd">12dp</item>
     </style>
 
-    <!-- Design system: BrainBuddy turquoise theme -->
-    <style name="BB" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/bb_primary</item>
+    <!-- Design system: EDUmio brand theme -->
+    <style name="Edu" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/edu_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/bb_primary</item>
+        <item name="colorSecondary">@color/edu_primary</item>
     </style>
 
     <!-- Card style: 20dp radius, soft shadow, 16-24dp padding -->
-    <style name="BB.Card">
+    <style name="Edu.Card">
         <item name="android:background">@drawable/bg_card</item>
         <item name="android:padding">20dp</item>
     </style>
 
     <!-- Section header: bold, large -->
-    <style name="BB.SectionHeader">
+    <style name="Edu.SectionHeader">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/bb_text</item>
+        <item name="android:textColor">@color/edu_text</item>
     </style>
 
     <!-- Stat chip: light background, readable text (Material3-like, premium look) -->
-    <style name="Widget.BrainBuddy.Chip.Stat" parent="Widget.Material3.Chip.Assist">
-        <item name="chipBackgroundColor">@color/bb_surface_container</item>
-        <item name="android:textColor">@color/bb_text</item>
-        <item name="chipStrokeColor">@color/bb_outline_variant</item>
+    <style name="Widget.EDUmio.Chip.Stat" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/edu_surface_container</item>
+        <item name="android:textColor">@color/edu_text</item>
+        <item name="chipStrokeColor">@color/edu_outline_variant</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipMinHeight">32dp</item>
     </style>
 
     <!-- Stat chip: medium, muted (legacy) -->
-    <style name="BB.StatChip">
+    <style name="Edu.StatChip">
         <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/bb_text_muted</item>
+        <item name="android:textColor">@color/edu_text_muted</item>
     </style>
 
-    <!-- Primary button: 56dp height, rounded, theme-aware -->
+    <!-- THE primary action button (app-wide default via materialButtonStyle).
+         Uses state-list colours so ENABLED vs DISABLED is unmistakable (UX rule 2) — a fixed
+         colorPrimary tint previously made a disabled CTA look perfectly pressable. -->
     <style name="BBButton" parent="Widget.Material3.Button">
-        <item name="android:minHeight">56dp</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
         <item name="android:paddingStart">24dp</item>
         <item name="android:paddingEnd">24dp</item>
-        <item name="cornerRadius">16dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@color/btn_primary_text</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="backgroundTint">@color/btn_primary_bg</item>
     </style>
 
     <!-- Secondary outlined: Primary stroke (theme-aware) -->
@@ -176,25 +236,100 @@
         <item name="strokeWidth">2dp</item>
     </style>
 
-    <style name="BB.Button" parent="BBButton"/>
+    <style name="Edu.Button" parent="BBButton"/>
 
     <!-- Home/standard card: uses shared AppCardWhite design -->
-    <style name="BB.HomeCard" parent="Widget.BrainBuddy.AppCardWhite" />
+    <style name="Edu.HomeCard" parent="Widget.EDUmio.AppCardWhite" />
 
     <!-- Home card chip: compact icon+text action -->
-    <style name="BB.HomeChip">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="Edu.HomeChip">
         <item name="android:paddingVertical">6dp</item>
         <item name="android:drawablePadding">8dp</item>
-        <item name="android:textColor">@color/bb_primary</item>
+        <item name="android:textColor">@color/edu_primary</item>
         <item name="android:textSize">13sp</item>
     </style>
 
     <!-- Control row: icon + title + subtitle + chevron -->
-    <style name="BB.ControlRow">
+    <style name="Edu.ControlRow">
         <item name="android:padding">16dp</item>
         <item name="android:minHeight">56dp</item>
+    </style>
+
+    <!-- Subtle, cohesive screen transitions (200ms slide+fade). -->
+    <style name="Animation.Mio" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/mio_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/mio_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/mio_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/mio_close_exit</item>
+    </style>
+
+    <!-- ===== Wrong-question hub ("Yanlış Sorularım") =====================================
+         Shared components for this screen only. -->
+
+    <!-- The ONE action button for the wrong-question flow ("Soruyu tekrar çöz" / "Çözümü gör").
+         The old markup pinned android:layout_height="46dp", which overrode BBButton's 56dp minHeight;
+         MaterialButton then subtracts its default 6dp top + 6dp bottom insets, leaving a ~34dp content
+         box. 13sp bold Turkish text with descenders (ç, ğ, ş) does not fit in 34dp, so the label was
+         clipped. Here the height is content-driven with a 48dp floor, the insets are zeroed so the
+         declared height is the usable height, and the text is vertically centred on one line. -->
+    <style name="Widget.EDUmio.WrongQuestion.Action" parent="BBButton">
+        <!-- layout_width/height deliberately NOT set here: layout params are read by the parent during
+             generateLayoutParams and are not reliably resolved from a style. Setting them here caused the
+             vc19 production crash (UnsupportedOperationException: You must supply a layout_width
+             attribute). Every layout using this style declares both inline. -->
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">@dimen/space_12</item>
+        <item name="android:paddingEnd">@dimen/space_12</item>
+        <item name="android:paddingTop">@dimen/space_12</item>
+        <item name="android:paddingBottom">@dimen/space_12</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
+        <!-- At very large accessibility font scales the label shrinks within this range instead of
+             being truncated; the button box itself still grows, so nothing is ever cut off. -->
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMinTextSize">11sp</item>
+        <item name="autoSizeMaxTextSize">14sp</item>
+    </style>
+
+    <!-- Compact statistic card (Aktif / Sırada / Çözüldü). Same surface, radius and border language
+         as the question cards below it, so the header reads as part of the same screen. -->
+    <style name="Widget.EDUmio.StatCard" parent="Widget.Material3.CardView.Elevated">
+        <!-- Same radius / surface / flat elevation as item_wrong_question's card, so the header block
+             belongs to the same screen. Not clickable: these are read-only counters, so no foreground
+             ripple and no selectableItemBackground. -->
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/elevation_flat</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Names deliberately avoid the "Widget.EDUmio.StatCard.*" form: dot notation would make these
+         implicitly inherit the card style (0dp width, weight, match_parent height). -->
+    <style name="Widget.EDUmio.StatCardContent" parent="">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/space_8</item>
+        <item name="android:paddingEnd">@dimen/space_8</item>
+        <item name="android:paddingTop">@dimen/space_12</item>
+        <item name="android:paddingBottom">@dimen/space_12</item>
+    </style>
+
+    <!-- The number is the primary element; the label is secondary metadata beneath it. -->
+    <style name="Widget.EDUmio.StatCardValue" parent="">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/edu_text_dark</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="Widget.EDUmio.StatCardLabel" parent="">
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/edu_text_muted</item>
     </style>
 
 </resources>

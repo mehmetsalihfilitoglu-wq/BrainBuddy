@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir teknoloji mağazasında bir akıllı saatin etiket fiyatı 1600 TL'dir. Kampanya kapsamında önce ürün fiyatına %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 120 TL teslimat ve kurulum bedeli ekleniyor. Son aşamada öğrencilere özel olarak oluşan yeni fiyat üzerinden %10 indirim yapılıyor. Buna göre öğrenci bu akıllı saati kaç TL'ye satın alır?",
+      "options": [
+        "1160",
+        "1080",
+        "1200",
+        "1216"
+      ],
+      "answerIndex": 1,
+      "explanation": "1600 × 0,75 = 1200 TL olur. 120 TL eklenince 1320 TL olur. Son olarak %10 indirim uygulanır: 1320 × 0,90 = 1188 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir okul gezisine katılan kız ve erkek öğrencilerin sayıları 4 : 7 oranındadır. Gezi başlamadan hemen önce kız grubuna 9 öğrenci daha eklenirken erkek grubundan 6 öğrenci ayrılıyor. Bu değişimden sonra kız ve erkek öğrenci sayıları eşit olduğuna göre başlangıçta geziye katılan toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "44",
+        "55",
+        "66",
+        "77"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kız sayısı 4k, erkek sayısı 7k olsun. 4k + 9 = 7k - 6 olduğundan 3k = 15 ve k = 5 bulunur. Başlangıçtaki toplam öğrenci sayısı 11k = 55'tir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "tablo_okuma"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde 7 öğrencinin netleri 12, 13, 14, 16, 17, 18 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 16 olduğunu söylüyor. Buna göre x kaçtır?",
+      "options": [
+        "20",
+        "21",
+        "22",
+        "23"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam net sayısı 7 × 16 = 112 olmalıdır. Bilinen netlerin toplamı 12 + 13 + 14 + 16 + 17 + 18 = 90'dır. x = 112 - 90 = 22 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "long_context",
+      "stem": "Kare şeklindeki bir okul bahçesinin alanı 676 metrekaredir. Bu bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "96",
+        "104",
+        "108",
+        "112"
+      ],
+      "answerIndex": 1,
+      "explanation": "Bahçenin bir kenarı √676 = 26 metredir. Dıştan 1'er metre eklendiğinde dış karenin bir kenarı 28 metre olur. Yürüyüş yolunun alanı 28² - 26² = 784 - 676 = 108 metrekaredir. Sonuç 104'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "long_context",
+      "stem": "Dikdörtgen biçimindeki bir bahçenin uzun kenarı kısa kenarından 5 metre fazladır. Bahçenin çevresi 34 metredir. Bu bahçenin alanı kaç metrekaredir?",
+      "options": [
+        "54",
+        "60",
+        "66",
+        "72"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kısa kenar x, uzun kenar x + 5 olsun. 2x + 2(x + 5) = 34 ise 4x + 10 = 34 olur. Buradan x = 6 bulunur. Uzun kenar 11 metredir. Alan 6 × 11 = 66 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler",
+        "birim_donusturme",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir dijital depolama sisteminde 2^4 klasör vardır. Her klasörde 2^3 dosya bulunmakta ve her dosya 2^6 KB yer kaplamaktadır. Buna göre sistemdeki toplam veri miktarı kaç KB'dir?",
+      "options": [
+        "4096",
+        "8192",
+        "16384",
+        "32768"
+      ],
+      "answerIndex": 1,
+      "explanation": "2^4 × 2^3 × 2^6 = 2^13 = 8192 KB'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir okul etkinliğinde kullanılmak üzere 96 kırmızı, 144 mavi ve 192 beyaz kart hazırlanmıştır. Kartlar, her pakette yalnızca tek renk olacak ve tüm paketlerde eşit sayıda kart bulunacak şekilde düzenlenecektir. Bir paketteki kart sayısı en büyük olacak biçimde ayarlandığında toplam kaç paket hazırlanır?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answerIndex": 2,
+      "explanation": "EBOB(96,144,192) = 48 bulunur. Paket sayıları sırasıyla 96/48 = 2, 144/48 = 3 ve 192/48 = 4 olur. Toplam 9 paket hazırlanır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold052_q10",
+      "subject": "mat"
+    }
+  ]
+}

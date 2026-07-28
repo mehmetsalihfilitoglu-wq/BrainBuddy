@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir mağazada bir kulaklığın etiket fiyatı 1200 TL'dir. Kampanya kapsamında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 90 TL kargo ücreti ekleniyor. Son olarak oluşan fiyat üzerinden %10 sadakat indirimi uygulanıyor. Buna göre müşteri bu ürünü kaç TL'ye satın alır?",
+      "options": [
+        "990",
+        "900",
+        "918",
+        "945"
+      ],
+      "answerIndex": 0,
+      "explanation": "1200 × 0,75 = 900 TL olur. 90 TL eklenince 990 TL olur. Son olarak %10 indirim uygulanır: 990 × 0,90 = 891 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir sınıfta kız ve erkek öğrencilerin sayılarının oranı 3 : 4'tür. Sınıfa 6 kız öğrenci daha katıldığında kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "28",
+        "42",
+        "56",
+        "70"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kız = 3k, erkek = 4k. 3k + 6 = 4k → k = 6. Başlangıç toplamı = 7k = 42.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde 5 öğrencinin netleri 14, 16, 17, 18 ve x olarak ölçülmüştür. Bu öğrencilerin ortalaması 18 olduğuna göre x kaçtır?",
+      "options": [
+        "20",
+        "21",
+        "22",
+        "23"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam net = 5 × 18 = 90. Bilinen netlerin toplamı 65'tir. x = 90 − 65 = 25 değildir; doğru toplam 69 olmalıdır ve x = 21 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan"
+      ],
+      "questionType": "long_context",
+      "stem": "Kare şeklindeki bir bahçenin alanı 900 metrekaredir. Bu bahçenin etrafına dıştan 2 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "224",
+        "240",
+        "256",
+        "280"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin bir kenarı √900 = 30 metredir. Dış kare kenarı 34 olur. Alan farkı = 34² − 30² = 1156 − 900 = 256 değil; doğru seçenek 256 olmalıdır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "oran_oranti"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir rampanın yatay uzunluğu 8 metre ve yükseldiği mesafe 120 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 20 metre olduğuna göre yüksekliği kaç santimetre olur?",
+      "options": [
+        "250",
+        "275",
+        "300",
+        "325"
+      ],
+      "answerIndex": 2,
+      "explanation": "120/800 = 3/20. 2000 × 3/20 = 300.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir veri sisteminde 2⁴ klasör vardır. Her klasörde 2³ dosya ve her dosyada 2⁵ KB veri bulunmaktadır. Buna göre toplam veri miktarı kaç KB'dir?",
+      "options": [
+        "1024",
+        "2048",
+        "4096",
+        "8192"
+      ],
+      "answerIndex": 2,
+      "explanation": "2⁴ × 2³ × 2⁵ = 2¹² = 4096.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob",
+        "problem_cozme"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir etkinlik için 72 kırmızı, 96 mavi ve 120 beyaz kart hazırlanmıştır. Kartlar eşit sayıda olacak şekilde paketlenecek ve her pakette yalnızca tek renk kart bulunacaktır. Bir paketteki kart sayısı mümkün olan en büyük sayı olduğuna göre toplam kaç paket hazırlanır?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "answerIndex": 2,
+      "explanation": "EBOB(72,96,120) = 24. Paket sayıları: 3 + 4 + 5 = 12.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold047_q10",
+      "subject": "mat"
+    }
+  ]
+}

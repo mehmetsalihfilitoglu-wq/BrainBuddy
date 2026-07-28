@@ -1,5 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#FFD700" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    <path android:fillColor="#1BC5B0" android:pathData="M13,17h-2v-2h2v2zM15.07,11.25l-0.9,0.92C13.45,12.9 13,13.5 13,15h-2v-0.5c0,-1.1 0.45,-2.1 1.17,-2.83l1.24,-1.26c0.37,-0.36 0.59,-0.86 0.59,-1.41 0,-1.1 -0.9,-2 -2,-2s-2,0.9 -2,2H8c0,-2.21 1.79,-4 4,-4s4,1.79 4,4C16,10.19 15.63,10.78 15.07,11.25z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Shadow -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M48,90 C62,90 72,88 72,86 C72,84 62,82 48,82 C34,82 24,84 24,86 C24,88 34,90 48,90Z"/>
+
+    <!-- Outer glow -->
+    <path
+        android:fillColor="#14FFD700"
+        android:pathData="M48,4 C72,4 92,24 92,48 C92,72 72,92 48,92 C24,92 4,72 4,48 C4,24 24,4 48,4Z"/>
+
+    <!-- Trophy body -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M30,20 L66,20 L62,58 Q48,64 34,58Z"/>
+
+    <!-- Trophy highlight -->
+    <path
+        android:fillColor="#FFECB3"
+        android:pathData="M34,24 L46,24 L44,52 Q40,54 36,52Z"/>
+
+    <!-- Trophy rim -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M28,16 L68,16 Q70,20 68,24 L28,24 Q26,20 28,16Z"/>
+
+    <!-- Trophy handle left -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M30,28 Q18,28 18,40 Q18,52 30,52"
+        android:strokeColor="#FFC107"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Trophy handle right -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M66,28 Q78,28 78,40 Q78,52 66,52"
+        android:strokeColor="#FFC107"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <!-- Trophy base stem -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M44,58 L52,58 L52,68 L44,68Z"/>
+
+    <!-- Trophy base -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M36,68 L60,68 Q62,72 60,76 L36,76 Q34,72 36,68Z"/>
+
+    <!-- Flame on trophy -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M48,14 Q56,24 52,34 Q58,28 54,18 Q62,28 56,40 Q50,48 48,46 Q46,48 40,40 Q34,28 42,18 Q38,28 44,34 Q40,24 48,14Z"/>
+
+    <!-- Flame inner -->
+    <path
+        android:fillColor="#FF9800"
+        android:pathData="M48,22 Q54,30 50,38 Q46,42 48,40 Q50,42 46,38 Q42,30 48,22Z"/>
+
+    <!-- Flame core -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M48,28 Q52,34 50,38 Q48,40 46,38 Q44,34 48,28Z"/>
+
+    <!-- "30" text outline -->
+    <path
+        android:fillColor="#E65100"
+        android:pathData="M36,78 L40,78 Q42,78 42,80 L42,86 Q42,88 40,88 L36,88 Q34,88 34,86 L34,80 Q34,78 36,78Z M36.5,80.5 L39.5,80.5 L39.5,83 L36.5,83Z M36.5,83 L39.5,83 L39.5,85.5 L36.5,85.5Z"/>
+
+    <path
+        android:fillColor="#E65100"
+        android:pathData="M54,78 Q60,78 60,83 Q60,88 54,88 Q48,88 48,83 Q48,78 54,78Z M54,80.5 Q51,80.5 51,83 Q51,85.5 54,85.5 Q57,85.5 57,83 Q57,80.5 54,80.5Z"/>
+
+    <!-- Sparkle left -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M14,30 L15.5,33 L18.5,32 L17,35 L20,36 L17,37 L18.5,40 L15.5,39 L14,42 L12.5,39 L9.5,40 L11,37 L8,36 L11,35 L9.5,32 L12.5,33Z"/>
+
+    <!-- Sparkle right -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M82,30 L83.5,33 L86.5,32 L85,35 L88,36 L85,37 L86.5,40 L83.5,39 L82,42 L80.5,39 L77.5,40 L79,37 L76,36 L79,35 L77.5,32 L80.5,33Z"/>
 </vector>

@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0042",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: circular reasoning (begging the question)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "logical fallacy",
+      "circular reasoning",
+      "begging the question"
+    ],
+    "learning_objective": "Recognise when an argument's conclusion is smuggled in as one of its own premises (circular reasoning / begging the question) and distinguish this from other named fallacies.",
+    "question": "Consider the following argument: 'The Morning Chronicle is the most trustworthy newspaper in the country. We can be sure of this because its reporting is more reliable than that of any of its rivals — and its reporting is so reliable precisely because it is the country's most trustworthy newspaper.' Which of the following identifies the principal flaw in this argument?",
+    "choices": {
+      "A": "It treats the mere absence of evidence against the claim as though it were positive evidence for it.",
+      "B": "It rests on the testimony of an authority whose impartiality has not been demonstrated.",
+      "C": "It assumes the very claim it is meant to establish, using the conclusion as one of its own supporting premises.",
+      "D": "It infers that the claim must be true simply because the claim is widely believed.",
+      "E": "It draws a sweeping conclusion about reliability from an unrepresentatively small number of reports."
+    },
+    "correct_answer": "C",
+    "explanation": "The argument supports 'most trustworthy' by appealing to 'most reliable', and then supports 'most reliable' by appealing back to 'most trustworthy'. The two claims are effectively interchangeable, so the reasoning runs in a circle: the conclusion is used to prove itself and no independent evidence is offered. This is begging the question (circular reasoning). The other options name genuine fallacies, but none is actually committed here: no external authority is cited, no appeal is made to a lack of counter-evidence, no sample of reports is generalised from, and popularity is never invoked.",
+    "option_analysis": {
+      "A": "Wrong: appeal to ignorance. Misconception: mistaking the lack of independent evidence for an explicit 'there is no evidence against it, therefore it is true' move — the argument never appeals to the absence of counter-evidence.",
+      "B": "Wrong: appeal to (illegitimate) authority. Misconception: reading the paper's self-description as an authority's testimony; the argument cites no external authority, it merely restates its own claim in different words.",
+      "C": "Correct: the conclusion (it is the most trustworthy paper) is used to justify the premise (its reporting is the most reliable), while that premise is the only support offered for the conclusion — the argument assumes precisely what it sets out to prove.",
+      "D": "Wrong: appeal to popularity (bandwagon). Misconception: confusing being 'trustworthy/reliable' with being 'widely believed'; the argument never claims the paper is trusted by many people.",
+      "E": "Wrong: hasty generalisation. Misconception: assuming that a claim about the paper's 'reporting' must rest on an inductive leap from a small sample; no sample of reports is described or generalised from."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0043",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Evaluating an argument by analogy: identifying a relevant disanalogy",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "critical thinking",
+      "analogy",
+      "weaken",
+      "relevant difference",
+      "argument evaluation"
+    ],
+    "learning_objective": "Evaluate an argument by analogy by distinguishing differences that are relevant to the inference (genuine disanalogies) from true but irrelevant differences that leave the inference untouched.",
+    "question": "Consider the following argument: 'The brain is essentially a kind of computer. In a computer, adding more memory chips reliably increases the amount the machine can store and process, with no natural upper limit. It follows that human mental capacity could be increased without limit simply by increasing the number of neurons in the brain.' Which of the following, if true, would most seriously weaken this argument?",
+    "choices": {
+      "A": "A modern computer can perform arithmetic calculations far faster than any human being.",
+      "B": "Among healthy adults, some people have considerably better memories than others.",
+      "C": "Some computers are manufactured with far more memory than others.",
+      "D": "Unlike brains, computers are assembled from components made in factories.",
+      "E": "Beyond a certain point, adding neurons disrupts the precisely tuned connections between existing neurons, so mental performance can actually deteriorate."
+    },
+    "correct_answer": "E",
+    "explanation": "The argument leans on the analogy 'brain is like a computer' together with the specific claim that in a computer adding units of memory reliably raises capacity without limit. It is weakened most by a difference that breaks exactly this mapping. Option B does so: in the brain, capacity depends on how the neurons are organised and connected, not merely on their number, so adding neurons need not raise capacity and may reduce it — the very property that carried the analogy fails for brains. The other options state true facts or genuine differences, but none bears on whether adding units increases capacity, so none weakens the inference. A common error is to suppose that any difference between two things weakens an analogy; only a difference in a relevant respect does.",
+    "option_analysis": {
+      "A": "Wrong: irrelevant difference. Misconception: a difference in current arithmetic speed is a real disanalogy, but not one that touches the argument's claim about improving capacity by adding units; citing off-point differences does not weaken the analogy.",
+      "B": "Wrong: irrelevant point. Misconception: differences between individual people's memories do not address whether increasing the number of neurons raises capacity.",
+      "C": "Wrong: irrelevant point. Misconception: variation in how much memory computers have seems on-topic, but it says nothing about whether adding neurons would raise the brain's capacity.",
+      "D": "Wrong: irrelevant difference. Misconception: assuming that any true difference (here, how each is manufactured) damages the analogy; the manufacturing difference has no bearing on the scaling inference.",
+      "E": "Correct: this identifies a relevant disanalogy — brain capacity depends on how neurons are connected, not merely on their number — so the 'more units, more capacity' relationship that drove the analogy does not transfer, and the inference collapses."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0044",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative reasoning",
+    "subtopic": "Mixture/alligation: blending two concentrations to a target proportion",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "critical thinking",
+      "quantitative reasoning",
+      "ratio and proportion",
+      "alligation",
+      "mixtures"
+    ],
+    "learning_objective": "Use ratio reasoning (alligation) to determine the mass of each of two components required to blend them to a specified intermediate proportion at a fixed total mass.",
+    "question": "A cafe blends two ground-coffee stocks. Blend X contains 30% Arabica beans (the remainder Robusta); Blend Y contains 70% Arabica. The cafe wants to prepare 800 g of a house blend that is exactly 45% Arabica by mixing some Blend X with some Blend Y. What mass of Blend X must it use?",
+    "choices": {
+      "A": "360 g",
+      "B": "400 g",
+      "C": "300 g",
+      "D": "240 g",
+      "E": "500 g"
+    },
+    "correct_answer": "E",
+    "explanation": "By alligation, the amount of each stock is proportional to the distance of the OTHER stock's concentration from the target. Blend X is paired with |70 − 45| = 25 parts and Blend Y with |45 − 30| = 15 parts, so X : Y = 25 : 15 = 5 : 3. Of the 800 g blend, Blend X is therefore 5/8 x 800 = 500 g (and Blend Y is 300 g). Check: 500 x 0.30 + 300 x 0.70 = 150 + 210 = 360 g of Arabica, and 360/800 = 45%.",
+    "option_analysis": {
+      "A": "Wrong: computing the Arabica content of the whole blend, 45% x 800 = 360 g, and reporting that as the mass of Blend X. Misconception: confusing the mass of the Arabica component with the mass of a blend.",
+      "B": "Wrong: assuming that because 45% is near the midpoint the two stocks are used in equal amounts, giving 400 g each. Misconception: treating a near-midpoint target as an exact equal split and ignoring that 45% is closer to X's 30% (so more of X is needed).",
+      "C": "Wrong: inverting the alligation by assigning 15 parts to X and 25 to Y (X : Y = 3 : 5), giving 3/8 x 800 = 300 g. Misconception: pairing each stock with its own distance from the target rather than with the opposite stock's distance.",
+      "D": "Wrong: mixing the stocks in proportion to their own Arabica percentages (30 : 70), giving X = 30/100 x 800 = 240 g. Misconception: using the concentrations themselves as the mixing ratio instead of their distances from the target.",
+      "E": "Correct: alligation gives X : Y = |70 − 45| : |45 − 30| = 25 : 15 = 5 : 3, so Blend X = 5/8 x 800 = 500 g; the blend then contains 150 + 210 = 360 g Arabica, i.e. 45%."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0045",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Principle application",
+    "subtopic": "Matching a case to the principle underlying a given judgement",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "critical thinking",
+      "principle application",
+      "parallel principle",
+      "reasoning",
+      "matching"
+    ],
+    "learning_objective": "Extract the general principle implicit in a specific judgement and identify another case decided on the same principle, distinguishing it from cases that turn on different principles.",
+    "question": "An examinations board disqualified a candidate's paper, even though it was judged the best in the year, because the candidate had taken unauthorised notes into the examination hall. The board explained: 'A rule that every candidate has accepted must be enforced in the same way for all of them, whatever the quality of the individual work.' Which of the following judgements is based on the same principle as the board's?",
+    "choices": {
+      "A": "A charity gave its yearly prize to the volunteer who had raised the most money rather than to the one who had given the most hours.",
+      "B": "A school relaxed its strict uniform policy after a majority of parents complained that it was unreasonable.",
+      "C": "A football referee let a goal stand despite television replays suggesting it was offside, saying that the referee's decision on the field is final.",
+      "D": "A sports club waived its joining fee for an applicant who could not afford it, on the ground that no one should be shut out by poverty.",
+      "E": "A cycling federation stripped the first rider across the line of the win because the rider's bicycle broke a technical specification all competitors had agreed to, saying the specification must bind every competitor regardless of who finished first."
+    },
+    "correct_answer": "E",
+    "explanation": "The board's principle is: a rule accepted by all participants must be applied equally to everyone, even when doing so overrides the best substantive performance — that is, equal enforcement of an agreed rule outweighs merit in the particular case. Option D matches on every element: an agreed rule, the top performer penalised, and the justification that the rule must bind all regardless of outcome. The other cases turn on different principles: A on the finality/authority of an official's decision; B on rewarding merit measured by a chosen metric; C on making a compassionate exception to a rule; E on revising a rule to satisfy majority preference.",
+    "option_analysis": {
+      "A": "Wrong: this rewards the best performance on a chosen measure — close to the opposite of letting an agreed rule override the best work. Misconception: treating any 'who deserves the prize' decision as an instance of the same principle.",
+      "B": "Wrong: this changes a rule in response to majority opinion rather than applying an already-accepted rule uniformly. Misconception: confusing revising rules by preference with enforcing existing rules impartially.",
+      "C": "Wrong: this rests on the finality and authority of an official's on-field decision, not on enforcing an agreed rule equally despite merit. Misconception: matching on surface features (sport, rules, officials) rather than on the underlying principle.",
+      "D": "Wrong: this makes a compassionate exception to a rule for one person, whereas the board's principle forbids exceptions and demands identical enforcement. Misconception: conflating fairness-as-equal-treatment with fairness-as-special-accommodation.",
+      "E": "Correct: an agreed rule is enforced equally, the top performer is penalised, and the stated reason is that the rule must apply to everyone regardless of outcome — the very same principle applied to a structurally identical case."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0046",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data interpretation",
+    "subtopic": "Drawing the single valid conclusion from a described frequency table (count vs proportion; monotonicity and intention traps)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "critical thinking",
+      "data interpretation",
+      "proportion vs count",
+      "valid conclusion",
+      "table reasoning"
+    ],
+    "learning_objective": "Read a described frequency table, compute the relevant proportions, and identify the one conclusion that is strictly supported while rejecting conclusions that confuse counts with rates, assume a monotonic trend, or extrapolate from stated intentions.",
+    "question": "A survey recorded, for four age groups, the number of people surveyed, the number who currently own an electric car, and the number who say they intend to buy an electric car within two years. Age 18-29: 400 surveyed, 52 own one, 120 intend to buy one. Age 30-44: 500 surveyed, 80 own one, 100 intend to buy one. Age 45-59: 300 surveyed, 66 own one, 45 intend to buy one. Age 60+: 250 surveyed, 30 own one, 20 intend to buy one. Which one of the following conclusions is fully supported by these data?",
+    "choices": {
+      "A": "A greater proportion of the 45-59 group own an electric car than of any other age group.",
+      "B": "The proportion of people who own an electric car rises steadily as age increases.",
+      "C": "Because the 18-29 group most often intends to buy an electric car, that group will have the highest ownership within two years.",
+      "D": "The 30-44 group is the most enthusiastic about electric cars, since it contains more owners than any other group.",
+      "E": "More than half of all the electric-car owners in the survey are aged 30-44."
+    },
+    "correct_answer": "A",
+    "explanation": "Convert the ownership counts to proportions of each group surveyed: 52/400 = 13%, 80/500 = 16%, 66/300 = 22%, 30/250 = 12%. The 45-59 group's 22% is the highest, so C is supported. A fails: total owners = 52 + 80 + 66 + 30 = 228, so a majority would need more than 114, but 30-44 has only 80. B fails: the proportions run 13% -> 16% -> 22% -> 12%, which rises then falls, so it is not a steady increase. D fails: a stated intention is not an action, and the claim also ignores current ownership; the table cannot establish a future outcome. E fails: 30-44 has the most owners in absolute terms but only the second-highest rate (16%), and ownership counts do not measure 'enthusiasm'.",
+    "option_analysis": {
+      "A": "Correct: computing 52/400 = 13%, 80/500 = 16%, 66/300 = 22% and 30/250 = 12% shows the 45-59 group has the highest ownership proportion, which is exactly what the option claims.",
+      "B": "Wrong: the ownership proportions are 13%, 16%, 22%, then 12% — they rise and then fall. Misconception: assuming a variable must change monotonically with age instead of checking each computed value.",
+      "C": "Wrong: expressed intention is not actual behaviour, and the claim also disregards each group's current ownership; the data give no basis for predicting future ownership. Misconception: treating stated intentions as guaranteed future actions and extrapolating beyond the data.",
+      "D": "Wrong: 30-44 has the most owners in absolute number (80) but only the second-highest ownership rate (16%), and the number of owners does not measure 'enthusiasm'. Misconception: equating the largest absolute count with the highest proportion or with an unmeasured attitude.",
+      "E": "Wrong: total owners = 228, so a majority requires more than 114, yet the 30-44 group has only 80. Misconception: assuming the group with the largest single count makes up more than half of the total."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik",
+        "problem_cozme"
+      ],
+      "stem": "Bir okul kütüphanesinde bulunan kitapların bir kısmı matematik, bir kısmı fen ve geri kalanı hikâye kitaplarından oluşmaktadır. Matematik kitaplarının sayısı tüm kitapların %30'una, fen kitaplarının sayısı ise matematik kitaplarının %50 fazlasına eşittir. Hikâye kitaplarının sayısı 84 olduğuna göre kütüphanedeki toplam kitap sayısı kaçtır?",
+      "options": [
+        "210",
+        "336",
+        "280",
+        "300"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam kitap sayısı x olsun. Matematik 0.30x olur. Fen bunun %50 fazlası yani 0.45x olur. Geriye kalan hikâye kitapları x − 0.75x = 0.25x olur. 0.25x = 84 → x = 336 bulunur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik_okuma",
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin dört gün boyunca çözdüğü matematik soru sayıları bir grafikte gösterilmiştir. Pazartesi 20 soru, salı pazartesiden %40 fazla, çarşamba salı gününden 10 eksik, perşembe günü ise ilk dört günün ortalaması 28 olacak şekilde soru çözmüştür. Buna göre perşembe günü çözülen soru sayısı kaçtır?",
+      "options": [
+        "30",
+        "46",
+        "34",
+        "36"
+      ],
+      "answerIndex": 1,
+      "explanation": "Pazartesi 20. Salı %40 fazla → 28. Çarşamba 28 − 10 = 18. İlk dört gün ortalaması 28 ise toplam 112 olmalıdır. 20 + 28 + 18 = 66. Perşembe = 112 − 66 = 46 soru.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-2",
+      "subject": "mat",
+      "imageAsset": "quiz_images/mat/mat_mat_gold_002_mat-gold-002-2_graph_line.png"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "denklem_kurma",
+      "skills": [
+        "denklem",
+        "mantik",
+        "problem_cozme"
+      ],
+      "stem": "Bir sınıftaki öğrencilerin yaş ortalaması 13'tür. Sınıfa yeni katılan bir öğrencinin yaşı ortalamayı 0,5 artırmaktadır. Sınıfa katılan öğrencinin yaşı 15 olduğuna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "10",
+        "12",
+        "3",
+        "16"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta n öğrenci olsun. Toplam yaş 13n olur. Yeni ortalama 13,5 olduğundan toplam yaş 13.5(n+1) olur. 13n + 15 = 13.5n + 13.5 → 1.5 = 0.5n → n = 3 öğrenci.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "yuzdeler",
+      "skills": [
+        "veri_analizi",
+        "yuzde",
+        "problem_cozme"
+      ],
+      "stem": "Bir okulda düzenlenen matematik yarışmasına katılan öğrencilerin %60'ı birinci turu geçmiştir. İkinci turda bu öğrencilerin %25'i elenmiştir. Son turda kalan öğrenci sayısı 36 olduğuna göre yarışmaya başlangıçta kaç öğrenci katılmıştır?",
+      "options": [
+        "60",
+        "72",
+        "80",
+        "90"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıç x olsun. Birinci turdan 0.60x geçer. İkinci turda %25 elenir yani %75 kalır. 0.60x × 0.75 = 0.45x olur. Bu 36 ise x = 80 bulunur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan_hesabi",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 30 m ve 20 m olan dikdörtgen biçimindeki bir bahçenin ortasına kare biçiminde bir oyun alanı yapılacaktır. Oyun alanının çevresinde her kenardan eşit genişlikte boşluk bırakıldığında boşluk alanlarının toplamı 400 m² olmaktadır. Buna göre oyun alanının bir kenarı kaç metredir?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçe alanı 600 m². Boşluklar 400 m² ise oyun alanı 200 m² olur. Karenin kenarı √200 ≈ 14,1 metredir. En yakın tam sayı 14'tür.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem_cozme"
+      ],
+      "stem": "Bir öğrenci bir kitabın ilk gün 1/4'ünü, ikinci gün kalan kısmın 1/3'ünü, üçüncü gün ise kalan 48 sayfayı okuyarak kitabı bitirmiştir. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": [
+        "120",
+        "96",
+        "160",
+        "192"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam x olsun. İlk gün x/4 okunur, kalan 3x/4. İkinci gün bunun 1/3'ü yani x/4 okunur. Kalan x/2 olur. Bu 48 ise x = 96 sayfadır.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-002-6",
+      "subject": "mat"
+    }
+  ]
+}

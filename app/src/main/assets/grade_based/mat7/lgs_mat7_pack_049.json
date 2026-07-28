@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0480",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 2 TL zam yapılmış, ardından 4 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-4",
+        "8",
+        "0",
+        "4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0480",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0481",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "640",
+        "350",
+        "700",
+        "760"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +100 litre eklenince 3V/(7) dolu. Denklemden V=700 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0481",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0482",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 120° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "180",
+        "60",
+        "150",
+        "240"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 120° ise diğerleri toplam 240°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0482",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0483",
+      "stem": "Bir torbada 3 kırmızı, 2 yeşil ve 5 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "30/45",
+        "1/10",
+        "31/45",
+        "31/46"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0483",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0484",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 6 : 5 : 2 oranındadır. Birinci sınıfa 7 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "81",
+        "96",
+        "101",
+        "91"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 5k, 6k, 2k. 5k + 7 = 6k → k = 7.0. Toplam = 13·k = 91.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0484",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0485",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 2 : 5 oranındadır. Birinci sınıfa 7 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "49",
+        "44",
+        "34",
+        "54"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 4k, 5k. 2k + 7 = 4k → k = 3.5. Toplam = 11·k = 44.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0485",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0486",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "420",
+        "210",
+        "480",
+        "360"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +60 litre eklenince 3V/(7) dolu. Denklemden V=420 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0486",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0487",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/46",
+        "1/10",
+        "31/45",
+        "30/45"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0487",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0488",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 5) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "92",
+        "97",
+        "80",
+        "87"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+5) = 44 → x = 6. Alan = x(2x+5) = 92 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0488",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0489",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0489",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

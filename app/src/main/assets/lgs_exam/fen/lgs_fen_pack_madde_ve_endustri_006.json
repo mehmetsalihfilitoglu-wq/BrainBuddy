@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda X elementi 2. periyot 1. grupta, Y elementi 2. periyot 7. grupta bulunmaktadır. Buna göre aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "X ve Y'nin katman sayıları farklıdır",
+        "X ve Y'nin kimyasal özellikleri aynıdır",
+        "X ve Y'nin katman sayıları aynıdır",
+        "Y'nin atom numarası X'ten küçüktür"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
+      "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Bir atom elektron vererek iyon oluşturduğunda aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Negatif iyon oluşur",
+        "Pozitif iyon oluşur",
+        "Atom numarası değişir",
+        "Proton sayısı azalır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "iyon",
+        "elektron",
+        "katyon"
+      ],
+      "explanation": "Elektron veren atom pozitif iyon (katyon) oluşturur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q02"
+    },
+    {
+      "stem": "Bir kapta 3 adet CO2, 2 adet H2O ve 1 adet O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "13",
+        "15",
+        "17",
+        "19"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
+      "explanation": "CO2 → 3 atom × 3 = 9 atom. H2O → 3 atom × 2 = 6 atom. O2 → 2 atom × 1 = 2 atom. Toplam = 17 atom.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q03"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem molekül yapılı hem de elementtir?",
+      "options": [
+        "O2",
+        "H2O",
+        "CO2",
+        "NaCl"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "element",
+        "molekul",
+        "yapisal_ozellik"
+      ],
+      "explanation": "O2 aynı tür atomlardan oluşan molekül yapılı elementtir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q04"
+    },
+    {
+      "stem": "Periyodik tabloda soldan sağa doğru gidildikçe aşağıdakilerden hangisi kesinlikle artar?",
+      "options": [
+        "Atom numarası",
+        "Katman sayısı",
+        "Nötron sayısı",
+        "Atom yarıçapı"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "atom_numarasi"
+      ],
+      "explanation": "Periyot boyunca atom numarası artar.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
+    },
+    {
+      "stem": "Bir tanecik modelinde aynı tür atomlardan oluşan iki atomlu moleküller görülmektedir. Bu madde aşağıdakilerden hangisi olabilir?",
+      "options": [
+        "Oksijen gazı",
+        "Su",
+        "Tuz",
+        "Karbon dioksit"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "PARTICLE_MODEL_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "tanecik_modeli",
+        "molekul",
+        "element"
+      ],
+      "explanation": "O2 aynı tür atomlardan oluşan iki atomlu moleküldür.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q06"
+    },
+    {
+      "stem": "Bir atomun proton sayısı 11, elektron sayısı 10 ise bu tanecik aşağıdakilerden hangisidir?",
+      "options": [
+        "Negatif iyon",
+        "Pozitif iyon",
+        "Nötr atom",
+        "Bileşik"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "atom",
+        "iyon",
+        "proton",
+        "elektron"
+      ],
+      "explanation": "Proton sayısı elektron sayısından büyük olduğu için pozitif iyondur.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q07"
+    },
+    {
+      "stem": "Bir kapta 2 tane O2 ve 3 tane N2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
+      "explanation": "O2 → 2 × 2 = 4 atom. N2 → 3 × 2 = 6 atom. Toplam = 10 atom.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q08"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de element değildir?",
+      "options": [
+        "Altın",
+        "Demir",
+        "Su",
+        "Oksijen"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "saf_madde",
+        "element",
+        "bilesik",
+        "siniflandirma"
+      ],
+      "explanation": "Su saf maddedir fakat element değil bileşiktir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q09"
+    },
+    {
+      "stem": "Periyodik tabloda bir elementin grup numarası aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Katman sayısını",
+        "Proton sayısını",
+        "Son katman elektron sayısını",
+        "Nötron sayısını"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "elektron",
+        "son_katman"
+      ],
+      "explanation": "Grup numarası son katmandaki elektron sayısını gösterir.",
+      "source": "edumio",
+      "sourceRef": "fen_mad_006_q10",
+      "imageAsset": "quiz_images/fen/picture.png"
+    }
+  ]
+}

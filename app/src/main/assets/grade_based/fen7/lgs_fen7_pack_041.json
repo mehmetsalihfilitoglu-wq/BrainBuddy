@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen7_0400",
+      "stem": "Mitoz bölünmede bir hücre ikiye bölünür. Öğrenciler soğan kökü ucu preparatında farklı aşamaları gözlemledi: kromozomların yoğunlaştığı, ekvator düzleminde dizildiği ve kutuplara çekildiği aşamalar.\n\nBu gözlemlere dayanarak mitoz bölünmenin temel özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Yeni genetik çeşitlilik oluşturur",
+        "Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur",
+        "Sadece üreme hücrelerinde görülür",
+        "Tek aşamada gerçekleşir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0400",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0401",
+      "stem": "Bir öğrenci sarkacın salınımını inceledi. Sarkacı farklı açılardan bıraktığında salınım süresinin değişmediğini, ancak sarkacın uzunluğunu değiştirdiğinde sürenin değiştiğini gözlemledi.\n\nBu deneyde salınım periyodunu etkileyen temel değişken aşağıdakilerden hangisidir?",
+      "options": [
+        "Bırakma açısı",
+        "Topun kütlesi",
+        "Sarkacın uzunluğu",
+        "Ortam sıcaklığı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "senaryo_analiz",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Sarkacın uzunluğu. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0401",
+      "imageAsset": "quiz_images/fen/fen_041_fen7_0401_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0402",
+      "stem": "Filtreleme deneyinde tuzlu su-kum karışımı filtreden geçirildi. Kum filtrede kaldı, tuzlu su süzüldü. Süzüntü buharlaştırıldığında tuz geri elde edildi.\n\nBu deneyde kum ve tuzu ayırmada kullanılan yöntemlerin dayandığı özellikler aşağıdakilerden hangisinde doğru verilmiştir?",
+      "options": [
+        "Kum çözünür, tuz çözünmez",
+        "Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir)",
+        "Kum süzülür, tuz eritilir",
+        "Her ikisi de buharlaştırılır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0402",
+      "imageAsset": "quiz_images/fen/fen_041_fen7_0402_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0403",
+      "stem": "Işık prizma içinden geçirildiğinde gökkuşağı renklerine ayrıldı. Öğrenciler kırmızı ışığın en az, mor ışığın en çok kırıldığını gözlemledi.\n\nFarklı renklerin farklı açılarla kırılmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Dalga boyu farkı (her rengin farklı kırılma indisi)",
+        "Prizma malzemesi",
+        "Ortam sıcaklığı",
+        "Işık şiddeti"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "gozlem_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Dalga boyu farkı (her rengin farklı kırılma indisi). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0403",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0404",
+      "stem": "Verilen bilgilere göre bir canlının büyüme eğrisi yaşa göre boy uzunluğu olarak verilmiştir. İlk yıllarda hızlı büyüme, sonra yavaşlama görülmektedir. Bu grafiğe dayanarak büyüme hızıyla ilgili aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Yaşamın belirli dönemlerinde daha hızlı olabilir",
+        "Sürekli artar",
+        "Sadece çocuklukta görülür",
+        "Her yaşta aynıdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Yaşamın belirli dönemlerinde daha hızlı olabilir. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0404",
+      "imageAsset": "quiz_images/fen/fen_041_fen7_0404_graph_line.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0405",
+      "stem": "Seri ve paralel bağlı ampullerin parlaklığı karşılaştırıldı. Seri bağlamada iki ampulden birini çıkarınca diğeri söndü. Paralel bağlamada bir ampul çıkarılınca diğeri yanmaya devam etti.\n\nBu deneyde seri ve paralel bağlamanın farkı aşağıdakilerden hangisiyle açıklanır?",
+      "options": [
+        "Ampul gücü",
+        "Tel kalınlığı",
+        "Devrede akımın tek veya çok yoldan geçmesi",
+        "Pil sayısı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Devrede akımın tek veya çok yoldan geçmesi. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0405",
+      "imageAsset": "quiz_images/fen/fen_041_fen7_0405_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0406",
+      "stem": "Astronotların Ay'da Dünya'dakinden daha az ağırlık hissetmelerinin nedeni Ay'ın kütle çekiminin Dünya'dan küçük olmasıdır. Öğretmen \"Aynı astronot Mars'ta nasıl hisseder?\" diye sordu.\n\nMars'ın kütlesi Dünya'dan küçük, Ay'dan büyükse astronotun Mars'taki ağırlığı için ne söylenebilir?",
+      "options": [
+        "Sıfırdır",
+        "Ay'dan fazla, Dünya'dan az olur",
+        "Ay'dan da azdır",
+        "Dünya'daki ile aynıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Ay'dan fazla, Dünya'dan az olur. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0406",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0407",
+      "stem": "Hücre bölünmesinde DNA kopyalanır ve kromozomlar eşlenir. Öğrenci \"Neden DNA kopyalanması gerekir?\" diye sordu.\n\nDNA kopyalanmasının hücre bölünmesindeki işlevi aşağıdakilerden hangisidir?",
+      "options": [
+        "Protein sentezi yapmak",
+        "Her yavru hücreye kalıtım bilgisi aktarmak",
+        "Enerji sağlamak",
+        "Hücreyi büyütmek"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Her yavru hücreye kalıtım bilgisi aktarmak. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0407",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0408",
+      "stem": "Sürtünme kuvveti hareketi engelleyici etki yapar. Buzlu yolda sürtünme az olduğu için kayma olur. Araba lastiklerinin dişli olması sürtünmeyi artırır.\n\nBu bilgilere dayanarak sürtünme kuvvetiyle ilgili aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Hareketi her zaman kolaylaştırır",
+        "Yüzeylerin pürüzlülüğüne bağlı olarak değişir",
+        "Her zaman zararlıdır",
+        "Yer çekimi ile aynıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Yüzeylerin pürüzlülüğüne bağlı olarak değişir. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0408",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0409",
+      "stem": "Çözünme hızı sıcaklıkla artar. Soğuk suda şeker yavaş, sıcak suda hızlı çözünür. Karıştırma da çözünme hızını artırır.\n\nÇözünme hızını etkileyen faktörler aşağıdakilerden hangisinde doğru verilmiştir?",
+      "options": [
+        "Sadece su miktarı",
+        "Sadece çözünen madde miktarı",
+        "Sıcaklık ve karıştırma",
+        "Sadece kabın şekli"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "canlilarda_ureme",
+      "skills": [
+        "canlilarda",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Sıcaklık ve karıştırma. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "edumio",
+      "sourceRef": "fen7_0409",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

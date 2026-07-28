@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Bir metinde 'neden-sonuç' ilişkisi en çok hangi bağlaçla kurulur?",
+      "options": ["Oysa", "Çünkü / Bu yüzden", "Ancak", "Hâlbuki"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Metin bağdaşıklığı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Çünkü' nedeni, 'bu yüzden / bu nedenle' ise sonucu bağlayan bağlaçlardır."
+    },
+    {
+      "stem": "Aşağıdaki bağlaçlardan hangisi karşıtlık bildirir?",
+      "options": ["Ve", "Fakat / Ama", "Çünkü", "Ya da"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Bağlaçlar",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Fakat / ama' bağlaçları iki yargı arasında karşıtlık ya da kısıtlama ilişkisi kurar."
+    },
+    {
+      "stem": "'Hem ... hem de' bağlacı hangi anlam ilişkisini kurar?",
+      "options": ["Karşıtlık", "Toplama/Ekleme", "Koşul", "Seçenek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Hem … hem de' iki unsuru birden eşit biçimde kabul ederek toplama ilişkisi kurar."
+    },
+    {
+      "stem": "'Ya ... ya da' bağlacı hangi anlam ilişkisini kurar?",
+      "options": ["Ekleme", "Koşul", "Seçenek (alternatif)", "Karşıtlık"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Ya … ya da' iki seçenekten birinin tercih edileceğini gösteren seçenek bağlacıdır."
+    },
+    {
+      "stem": "Paragrafta 'giriş cümlesi' ne işlev üstlenir?",
+      "options": ["Paragrafın sonucunu özetler", "Paragrafın ana fikrini ortaya koyarak konuya giriş sağlar", "Kaynakçayı belirtir", "Tanımı verir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Paragraf yapısı",
+      "skills": ["Metin anlama"],
+      "explanation": "Giriş cümlesi (konu cümlesi), paragrafın temel fikrini öne sürerek okuyucuyu konuya hazırlar."
+    },
+    {
+      "stem": "Paragrafta 'sonuç cümlesi' ne işlev üstlenir?",
+      "options": ["Yeni bir konu açar", "Önceki paragrafla bağlantı kurar", "Paragraftaki düşünceyi özetler ya da kapatır", "Tanımı verir"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Paragraf yapısı",
+      "skills": ["Metin anlama"],
+      "explanation": "Sonuç cümlesi, paragrafın ana düşüncesini toparlayarak ilgili bölümü tamamlar."
+    },
+    {
+      "stem": "Bir şiirde 'ritim (ölçü)' neden önemlidir?",
+      "options": ["Konuyu değiştirmek için", "Şiire müzikalite ve ahenk katmak için", "Uyakları kaldırmak için", "Anlam bulanıklığı yaratmak için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Ritim, şiirin ses ve hece düzenini belirleyerek ahenk ve müzikalite sağlar."
+    },
+    {
+      "stem": "Hece ölçüsü (hece vezni) nedir?",
+      "options": ["Her dizede eşit sayıda ünlü kullanımı", "Türk şiirinde dizelerin eşit hece sayısına göre düzenlenmesi", "Uyak sayısının belirlenmesi", "Uzun ve kısa hecelere dayalı ölçü sistemi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Hece ölçüsü (aruz karşısında milli ölçü), dizelerin belirli hece sayısına göre düzenlenmesi esasına dayanır."
+    },
+    {
+      "stem": "Şiirde 'imge (image)' ne demektir?",
+      "options": ["Şiirin başlığı", "Okuyucunun zihninde canlandırılan duyusal ya da görsel tablo", "Şiirin uyak şeması", "Şairin biyografisi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Şiirde imge, sözcüklerle yaratılan zihinsel görüntü ya da duyusal canlandırmadır."
+    },
+    {
+      "stem": "Lirik şiir ne anlama gelir?",
+      "options": ["Kahramanlık konularını anlatan şiir", "Duygu ve iç dünyayı aktaran şiir", "Toplumu eleştiren şiir", "Gülmece içeren şiir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Lirik şiir, şairin duygu, özlem, sevinç gibi iç dünyasını anlattığı öznel şiir türüdür."
+    },
+    {
+      "stem": "Epik şiir ne anlama gelir?",
+      "options": ["Aşk ve özlem şiiri", "Kahramanlık, savaş ve destansı olayları anlatan şiir", "Doğa betimlemesi yapan şiir", "Didaktik (öğretici) şiir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Epik şiir destansı kahramanlık ve savaş temalarını yüksek bir tonla işler."
+    },
+    {
+      "stem": "Didaktik şiirin amacı nedir?",
+      "options": ["Duygusal etki yaratmak", "Okuyucuya bilgi, ahlak ya da ders vermek", "Toplumu eleştirmek", "Ritim denemesi yapmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şiir türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Didaktik şiir; bilgi, öğüt ya da ahlak dersi vermeyi ön plana alan öğretici bir şiir türüdür."
+    },
+    {
+      "stem": "Türk edebiyatında 'Divan edebiyatı'nın temel özelliği nedir?",
+      "options": ["Halk dilinde yazılması", "Arapça ve Farsça etkisindeki saray ve aydın zümresine yönelik yazılı edebiyat olması", "Sözlü geleneğe dayanması", "Yalnızca aşk şiiri içermesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı tarihi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Divan edebiyatı, Arap ve Fars kültürünün etkisiyle oluşmuş, aruz ölçüsü kullanan yazılı saray edebiyatıdır."
+    },
+    {
+      "stem": "Halk edebiyatının en belirgin özelliği nedir?",
+      "options": ["Aruz ölçüsü kullanması", "Halk ağzı ve hece ölçüsüyle sözlü geleneğe dayanması", "Yalnızca yazılı kaynaklarda yer alması", "Yabancı etkilerden beslenmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı tarihi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Halk edebiyatı; sade dil, hece ölçüsü ve sözlü gelenek özellikleriyle halkın yaşamını ve duygularını aktarır."
+    },
+    {
+      "stem": "Âşık Veysel hangi edebiyat geleneğine bağlıdır?",
+      "options": ["Divan edebiyatı", "Tanzimat edebiyatı", "Halk edebiyatı (âşık tarzı)", "Batı edebiyatı"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Âşık Veysel, saz eşliğinde söylediği şiirlerle Türk halk edebiyatının âşık tarzını temsil eder."
+    },
+    {
+      "stem": "Yunus Emre'nin şiirlerinin temel teması nedir?",
+      "options": ["Savaş ve kahramanlık", "İnsan sevgisi, tasavvuf ve Tanrı aşkı", "Doğa betimlemeleri", "Toplumsal eleştiri"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Yunus Emre, hümanist bir bakışla Tanrı sevgisi, insan sevgisi ve tasavvufi temaları işlemiştir."
+    },
+    {
+      "stem": "Türk edebiyatında 'Tanzimat dönemi'nde Batı edebiyatından alınan roman türünün öncüsü sayılan eser hangisidir?",
+      "options": ["Intibah", "Şinasi'nin Şair Evlenmesi", "Şeyh Galip'in Hüsn ü Aşk", "Namık Kemal'in Vatan Yahut Silistre"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Türk edebiyatı tarihi",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Namık Kemal'in 'İntibah' (1876) eseri Türk edebiyatının ilk roman denemelerinden kabul edilir."
+    },
+    {
+      "stem": "Ömer Seyfettin hangi edebi türde öne çıkmıştır?",
+      "options": ["Şiir", "Roman", "Hikâye (öykü)", "Tiyatro"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Ömer Seyfettin, Türk kısa hikâyeciliğinin kurucularından kabul edilir; 'Yüksek Ökçeler', 'Pembe İncili Kaftan' gibi eserleriyle tanınır."
+    },
+    {
+      "stem": "Aşağıdaki yazarlardan hangisi Cumhuriyet dönemi Türk edebiyatına aittir?",
+      "options": ["Namık Kemal", "Tevfik Fikret", "Orhan Pamuk", "Şinasi"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Orhan Pamuk çağdaş Cumhuriyet dönemi yazarıdır; 2006 yılında Nobel Edebiyat Ödülü'nü kazanmıştır."
+    },
+    {
+      "stem": "'Benim adım Kırmızı' adlı romancı kimdir?",
+      "options": ["Yaşar Kemal", "Orhan Pamuk", "Halide Edip Adıvar", "Reşat Nuri Güntekin"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'Benim Adım Kırmızı' (1998), Orhan Pamuk'un ünlü romanıdır."
+    },
+    {
+      "stem": "'Çalıkuşu' romanının yazarı kimdir?",
+      "options": ["Orhan Pamuk", "Yaşar Kemal", "Reşat Nuri Güntekin", "Halide Edip Adıvar"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'Çalıkuşu' Reşat Nuri Güntekin'in 1922'de yayımlanan ünlü romanıdır."
+    },
+    {
+      "stem": "'İnce Memed' romanının yazarı kimdir?",
+      "options": ["Orhan Pamuk", "Yaşar Kemal", "Kemal Tahir", "Sabahattin Ali"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'İnce Memed', Yaşar Kemal'in Çukurova'yı anlattığı ünlü serisidir."
+    },
+    {
+      "stem": "Sabahattin Ali'nin 'Kürk Mantolu Madonna' hangi türde bir yapıttır?",
+      "options": ["Şiir derlemesi", "Tiyatro", "Roman", "Deneme"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'Kürk Mantolu Madonna' (1943) Sabahattin Ali'nin aşk temalı romanıdır."
+    },
+    {
+      "stem": "Türk edebiyatında 'deneme' türünün en belirgin özelliği nedir?",
+      "options": ["Olay anlatımına dayanması", "Yazarın bir konu hakkındaki kişisel görüşlerini kesin kanıtlara bağlamaksızın aktarması", "Manzum (şiirsel) biçimde yazılması", "Belgesel gerçekliğe dayanması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Deneme; yazarın özgür, kesin kanıt araştırmadan bir konu üzerine düşüncelerini paylaştığı kişisel bir yazı türüdür."
+    },
+    {
+      "stem": "Eleştiri (tenkit) yazısı ne amaçla kaleme alınır?",
+      "options": ["Bir kişiyi yüceltmek için", "Bir eser veya düşüncenin güçlü ve zayıf yönlerini gerekçeli biçimde değerlendirmek için", "Yalnızca olumsuz yönleri sıralamak için", "Yazar biyografisi vermek için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Eleştiri; bir sanat eseri, düşünce ya da uygulamayı nesnel ölçütlerle gerekçeli biçimde değerlendiren yazı türüdür."
+    },
+    {
+      "stem": "Röportaj nedir?",
+      "options": ["Kişinin kendi hayatını anlattığı metin", "Gazeteci ya da yazarın bir konuyu yerinde araştırarak soru-cevap biçiminde aktardığı metin", "Belirli bir alana ait bilimsel inceleme", "Kurgusal olay anlatımı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Medya okuryazarlığı"],
+      "explanation": "Röportaj; bir kişi ya da olayla ilgili sorular sorularak elde edilen bilgilerin soru-cevap biçiminde sunulduğu gazetecilik türüdür."
+    },
+    {
+      "stem": "Fıkra (gazete fıkrası/köşe yazısı) nasıl bir metin türüdür?",
+      "options": ["Uzun araştırma makalesi", "Gazetecinin kısa ve yoğun kişisel görüş yazısı", "Resmi duyuru metni", "Haber özeti"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Medya okuryazarlığı"],
+      "explanation": "Gazete fıkrası (köşe yazısı), yazarın güncel bir konuda kişisel görüşlerini kısa ve yoğun biçimde aktardığı yazı türüdür."
+    },
+    {
+      "stem": "Aşağıdaki noktalama işaretlerinden hangisi liste veya sıralama öncesinde kullanılır?",
+      "options": ["Virgül (,)", "İki nokta (:)", "Üç nokta (...)", "Tire (–)"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "İki nokta (:), açıklama, örnek ya da liste başlamadan önce kullanılır."
+    },
+    {
+      "stem": "Üç nokta (...) hangi durumlarda kullanılır?",
+      "options": ["Açıklamadan önce", "Sözün ya da düşüncenin kasıtlı bırakıldığını ya da cümlenin tamamlanmadığını göstermek için", "Yalnızca şiirlerde", "Soru cümlelerinde"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Üç nokta sözün ya da düşüncenin kasıtlı bırakıldığı, ima edildiği ya da okuyucuya tamamlatıldığı yerlerde kullanılır."
+    },
+    {
+      "stem": "Tırnak işareti (\"\") hangi amaçla kullanılır?",
+      "options": ["Soru ifade etmek için", "Alıntı, özel terim veya ironi içeren sözcük/ifadeleri belirtmek için", "Cümleyi bitirmek için", "Liste başlamak için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Tırnak işareti; doğrudan alıntı, özel terim vurgulaması ve ironik/farklı anlamda kullanılan sözcüklerde yer alır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde parantez doğru kullanılmıştır?",
+      "options": ["Ahmet (geldi.) eve.", "Kitap (çok güzel) okunmalı.", "TDK (Türk Dil Kurumu) bu kuralı belirledi.", "Bugün (hava soğuktu) giyindim."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Parantez, kısaltmaların açılımlarını, ek bilgi ve açıklamaları belirtmek için kullanılır: 'TDK (Türk Dil Kurumu)'."
+    },
+    {
+      "stem": "Kısa çizgi (-) hangi amaçla kullanılır?",
+      "options": ["Bölünmüş sözcükleri birleştirmek ve diyalog başlatmak için", "Sadece cümle sonunda", "Listelerin önüne", "Soru cümlelerinde"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Kısa çizgi (-); sözcük bölündüğünde satır sonunda, bileşik sözcüklerde ve diyalog başlangıcında kullanılır."
+    },
+    {
+      "stem": "Türkçede yüklemin bulunduğu cümle türü hangisidir?",
+      "options": ["Yüklemi bulunmayan cümle yok olamaz", "Her cümlenin yüklemi olmak zorundadır", "Sadece isim cümlelerinde yüklem vardır", "Yüklem isteğe bağlıdır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Cümle yapısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Dil bilgisinde cümle en az bir yüklem içermek zorundadır; yüklemsiz yapı 'cümle' sayılmaz."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde yüklem isim soyludur?",
+      "options": ["Çocuklar koştu.", "Ali kitap okudu.", "Hava sıcaktı.", "Kuşlar uçtu."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Yüklem türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Hava sıcaktı.' cümlesinde yüklem sıfat kökenli 'sıcaktı' olup isim yüklemidir."
+    },
+    {
+      "stem": "Öznenin gizli (düşürülmüş) olduğu cümleye ne denir?",
+      "options": ["Öznesiz cümle", "Edilgen cümle", "Özne gizli (düşürülmüş özne) cümlesi", "Tek öğeli cümle"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Cümle öğeleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Türkçede özne çoğu zaman fiil çekiminden anlaşıldığı için söylenmez; bu 'gizli/düşürülmüş özne'dir."
+    },
+    {
+      "stem": "Edilgen (pasif) cümle nedir?",
+      "options": ["Öznesi belli olmayan cümle", "Öznenin etkiyi alan değil etkilenen konumda olduğu cümle (iş sahibi belirsiz)", "Olumsuzu yapılmış cümle", "Birden fazla özne içeren cümle"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Edilgen cümlede fiilin kimin tarafından yapıldığı belirsizdir ya da önemsizdir; özne etkiyi alandır."
+    },
+    {
+      "stem": "'-il, -in, -in' ekleriyle yapılan fiil çatısı hangisidir?",
+      "options": ["Ettirgen (causative)", "Dönüşlü", "Edilgen (passive)", "İşteş"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Fiil çatısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Edilgen çatı '-il/-ın' ekleriyle yapılır: 'kır-ıl-dı, sev-il-di'."
+    },
+    {
+      "stem": "İşteş çatı hangi anlama gelir?",
+      "options": ["Birinin başkasına yaptırması", "Eylemin kendine yapılması", "Eylemin birden fazla özne tarafından karşılıklı ya da birlikte yapılması", "Eylemin gerçekleşip gerçekleşmediği belli olmayan durum"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Fiil çatısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "İşteş çatıda eylem iki ya da daha fazla özne arasında karşılıklı ya da birlikte gerçekleşir: 'sarıl-ış-tılar, gör-üş-tüler'."
+    },
+    {
+      "stem": "Ettirgen çatı hangi anlama gelir?",
+      "options": ["Öznenin işi kendisi yapması", "Öznenin işi başkasına yaptırması", "İşin yapılmaması", "Birden fazla öznenin aynı işi yapması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Fiil çatısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Ettirgen çatıda özne eylemi bizzat yapmaz; başkasına yaptırır. '-dır/-tır' eki ettirgenlik ekidir."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisinde birden fazla yapım eki vardır?",
+      "options": ["Güzellik", "Öğretmenlik", "Taş", "Geldi"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Sözcük yapısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Öğretmenlik': öğret- + -men (yapım) + -lik (yapım) → iki yapım eki almıştır."
+    },
+    {
+      "stem": "'Güzelleştirmek' sözcüğündeki yapım eki sayısı kaçtır?",
+      "options": ["1", "2", "3", "4"],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "topic": "Sözcük yapısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Güzel + -leş (fiil yapım) + -tir (ettirgen/yapım) + -mek (isim-fiil) → 3 yapım eki."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisinde ikileme (tekrar grubu) vardır?",
+      "options": ["Hızlı arabalar", "Karanlık odalar", "Yavaş yavaş ilerledi", "Büyük bina"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sözcük grupları",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Yavaş yavaş' sözcük tekrarından oluşan ikileme (tekrar grubu) örnektir."
+    },
+    {
+      "stem": "İkileme nasıl oluşur?",
+      "options": ["İki farklı sözcüğün birleşmesiyle", "Aynı ya da anlam/ses yakınlığı olan sözcüklerin tekrarıyla pekiştirme yapılmasıyla", "Bir sözcüğe birden fazla ek eklenmesiyle", "İki sözcüğün zıt anlamda kullanılmasıyla"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözcük grupları",
+      "skills": ["Dil bilgisi"],
+      "explanation": "İkilemeler; aynı sözcük, zıt anlamlı ya da ses yakınlığı olan sözcüklerin yan yana tekrarıyla pekiştirme yapar."
+    },
+    {
+      "stem": "Pekiştirme sıfatı nasıl oluşturulur?",
+      "options": ["İsme '-ce/-ca' eki getirilerek", "Sıfatın ilk hecesine p, r, s veya m ünsüzü eklenerek yeni bir sözcük oluşturulup önüne koyularak", "Sıfata '-li/-lı' eki getirilerek", "Sıfatın çoğul yapılmasıyla"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Sözcük yapısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Pekiştirme sıfatı: sıfatın ilk hecesi alınıp sonuna p/r/s/m eklenerek önüne getirilir. 'Kıpkırmızı, masmavi, sapasağlam' gibi."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde ad tamlaması vardır?",
+      "options": ["Güzel çiçek", "Çocuğun kitabı", "Hızlı araba", "Mavi gökyüzü"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözcük grupları",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Çocuğun kitabı' belirtili ad tamlamasıdır: tamlayan (-ın) + tamlanan (kitabı)."
+    },
+    {
+      "stem": "Sıfat tamlaması nedir?",
+      "options": ["İki ismin yan yana gelmesi", "Bir sıfatın bir ismi nitelendirmesi ya da belirtmesi", "Zamir ile fiilin birleşmesi", "İki fiilin bağlantılı kullanımı"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Sözcük grupları",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Sıfat tamlamasında sıfat bir ismi niteler ya da belirtir: 'güzel çiçek, büyük ev'."
+    },
+    {
+      "stem": "Belirtili ad tamlaması ile belirtisiz ad tamlaması arasındaki fark nedir?",
+      "options": ["Belirtilide tamlayan eki (-ın/-in) vardır, belirtisizde yoktur", "Belirtilide tamlanan eki yoktur", "İkisinin anlamı aynıdır", "Belirtisizde tamlayan eki vardır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ad tamlaması",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Belirtili ad tamlamasında tamlayana '-ın/-in/-un/-ün' eki gelir: 'kapının kolu'. Belirtisiz tamlamada tamlayan eksiz kalır: 'kapı kolu'."
+    },
+    {
+      "stem": "Aşağıdaki deyimlerden hangisi 'çok kıskanmak' anlamını verir?",
+      "options": ["Eli açık olmak", "Eli sıkı olmak", "Gözü doymamak", "Gözü tok olmak"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Gözü doymamak' deyimi aşırı kıskançlık ya da doyumsuzluk anlamı taşır."
+    },
+    {
+      "stem": "'Kulaktan kulağa yayılmak' deyiminin anlamı nedir?",
+      "options": ["Çok hızlı koşmak", "Bir bilginin kişiden kişiye aktarılarak yayılması", "Sırrın saklanması", "Bağırmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Kulaktan kulağa yayılmak', bir bilgi ya da haberın ağızdan ağıza, kişiden kişiye geçerek hızla yayılması anlamına gelir."
+    },
+    {
+      "stem": "'Bin bir güçlükle' ifadesi hangi anlama gelir?",
+      "options": ["Binlerce sayıyla", "Çok fazla zorlukla, büyük emek harcayarak", "Bir güçlüğü bin kez aşmak", "Sayılamayacak kadar az güçlükle"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Bin bir güçlükle' aşırı bir güçlüğü abartılı biçimde ifade eden bir deyimdir."
+    },
+    {
+      "stem": "'Taşıma suyla değirmen dönmez.' atasözü ne anlama gelir?",
+      "options": ["Değirmenler su ile çalışır.", "Kendi ürettiği kaynağa dayanmayan şey sürdürülebilir olamaz.", "Taşıma işi zahmetlidir.", "Değirmenler her zaman döner."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Atasözleri",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "Bu atasözü, kendi özkaynakları olmayan bir şeyin ya da kişinin kalıcı başarı sağlayamayacağını anlatır."
+    },
+    {
+      "stem": "'Boş ver' ifadesinin anlamı hangisidir?",
+      "options": ["Bir şeyi bırakmak", "Umursamama, önem vermeme", "Hediye vermek", "Boş yere çalışmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Boş ver' günlük konuşma dilinde 'önem verme, umursamama' anlamında kullanılan kalıplaşmış bir ifadedir."
+    },
+    {
+      "stem": "Doğrudan anlatım (aktarma) nedir?",
+      "options": ["Bir kişinin sözlerinin yorumlanarak aktarılması", "Bir kişinin sözlerinin değiştirilmeden tırnak içinde aktarılması", "Yazarın kendi görüşlerini sunması", "Olayların özetlenmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlatım teknikleri",
+      "skills": ["Metin anlama"],
+      "explanation": "Doğrudan aktarımda sözler aynen korunur, tırnak içine alınır ve söyleyen kişi belirtilir."
+    },
+    {
+      "stem": "Dolaylı anlatım (aktarma) nedir?",
+      "options": ["Tırnak içinde aktarma", "Bir kişinin sözlerinin dönüştürülerek üçüncü şahıs ağzından aktarılması", "Şiirde uyak kullanımı", "Diyalog"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlatım teknikleri",
+      "skills": ["Metin anlama"],
+      "explanation": "Dolaylı aktarımda öznenin sözleri aktarıcının ağzından dönüştürülerek (kip ve zamir değişimi) aktarılır, tırnak kullanılmaz."
+    },
+    {
+      "stem": "Çerçeve hikâye (iç içe anlatı) nedir?",
+      "options": ["Tek bir anlatıcıya sahip kısa hikâye", "Ana bir anlatı içinde iç hikâyelerin yer aldığı çok katmanlı anlatı yapısı", "Üç bölümden oluşan roman", "Şiir biçiminde yazılan hikâye"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Anlatı teknikleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Çerçeve hikâye (iç içe anlatı), bir anlatıcının kendi içinde başka hikâyelere yer verdiği katmanlı yapıdır; 'Binbir Gece Masalları' buna örnektir."
+    },
+    {
+      "stem": "Kronolojik anlatım nedir?",
+      "options": ["Olayların önem sırasına göre verilmesi", "Olayların gerçekleştiği zaman sırasına göre anlatılması", "Olayların sondan başa doğru aktarılması", "Olayların sebep-sonuç sırasına göre verilmesi"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Anlatı teknikleri",
+      "skills": ["Metin anlama"],
+      "explanation": "Kronolojik anlatımda olaylar zamansal sıraya göre (geçmişten günümüze) aktarılır."
+    },
+    {
+      "stem": "Geriye dönüş (flashback) anlatım tekniği nedir?",
+      "options": ["Gelecek olayları önceden anlatma", "Anlatının bir noktasında geçmişe dönüp oradaki olayları aktarma", "Olayları yavaş tempoda anlatma", "Anlatıcının değişmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlatı teknikleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Geriye dönüş (flashback), anlatının akışını keserek daha önceki olayların aktarıldığı bir tekniktir."
+    },
+    {
+      "stem": "Bir anı metnini günlükten ayıran temel özellik nedir?",
+      "options": ["Anı daha kısadır", "Günlük günü gününe düzenli biçimde tutulurken anı sonradan yazılır", "Günlük daha edebîdir", "Anı her zaman üçüncü şahısla yazılır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Günlük yaşandığı gün yazılır; anı ise geçmişe dönüp bakılarak çoğunlukla daha sonra kaleme alınır."
+    }
+  ]
+}

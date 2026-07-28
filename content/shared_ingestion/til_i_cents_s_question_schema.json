@@ -1,0 +1,75 @@
+{
+  "_doc": "Engine-ready record contract for TIL-I / CEnT-S banks. The future unified test engine consumes finished banks directly and maps these JSON fields 1:1 to DB columns — designed so NO database change is needed when the engine is built. See student_pool_architecture.md for the pool/exclusion/selection contract.",
+
+  "record": {
+    "id": "",
+    "examProfile": "TIL_I | CENTS_S",
+    "poolType": "official | licensed | original | hard | beginner",
+    "sourceType": "official | licensed_or_user_provided_source | reference | original_adaptation | new_original",
+    "sourceName": "",
+    "sourceFile": "",
+    "sourcePage": null,
+    "crossExamRelationId": null,
+    "derivedFromLicensedSkill": null,
+    "competency": null,
+    "section": "",
+    "subject": "",
+    "topic": "",
+    "subtopic": "",
+    "skill": "",
+    "difficulty": "easy | medium | hard",
+    "questionType": "",
+    "stem": "",
+    "options": { "A": "", "B": "", "C": "", "D": "", "E": "" },
+    "officialAnswer": "unknown",
+    "computedAnswer": "",
+    "correctAnswer": "",
+    "answerSource": "official | computed_high_confidence | computed_medium | computed_low_confidence | unanswerable",
+    "confidence": 0.0,
+    "explanation": "",
+    "imageAsset": null,
+    "tags": [],
+    "reviewStatus": "approved | rejected | pending_review",
+    "eligibleForProduction": true,
+    "validation": {
+      "fullSourceRecovered": true,
+      "independentlySolved": true,
+      "secondPassVerified": true,
+      "singleCorrectAnswer": true,
+      "syllabusVerified": true,
+      "duplicateChecked": true,
+      "crossExamCompatibilityChecked": true,
+      "assetVerified": true
+    }
+  },
+
+  "eligibilityRule": {
+    "_doc": "eligibleForProduction MUST be true only when ALL hold. The engine's unified eligible pool = every record for the chosen examProfile with eligibleForProduction=true AND poolType!=beginner (beginner is included only when the selected mode explicitly requests easier content).",
+    "reviewStatus": "approved",
+    "notPoolType_unlessEasierMode": "beginner",
+    "confidence_gte": 0.90,
+    "confidence_gte_readingOrFigure": 0.95,
+    "noUnresolvedFigureDefect": "imageAsset resolves to an existing rendered asset when the item needs a figure",
+    "notAnswerSource": "unanswerable",
+    "excluded": ["rejected", "pending_review", "unanswerable", "below-confidence", "unresolved source/figure defect"]
+  },
+
+  "studentFacingFields": {
+    "_doc": "The ONLY fields the student-facing question object may expose. Source layer is invisible.",
+    "allow": ["id", "examProfile(as exam)", "section/subject", "topic", "difficulty", "questionType", "stem", "options", "correctAnswer(for grading)", "explanation(post-answer)", "imageAsset"]
+  },
+
+  "internalOnlyFields": {
+    "_doc": "NEVER exposed to the student — kept for QC, copyright/source tracking, dedup, analytics, maintenance.",
+    "deny": ["poolType", "sourceType", "sourceName", "sourceFile", "sourcePage", "crossExamRelationId", "derivedFromLicensedSkill", "competency", "confidence", "answerSource", "officialAnswer", "computedAnswer", "reviewStatus", "eligibleForProduction", "validation", "tags"]
+  },
+
+  "engineDerivedAtSeedTime": {
+    "_doc": "Selection signals the engine computes from the content fields above at seed time — listed so the DB schema reserves columns for them and no later migration is needed. Content need not carry them.",
+    "stemHash": "SHA-256 of normalized stem — exact/near-duplicate avoidance within a test",
+    "figureFamily": "grouping key derived from imageAsset base — avoid repeating the same figure family",
+    "passageId": "shared-passage key (reading/reasoning) — avoid reusing the same passage; content SHOULD tag this when a passage feeds multiple items",
+    "solvePatternSignature": "template signature (topic+skill+questionType+numeric-shape) — avoid two items with the same solving pattern and only changed values",
+    "estimatedSolveTimeSec": "from difficulty + section + hasFigure — used for time-budget balancing"
+  }
+}

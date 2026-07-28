@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0067",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a necessary unstated assumption: the counterfactual baseline — new adopters of the promoted behaviour must be drawn from the behaviour the plan aims to displace (substitution source)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "unstated assumption",
+      "negation test",
+      "substitution effect"
+    ],
+    "learning_objective": "Identify the assumption on which an argument depends by applying the negation test, distinguishing the one bridging premise the conclusion needs from over-strong, comparative or irrelevant statements.",
+    "question": "A city council argues: \"By building a network of protected cycle lanes we will reduce motor-traffic congestion, because many more residents will take up cycling and every cycling trip is a trip not made by car.\" Which of the following is an assumption on which this argument depends?",
+    "choices": {
+      "A": "Every resident who takes up cycling will give up car travel completely.",
+      "B": "Cycling across the city is faster than travelling the same route by car.",
+      "C": "A substantial proportion of the extra cycling trips would otherwise have been made by car.",
+      "D": "The number of car journeys made in the city has been rising over recent years.",
+      "E": "Money spent on cycle lanes could not reduce congestion more effectively if it were spent elsewhere."
+    },
+    "correct_answer": "C",
+    "explanation": "The conclusion (congestion will fall) rests on the claim that new cycling trips are trips 'not made by car'. This only follows if the people who start cycling would otherwise have driven. Apply the negation test: if the extra cyclists would instead have walked or used public transport, then car use — and hence congestion — is essentially unchanged, and the argument collapses. So the argument depends on the substitution source being car travel. The other options are either not required for the argument to work (A, B, E) or are stronger than the argument needs (D): the conclusion needs only that a substantial share switch from cars, not that every cyclist abandons the car entirely.",
+    "option_analysis": {
+      "A": "Wrong: this is far stronger than the argument requires. The conclusion needs only that enough trips shift from car to bike, not that every new cyclist stops driving altogether; this reflects the misconception that the needed assumption must be the maximal claim.",
+      "B": "Wrong: not necessary. People may take up cycling for cost, health or environmental reasons even if it is slower; the argument can still go through if cycling replaces driving. This mistakes an attractive selling point for a logically required premise.",
+      "C": "Correct: this supplies the missing link between 'more cycling' and 'less car traffic'. Negated — few of the new cycling trips replace car trips — car use barely changes and congestion does not fall, so the conclusion fails. It is therefore a necessary assumption.",
+      "D": "Wrong: an irrelevant background trend. Whether car journeys were rising or falling beforehand has no bearing on whether the lanes cause a net reduction relative to what would otherwise happen; negating it does not damage the argument.",
+      "E": "Wrong: this is a comparative / opportunity-cost consideration. Whether some other scheme would work better is irrelevant to whether cycle lanes themselves will reduce congestion; negating it leaves the argument intact."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0068",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference",
+    "subtopic": "Resolving an apparent discrepancy via case-mix / referral (selection) effect: a higher crude mortality rate at the centre that receives the highest-risk patients is compatible with it offering the best care",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "critical thinking",
+      "resolve the discrepancy",
+      "case-mix",
+      "selection bias",
+      "crude vs risk-adjusted rate"
+    ],
+    "learning_objective": "Resolve an apparent inconsistency between a crude outcome rate and a recommendation by identifying an unequal case-mix (selection of higher-risk cases) as the reconciling factor, and reject explanations that deepen the paradox or are irrelevant.",
+    "question": "In a national audit, Hospital A records a higher percentage of patients dying within 30 days of heart surgery than Hospital B. Nevertheless, the audit's authors recommend that the most seriously ill heart patients be operated on at Hospital A rather than Hospital B. Which of the following, if true, best explains this apparent inconsistency?",
+    "choices": {
+      "A": "The heart surgeons at Hospital B have, on average, more years of clinical experience.",
+      "B": "Hospital A discharges its surviving patients sooner after surgery than Hospital B does.",
+      "C": "Hospital A carries out many more heart operations each year than Hospital B does.",
+      "D": "Hospital A is a specialist referral centre for the highest-risk cases, whereas Hospital B operates only on low-risk patients.",
+      "E": "Hospital A draws its patients from a much wider geographical area than Hospital B does."
+    },
+    "correct_answer": "D",
+    "explanation": "A crude death rate reflects both the quality of care and how ill the patients were to begin with. If Hospital A receives the highest-risk cases — patients with a substantial chance of dying whatever is done — while Hospital B operates only on low-risk patients, then A can have a higher crude mortality rate yet still give a seriously ill patient a better chance of survival than B would. This unequal case-mix simultaneously explains the higher rate and justifies sending the sickest patients to A. The remaining options either deepen the paradox or are irrelevant to who dies.",
+    "option_analysis": {
+      "A": "Wrong: this deepens the inconsistency rather than resolving it. If B's surgeons were more experienced we would expect even better outcomes at B, making the recommendation to use A harder, not easier, to explain.",
+      "B": "Wrong: earlier discharge of survivors is irrelevant to a fixed 30-day mortality measure and says nothing about risk; it is a red herring that does not reconcile the two facts.",
+      "C": "Wrong: absolute volume. A larger number of operations does not by itself explain a higher death rate (a proportion), nor does it support routing the sickest patients to A; this confuses counts with rates.",
+      "D": "Correct: the unequal case-mix (A takes the highest-risk referrals, B only low-risk patients) makes a higher crude mortality rate at A compatible with A offering seriously ill patients the best chance, resolving the apparent contradiction.",
+      "E": "Wrong: catchment size is irrelevant to patients' risk profile. A wider geographical area does not explain a higher death rate or the referral recommendation unless it also changed the severity of cases, which is not stated."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0069",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Numerical problem solving",
+    "subtopic": "Simultaneous-remainder (Chinese-remainder) deduction: recognising that each remainder is one short of its divisor, so the count plus one is a common multiple of the divisors",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "critical thinking",
+      "numerical deduction",
+      "remainders",
+      "lowest common multiple",
+      "number reasoning"
+    ],
+    "learning_objective": "Solve a simultaneous-remainder problem by spotting a uniform offset (each remainder one less than its divisor), converting it to a lowest-common-multiple condition, and selecting the unique value within a stated bound.",
+    "question": "A crate contains fewer than 300 apples. When the apples are counted out in groups of 5, there are 4 left over; when counted in groups of 6, there are 5 left over; and when counted in groups of 7, there are 6 left over. How many apples are in the crate?",
+    "choices": {
+      "A": "209",
+      "B": "174",
+      "C": "120",
+      "D": "210",
+      "E": "119"
+    },
+    "correct_answer": "A",
+    "explanation": "In every case the remainder is exactly one less than the divisor (4 = 5-1, 5 = 6-1, 6 = 7-1). This means that if one more apple were added, the total would divide exactly by 5, 6 and 7. So N + 1 must be a common multiple of 5, 6 and 7. The lowest common multiple of 5, 6 and 7 is 210, and the next is 420. Since N < 300, we need N + 1 = 210, giving N = 209 (the value 420 would give N = 419, which is too large). Check: 209 = 41x5 + 4 = 34x6 + 5 = 29x7 + 6. So 209 is the unique answer below 300.",
+    "option_analysis": {
+      "A": "Correct: each remainder is one short of its divisor, so N + 1 is a common multiple of 5, 6 and 7; the lowest is 210, and with N < 300 this gives N = 209, which satisfies all three conditions.",
+      "B": "Wrong: 174 fits the 'groups of 5' and 'groups of 7' conditions (174 = 34x5+4 = 24x7+6) but is exactly divisible by 6 (174 = 29x6), so it fails the 'remainder 5 with 6' clue. It comes from dropping the groups-of-6 condition.",
+      "C": "Wrong: 120 is the product of the three remainders (4 x 5 x 6). Multiplying the remainders has no logical basis here, and 120 is divisible by 5 and 6 so it fails the stated conditions.",
+      "D": "Wrong: 210 is the lowest common multiple of 5, 6 and 7 itself. Choosing it ignores the crucial 'one short' offset — 210 leaves remainder 0 with each divisor, not 4, 5 and 6.",
+      "E": "Wrong: 119 satisfies the 'groups of 5' and 'groups of 6' conditions (119 = 23x5+4 = 19x6+5) but leaves no remainder with 7 (119 = 17x7). It comes from solving only two of the three conditions and stopping early."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0070",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: post hoc ergo propter hoc — inferring causation from a single temporal succession, without excluding coincidence or another cause (distinct from reverse causation and confounding)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "critical thinking",
+      "detect the flaw",
+      "post hoc",
+      "causation vs correlation",
+      "causal reasoning"
+    ],
+    "learning_objective": "Identify the post hoc fallacy as the principal flaw when a causal claim rests only on one event following another, and distinguish it from misdiagnoses such as reverse causation, false dilemma, count-versus-proportion confusion or hasty generalisation.",
+    "question": "A commentator writes: \"The central bank cut interest rates in January. In February, national consumer spending rose by 3%. This proves that cutting interest rates boosts consumer spending.\" Which of the following identifies the principal flaw in this reasoning?",
+    "choices": {
+      "A": "It reverses cause and effect, since the rise in spending may have caused the rate cut.",
+      "B": "It draws a conclusion about the whole economy from the figures for a single month.",
+      "C": "It assumes that cutting interest rates is the only possible way to raise consumer spending.",
+      "D": "It infers that the rate cut caused the rise merely because the rise came after it, without excluding coincidence or some other cause.",
+      "E": "It treats a rise expressed as a percentage as though it were a rise in absolute terms."
+    },
+    "correct_answer": "D",
+    "explanation": "The argument's only evidence for causation is the order of events: the rate cut came first, the spending rise came second. Concluding that the first therefore caused the second, without ruling out coincidence, a seasonal pattern, or a separate common cause, is the post hoc ergo propter hoc fallacy. This is the principal flaw. The distractors each name a different error that the argument does not actually commit, or a secondary quibble that would not rescue the causal claim even if fixed.",
+    "option_analysis": {
+      "A": "Wrong: reverse causation is a different flaw, and here it is chronologically impossible — the January cut precedes the February rise, so February's spending cannot have caused January's cut. It is a tempting but misapplied causal label.",
+      "B": "Wrong: this is a hasty-generalisation quibble about sample size. Even with a full year of data the core error would remain, because merely observing spending after a cut still would not establish that the cut caused it.",
+      "C": "Wrong: this describes a false-dilemma / 'only way' error the argument never makes. Claiming the cut boosted spending on one occasion does not assert it is the sole possible cause of any rise.",
+      "D": "Correct: the argument treats mere temporal succession as proof of causation and fails to exclude coincidence or another underlying cause — the post hoc fallacy, which is the principal defect in the reasoning.",
+      "E": "Wrong: a count-versus-proportion red herring. The argument does not confuse a percentage change with an absolute change; the size and form of the rise are not where the reasoning breaks down."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0071",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logical reasoning",
+    "subtopic": "Drawing a valid conclusion from a chain of conditionals: chaining a necessary ('only if') condition with a second conditional via modus tollens, and rejecting affirming the consequent and unsupported new terms",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "critical thinking",
+      "conditional reasoning",
+      "only if",
+      "modus tollens",
+      "affirming the consequent"
+    ],
+    "learning_objective": "Deduce what must be true from a set of conditional statements by correctly translating 'only if' as a necessary condition and applying modus tollens through a chain, while rejecting affirming-the-consequent conclusions and statements that introduce unsupported terms.",
+    "question": "Assume that all of the following statements are true:\n- The experiment succeeds only if the culture remains sterile.\n- If the culture remains sterile, then no bacterial colonies appear.\n- Bacterial colonies appeared on the plate.\nWhich one of the following must also be true?",
+    "choices": {
+      "A": "The experiment succeeded.",
+      "B": "The experiment did not succeed.",
+      "C": "If no colonies had appeared, the experiment would have succeeded.",
+      "D": "The seal on the plate must have been broken.",
+      "E": "The culture remained sterile."
+    },
+    "correct_answer": "B",
+    "explanation": "'The experiment succeeds only if the culture remains sterile' means success requires sterility (success -> sterile). The second statement is sterile -> no colonies. Colonies did appear, so by the contrapositive of the second statement the culture was not sterile. Since success requires sterility, and the culture was not sterile, the experiment cannot have succeeded (contrapositive of success -> sterile). Therefore 'the experiment did not succeed' must be true. The other options either contradict this chain, introduce a term that was never mentioned, or commit affirming the consequent.",
+    "option_analysis": {
+      "A": "Wrong: since sterility is necessary for success and the culture was not sterile, success is impossible; asserting success contradicts the premises.",
+      "B": "Correct: colonies appeared, so (via sterile -> no colonies) the culture was not sterile; and because success requires sterility, a non-sterile culture forces the conclusion that the experiment did not succeed.",
+      "C": "Wrong: this affirms the consequent. Sterility is only a necessary condition for success, not a sufficient one, so the absence of colonies (which would allow sterility) does not guarantee that the experiment would succeed.",
+      "D": "Wrong: the statements say nothing about any 'seal'. Introducing a specific unstated cause for the contamination goes beyond what the premises entail; it is not a valid deduction.",
+      "E": "Wrong: this directly contradicts the deduction. Colonies appeared, and 'sterile -> no colonies' means the presence of colonies proves the culture was not sterile."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  }
+]

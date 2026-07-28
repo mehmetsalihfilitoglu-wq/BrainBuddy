@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Taban alanı 30 cm² olan bir cisim zemine 90 N kuvvet uygulamaktadır. Aynı cisim başka bir yüzeyi üzerine çevrildiğinde temas alanı 15 cm² oluyor. Bu durumda cismin zemine uyguladığı basınç kaç katına çıkar?",
+      "options": [
+        "1.5",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu",
+        "alan"
+      ],
+      "explanation": "İlk durumda basınç P = 90/30 = 3 birimdir. İkinci durumda P = 90/15 = 6 olur. Basınç 2 katına çıkar.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q01"
+    },
+    {
+      "stem": "Basıncı azaltmak için temas alanının genişletilmesi gerekir. Aşağıdaki uygulamalardan hangisinde bu ilke kullanılmıştır?",
+      "options": [
+        "Çivinin sivri yapılması",
+        "Kar ayakkabılarının geniş tabanlı yapılması",
+        "Bıçağın bilenmesi",
+        "Topuklu ayakkabının ince topuklu olması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "günlük_hayat",
+        "basinc_uygulamalari"
+      ],
+      "explanation": "Temas alanı arttırılarak basınç azaltılır. Kar ayakkabılarının tabanı geniş yapılır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q02"
+    },
+    {
+      "stem": "Bir sıvı içinde basınç yalnızca derinliğe bağlı olarak değişmektedir. Aynı sıvı içinde h, 2h ve 3h derinliklerinde ölçülen basınçlar sırasıyla P1, P2 ve P3 olarak verilmiştir. Buna göre aşağıdaki ilişki hangisidir?",
+      "options": [
+        "P1 = P2 = P3",
+        "P1 < P2 < P3",
+        "P3 < P2 < P1",
+        "P1 = P2 < P3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "basinc_formulu"
+      ],
+      "explanation": "Sıvı basıncı derinlikle doğru orantılıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q03"
+    },
+    {
+      "stem": "Bir öğrenci sıvı basıncının bağlı olduğu değişkenleri araştırmak için aynı sıvı içinde farklı derinliklere basınç sensörleri yerleştiriyor. Sensörler derinlik arttıkça daha büyük değerler göstermektedir. Bu deney hangi değişkenin sıvı basıncını etkilediğini gösterir?",
+      "options": [
+        "Sıvının rengi",
+        "Kabın şekli",
+        "Derinlik",
+        "Kap hacmi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "deney",
+        "derinlik"
+      ],
+      "explanation": "Sıvı basıncı derinliğe bağlıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q04"
+    },
+    {
+      "stem": "Bir deneyde aynı sıvı için derinlik ile basınç arasındaki ilişki grafikte doğrusal olarak artmaktadır. Grafiğin eğiminin büyük olması aşağıdakilerden hangisinin büyük olduğunu gösterir?",
+      "options": [
+        "Sıvı yoğunluğunun",
+        "Kabın hacminin",
+        "Kap şeklinin",
+        "Sıvı miktarının"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "grafik",
+        "yogunluk"
+      ],
+      "explanation": "Sıvı basıncı yoğunluk ve derinliğe bağlıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q05",
+      "imageAsset": "quiz_images/fen/fen_basinc_002_fen_bas_002_q05_graph_line.png"
+    },
+    {
+      "stem": "Bir öğrenci pipeti bardağa daldırıp ağzından hava çektiğinde meyve suyunun pipette yükseldiğini gözlemliyor. Bu olay hangi fiziksel etkiyle en iyi açıklanır?",
+      "options": [
+        "Katı basıncı (sivri uç)",
+        "Açık hava basıncının pipet içindeki basınçtan fazla olması",
+        "Sıvı basıncı",
+        "Gaz basıncının artması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "acik_hava_basinci",
+        "günlük_hayat"
+      ],
+      "explanation": "Pipetle içecek içilmesi açık hava basıncı sayesinde gerçekleşir.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q06"
+    },
+    {
+      "stem": "Taban alanı 50 cm² olan bir cisim zemine 200 N kuvvet uygulamaktadır. Buna göre zemine uygulanan basınç kaç N/cm² olur?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu"
+      ],
+      "explanation": "Basınç = Kuvvet / Alan = 200 / 50 = 4 N/cm².",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q07"
+    },
+    {
+      "stem": "Bir balon yükseldikçe hacmi artmaktadır. Bunun nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Sıcaklığın artması",
+        "Açık hava basıncının azalması",
+        "Gazın yok olması",
+        "Yer çekiminin artması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "acik_hava_basinci",
+        "gaz_basinci"
+      ],
+      "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır ve balon genleşir.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q08"
+    },
+    {
+      "stem": "K, L ve M kaplarında aynı cins sıvı bulunmaktadır. Sıvı yükseklikleri sırasıyla h, 2h ve 4h'tir. Kapların tabanlarında oluşan basınçlar karşılaştırıldığında aşağıdaki sıralamalardan hangisi doğrudur?",
+      "options": [
+        "M > L > K",
+        "K > L > M",
+        "K = L = M",
+        "L > M > K"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
+      "explanation": "Sıvı basıncı yalnızca derinliğe bağlıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q09"
+    },
+    {
+      "stem": "Kapalı bir kaptaki gazın basıncı belirli koşullarda değişir. Sabit hacimde sıcaklık artırıldığında moleküller hızlanır ve çeperlere daha sık çarpar. Buna göre aşağıdakilerden hangisi gaz basıncını artıran bir durumdur?",
+      "options": [
+        "Gazın hacmini artırmak",
+        "Gazın sıcaklığını artırmak",
+        "Gaz miktarını azaltmak",
+        "Kabın hacmini büyütmek"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": [
+        "gaz_basinci",
+        "sicaklik",
+        "molekul"
+      ],
+      "explanation": "Sıcaklık arttıkça gaz moleküllerinin çarpma sayısı ve basınç artar.",
+      "source": "edumio",
+      "sourceRef": "fen_bas_002_q10"
+    }
+  ]
+}

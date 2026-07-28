@@ -10,21 +10,21 @@
         android:text="Kurulum Tamamlandı"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/bb_text"
+        android:textColor="@color/edu_text"
         android:gravity="center"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="BrainBuddy hazır! Engellenen uygulamaları açmak için önce testi geçmek gerekecek."
+        android:text="EDUmio hazır. İtalya yolculuğun başlıyor — her gün bir adım."
         android:textSize="16sp"
-        android:textColor="@color/bb_text_muted"
+        android:textColor="@color/edu_text_muted"
         android:gravity="center"/>
 
     <Button
         android:id="@+id/btnFinish"
-        style="@style/BB.Button"
+        style="@style/Edu.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0031",
+      "stem": "Bir fabrika 4 567 ürünü 23'erli kutulara paketleyecek.\n\nTam dolu kaç kutu elde edilir ve kaç ürün artar?",
+      "options": [
+        "198 kutu, 13 ürün artar",
+        "199 kutu, 0 ürün artar",
+        "197 kutu, 36 ürün artar",
+        "198 kutu, 0 ürün artar"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "bolme_kalani",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "bolme",
+        "kalan",
+        "problem_cozme"
+      ],
+      "explanation": "4567÷23=198 tam, kalan 13 (198×23=4554, 4567−4554=13). B(199 kutu): 23×199=4577>4567, olmaz. C(197 kutu): 23×197=4531, kalan=36 (mümkün ama maksimum tam kutu değil). D: 198 kutu ama 0 artar: 198×23=4554≠4567.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0031",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0032",
+      "stem": "L şeklindeki bir odanın boyutları şöyledir: Dış dikdörtgen 12 m × 8 m, sol alt köşede 4 m × 3 m'lik bir çıkıntı kesilmiştir.\n\nBu odanın zemin alanı kaç m²'dir?",
+      "options": [
+        "72",
+        "76",
+        "84",
+        "88"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "karma_sekil_alani",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "karma_sekil",
+        "cikarma"
+      ],
+      "explanation": "Büyük dikdörtgen: 12×8=96 m². Çıkıntı (kesilen bölüm): 4×3=12 m². Kalan: 96−12=84 m². A(72): 12×6=72, genişliği 6 almış. B(76): 96−20=76, kesilen bölümü 5×4=20 almış. D(88): 96−8=88, kesilen bölümü 8 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0032",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0033",
+      "stem": "Baba ile oğlun yaşları toplamı 52'dir. Baba, oğlunun 3 katı kadar yaşındadır.\n\nBabanın ve oğlun yaşları kaçtır?",
+      "options": [
+        "Baba: 36, Oğul: 16",
+        "Baba: 39, Oğul: 13",
+        "Baba: 42, Oğul: 10",
+        "Baba: 40, Oğul: 12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "denklem_yaslar",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "toplama"
+      ],
+      "explanation": "Oğul = x, Baba = 3x. x+3x=4x=52 → x=13. Baba: 39. Doğrulama: 39+13=52 ✓, 39=3×13 ✓. A(36,16): 36+16=52 ✓ ama 36≠3×16=48. C(42,10): 42+10=52 ✓ ama 42≠3×10=30. D(40,12): toplam 52 ✓ ama 40≠3×12=36.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0033",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0034",
+      "stem": "Ahmet'in 4 kg elması var. Mehmet, Ahmet'in elmalarının 3/4'ü kadar elma toplamıştır. Can ise Ahmet ve Mehmet'in toplamları kadar elma toplamıştır.\n\nCan kaç kg elma toplamıştır?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kesir_zincirleme",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "toplama",
+        "problem_cozme"
+      ],
+      "explanation": "Mehmet: 3/4×4=3 kg. Ahmet+Mehmet: 4+3=7 kg. Can=7 kg. A(5): Mehmet=2 kg almış, 4+1=5 değil. B(6): Mehmet=3, Can=sadece Mehmet×2=6 sanmış. D(8): Can=Ahmet×2=8 sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0034",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0035",
+      "stem": "Bir mağazada 250 TL'lik bir ürüne %20 indirim yapıldı.\n\nİndirimli fiyat kaç TL'dir ve bu ürünü 3 tane alan kişi toplam kaç TL öder?",
+      "options": [
+        "200 TL; 600 TL",
+        "210 TL; 630 TL",
+        "180 TL; 540 TL",
+        "200 TL; 650 TL"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "indirim_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "yuzde",
+        "para",
+        "problem_cozme"
+      ],
+      "explanation": "%20 indirim: 250×(20/100)=50 TL indirim. İndirimli: 250−50=200 TL. 3 tane: 3×200=600 TL. B(210): %16 indirim sanmış. C(180): %28 indirim hesaplamış. D: indirimli fiyat 200 doğru ama 3×250=750 yerine 650 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0035",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0036",
+      "stem": "4 sınavdan 15, 22, 18 ve 25 puan alan bir öğrencinin ortalaması kaçtır?\n\nBu öğrencinin ortalamayı 21'e çıkarması için 5. sınavda kaç puan alması gerekir?",
+      "options": [
+        "Ortalama: 20, 5. sınav: 25",
+        "Ortalama: 20, 5. sınav: 23",
+        "Ortalama: 21, 5. sınav: 21",
+        "Ortalama: 20, 5. sınav: 21"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "ortalama_denklem",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam: 15+22+18+25=80. Ortalama: 80÷4=20. 5 sınavda ortalama 21: toplam=21×5=105. 5. sınav: 105−80=25. B(23): 5×21=105, 105−82=23 hata (toplamı 82 almış). D(21): ortalama doğru ama 5×21=105, 105−80=25 olmasına rağmen 21 demiş.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0036",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0037",
+      "stem": "Bir dizi şöyle devam ediyor: 1, 4, 9, 16, 25, ...\n\nBu dizinin 8. terimi kaçtır ve 9. ile 8. terim arasındaki fark nedir?",
+      "options": [
+        "64; 17",
+        "64; 15",
+        "56; 17",
+        "72; 19"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "sayi_dizisi",
+      "topic": "dizi_kural",
+      "skills": [
+        "kare_sayi",
+        "dizi",
+        "kural_bulma"
+      ],
+      "explanation": "Dizi kare sayıları: n. terim = n². 8. terim: 8²=64. 9. terim: 9²=81. Fark: 81−64=17. B(15): ardışık kareler arasındaki farkı 2n+1 yerine 2n−1 hesaplamış. C(56): 8. terimi yanlış. D(72): 8²=72 yanlış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0037",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0038",
+      "stem": "37 × 3 = 111, 37 × 6 = 222, 37 × 9 = 333 kuralını fark eden bir öğrenci bu örüntüyü inceledi.\n\n37 × 27 kaçtır ve bu işlem örüntüyle uyumlu mudur?",
+      "options": [
+        "999; Evet, üç basamak da 9",
+        "999; Hayır, örüntüyle uyumlu değil",
+        "1 001; Evet",
+        "972; Hayır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "oruntu_kesfetme",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "oruntu",
+        "carpma",
+        "problem_cozme"
+      ],
+      "explanation": "37×3=111, 37×6=222, 37×9=333, 37×12=444, 37×15=555, 37×18=666, 37×21=777, 37×24=888, 37×27=999. Evet, 27=3×9 ve sonuç 999. B: hesap doğru ama örüntüyü tanımamış. C(1001): hesap hatası. D(972): 36×27=972 tuzağı.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0038",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0039",
+      "stem": "6 m uzunluğunda ve 4 m genişliğinde bir odanın zeminine 40 cm × 40 cm'lik kareli fayans döşenecek.\n\nKaç adet fayans gerekir?",
+      "options": [
+        "120",
+        "140",
+        "150",
+        "160"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "fayans_sayma",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "bolme",
+        "fayans"
+      ],
+      "explanation": "Oda: 600 cm × 400 cm. Fayans: 40 cm × 40 cm. Sıra sayısı: 600÷40=15, 400÷40=10. Toplam: 15×10=150 fayans. A(120): 600÷50=12, 400÷50=8, 12×10=120 hata. B(140): 14×10=140, boyutu yanlış hesaplamış. D(160): 16×10=160, sütun sayısını fazla almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0039",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0040",
+      "stem": "Bir çoban her hafta koyunlarının yünlerini 3 eşit gruba bölerek sırayla kırkıyor. 1. grupta 48, 2. grupta 48, 3. grupta ise 48 koyun var. Bir koyundan 1,5 kg yün alınıyor.\n\nÇoban 3 haftada toplam kaç kg yün elde eder?",
+      "options": [
+        "144",
+        "180",
+        "216",
+        "198"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "carpma_toplama",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "carpma",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam koyun: 48×3=144. Her koyundan 1,5 kg: 144×1,5=216 kg. A(144): 1,5 çarpmayı unutmuş, sadece koyun sayısını yazmış. B(180): 120 koyun × 1,5=180, bir grubu saymamış. D(198): 132 koyun × 1,5=198 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0040",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

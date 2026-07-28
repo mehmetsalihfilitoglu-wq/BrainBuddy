@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik",
+        "problem_cozme"
+      ],
+      "stem": "Bir okul kantininde satılan kalem ve defterlerin fiyatları arasında belirli bir oran bulunmaktadır. 3 kalem ve 2 defter toplam 34 TL, 5 kalem ve 2 defter ise toplam 46 TL'ye satılmaktadır. Buna göre bir defterin fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answerIndex": 2,
+      "explanation": "İki denklem kurulur. Kalem fiyatı 4 TL bulunur. Defter fiyatı 12 TL olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-004-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "tablo_okuma",
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Bir sınıftaki öğrencilerin çözdüğü matematik soru sayıları şu şekildedir: Pazartesi 18, salı 24, çarşamba 30 ve perşembe günü çözülen soru sayısı ilk dört günün ortalamasını 27 yapmaktadır. Buna göre perşembe günü çözülen soru sayısı kaçtır?",
+      "options": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam soru sayısı 27×4=108 olmalıdır. İlk üç gün toplamı 18+24+30=72'dir. Perşembe günü 108−72=36 soru çözülmüştür.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-004-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 50 m ve 30 m olan dikdörtgen biçimindeki bir parkın ortasına kare şeklinde bir oyun alanı yapılacaktır. Oyun alanı dışında kalan alan 1100 m² olduğuna göre oyun alanının bir kenarı kaç metredir?",
+      "options": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "answerIndex": 2,
+      "explanation": "Park alanı 50×30 = 1500 m². Boş kalan alan 1100 olduğuna göre oyun alanı 400 m² olur. Karenin kenarı √400 = 20 m'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-004-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin çözdüğü soru sayıları günlere göre değişmektedir. Pazartesi 20 soru, salı günü %50 fazla, çarşamba günü salıdan 10 eksik soru çözmüştür. Perşembe günü çözdüğü soru sayısı ilk dört gün ortalamasını 30 yapmaktadır. Buna göre perşembe günü çözülen soru sayısı kaçtır?",
+      "options": [
+        "28",
+        "30",
+        "50",
+        "34"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 120−70=50 soru çözülmüştür.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-004-5",
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir teknoloji mağazasında bir tabletin etiket fiyatı 2000 TL'dir. Kampanya kapsamında önce %15 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 100 TL teslimat ücreti ekleniyor. Son aşamada oluşan yeni fiyat üzerinden %10 öğrenci indirimi yapılıyor. Buna göre öğrenci bu tableti kaç TL'ye satın alır?",
+      "options": [
+        "1530",
+        "1600",
+        "1700",
+        "1680"
+      ],
+      "answerIndex": 2,
+      "explanation": "2000 × 0,85 = 1700 TL olur. 100 TL eklenince 1800 TL olur. Son olarak %10 indirim uygulanır: 1800 × 0,90 = 1620 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold042_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir okulda bilim kulübü ile sanat kulübündeki öğrenci sayılarının oranı 2 : 3'tür. Bilim kulübüne 12 öğrenci daha katılıp sanat kulübünden 6 öğrenci ayrıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "60",
+        "75",
+        "90",
+        "105"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta bilim 2k, sanat 3k olsun. 2k + 12 = 3k - 6 olduğundan k = 18 bulunur. Başlangıçta toplam öğrenci sayısı 5k = 90'dır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold042_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "long_context",
+      "stem": "Dikdörtgen şeklindeki bir bahçenin uzun kenarı kısa kenarından 4 metre fazladır. Bahçenin çevresi 36 metredir. Bu bahçenin alanı kaç metrekaredir?",
+      "options": [
+        "72",
+        "77",
+        "80",
+        "84"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kısa kenar x, uzun kenar x + 4 olsun. 2x + 2(x + 4) = 36 ise 4x + 8 = 36 olur. Buradan 4x = 28 ve x = 7 bulunur. Uzun kenar 11 metredir. Alan 7 × 11 = 77 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold042_q08",
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Premium look: light cards on all screens (emerald theme).
-         Emerald palette reused from values/colors.xml for consistent Reports look. -->
-    <color name="bb_surface_container">@color/emerald_surface</color>
-    <color name="bb_outline_variant">@color/emerald_primary</color>
+    <!--
+        The app is light-mode-first: every layout hardcodes white/light backgrounds.
+        Night mode must therefore keep the SAME light tokens — overriding text or
+        surface colors here produces light text on white backgrounds (invisible).
+        A true dark theme requires layout-level work and is a future iteration.
+    -->
 </resources>

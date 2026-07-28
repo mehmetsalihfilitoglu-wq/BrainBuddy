@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0410",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 412 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "500",
+        "525",
+        "550",
+        "450"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+10/100) · (1-25/100) = 412. x = 500 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0410",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0411",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 120° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "60",
+        "240",
+        "150",
+        "180"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 120° ise diğerleri toplam 240°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0411",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0412",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0412",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0413",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 89, 89, 89, 89, 92 puan almıştır. Altıncı sınava girince ortalaması 90 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "90",
+        "97",
+        "87",
+        "92"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 448. 6. sınav x ise (total5 + x)/6 = 90 → x = 92.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0413",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0414",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "210",
+        "120",
+        "180",
+        "300"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0414",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0415",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "350",
+        "640",
+        "760",
+        "700"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +100 litre eklenince 3V/(7) dolu. Denklemden V=700 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0415",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0416",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "99",
+        "104",
+        "94",
+        "90"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0416",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0417",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "99",
+        "94",
+        "104"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0417",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0418",
+      "stem": "Kenarları 15 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "108",
+        "270",
+        "180",
+        "162"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-6)×(18-6) = 9×12 = 108 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0418",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0419",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 75, 75, 75, 75, 76 puan almıştır. Altıncı sınava girince ortalaması 79 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "93",
+        "98",
+        "103",
+        "79"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 376. 6. sınav x ise (total5 + x)/6 = 79 → x = 98.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0419",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

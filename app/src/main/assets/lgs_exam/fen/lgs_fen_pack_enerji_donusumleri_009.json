@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir göl ekosisteminde algler → küçük balıklar → büyük balıklar → balıkçıllar besin zinciri kurulmuştur. Balıkçıl sayısındaki ani artış sonrası bir süre küçük balık sayısı artıyor. Bu geçici artışın en olası nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Alg sayısı azalmıştır.",
+        "Büyük balıklar balıkçıllarca daha fazla avlandığı için küçük balıklara predasyon baskısı azalmıştır.",
+        "Küçük balıklar daha hızlı üremeye başlamıştır.",
+        "Gölün sıcaklığı düşmüştür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "avci_av", "ekosistem_dinamigi", "neden_sonuc"],
+      "explanation": "Balıkçıl sayısı artınca büyük balıklar daha fazla avlanır. Büyük balıklar küçük balıkların yırtıcısı olduğundan, büyük balık azalınca küçük balıklara olan predasyon baskısı azalır ve küçük balık sayısı geçici olarak artar. Bu besin ağı dinamiklerinde \"av baskısının azalması\" etkisidir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q01"
+    },
+    {
+      "stem": "İki ekosistemde üretici enerjisi eşit, ancak biri çeşitli türler içeriyor (çok türlü), diğeri az tür içeriyor. Çevresel bir bozulma sonrası çok türlü ekosistem daha hızlı toparlanıyor. Bu gözlem aşağıdakilerden hangisini destekler?",
+      "options": [
+        "Enerji verimliliği tür sayısına bağlıdır.",
+        "Biyolojik çeşitlilik ekosistem direncini artırabilir.",
+        "Az türlü ekosistemlerde enerji kaybı daha azdır.",
+        "Üretici enerjisi toparlanmayı belirler."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "SCENARIO_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["ekosistem", "biyolojik_cesitlilik", "direnc"],
+      "explanation": "Çok türlü ekosistemlerde farklı türler farklı nişleri doldurur; bir tür azalınca diğerleri işlevi üstlenebilir. Bu biyolojik çeşitliliğin ekosisteme direnç (resilience) sağladığını gösterir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q02"
+    },
+    {
+      "stem": "Atmosferdeki CO₂ ile küresel sıcaklık artışı arasındaki ilişkiyi inceleyen bir araştırmada her iki veri de son 100 yılda artıyor. Bir öğrenci \"CO₂ artışı sıcaklık artışına neden oluyor.\" diyor. Arkadaşı \"Veriler sadece birlikte artışı gösterir; nedensellik kanıtlanmaz.\" diyor. Arkadaşının itirazı neye dayanıyor?",
+      "options": [
+        "CO₂ artışı sıcaklıktan bağımsızdır.",
+        "Korelasyon (birlikte değişim) nedensellik (sebep-sonuç) anlamına gelmez; başka faktörler de etkili olabilir.",
+        "Veriler yanlış toplanmıştır.",
+        "Sıcaklık CO₂'yi azaltır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["veri_yorumlama", "korelasyon", "nedensellik", "bilimsel_yontem"],
+      "explanation": "İki değişkenin birlikte artması (korelasyon) tek başına birinin diğerine neden olduğunu (nedensellik) kanıtlamaz. Üçüncü bir faktör veya ters nedensellik de mümkündür. Bilimsel çıkarımda bu ayrım önemlidir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q03"
+    },
+    {
+      "stem": "Bir enerji piramidinde üreticilerde 20000 kJ, birincil tüketicilerde 2000 kJ, ikincil tüketicilerde 200 kJ enerji ölçülmüştür. Buna göre birincil tüketiciden ikincil tüketiciye aktarım verimliliği yaklaşık yüzde kaçtır?",
+      "options": [
+        "%1",
+        "%10",
+        "%20",
+        "%50"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "verimlilik", "enerji_akis", "hesaplama"],
+      "explanation": "Birincil tüketicide 2000 kJ, ikincil tüketicide 200 kJ. Aktarım verimliliği = (200/2000) × 100 = %10.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q04"
+    },
+    {
+      "stem": "Bir bölgede rüzgar türbini ve kömür santrali yan yana kuruluyor. İkisi de aynı miktarda elektrik üretiyor. Öğrenci \"Rüzgar türbini çevreye daha az zarar verir.\" diyor. Bu önermeyi destekleyen en güçlü gerekçe aşağıdakilerden hangisidir?",
+      "options": [
+        "Rüzgar türbini daha ucuzdur.",
+        "Rüzgar türbini sera gazı salınımı yapmaz; kömür yanması CO₂ ve diğer kirleticiler açığa çıkarır.",
+        "Kömür santrali daha az yer kaplar.",
+        "Rüzgar sürekli eser."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ENERGY_SOURCE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "fosil_yakit", "cevre_etkisi", "karsilastirma"],
+      "explanation": "Kömür yakıtının yanması CO₂, SO₂, partikül vb. salar; bu da sera etkisi ve hava kirliliğine yol açar. Rüzgar türbini doğrudan yanma yapmadığı için bu emisyonları üretmez. Bu, çevreye daha az zarar argümanının ana gerekçesidir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q05"
+    },
+    {
+      "stem": "Karbon döngüsünde fotosentez ve solunum birbirinin tersi tepkimelerdir. Orman yangını sonrası bir bölgede karbon döngüsü için aşağıdakilerden hangisi beklenir?",
+      "options": [
+        "Atmosferdeki CO₂ azalır çünkü ağaçlar yok olmuştur.",
+        "Yanma sırasında organik karbon CO₂ olarak atmosfere salınır; fotosentez azaldığı için CO₂ tutulması da azalır – net etki atmosferde CO₂ artışı yönündedir.",
+        "Karbon döngüsü etkilenmez.",
+        "CO₂ sadece solunumla üretilir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "yanma", "fotosentez", "cevre"],
+      "explanation": "Yangında organik madde yanarak CO₂ açığa çıkar. Aynı zamanda fotosentez yapan bitkiler azaldığı için CO₂ tutulması da düşer. İki etki de atmosferdeki CO₂ artışına katkı yapar.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q06"
+    },
+    {
+      "stem": "Bir besin ağında X türü hem Y hem Z tarafından avlanıyor. Y türü yok edildiğinde X sayısı artıyor, Z sayısı da artıyor. Bu durum için aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Z, X'ten bağımsızdır.",
+        "Y ve Z arasında rekabet veya av-avcı ilişkisi olabilir; Y yok olunca Z'nin baskısı azalan X sayısını artırabilir, Z de X ile beslendiği için artar.",
+        "X, Z'yi avlar.",
+        "Y, Z'yi avlar."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_agi", "avci_av", "rekabet", "ekosistem"],
+      "explanation": "Y yok olunca X'in avcılarından biri ortadan kalkar; X artar. Z de X ile besleniyorsa X artınca Z'nin besin kaynağı artar, Z de artar. Y ile Z arasında rekabet veya dolaylı ilişki de olabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q07"
+    },
+    {
+      "stem": "Bir baraj gölünde hidroelektrik santrali kuruluyor. Öğrenci \"Bu enerji kaynağı tamamen temizdir.\" diyor. Bu önermeye itiraz için aşağıdaki argümanlardan hangisi en geçerli olabilir?",
+      "options": [
+        "Hidroelektrik pahalıdır.",
+        "Baraj gölleri oluşurken su altında kalan bitkiler ayrışır, metan gibi sera gazları salınabilir; ayrıca ekosistem ve yerleşim alanları etkilenir – \"tamamen temiz\" ifadesi abartılı olabilir.",
+        "Su enerjisi yenilenemezdir.",
+        "Barajlar elektrik üretmez."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CRITICAL_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["hidroelektrik", "cevre_etkisi", "eleştirel_düşünme"],
+      "explanation": "Hidroelektrik fosil yakıtlara göre daha temiz olsa da baraj göllerinde bataklıklaşma, metan salınımı, habitat kaybı gibi çevresel maliyetler vardır. \"Tamamen temiz\" iddiası bu nedenle eleştirilebilir.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q08"
+    },
+    {
+      "stem": "Enerji piramidinde üreticiden birincil tüketiciye aktarımda yaklaşık %10 verim kuralı geçerlidir. Buna göre ikincil tüketici basamağındaki 10 kJ enerji için üretici basamağında en az kaç kJ enerji gerekir?",
+      "options": [
+        "100",
+        "500",
+        "1000",
+        "2000"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "verimlilik", "cok_adimli_hesaplama"],
+      "explanation": "İkincil tüketicide 10 kJ. Birincil tüketiciden ikincil tüketiciye %10 → birincil tüketicide 10/0,1 = 100 kJ. Üreticiden birincil tüketiciye %10 → üreticide 100/0,1 = 1000 kJ.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q09"
+    },
+    {
+      "stem": "Bir güneş paneli ve bir kömür santrali aynı miktar elektrik üretiyor. Öğrenci \"Her ikisi de elektrik üretiyor; fark yok.\" diyor. Bu öğrenciye verilebilecek en uygun yanıt aşağıdakilerden hangisidir?",
+      "options": [
+        "Kömür daha verimlidir.",
+        "Elektrik üretim yöntemi çevresel etkiyi belirler; güneş paneli sera gazı salmaz, kömür yanması CO₂ ve kirletici üretir.",
+        "Güneş paneli sadece gündüz çalışır.",
+        "Kömür yenilenebilirdir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "COMPARISON_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_kaynagi", "cevre", "karsilastirma", "eleştiri"],
+      "explanation": "Aynı çıktı (elektrik) farklı yollarla elde edilebilir; önemli olan üretim sürecinin çevresel maliyetidir. Güneş enerjisi fosil yakıt yanması gerektirmez; kömür yanması sera gazı ve hava kirliliğine neden olur.",
+      "source": "edumio",
+      "sourceRef": "fen_ed_009_q10"
+    }
+  ]
+}

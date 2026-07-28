@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir karakter bakımından Aa genotipli iki birey çaprazlanıyor. Oluşan yavrular arasından baskın fenotipli bireyler seçiliyor. Bu bireylerin kendi aralarında çaprazlanması durumunda çekinik fenotipli birey oluşma olasılığı kaçtır?",
+      "options": [
+        "1/9",
+        "2/9",
+        "1/4",
+        "1/3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik", "saf_dol"],
+      "explanation": "Aa × Aa → 1 AA : 2 Aa : 1 aa. Baskın fenotipli bireyler AA ve Aa'dır. Heterozigot olma olasılığı 2/3'tür. Çekinik birey oluşabilmesi için iki heterozigot bireyin çaprazlanması gerekir: (2/3 × 2/3) × 1/4 = 1/9.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin bazı sayısı toplam baz sayısının %22'sidir. Buna göre timin bazı oranı yüzde kaçtır?",
+      "options": [
+        "22",
+        "28",
+        "39",
+        "44"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
+      "explanation": "DNA'da G=C olduğundan sitozin de %22'dir. G+C=%44 olur. Geriye %56 kalır. A=T olduğundan timin %28 olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q02"
+    },
+    {
+      "stem": "Bir DNA molekülünün bir zincirinde 240 adenin bazı bulunmaktadır. Buna göre bu DNA molekülünün tamamındaki timin bazı sayısı kaçtır?",
+      "options": [
+        "240",
+        "360",
+        "480",
+        "720"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
+      "explanation": "Bir zincirdeki A karşı zincirde T ile eşleşir. Ayrıca o zincirdeki T karşı zincirde A olur. Bu nedenle toplam T sayısı 240 + 240 = 480 olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q03"
+    },
+    {
+      "stem": "DNA yapısı ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "DNA yalnızca proteinlerden oluşur",
+        "DNA tek zincirli yapıdadır",
+        "Nükleotitler şeker, fosfat ve organik bazdan oluşur",
+        "DNA'da dört çeşit şeker bulunur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "nukleotit", "bazlar"],
+      "explanation": "Nükleotit; deoksiriboz şekeri, fosfat ve organik bazdan oluşur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q04"
+    },
+    {
+      "stem": "Bir canlı türünde mutasyon sonucu yeni bir renk özelliği ortaya çıkıyor. Bu özellik çevre koşullarında avantaj sağladığı için popülasyonda giderek yaygınlaşıyor. Bu durum aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Modifikasyon",
+        "Doğal seçilim",
+        "Klonlama",
+        "Genetik mühendisliği"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "dogal_secilim", "evrim"],
+      "explanation": "Faydalı mutasyonlar doğal seçilimle popülasyonda yaygınlaşabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q05"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi modifikasyon örneğidir?",
+      "options": [
+        "Radyasyon sonucu DNA diziliminin değişmesi",
+        "Bir bakteride antibiyotik direncinin oluşması",
+        "Bir insanın güneşte bronzlaşması",
+        "Bir canlıda gen mutasyonu oluşması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["modifikasyon", "cevre_etkisi", "kalitsal"],
+      "explanation": "Bronzlaşma çevresel etkiyle oluşur ve kalıtsal değildir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q06"
+    },
+    {
+      "stem": "Aa genotipli birey ile aa genotipli birey çaprazlanıyor. Oluşan yavruların çekinik fenotipli olma olasılığı kaçtır?",
+      "options": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik"],
+      "explanation": "Aa × aa çaprazlamasında yavruların yarısı Aa, yarısı aa olur.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q07"
+    },
+    {
+      "stem": "Bir popülasyonda çevreye daha iyi uyum sağlayan bireylerin hayatta kalıp daha fazla üremesi aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Mutasyon",
+        "Doğal seçilim",
+        "Modifikasyon",
+        "Klonlama"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dogal_secilim", "adaptasyon", "evrim"],
+      "explanation": "Çevreye daha iyi uyum sağlayan bireylerin hayatta kalması doğal seçilimdir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q08"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam baz sayısı 2000'dir. Bu DNA'da adenin bazları toplam bazların %30'unu oluşturuyor. Buna göre sitozin bazı sayısı kaçtır?",
+      "options": [
+        "200",
+        "400",
+        "600",
+        "800"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "baz_orani", "nukleotit_sayisi"],
+      "explanation": "A=T olduğundan timin de %30'dur. A+T=%60 olur. G+C=%40 kalır. G=C olduğundan sitozin %20 olur. 2000 × 0.20 = 400.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q09"
+    },
+    {
+      "stem": "Bir öğrenci şu yorumları yapıyor:\nI. Mutasyon her zaman zararlıdır.\nII. Modifikasyon çevre etkisiyle oluşur ve kalıtsal değildir.\nIII. Adaptasyon nesiller boyunca oluşan kalıtsal uyum özellikleridir.\n\nBuna göre hangi ifadeler doğrudur?",
+      "options": [
+        "Yalnız II",
+        "II ve III",
+        "I ve II",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "modifikasyon", "adaptasyon", "ozellikler"],
+      "explanation": "Mutasyon her zaman zararlı değildir. Modifikasyon kalıtsal değildir. Adaptasyon nesiller boyunca gelişen kalıtsal özelliklerdir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_008_q10"
+    }
+  ]
+}

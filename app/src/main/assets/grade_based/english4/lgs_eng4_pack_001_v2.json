@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "eng4_v2_0001",
+      "stem": "Read the dialogue and answer the question.\n\nLibrarian: Hello! Can I help you find something?\nTom: Yes, please. I need a book about animals.\nLibrarian: For a school project or just for fun?\nTom: For a project. It's about endangered animals.\nLibrarian: Then I suggest this one. It has a whole chapter on tigers and pandas.\nTom: Perfect! Can I borrow it for two weeks?\nLibrarian: Yes, but please return it on time.\n\nWhat can we understand about Tom from the dialogue?",
+      "options": [
+        "Tom doesn't like reading books.",
+        "Tom needs a book for a school project about endangered animals.",
+        "Tom wants to buy the book, not borrow it.",
+        "Tom is looking for a book about tigers only."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "diyalog_anlama",
+      "topic": "reading_inference",
+      "skills": [
+        "reading",
+        "inference",
+        "dialogue"
+      ],
+      "explanation": "Tom says 'for a project' and 'about endangered animals.' B summarises both correctly. A is the opposite (he's searching for one). C wrong (he asks to borrow). D too narrow (tigers + pandas mentioned).",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0001",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0002",
+      "stem": "Read the text and answer the question.\n\n\"Emma wakes up at 6:30 every morning. First she brushes her teeth, then eats breakfast with her family. She walks to school with her neighbour, Lily. After school she does her homework before watching TV. On Fridays she goes to swimming lessons with her dad.\"\n\nWhich statement is TRUE according to the text?",
+      "options": [
+        "Emma takes the bus to school every day.",
+        "Emma does her homework after watching TV.",
+        "Emma swims with her dad on Fridays.",
+        "Emma eats breakfast alone before going to school."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "daily_routine",
+      "skills": [
+        "reading",
+        "true_false",
+        "daily_routine"
+      ],
+      "explanation": "Text says 'she goes to swimming lessons with her dad' on Fridays. C is directly supported. A wrong (she walks). B wrong (homework BEFORE TV). D wrong (eats WITH family).",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0002",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0003",
+      "stem": "Read the short note and answer the question.\n\n\"Hi Mum,\nI'm at Kerem's house. We are doing our science project together. We'll be home by 6 p.m. I already did my maths homework at school.\nLove, Ali\"\n\nWhich question can be answered using the note?",
+      "options": [
+        "What is the science project about?",
+        "Where is Ali and what time will he return home?",
+        "How many friends does Ali have?",
+        "What did Ali eat for lunch?"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "note_reading",
+      "skills": [
+        "reading",
+        "note",
+        "inference"
+      ],
+      "explanation": "The note tells us Ali is at Kerem's house (location) and will be home by 6 p.m. (time). B is the only answerable question. A, C, D are not mentioned in the note.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0003",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0004",
+      "stem": "Read the dialogue and answer the question.\n\nDoctor: How long have you had this cough?\nPatient: About three days.\nDoctor: Do you have a fever?\nPatient: Yes, 38.5 degrees.\nDoctor: I'll prescribe some medicine. Rest at home and drink plenty of water. Come back if it gets worse.\n\nWhat does the doctor NOT tell the patient to do?",
+      "options": [
+        "Take medicine",
+        "Rest at home",
+        "Go to the hospital immediately",
+        "Drink plenty of water"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "health_dialogue",
+      "skills": [
+        "reading",
+        "health",
+        "inference"
+      ],
+      "explanation": "The doctor says: take medicine (A), rest at home (B), drink water (D). The doctor says 'come back IF worse' not 'go to hospital immediately.' C is NOT mentioned — correct answer.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0004",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0005",
+      "stem": "Read the weather forecast and answer the question.\n\n\"Weather Report — Saturday:\nMorning: Sunny and warm, 22°C\nAfternoon: Cloudy with a chance of rain, 18°C\nEvening: Heavy rain and wind, 14°C\nSunday: Clear skies, 20°C\"\n\nAli wants to have a picnic outdoors. When is the BEST time for his picnic?",
+      "options": [
+        "Saturday afternoon",
+        "Saturday evening",
+        "Saturday morning",
+        "Any time on Saturday"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "grafik_yorumlama",
+      "topic": "weather",
+      "skills": [
+        "weather",
+        "reading",
+        "decision"
+      ],
+      "explanation": "Saturday morning is sunny and warm (22°C) — ideal for a picnic. Afternoon has possible rain (B wrong). Evening has heavy rain (C wrong). D wrong because evening and afternoon are unsuitable.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0005",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0006",
+      "stem": "Read the class schedule and answer the question.\n\nMonday:    Maths, English, Science, Art\nTuesday:   Turkish, PE, Maths, Music\nWednesday: English, Science, Social Studies, Turkish\nThursday:  Maths, Turkish, Art, PE\nFriday:    Science, English, Music, Social Studies\n\nHow many times does a student have Maths this week, and on which day does the student NOT have either Maths or English?",
+      "options": [
+        "3 times; Wednesday",
+        "3 times; Tuesday",
+        "4 times; Wednesday",
+        "3 times; Thursday"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "takvim_okuma",
+      "topic": "schedule",
+      "skills": [
+        "schedule",
+        "reading",
+        "counting"
+      ],
+      "explanation": "Maths: Monday, Tuesday, Thursday = 3 times. Tuesday has no English (Turkish, PE, Maths, Music). Wednesday has English so not answer. B is correct. A: Wednesday has English so incorrect for 2nd part. D: Thursday has Maths.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0006",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0007",
+      "stem": "Read the text and answer the question.\n\n\"Dogs are loyal and friendly animals. They can learn many tricks and help people in different ways. Some dogs help blind people to walk safely. Others help police officers find missing people. Training a dog takes patience and time, but the result is a wonderful, helpful friend.\"\n\nWhat is the MAIN purpose of this text?",
+      "options": [
+        "To explain how to train a dog step by step.",
+        "To compare dogs and cats as pets.",
+        "To describe how useful and loyal dogs can be.",
+        "To warn people about the dangers of dogs."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_amaci",
+      "topic": "reading",
+      "skills": [
+        "reading",
+        "main_idea",
+        "purpose"
+      ],
+      "explanation": "The text focuses on dogs' loyalty and usefulness (guiding blind, helping police). C captures the main message. A wrong (no step-by-step instructions). B wrong (no cats). D wrong (no warnings given).",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0007",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0008",
+      "stem": "Read the short story and answer the question.\n\n\"Every day, Sam passes an old woman sitting alone on a bench. One day he stops and says hello. She smiles and tells him about her garden. The next day Sam brings her some flowers from his garden. She looks very happy. 'You made my day,' she says.\"\n\nWhat does 'You made my day' most likely mean?",
+      "options": [
+        "You came here every day.",
+        "You worked in the garden today.",
+        "You made me very happy today.",
+        "You brought me food today."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "deyim_anlam",
+      "topic": "expressions",
+      "skills": [
+        "expressions",
+        "inference",
+        "reading"
+      ],
+      "explanation": "'Made my day' is an idiom meaning 'made me very happy.' The old woman's big smile supports this. A, B, D take 'made' and 'day' literally.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0008",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0009",
+      "stem": "Read the advertisement and answer the question.\n\n\"SUMMER CAMP — AGES 8–12\nActivities: swimming, painting, nature walks, team games\nWhen: July 15 – July 29\nWhere: Green Valley Camp\nFee: 500 TL per child\nRegister before June 30 and get 10% off!\"\n\nA parent registers her 10-year-old child on June 25. How much will she pay?",
+      "options": [
+        "500 TL",
+        "450 TL",
+        "490 TL",
+        "400 TL"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "reklam_okuma",
+      "topic": "reading_maths",
+      "skills": [
+        "reading",
+        "discount",
+        "advertisement"
+      ],
+      "explanation": "Registration before June 30 gets 10% off. 10% of 500 = 50 TL discount. 500 - 50 = 450 TL. A ignores the discount. C wrong (10 TL off, not 10%). D too big a discount.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0009",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng4_v2_0010",
+      "stem": "Read the dialogue and answer the question.\n\nSara: I really want to join the school play, but I'm nervous.\nTeacher: Why are you nervous?\nSara: What if I forget my lines in front of everyone?\nTeacher: Practice helps. And remember — even professional actors make mistakes sometimes.\nSara: Really? That makes me feel better.\nTeacher: The important thing is to enjoy the experience.\n\nWhat is the teacher's main advice to Sara?",
+      "options": [
+        "Don't join the play if you are nervous.",
+        "Only professional actors should be in plays.",
+        "Practise well and focus on enjoying the experience rather than fearing mistakes.",
+        "Memorise every single line perfectly before the play."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "diyalog_anlama",
+      "topic": "dialogue",
+      "skills": [
+        "dialogue",
+        "advice",
+        "inference"
+      ],
+      "explanation": "Teacher says: (1) practice helps, (2) even pros make mistakes, (3) the important thing is to enjoy. C summarises the message. A opposite of what teacher says. B wrong (teacher encourages Sara). D too rigid — teacher does NOT say perfect memorisation.",
+      "source": "edumio_v2",
+      "sourceRef": "eng4_v2_0010",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

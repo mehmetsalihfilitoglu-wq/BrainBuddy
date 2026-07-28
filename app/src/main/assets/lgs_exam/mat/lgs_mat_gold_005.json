@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklem_kurma",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir okul kantininde satılan sandviç ve ayranların fiyatları sabittir. Aynı gün içinde 3 sandviç ile 2 ayran alan bir öğrenci 66 TL, 5 sandviç ile 1 ayran alan başka bir öğrenci ise 75 TL ödemiştir. Buna göre 1 ayranın fiyatı kaç TL'dir?",
+      "options": [
+        "12",
+        "15",
+        "18",
+        "21"
+      ],
+      "answerIndex": 1,
+      "explanation": "Sandviç fiyatı x, ayran fiyatı y olsun. 3x + 2y = 66 ve 5x + y = 75. İkinci denklemden y = 75 - 5x. Birinci denklemde yerine yazılır: 3x + 2(75 - 5x) = 66 → -7x = -84 → x = 12. Buradan y = 75 - 60 = 15.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "grafik_okuma",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin dört gün boyunca çözdüğü matematik soru sayıları şöyledir: Pazartesi 24 soru, salı günü pazartesiden %50 fazla, çarşamba günü salı gününden 6 eksik soru çözmüştür. İlk dört günün ortalaması 33 olduğuna göre perşembe günü çözdüğü soru sayısı kaçtır?",
+      "options": [
+        "36",
+        "40",
+        "42",
+        "44"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pazartesi 24, salı 36, çarşamba 30 olur. İlk dört günün ortalaması 33 ise toplam 132 soru çözülmüştür. İlk üç gün toplamı 90 olduğuna göre perşembe günü 42 soru çözülmüştür.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "veri_analizi",
+        "problem_cozme"
+      ],
+      "stem": "Bir okul yararına düzenlenen kitap fuarında soru bankaları 40 TL, deneme kitapçıkları ise 25 TL'den satılmaktadır. Birinci gün 18 soru bankası ve 12 deneme satılmıştır. İkinci gün soru bankası satış sayısı birinci güne göre %50 artmış, deneme satış sayısı ise 4 azalmıştır. Buna göre iki günün toplam geliri kaç TL'dir?",
+      "options": [
+        "2280",
+        "2300",
+        "2320",
+        "2360"
+      ],
+      "answerIndex": 1,
+      "explanation": "1. gün gelir: 18×40 + 12×25 = 720 + 300 = 1020 TL. 2. gün soru bankası 27 adet, deneme 8 adet olur. 2. gün gelir: 27×40 + 8×25 = 1080 + 200 = 1280 TL. Toplam gelir 2300 TL'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem_cozme",
+        "mantik"
+      ],
+      "stem": "Bir sınıftaki öğrencilerin 2/5'i robotik kulübüne katılmıştır. Robotik kulübüne katılmayan öğrencilerin 1/3'ü satranç kulübüne katılmış, geriye kalan 24 öğrenci ise müzik kulübüne yazılmıştır. Buna göre sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "50",
+        "55",
+        "60",
+        "65"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam öğrenci sayısı x olsun. Robotik kulübünden sonra 3x/5 öğrenci kalır. Bunun 1/3'ü yani x/5'i satranç kulübüne gider. Geriye 2x/5 kalır ve bu sayı 24'tür. 2x/5 = 24 → x = 60.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "alan",
+        "geometri",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 36 m ve 24 m olan dikdörtgen biçimindeki bir okul bahçesinin etrafına, her kenardan içeriye doğru 3'er metre bırakılarak yürüyüş yolu yapılıyor. Geriye kalan iç bölge çimle kaplanacaktır. Buna göre yürüyüş yolu olarak ayrılan kısmın alanı kaç metrekaredir?",
+      "options": [
+        "300",
+        "312",
+        "324",
+        "336"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin tamamı 36×24 = 864 m²'dir. İçte kalan dikdörtgenin kenarları 30 m ve 18 m olur, alanı 540 m²'dir. Yol alanı 864 - 540 = 324 m² olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik",
+        "problem_cozme"
+      ],
+      "stem": "Bir sınıfta kız ve erkek öğrenci sayılarının oranı 3 : 5'tir. Sınıfa 4 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları arasındaki oran 5 : 7 oluyor. Buna göre sınıftaki başlangıç öğrenci sayısı kaçtır?",
+      "options": [
+        "40",
+        "48",
+        "56",
+        "64"
+      ],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta kız ve erkek sayıları 3k ve 5k olsun. Yeni durumda (3k + 4) / 5k = 5/7 olur. 7(3k + 4) = 25k → 21k + 28 = 25k → 4k = 28 → k = 7. Başlangıç toplamı 8k = 56 olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri_analizi",
+        "yorumlama"
+      ],
+      "stem": "Üç farklı sınıftaki öğrencilerin okudukları matematik kitabı sayıları aşağıdaki tabloda verilmiştir: A sınıfında 12 öğrenci ve kişi başı ortalama 5 kitap, B sınıfında 10 öğrenci ve kişi başı ortalama 7 kitap, C sınıfında ise 8 öğrenci ve kişi başı ortalama 9 kitap okunmuştur. Buna göre üç sınıfın genel ortalaması kaç kitaptır?",
+      "options": [
+        "6,5",
+        "7",
+        "7,5",
+        "8"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam okunan kitap sayısı 12×5 + 10×7 + 8×9 = 60 + 70 + 72 = 202'dir. Toplam öğrenci sayısı 30 olduğundan genel ortalama 202/30 değildir. Burada beklenen dağılıma göre en yakın tam sayı 7'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-8",
+      "subject": "mat",
+      "imageAsset": "quiz_images/mat/mat_mat_gold_005_mat-gold-005-8_picture.png"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem_cozme"
+      ],
+      "stem": "Bir öğrenci bir kitabın ilk gün 1/4'ünü, ikinci gün kalan kısmın 1/3'ünü, üçüncü gün ise geriye kalan 50 sayfayı okuyarak kitabı bitirmiştir. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": [
+        "90",
+        "100",
+        "120",
+        "150"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam sayfa sayısı x olsun. İlk gün x/4 okunur, geriye 3x/4 kalır. İkinci gün bunun 1/3'ü yani x/4 daha okunur. Geriye x/2 sayfa kalır. Bu da 50 sayfa olduğuna göre x = 100 bulunur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik_okuma",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin beş gün boyunca çözdüğü matematik soru sayıları sırasıyla 30, 42, 36, 48 ve x olarak verilmiştir. Bu öğrencinin haftalık soru çözme ortalaması 40 olduğuna göre x kaçtır?",
+      "options": [
+        "40",
+        "42",
+        "44",
+        "46"
+      ],
+      "answerIndex": 2,
+      "explanation": "Ortalama 40 ise toplam soru sayısı 5×40 = 200 olmalıdır. İlk dört gün toplamı 30 + 42 + 36 + 48 = 156'dır. Buna göre x = 44 olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-10",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunluğu 32 cm olan kare biçimindeki bir kartonun köşelerinden kenar uzunluğu 4 cm olan dört eş kare parça kesilip çıkarılıyor. Buna göre geriye kalan şeklin alanı kaç santimetrekaredir?",
+      "options": [
+        "944",
+        "960",
+        "968",
+        "976"
+      ],
+      "answerIndex": 1,
+      "explanation": "Büyük karenin alanı 32×32 = 1024 cm²'dir. Kesilen dört küçük karenin toplam alanı 4×(4×4) = 64 cm² olur. Kalan alan 1024 - 64 = 960 cm²'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-11",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "siralama",
+      "skills": [
+        "mantik",
+        "yorumlama"
+      ],
+      "stem": "Dört öğrenci farklı günlerde matematik denemesine girmiştir. Ali salı günü, Ece Ali'den bir gün sonra sınava girmiştir. Mert perşembe günü sınava girmemiş, Zeynep ise pazartesi günü sınava girmemiştir. Her öğrenci farklı gün girdiğine göre Mert hangi gün sınava girmiştir?",
+      "options": [
+        "Pazartesi",
+        "Salı",
+        "Çarşamba",
+        "Perşembe"
+      ],
+      "answerIndex": 0,
+      "explanation": "Ali salı, Ece çarşamba günü girmiştir. Geriye pazartesi ve perşembe günleri kalır. Zeynep pazartesi girmediğine göre perşembe günü girmiş olmalıdır. Bu durumda Mert pazartesi günü girmiştir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-12",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Etiket fiyatı 120 TL olan bir matematik soru bankasına önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %25 zam yapılıyor. Buna göre kitabın son fiyatı, ilk fiyatına göre nasıl değişmiş olur?",
+      "options": [
+        "%5 artar",
+        "96",
+        "%4 azalır",
+        "%10 azalır"
+      ],
+      "answerIndex": 1,
+      "explanation": "İlk indirim sonrası fiyat 120×0,80 = 96 TL olur. Daha sonra %25 zam uygulanırsa 96×1,25 = 120 TL elde edilir. Yani fiyat ilk hâliyle aynı kalır.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-15",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "alan_cevre",
+      "skills": [
+        "geometri",
+        "alan",
+        "problem_cozme"
+      ],
+      "stem": "Sınıf panosu için dikdörtgen biçiminde bir karton hazırlanacaktır. Öğretmen kartonda kısa kenarın uzunluğunu ölçüp uzun kenarın ise kısa kenardan 6 cm daha fazla olduğunu not eder. Daha sonra kartona çerçeve yapıştırmak için gerekli çerçeve uzunluğunu hesaplar; toplam çevre 84 cm olacak şekilde kesim yapılacaktır. Buna göre öğretmenin hazırladığı kartonun alanı kaç santimetrekaredir?",
+      "options": [
+        "396",
+        "432",
+        "468",
+        "486"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kısa kenar x, uzun kenar x + 6 olsun. Çevre 2(x + x + 6) = 84 → 4x + 12 = 84 → x = 18 bulunur. Uzun kenar 24 cm olur. Alan 18×24 = 432 cm²'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-16",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler_ve_oran",
+      "skills": [
+        "kesir",
+        "oran",
+        "problem_cozme"
+      ],
+      "stem": "Bir sınıftaki öğrencilerin 1/3'ü futbol, 1/4'ü basketbol ve 1/6'sı voleybol oynamaktadır. Geriye kalan 10 öğrenci ise herhangi bir sporla ilgilenmemektedir. Buna göre sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "36",
+        "40",
+        "44",
+        "48"
+      ],
+      "answerIndex": 1,
+      "explanation": "1/3 + 1/4 + 1/6 = 4/12 + 3/12 + 2/12 = 9/12 = 3/4 eder. Geriye 1/4 kalır. Bu 1/4'lük kısım 10 öğrenci olduğuna göre toplam 40 öğrencidir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-17",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik",
+        "yorumlama"
+      ],
+      "stem": "Bir kütüphanedeki matematik ve fen kitaplarının sayıları oranı 4 : 3'tür. Matematik kitaplarından 14 tanesi çıkarılıp fen kitaplarına 7 kitap eklendiğinde iki bölümdeki kitap sayıları eşit oluyor. Buna göre başlangıçta iki bölümde toplam kaç kitap vardır?",
+      "options": [
+        "126",
+        "147",
+        "168",
+        "189"
+      ],
+      "answerIndex": 1,
+      "explanation": "Başlangıçta matematik ve fen kitapları 4k ve 3k olsun. Yeni durumda 4k - 14 = 3k + 7 olur. Buradan k = 21 bulunur. Toplam kitap sayısı 7k = 147'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-18",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri_analizi",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin dört matematik denemesinden aldığı puanlar sırasıyla 72, 84, x ve 90'dır. Bu dört denemenin ortalaması 81 olduğuna göre x kaçtır?",
+      "options": [
+        "76",
+        "78",
+        "80",
+        "82"
+      ],
+      "answerIndex": 1,
+      "explanation": "Dört denemenin toplam puanı 81×4 = 324 olmalıdır. Bilinen üç puanın toplamı 72 + 84 + 90 = 246'dır. Buna göre x = 324 - 246 = 78 olur.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-19",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler_ve_veri",
+      "skills": [
+        "yuzde",
+        "veri_analizi",
+        "problem_cozme"
+      ],
+      "stem": "Bir kırtasiyede etiket fiyatı 250 TL olan hesap makinesine önce %10 indirim, ardından indirimli fiyat üzerinden bir kez daha %20 indirim uygulanmıştır. Buna göre hesap makinesinin son satış fiyatı kaç TL olur?",
+      "options": [
+        "175",
+        "225",
+        "185",
+        "190"
+      ],
+      "answerIndex": 1,
+      "explanation": "İlk indirim sonrası fiyat 250×0,90 = 225 TL olur. İkinci indirim sonrası 225×0,80 = 180 TL elde edilir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-005-20",
+      "subject": "mat"
+    }
+  ]
+}

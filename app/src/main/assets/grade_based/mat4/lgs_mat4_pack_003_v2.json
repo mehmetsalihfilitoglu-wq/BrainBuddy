@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0021",
+      "stem": "Bir havuz 3 borulu doluyor. A borusu saatte 45 litre, B borusu saatte 30 litre doldururken C borusu saatte 15 litre boşaltıyor. Havuz kapasitesi 1 800 litredir.\n\nBu 3 boru aynı anda çalışırsa boş havuz kaç saatte dolar?",
+      "options": [
+        "25",
+        "30",
+        "36",
+        "40"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "boru_havuz",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "doluluk",
+        "problem_cozme"
+      ],
+      "explanation": "Net doldurma hızı: 45+30−15=60 litre/saat. 1800÷60=30 saat. A(25): net hızı 72 almış, 1800÷72=25. C(36): C borusunu unutmuş, 1800÷50=36 hesaplamış (45+30−25 hata). D(40): yalnızca A borusunu hesaba katmış, 1800÷45≈40.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0021",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0022",
+      "stem": "Bir sınıf 3 farklı kütüphaneye kitap bağışladı. 1. kütüphaneye toplam kitabın 1/4'ünü, 2. kütüphaneye 2/5'ini, 3. kütüphaneye kalanları verdi. Sınıfın başlangıçta 200 kitabı vardı.\n\n3. kütüphaneye verilen kitap sayısı kaçtır?",
+      "options": [
+        "60",
+        "70",
+        "80",
+        "90"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_paylastirma",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "cikarma",
+        "problem_cozme"
+      ],
+      "explanation": "1/4+2/5 = 5/20+8/20 = 13/20. Kalan: 1−13/20 = 7/20. 7/20×200=70. A(60): 3/10 hesaplamış (1/4+2/5=3/10 hata). C(80): 2/5×200=80, yalnızca 2. kütüphaneyi hesaplamış. D(90): 1/4'ü 50 sanmış, 200−50−60=90 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0022",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0023",
+      "stem": "Kare şeklindeki bir arsanın bir kenarı 24 m'dir. Bu arsanın ortasına dikdörtgen bir bahçe yapılacak. Dikdörtgen bahçenin uzunluğu 18 m, genişliği 12 m'dir.\n\nBahçe dışında kalan alan kaç m²'dir?",
+      "options": [
+        "360",
+        "368",
+        "372",
+        "384"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "alan_fark",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "kare",
+        "dikdortgen"
+      ],
+      "explanation": "Arsa alanı: 24×24=576 m². Bahçe alanı: 18×12=216 m². Dış alan: 576−216=360 m². B(368): 18×12=208 yanlış hesaplamış. C(372): 18×12=204 hata. D(384): 576−192=384, bahçeyi 16×12=192 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0023",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0024",
+      "stem": "Bir dükkân sahibi 1 500 kalem aldı. Bunların 3/5'ini her birini 4 TL'ye, kalanını her birini 8 TL'ye sattı.\n\nDükkân sahibinin toplam satış geliri kaç TL'dir?",
+      "options": [
+        "7 800",
+        "8 400",
+        "9 000",
+        "9 600"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_para_problemi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "kesir",
+        "dort_islem",
+        "para"
+      ],
+      "explanation": "3/5×1500=900 kalem × 4 TL = 3600 TL. Kalan 2/5×1500=600 kalem × 8 TL = 4800 TL. Toplam: 3600+4800=8400 TL. A(7800): 900×4=3600, 600×7=4200, toplam 7800 (8 yerine 7 TL). C(9000): tamamını 6 TL'den satmış (ortalamayı birim fiyat zannetmiş). D(9600): tamamını 8 TL'den satmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0024",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0025",
+      "stem": "Bir tren 315 km mesafeyi 3 saatte kat etti. Aynı hızda 7 saat sürerse toplam kaç km yol alır?\n\nEğer bu trenin yakıt tüketimi 100 km'de 8 litre ise, 7 saatlik yolculuk için kaç litre yakıt gerekir?",
+      "options": [
+        "735 km; 58,8 litre",
+        "630 km; 50,4 litre",
+        "735 km; 50,4 litre",
+        "735 km; 64,4 litre"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "hiz_mesafe_yakit",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "mesafe",
+        "orantili"
+      ],
+      "explanation": "Hız: 315÷3=105 km/saat. 7 saatte: 105×7=735 km. Yakıt: 735×8÷100=58,8 litre. B(630): 7 saat yerine 6 saat kullanmış, 630×8/100=50,4. C(50,4): mesafeyi 630 hesaplamasından kalan yakıt. D(64,4): 735 km için 100 km/8,75 litre yanlış oran.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0025",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0026",
+      "stem": "Bir restoran günlük 480 porsiyon yemek yapıyor. Pazartesi−Cuma her gün tam kapasite, Cumartesi yarım kapasite, Pazar kapalı.\n\nBu restoran 4 haftada toplam kaç porsiyon yemek yapar?",
+      "options": [
+        "11 520",
+        "12 000",
+        "10 560",
+        "9 600"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "haftalik_uretim",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "carpma",
+        "planlama",
+        "problem_cozme"
+      ],
+      "explanation": "Haftada: Pzt–Cum: 5×480=2400, Cumartesi: 480÷2=240, Pazar: 0. Haftalık toplam: 2400+240=2640 porsiyon. 4 haftada: 2640×4=10560. A(11520): Cumartesi'yi de tam kapasite saymış, 6×480×4=11520. B(12000): 7 gün tam kapasite saymış. D(9600): yalnızca 5 günü ve yarım Cumartesi'yi eksik hesaplamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0026",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0027",
+      "stem": "Bir deponun 3/4'ü dolu ve içinde 1 800 litre su var.\n\nDepo tamamen dolduğunda kaç litre su olur ve deponun 1/6'sı ne kadardır?",
+      "options": [
+        "2 400 litre; 400 litre",
+        "2 700 litre; 450 litre",
+        "2 400 litre; 450 litre",
+        "2 100 litre; 350 litre"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "kesir_tam_bulma",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "bolme",
+        "problem_cozme"
+      ],
+      "explanation": "3/4 → 1800 litre. Tam kapasite: 1800÷(3/4)=1800×(4/3)=2400 litre. 1/6×2400=400 litre. B(2700): 1800×(3/2)=2700 hata (4/3 yerine 3/2 kullanmış). C: tam kapasite doğru (2400) ama 1/6'yı 2700÷6=450 ile hesaplamış. D(2100): 1800×(7/6)=2100 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0027",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0028",
+      "stem": "Bir market kasiyeri bir günde 324 müşteriye hizmet verdi. Öğleden önce öğleden sonraya göre 2 katı kadar müşteri geldi. Öğleden sonra gelen müşterilerin 1/4'ü kredi kartı kullandı.\n\nKredi kartı kullanan müşteri sayısı kaçtır?",
+      "options": [
+        "25",
+        "26",
+        "27",
+        "28"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "kesir_zinciri",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "denklem",
+        "zincirleme"
+      ],
+      "explanation": "Öğleden sonra = x, öğleden önce = 2x. x+2x=3x=324 → x=108 müşteri. Kredi kartı: 108÷4=27. A(25): 300÷3=100, 100÷4=25 hata. B(26): 312÷3=104, 104÷4=26 hata. D(28): 336÷3=112, 112÷4=28 hata.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0028",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0029",
+      "stem": "Bir parkın çevresine 1 m aralıklarla ağaç dikilecek (köşe noktaları dahil). Park dikdörtgen şeklinde; uzunluğu 50 m, genişliği 30 m'dir.\n\nParka toplam kaç ağaç dikilir?",
+      "options": [
+        "158",
+        "160",
+        "162",
+        "164"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "cevre_agac",
+      "topic": "geometri",
+      "skills": [
+        "cevre",
+        "sayma",
+        "problem_cozme"
+      ],
+      "explanation": "Çevre: 2×(50+30)=160 m. 1 m aralıkla çevre üzerinde 160 nokta vardır (köşeler dahil). Toplam ağaç: 160. A(158): çevreden 2 eksik hesaplamış (köşeleri iki kez saymış, 80+78=158). C(162): iki kenarı birer fazla almış. D(164): tüm kenarları birer uzun saymış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0029",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0030",
+      "stem": "Bir kasabadaki 4 okulun öğrenci sayıları şöyle: 1. okul 500, 2. okul 400, 3. okul 600, 4. okul 300. Belediye her 100 öğrenci için 1 otobüs tahsis edecek.\n\nKasabada toplam kaç otobüs tahsis edilmeli? 3. okulun otobüs sayısı, 2. okulun kaç katıdır?",
+      "options": [
+        "18 otobüs; 1,5 kat",
+        "18 otobüs; 2 kat",
+        "18 otobüs; 3 kat",
+        "20 otobüs; 2 kat"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "bolme_oran",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "bolme",
+        "oran",
+        "problem_cozme"
+      ],
+      "explanation": "Otobüs sayıları: 1. okul 500÷100=5, 2. okul 400÷100=4, 3. okul 600÷100=6, 4. okul 300÷100=3. Toplam: 5+4+6+3=18 otobüs. 3. okul ÷ 2. okul = 6÷4=1,5 kat. B(2 kat): 6÷3=2 hesaplamış, 4. okulu baz almış. C(3 kat): 6÷2=3, başka bir karşılaştırma. D(20 otobüs): toplam öğrenciyi 2000 sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat4_v2_0030",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

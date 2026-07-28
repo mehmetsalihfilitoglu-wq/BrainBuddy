@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0220",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 700 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "840",
+        "880",
+        "800",
+        "720"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-30/100) = 700. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0220",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0221",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "120",
+        "210",
+        "180",
+        "300"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0221",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0222",
+      "stem": "Kenarları 12 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "135",
+        "144",
+        "216",
+        "72"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (12-6)×(18-6) = 6×12 = 72 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0222",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0223",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 2 : 4 : 5 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "34",
+        "54",
+        "44",
+        "49"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 4k, 5k. 2k + 8 = 4k → k = 4.0. Toplam = 11·k = 44.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0223",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0224",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %20 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 648 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "630",
+        "660",
+        "540",
+        "600"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+20/100) · (1-10/100) = 648. x = 600 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0224",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0225",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/10",
+        "30/45",
+        "31/45",
+        "31/46"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0225",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0226",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "280",
+        "500",
+        "560",
+        "620"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +80 litre eklenince 3V/(7) dolu. Denklemden V=560 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0226",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0227",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 10 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "34",
+        "39",
+        "29",
+        "37"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 10. k+3 = 2(e+2) → e = 11, k = 23. Toplam = 34.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0227",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0228",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "38/56",
+        "37/55",
+        "38/55",
+        "1/11"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0228",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0229",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "360",
+        "480",
+        "420",
+        "210"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +60 litre eklenince 3V/(7) dolu. Denklemden V=420 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0229",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0310",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 12 TL zam yapılmış, ardından 11 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "12",
+        "-11",
+        "1",
+        "0"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 12 - 11 = 2x → x(1-2) = -1 → x = 1 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0310",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0311",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 84, 84, 84, 84, 87 puan almıştır. Altıncı sınava girince ortalaması 86 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "93",
+        "98",
+        "88",
+        "86"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 423. 6. sınav x ise (total5 + x)/6 = 86 → x = 93.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0311",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0312",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 4 katından 28 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "47",
+        "37",
+        "45",
+        "42"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 4e - 28. k+3 = 2(e+2) → e = 14, k = 28. Toplam = 42.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0312",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0313",
+      "stem": "Kenarları 8 m ve 10 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "0",
+        "1",
+        "24",
+        "80"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (8-8)×(10-8) = 0×2 = 0 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0313",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0314",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 120 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "600",
+        "1260",
+        "1200",
+        "1140"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +120 litre eklenince 4V/(10) dolu. Denklemden V=1200 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0314",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0315",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 4 katından 28 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "42",
+        "47",
+        "37",
+        "45"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 4e - 28. k+3 = 2(e+2) → e = 14, k = 28. Toplam = 42.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0315",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0316",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "6",
+        "5",
+        "4",
+        "8"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0316",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0317",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0317",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0318",
+      "stem": "Bir torbada 5 kırmızı, 3 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/45",
+        "1/10",
+        "30/45",
+        "31/46"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0318",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0319",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 412 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "450",
+        "550",
+        "500",
+        "525"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+10/100) · (1-25/100) = 412. x = 500 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0319",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

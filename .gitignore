@@ -13,3 +13,30 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# ── IMAT milestone housekeeping: exclude non-production artifacts ──
+# Signing keystores + credentials (SECRETS — must never be committed)
+*.jks
+*.keystore
+keystore.properties
+# Firebase config (owner-supplied; contains project keys — never commit)
+google-services.json
+app/google-services.json
+# Firebase Admin / service-account keys (top secret)
+**/serviceAccountKey*.json
+**/*service-account*.json
+# Next.js build cache (stray; this is an Android repo)
+.next/
+# Claude Code local/temp
+.claude/plans.bak/
+.claude/worktrees/
+.claude/settings.local.json
+# JVM crash / replay logs
+hs_err_pid*.log
+replay_pid*.log
+# One-off analysis/verification scripts (not production)
+/quality_analysis.py
+/verify_balance.kts
+/verify_fallback.kts
+/verify_quality.py
+/verify_realistic.kts

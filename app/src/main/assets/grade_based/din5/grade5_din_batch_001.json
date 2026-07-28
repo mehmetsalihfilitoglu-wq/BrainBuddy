@@ -1,0 +1,610 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "din",
+  "questions": [
+    {
+      "stem": "Kur'an'da geçen 'Hucurât' suresinin isminin anlamı nedir ve bu sure hangi konuları ele alır?",
+      "options": ["'Odalar' anlamına gelir; Müslümanlar arası ilişkiler, gıybet yasağı ve kardeşlik gibi konuları ele alır.", "'Kitaplar' anlamına gelir; vahiy konularını ele alır.", "'Cennete giriş kapıları' anlamına gelir.", "'Savaş' anlamına gelir ve cihad konusunu işler."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kur'an Sure İçerikleri",
+      "skills": ["sure adları", "içerik analizi"],
+      "explanation": "Hucurât suresi 'Odalar' anlamına gelir ve Müslümanların birbirine davranışını, gıybet yasağını, kardeşliği ve insan onurunu ele alır."
+    },
+    {
+      "stem": "Ahmet, arkadaşlarıyla tartışırken sürekli öfkelenmekte ve kendini kontrol edememektedir. Bir din dersi öğretmeni ona 'İslam'da nefs terbiyesi gerekir' der. İslam'ın 'nefs' kavramına göre Ahmet'in bu durumda yapması gereken en doğru şey nedir?",
+      "options": ["Nefsinin olumsuz yönlerini (öfke, bencillik) fark edip ibadet ve öz denetimle onları dizginlemek", "Duygularını tamamen bastırıp konuşmamak", "Tartışmadan kaçınmak için arkadaşlarıyla iletişimi kesmek", "Öfkesini kabul edip herhangi bir önlem almamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam Kavramları",
+      "skills": ["nefs kavramı"],
+      "explanation": "'Nefs' benliği, ruhu ve iç dünyayı ifade eder. İslam'da nefs terbiyesi; kişinin olumsuz dürtülerini ibadet, sabır ve bilinçli çabayla dizginlemesini kapsar."
+    },
+    {
+      "stem": "İslam'a göre 'sabır' hangi iki boyutu kapsar?",
+      "options": ["Musibetlere katlanmak ve günahlardan uzak durmak", "Yalnızca zorluklara dayanmak", "Yalnızca ibadet yapmak", "Suskunluğu korumak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sabır",
+      "skills": ["sabır kavramı", "İslam ahlakı"],
+      "explanation": "İslam'da sabır; hem acı, zorluk ve kayıp karşısında metanetli olmayı hem de günah ve haramdan uzak durmayı kapsar."
+    },
+    {
+      "stem": "Hz. Yusuf kıssasında hangi temel ahlaki ders ön plana çıkar?",
+      "options": ["Kıskançlığın yıkıcılığı ve dürüstlük ile sabrın nihayetinde mükâfatlandırılması", "Güç ve egemenliğin önemi", "Zenginliğin erdem olduğu", "Aile büyüklerine körce itaatin önemi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber Kıssaları - Hz. Yusuf",
+      "skills": ["kıssa analizi", "ahlaki ders"],
+      "explanation": "Hz. Yusuf'un kıskançlık yüzünden kuyuya atılıp satılması; ancak sabrı ve dürüstlüğü sayesinde Mısır'ın hazinedarı olması kıssanın temel dersidir."
+    },
+    {
+      "stem": "İslam'ın altı iman esasından 'Peygamberlere iman' ne anlama gelir?",
+      "options": ["Allah'ın insanlara rehberlik etmek için gönderdiği bütün peygamberlere inanmak", "Yalnızca Hz. Muhammed'e inanmak", "Yalnızca Hz. İbrahim ve Hz. Musa'ya inanmak", "Meleklerin peygamberlik yaptığına inanmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İman Esasları",
+      "skills": ["peygamberlere iman"],
+      "explanation": "İslam'da ilk peygamberden Hz. Muhammed'e kadar gönderilmiş tüm peygamberlere iman etmek gerekir."
+    },
+    {
+      "stem": "Sınav sabahı aceleyle evden çıkan Zeynep, öğleden sonra namaz kılmak istediğinde abdest almadığını fark ediyor. Bu durumda Zeynep'in namaz kılabilmesi için önce ne yapması gerekir ve bu gereklilik hangi dini kavrama dayanır?",
+      "options": ["Abdest alması gerekir; çünkü küçük hades (abdesti bozan durum) için namaz öncesi abdest şarttır.", "Boy abdesti (gusül) alması gerekir; çünkü her namaz öncesi gusül zorunludur.", "Sadece ellerini yıkaması yeterlidir; tam abdest yalnızca Cuma namazında gerekir.", "Abdest almadan da namaz kılabilir; niyet yeterli sayılır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Taharet",
+      "skills": ["abdest ve gusül", "temizlik"],
+      "explanation": "Küçük hades (abdesti bozan durum) için abdest, büyük hades için ise gusül (boy abdesti) gerekir. Abdest namaz için zorunlu fiziksel temizlik koşuludur."
+    },
+    {
+      "stem": "Bir öğrenci 'Kur'an-ı Kerim'de hangi surenin adı bir meyveye aittir?' diye soruyor. Doğru yanıt hangisidir?",
+      "options": ["Tin (İncir) suresi", "Bakara (İnek) suresi", "Fil suresi", "Kevser suresi"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Sure Adları",
+      "skills": ["Kur'an bilgisi", "sure adları"],
+      "explanation": "'Tin' incir anlamına gelir. Tin suresi incir ve zeytin üzerine bir yemin ile başlar."
+    },
+    {
+      "stem": "İslam ahlakında 'tevazu' nedir ve neden önemlidir?",
+      "options": ["Alçakgönüllülük; kibrin karşıtı olarak insanı sevdiren ve toplumsal uyumu destekleyen bir erdemdir.", "Kendini küçük görme ve özgüvensizlik", "Başarılardan çekinmek", "Başkalarına boyun eğmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - Tevazu",
+      "skills": ["tevazu", "kibrin karşıtı"],
+      "explanation": "Tevazu, kişinin değerinin farkında olmasına rağmen büyüklenmemesidir. Hz. Muhammed mütevaziliği ile örnek gösterilmiştir."
+    },
+    {
+      "stem": "Kur'an'da bahsedilen 'Adem ve Havva' kıssasından çıkarılabilecek en önemli ders nedir?",
+      "options": ["Hatadan pişmanlık ve Allah'a yönelmenin tövbeyle mümkün olduğu", "İnsanın mükemmel olduğu", "Kadınların hatalı olduğu", "Cennetten çıkmanın mümkün olmadığı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an Kıssaları",
+      "skills": ["Adem ve Havva", "tövbe"],
+      "explanation": "Hz. Adem ve Havva'nın yasak meyveyi yedikten sonra pişmanlık duyup Allah'a yönelmesi ve affedilmesi, tövbenin önemini anlatır."
+    },
+    {
+      "stem": "İslam'da bir insan neden sadece Allah'a ibadet etmelidir?",
+      "options": ["Çünkü İslam'ın temel ilkesi tevhiddir; yalnızca Allah yaratıcı, yoktan var edici ve gerçek güç sahibidir.", "Çünkü diğer varlıklara ibadet yasaktır sadece.", "Çünkü melek ve peygamberlere ibadet anlamsızdır.", "Çünkü diğer varlıklar var değildir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tevhid",
+      "skills": ["tevhid", "ibadet felsefesi"],
+      "explanation": "Tevhid; Allah'ın bir ve eşsiz olduğuna inanmaktır. Başka varlıklara ibadet etmek 'şirk' olarak değerlendirilir ve İslam'ın temel prensibiyle çelişir."
+    },
+    {
+      "stem": "Hz. Musa'nın peygamberlik serüveninde Firavun'a karşı mücadelesi hangi mesajı verir?",
+      "options": ["Zulme karşı haklı direnişin önemini ve Allah'ın inananları koruduğunu", "Güç ve siyasi iktidarın her şeyi çözeceğini", "Savaşın en iyi yöntem olduğunu", "Firavunun haklı olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber Kıssaları - Hz. Musa",
+      "skills": ["Hz. Musa", "zulüm ve direniş"],
+      "explanation": "Hz. Musa'nın Firavunla mücadelesi zulme karşı durmayı, inancın korunmasını ve Allah'ın güçsüzleri desteklediğini öğretir."
+    },
+    {
+      "stem": "İslam'da 'şükür' ile 'şükrün karşıtı olan nankörlük' arasındaki fark nedir?",
+      "options": ["Şükür nimetleri tanıyıp Allah'a minnet duymak, nankörlük ise nimetleri görmezden gelmektir.", "Şükür yalnızca sözlü ifade, nankörlük ise susmaktır.", "İkisi de anlamsızdır.", "Şükür zenginler için, nankörlük fakirler içindir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şükür ve Nankörlük",
+      "skills": ["şükür kavramı", "ahlaki zıtlık"],
+      "explanation": "Kur'an'da 'Şükredersanız artırırım, nankörlük ederseniz azabım şiddetlidir.' buyrulmuştur (İbrahim, 7). Şükür bilinçli bir minnettarlık, nankörlük ise nankörce bir tutum."
+    },
+    {
+      "stem": "Hz. İbrahim'in ateşe atılması kıssası hangi mesajı verir?",
+      "options": ["Allah'a olan derin inancın insanı en büyük tehlikelerden bile koruyabileceği", "Ateşin doğaüstü güçlere karşı etkisizliği", "Hz. İbrahim'in sihir yeteneği", "İnsanların ateşten korunabildiği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. İbrahim",
+      "skills": ["Allah'a güven", "mucize"],
+      "explanation": "Hz. İbrahim putları kırdığı için ateşe atıldı; ateşin onu yakmayışı Allah'a olan derin imanı ve Allah'ın korumasını sembolize eder."
+    },
+    {
+      "stem": "İslam tarihinde Kur'an'ın kitap hâline getirilmesi iki aşamada gerçekleşmiştir. Birinci aşamada dağınık hâldeki vahiy metinleri derlenerek tek bir nüsha oluşturulmuş, ikinci aşamada ise bu nüsha çoğaltılarak farklı bölgelere gönderilmiştir. Bu iki aşamayı sırasıyla hangi halifeler döneminde gerçekleştiği doğru olarak eşleştiren seçenek hangisidir?",
+      "options": ["Derleme: Hz. Ebu Bekir – Çoğaltma ve dağıtım: Hz. Osman", "Derleme: Hz. Ömer – Çoğaltma: Hz. Ali", "Derleme: Hz. Muhammed – Çoğaltma: Hz. Ebu Bekir", "Derleme ve çoğaltma: Hz. Osman tarafından tek aşamada gerçekleştirildi"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kur'an Tarihi",
+      "skills": ["Kur'an'ın toplanması", "halifeler"],
+      "explanation": "Hz. Ebu Bekir döneminde Zeyd b. Sabit başkanlığında vahiyler toparlandı; Hz. Osman döneminde çoğaltılarak standart mushaflar farklı şehirlere gönderildi."
+    },
+    {
+      "stem": "İslam'da 'sıla-ı rahim' (akraba ziyareti) neden önemlidir?",
+      "options": ["Aile bağlarını güçlendirir, karşılıklı sevgiyi artırır ve toplumsal dayanışmayı pekiştirir.", "Yalnızca dini bir gösteriştir.", "Yalnızca bayramlarda yapılması gerekir.", "Ekonomik amaçla yapılan bir ziyarettir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıla-i Rahim",
+      "skills": ["aile ilişkileri", "akraba ziyareti"],
+      "explanation": "Hz. Muhammed sıla-i rahimi keserek uzaklaşmanın günahkârlığını vurgulamış; akrabayı ziyaret etmeyi sevap olarak tanımlamıştır."
+    },
+    {
+      "stem": "Bir Müslüman'ın Allah'a olan sevgisini ve bağlılığını en iyi nasıl gösterebileceği düşünülür?",
+      "options": ["Allah'ın emirlerini yerine getirip yasaklarından kaçınarak ve ihlasla ibadet ederek", "Yalnızca sözlü olarak 'Allah'ı seviyorum' diyerek", "Çok para harcayarak", "Dini kitaplar satın alarak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Allah'a Sevgi",
+      "skills": ["ihlâs", "pratik iman"],
+      "explanation": "Kur'an'da 'Allah'ı seviyorsanız bana uyun, Allah da sizi sevsin.' (Al-i İmran, 31) buyrulmuştur. Pratik yaşamda emirlere uymak Allah sevgisinin göstergesidir."
+    },
+    {
+      "stem": "İslam'da beş vakit namaz neden belirli vakitlerde kılınır?",
+      "options": ["Günün her evresinde Allah'ı hatırlamak ve kulluk bilincini canlı tutmak için", "Yalnızca ritüel amaçla", "Sadece toplumsal baskı nedeniyle", "Peygamberin rasgele belirlediği vakitler olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Namaz - Anlam",
+      "skills": ["namaz vakitleri ve anlamı"],
+      "explanation": "Namaz vakitleri günün döngüsüne yayılmış olup insana gün boyunca Allah'ı hatırlama ve kulluk bilinciyle hareket etme fırsatı sunar."
+    },
+    {
+      "stem": "Bir çocuk arkadaşından gizlice para aldı ve özür dilemek yerine bunu gizlemeye çalıştı. İslam bu durumda ne öğütler?",
+      "options": ["Hatayı itiraf edip özür dilemek, alınan parayı iade etmek ve Allah'a tövbe etmek", "Sessiz kalmak ve olayı unutmak", "Başkasını suçlamak", "Yalnızca namaz kılarak arınmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tövbe ve Özür",
+      "skills": ["hesap verebilirlik", "tövbe"],
+      "explanation": "İslam'da hak ihlali söz konusu olduğunda hem ilgili kişiden özür dilemek hem de Allah'a tövbe etmek gerekir."
+    },
+    {
+      "stem": "'Allah Teâlâ kulunu en çok hangi durumlarda sever?' sorusuna aşağıdaki hangi yanıt İslam'a uygun bir cevaptır?",
+      "options": ["İhlasla ibadet eden, güzel ahlaklı, adaletli ve şükreden kulları sever.", "Yalnızca çok servet biriktirenleri sever.", "Yalnızca âlim olanları sever.", "Sadece güçlü olanları sever."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Allah'ın Sevgisi",
+      "skills": ["Allah'ın seveceği kullar"],
+      "explanation": "Kur'an'da muhsinler (iyilik yapanlar), muttakiler (takva sahipleri), şücaatli adil olanlar gibi çeşitli grupların Allah'ın sevgisine mazhar olduğu bildirilmiştir."
+    },
+    {
+      "stem": "İslam'da 'emanet' kavramı yalnızca maddi şeylerle mi sınırlıdır?",
+      "options": ["Hayır; görev, sır, güven gibi manevi emanetleri de kapsar.", "Evet; yalnızca para ve mülk için geçerlidir.", "Evet; yalnızca Allah'ın emanetleri için geçerlidir.", "Hayır; yalnızca kamu malları için geçerlidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Emanet Kavramı",
+      "skills": ["emanet geniş anlamı"],
+      "explanation": "Emanet para ve eşyanın yanı sıra görev, bilgi, sır gibi manevi sorumlulukları da kapsar."
+    },
+    {
+      "stem": "Bir öğrenci 'İslam'da namaz neden ayakta, rükûda ve secdede kılınır?' diye soruyor. En uygun yanıt nedir?",
+      "options": ["Her hareket Allah'a yönelişi ve kulluğun farklı boyutlarını (saygı, teslimiyet, yalvarma) temsil eder.", "Yalnızca fiziksel egzersiz için faydalıdır.", "Hz. Muhammed'in alışkanlığıydı, başka bir anlamı yoktur.", "Yalnızca kıbleye dönmeyi sembolize eder."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Namaz - Anlam",
+      "skills": ["namaz hareketlerinin anlamı"],
+      "explanation": "Namaz duruşları; kıyam (saygı), rükû (ta'zim), secde (en derin teslimiyet) gibi farklı kulluk bilinçlerini ifade eder."
+    },
+    {
+      "stem": "Bir öğrenci, 'Ayetü'l-Kürsi'yi namazın ardından okumanın faziletli olduğunu' duymuştur. Bu ayetin hangi surede, kaçıncı ayette yer aldığını ve içeriğini doğru veren seçenek hangisidir?",
+      "options": ["Bakara suresi 255. ayet; Allah'ın yüceliğini, her şeyi kuşattığını ve hiç uyumadığını anlatır.", "Fatiha suresi 1. ayet; Allah'a hamd ve yalnızca O'na ibadet edildiğini bildirir.", "İhlas suresi 1. ayet; Allah'ın bir ve doğurulmamış olduğunu açıklar.", "Yasin suresi 1. ayet; Kur'an'ın kalbi olarak Allah'ın birliğini anlatır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an Bilgisi",
+      "skills": ["Ayetü'l-Kürsi", "sure bilgisi"],
+      "explanation": "Ayetü'l-Kürsi Bakara suresinin 255. ayetidir; Allah'ın yüceliğini, her şeyi bilip kuşattığını ve hiç uyumadığını anlatır."
+    },
+    {
+      "stem": "Hz. Muhammed'in veda hutbesinde vurguladığı temel ilkeler nelerdir?",
+      "options": ["İnsanların eşitliği, kan ve mal dokunulmazlığı, kadın hakları ve emanete sadakat", "Savaş kuralları", "Ticaret ahlakı", "Nur suresinin hükümleri"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Siyer - Veda Hutbesi",
+      "skills": ["Veda Hutbesi", "İslam insan hakları"],
+      "explanation": "Veda Hutbesi'nde Hz. Muhammed can, mal ve ırz dokunulmazlığını, kadın haklarını ve ırk ayrımı yapmamayı vurgulamıştır."
+    },
+    {
+      "stem": "İslam'da 'iffet' kavramı ne anlama gelir?",
+      "options": ["Dürüstlük, namus ve onurunu koruma; haramdan uzak durmak", "Yalnızca kadınlara özgü bir kavramdır.", "Yalnızca giyim kuşama dair bir kavramdır.", "İbadetle ilgisi olmayan bir ahlak özelliğidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - İffet",
+      "skills": ["iffet", "İslam ahlakı"],
+      "explanation": "İffet, kişinin namusunu ve onurunu koruyarak haramdan uzak durmasıdır; İslam ahlakının temel değerlerinden biridir."
+    },
+    {
+      "stem": "Bir Müslüman namaz kılarken Arapça okuyorsa bu dil neden tercih edilmektedir?",
+      "options": ["Kur'an-ı Kerim'in vahyedildiği ve değiştirilmemesinin koruma altına alındığı dildir.", "Türkçe namazda yasak olduğu için", "Arapça her dinden üstün bir dildir.", "Yalnızca gelenek ve alışkanlık gereğidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an Dili",
+      "skills": ["Arapça ve Kur'an", "din dili"],
+      "explanation": "Kur'an, Arapça olarak indirilmiş ve bu şekilde korunmuştur. Namazda Kur'an ayetleri orijinal diliyle okunur."
+    },
+    {
+      "stem": "Hz. İsa'nın İslam'daki yeri nedir?",
+      "options": ["Allah'ın peygamberlerinden biridir; Kur'an'da mucizelerinden ve Meryem Ana'dan bahsedilir.", "İslam'da Hz. İsa bir peygamber olarak kabul edilmez.", "Hz. İsa İslam'a göre Tanrı'nın oğludur.", "Hz. İsa'nın İslam'da özel bir yeri yoktur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. İsa",
+      "skills": ["İslam'da Hz. İsa"],
+      "explanation": "İslam'a göre Hz. İsa (İsa Peygamber), Allah'ın peygamberlerinden biri olup babasız dünyaya gelen, mucizeler gösteren büyük bir peygamberdir."
+    },
+    {
+      "stem": "Bir öğrenci İslam'ın savaş kuralları hakkında araştırma yapıyor. İslam'da savaşta sivil halka zarar vermek caiz midir?",
+      "options": ["Hayır; İslam savaş hukukuna göre sivillere, yaralılara ve teslim olanlara zarar verilmesi yasaktır.", "Evet, düşman ülkenin tüm halkı hedef alınabilir.", "Sadece kadın ve çocuklar korunur.", "Savaşta hiçbir kural yoktur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "İslam Savaş Hukuku",
+      "skills": ["İslam'da savaş kuralları"],
+      "explanation": "İslam savaş hukukunda sivillere, kadınlara, çocuklara, yaşlılara, yaralılara ve din adamlarına zarar vermek yasaktır."
+    },
+    {
+      "stem": "Hz. Muhammed, peygamberlik görevi gelmeden önce bile 'el-Emin' lakabıyla anılıyordu. Mekkelilerin genç bir tüccar olan Hz. Muhammed'e bu unvanı vermesi, onun hangi kişilik özelliklerini öne çıkardığını gösterir ve bu özellikler peygamberlik göreviyle nasıl bir bağ kurar?",
+      "options": ["Dürüstlüğü ve güvenilirliği halk tarafından tanınmıştı; bu özellikler peygamberin vahyi doğru iletmesinin güvencesidir.", "Savaşlarda kazandığı zaferler toplumda saygınlık sağlamıştı.", "Zenginliğiyle çevresine yardım ettiği için bu unvanı almıştı.", "Arapça'yı mükemmel konuşması nedeniyle bu unvanı almıştı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. Muhammed'in Ahlakı",
+      "skills": ["güvenilirlik", "el-Emin"],
+      "explanation": "'El-Emin' güvenilir demektir; Mekkeliler Hz. Muhammed'in dürüstlüğü ve güvenilirliği nedeniyle bu unvanı verdiler. Peygamberin tebliği doğru aktarabilmesi için bu özellik çok önemlidir."
+    },
+    {
+      "stem": "Oruç tutan bir kişi neden konuşmalarına dikkat etmelidir?",
+      "options": ["Oruç yalnızca yemekten kesilmek değil; sözlü ve davranışsal ahlakın da gelişmesidir.", "Çünkü konuşmak yorucu olduğundan", "Çünkü konuşmak orucu bozar.", "Çünkü diğerlerini rahatsız etmemek için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Oruç - Bütüncül Anlam",
+      "skills": ["orucun kapsamı", "ahlak"],
+      "explanation": "Hz. Muhammed 'Yalan söylemekten ve yalanla amel etmekten vazgeçmeyene Allah'ın, onun yiyip içmekten kesilmesine ihtiyacı yoktur.' buyurmuştur."
+    },
+    {
+      "stem": "İslam'da 'İhlas' kavramı ne anlama gelir?",
+      "options": ["Her şeyi yalnızca Allah için, gösteriş olmadan yapmak", "Sadece namaz kılmak", "Başkalarına hizmet etmek", "Arapça öğrenmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İhlas",
+      "skills": ["ihlas kavramı", "niyet"],
+      "explanation": "İhlas, amelleri yalnızca Allah'ın rızası için, riya (gösteriş) olmadan yerine getirmektir."
+    },
+    {
+      "stem": "Kur'an'da 'Asr suresi' insanlara hangi mesajı vermektedir?",
+      "options": ["İman, amel-i salih, sabır ve hakkı tavsiye etmeyenlerin zararın içinde olduğunu bildirir.", "Zamanın değerini yalnızca ticaret açısından anlatır.", "Ahiret azabını detaylıca açıklar.", "Meleklerin görevlerini anlatır."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Sure İçerikleri - Asr",
+      "skills": ["Asr suresi analizi"],
+      "explanation": "Asr suresi, insanın hüsranda (kayıpta) olduğunu; ancak iman eden, salih amel işleyen, hakkı ve sabrı tavsiye edenlerin bunun dışında tutulduğunu açıklar."
+    },
+    {
+      "stem": "İslam'da 'israf' neden yasaktır?",
+      "options": ["Kaynakların gereksiz tüketimi Allah'ın verdiği nimetlere saygısızlık ve toplumsal adaletsizliktir.", "Yalnızca ekonomik zarar verdiği için", "Yalnızca çevresel nedenlerle", "Toplumsal baskı nedeniyle"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - İsraf",
+      "skills": ["israf yasağı", "Kur'an"],
+      "explanation": "Kur'an'da 'İsraf edenler şeytanın kardeşleridir.' (İsra, 27) buyrulmuştur; israf nimetlere nankörlük ve kaynakların haksız tüketimidir."
+    },
+    {
+      "stem": "Hz. Muhammed bir hadisinde 'Kolaylaştırın, zorlaştırmayın.' buyurmuştur. Bu hadis İslam'ın hangi özelliğini yansıtır?",
+      "options": ["İslam'ın pratik ve insana kolaylık tanıyan bir din olduğunu", "İslam'ın kurallarının gevşetildiğini", "Hz. Muhammed'in sadece öğrencilerine özel tavsiyesi olduğunu", "Dinin keyfi uygulanabileceğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam'ın Kolaylık İlkesi",
+      "skills": ["yüsr ilkesi", "İslam'ın özellikleri"],
+      "explanation": "İslam 'kolaylaştırma' ilkesi üzerine inşa edilmiştir. Kur'an'da da 'Allah size kolaylık ister, zorluk istemez.' (Bakara, 185) buyrulmuştur."
+    },
+    {
+      "stem": "Bir öğrenci öğretmeniyle arasındaki anlaşmazlıkta ne yapmalıdır?",
+      "options": ["Saygılı bir dille görüşünü ifade etmeli, gerekirse ailesi aracılığıyla çözüm aramalıdır.", "Öğretmenini topluluk önünde küçük düşürmelidir.", "Dersi terk etmelidir.", "Durumu görmezden gelmelidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Öğretmene Saygı",
+      "skills": ["saygı", "çatışma çözümü"],
+      "explanation": "İslam'da büyüklere saygı temel bir değerdir. Anlaşmazlıkta saygılı diyalog ve uygun kanalları kullanmak öğütlenir."
+    },
+    {
+      "stem": "İslam'ın en önemli iki kaynağı nedir?",
+      "options": ["Kur'an ve Sünnet (Hadis)", "Kur'an ve Fıkıh kitapları", "Hadis ve Tefsir kitapları", "Kur'an ve İcma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam'ın Kaynakları",
+      "skills": ["Kur'an ve Sünnet"],
+      "explanation": "İslam'ın temel kaynakları Kur'an-ı Kerim ve Hz. Muhammed'in söz, davranış ve onaylarından oluşan Sünnet'tir."
+    },
+    {
+      "stem": "Sınav haftasında çok stresli olan Zeynep, annesine 'Ne kadar dua etsem de kaygım geçmiyor, duanın ne faydası var?' diye soruyor. İslam'ın dua anlayışına göre duanın asıl amacı ve anlamı nedir?",
+      "options": ["Dua, kulun Allah ile kurduğu bilinçli iletişim ve teslimiyettir; sonuç Allah'ın takdirindedir ancak dua iç huzur ve güç verir.", "Dua yalnızca dilek listesi sunmaktır; her dua kabul edilmezse anlamsızdır.", "Dua yalnızca namaz içinde yapılabilen ritüel okumalardan ibarettir.", "Dua yalnızca büyük felâketlerde başvurulan son çaredir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dua",
+      "skills": ["dua kavramı"],
+      "explanation": "Dua, kulun Allah'a yönelerek yardım, bereket veya bağışlanma talep etmesidir; Hz. Muhammed 'Dua ibadetin özüdür.' buyurmuştur. Sonuç Allah'ın takdirinde olsa da dua, manevi güç ve huzur verir."
+    },
+    {
+      "stem": "İslam'da 'yetim hakkı' konusunda ne söylenebilir?",
+      "options": ["Yetimlerin haklarını çiğnemek Kur'an'da büyük günahlar arasında sayılmıştır.", "Yetimler yalnızca devlet tarafından korunmalıdır.", "Yetim kavramı İslam'da özel bir anlam taşımaz.", "Yetim hakkı yalnızca Ramazan'da korunmalıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yetim Hakkı",
+      "skills": ["sosyal adalet", "Kur'an"],
+      "explanation": "Kur'an'da yetim malını yemek büyük günahlar arasında sayılmış; yetimlere kol kanat germek ise teşvik edilmiştir."
+    },
+    {
+      "stem": "Bir mahkemede hâkim, yakın arkadaşının aleyhine karar vermek zorunda kalmaktadır. İslam ahlakına göre hâkimin bu durumda yapması gereken nedir ve bu tutum İslam'daki 'adalet' kavramıyla nasıl ilişkilendirilebilir?",
+      "options": ["Kişisel ilişkisinden bağımsız biçimde delillere göre karar vermeli; çünkü İslam'da adalet hak sahiplerine hakkını vermek, kayırmaktan kaçınmaktır.", "Arkadaşlık bağı hukuki kararın önüne geçebilir; bu da İslam'ın hoşgörü ilkesiyle uyumludur.", "Davayı başka bir hâkime devretmesi gerekir; çünkü İslam yargıda tarafsızlık aramaz.", "Arkadaşı için af talebinde bulunması İslam'ın merhamet ilkesiyle uyumludur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Adalet",
+      "skills": ["adalet kavramı", "İslam ahlakı"],
+      "explanation": "İslam'da adalet; hak sahiplerine hakkını vermek, kayırmacılıktan kaçınmak ve zulmü önlemektir. Kur'an, hatta yakınlar aleyhine bile olsa adaletten ayrılmamayı emreder (Nisa, 135)."
+    },
+    {
+      "stem": "Bir öğrenci 'Kur'an harfleri nasıl korunmuştur?' diye soruyor. Doğru yanıt nedir?",
+      "options": ["Hem ezbere hem yazılı kayıtlarla; sahabeler ayetleri hem yazdı hem ezberleyerek korudu.", "Yalnızca ezberle korundu.", "Yalnızca yazılı kayıtlarla korundu.", "Kur'an korunmamış, farklı versiyonları vardır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an'ın Korunması",
+      "skills": ["Kur'an hafızlığı", "kayıt yöntemleri"],
+      "explanation": "Kur'an hem sahabenin hafızasında (hâfızlar) hem de yazılı formlarda korunmuştur; bu ikili koruma sistemi eşsizdir."
+    },
+    {
+      "stem": "Bir çocuk, okulda bir arkadaşının başarısını gördükten sonra ona 'Zaten sen şanslısın, Allah seni seviyor' der. Ancak din öğretmeni bu yoruma katılmayarak 'İslam'da şirk kavramını anlarsak bu yorumun neden yanlış olduğunu görürüz' demektedir. İslam'da 'şirk' kavramına göre bu yorumun eksikliği nedir?",
+      "options": ["Başarıyı yalnızca şansa bağlamak dolaylı bir şirk tehlikesi taşır; İslam başarıyı çalışma ve Allah'ın yardımına bağlar, Allah'a ortak (şans gibi güçler) tanımayı reddeder.", "Şirk yalnızca puta tapınmadır; bu yorum şirkle ilgisizdir.", "Şirk kavramı bu tür gündelik konularla ilgili değildir; sadece büyük dinî ihlallerde geçerlidir.", "Allah'ın sevgisini başarıyla ilişkilendirmek doğrudur ve şirkle çelişmez."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şirk",
+      "skills": ["tevhidin karşıtı", "şirk tanımı"],
+      "explanation": "Şirk, Allah'a ortak tanımaktır. Kur'an'da şirkin Allah katında bağışlanmayacak tek günah olduğu bildirilir (Nisa, 48). Başarıyı şans ya da kader gibi güçlere bağlamak tevhid ilkesiyle çelişir."
+    },
+    {
+      "stem": "Kur'an'ın hangi özelliği onu diğer kutsal kitaplardan ayırır?",
+      "options": ["Değiştirilmemiş, orijinal Arapça metniyle korunmuş olması ve hafızalarda yaşaması", "Diğerlerinden daha kısa olması", "Sadece Müslümanların anlayacağı dilde yazılması", "Yalnızca peygamberlere özgü bilgiler içermesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an'ın Eşsizliği",
+      "skills": ["Kur'an özellikleri"],
+      "explanation": "Kur'an, indirildikten bu yana tek bir harf değiştirilmeden hafız ve yazılı kaynaklarla korunmuştur; bu diğer kutsal kitaplardan ayıran önemli bir özelliktir."
+    },
+    {
+      "stem": "İslam ahlakında 'dedikodu yapmak' neden kötü bir davranıştır?",
+      "options": ["Toplumsal güveni zedeler, kişilere zarar verir ve fitne çıkarır.", "Yalnızca zaman kaybıdır.", "Sadece yalansa zararlıdır.", "Arkadaşlar arasında normal bir iletişimdir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - Dedikodu",
+      "skills": ["dedikodu ve toplumsal zarar"],
+      "explanation": "Gıybet ve dedikodu toplumsal güveni bozar, kişilerin itibarına zarar verir ve Müslümanlar arası kardeşliği zayıflatır."
+    },
+    {
+      "stem": "İslam'ın sosyal boyutuna göre neden fakir ve güçsüzlere yardım etmek önemlidir?",
+      "options": ["Sosyal adaleti sağlar, toplumsal uçurumları azaltır ve Allah'ın emridir.", "Yalnızca kişisel sevap kazanmak için", "Yalnızca sosyal prestij kazanmak için", "Vergi yükümlülüğü olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sosyal Yardımlaşma",
+      "skills": ["sosyal adalet", "İslam'ın sosyal boyutu"],
+      "explanation": "Zekât, sadaka ve yardım emirleri servetin belirli ellerde birikmesini önler ve toplumsal adaleti destekler."
+    },
+    {
+      "stem": "Bir öğrenci Kur'an'ın Türkçeye çevrilmesinin mümkün olduğunu ancak Türkçe çevirinin asıl metin yerine geçemeyeceğini öğreniyor. Bunun nedeni nedir?",
+      "options": ["Kur'an'ın Arapça orijinali eşsiz bir dil yapısına sahiptir; çeviri anlam yoğunluğunu tam aktaramaz.", "Türkçe dilbilgisi yetersizdir.", "Çeviriler yasaktır.", "Çevirinin İslam'da değeri yoktur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kur'an Çevirisi",
+      "skills": ["meal ve tefsir", "Kur'an dili"],
+      "explanation": "Kur'an çevirilerine 'meal' denir; Arapça'nın zengin anlam katmanlarını tam aktarmak imkânsız olduğundan çeviriler referans değil, yardımcı kaynak sayılır."
+    },
+    {
+      "stem": "Hz. Muhammed'in hicret yolculuğunda Sevr Mağarası'nda saklandığı bilinmektedir. Bu durum hangi mesajı verir?",
+      "options": ["Allah'a tevekkül ile beşerî önlemlerin (ihtiyat) birlikte kullanılması gerektiğini", "Tehlikeden her zaman kaçılması gerektiğini", "Hz. Muhammed'in zayıflığını", "Hicretin gereksiz olduğunu"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Hicret",
+      "skills": ["tevekkül ve sebep-sonuç", "siyer"],
+      "explanation": "Hz. Muhammed Sevr Mağarası'nda saklanarak hem ihtiyatlı bir önlem aldı hem de Allah'a tevekkül etti; bu 'Tedbiri al, sonucu Allah'a bırak' ilkesinin örneğidir."
+    },
+    {
+      "stem": "İslam'da 'Cuma namazı' neden özel öneme sahiptir?",
+      "options": ["Topluca kılınan, hutbe eşliğinde gerçekleşen ve Müslümanların haftalık buluşmasını sağlayan bir ibadettir.", "Yalnızca din adamları için farz kabul edilir.", "Yılda bir kez kılınan özel bir namazdır.", "Cuma namazının farklı bir anlamı yoktur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cuma Namazı",
+      "skills": ["Cuma'nın önemi", "toplumsal ibadet"],
+      "explanation": "Cuma namazı Müslümanları haftalık olarak bir araya getirir; hutbe ile bilgi ve rehberlik sunulur, kardeşlik pekiştirilir."
+    },
+    {
+      "stem": "Bir Müslüman günlük hayatında iş yaşamında nasıl davranmalıdır?",
+      "options": ["Dürüst, adil, emanete riayet eden ve emekçinin hakkını ödeyen biri olarak", "Yalnızca dini ortamlarda iyi davranmalıdır.", "İş hayatında din kuralları uygulanmaz.", "Kazancını artırmak için her yolu kullanabilir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ticaret Ahlakı",
+      "skills": ["İslam'da iş ahlakı"],
+      "explanation": "İslam ticaret ve iş hayatında dürüstlük, vaat tutmak, adil ölçüp tartmayı ve işçiye hakkını zamanında ödemeyi emreder."
+    },
+    {
+      "stem": "İslam'da 'cennet' kavramı, yalnızca ödül olarak sunulan maddi bir mekân mı, yoksa daha derin bir anlam mı taşır? Bir öğrenci imanın ve amelin cennetle ilişkisini araştırırken bu soruyla karşılaşıyor. İslam'ın cennet anlayışına en uygun yanıt hangisidir?",
+      "options": ["Cennet, iman ve salih amelin karşılığında Allah'ın rızasının en yüksek biçimde tecelli ettiği, ebedi huzur ve mutluluğun yaşandığı mekândır; maddi nimetlerin yanı sıra Allah'a yakınlık da içerir.", "Cennet yalnızca maddi lezzetlerin bulunduğu bir ödül mekânıdır; manevi boyutu yoktur.", "Cennet dünyada iyi yaşam süren kişilerin otomatik olarak gideceği bir ortamdır.", "Cennet yalnızca peygamberlere ve büyük âlimlere mahsus, diğer Müslümanların giremeyeceği bir alandır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cennet",
+      "skills": ["ahiret", "cennet kavramı"],
+      "explanation": "Cennet İslam'a göre iman edenlerin ve salih amel işleyenlerin ebedi olarak kalacağı, Allah'ın rızasının tecelli ettiği mutluluk yurdudur. Maddi nimetlerin yanı sıra Allah'ın rızası ve O'na yakınlık da cennetin en büyük nimetidir."
+    },
+    {
+      "stem": "Bir öğrenci İslam'da 'tebliğ' kavramını araştırıyor. Bu kavram ne anlama gelir?",
+      "options": ["Allah'ın mesajını insanlara iletmek; peygamberlerin temel görevlerinden biri", "Savaş ilan etmek", "İnsanları zorla Müslüman yapmak", "Yalnızca âlimlerin görevi olan vaaz vermek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tebliğ",
+      "skills": ["peygamber sıfatı", "tebliğ"],
+      "explanation": "Tebliğ, Allah'ın mesajını insanlara duyurmak demektir; peygamberlerin en temel görevlerinden biridir."
+    },
+    {
+      "stem": "İslam'da 'riya' nedir ve neden kaçınılması gerekir?",
+      "options": ["Gösteriş için ibadet etmek; ameli ihlassız yaparak Allah'ın rızasını değil başkalarının beğenisini aramaktır.", "Allah'ın bir ismidir.", "İbadetin artırılmasıdır.", "Bir ayet adıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - Riya",
+      "skills": ["riya", "ihlas karşıtı"],
+      "explanation": "Riya gösteriş için ibadet etmektir; ameli geçersiz kılar ve büyük günahlar arasında sayılır."
+    },
+    {
+      "stem": "Hz. Davud'un İslam geleneğindeki önemi nedir?",
+      "options": ["Hem peygamber hem hükümdar; Zebur'un kendisine indirildiği ve adaletli yönetimiyle tanınan peygamber", "Yalnızca savaşçılığıyla tanınan bir peygamber", "Kur'an'da hiç geçmeyen bir peygamber", "Yalnızca tüccar olduğu bilinen bir peygamber"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hz. Davud",
+      "skills": ["peygamber bilgisi", "Zebur"],
+      "explanation": "Hz. Davud hem peygamber hem de adil bir hükümdardı; kendisine Zebur indirilmiştir ve güzel sesiyle zikir etmesiyle tanınır."
+    },
+    {
+      "stem": "İslam'da 'kul hakkı' ile 'Allah hakkı' arasındaki fark nedir?",
+      "options": ["Kul hakkı çiğnendiğinde hem o kişiden hem Allah'tan af istemek gerekir; Allah hakkında yalnızca Allah'a tövbe yeter.", "İkisi arasında fark yoktur; yalnızca Allah'a tövbe yeterlidir.", "Kul hakkı çiğnendiğinde yalnızca namaz kılarak af kazanılır.", "Allah hakkı daha önemlidir; kul hakkı önemsizdir."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kul Hakkı",
+      "skills": ["kul hakkı ve Allah hakkı ayrımı"],
+      "explanation": "İslam'da kul haklarını ihlal etmek, hem ilgili kişiden af dilemek hem de Allah'a tövbe etmeyi gerektirir; çünkü hak sahibinin rızası olmadan Allah da affetmez."
+    },
+    {
+      "stem": "İslam'da insanın yeryüzündeki temel rolü nedir?",
+      "options": ["Halife (yeryüzünde Allah'ın emanetini taşıyan ve sorumlulukla davranan varlık) olmak", "Yalnızca ibadet etmek", "Dünyayı fethetmek", "Yalnızca neslin devamını sağlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan ve Hilafet",
+      "skills": ["halife kavramı", "insan görevi"],
+      "explanation": "Kur'an'da insanın yeryüzünde 'halife' olarak yaratıldığı bildirilir (Bakara, 30); bu sorumluluk ve emaneti içerir."
+    },
+    {
+      "stem": "İslam'a göre insan neden hesap verecektir?",
+      "options": ["Akıl ve irade sahibi olduğundan, özgür seçimleri nedeniyle Allah'a hesap vermekle yükümlüdür.", "Çünkü herkese bir rehber gönderilmiştir.", "Yalnızca büyük günahlar nedeniyle hesap verecektir.", "Yalnızca peygamberler hesap verecektir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hesap",
+      "skills": ["ahiret hesabı", "irade ve sorumluluk"],
+      "explanation": "İslam'da sorumluluk akıl ve iradeye bağlıdır; özgür iradesiyle seçim yapan insan ahirette bu seçimlerinden hesap verecektir."
+    },
+    {
+      "stem": "Hz. Muhammed Mekke'den Medine'ye hicret ettiğinde, bu şehirde Müslümanlar, Yahudiler ve Arap kabilelerini kapsayan yazılı bir anlaşma yapıldı. Bu anlaşma İslam tarihinde önemli bir yer tutmaktadır. Medine'nin ilk İslam devletinin merkezi olmasının temel nedeni nedir?",
+      "options": ["Hicretin ardından Medine'de Hz. Muhammed liderliğinde topluluklar arası yazılı bir sözleşme kurularak siyasi ve sosyal bir İslam düzeni oluşturuldu.", "Medine Mekke'den daha büyük ve güçlü olduğu için merkez seçildi.", "Medine tüccarlar sayesinde İslam öncesinden beri önemli bir şehirdi.", "Medine'de daha önce inmiş olan vahiylerin büyük çoğunluğu bu şehirde toplandı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam Tarihi",
+      "skills": ["Medine", "ilk İslam devleti"],
+      "explanation": "Hz. Muhammed Medine'ye hicret ettiğinde burada Medine Sözleşmesi'ni yaparak ilk İslam devletini kurmuş ve İslam'ın yönetim merkezi haline gelmiştir."
+    },
+    {
+      "stem": "Öfkeli bir kişi, sinirlendiğinde karşısındakine çok sert tepkiler vermekte ve sonradan pişman olmaktadır. Din dersi öğretmeni bu öğrenciye İslam ahlakında 'hilm' kavramını anlatıyor. 'Hilm' kavramı bu kişiye nasıl bir katkı sağlayabilir?",
+      "options": ["Hilm, öfkeyi kontrol ederek yumuşak ve hoşgörülü olmayı öğretir; kişinin tepkilerini sabır ve anlayışla yönetmesine yardımcı olur.", "Hilm, kişinin haklarını savunmak için daha güçlü tepkiler vermesini öğütler.", "Hilm, öfkeli durumlarda tamamen sessiz kalıp tepki vermemeyi emreder.", "Hilm yalnızca ibadet sırasında gerekli olan bir kavramdır, günlük hayatla ilgisi yoktur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ahlak - Hilm",
+      "skills": ["hilm", "öfke kontrolü"],
+      "explanation": "'Hilm' öfkeyi yutma, yumuşak ve hoşgörülü olmak demektir. Hz. Muhammed'in en belirgin özelliklerinden biri olarak aktarılmıştır."
+    },
+    {
+      "stem": "Bir öğrenci din dersinde kıssaların neden anlatıldığını soruyor. Doğru yanıt hangisidir?",
+      "options": ["İbret almak, doğru davranışları görmek ve tarihi olaylardan ders çıkarmak için", "Yalnızca tarihi merak gidermek için", "Yalnızca eğlence amaçlıdır.", "Peygamberlerin biyografisini yazmak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kur'an Kıssaları",
+      "skills": ["kıssaların amacı"],
+      "explanation": "Kur'an'daki kıssalar ahlaki dersler vermek, insanı kötü davranışlardan uzaklaştırmak ve salih amel için ilham vermek amacıyla anlatılmıştır."
+    },
+    {
+      "stem": "Hz. Süleyman'ın İslam geleneğindeki özelliği nedir?",
+      "options": ["Büyük bir hükümdarlık ve peygamberlikle birlikte hayvanlara hâkimiyetiyle tanınır.", "Yalnızca bilgeliğiyle tanınır.", "Kur'an'da adı geçmez.", "Yalnızca zühd hayatı yaşamıştır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Peygamber Kıssaları - Hz. Süleyman",
+      "skills": ["Hz. Süleyman"],
+      "explanation": "Hz. Süleyman hem peygamber hem de büyük bir hükümdardı; rüzgara ve hayvanlara hükmetme gibi mucizelere sahip olduğu Kur'an'da aktarılır."
+    },
+    {
+      "stem": "İslam'da bir çocuğun anne-babasına iyi davranmasının en temel nedeni nedir?",
+      "options": ["Kur'an'ın emri ve aile bağlarını güçlendirmek; ayrıca Allah'ın bu görevi önemle vurgulaması", "Yalnızca geleneksel bir kültür kuralıdır.", "Yalnızca miras almak için", "Anne-baba her konuda haklıdır, sorgulanamaz."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anne-Babaya Saygı",
+      "skills": ["valideyine saygı", "Kur'an emri"],
+      "explanation": "Kur'an'da Allah'a ibadetle hemen ardından anne-babaya iyi davranmak emredilmiştir (İsra, 23)."
+    },
+    {
+      "stem": "İslam'a göre insanın dünya ve ahiret arasındaki dengesi nasıl olmalıdır?",
+      "options": ["Dünya işleri için çalışırken ahireti unutmamak; her ikisinde de başarı için denge kurulmalıdır.", "Yalnızca ahirete odaklanılmalı, dünya işleri önemsenmemelidir.", "Yalnızca dünya işlerine odaklanılmalıdır.", "İkisi tamamen birbirinden ayrı tutulmalıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya ve Ahiret Dengesi",
+      "skills": ["denge", "dünya ahiret"],
+      "explanation": "İslam ne dünya kaçışçılığını ne de dünyaya gömülüp ahireti unutmayı öngörür; 'Ahiretini de unutma, dünyadan payını al.' (Kasas, 77) dengesi esastır."
+    },
+    {
+      "stem": "Ramazan ayında komşunun getirdiği yemekten çok az yenildi; ev sahibi 'Bu yemeğe bereket yokmuş' dedi. Ancak din öğretmeni bu yorumun eksik olduğunu belirterek İslam'daki 'bereket' kavramını açıkladı. Bu kavrama göre bereketin kaynağı ve anlamı nedir?",
+      "options": ["Bereket, Allah'ın bir nimete ya da kişiye lütfettiği manevi artış ve hayırdır; azla çok yol gidilmesini sağlayan ilahi bir katkıdır.", "Bereket yalnızca yiyecek miktarının fazla olması demektir; az yenilirse bereket yoktur.", "Bereket, şans veya talihle aynı anlama gelir; rastlantısal bir olgudur.", "Bereket yalnızca özel dini törenlerde dua okunarak kazanılan bir durumdur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bereket Kavramı",
+      "skills": ["bereket", "İslam kavramları"],
+      "explanation": "Bereket Allah'ın bir şeye ya da kişiye bahşettiği manevi ve maddi artış, hayır ve bolluktur. Az şeyde çok fayda görmek de bereketin bir tecellisidir."
+    },
+    {
+      "stem": "Kur'an'ın en son inen ayetinin içeriği hakkında ne söylenebilir?",
+      "options": ["Maide suresi 3. ayet; 'Dini tamamladım ve İslam'ı din olarak seçtim.' mesajını içerir.", "Fatiha suresidir.", "Bakara suresinin başlangıcıdır.", "Kevser suresidir."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Kur'an Tarihi",
+      "skills": ["son inen ayet", "Kur'an tarihi"],
+      "explanation": "Çoğunluk görüşüne göre en son inen ayet Maide 3'tür ve 'Bugün sizin için dininizi tamamladım.' mesajını içerir."
+    },
+    {
+      "stem": "İslam'da 'Akl-ı Selim' (sağlıklı akıl) kavramı hangi anlama gelir?",
+      "options": ["Vahiy ile uyumlu, doğru karar alabilen, önyargısız akıl yürütme kapasitesi", "Yalnızca zeka", "Matematik yeteneği", "Çok kitap okuma"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Akıl ve Din",
+      "skills": ["akıl-vahiy ilişkisi"],
+      "explanation": "İslam'da sağlıklı akıl, doğru yargılayan ve vahiy ile çelişmeyen bilinçli düşünmedir; Kur'an insanı akletmeye çokça davet eder."
+    },
+    {
+      "stem": "Bir din dersi kitabında 'İslam'ın barış dini olması' nasıl açıklanmaktadır?",
+      "options": ["'İslam' kelimesi selamet ve barıştan gelmekte; din barışı, güvenliği ve adaleti ön planda tutmaktadır.", "İslam savaşı tamamen yasaklamıştır.", "İslam'da barış yalnızca Müslümanlar arasındadır.", "İslam'da barış kavramı yoktur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İslam ve Barış",
+      "skills": ["İslam'ın anlamı", "barış"],
+      "explanation": "'İslam' kelimesi 'selamet, esenlik ve teslim olmak' kökünden gelir. İslam barışı, güvenliği ve adaleti temel değer olarak benimsemiştir."
+    },
+    {
+      "stem": "Ahiret inancına sahip bir Müslüman, bu dünyanın sona ereceğini ve herkesin Allah'ın karşısında hesap vereceği büyük bir günün geleceğine inanır. İslam'da bu büyük günü ifade eden 'kıyamet' kavramı hangi unsurları kapsar ve bu inanç insanın davranışlarını nasıl etkiler?",
+      "options": ["Kıyamet, alemin sona erip tüm insanların dirileceği ve hesaba çekileceği gündür; bu inanç Müslümanı dünyada sorumlu ve ahlaklı davranmaya yönlendirir.", "Kıyamet yalnızca büyük doğal afetler için kullanılan bir terimdir; ahiretle doğrudan ilişkisi yoktur.", "Kıyamet, ölüm anındaki son nefesi ifade eder; sonrasında başka bir hesap yoktur.", "Kıyamet inancı Müslümanları dünyadan tamamen kopuk ve pasif yaşamaya yönlendirir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kıyamet",
+      "skills": ["kıyamet", "ahiret süreci"],
+      "explanation": "Kıyamet, alemin sona erdiği ve tüm insanların dirilerek Allah'ın huzurunda hesaba çekileceği büyük gündür. Bu inanç Müslümanı dünyada sorumlu, ahlaklı ve hesap bilinciyle davranmaya teşvik eder."
+    },
+    {
+      "stem": "Bir öğrenci 'Müslümanlar nasıl güzel bir çevre oluşturur?' diye soruyor. İslam'a uygun yanıt nedir?",
+      "options": ["Doğayı emanet kabul edip kirletmemek, suyu israf etmemek ve hayvanlara iyi davranmak", "Yalnızca temizliğe dikkat etmek", "Çevre koruma yalnızca hükümetin görevidir.", "Çevre ile din arasında bağlantı yoktur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre ve İslam",
+      "skills": ["İslam'da çevre sorumluluğu"],
+      "explanation": "İslam, doğayı Allah'ın emaneti olarak görür. Suyu israf etmek, hayvanları incitmek ve çevreyi kirletmek yasaklanmıştır."
+    },
+    {
+      "stem": "Bir öğrenci 'İslam'a göre din özgürlüğü var mıdır?' sorusunu araştırıyor. Doğru yanıt nedir?",
+      "options": ["Evet; Kur'an 'Dinde zorlama yoktur.' (Bakara, 256) buyurarak inanç özgürlüğünü teyit eder.", "Hayır; herkesin Müslüman olması zorunludur.", "Sadece Kitap ehli için din özgürlüğü tanınmıştır.", "Kur'an bu konuda bir şey söylememiştir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Din Özgürlüğü",
+      "skills": ["inanç özgürlüğü", "Kur'an"],
+      "explanation": "Bakara 256 'Dinde zorlama yoktur.' ayetiyle inanç özgürlüğü açıkça belirlenmiştir."
+    }
+  ]
+}

@@ -1,0 +1,803 @@
+[
+  {
+    "id": "mio_bio_0184",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzymes: structure and mechanism",
+    "subtopic": "Induced-fit model: substrate-induced conformational change that reshapes the active site and excludes water (hexokinase)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "enzymes",
+      "induced-fit",
+      "active site",
+      "catalysis",
+      "hexokinase",
+      "conformational change"
+    ],
+    "learning_objective": "Explain enzyme specificity and catalysis in terms of the induced-fit model, distinguishing it from the lock-and-key model and from denaturation.",
+    "question": "Hexokinase catalyses the transfer of a phosphate group from ATP to glucose. When glucose binds, the enzyme undergoes a large conformational change in which two lobes close around the sugar, engulfing it and excluding water from the active site. Water is a small molecule that could otherwise accept the transferred phosphate. Which statement best accounts for this behaviour according to the induced-fit model of enzyme action?",
+    "choices": {
+      "A": "Binding of glucose lowers the activation energy simply by raising the local concentration of substrate around the active site, which is what pushes the water out.",
+      "B": "The active site is permanently and rigidly shaped to fit glucose exactly, so water is excluded from it at all times, whether or not glucose is bound.",
+      "C": "Binding of glucose induces a conformational change that reshapes the active site, aligning the catalytic groups correctly and excluding water, so the phosphate is transferred to glucose rather than being wasted on water.",
+      "D": "Closure of the two lobes slightly denatures the enzyme, and it is this partial unfolding that supplies the energy needed to transfer the phosphate group.",
+      "E": "The two lobes open and close continuously and at random; glucose is phosphorylated only on the occasions when the enzyme happens to be closed as ATP arrives."
+    },
+    "correct_answer": "C",
+    "explanation": "In the induced-fit model the active site is not a rigid pre-formed shape. The substrate binds first to a loosely complementary site, and this binding triggers a conformational change that moulds the active site around the substrate, bringing catalytic groups into precise alignment and, in hexokinase, physically sealing water out. The exclusion of water is a direct consequence of the substrate-induced closure, and it prevents the enzyme from wastefully transferring the phosphate of ATP to water instead of to glucose. This explains both the specificity of the enzyme and its efficiency.",
+    "option_analysis": {
+      "A": "Wrong: a rise in local substrate concentration does not by itself expel water or reshape the site, and it is not the mechanism of the induced-fit change. Enzymes lower activation energy chiefly by correctly orienting and straining the substrate toward the transition state. Misconception: attributing the conformational change and water exclusion to a simple concentration effect.",
+      "B": "Wrong: this is the lock-and-key model, in which a rigid, pre-shaped active site fits the substrate exactly at all times. It cannot explain why water is excluded only after glucose binds; a permanently closed site could not admit the substrate in the first place. Misconception: treating induced fit as if it were the static lock-and-key model.",
+      "C": "Correct: substrate binding induces a conformational change that reshapes the active site, aligns the catalytic residues and, in hexokinase, closes water out so the phosphate is delivered to glucose rather than to water. This is precisely the induced-fit description.",
+      "D": "Wrong: the conformational change is a reversible folding movement, not denaturation; denaturation would destroy activity, not power it, and the energy for phosphate transfer comes from ATP hydrolysis. Misconception: equating a functional conformational change with (partial) denaturation and treating unfolding as an energy source.",
+      "E": "Wrong: the closure is induced by the binding of glucose, not a spontaneous, substrate-independent flapping of the lobes. Making catalysis depend on random closure ignores the defining feature of induced fit. Misconception: believing the conformational change occurs independently of the substrate."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0185",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzymes: factors affecting reaction rate",
+    "subtopic": "Temperature and rate: competing effects of collision energy below the optimum and denaturation above it (bell-shaped rate–temperature curve)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "enzymes",
+      "temperature",
+      "reaction rate",
+      "denaturation",
+      "activation energy",
+      "initial rate",
+      "graph interpretation"
+    ],
+    "learning_objective": "Interpret a rate-against-temperature curve, attributing the rise to increased collision energy and the fall to denaturation, and recognise that initial-rate data exclude substrate-depletion and equilibrium explanations.",
+    "question": "The initial rate of an enzyme-catalysed reaction is measured at a series of temperatures. From 10 °C to 30 °C the rate approximately doubles for every 10 °C rise. Between 30 °C and 40 °C it increases only slightly, and above 45 °C it falls rapidly, reaching almost zero by 60 °C. Which of the following gives the correct explanation over the whole temperature range?",
+    "choices": {
+      "A": "The initial rise occurs because warming increases the number of enzyme molecules present, and the fall occurs because the enzyme is steadily consumed as product accumulates.",
+      "B": "Up to about 40 °C, warming increases the fraction of enzyme–substrate collisions with energy above the activation energy; above 45 °C the weak interactions holding the tertiary structure break, distorting the active site so that substrate can no longer bind properly.",
+      "C": "Throughout the range the rate is set by the substrate concentration; the sharp fall above 45 °C shows that the substrate has by then been completely used up.",
+      "D": "As the temperature rises the activation energy of the reaction falls, which speeds it up; above 45 °C the activation energy rises again, which slows it down.",
+      "E": "The fall above 45 °C occurs because at higher temperature the reaction reaches equilibrium much sooner, so no further net product can form."
+    },
+    "correct_answer": "B",
+    "explanation": "A rate-against-temperature curve is the net result of two opposing effects. Below the optimum, warming raises the average kinetic energy of the molecules, so a larger fraction of collisions has energy exceeding the activation energy and productive collisions become both more frequent and more energetic; the rate rises steeply (roughly doubling per 10 °C). Above the optimum, the same thermal energy begins to break the many weak interactions (hydrogen bonds, ionic interactions, hydrophobic contacts) that maintain the tertiary structure. The active site is distorted, substrate can no longer bind and be catalysed, and the rate collapses. Because these are initial-rate measurements, explanations based on the substrate being used up or on equilibrium being reached are irrelevant — those affect how the reaction proceeds over time, not the rate at the start.",
+    "option_analysis": {
+      "A": "Wrong: warming does not create more enzyme molecules, and the enzyme is a catalyst that is regenerated, not consumed, by the reaction. Misconception: thinking heat increases enzyme number and that enzyme is used up as product forms.",
+      "B": "Correct: the rise reflects a larger fraction of collisions exceeding the activation energy, and the fall above the optimum reflects thermal denaturation — breaking of the weak bonds maintaining tertiary structure, which distorts the active site and prevents binding.",
+      "C": "Wrong: these are initial rates, so the substrate is far from depleted at the moment of measurement; substrate depletion cannot explain the fall, which is due to denaturation. Misconception: confusing the temperature effect with substrate exhaustion during the reaction.",
+      "D": "Wrong: temperature does not change the activation energy of a reaction (only a catalyst lowers it). Warming speeds a reaction by increasing molecular energies, not by altering the energy barrier. Misconception: believing that raising the temperature lowers (or raises) the activation energy.",
+      "E": "Wrong: reaching equilibrium concerns the eventual position of a reversible reaction, not its initial rate, and a catalyst does not shift equilibrium. The fall is caused by denaturation. Misconception: conflating the rate of reaction with the position of equilibrium."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0186",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzymes: factors affecting reaction rate",
+    "subtopic": "Enzyme versus substrate concentration: why the rate–substrate curve plateaus (saturation) and how raising enzyme concentration raises the maximum rate",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "enzymes",
+      "substrate concentration",
+      "enzyme concentration",
+      "saturation",
+      "Vmax",
+      "graph interpretation"
+    ],
+    "learning_objective": "Distinguish the saturable effect of substrate concentration from the effect of enzyme concentration on rate, and interpret the plateau of a rate-against-substrate curve qualitatively.",
+    "question": "In an enzyme assay the initial rate of reaction is plotted against substrate concentration at a fixed enzyme concentration. The curve rises steeply at first and then levels off to a constant maximum rate. Starting from a point on this plateau, the experimenter now doubles the enzyme concentration while keeping the substrate concentration unchanged (substrate remains in large excess). Which single statement is correct?",
+    "choices": {
+      "A": "The plateau shows that the substrate has been completely converted to product, so adding more substrate does nothing; for the same reason, adding more enzyme also has no effect.",
+      "B": "On the plateau every active site is permanently occupied, so the maximum rate is an absolute ceiling that cannot be raised by any means, including adding more enzyme.",
+      "C": "The plateau shows the reaction has reached equilibrium; adding enzyme shifts that equilibrium and so roughly doubles the final yield of product.",
+      "D": "On the plateau the active sites are effectively saturated, so raising the substrate barely changes the rate; adding more enzyme provides more active sites and so approximately doubles the maximum rate.",
+      "E": "Doubling the enzyme concentration halves the maximum rate, because the fixed amount of substrate must now be shared between twice as many enzyme molecules."
+    },
+    "correct_answer": "D",
+    "explanation": "The plateau of a rate-against-substrate curve is reached when the substrate is in such excess that virtually all active sites are occupied as soon as they become free — the enzyme is saturated. At this point the rate is limited by how fast the fixed number of active sites can turn substrate over, so adding still more substrate has little effect. The height of the plateau (the maximum rate) is set by the amount of enzyme: each active site works at its maximum turnover, so doubling the enzyme concentration provides twice as many active sites and roughly doubles the maximum rate. Substrate concentration and enzyme concentration therefore act differently — one saturates, the other scales the ceiling.",
+    "option_analysis": {
+      "A": "Wrong: at the initial rate the substrate is not exhausted (indeed it is in large excess on the plateau); the plateau reflects saturation of active sites, not conversion of all substrate, and adding enzyme does raise the rate. Misconception: reading the plateau as complete substrate consumption.",
+      "B": "Wrong: the plateau is a ceiling only for that quantity of enzyme; it is not an absolute limit. Providing more enzyme adds active sites and lifts the maximum rate. Misconception: treating the maximum rate as fixed regardless of enzyme amount.",
+      "C": "Wrong: the plateau is a kinetic effect (saturation), not equilibrium, and a catalyst cannot shift the position of equilibrium or change the final yield. Misconception: confusing a rate plateau with equilibrium and thinking enzyme alters yield.",
+      "D": "Correct: on the plateau the active sites are saturated so more substrate barely changes the rate, whereas doubling the enzyme supplies more active sites and approximately doubles the maximum rate.",
+      "E": "Wrong: with substrate in large excess there is more than enough for every active site, so extra enzyme is not starved; adding enzyme raises the rate rather than lowering it. Misconception: applying a 'sharing/dilution' idea to enzyme molecules that are working independently under saturating substrate."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0187",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzyme inhibition",
+    "subtopic": "Distinguishing competitive from non-competitive inhibition by whether raising substrate concentration reverses the inhibition (qualitative)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "enzymes",
+      "competitive inhibition",
+      "non-competitive inhibition",
+      "reversible inhibition",
+      "active site",
+      "allosteric site"
+    ],
+    "learning_objective": "Distinguish competitive from non-competitive inhibition by whether increasing substrate concentration reverses the inhibition, using qualitative maximum-rate reasoning.",
+    "question": "An enzyme is studied with two different reversible inhibitors, X and Y. At a low substrate concentration each inhibitor, used separately at the same concentration, reduces the initial rate by about the same amount. The substrate concentration is then increased many-fold. In the presence of X the rate rises until it is almost equal to the uninhibited maximum rate, whereas in the presence of Y the maximum rate stays well below the uninhibited value no matter how much substrate is added. Which statement correctly identifies the inhibitors and the reason?",
+    "choices": {
+      "A": "Both inhibitors are competitive, because each of them reduces the reaction rate when the substrate concentration is low.",
+      "B": "X is competitive — it binds reversibly at the active site and is progressively outcompeted as substrate is raised, so the maximum rate is restored; Y is non-competitive — it binds at a separate site and lowers the maximum rate, and added substrate cannot displace it.",
+      "C": "Y must be an irreversible inhibitor, because the maximum rate cannot be restored; X is a competitive inhibitor.",
+      "D": "X is non-competitive and Y is competitive, because a competitive inhibitor is the one that permanently lowers the maximum rate an enzyme can reach.",
+      "E": "X is competitive and Y is non-competitive, but Y could also be overcome by adding enough substrate, since any reversible inhibition can in principle be reversed by raising the substrate concentration."
+    },
+    "correct_answer": "B",
+    "explanation": "The decisive test here is whether adding excess substrate reverses the inhibition. A competitive inhibitor competes with the substrate for the active site, so flooding the enzyme with substrate outcompetes it: the rate climbs back toward the uninhibited maximum (the maximum rate is unchanged; only more substrate is needed to reach it). A non-competitive inhibitor binds at a separate (allosteric) site and reduces the effectiveness or number of working enzyme molecules; because it is not competing for the active site, adding substrate cannot displace it and the maximum rate stays depressed. X behaves as a competitive inhibitor and Y as a non-competitive inhibitor. Note that Y is still reversible — its effect simply cannot be reversed by substrate.",
+    "option_analysis": {
+      "A": "Wrong: reducing the rate at low substrate is common to both types of inhibitor and does not identify either; the distinguishing behaviour is what happens as substrate is raised. Misconception: assuming any rate reduction implies competition at the active site.",
+      "B": "Correct: X is competitive (bound at the active site, outcompeted by excess substrate so the maximum rate is restored) and Y is non-competitive (bound at a separate site, lowering the maximum rate, undisplaceable by substrate).",
+      "C": "Wrong: the failure of substrate to restore the maximum rate indicates non-competitive (allosteric) inhibition, not irreversibility; the question states Y is reversible. Misconception: equating an unrecoverable maximum rate with irreversible (covalent) inhibition.",
+      "D": "Wrong: the identities are swapped and the reasoning is inverted — it is the non-competitive inhibitor, not the competitive one, that lowers the attainable maximum rate. Misconception: associating the reduced maximum rate with competitive rather than non-competitive inhibition.",
+      "E": "Wrong: the enzyme identities are right, but a non-competitive inhibitor cannot be overcome by substrate however much is added, because it does not compete for the active site. Misconception: believing all reversible inhibition can be reversed by adding substrate."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0188",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzymes: factors affecting reaction rate",
+    "subtopic": "pH and activity: reversible ionisation of active-site side chains (bell-shaped pH curve) versus irreversible denaturation at extreme pH",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "enzymes",
+      "pH",
+      "ionisation",
+      "active site residues",
+      "denaturation",
+      "reversibility",
+      "graph interpretation"
+    ],
+    "learning_objective": "Explain the bell-shaped pH–activity curve in terms of reversible ionisation of active-site residues and distinguish it from irreversible denaturation at extreme pH.",
+    "question": "An enzyme shows maximum activity at pH 6. Its activity is low at pH 4, rises to a peak at pH 6, and falls again to a low value at pH 8, giving a bell-shaped curve. Two ionisable side chains in the active site are involved in catalysis. When the enzyme is briefly held at pH 4 and then returned to pH 6, almost all of its activity returns; when it is briefly held at pH 1 and then returned to pH 6, almost none of its activity returns. Which explanation is consistent with all of these observations?",
+    "choices": {
+      "A": "At any pH other than 6 the enzyme is denatured; recovery after pH 4 shows that denaturation is always reversible, while the failure to recover after pH 1 simply shows that the enzyme became too dilute to measure.",
+      "B": "Between pH 4 and 8 the changes in activity are due to reversible changes in the ionisation (charge) state of two catalytic side chains — one must be deprotonated and the other protonated for catalysis, a combination met only near pH 6; the extreme acidity at pH 1 additionally denatures the enzyme by disrupting the weak bonds that maintain its tertiary structure, and this loss of shape is not reversed on returning to pH 6.",
+      "C": "Both the reversible change at pH 4 and the irreversible change at pH 1 are the same process — the breaking of hydrogen bonds in the tertiary structure — the only difference being that the stronger acid breaks a larger number of them.",
+      "D": "The bell shape arises because the substrate is fully protonated at pH 4 and fully deprotonated at pH 8; activity is lost irreversibly at pH 1 because the substrate itself is destroyed by the strong acid.",
+      "E": "Above pH 6 hydroxide ions act as a competitive inhibitor at the active site and below pH 6 hydrogen ions act as a non-competitive inhibitor; neither of these effects can be reversed."
+    },
+    "correct_answer": "B",
+    "explanation": "Two separate effects must be distinguished. Over a moderate pH range around the optimum, changing the pH changes the ionisation (charge) state of ionisable groups in the active site — for example a carboxylate that must stay deprotonated and a group that must stay protonated for catalysis. Only near pH 6 are both in the required state, giving the bell-shaped curve; moving a little to either side merely re-protonates or de-protonates these groups, an effect that reverses immediately when the correct pH is restored, so activity returns. At an extreme pH such as 1, the large excess of H+ additionally disrupts the many weak interactions (ionic bonds, hydrogen bonds) that hold the tertiary structure together, denaturing the protein. Denaturation changes the overall three-dimensional shape and does not simply reverse when the pH is returned to 6, so activity is permanently lost. The key is that reversible ionisation changes and irreversible denaturation are different mechanisms operating over different pH ranges.",
+    "option_analysis": {
+      "A": "Wrong: near the optimum the enzyme is not denatured — the reversible changes are ionisation-state changes; and the failure to recover after pH 1 is due to irreversible denaturation, not dilution. Misconception: labelling every loss of activity 'denaturation' and inventing a dilution effect.",
+      "B": "Correct: moderate pH shifts reversibly alter the ionisation state of two catalytic side chains (one needing to be deprotonated, one protonated), giving the bell shape and recovering on return to pH 6, whereas extreme acid at pH 1 denatures the tertiary structure irreversibly.",
+      "C": "Wrong: the moderate, reversible change is a change in ionisation state, a different mechanism from the irreversible breaking of the tertiary structure at pH 1; they are not merely different amounts of the same bond-breaking. Misconception: conflating reversible ionisation changes with denaturation.",
+      "D": "Wrong: the bell shape is explained by the ionisation of the enzyme's catalytic groups, not by protonation of the substrate, and strong acid does not simply 'destroy' the substrate; this also fails to explain the reversibility seen after pH 4. Misconception: attributing the pH profile solely to the substrate.",
+      "E": "Wrong: H+ and OH- are not classical active-site inhibitors; pH acts by changing the charge state of the enzyme's own groups and, at extremes, by denaturation. The reversible recovery after pH 4 also contradicts 'cannot be reversed'. Misconception: forcing pH effects into the framework of competitive/non-competitive inhibition."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0189",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The cell membrane and transport",
+    "subtopic": "Fluid-mosaic model: membrane fluidity, fatty-acid saturation and homeoviscous adaptation",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "cell membrane",
+      "fluid-mosaic model",
+      "membrane fluidity",
+      "phospholipids",
+      "unsaturated fatty acids",
+      "homeoviscous adaptation"
+    ],
+    "learning_objective": "Explain how phospholipid fatty-acid saturation determines membrane fluidity and predict the compositional change that preserves fluidity at low temperature.",
+    "question": "An Antarctic fish lives permanently at about -1.5 °C, whereas a closely related temperate species lives at about 20 °C. Both species must keep their plasma membranes in the fluid, liquid-crystalline state so that their membrane proteins can function. Compared with the temperate species, which feature of the membrane phospholipids would best allow the cold-water fish to maintain adequate membrane fluidity at its much lower body temperature?",
+    "choices": {
+      "A": "Fatty-acid tails that are, on average, longer",
+      "B": "Phospholipids bearing smaller polar head groups",
+      "C": "Complete removal of cholesterol from the bilayer",
+      "D": "A higher proportion of saturated fatty-acid tails",
+      "E": "A higher proportion of fatty-acid tails containing cis carbon-carbon double bonds"
+    },
+    "correct_answer": "E",
+    "explanation": "Membrane fluidity depends chiefly on how tightly the phospholipid tails pack. A cis double bond puts a permanent kink in the hydrocarbon chain, which prevents neighbouring tails from packing closely and lowers the temperature at which the bilayer freezes into a rigid gel. Cold-adapted organisms therefore enrich their membranes in unsaturated (cis-double-bond) fatty acids so the membrane stays fluid at low temperature - this is homeoviscous adaptation. Straight, saturated tails and longer tails both increase van der Waals contact and make the membrane more ordered (more solid) at a given temperature, the opposite of what is needed. Head-group size does not control tail packing. Cholesterol acts as a bidirectional fluidity buffer: at low temperature it actually keeps the bilayer fluid by preventing tight packing, so removing it would not help.",
+    "option_analysis": {
+      "A": "Wrong: longer tails give more van der Waals contact between chains, increasing order and reducing fluidity, so they would worsen the problem at -1.5 °C - the misconception that longer chains are 'more fluid'.",
+      "B": "Wrong: fluidity is governed by hydrophobic-tail packing, not by the size of the polar head group, so this change would not restore fluidity - the misconception that the head group sets bilayer fluidity.",
+      "C": "Wrong: at low temperature cholesterol prevents the tightly packing tails from crystallising and thus maintains fluidity, so removing it would tend to reduce fluidity - the misconception that cholesterol only ever rigidifies membranes.",
+      "D": "Wrong: reverses the effect of saturation. Straight saturated tails pack tightly and raise the freezing point, making the membrane more rigid at low temperature - the misconception that saturation increases fluidity.",
+      "E": "Correct: cis double bonds kink the tails and prevent close packing, lowering the temperature at which the bilayer solidifies and keeping the membrane fluid in the cold - the basis of homeoviscous adaptation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0190",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The cell membrane and transport",
+    "subtopic": "Osmosis and tonicity: penetrating versus non-penetrating solutes and haemolysis of red blood cells",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "osmosis",
+      "tonicity",
+      "osmolarity",
+      "haemolysis",
+      "urea permeability",
+      "red blood cells",
+      "water movement"
+    ],
+    "learning_objective": "Distinguish tonicity from osmolarity and predict the volume response of animal cells placed in solutions of penetrating and non-penetrating solutes.",
+    "question": "Human red blood cells have an internal osmolarity of about 300 mOsm/L, contributed almost entirely by solutes that cannot cross the plasma membrane. The membrane is freely permeable to urea but is effectively impermeable to Na+ and Cl-. Three identical samples of these cells are placed, at 37 °C, into large well-stirred volumes of the following solutions:\n\nSolution 1: NaCl at 300 mOsm/L\nSolution 2: urea at 300 mOsm/L\nSolution 3: NaCl at 150 mOsm/L plus urea at 150 mOsm/L\n\nAll three solutions therefore have the same total osmolarity (300 mOsm/L). In which solution(s) will the red cells swell and eventually undergo haemolysis?",
+    "choices": {
+      "A": "Solution 3 only",
+      "B": "None of them, because all three solutions are iso-osmotic with the cells (300 mOsm/L)",
+      "C": "Solution 2 only",
+      "D": "Solutions 2 and 3 only",
+      "E": "Solution 1 only"
+    },
+    "correct_answer": "D",
+    "explanation": "Only solutes that cannot cross the membrane (non-penetrating solutes) determine tonicity and hence net water movement; penetrating solutes such as urea equilibrate across the membrane and exert no sustained osmotic effect. Solution 1 has 300 mOsm/L of non-penetrating NaCl, exactly matching the 300 mOsm/L inside, so it is isotonic and the cells keep their volume. Solution 2 contains only urea, which enters until it is equal inside and out; the cell is then left with its own 300 mOsm/L of impermeant solutes facing effectively 0 mOsm/L of impermeant solute outside, so it behaves as if placed in pure water - water floods in and the cell lyses. Solution 3 provides only 150 mOsm/L of non-penetrating solute (the NaCl) against 300 mOsm/L inside, so it is hypotonic; water enters and the cell swells and haemolyses. Thus Solutions 2 and 3 cause haemolysis while Solution 1 does not.",
+    "option_analysis": {
+      "A": "Wrong: correctly identifies Solution 3 as hypotonic but treats Solution 2 as safe because its total osmolarity (300 mOsm/L) matches the cell - the misconception of ignoring urea's permeability, i.e. equating osmolarity with tonicity for that solution.",
+      "B": "Wrong: equates total osmolarity with tonicity. Because urea crosses the membrane, the three iso-osmotic solutions are not equally isotonic, so predicting no net water movement in any of them is the central error the question targets.",
+      "C": "Wrong: correctly spots that urea penetrates and lyses the cell in Solution 2, but assumes Solution 3 is safe because it contains some NaCl - the misconception that the mere presence of an impermeant salt prevents swelling, ignoring that its 150 mOsm/L is only half the internal impermeant concentration.",
+      "D": "Correct: tonicity depends only on non-penetrating solutes. Solution 2 (all urea, permeant) and Solution 3 (only 150 mOsm/L impermeant NaCl) are both hypotonic, so water enters and the cells haemolyse, whereas Solution 1 (300 mOsm/L impermeant NaCl) is isotonic and safe.",
+      "E": "Wrong: Solution 1 is isotonic (300 mOsm/L of non-penetrating NaCl), so no net water moves and the cells are unharmed. Choosing it reflects the misconception that a salt solution is intrinsically damaging, or confuses shrinkage (crenation) in a hypertonic salt solution with swelling/haemolysis."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0191",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The cell membrane and transport",
+    "subtopic": "Identifying a transport mechanism from saturation kinetics and its dependence on energy and concentration gradient",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "facilitated diffusion",
+      "simple diffusion",
+      "active transport",
+      "saturation kinetics",
+      "carrier proteins",
+      "data interpretation"
+    ],
+    "learning_objective": "Identify a membrane transport mechanism from kinetic (saturation) data together with its dependence on metabolic energy and the direction of net movement.",
+    "question": "The rate of uptake of a solute X into a cell was measured as a function of the external concentration of X. The following results were obtained:\n\nExternal [X] (mmol/L):  1    2    5    10   20\nUptake rate (arb. units): 20   30   43   50   55\n\nTwo further observations were made: (i) the uptake rate at each concentration was unchanged when a metabolic poison that abolishes ATP production was added; and (ii) net uptake stopped once the internal concentration of X became equal to the external concentration - X never accumulated to a higher concentration inside than outside. By which mechanism is X crossing the membrane?",
+    "choices": {
+      "A": "Primary active transport driven directly by ATP hydrolysis",
+      "B": "Receptor-mediated endocytosis",
+      "C": "Facilitated diffusion through a membrane transport protein",
+      "D": "Secondary active transport driven by an ion gradient",
+      "E": "Simple diffusion directly through the phospholipid bilayer"
+    },
+    "correct_answer": "C",
+    "explanation": "Two features fix the answer. First, the uptake rate rises and then plateaus (saturates) as external [X] increases; saturation shows that a finite number of transport proteins are being used, which rules out simple diffusion (whose rate would rise in direct, unlimited proportion to the gradient). Second, the transport is unaffected by abolishing ATP and cannot move X against its concentration gradient (net uptake stops at equilibrium). A passive, protein-mediated, non-concentrating, saturable process is facilitated diffusion. Both forms of active transport are excluded because they consume energy (directly or via an ion gradient) and can concentrate the solute uphill, and endocytosis is an energy-dependent bulk process that would be blocked by the metabolic poison and would not show simple carrier saturation kinetics.",
+    "option_analysis": {
+      "A": "Wrong: primary active transport requires ATP and can pump the solute against its gradient, but here uptake is unchanged by the ATP poison and stops at equilibrium - the misconception that saturation kinetics by itself proves active, ATP-driven transport.",
+      "B": "Wrong: receptor-mediated endocytosis is an energy-dependent bulk-membrane process that would be inhibited by the metabolic poison and would not generate this smooth carrier-saturation curve - the misconception of equating protein-mediated uptake with vesicular engulfment.",
+      "C": "Correct: saturation implies a limited number of transport proteins (carrier-mediated), while insensitivity to the ATP poison and the failure to accumulate X above the external concentration show the process is passive - the defining profile of facilitated diffusion.",
+      "D": "Wrong: secondary active transport is also energy-requiring (via an ion gradient ultimately maintained by ATP) and can concentrate the solute uphill; neither is seen here - the misconception that any carrier-mediated, saturable uptake is a form of active transport.",
+      "E": "Wrong: simple diffusion is non-saturable - its rate would keep rising roughly in proportion to the concentration gradient rather than levelling off. The plateau here is incompatible with it; this is the misconception that any downhill, gradient-driven movement must be simple diffusion."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0192",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The cell membrane and transport",
+    "subtopic": "Active transport - the Na+/K+-ATPase: direction of both ions against their gradients, ATP requirement and electrogenicity",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "active transport",
+      "sodium-potassium pump",
+      "Na+/K+-ATPase",
+      "electrogenic",
+      "ion gradients",
+      "ATP hydrolysis"
+    ],
+    "learning_objective": "State the direction of Na+ and K+ movement through the Na+/K+-ATPase, its energy source and its electrogenic contribution to the membrane potential.",
+    "question": "In a resting animal cell the Na+/K+-ATPase exports 3 Na+ and imports 2 K+ for every molecule of ATP hydrolysed. The relevant ion concentrations are: intracellular Na+ about 12 mmol/L and extracellular Na+ about 145 mmol/L; intracellular K+ about 140 mmol/L and extracellular K+ about 4 mmol/L. Which statement correctly describes the operation of this pump?",
+    "choices": {
+      "A": "Na+ is moved against its gradient but K+ moves down its gradient, and ATP is needed only for the Na+ step.",
+      "B": "The pump uses the energy stored in the Na+ gradient, rather than ATP, to import K+ against its gradient.",
+      "C": "Both ions are moved against their gradients using ATP, but because charge crosses in both directions the pump makes no net contribution to the membrane potential.",
+      "D": "Both Na+ and K+ move down their concentration gradients, so no metabolic energy is strictly required.",
+      "E": "Both Na+ and K+ are moved against their concentration gradients using energy from ATP hydrolysis, and the pump is electrogenic, exporting net positive charge each cycle."
+    },
+    "correct_answer": "E",
+    "explanation": "Na+ is 12 mmol/L inside versus 145 mmol/L outside, so exporting it moves it from low to high concentration - uphill. K+ is 140 mmol/L inside versus 4 mmol/L outside, so importing it also moves it from low (outside) to high (inside) concentration - also uphill. Because both ions are driven against their gradients, the process cannot be passive and requires an energy input, supplied directly by ATP hydrolysis (primary active transport). With 3 positive charges leaving and only 2 entering per cycle, one net positive charge is exported each turn, so the pump is electrogenic and makes a small direct contribution to the negative resting membrane potential.",
+    "option_analysis": {
+      "A": "Wrong: K+ is far more concentrated inside (140 mmol/L) than outside (4 mmol/L), so importing it is uphill, not downhill; the K+ step is against its gradient too - the misconception of misreading the K+ gradient direction.",
+      "B": "Wrong: this describes secondary active transport. The Na+/K+-ATPase is a primary pump powered by ATP hydrolysis; it creates the Na+ gradient rather than consuming it - the misconception of confusing primary and secondary active transport.",
+      "C": "Wrong: correctly identifies both movements as uphill and ATP-driven, but denies electrogenicity; because 3 Na+ leave for every 2 K+ that enter, a net positive charge is exported, so the pump does contribute to the membrane potential - the misconception that the two ion fluxes balance electrically.",
+      "D": "Wrong: treats the pump as passive. Both ions are actually moved to the side where they are already more concentrated (uphill), which cannot occur without energy - the misconception that the pump follows the gradients.",
+      "E": "Correct: both Na+ (exported low-to-high) and K+ (imported low-to-high) move against their gradients, ATP hydrolysis provides the energy, and the 3:2 stoichiometry makes the pump electrogenic, exporting one net positive charge per cycle."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0193",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The cell membrane and transport",
+    "subtopic": "Secondary active transport: dependence of a Na+/Ca2+ antiporter on the primary-pump Na+ gradient (multi-step cascade)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "secondary active transport",
+      "antiporter",
+      "Na+/Ca2+ exchanger",
+      "sodium-potassium pump",
+      "ion gradients",
+      "cardiac glycoside",
+      "multi-step reasoning"
+    ],
+    "learning_objective": "Reason that secondary active transport depends on the ion gradient set by a primary pump, and trace a multi-step cascade to predict the physiological outcome.",
+    "question": "In a cardiac muscle cell, cytosolic Ca2+ is kept low partly by a Na+/Ca2+ exchanger, an antiporter in the plasma membrane that under resting conditions uses the inward electrochemical gradient for Na+ to export one Ca2+ for every three Na+ that it lets in. The inward Na+ gradient is itself established and maintained by the Na+/K+-ATPase. The drug digoxin partially inhibits the Na+/K+-ATPase. Which sequence correctly predicts the consequences of giving digoxin and its effect on the force of contraction?",
+    "choices": {
+      "A": "Intracellular K+ rises, the membrane depolarises, voltage-gated Ca2+ channels close, cytosolic Ca2+ falls, and contraction weakens.",
+      "B": "Intracellular Na+ rises, so the antiporter exports Na+ and Ca2+ together more rapidly, cytosolic Ca2+ falls, and contraction weakens.",
+      "C": "Intracellular Na+ rises, so the inward Na+ gradient is reduced, the exchanger extrudes less Ca2+, cytosolic Ca2+ rises, and contraction becomes stronger.",
+      "D": "Intracellular Na+ falls, so the inward Na+ gradient becomes steeper, the exchanger exports more Ca2+, cytosolic Ca2+ falls, and contraction weakens.",
+      "E": "With the pump inhibited less ATP is consumed, so more ATP is available to the exchanger, which hydrolyses it directly to export Ca2+ faster, cytosolic Ca2+ falls, and contraction weakens."
+    },
+    "correct_answer": "C",
+    "explanation": "Follow the chain. The Na+/K+-ATPase normally exports Na+ to keep intracellular Na+ low; partially inhibiting it lets intracellular Na+ rise. The Na+/Ca2+ exchanger is a secondary active transporter that has no ATP-binding site of its own - it drives Ca2+ uphill out of the cell only by allowing Na+ to run downhill into the cell. Once intracellular Na+ rises, the inward Na+ electrochemical gradient (the exchanger's power source) is reduced, so the exchanger extrudes less Ca2+. Cytosolic Ca2+ therefore accumulates, more Ca2+ is available to (and stored by) the contractile machinery, and the force of contraction increases. This positive inotropic effect is exactly how cardiac glycosides work, and it illustrates the defining feature of secondary active transport: it is only as strong as the gradient maintained by the primary pump.",
+    "option_analysis": {
+      "A": "Wrong: invents an unrelated pathway. Pump inhibition tends to lower intracellular K+ over time (not raise it), and the inotropic effect is mediated through the Na+/Ca2+ exchanger, not through K+ closing voltage-gated Ca2+ channels - the misconception of substituting a spurious K+/voltage mechanism.",
+      "B": "Wrong: misreads the antiporter's direction. It is an exchanger that moves Na+ and Ca2+ in opposite directions (Na+ in, Ca2+ out), not a symporter expelling both together; higher intracellular Na+ slows Ca2+ export rather than accelerating it - the misconception about antiport directionality.",
+      "C": "Correct: pump inhibition raises intracellular Na+, weakening the inward Na+ gradient that powers the antiporter; the exchanger then extrudes less Ca2+, so cytosolic Ca2+ rises and contraction strengthens - the true cardiac-glycoside cascade and a demonstration that secondary transport depends on the primary pump's gradient.",
+      "D": "Wrong: reverses the first step. Inhibiting the pump that removes Na+ makes intracellular Na+ rise, not fall, so the gradient weakens rather than steepening - the misconception about the direction in which pump inhibition shifts intracellular Na+.",
+      "E": "Wrong: treats the exchanger as an ATP-hydrolysing pump. The Na+/Ca2+ exchanger is a secondary active transporter driven by the Na+ gradient, not by direct ATP hydrolysis, so 'spare ATP' cannot speed it up - the misconception of confusing secondary with primary active transport."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0194",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "DNA replication, mutation and repair",
+    "subtopic": "Roles of replication enzymes: DNA ligase and the fate of the lagging strand when ligase is inactivated",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "DNA replication",
+      "DNA ligase",
+      "Okazaki fragments",
+      "lagging strand",
+      "enzyme function"
+    ],
+    "learning_objective": "Attribute the sealing of Okazaki fragments to DNA ligase and predict the molecular phenotype of a ligase-deficient cell.",
+    "question": "A bacterium carries a temperature-sensitive mutation in the gene encoding DNA ligase: at the permissive temperature the enzyme is fully active, but at the restrictive temperature it is inactive. A culture growing at the permissive temperature is shifted to the restrictive temperature and allowed to continue replicating its DNA. When the DNA synthesised at the restrictive temperature is examined, which observation is expected?",
+    "choices": {
+      "A": "The newly made lagging strand accumulates as short fragments that are not covalently joined into a continuous strand.",
+      "B": "Replication cannot begin, because the two parental strands can no longer be separated from each other.",
+      "C": "Both new strands are synthesised and fully joined into continuous molecules, because DNA polymerase itself seals the sugar–phosphate backbone.",
+      "D": "Only the leading strand is synthesised; no lagging-strand fragments are made at all.",
+      "E": "The RNA primers cannot be removed, so the new DNA remains base-paired to stretches of RNA."
+    },
+    "correct_answer": "A",
+    "explanation": "Replication requires several enzymes with distinct jobs: helicase unwinds the duplex, primase lays down RNA primers, DNA polymerase extends them 5'→3', a 5'→3' exonuclease/RNase H removes the primers, and DNA ligase seals the remaining nicks. The lagging strand is built as many Okazaki fragments, and only ligase can join them into one continuous strand. If ligase is inactivated, synthesis and primer removal still occur, but the fragments stay unjoined — precisely the result that originally revealed discontinuous (Okazaki) synthesis.",
+    "option_analysis": {
+      "A": "Correct: DNA ligase seals the nicks between adjacent Okazaki fragments on the lagging strand. When it is inactive, synthesis and primer removal still occur but the lagging strand is left as a series of short, unjoined fragments — the classic phenotype that revealed discontinuous synthesis.",
+      "B": "Wrong: strand separation (unwinding) is carried out by helicase, not by ligase, so a ligase defect does not stop the parental strands from being opened and replication still initiates. This confuses ligase with helicase.",
+      "C": "Wrong: although DNA polymerase forms phosphodiester bonds while extending a strand, it cannot join the 3' end of one Okazaki fragment to the 5' end of the next after primer removal; only DNA ligase seals that final nick. The claim that the strand becomes 'fully joined' without ligase is the misconception.",
+      "D": "Wrong: primase and DNA polymerase still make lagging-strand Okazaki fragments without ligase; what fails is their joining. The idea that no lagging fragments form conflates ligase with the enzymes that actually synthesise them.",
+      "E": "Wrong: RNA primers are removed by a 5'→3' exonuclease activity (DNA polymerase I in bacteria) together with RNase H, not by ligase. A ligase defect leaves the primers removed but the resulting nicks unsealed; it does not leave RNA in the product."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0195",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "DNA replication, mutation and repair",
+    "subtopic": "Bidirectional replication: counting RNA primers for the leading and lagging strands (Okazaki fragments)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "DNA replication",
+      "bidirectional replication",
+      "Okazaki fragments",
+      "RNA primers",
+      "leading and lagging strand"
+    ],
+    "learning_objective": "Quantify the number of RNA primers needed to replicate a circular molecule from a single bidirectional origin, distinguishing one continuous leading-strand priming event from repeated lagging-strand priming.",
+    "question": "A circular double-stranded DNA molecule of 8000 base pairs is replicated from a single origin. Replication is bidirectional: two replication forks leave the origin and travel in opposite directions, each copying half of the molecule (4000 base pairs) before the forks meet. Behind each fork, one new strand is made continuously (the leading strand, requiring a single RNA primer) and the other is made discontinuously as Okazaki fragments (the lagging strand, one primer per fragment). If every Okazaki fragment is 500 nucleotides long, how many RNA primers are required in total to complete one round of replication?",
+    "choices": {
+      "A": "32",
+      "B": "9",
+      "C": "16",
+      "D": "2",
+      "E": "18"
+    },
+    "correct_answer": "E",
+    "explanation": "A single bidirectional origin generates two forks. Behind each fork one strand is leading (one continuous piece, one primer) and one is lagging (built from Okazaki fragments, one primer each). The lagging strand behind a fork spans the 4000 nucleotides that fork copies, giving 4000/500 = 8 Okazaki fragments. So each fork needs 1 + 8 = 9 primers, and the two forks together need 2 × 9 = 18 primers.",
+    "option_analysis": {
+      "A": "Wrong: 32 treats the entire length of both new strands (16000 nucleotides) as lagging strand made of 500-nucleotide Okazaki fragments (16000/500 = 32), ignoring that half of the new DNA is the continuously synthesised leading strand.",
+      "B": "Wrong: 9 is the primer count for a single fork (1 leading + 8 lagging). Bidirectional replication involves two forks, so this figure must be doubled.",
+      "C": "Wrong: 16 is the number of Okazaki-fragment (lagging-strand) primers only — 8 per fork. It omits the two leading-strand primers, one for each fork.",
+      "D": "Wrong: this counts only the two leading-strand primers and treats the lagging strand as if it were also continuous. The lagging strand is primed once per Okazaki fragment, so many more primers are needed.",
+      "E": "Correct: behind each of the two forks there is one continuous leading strand (1 primer) plus a 4000-nucleotide lagging strand made as 4000/500 = 8 Okazaki fragments (8 primers), i.e. 9 primers per fork. With two forks, 2 × 9 = 18 primers."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0196",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "DNA replication, mutation and repair",
+    "subtopic": "Silent (synonymous) point mutations and the degeneracy of the genetic code",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "point mutation",
+      "silent mutation",
+      "genetic code",
+      "codon degeneracy",
+      "translation"
+    ],
+    "learning_objective": "Use the degeneracy of the genetic code to identify the single-base substitution that is synonymous and therefore leaves the encoded polypeptide unchanged.",
+    "question": "The following mRNA codons specify the amino acids shown. Leu: UUA, UUG, CUU, CUC, CUA, CUG. Arg: CGU, CGC, CGA, CGG, AGA, AGG. Gly: GGU, GGC, GGA, GGG. Ser: AGU, AGC. Lys: AAA, AAG. Glu: GAA, GAG. Asp: GAU, GAC. Trp: UGG. STOP: UAA, UAG, UGA. Each option describes a single-base substitution that converts one mRNA codon into another within a gene's coding region. Which substitution is silent — that is, it leaves the amino acid sequence of the protein unchanged?",
+    "choices": {
+      "A": "AAA → AGA",
+      "B": "GAA → GAC",
+      "C": "GGC → AGC",
+      "D": "CUU → CUC",
+      "E": "UGG → UGA"
+    },
+    "correct_answer": "D",
+    "explanation": "The genetic code is degenerate: most amino acids are specified by more than one codon, and synonymous codons usually differ at the third (wobble) position. A substitution that turns a codon into a synonym is silent (protein unchanged); one that changes the amino acid is missense; one that creates a stop codon is nonsense. Checking each option against the table, only CUU→CUC preserves the amino acid (both are leucine).",
+    "option_analysis": {
+      "A": "Wrong: AAA codes for lysine while AGA codes for arginine, so this first-position substitution is a missense mutation. Selecting it reflects the misconception that any single-base change is too small to matter.",
+      "B": "Wrong: GAA is glutamate and GAC is aspartate, so this second-position substitution is a missense mutation. The two residues are both acidic but are not identical, so the protein sequence changes.",
+      "C": "Wrong: GGC codes for glycine but AGC codes for serine, so this first-position substitution is a missense mutation, not a silent one.",
+      "D": "Correct: CUU and CUC both encode leucine. Because leucine is specified by several codons that differ only at the third position, this third-position substitution is synonymous (silent) and the protein is unchanged — a direct consequence of the degeneracy (wobble) of the genetic code.",
+      "E": "Wrong: UGG codes for tryptophan, but UGA is a STOP codon, so this is a nonsense mutation that truncates the protein — the opposite of a silent change."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0197",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "DNA replication, mutation and repair",
+    "subtopic": "Spontaneous cytosine deamination, base-excision repair, and the semiconservative fixation of a transition in one daughter molecule",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "spontaneous mutation",
+      "deamination",
+      "base excision repair",
+      "uracil-DNA glycosylase",
+      "transition",
+      "semiconservative replication"
+    ],
+    "learning_objective": "Integrate spontaneous deamination, base-excision repair and semiconservative replication to classify the resulting mutation and predict its distribution among daughter molecules.",
+    "question": "In a resting cell, a cytosine on one strand of a DNA double helix undergoes spontaneous hydrolytic deamination and is converted to uracil, creating a U·G mismatch (the uracil is paired with the guanine that had been opposite the original cytosine). Assume that during replication uracil pairs like thymine, i.e. with adenine. Which of the following statements about the detection, repair and consequences of this lesion is correct?",
+    "choices": {
+      "A": "If the lesion is not repaired before replication, the affected daughter molecule acquires a transversion, because a pyrimidine has been replaced by a purine.",
+      "B": "Repair is impossible without first testing the opposite strand, because the enzyme cannot decide whether the uracil or the guanine is the incorrect base of the mismatched pair.",
+      "C": "Because uracil is a normal RNA base, the cell cannot recognise it within DNA, so this lesion can never be repaired and inevitably becomes a mutation.",
+      "D": "The uracil is removed by nucleotide excision repair as part of a short oligonucleotide, and if repair fails both daughter double helices inherit a G·C → A·T change.",
+      "E": "If the lesion is not repaired before replication, only one of the two daughter double helices carries a G·C → A·T transition, because the strand that still contains the original guanine templates a correct cytosine."
+    },
+    "correct_answer": "E",
+    "explanation": "Spontaneous deamination of cytosine gives uracil, producing a U·G mismatch. Cells recognise uracil as foreign to DNA and remove it by base-excision repair (uracil-DNA glycosylase excises the base, an AP site is formed and the correct cytosine is restored). If replication happens first, the semiconservative mechanism separates the two strands: the uracil-bearing strand templates an adenine, fixing an A·T pair (a G·C → A·T transition) in that daughter, while the guanine-bearing strand templates a normal cytosine, keeping the other daughter wild type. Hence only one daughter is mutated, and the change is a transition, not a transversion.",
+    "option_analysis": {
+      "A": "Wrong: replacing a G·C pair with an A·T pair is a transition, not a transversion — C→T is pyrimidine→pyrimidine and G→A is purine→purine. Here the uracil (a pyrimidine, read as thymine) pairs with adenine; calling this a transversion confuses the two definitions.",
+      "B": "Wrong: unlike a mismatch between two normal bases, this mismatch contains uracil, a base that is illegitimate in DNA, so the repair system removes the uracil and keeps the guanine. The claimed ambiguity does not arise for a deaminated-cytosine lesion.",
+      "C": "Wrong: uracil does not belong in DNA and is specifically recognised and excised by uracil-DNA glycosylase (indeed, this is thought to be one reason DNA uses thymine rather than uracil). The premise that the lesion is undetectable is the misconception.",
+      "D": "Wrong on two counts: uracil in DNA is removed by base-excision repair (uracil-DNA glycosylase excises a single base, not a long oligonucleotide as in nucleotide excision repair), and if repair fails only the daughter templated by the uracil-bearing strand is mutated — not both.",
+      "E": "Correct: replication is semiconservative. The strand still carrying the original guanine templates a normal cytosine (wild-type daughter), whereas the uracil-bearing strand templates an adenine, so that daughter's base pair becomes A·U and, after the next replication, a fixed A·T — a G·C → A·T transition present in just one of the two daughter molecules."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0198",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "DNA replication, mutation and repair",
+    "subtopic": "The end-replication problem: why linear chromosome ends shorten after removal of the terminal RNA primer on the lagging strand",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "DNA replication",
+      "end-replication problem",
+      "telomeres",
+      "lagging strand",
+      "RNA primer",
+      "DNA polymerase directionality"
+    ],
+    "learning_objective": "Explain progressive chromosome-end shortening in terms of DNA polymerase's requirement for a 3'-hydroxyl primer and the removal of the terminal RNA primer on the lagging strand.",
+    "question": "Each time a linear eukaryotic chromosome is replicated it tends to become slightly shorter, unless the enzyme telomerase intervenes. Considering how DNA polymerase works (it synthesises only 5'→3' and can extend only a pre-existing free 3'-hydroxyl group) and how the lagging strand is assembled from primed Okazaki fragments, which explanation for this shortening is correct?",
+    "choices": {
+      "A": "DNA ligase fails to join the final Okazaki fragment to the rest of the lagging strand, and this terminal fragment is then lost, shortening the strand.",
+      "B": "Helicase unwinds slightly less of the double helix at each end during every cycle, so a short terminal segment is simply never reached by the replication machinery.",
+      "C": "During every replication cycle the proofreading (3'→5' exonuclease) activity of DNA polymerase digests a short stretch from the 3' ends of both parental strands, shortening them equally.",
+      "D": "When the RNA primer at the extreme 5' end of a newly made lagging strand is removed, the resulting terminal gap cannot be filled: DNA polymerase can extend only an existing 3'-hydroxyl, and here there is no upstream fragment to provide one, so the new strand ends up shorter at its 5' end.",
+      "E": "DNA polymerase copies the leading-strand template in the 3'→5' direction and runs out of template near the end, leaving the leading strand incomplete."
+    },
+    "correct_answer": "D",
+    "explanation": "DNA polymerase adds nucleotides only to a free 3'-hydroxyl and works exclusively 5'→3', so every new stretch of DNA must begin from a primer. On the lagging-strand template the last Okazaki fragment is primed by RNA at the very end (the 5' end of the new strand). When that terminal primer is removed there is no adjacent upstream 3'-hydroxyl from which DNA polymerase could fill the gap, so the new strand is left short at its 5' end and the parental 3' end becomes a single-stranded overhang. Repeated rounds therefore shorten linear chromosomes — the end-replication problem — which telomerase counteracts by extending the 3' template end.",
+    "option_analysis": {
+      "A": "Wrong: the terminal Okazaki fragment can be ligated to its neighbour; the real problem is the primer-sized gap at the extreme 5' end, which cannot be primed or filled at all. This confuses a ligation step with the priming/gap-filling limitation.",
+      "B": "Wrong: shortening is caused not by incomplete unwinding but by the unfillable gap left after removal of the terminal RNA primer on the lagging strand. Helicase opens the entire region that is replicated.",
+      "C": "Wrong: the 3'→5' proofreading exonuclease removes mis-inserted nucleotides during synthesis; it does not routinely erode telomere ends each cycle, and it would not chew both parental strands as described. This misattributes shortening to proofreading.",
+      "D": "Correct: on the lagging-strand template the terminal RNA primer sits at the very 3' end of the template (the 5' end of the new strand). Once it is removed, no upstream 3'-hydroxyl exists to prime gap-filling, so the new strand is left short at its 5' end and the parental 3' end forms a single-stranded overhang. This is the end-replication problem, offset by telomerase.",
+      "E": "Wrong: DNA polymerase synthesises only 5'→3' (reading the template 3'→5'); it does not build a strand 3'→5'. The leading strand can in fact be completed to the end of its template, so it is not the source of the shortening."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0199",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and development",
+    "subtopic": "Male reproductive endocrine axis: exogenous androgen (anabolic steroid) suppression of spermatogenesis via HPG negative feedback and loss of intratesticular testosterone",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "male reproductive system",
+      "spermatogenesis",
+      "negative feedback",
+      "LH",
+      "FSH",
+      "testosterone"
+    ],
+    "learning_objective": "Explain how exogenous androgen impairs male fertility through hypothalamic-pituitary-gonadal negative feedback and the loss of high local intratesticular testosterone, distinguishing systemic from local hormone effects.",
+    "question": "A male athlete takes high doses of an anabolic steroid (a synthetic testosterone analogue) for several months. His blood level of the androgen analogue is very high throughout this period. On examination his testes are noticeably smaller than before, and a semen analysis shows a greatly reduced sperm count. Normal spermatogenesis requires a very high concentration of testosterone within the seminiferous tubules, produced locally by Leydig cells under the drive of luteinising hormone. Which single mechanism best explains the reduced sperm production?",
+    "choices": {
+      "A": "The high blood testosterone down-regulates androgen receptors on the germ cells, so they can no longer respond to any testosterone signal.",
+      "B": "The synthetic androgen is directly toxic to the developing germ cells in the seminiferous tubules, killing spermatids as they form.",
+      "C": "By negative feedback the androgen suppresses pituitary LH and FSH; without LH the Leydig cells stop making testosterone, so intratesticular testosterone collapses despite the high blood level.",
+      "D": "The high blood androgen raises pituitary LH and FSH output, over-driving the testes until they become exhausted and stop producing sperm.",
+      "E": "Because it is synthetic, the androgen cannot bind testicular receptors, so the testes receive no androgen stimulation at all."
+    },
+    "correct_answer": "C",
+    "explanation": "Spermatogenesis depends on FSH acting on Sertoli cells and on a very high LOCAL (intratesticular) testosterone concentration, which is many times higher than the blood level and is produced by Leydig cells when they are stimulated by LH. A high blood level of an exogenous androgen is sensed by the hypothalamus and anterior pituitary as excess androgen, so by negative feedback GnRH, LH and FSH secretion are all suppressed. With LH gone, the Leydig cells stop producing testosterone, so the intratesticular concentration falls dramatically even though the systemic (blood) androgen level is high; reduced FSH removes Sertoli-cell support as well. The result is impaired spermatogenesis and testicular atrophy. The key insight is that the drug is present in the blood but not in the very high local concentration the tubules require, because the natural local source (Leydig cells) has been switched off.",
+    "option_analysis": {
+      "A": "Wrong: invokes germ-cell androgen-receptor down-regulation as the cause; while receptors can adapt, the dominant and well-established mechanism is the fall in intratesticular testosterone from LH suppression, not desensitisation to a signal that is actually still present locally at high level.",
+      "B": "Wrong: encodes the misconception that the low sperm count is caused by direct chemical toxicity to germ cells, rather than by removal of the hormonal support that germ cells need; anabolic steroids act via feedback, not as a germ-cell poison.",
+      "C": "Correct: exogenous androgen suppresses pituitary LH and FSH by negative feedback; loss of LH shuts down Leydig-cell testosterone synthesis, so the high intratesticular testosterone required for spermatogenesis collapses even though blood testosterone is high, and reduced FSH removes Sertoli support.",
+      "D": "Wrong: reverses the direction of feedback, assuming a high androgen stimulates the pituitary (positive feedback) and 'exhausts' the testes; in fact high androgen inhibits LH and FSH release by negative feedback.",
+      "E": "Wrong: assumes a synthetic analogue cannot bind androgen receptors; anabolic steroids are effective precisely because they DO bind androgen receptors (which is also how they exert feedback on the pituitary)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0200",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and development",
+    "subtopic": "Early-pregnancy hormone dynamics: hCG rescue of the corpus luteum and progesterone-dependent maintenance of the endometrium",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "hCG",
+      "corpus luteum",
+      "progesterone",
+      "endometrium",
+      "early pregnancy",
+      "menstrual cycle"
+    ],
+    "learning_objective": "Reason about how embryonic hCG rescues the corpus luteum to sustain progesterone and the endometrium in early pregnancy, and predict the consequence of removing the hCG signal before the luteo-placental shift.",
+    "question": "In a normal cycle without fertilisation, the corpus luteum regresses about 12-14 days after ovulation, progesterone falls, and menstruation follows. After an embryo implants, its syncytiotrophoblast secretes human chorionic gonadotropin (hCG), which binds LH receptors on the corpus luteum. A researcher gives a woman an antibody that completely neutralises hCG activity shortly after a fertilised embryo has implanted, while she is still in what would have been the luteal phase. No other treatment is given. What is the most likely consequence?",
+    "choices": {
+      "A": "The endometrium continues to thicken normally, because from implantation onwards progesterone is supplied mainly by the placenta.",
+      "B": "Progesterone secretion rises sharply, because the pituitary compensates by releasing a large surge of LH to maintain the corpus luteum.",
+      "C": "Ovulation of a second oocyte is triggered, because hCG normally acts to suppress further ovulation during the luteal phase.",
+      "D": "FSH secretion is suppressed, which prevents menstruation from occurring and so preserves the pregnancy.",
+      "E": "The corpus luteum regresses on its normal schedule, progesterone falls, the secretory endometrium breaks down and the early pregnancy is lost."
+    },
+    "correct_answer": "E",
+    "explanation": "In early pregnancy the corpus luteum, not yet the placenta, is the essential source of progesterone. Left to itself the corpus luteum would regress about 12-14 days after ovulation; embryonic hCG rescues it by acting like LH on its receptors, maintaining progesterone (and oestrogen) output, which in turn maintains the secretory endometrium. During the luteal phase, pituitary LH is low because of the negative feedback from progesterone and oestrogen, so the pituitary does not step in when hCG is removed. If all hCG activity is neutralised before the placenta has taken over progesterone production (the luteo-placental shift occurs around weeks 8-12), the corpus luteum regresses on its usual schedule, progesterone falls, the endometrium is shed, and the early pregnancy is lost.",
+    "option_analysis": {
+      "A": "Wrong: encodes the misconception that the placenta supplies progesterone from the moment of implantation; the luteo-placental shift does not occur until around weeks 8-12, so early on the corpus luteum is still the key source.",
+      "B": "Wrong: assumes the pituitary will surge LH to rescue the corpus luteum; during the luteal phase LH is held low by negative feedback from luteal progesterone and oestrogen, and it is hCG (not pituitary LH) that normally maintains the corpus luteum in early pregnancy.",
+      "C": "Wrong: confuses the role of hCG; hCG maintains the corpus luteum and its progesterone (which suppresses new ovulation) rather than itself suppressing ovulation, so removing it would not trigger a new ovulation, especially with the endometrium collapsing.",
+      "D": "Wrong: misattributes endometrial maintenance to FSH; it is progesterone from the corpus luteum, not FSH, that maintains the endometrium, and suppressing FSH would not prevent the progesterone-withdrawal bleed.",
+      "E": "Correct: with hCG removed the corpus luteum is not rescued, so it regresses on its normal timetable; the resulting fall in progesterone causes the secretory endometrium to break down and the early pregnancy to be lost."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0201",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and development",
+    "subtopic": "Ovarian oestrogen synthesis: the two-cell, two-gonadotropin (theca-LH / granulosa-FSH-aromatase) model and the effect of aromatase inhibition with feedback",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "oestrogen synthesis",
+      "theca cells",
+      "granulosa cells",
+      "aromatase",
+      "LH",
+      "negative feedback"
+    ],
+    "learning_objective": "Apply the two-cell, two-gonadotropin model of follicular oestrogen synthesis together with negative feedback to predict how blocking aromatase changes androgen and oestradiol levels.",
+    "question": "In a developing ovarian follicle, oestradiol is made by a cooperative pathway: LH stimulates the theca cells to convert cholesterol into androgens, which diffuse into the neighbouring granulosa cells where FSH-induced aromatase converts them into oestradiol. Circulating oestradiol also exerts negative feedback on the anterior pituitary. A new drug selectively and completely inhibits aromatase in the granulosa cells but does not affect any hormone receptor. During the mid-follicular phase, what is the most likely effect on the theca-cell androgen level and on the circulating oestradiol level?",
+    "choices": {
+      "A": "Both oestradiol and theca androgen levels fall, because blocking the pathway reduces the output of every hormone in it.",
+      "B": "Oestradiol rises while theca androgen falls, because the blocked enzyme now runs in the reverse direction.",
+      "C": "Oestradiol falls while theca androgen rises, as substrate accumulates and the loss of oestrogen negative feedback raises LH, further driving theca androgen production.",
+      "D": "Both oestradiol and theca androgen rise, because aromatase inhibition triggers a compensatory increase in cholesterol uptake by the follicle.",
+      "E": "Oestradiol falls while theca androgen is unchanged, because theca androgen output depends only on LH, which stays constant."
+    },
+    "correct_answer": "C",
+    "explanation": "Aromatase is the enzyme that converts theca-derived androgens into oestradiol in the granulosa cells. Blocking it completely means oestradiol synthesis stops, so circulating oestradiol falls. Two things then raise the androgen level: first, the androgen substrate is no longer consumed, so it accumulates; second, oestradiol normally exerts negative feedback on the pituitary, so as oestradiol falls this brake is released and LH rises, which further stimulates theca cells to make androgens. The net immediate picture is therefore oestradiol down and theca androgen up. This mirrors the real action of aromatase inhibitors, which lower oestrogen and raise both androgens and gonadotropins.",
+    "option_analysis": {
+      "A": "Wrong: treats the pathway as a simple pipeline where blocking one step lowers everything downstream and upstream; it ignores that the unused substrate (androgen) accumulates and that removing oestrogen feedback increases LH-driven androgen production.",
+      "B": "Wrong: reverses the enzyme's action, imagining aromatase inhibition somehow drives oestradiol up and androgen down; a fully blocked enzyme cannot generate more product, and its substrate cannot fall.",
+      "C": "Correct: with aromatase blocked, oestradiol falls; androgen rises both because its conversion substrate accumulates and because the loss of oestrogen negative feedback increases LH, which drives more theca androgen synthesis.",
+      "D": "Wrong: oestradiol cannot rise when aromatase is completely inhibited, and the 'compensatory cholesterol uptake' is an invented mechanism; the real feedback response raises androgen and LH, not oestradiol.",
+      "E": "Wrong: assumes LH is fixed and so androgen is unchanged; it overlooks that falling oestradiol releases negative feedback, so LH rises and androgen output increases (and that substrate is no longer consumed)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0202",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and development",
+    "subtopic": "Luteo-placental shift: source of progesterone across gestation probed by ovariectomy timing and progesterone rescue",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "placenta",
+      "corpus luteum",
+      "progesterone",
+      "luteo-placental shift",
+      "pregnancy maintenance",
+      "gestation"
+    ],
+    "learning_objective": "Integrate the changing source of progesterone during gestation (corpus luteum then placenta) to predict the effect of ovariectomy at different times and identify the correct hormonal rescue.",
+    "question": "Progesterone is essential to maintain pregnancy. In early pregnancy it is secreted by the corpus luteum (kept alive by embryonic hCG); later the placenta becomes the dominant source, a change called the luteo-placental shift that occurs around weeks 8-10 of gestation. Consider two pregnant women who both have their ovaries surgically removed and receive no hormone treatment: in woman X the ovaries are removed at 6 weeks of gestation, and in woman Y at 14 weeks. Which outcome is expected, and what single treatment would allow woman X's pregnancy to continue?",
+    "choices": {
+      "A": "Woman X's pregnancy fails while woman Y's continues; X's pregnancy can be rescued by administering progesterone.",
+      "B": "Both pregnancies continue, because placental hCG maintains the endometrium directly, so progesterone from the ovary is not needed.",
+      "C": "Woman X's pregnancy fails and cannot be rescued by any treatment, because progesterone can be synthesised only by the corpus luteum.",
+      "D": "Woman Y's pregnancy fails while woman X's continues, because the placenta can support pregnancy only during the first trimester.",
+      "E": "Both pregnancies fail, because the ovary remains the main progesterone source throughout pregnancy; only oestrogen could rescue them."
+    },
+    "correct_answer": "A",
+    "explanation": "The source of the progesterone needed to sustain pregnancy changes with gestational age. At 6 weeks the placenta has not yet taken over, so the corpus luteum (in the ovary) is the essential source; removing the ovaries at this stage removes that source, progesterone falls, and the pregnancy is lost unless progesterone is supplied exogenously. By 14 weeks the luteo-placental shift (around weeks 8-10) has occurred, so the placenta is now the main progesterone producer and the pregnancy continues despite ovariectomy. The correct rescue for woman X is therefore to administer progesterone, replacing the hormone whose source was removed.",
+    "option_analysis": {
+      "A": "Correct: at 6 weeks the corpus luteum is still the key progesterone source, so ovariectomy causes X's pregnancy to fail unless progesterone is given; by 14 weeks the placenta has taken over, so Y's pregnancy continues.",
+      "B": "Wrong: claims hCG maintains the endometrium directly and that progesterone is unnecessary; hCG acts by maintaining the corpus luteum's progesterone output, and progesterone is what maintains the pregnancy.",
+      "C": "Wrong: assumes only the corpus luteum can make progesterone and that no rescue is possible; progesterone can be given exogenously, and after the shift the placenta itself synthesises it.",
+      "D": "Wrong: reverses the timing of the shift, implying the placenta only works early; in fact the placenta becomes the dominant progesterone source later, so it is the earlier (6-week) pregnancy, not the 14-week one, that fails.",
+      "E": "Wrong: assumes the ovary is the source throughout pregnancy (ignoring the luteo-placental shift) and names oestrogen as the rescue; the maintaining hormone is progesterone, and after the shift the placenta suffices."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0203",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and development",
+    "subtopic": "Ovulation timing and the fertile window: fixed luteal phase length combined with sperm and oocyte viability",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "menstrual cycle",
+      "ovulation",
+      "fertile window",
+      "luteal phase",
+      "sperm viability",
+      "oocyte viability"
+    ],
+    "learning_objective": "Combine the constancy of the luteal phase with sperm and oocyte survival times to locate the ovulation day and the fertile window in a cycle of non-standard length.",
+    "question": "In a healthy woman the luteal phase (from ovulation to the onset of the next menstruation) is essentially fixed at about 14 days, whereas the follicular phase varies in length. After intercourse, sperm can remain capable of fertilising an oocyte for up to about 5 days, whereas an ovulated oocyte remains fertilisable for only about 24 hours. A particular woman has a regular 32-day cycle, with day 1 defined as the first day of menstruation. On which range of cycle days would unprotected intercourse be most likely to result in conception?",
+    "choices": {
+      "A": "Days 1-5, during menstruation, when the endometrium is being shed.",
+      "B": "Day 18 only, because conception is possible only on the exact day of ovulation.",
+      "C": "Days 19-24, the days immediately after ovulation, when progesterone is high.",
+      "D": "Days 9-15, because ovulation always occurs on day 14 regardless of cycle length.",
+      "E": "Days 13-19, spanning the days before ovulation through the day after it."
+    },
+    "correct_answer": "E",
+    "explanation": "Because the luteal phase is fixed at about 14 days, ovulation occurs roughly 14 days BEFORE the next menstruation, not at a fixed mid-cycle point. For a 32-day cycle, ovulation is on day 32 - 14 = day 18. The fertile window is set by gamete survival: sperm can fertilise for up to about 5 days, so intercourse from about day 13 onward could still provide viable sperm at ovulation on day 18; and the oocyte survives about 24 hours, extending fertility to about day 19. Combining these gives a fertile window of roughly days 13-19. The critical step is realising that for a longer-than-average cycle ovulation is late (day 18), not on day 14.",
+    "option_analysis": {
+      "A": "Wrong: reflects the common myth that intercourse during menstruation is the fertile time; days 1-5 are far from ovulation (day 18), and although sperm survive up to 5 days this cannot bridge the gap.",
+      "B": "Wrong: ignores the roughly 5-day survival of sperm and treats the fertile window as a single day; intercourse in the days before ovulation can lead to conception because sperm are still viable when the oocyte is released.",
+      "C": "Wrong: confuses high luteal-phase progesterone with fertility; the days after ovulation are largely infertile because the oocyte survives only about 24 hours and progesterone acts to prevent, not promote, further conception in that cycle.",
+      "D": "Wrong: encodes the misconception that ovulation is always on day 14 counted from the start of the cycle; the fixed interval is actually the 14 days BEFORE the next period, so in a 32-day cycle ovulation is on day 18, not day 14.",
+      "E": "Correct: ovulation is on day 32 - 14 = 18; adding the ~5-day pre-ovulatory sperm survival (from ~day 13) and the ~24-hour post-ovulatory oocyte survival (to ~day 19) gives a fertile window of roughly days 13-19."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  }
+]

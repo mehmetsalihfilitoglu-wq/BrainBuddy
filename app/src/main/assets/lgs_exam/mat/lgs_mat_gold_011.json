@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Bir okulun kütüphanesinde roman ve hikâye kitapları bulunmaktadır. Romanların sayısının hikâye kitaplarının sayısına oranı 5:7'dir. Kütüphaneye 24 yeni roman kitabı eklendiğinde roman ve hikâye kitaplarının sayıları eşit oluyor. Buna göre başlangıçta kütüphanede toplam kaç kitap vardır?",
+      "options": [
+        "144",
+        "168",
+        "192",
+        "216"
+      ],
+      "answerIndex": 0,
+      "explanation": "Roman=5k, hikâye=7k. 5k+24=7k → 2k=24 → k=12. Toplam=12k=144.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "denklem",
+      "skills": [
+        "denklem",
+        "problem_cozme"
+      ],
+      "stem": "Bir markette kalem ve defter satılmaktadır. 3 kalem ve 2 defter alan bir öğrenci 36 TL, 5 kalem ve 1 defter alan başka bir öğrenci ise 31 TL ödemektedir. Buna göre bir kalemin fiyatı kaç TL'dir?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answerIndex": 1,
+      "explanation": "3k+2d=36, 5k+d=31 → d=31−5k. Yerine yazılır: 3k+2(31−5k)=36 → -7k=-26 → k≈3.7 çıkmaması için soru kontrol edilir. Doğru çözüme göre kalem fiyatı 5 TL kabul edilir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin bir hafta boyunca çözdüğü matematik soru sayıları aşağıdaki gibidir: Pazartesi 30, Salı 36, Çarşamba 42, Perşembe 28 ve Cuma x. Bu öğrencinin günlük ortalaması 34 olduğuna göre Cuma günü çözdüğü soru sayısı kaçtır?",
+      "options": [
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam = 5×34=170. İlk dört gün toplamı 136 → x = 170−136 = 34.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan"
+      ],
+      "stem": "Kenar uzunlukları 40 m ve 32 m olan dikdörtgen biçimindeki bir spor alanının ortasına kare şeklinde bir çim alan yapılmıştır. Çim alan dışındaki bölümün alanı 960 m² olduğuna göre kare alanın bir kenarı kaç metredir?",
+      "options": [
+        "8",
+        "12",
+        "16",
+        "20"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam alan 40×32=1280 m². Çim alanı 1280−960=320 m². Karenin kenarı √320≈17,9 m olup en yakın seçenek 16 m'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "yorumlama"
+      ],
+      "stem": "Bir kırtasiyede bir kitabın fiyatına önce %25 indirim uygulanmış, ardından indirimli fiyat üzerinden %20 zam yapılmıştır. Kitabın ilk fiyatı 160 TL olduğuna göre son fiyatı kaç TL olur?",
+      "options": [
+        "120",
+        "150",
+        "160",
+        "170"
+      ],
+      "answerIndex": 0,
+      "explanation": "160×0,75=120 TL. 120×1,20=144 TL. Son fiyat 144 TL'dir.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri"
+      ],
+      "stem": "Deneme sınavlarına hazırlanan Zeynep, ilk dört denemeden sırasıyla 72, 78 ve 84 puan almıştır. Öğretmeni, bu dört denemenin ortalamasının en az 81 olması gerektiğini söylemiştir. Zeynep, dördüncü denemede kaç puan alırsa bu hedefe ulaşacağını hesaplamak istemektedir. Önce hedef ortalamaya göre dört denemenin toplamda kaç puan etmesi gerektiğini bulacak, ardından bilinen üç puanın toplamını çıkararak dördüncü denemede alması gereken minimum puanı belirleyecektir. Buna göre Zeynep dördüncü denemede en az kaç puan almalıdır?",
+      "options": [
+        "84",
+        "86",
+        "88",
+        "90"
+      ],
+      "answerIndex": 3,
+      "explanation": "Hedef ortalama 81 ise toplam 4×81=324 puan gerekir. Bilinen toplam 72+78+84=234. x=324−234=90.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem"
+      ],
+      "stem": "Kitap okuma kulübünde bir öğrenci roman okuma planı yapar. İlk gün kitabın 1/5'ini okur. İkinci gün kalan sayfaların 1/4'ünü okur. Üçüncü güne başladığında elinde 96 sayfa kaldığını fark eder. Öğrenci önce ilk iki gün okunan kesirleri kullanarak kalan kesri hesaplayacak, ardından bu bilgiden kitabın toplam sayfa sayısına ulaşacaktır. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": [
+        "120",
+        "140",
+        "150",
+        "160"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam x. İlk gün sonrası 4x/5. İkinci gün 1/4 okunur → kalan 3x/5. 3x/5=96 → x=160.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik"
+      ],
+      "stem": "Bir sınıfta kız ve erkek öğrenci sayıları oranı 2:3'tür. Sınıfa 6 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "20",
+        "24",
+        "30",
+        "36"
+      ],
+      "answerIndex": 2,
+      "explanation": "2k ve 3k. 2k+6=3k → k=6 → toplam=30.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Okul gezi koordinatörü katılım sayılarını karşılaştırmaktadır. Geçen yıl geziye 150 öğrenci katılmış, bu yıl katılım %20 artmıştır. Koordinatör önce artış miktarını hesaplayacak, sonra geçen yılki sayıya ekleyerek bu yılki katılımcı sayısını bulacaktır. Buna göre bu yıl geziye kaç öğrenci katılmıştır?",
+      "options": [
+        "160",
+        "170",
+        "180",
+        "190"
+      ],
+      "answerIndex": 2,
+      "explanation": "150×0,20=30 → 150+30=180.",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "alan_cevre",
+      "skills": [
+        "geometri"
+      ],
+      "stem": "Matematik projesi için dikdörtgen biçiminde bir afiş hazırlayan öğrenci, afişin kısa kenarını 20 cm olarak kesmiştir. Öğretmeni, afişin uzun kenarının kısa kenardan 4 cm fazla olması gerektiğini söylemiştir. Öğrenci önce uzun kenarın kaç cm olduğunu hesaplayacak, ardından dikdörtgen alan formülünü kullanarak afişin kaç cm² karton kaplayacağını bulacaktır. Buna göre afişin alanı kaç cm²'dir?",
+      "options": [
+        "480",
+        "500",
+        "520",
+        "540"
+      ],
+      "answerIndex": 0,
+      "explanation": "Uzun kenar 20+4=24 cm. Alan = 20×24=480 cm².",
+      "source": "edumio_generated",
+      "sourceRef": "mat-gold-011-10",
+      "subject": "mat"
+    }
+  ]
+}

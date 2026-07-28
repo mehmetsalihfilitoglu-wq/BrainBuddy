@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0290",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 689 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "840",
+        "720",
+        "800",
+        "880"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-25/100) = 689. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0290",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0291",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %20 indirim uygulanmıştır. İndirimli fiyat 832 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "800",
+        "720",
+        "880",
+        "840"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-20/100) = 832. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0291",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0292",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "97",
+        "107",
+        "102"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0292",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0293",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %20 indirim uygulanmıştır. İndirimli fiyat 624 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "660",
+        "630",
+        "600",
+        "540"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-20/100) = 624. x = 600 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0293",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0294",
+      "stem": "Kenarları 10 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "105",
+        "132",
+        "48",
+        "180"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (10-6)×(18-6) = 4×12 = 48 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0294",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0295",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 4 katından 14 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "26",
+        "16",
+        "21",
+        "24"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 4e - 14. k+3 = 2(e+2) → e = 7, k = 14. Toplam = 21.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0295",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0296",
+      "stem": "Bir torbada 5 kırmızı, 3 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "46/66",
+        "47/67",
+        "1/12",
+        "47/66"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 12 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 47/66.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0296",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0297",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "3",
+        "4",
+        "2"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0297",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0298",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "320",
+        "640",
+        "580",
+        "700"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +80 litre eklenince 4V/(8) dolu. Denklemden V=640 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0298",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0299",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 30° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "180",
+        "330",
+        "150",
+        "240"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 30° ise diğerleri toplam 330°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0299",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

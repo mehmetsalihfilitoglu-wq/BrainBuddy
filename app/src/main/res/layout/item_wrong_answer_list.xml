@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="@dimen/radius_md"
     app:cardElevation="2dp"
     app:cardBackgroundColor="@color/white">
 
@@ -31,7 +31,7 @@
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:textSize="15sp"
-                android:textColor="@color/bb_text_dark"
+                android:textColor="@color/edu_text_dark"
                 tools:text="Bir sayının 3 katının 5 fazlası 29 ise..." />
 
             <com.google.android.material.button.MaterialButton
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textSize="15sp"
-                android:textColor="@color/bb_text_dark"
+                android:textColor="@color/edu_text_dark"
                 android:lineSpacingMultiplier="1.2" />
 
             <TextView
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textSize="14sp"
-                android:textColor="@color/bb_error"
+                android:textColor="@color/edu_error"
                 tools:text="Senin cevabın: B" />
 
             <TextView
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textSize="13sp"
-                android:textColor="@color/bb_text_muted"
+                android:textColor="@color/edu_text_muted"
                 android:visibility="gone"
                 tools:text="💡 Açıklama metni..."
                 tools:visibility="visible" />

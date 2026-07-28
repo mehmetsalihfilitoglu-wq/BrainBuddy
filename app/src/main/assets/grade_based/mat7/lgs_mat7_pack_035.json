@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0340",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 84, 84, 84, 84, 84 puan almıştır. Altıncı sınava girince ortalaması 84 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "84",
+        "79",
+        "85",
+        "89"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 420. 6. sınav x ise (total5 + x)/6 = 84 → x = 84.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0340",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0341",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 80, 80, 80, 80, 80 puan almıştır. Altıncı sınava girince ortalaması 79 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "77",
+        "79",
+        "82",
+        "72"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 400. 6. sınav x ise (total5 + x)/6 = 79 → x = 77.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0341",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0342",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "11",
+        "14",
+        "12",
+        "10"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0342",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0343",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 45° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "315",
+        "135",
+        "225",
+        "180"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 45° ise diğerleri toplam 315°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0343",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0344",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 72° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "288",
+        "180",
+        "198",
+        "108"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 72° ise diğerleri toplam 288°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0344",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0345",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "120",
+        "300",
+        "180",
+        "210"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0345",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0346",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 425 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "440",
+        "420",
+        "400",
+        "360"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-15/100) = 425. x = 400 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0346",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0347",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 3 : 2 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "82",
+        "62",
+        "72",
+        "77"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 2k. 3k + 8 = 4k → k = 8.0. Toplam = 9·k = 72.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0347",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0348",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "420",
+        "240",
+        "540",
+        "480"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +60 litre eklenince 4V/(8) dolu. Denklemden V=480 litre.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0348",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0349",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 6 TL zam yapılmış, ardından 5 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-5",
+        "1",
+        "6",
+        "0"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 6 - 5 = 2x → x(1-2) = -1 → x = 1 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0349",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

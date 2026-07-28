@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ═══ Wide windows ≥ 840dp — large tablets, iPad-Pro-class, desktop-sized windows ═══
+     Without this the column would run to ~150 characters per line at 1024dp. -->
+<resources>
+
+    <!-- 840dp window → ≈480dp column; 1024dp → ≈664dp. -->
+    <dimen name="page_padding_h">180dp</dimen>
+
+    <dimen name="section_gap">32dp</dimen>
+    <dimen name="card_gap">16dp</dimen>
+
+</resources>

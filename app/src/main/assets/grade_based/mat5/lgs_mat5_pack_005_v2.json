@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0041",
+      "stem": "Bir fırın 6,48 kg unun tamamını 0,27 kg'lık eşit porsiyonlara bölüyor.\n\nKaç porsiyon elde edilir?",
+      "options": [
+        "20",
+        "22",
+        "24",
+        "27"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ondalik_bolme",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "bolme",
+        "problem_cozme"
+      ],
+      "explanation": "6,48 ÷ 0,27 = 648 ÷ 27 = 24 porsiyon. A(20): 6,48÷0,32=20,25, payda yanlış. B(22): 6,48÷(0,27+0,02)=22,3, toplama hatası. D(27): paydayı sonuç sanan tuzak.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0041",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0042",
+      "stem": "Boş bir sarnıca iki boru bağlı. Birinci boru saatte sarnıcın 5/12'sini doldururken ikinci boru saatte 1/4'ünü boşaltıyor.\n\nİki boru aynı anda açık iken sarnıç boşken kaç saatte tamamen dolar?",
+      "options": [
+        "3",
+        "4",
+        "6",
+        "12"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "boru_havuz_kesir",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "cikarma",
+        "boru_havuz"
+      ],
+      "explanation": "Net dolum oranı: 5/12 − 1/4 = 5/12 − 3/12 = 2/12 = 1/6 (saatte). Dolma süresi: 1 ÷ (1/6) = 6 saat. A(3): dolum oranını 1/3 hesaplamış. B(4): boşaltma oranını net dolum sanmış, 1÷(1/4)=4. D(12): boşaltma oranı yerine 1/12 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0042",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0043",
+      "stem": "Bir elektronik dükkânı 500 TL'lik bir ürüne önce %20 indirim uyguladı, ardından indirimli fiyat üzerine %10 KDV ekledi.\n\nÜrünün son fiyatı kaç TL'dir?",
+      "options": [
+        "420",
+        "430",
+        "440",
+        "450"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "indirim_kdv_zinciri",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "kademeli_hesap",
+        "para"
+      ],
+      "explanation": "İndirimli: 500×0,80=400 TL. KDV'li: 400×1,10=440 TL. A(420): %20 indirim sonrası %10 eklemek yerine net %10 düşmüş sanmış, 500×0,84=420. B(430): 500−20%+%10=500−100+50=450 değil 430, hatalı hesap. D(450): indirim ve KDV'yi orijinal fiyata ayrı ayrı uygulamış, 500−100+50=450.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0043",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0044",
+      "stem": "Bir otobüs durağından üç farklı hat ayrılıyor. A hattı her 12 dakikada, B hattı her 18 dakikada, C hattı her 24 dakikada bir kalkıyor. Sabah 07:00'de üçü birlikte kalktı.\n\nBir sonraki aynı anda kalkış kaçta olur?",
+      "options": [
+        "07:54",
+        "08:00",
+        "08:12",
+        "08:24"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ekok_zaman",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ekok",
+        "asal_carpan",
+        "zaman"
+      ],
+      "explanation": "EKOK(12,18,24): 12=2²×3, 18=2×3², 24=2³×3. EKOK=2³×3²=72 dakika. 07:00+72dk=07:00+1s12dk=08:12. A(07:54): 12+18+24=54 dk tuzağı. B(08:00): 60 dk sanmış. D(08:24): EKOK'u 84 dk hesaplamış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0044",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0045",
+      "stem": "L biçimindeki bir odanın boyutları şöyle: büyük dikdörtgen 10 m × 8 m, sol üst köşede 4 m × 3 m'lik bir bölüm kesilmiş.\n\nOdanın zemin alanı kaç m²'dir?",
+      "options": [
+        "60",
+        "64",
+        "68",
+        "72"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "karma_sekil_alani",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "karma_sekil",
+        "cikarma"
+      ],
+      "explanation": "Büyük dikdörtgen: 10×8=80 m². Kesilen köşe: 4×3=12 m². Kalan: 80−12=68 m². A(60): 10×6=60, yüksekliği 6 almış. B(64): kesilen alanı 16 almış (4×4=16). D(72): kesilen alanı 8 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0045",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0046",
+      "stem": "Araç A saat 08:00'de 60 km/h hızla yola çıktı. Araç B saat 09:30'da aynı noktadan 90 km/h hızla aynı yönde hareket etti.\n\nAraç B, Araç A'yı kaçta yakalar?",
+      "options": [
+        "12:00",
+        "12:15",
+        "12:30",
+        "13:00"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "yakalama_zaman",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "mesafe",
+        "yakalama"
+      ],
+      "explanation": "B yola çıktığında A'nın avansı: 60×1,5=90 km. Hız farkı: 90−60=30 km/h. Yakalama süresi: 90÷30=3 saat. B, 09:30'dan 3 saat sonra yakalar: 12:30. A(12:00): hız farkını 45 almış, 90÷45=2h → 11:30 değil. B(12:15): 2,75h hesaplamış. D(13:00): avansı 105 km sanmış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0046",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0047",
+      "stem": "Üç kardeş sırayla market alışverişi yapıyor. Birinci kardeş 3 1/2 kg, ikinci kardeş 2 2/3 kg meyve aldı. Üçüncü kardeş ise 1 1/6 kg meyveyi sepetten çıkardı (iade etti).\n\nSepette kalan toplam meyve kaç kg'dır?",
+      "options": [
+        "4 1/2",
+        "4 5/6",
+        "5",
+        "5 1/6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "karisik_sayi_islem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "karisik_sayi",
+        "toplama_cikarma"
+      ],
+      "explanation": "3½ + 2⅔ − 1⅙ = 7/2 + 8/3 − 7/6. OPD=6: 21/6 + 16/6 − 7/6 = 30/6 = 5 kg. A(4½): 7/2+8/3=37/6, 37/6−7/6=30/6=5 değil 9/2=4½ hata. B(4 5/6): yanlış ortak payda. D(5 1/6): 30/6=5 yerine 31/6 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0047",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0048",
+      "stem": "İki sayının EBOB'u 15, EKOK'u 180'dir. Sayılardan biri 45 olduğuna göre diğer sayı kaçtır?\n\n(İpucu: EBOB × EKOK = birinci sayı × ikinci sayı)",
+      "options": [
+        "45",
+        "50",
+        "60",
+        "75"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "ebob_ekok_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ebob",
+        "ekok",
+        "denklem"
+      ],
+      "explanation": "EBOB × EKOK = A × B → 15 × 180 = 45 × B → B = 2700 ÷ 45 = 60. Doğrulama: EBOB(45,60)=15 ✓, EKOK(45,60)=180 ✓. A(45): B=A sanmış. B(50): 15×180=2700, 2700÷54=50 hata. D(75): 2700÷36=75, EBOB'u 36 almış.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0048",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0049",
+      "stem": "Bir sınıftaki 7 öğrencinin haftalık kitap okuma saatleri: 12, 18, 24, 6, 15, 21, 9.\n\nBu verilerin aritmetik ortalaması ve ortancası (medyanı) kaçtır?",
+      "options": [
+        "Ortalama: 15; Medyan: 12",
+        "Ortalama: 15; Medyan: 15",
+        "Ortalama: 14; Medyan: 15",
+        "Ortalama: 15; Medyan: 18"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "istatistik_ortalama_medyan",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "medyan",
+        "veri_analiz"
+      ],
+      "explanation": "Toplam: 12+18+24+6+15+21+9=105. Ortalama: 105÷7=15. Sıralı dizi: 6,9,12,15,18,21,24. Ortanca (4. eleman)=15. A: medyanı 12 almış (3. eleman). C: ortalamayı 14 hesaplamış (toplam 98 sanmış). D: medyanı 18 almış (5. eleman).",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0049",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0050",
+      "stem": "Dikdörtgen prizma biçiminde bir su deposu 12 dm uzunluğunda, 9 dm genişliğinde ve 5 dm yüksekliğindedir.\n\nDepo tamamen dolu iken kaç litre su içerir? (1 dm³ = 1 litre)",
+      "options": [
+        "480",
+        "510",
+        "540",
+        "580"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "hacim_kapasite",
+      "topic": "geometri",
+      "skills": [
+        "hacim",
+        "dikdortgen_prizma",
+        "birim_cevirme"
+      ],
+      "explanation": "Hacim: 12×9×5=540 dm³=540 litre. A(480): 12×8×5=480, genişliği 8 almış. B(510): 12×8,5×5=510, yuvarlama hatası. D(580): 12×9×5+40=580, fazladan alan eklemiş.",
+      "source": "edumio_v2",
+      "sourceRef": "mat5_v2_0050",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

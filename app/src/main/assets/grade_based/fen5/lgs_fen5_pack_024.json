@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "fen5_0230",
+      "stem": "Yoğunluk deneyinde suyun üzerinde yüzen tahta, batan demir parçası gözlemlendi.\n\nBu farkın sebebi nedir?",
+      "options": [
+        "Yoğunluk farkı; yoğunluğu sudan az olan yüzer",
+        "Demir daha hafiftir",
+        "Tahta suyu iter",
+        "Yoğunluk önemsizdir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "sebep_sonuc",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Yoğunluk farkı; yoğunluğu sudan az olan yüzer\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0230",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0231",
+      "stem": "Isıtılan buzun önce suya, sonra buhara dönüştüğü deneyle gösterildi.\n\nBu gözleme göre maddenin hal değiştirmesi ile ilgili hangi çıkarım yapılabilir?",
+      "options": [
+        "Madde sadece katı haldedir",
+        "Isı alan madde hal değiştirebilir (katı→sıvı→gaz)",
+        "Isı maddeyi etkilemez",
+        "Buz asla erimez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Isı alan madde hal değiştirebilir (katı→sıvı→gaz)\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0231",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0232",
+      "stem": "Öğrenciler şeker ve tuzun suda çözündüğünü, kumun çözünmediğini gözlemledi.\n\nBu deneyin sonucu aşağıdakilerden hangisidir?",
+      "options": [
+        "Suyun sıcaklığı çözünmeyi etkilemez",
+        "Tüm maddeler suda çözünür",
+        "Sadece katılar çözünür",
+        "Bazı maddeler suda çözünür, bazıları çözünmez"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Bazı maddeler suda çözünür, bazıları çözünmez\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0232",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0233",
+      "stem": "Termometre ile ölçülen su sıcaklığı, ısıtıldıkça arttı. Kaynama noktasında sıcaklık sabit kaldı.\n\nBu durumun nedeni nedir?",
+      "options": [
+        "Isı bitmiştir",
+        "Su ısı almaz",
+        "Verdiğimiz ısı buharlaşmada kullanılır, sıcaklık değişmez",
+        "Termometre bozulmuştur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Verdiğimiz ısı buharlaşmada kullanılır, sıcaklık değişmez\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0233",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0234",
+      "stem": "Saf maddeler ve karışımlar tablosunda altın, su saf madde; tuzlu su, hava karışım olarak verilmiştir.\n\nBu sınıflandırmanın temel ölçütü nedir?",
+      "options": [
+        "Maddenin ağırlığı",
+        "Maddenin rengi",
+        "Maddenin sıcaklığı",
+        "Maddenin tek tür tanecikten mi yoksa birden fazla maddeden mi oluştuğu"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Maddenin tek tür tanecikten mi yoksa birden fazla maddeden mi oluştuğu\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0234",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0235",
+      "stem": "Filtre kağıdı ile yapılan deneyde kum suda ayrıldı. Su filtreden geçti, kum kaldı.\n\nBu yöntemin adı ve dayandığı ilke nedir?",
+      "options": [
+        "Süzme; tanecik boyutu farkı",
+        "Damıtma; kaynama farkı",
+        "Buharlaştırma; yoğunluk farkı",
+        "Mıknatıslama; manyetik fark"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Süzme; tanecik boyutu farkı\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0235",
+      "imageAsset": "quiz_images/fen/fen_024_fen5_0235_picture.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0236",
+      "stem": "Buharlaşma deneyinde açık kaptaki suyun zamanla azaldığı gözlemlendi.\n\nBu gözlemin nedeni nedir?",
+      "options": [
+        "Suyun toprağa sızması",
+        "Suyun kaybolması",
+        "Suyun buharlaşarak gaza dönüşmesi",
+        "Kabın suyu emmesi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Suyun buharlaşarak gaza dönüşmesi\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0236",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0237",
+      "stem": "Yoğunluk deneyinde suyun üzerinde yüzen tahta, batan demir parçası gözlemlendi.\n\nBu farkın sebebi nedir?",
+      "options": [
+        "Yoğunluk önemsizdir",
+        "Tahta suyu iter",
+        "Yoğunluk farkı; yoğunluğu sudan az olan yüzer",
+        "Demir daha hafiftir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Yoğunluk farkı; yoğunluğu sudan az olan yüzer\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0237",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0238",
+      "stem": "Isıtılan buzun önce suya, sonra buhara dönüştüğü deneyle gösterildi.\n\nBu gözleme göre maddenin hal değiştirmesi ile ilgili hangi çıkarım yapılabilir?",
+      "options": [
+        "Buz asla erimez",
+        "Isı maddeyi etkilemez",
+        "Isı alan madde hal değiştirebilir (katı→sıvı→gaz)",
+        "Madde sadece katı haldedir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Isı alan madde hal değiştirebilir (katı→sıvı→gaz)\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0238",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0239",
+      "stem": "Öğrenciler şeker ve tuzun suda çözündüğünü, kumun çözünmediğini gözlemledi.\n\nBu deneyin sonucu aşağıdakilerden hangisidir?",
+      "options": [
+        "Tüm maddeler suda çözünür",
+        "Suyun sıcaklığı çözünmeyi etkilemez",
+        "Bazı maddeler suda çözünür, bazıları çözünmez",
+        "Sadece katılar çözünür"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "madde_degisim",
+      "skills": [
+        "madde_degi",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Bazı maddeler suda çözünür, bazıları çözünmez\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "edumio",
+      "sourceRef": "fen5_0239",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

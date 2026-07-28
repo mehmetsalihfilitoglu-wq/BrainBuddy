@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0390",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 3 : 5 oranındadır. Birinci sınıfa 6 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "82",
+        "77",
+        "72",
+        "62"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 5k. 3k + 6 = 4k → k = 6.0. Toplam = 12·k = 72.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0390",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0391",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 850 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "880",
+        "800",
+        "720",
+        "840"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-15/100) = 850. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0391",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0392",
+      "stem": "Bir torbada 4 kırmızı, 3 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "12/18",
+        "13/19",
+        "13/18",
+        "1/9"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0392",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0393",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 80, 80, 80, 80, 80 puan almıştır. Altıncı sınava girince ortalaması 82 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "97",
+        "82",
+        "87",
+        "92"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 400. 6. sınav x ise (total5 + x)/6 = 82 → x = 92.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0393",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0394",
+      "stem": "Bir torbada 4 kırmızı, 5 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "38/56",
+        "38/55",
+        "1/11",
+        "37/55"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0394",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0395",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 30° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "330",
+        "180",
+        "150",
+        "240"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 30° ise diğerleri toplam 330°.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0395",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0396",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0396",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0397",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "102",
+        "107",
+        "97"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0397",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0398",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 14 TL zam yapılmış, ardından 6 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "-6",
+        "14",
+        "0"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 14 - 6 = 2x → x(1-2) = -8 → x = 8 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0398",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0399",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0399",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

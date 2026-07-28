@@ -1,0 +1,274 @@
+[
+  {
+    "id": "mio_phys_0073",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Perfectly inelastic head-on collision: common velocity of two bodies from conservation of linear momentum, with careful vector signs",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "momentum",
+      "conservation of momentum",
+      "perfectly inelastic collision",
+      "vector signs",
+      "one dimension"
+    ],
+    "learning_objective": "Apply conservation of linear momentum to a one-dimensional collision in which two bodies moving in opposite directions couple together, treating momentum as a signed vector quantity.",
+    "question": "On a straight, frictionless horizontal track, a trolley of mass 3.0 kg moving east at 6.0 m/s collides head-on with a trolley of mass 2.0 kg moving west at 4.0 m/s. The two trolleys couple together on impact and move off as a single body. Taking east as the positive direction, what is the velocity of the combined trolleys immediately after the collision?",
+    "choices": {
+      "A": "5.2 m/s east",
+      "B": "2.0 m/s east",
+      "C": "2.0 m/s west",
+      "D": "10 m/s east",
+      "E": "1.0 m/s east"
+    },
+    "correct_answer": "B",
+    "explanation": "Linear momentum is conserved: taking east as positive, the initial momentum is (3.0 kg)(+6.0 m/s) + (2.0 kg)(-4.0 m/s) = +18 - 8 = +10 kg m/s. After coupling, the total mass is 5.0 kg, so the common velocity is v = (+10 kg m/s)/(5.0 kg) = +2.0 m/s, i.e. 2.0 m/s east. The positive sign shows the pair moves in the direction of the faster, heavier trolley.",
+    "option_analysis": {
+      "A": "Wrong: obtained by adding the two momentum magnitudes (18 + 8 = 26) before dividing by 5.0 kg. This ignores the opposite directions of the two trolleys and treats momentum as a positive scalar rather than a signed vector.",
+      "B": "Correct: net momentum = (3.0)(+6.0) + (2.0)(-4.0) = +10 kg m/s; dividing by the total mass 5.0 kg gives +2.0 m/s, i.e. 2.0 m/s east.",
+      "C": "Wrong: the magnitude 2.0 m/s is correct but the direction is reversed. This is a sign error: the student computed the net momentum as -10 (or mislabelled which direction is positive), concluding the pair moves west.",
+      "D": "Wrong: this is the numerical value of the net momentum (10 kg m/s) reported as a velocity. The student forgot to divide the total momentum by the total mass of the combined body.",
+      "E": "Wrong: obtained by averaging the two velocities, (+6.0 + (-4.0))/2 = +1.0 m/s. This ignores the unequal masses; momentum must be mass-weighted, not a simple mean of the speeds."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0074",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Explosion of a body initially at rest into two fragments: partition of the released kinetic energy between the fragments (energy shared in inverse proportion to mass)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "momentum",
+      "explosion",
+      "recoil",
+      "kinetic energy",
+      "energy partition"
+    ],
+    "learning_objective": "Combine conservation of momentum for a body initially at rest with the definition of kinetic energy to show that, in an explosion into two fragments, the released energy is shared in inverse proportion to the fragment masses.",
+    "question": "A single body at rest, isolated from external forces, suddenly bursts apart into exactly two fragments that move off in opposite directions along a straight line. One fragment has mass m and the other has mass 3m. What fraction of the total kinetic energy released in the explosion is carried by the lighter fragment?",
+    "choices": {
+      "A": "9/10",
+      "B": "1/4",
+      "C": "1/10",
+      "D": "3/4",
+      "E": "1/2"
+    },
+    "correct_answer": "D",
+    "explanation": "The initial momentum is zero, so the two fragments carry equal and opposite momenta: m v_light = 3m v_heavy, giving v_light = 3 v_heavy. Because the momenta are equal in magnitude (p), each fragment's kinetic energy is p^2/(2 x mass), so kinetic energy is inversely proportional to mass. The energies are therefore in the ratio (1/m) : (1/3m) = 3 : 1, and the lighter fragment carries 3/(3+1) = 3/4 of the released energy. (Check: KE_light = 1/2 m (3v)^2 = 4.5 m v^2 and KE_heavy = 1/2 (3m) v^2 = 1.5 m v^2, ratio 3:1.)",
+    "option_analysis": {
+      "A": "Wrong: 9/10 comes from comparing only the squared speeds (v_light : v_heavy = 3 : 1, so v^2 in ratio 9 : 1) while forgetting to weight each 1/2 v^2 by its mass. Kinetic energy depends on mass as well as speed squared.",
+      "B": "Wrong: 1/4 is the fraction carried by the heavier fragment. The student assumed the lighter fragment must carry less energy because it has less mass, whereas equal-and-opposite momentum makes energy inversely proportional to mass.",
+      "C": "Wrong: 1/10 is the same squared-speed error as option D but assigned to the wrong fragment (taking the ratio as 1 : 9). It both omits the mass weighting and reverses the assignment.",
+      "D": "Correct: equal-magnitude momenta give KE inversely proportional to mass, so the energies are in ratio 3:1 in favour of the lighter fragment, which therefore carries 3/4 of the total.",
+      "E": "Wrong: 1/2 assumes the released energy is shared equally between the two fragments. Energy is not shared equally here; only momentum magnitude is equal, so the lighter, faster fragment takes the larger share."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0075",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Impulse and rate of change of momentum: force exerted by a steady fluid jet stopped by a surface (impulse-momentum theorem applied to a continuous mass flow)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "impulse",
+      "rate of change of momentum",
+      "force",
+      "fluid jet",
+      "Newton's second law"
+    ],
+    "learning_objective": "Use the impulse-momentum relationship F = (change in momentum)/(time) in the form F = (mass flow rate) x (change in speed) to find the force exerted by a steady stream of matter brought to rest by a surface.",
+    "question": "A horizontal jet of water leaves a nozzle at a steady speed of 20 m/s and strikes a fixed vertical wall at right angles. Water arrives at the wall at a rate of 3.0 kg per second, and after hitting the wall it simply runs down the surface, so its horizontal velocity immediately afterwards is effectively zero (the water does not rebound). What is the average horizontal force exerted by the jet on the wall?",
+    "choices": {
+      "A": "600 N",
+      "B": "120 N",
+      "C": "1200 N",
+      "D": "30 N",
+      "E": "60 N"
+    },
+    "correct_answer": "E",
+    "explanation": "In each second a mass of 3.0 kg has its horizontal velocity reduced from 20 m/s to 0. The change of momentum per second is (mass flow rate) x (change in speed) = 3.0 kg/s x 20 m/s = 60 kg m/s per second. By the impulse-momentum theorem this rate of change of momentum equals the force on the water, and by Newton's third law the water exerts an equal and opposite 60 N on the wall.",
+    "option_analysis": {
+      "A": "Wrong: 600 N is 1/2 x (mass flow rate) x (speed)^2 = 0.5 x 3.0 x 20^2, which is the rate of arrival of kinetic energy (a power, in watts), not a force. The student used a kinetic-energy expression where a momentum expression is required.",
+      "B": "Wrong: 120 N assumes the water rebounds elastically at 20 m/s, giving a velocity change of 40 m/s. The problem states the water runs down the wall without rebounding, so the change in speed is 20 m/s, not 40 m/s.",
+      "C": "Wrong: 1200 N is (mass flow rate) x (speed)^2 = 3.0 x 20^2, an energy-based expression with the wrong dimensions for force (and even the 1/2 omitted). Force depends on the change in speed, not the speed squared.",
+      "D": "Wrong: 30 N uses an average velocity (20 + 0)/2 = 10 m/s for the change in speed. The relevant quantity is the total change in the water's velocity (20 m/s to 0), not the average velocity during impact.",
+      "E": "Correct: force = rate of change of momentum = (mass flow rate) x (change in speed) = 3.0 x 20 = 60 N."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0076",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "One-dimensional elastic collision, light body striking a heavier stationary body: solving both conservation laws (or using relative-velocity reversal) to obtain both final velocities, including the rebound of the lighter body",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "elastic collision",
+      "conservation of momentum",
+      "kinetic energy",
+      "relative velocity",
+      "one dimension"
+    ],
+    "learning_objective": "Solve a one-dimensional elastic collision between a moving body and a stationary heavier body by simultaneously applying conservation of momentum and of kinetic energy (equivalently, the reversal of relative velocity), correctly predicting that the lighter body rebounds.",
+    "question": "On a smooth horizontal track, ball A of mass 1.0 kg travels at 6.0 m/s directly towards ball B of mass 2.0 kg, which is at rest. The two balls undergo a perfectly elastic head-on collision. Taking A's original direction as 'forward', what are the velocities of the two balls immediately after the collision?",
+    "choices": {
+      "A": "Ball A: 0 (stops); ball B: 6.0 m/s forward",
+      "B": "Ball A: 4.0 m/s forward; ball B: 2.0 m/s forward",
+      "C": "Ball A: 2.0 m/s backward; ball B: 4.0 m/s forward",
+      "D": "Ball A: 2.0 m/s forward; ball B: 4.0 m/s forward",
+      "E": "Ball A: 2.0 m/s forward; ball B: 2.0 m/s forward"
+    },
+    "correct_answer": "C",
+    "explanation": "For a one-dimensional elastic collision with B initially at rest, conservation of momentum and of kinetic energy give v_A' = ((m_A - m_B)/(m_A + m_B)) u_A and v_B' = (2 m_A/(m_A + m_B)) u_A. Here v_A' = ((1.0 - 2.0)/3.0)(6.0) = -2.0 m/s and v_B' = (2.0/3.0)(6.0) = +4.0 m/s. Because A is lighter than B, A rebounds (moves backward) at 2.0 m/s while B moves forward at 4.0 m/s. Check: momentum 1.0(-2.0) + 2.0(4.0) = 6.0 = 1.0(6.0); kinetic energy 1/2(1.0)(2.0)^2 + 1/2(2.0)(4.0)^2 = 2 + 16 = 18 J = 1/2(1.0)(6.0)^2.",
+    "option_analysis": {
+      "A": "Wrong: A stopping while B moves off at 6.0 m/s is the result for equal masses (velocity exchange). It is applied here even though the masses are unequal; with m_B > m_A the lighter ball must rebound rather than stop.",
+      "B": "Wrong: the correct speeds (2.0 and 4.0 m/s) are computed but assigned to the wrong balls and A is not reversed. This swaps the outcome, giving the lighter ball the larger forward speed.",
+      "C": "Correct: v_A' = -2.0 m/s (2.0 m/s backward) and v_B' = +4.0 m/s (forward); both momentum (6.0 kg m/s) and kinetic energy (18 J) are conserved.",
+      "D": "Wrong: the speeds are correct but A's direction is not reversed. The student solved for magnitudes and failed to keep the negative sign for the lighter ball, which must actually recoil backwards.",
+      "E": "Wrong: a common velocity of 2.0 m/s for both balls is the perfectly inelastic (sticking) result, 6.0/3.0 = 2.0 m/s. But an elastic collision conserves kinetic energy, so the balls do not move off together."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0077",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Perfectly inelastic collision: amount of kinetic energy converted to heat/deformation, computed from the common post-collision velocity",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "perfectly inelastic collision",
+      "kinetic energy loss",
+      "conservation of momentum",
+      "energy dissipation"
+    ],
+    "learning_objective": "Quantify the kinetic energy dissipated in a perfectly inelastic collision by using momentum conservation to find the common velocity and comparing the kinetic energies before and after.",
+    "question": "A 2.0 kg ball moving at 6.0 m/s along a smooth horizontal surface strikes a stationary 4.0 kg ball and the two stick together. How much kinetic energy is converted into heat and deformation in this collision?",
+    "choices": {
+      "A": "18 J",
+      "B": "12 J",
+      "C": "24 J",
+      "D": "36 J",
+      "E": "9.0 J"
+    },
+    "correct_answer": "C",
+    "explanation": "Momentum conservation gives the common velocity: v = (2.0 x 6.0)/(2.0 + 4.0) = 12/6 = 2.0 m/s. Initial kinetic energy = 1/2(2.0)(6.0)^2 = 36 J; final kinetic energy = 1/2(6.0)(2.0)^2 = 12 J. The energy converted to heat and deformation is the difference, 36 - 12 = 24 J. (Kinetic energy is not conserved in an inelastic collision, but momentum is.)",
+    "option_analysis": {
+      "A": "Wrong: 18 J is half the initial kinetic energy. Losing exactly half only occurs when a moving body sticks to an equal stationary mass; here the masses are unequal, so this rule does not apply.",
+      "B": "Wrong: 12 J is the kinetic energy retained after the collision, not the amount dissipated. The student reported the final kinetic energy instead of the loss (initial minus final).",
+      "C": "Correct: common velocity 2.0 m/s gives final KE 12 J against initial KE 36 J, so 24 J is dissipated.",
+      "D": "Wrong: 36 J assumes all the initial kinetic energy is lost, as if the balls came to rest. Momentum conservation forbids this: the combined 6.0 kg body must move at 2.0 m/s and so retains 12 J.",
+      "E": "Wrong: 9.0 J comes from taking the common velocity as the simple average of the two speeds, (6.0 + 0)/2 = 3.0 m/s (final KE 27 J, loss 9 J). The common velocity must be found from momentum conservation, giving 2.0 m/s, not 3.0 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0078",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Two-phase problem: a projectile embeds in a block (momentum-conserving inelastic collision) which then slides to rest against friction (work-energy), solving back to the projectile's initial speed",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "inelastic collision",
+      "conservation of momentum",
+      "work-energy theorem",
+      "friction",
+      "multi-step"
+    ],
+    "learning_objective": "Analyse a compound event by applying momentum conservation to the perfectly inelastic embedding phase and the work-energy principle to the subsequent frictional sliding phase, recognising that kinetic energy is not conserved across the collision.",
+    "question": "A bullet of mass 10 g is fired horizontally into a wooden block of mass 990 g that is at rest on a rough horizontal floor. The bullet embeds itself in the block, and the block (with the bullet inside) then slides 0.90 m before coming to rest. The coefficient of kinetic friction between block and floor is 0.50. Taking g = 10 m/s^2, what was the speed of the bullet just before it struck the block?",
+    "choices": {
+      "A": "30 m/s",
+      "B": "0.30 m/s",
+      "C": "3.0 m/s",
+      "D": "3000 m/s",
+      "E": "300 m/s"
+    },
+    "correct_answer": "E",
+    "explanation": "Phase 2 (sliding): the block-plus-bullet (total 1.00 kg) decelerates by friction. Work-energy gives 1/2 (M+m) V^2 = mu (M+m) g d, so V^2 = 2 mu g d = 2(0.50)(10)(0.90) = 9.0, hence V = 3.0 m/s just after impact. Phase 1 (embedding, perfectly inelastic, momentum conserved): m u = (M + m) V, so (0.010) u = (1.00)(3.0), giving u = 300 m/s. The two phases must be kept separate because kinetic energy is not conserved when the bullet embeds.",
+    "option_analysis": {
+      "A": "Wrong: 30 m/s comes from equating the bullet's kinetic energy directly to the frictional work, 1/2 m u^2 = mu (M+m) g d. This wrongly assumes mechanical energy is conserved during the embedding; the perfectly inelastic collision dissipates most of the bullet's energy.",
+      "B": "Wrong: 0.30 m/s inverts the mass ratio in the momentum step, dividing V by (M+m)/m instead of multiplying. Momentum conservation requires the much lighter bullet to have a far larger speed than the combined body, not a smaller one.",
+      "C": "Wrong: 3.0 m/s is the common speed of block-plus-bullet immediately after impact (V), not the bullet's pre-impact speed. The student stopped before applying momentum conservation to recover u.",
+      "D": "Wrong: 3000 m/s is the correct method spoiled by a factor-of-ten slip in handling the masses (e.g. a grams/kilograms mismatch making the mass ratio 1000 rather than 100).",
+      "E": "Correct: sliding gives V = sqrt(2 mu g d) = 3.0 m/s; momentum conservation then gives u = (M+m)V/m = (1.00)(3.0)/(0.010) = 300 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0079",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Momentum, impulse and collisions",
+    "subtopic": "Zero-total-momentum recoil: displacement of a boat when a person walks along it, from the requirement that the centre of mass stays fixed",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "conservation of momentum",
+      "recoil",
+      "centre of mass",
+      "internal forces",
+      "relative motion"
+    ],
+    "learning_objective": "Use the fact that a system with zero total momentum and no external horizontal force has a fixed centre of mass to relate the ground displacements of two bodies interacting internally, distinguishing motion relative to the ground from motion relative to one another.",
+    "question": "A person of mass 60 kg stands at one end of a 3.0 m long boat of mass 120 kg that floats at rest on still water. The water exerts negligible horizontal resistance. The person then walks steadily to the other end of the boat and stops there. Relative to the water, how far does the boat move?",
+    "choices": {
+      "A": "1.0 m",
+      "B": "1.5 m",
+      "C": "0 m",
+      "D": "3.0 m",
+      "E": "2.0 m"
+    },
+    "correct_answer": "A",
+    "explanation": "With no external horizontal force and the system starting at rest, the total momentum stays zero and the centre of mass does not move relative to the water. Let the boat move a distance x (opposite to the walk). The person, who moves 3.0 m relative to the boat, moves (3.0 - x) relative to the water in the walking direction. Taking the centre of mass as fixed: 60(3.0 - x) = 120 x, so 180 - 60x = 120x, giving 180x = 180 and x = 1.0 m. Equivalently, boat displacement = (m_person/(m_person + m_boat)) x L = (60/180)(3.0) = 1.0 m.",
+    "option_analysis": {
+      "A": "Correct: with the centre of mass fixed, boat displacement = (m_person/(m_person + m_boat)) x L = (60/180)(3.0) = 1.0 m.",
+      "B": "Wrong: 1.5 m (half the length) assumes the person and the boat move equal distances. Their ground displacements are actually in inverse proportion to their masses, so the heavier boat moves less than the lighter person.",
+      "C": "Wrong: 0 m confuses 'the centre of mass does not move' with 'the boat does not move'. Zero total momentum keeps the centre of mass fixed, but the boat and person individually shift in opposite directions.",
+      "D": "Wrong: 3.0 m assumes the boat moves a full boat-length, as though the person walked while the water held the person fixed. In fact the person also moves relative to the water, so the boat shifts by less than the boat's length.",
+      "E": "Wrong: 2.0 m is the person's displacement relative to the water, (m_boat/(m_person + m_boat)) x L = (120/180)(3.0). The student computed the correct pair of displacements but assigned the person's value to the boat."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  }
+]

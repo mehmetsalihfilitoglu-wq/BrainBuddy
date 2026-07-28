@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat3_0000",
+      "stem": "234 sayısının onlar basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "300",
+        "34",
+        "3",
+        "30"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3 onlar basamağında: 3×10=30.",
+      "source": "edumio",
+      "sourceRef": "mat3_0000",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0001",
+      "stem": "456 sayısında 4'ün basamak değeri ile 6'nın basamak değerinin toplamı kaçtır?",
+      "options": [
+        "10",
+        "406",
+        "400",
+        "46"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 yüzlerde: 400; 6 birlerde: 6. Toplam 406.",
+      "source": "edumio",
+      "sourceRef": "mat3_0001",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0002",
+      "stem": "127 sayısının en büyük basamağı hangisidir?",
+      "options": [
+        "Onlar",
+        "Birler",
+        "Binler",
+        "Yüzler"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "127'de 1 yüzler, 2 onlar, 7 birler. En büyük yüzler.",
+      "source": "edumio",
+      "sourceRef": "mat3_0002",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0003",
+      "stem": "3 yüzlük + 5 onluk + 2 birlik kaç eder?",
+      "options": [
+        "325",
+        "350",
+        "3520",
+        "352"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300+50+2=352.",
+      "source": "edumio",
+      "sourceRef": "mat3_0003",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0004",
+      "stem": "234 sayısının onlar basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "34",
+        "300",
+        "3",
+        "30"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3 onlar basamağında: 3×10=30.",
+      "source": "edumio",
+      "sourceRef": "mat3_0004",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0005",
+      "stem": "456 sayısında 4'ün basamak değeri ile 6'nın basamak değerinin toplamı kaçtır?",
+      "options": [
+        "400",
+        "406",
+        "46",
+        "10"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 yüzlerde: 400; 6 birlerde: 6. Toplam 406.",
+      "source": "edumio",
+      "sourceRef": "mat3_0005",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0006",
+      "stem": "127 sayısının en büyük basamağı hangisidir?",
+      "options": [
+        "Birler",
+        "Binler",
+        "Onlar",
+        "Yüzler"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "127'de 1 yüzler, 2 onlar, 7 birler. En büyük yüzler.",
+      "source": "edumio",
+      "sourceRef": "mat3_0006",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0007",
+      "stem": "3 yüzlük + 5 onluk + 2 birlik kaç eder?",
+      "options": [
+        "352",
+        "350",
+        "325",
+        "3520"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300+50+2=352.",
+      "source": "edumio",
+      "sourceRef": "mat3_0007",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0008",
+      "stem": "234 sayısının onlar basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "34",
+        "3",
+        "30",
+        "300"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3 onlar basamağında: 3×10=30.",
+      "source": "edumio",
+      "sourceRef": "mat3_0008",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0009",
+      "stem": "456 sayısında 4'ün basamak değeri ile 6'nın basamak değerinin toplamı kaçtır?",
+      "options": [
+        "406",
+        "400",
+        "10",
+        "46"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 yüzlerde: 400; 6 birlerde: 6. Toplam 406.",
+      "source": "edumio",
+      "sourceRef": "mat3_0009",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

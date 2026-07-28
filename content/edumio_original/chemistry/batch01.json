@@ -1,0 +1,463 @@
+[
+  {
+    "id": "mio_chem_0003",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: equilibrium",
+    "subtopic": "Le Chatelier's principle",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "equilibrium",
+      "Le Chatelier",
+      "endothermic",
+      "gas equilibrium"
+    ],
+    "learning_objective": "Predict the net direction of an equilibrium shift when two simultaneous stresses (temperature and volume) act on an endothermic gas-phase reaction with unequal mole numbers.",
+    "question": "Consider the gas-phase equilibrium N_2O_4(g) ⇌ 2 NO_2(g), for which the forward reaction is endothermic. A sample at equilibrium is simultaneously heated and, using a piston, compressed to half its original volume at the new (higher) temperature. Compared with the original state, what is the combined effect on the position of equilibrium?",
+    "choices": {
+      "A": "Compression favours NO_2 because it increases the total pressure, while heating has no effect on an endothermic reaction.",
+      "B": "Heating favours NO_2 while compression favours N_2O_4, so the two effects oppose each other and the net shift depends on their relative magnitudes.",
+      "C": "Neither change affects the position of equilibrium, because the value of K depends only on the amount of catalyst present.",
+      "D": "Both heating and compression favour N_2O_4, so the equilibrium shifts strongly towards reactants.",
+      "E": "Both heating and compression favour NO_2, so the equilibrium shifts strongly towards products."
+    },
+    "correct_answer": "B",
+    "explanation": "Two independent stresses act in opposite senses. Heating an endothermic reaction (heat is effectively a reactant) shifts equilibrium towards the products, favouring NO_2. Halving the volume raises the pressure, so Le Chatelier's principle favours the side with fewer gas moles; here the reactant side has 1 mol vs 2 mol of product, so compression favours N_2O_4. The two effects therefore oppose one another, and the net direction cannot be stated without quantitative information on their relative sizes. Recognising that temperature and pressure changes can conflict is the key idea.",
+    "option_analysis": {
+      "A": "Wrong: it inverts the pressure effect and denies the (real) temperature effect on an endothermic reaction; heating certainly shifts an endothermic equilibrium.",
+      "B": "Correct: heating drives an endothermic reaction forward (towards NO_2) while compression favours the fewer-moles side (N_2O_4), so the effects oppose and the net shift is indeterminate without magnitudes.",
+      "C": "Wrong: a catalyst changes neither K nor the equilibrium position, and both temperature and volume changes genuinely perturb this equilibrium.",
+      "D": "Wrong: it correctly reads the pressure effect but inverts the temperature effect, treating the endothermic reaction as if heating favoured reactants.",
+      "E": "Wrong: it correctly identifies heating's effect but mistakenly thinks higher pressure also favours the products; compression favours the side with fewer gas moles, which is N_2O_4."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0004",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: equilibrium",
+    "subtopic": "Kc and degree of dissociation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "equilibrium",
+      "Kc",
+      "degree of dissociation",
+      "ICE table"
+    ],
+    "learning_objective": "Compute an equilibrium constant Kc from the initial amount, vessel volume, and degree of dissociation of a dissociating gas.",
+    "question": "Exactly 1.00 mol of N_2O_4 is introduced into an empty, rigid 2.00 L vessel and allowed to reach equilibrium according to N_2O_4(g) ⇌ 2 NO_2(g). At equilibrium, 20.0% of the N_2O_4 has dissociated. What is the value of Kc for this reaction at the temperature of the experiment?",
+    "choices": {
+      "A": "0.20 mol L^-1",
+      "B": "0.40 mol L^-1",
+      "C": "0.050 mol L^-1",
+      "D": "0.025 mol L^-1",
+      "E": "0.10 mol L^-1"
+    },
+    "correct_answer": "E",
+    "explanation": "With α = 0.20, at equilibrium n(N_2O_4) = 1.00(1−0.20) = 0.80 mol and n(NO_2) = 2×1.00×0.20 = 0.40 mol. Dividing by V = 2.00 L gives [N_2O_4] = 0.40 M and [NO_2] = 0.20 M. Then Kc = [NO_2]^2/[N_2O_4] = (0.20)^2/0.40 = 0.040/0.40 = 0.10 M. The trap is remembering the stoichiometric factor of 2 for NO_2 formed and squaring the NO_2 concentration.",
+    "option_analysis": {
+      "A": "Wrong: obtained by omitting the square on [NO_2] (0.20/0.40 = 0.50 mis-stated, or by using [NO_2]=0.40 M raw moles) — it drops the correct exponent handling.",
+      "B": "Wrong: uses concentrations of NO_2 and N_2O_4 without dividing consistently by volume (e.g. treating moles as molarities), inflating Kc.",
+      "C": "Wrong: results from forgetting the stoichiometric factor of 2, taking n(NO_2)=0.20 mol so [NO_2]=0.10 M and Kc=(0.10)^2/0.40=0.025 mis-scaled — reflects the missing-factor-of-2 slip.",
+      "D": "Wrong: combines the missing factor of 2 with a squaring giving (0.10)^2/0.40=0.025 M; encodes two compounded stoichiometric errors.",
+      "E": "Correct: [NO_2]=0.20 M, [N_2O_4]=0.40 M, so Kc=(0.20)^2/0.40=0.10 M."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0005",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: acids, bases and buffers",
+    "subtopic": "buffer pH after addition of strong base",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "buffer",
+      "Henderson-Hasselbalch",
+      "weak acid",
+      "pH",
+      "titration"
+    ],
+    "learning_objective": "Apply the Henderson–Hasselbalch equation to a buffer after neutralising part of the weak acid with added strong base.",
+    "question": "A buffer is prepared by dissolving 0.20 mol of acetic acid (CH_3COOH, pKa = 4.74) and 0.20 mol of sodium acetate in water to give 1.00 L of solution. To this buffer, 0.050 mol of solid NaOH is added, with no appreciable change in volume. What is the pH of the resulting solution? (log 5/3 ≈ 0.22)",
+    "choices": {
+      "A": "9.00",
+      "B": "4.96",
+      "C": "5.30",
+      "D": "4.52",
+      "E": "4.74"
+    },
+    "correct_answer": "B",
+    "explanation": "The added strong base converts an equal amount of the weak acid into its conjugate base: n(CH_3COOH) = 0.20 − 0.05 = 0.15 mol and n(CH_3COO^-) = 0.20 + 0.05 = 0.25 mol. Because both species share the same volume, the mole ratio can be used directly: pH = pKa + log([base]/[acid]) = 4.74 + log(0.25/0.15) = 4.74 + log(5/3) = 4.74 + 0.22 = 4.96. The pH rises modestly, as expected when a small amount of base is added to a buffer.",
+    "option_analysis": {
+      "A": "Wrong: treats the system as if all acid were neutralised to give a solution of pure acetate, computing a hydrolysis pH and ignoring the large excess of remaining buffer.",
+      "B": "Correct: base 0.25 mol, acid 0.15 mol, pH = 4.74 + log(5/3) = 4.74 + 0.22 = 4.96.",
+      "C": "Wrong: adds twice the shift or double-counts the 0.05 mol (e.g. acid 0.10, base 0.30), overestimating the log term.",
+      "D": "Wrong: applies the ratio in the reverse sense, pH = 4.74 + log(0.15/0.25) = 4.74 − 0.22, treating the base as if it were consuming the conjugate base.",
+      "E": "Wrong: assumes the added NaOH leaves the acid/base ratio unchanged (still 1:1), ignoring that NaOH consumes acid and creates conjugate base."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0006",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: thermochemistry",
+    "subtopic": "Hess's law from combustion enthalpies",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "thermochemistry",
+      "Hess's law",
+      "enthalpy of combustion",
+      "hydrogenation"
+    ],
+    "learning_objective": "Use Hess's law with standard enthalpies of combustion to obtain the enthalpy change of a hydrogenation reaction.",
+    "question": "For the hydrogenation of ethene, C_2H_4(g) + H_2(g) → C_2H_6(g), determine the standard enthalpy change using the following standard enthalpies of combustion: ΔH°c[C_2H_4(g)] = −1411 kJ mol^-1, ΔH°c[H_2(g)] = −286 kJ mol^-1, ΔH°c[C_2H_6(g)] = −1560 kJ mol^-1.",
+    "choices": {
+      "A": "+1685 kJ mol^-1",
+      "B": "−137 kJ mol^-1",
+      "C": "−1685 kJ mol^-1",
+      "D": "−3257 kJ mol^-1",
+      "E": "+137 kJ mol^-1"
+    },
+    "correct_answer": "B",
+    "explanation": "By Hess's law, for a reaction ΔH°rxn = Σ ΔH°c(reactants) − Σ ΔH°c(products). Here ΔH°rxn = [ΔH°c(C_2H_4) + ΔH°c(H_2)] − ΔH°c(C_2H_6) = [(−1411) + (−286)] − (−1560) = (−1697) − (−1560) = −137 kJ mol^-1. The reaction is exothermic, consistent with a favourable hydrogenation. The common trap is the sign convention: with combustion enthalpies it is reactants minus products, the opposite of the formation-enthalpy expression.",
+    "option_analysis": {
+      "A": "Wrong: subtracts reactant sum from product with a further sign slip, e.g. −1560 − (−1411 − 286) with a wrong sign, giving a large positive value.",
+      "B": "Correct: (−1411 − 286) − (−1560) = −1697 + 1560 = −137 kJ mol^-1.",
+      "C": "Wrong: computes ΔH°c(C_2H_6) − [ΔH°c(C_2H_4)+ΔH°c(H_2)] as if products minus reactants but then mis-signs one term, yielding a large negative value.",
+      "D": "Wrong: sums all three combustion enthalpies (−1411 − 286 − 1560) instead of subtracting the product term.",
+      "E": "Wrong: correct magnitude but reversed sign, from using products-minus-reactants (the formation-enthalpy convention) with combustion data."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0007",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: equilibrium",
+    "subtopic": "Kc with degree of dissociation from moles at equilibrium",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "equilibrium",
+      "Kc",
+      "dissociation",
+      "PCl5",
+      "ICE table"
+    ],
+    "learning_objective": "Combine a measured equilibrium amount of a product with an ICE analysis to evaluate Kc for a dissociation that increases the number of gas moles.",
+    "question": "1.00 mol of PCl_5 is placed in an evacuated, rigid 10.0 L vessel and heated to a fixed temperature, where it partially dissociates: PCl_5(g) ⇌ PCl_3(g) + Cl_2(g). At equilibrium the vessel is found to contain 0.500 mol of Cl_2. What is the value of Kc at this temperature?",
+    "choices": {
+      "A": "0.0250 mol L^-1",
+      "B": "0.100 mol L^-1",
+      "C": "0.0500 mol L^-1",
+      "D": "0.0125 mol L^-1",
+      "E": "0.500 mol L^-1"
+    },
+    "correct_answer": "C",
+    "explanation": "Each mole of Cl_2 formed corresponds to one mole of PCl_5 consumed and one mole of PCl_3 formed. So at equilibrium n(Cl_2) = n(PCl_3) = 0.500 mol and n(PCl_5) = 1.00 − 0.500 = 0.500 mol. Dividing by V = 10.0 L: [Cl_2] = [PCl_3] = [PCl_5] = 0.0500 M. Then Kc = [PCl_3][Cl_2]/[PCl_5] = (0.0500 × 0.0500)/0.0500 = 0.0500 M. The trap is dividing every amount by the volume before forming the ratio and not confusing moles with molarity.",
+    "option_analysis": {
+      "A": "Wrong: forgets to divide one concentration by the volume consistently, halving the result, or mis-cancels the PCl_5 term.",
+      "B": "Wrong: uses raw moles for the numerator product but molarity for the denominator (mixing units), doubling the true value.",
+      "C": "Correct: all three species are 0.0500 M, so Kc = (0.0500×0.0500)/0.0500 = 0.0500 M.",
+      "D": "Wrong: treats n(PCl_5) as 1.00 mol (forgetting the 0.500 consumed), giving (0.05×0.05)/0.10 = 0.0125 M.",
+      "E": "Wrong: computes the ratio in moles without dividing by volume at all, inflating Kc tenfold."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0008",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "physical chemistry: reaction kinetics",
+    "subtopic": "rate-law order determination and prediction",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "kinetics",
+      "rate law",
+      "reaction order",
+      "initial rates",
+      "rate constant"
+    ],
+    "learning_objective": "Determine the individual reaction orders and rate constant from initial-rate data, then predict the rate at new concentrations.",
+    "question": "For the reaction 2 A + B → products, the following initial-rate data were obtained at constant temperature. Experiment 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 2.0×10^-3 M s^-1. Experiment 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 8.0×10^-3 M s^-1. Experiment 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 4.0×10^-3 M s^-1. What is the predicted initial rate when [A] = 0.30 M and [B] = 0.30 M?",
+    "choices": {
+      "A": "1.6×10^-1 M s^-1",
+      "B": "5.4×10^-2 M s^-1",
+      "C": "1.8×10^-2 M s^-1",
+      "D": "6.0×10^-3 M s^-1",
+      "E": "5.4×10^-3 M s^-1"
+    },
+    "correct_answer": "B",
+    "explanation": "Comparing Exp 1→2: [A] doubles at constant [B] and the rate quadruples (×4), so the order in A is 2. Comparing Exp 1→3: [B] doubles at constant [A] and the rate doubles (×2), so the order in B is 1. Hence rate = k[A]^2[B], overall third order. Using Exp 1: k = 2.0×10^-3 / [(0.10)^2(0.10)] = 2.0×10^-3 / 1.0×10^-3 = 2.0 M^-2 s^-1. For [A]=0.30, [B]=0.30: rate = 2.0 × (0.30)^2 × (0.30) = 2.0 × 0.09 × 0.30 = 5.4×10^-2 M s^-1. Note the stoichiometric coefficient of A (2) does not set the order — orders come only from the data.",
+    "option_analysis": {
+      "A": "Wrong: assumes the order in A equals its stoichiometric coefficient plus over-counts B, using an inflated overall order.",
+      "B": "Correct: orders are 2 in A and 1 in B, k = 2.0 M^-2 s^-1, so rate = 2.0×(0.30)^2×0.30 = 5.4×10^-2 M s^-1.",
+      "C": "Wrong: takes the order in A as 1 (assuming rate ∝ [A]) rather than 2, giving 2.0×0.30×0.30 = 1.8×10^-2 M s^-1.",
+      "D": "Wrong: simply triples the Exp-1 rate (treating both concentration increases as linear and additive) rather than applying the actual rate law.",
+      "E": "Wrong: correct concentration factors but a power-of-ten slip in k (using 0.20 instead of 2.0), off by a factor of 10."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0009",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Stoichiometry and structure",
+    "subtopic": "Limiting reagent and percentage yield",
+    "difficulty": "medium",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "stoichiometry",
+      "limiting-reagent",
+      "percentage-yield",
+      "thermite"
+    ],
+    "learning_objective": "Identify the limiting reagent from given masses and combine it with a percentage yield to predict the actual mass of product.",
+    "question": "The thermite reaction proceeds as 2 Al + Fe₂O₃ → Al₂O₃ + 2 Fe. A mixture containing 5.4 g of aluminium and 24.0 g of iron(III) oxide is ignited and reacts to 80.0% yield. What mass of iron metal is obtained? (Molar masses in g mol⁻¹: Al = 27.0, Fe₂O₃ = 160.0, Fe = 55.85.)",
+    "choices": {
+      "A": "13.4 g",
+      "B": "11.2 g",
+      "C": "16.8 g",
+      "D": "8.9 g",
+      "E": "6.7 g"
+    },
+    "correct_answer": "D",
+    "explanation": "Moles: Al = 5.4/27.0 = 0.200 mol; Fe₂O₃ = 24.0/160.0 = 0.150 mol. The equation needs Al:Fe₂O₃ = 2:1, so 0.200 mol Al requires only 0.100 mol Fe₂O₃. Fe₂O₃ is in excess and Al is limiting. From 2 Al → 2 Fe, moles of Fe = moles of Al = 0.200 mol, giving a theoretical mass of 0.200 × 55.85 = 11.17 g. Applying the 80.0% yield: 0.800 × 11.17 = 8.9 g.",
+    "option_analysis": {
+      "A": "Obtained by wrongly treating Fe₂O₃ as limiting (0.150 mol) to get 0.300 mol Fe = 16.8 g, then a further arithmetic slip — it uses the wrong limiting reagent.",
+      "B": "This is the theoretical (100%) yield of Fe; it ignores the 80% yield factor.",
+      "C": "Uses Fe₂O₃ as limiting (0.150 mol Fe₂O₃ → 0.300 mol Fe = 16.8 g) at 100% yield — wrong limiting reagent and no yield correction.",
+      "D": "Correct: Al is limiting (0.200 mol Fe theoretical = 11.17 g), and 80% of 11.17 g = 8.9 g.",
+      "E": "Halves the correct answer, as if only 1 mol Fe formed per 2 mol Al (misreading the 2:2 stoichiometry as 2:1)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0010",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Stoichiometry and structure",
+    "subtopic": "Gas laws combined with stoichiometry",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "gas-laws",
+      "ideal-gas",
+      "stoichiometry",
+      "decomposition"
+    ],
+    "learning_objective": "Combine reaction stoichiometry with the ideal gas equation to compute the volume of gas released under stated conditions, accounting for incomplete conversion.",
+    "question": "A 12.5 g sample of calcium carbonate is heated and 90.0% of it decomposes according to CaCO₃(s) → CaO(s) + CO₂(g). The carbon dioxide released is collected at 27 °C and 1.00 atm. What volume does it occupy? (M(CaCO₃) = 100.0 g mol⁻¹; R = 0.0821 L atm mol⁻¹ K⁻¹.)",
+    "choices": {
+      "A": "2.52 L",
+      "B": "5.54 L",
+      "C": "2.77 L",
+      "D": "3.08 L",
+      "E": "0.281 L"
+    },
+    "correct_answer": "C",
+    "explanation": "Moles of CaCO₃ = 12.5/100.0 = 0.125 mol. Only 90.0% decomposes, so moles of CO₂ = 0.900 × 0.125 = 0.1125 mol. The absolute temperature is 27 + 273 = 300 K. Using PV = nRT: V = nRT/P = (0.1125 × 0.0821 × 300)/1.00 = 2.77 L.",
+    "option_analysis": {
+      "A": "Uses T = 27 K (forgets to convert °C to kelvin) with the correct 0.1125 mol — but the wrong T; the value shown reflects using 273 K instead of 300 K.",
+      "B": "Doubles the moles of CO₂, as if 2 mol CO₂ formed per mol CaCO₃, then applies the gas law.",
+      "C": "Correct: 0.1125 mol CO₂ at 300 K and 1.00 atm gives V = 2.77 L.",
+      "D": "Ignores the 90% conversion and uses the full 0.125 mol, giving 3.08 L.",
+      "E": "Uses T = 27 K (treating the Celsius value as an absolute temperature) with 0.1125 mol, giving only 0.281 L."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0011",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Redox chemistry",
+    "subtopic": "Oxidation numbers and electron balance",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "redox",
+      "oxidation-number",
+      "electron-transfer",
+      "dichromate"
+    ],
+    "learning_objective": "Assign oxidation-state changes in a redox reaction, balance electron transfer, and use the electron stoichiometry to relate moles of oxidant and reductant.",
+    "question": "In acidic solution, dichromate oxidises iron(II): Cr₂O₇²⁻ + Fe²⁺ + H⁺ → Cr³⁺ + Fe³⁺ + H₂O (unbalanced). If 0.0200 mol of Cr₂O₇²⁻ is completely reduced, how many moles of Fe²⁺ are oxidised?",
+    "choices": {
+      "A": "0.0600 mol",
+      "B": "0.0200 mol",
+      "C": "0.240 mol",
+      "D": "0.0400 mol",
+      "E": "0.120 mol"
+    },
+    "correct_answer": "E",
+    "explanation": "Each Cr in Cr₂O₇²⁻ is +6 and becomes +3 in Cr³⁺, a gain of 3 electrons per Cr. With two Cr atoms per dichromate ion, one Cr₂O₇²⁻ accepts 6 electrons. Each Fe²⁺ → Fe³⁺ loses 1 electron. To balance electrons, 6 mol Fe²⁺ are needed per mol Cr₂O₇²⁻. Therefore 0.0200 × 6 = 0.120 mol Fe²⁺.",
+    "option_analysis": {
+      "A": "Uses a 3:1 ratio, counting 3 electrons per dichromate (one Cr only) rather than 6 for the pair.",
+      "B": "Assumes a 1:1 mole ratio, ignoring that the electron counts differ (6 vs 1).",
+      "C": "Uses a 12:1 ratio, double-counting by taking +6 charge change per Cr and doubling again over the two atoms.",
+      "D": "Uses a 2:1 ratio, counting only the two Cr atoms but forgetting each Cr transfers 3 electrons.",
+      "E": "Correct: 6 electrons accepted per Cr₂O₇²⁻ (2 Cr × 3 e), so 6 × 0.0200 = 0.120 mol Fe²⁺."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0012",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Atomic structure and periodic trends",
+    "subtopic": "First ionization energy irregularities",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "periodic-trends",
+      "ionization-energy",
+      "electron-configuration",
+      "atomic-structure"
+    ],
+    "learning_objective": "Predict relative first ionization energies across a period, including the dips caused by electron-pair repulsion in np⁴ and the stability of ns² and half-filled np³ configurations.",
+    "question": "Consider the second-period elements boron (Z = 5), carbon (Z = 6), nitrogen (Z = 7) and oxygen (Z = 8). Which one of the following statements about their first ionization energies is correct?",
+    "choices": {
+      "A": "Boron has a higher first ionization energy than carbon, because carbon must lose an electron from a doubly occupied 2p orbital.",
+      "B": "Carbon and nitrogen have equal first ionization energies because both have singly occupied 2p orbitals only.",
+      "C": "Oxygen has the highest first ionization energy of the four because it has the greatest nuclear charge.",
+      "D": "Nitrogen has a higher first ionization energy than oxygen, because removing an electron from N breaks a stable half-filled 2p³ configuration whereas O loses a paired 2p electron.",
+      "E": "First ionization energy increases strictly in the order B < C < N < O, following the increase in nuclear charge across the period."
+    },
+    "correct_answer": "D",
+    "explanation": "First ionization energy generally rises across a period, but there is a well-known dip at group 16 (oxygen): O has configuration 2p⁴, so ionization removes one of a spin-paired pair, and the relief of electron–electron repulsion makes removal easier than expected. Nitrogen (2p³) has a stable half-filled subshell with all p electrons unpaired, so its ionization energy is higher than oxygen's. Hence IE₁(N) > IE₁(O), even though O has the larger nuclear charge. The correct trend is B < C < O < N.",
+    "option_analysis": {
+      "A": "Reverses the B/C order; carbon actually has the higher IE₁ (there is no B<... anomaly here — the anomaly is the small Be/B dip, not C/B this way).",
+      "B": "Wrongly claims equality; C (2p²) and N (2p³) differ, with N higher due to greater nuclear charge and half-filled stability.",
+      "C": "Equates highest nuclear charge with highest IE, ignoring the half-filled/paired-electron effect that puts N above O.",
+      "D": "Correct: the 2p³ half-filled stability of N and the pairing repulsion in O's 2p⁴ make IE₁(N) > IE₁(O).",
+      "E": "Assumes a strictly monotonic increase, missing the O dip; the real order is B < C < O < N."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0013",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Bonding and molecular structure",
+    "subtopic": "Molecular geometry and polarity",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 170,
+    "tags": [
+      "VSEPR",
+      "molecular-geometry",
+      "polarity",
+      "hybridization",
+      "lone-pairs"
+    ],
+    "learning_objective": "Apply VSEPR theory to species with lone pairs, determine molecular geometry, and judge net polarity from the vector sum of bond dipoles.",
+    "question": "Four of the following molecules possess a net dipole moment. Which molecule is NON-polar despite containing polar bonds? (All are stable, known molecules.)",
+    "choices": {
+      "A": "SF₄",
+      "B": "XeF₄",
+      "C": "ClF₃",
+      "D": "NF₃",
+      "E": "OF₂"
+    },
+    "correct_answer": "B",
+    "explanation": "XeF₄ has 6 electron domains around Xe (4 bonding pairs + 2 lone pairs). The two lone pairs occupy opposite axial positions of the octahedral arrangement, leaving the four Xe–F bonds in a square-planar geometry. The four equal Xe–F bond dipoles point to the corners of a square and cancel exactly, so the molecule is non-polar. SF₄ is see-saw (one lone pair) – polar; NF₃ is trigonal pyramidal – polar; ClF₃ is T-shaped – polar; OF₂ is bent – polar. Only XeF₄ has a symmetry that cancels the bond dipoles.",
+    "option_analysis": {
+      "A": "SF₄ is see-saw shaped due to one equatorial lone pair; the dipoles do not cancel, so it is polar.",
+      "B": "Correct: square-planar XeF₄ (2 lone pairs axial) cancels all four bond dipoles, giving zero net moment.",
+      "C": "ClF₃ is T-shaped (two lone pairs); the asymmetric arrangement leaves a net dipole — polar.",
+      "D": "NF₃ is trigonal pyramidal; the three N–F dipoles and the lone pair give a net moment — polar.",
+      "E": "OF₂ is bent (two lone pairs on O); the two O–F dipoles add to a net moment — polar."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0014",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic chemistry",
+    "subtopic": "Functional-group and structural isomerism",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "isomerism",
+      "structural-isomers",
+      "functional-groups",
+      "degrees-of-unsaturation",
+      "organic"
+    ],
+    "learning_objective": "Enumerate all constitutional (structural) isomers of a given molecular formula, correctly including both carbon-skeleton and functional-group isomers while excluding stereoisomers and duplicates.",
+    "question": "How many distinct acyclic constitutional (structural) isomers correspond to the molecular formula C₃H₆O? Count only open-chain, non-cyclic structures, and treat stereoisomers (cis/trans and enantiomers) as the same constitutional isomer.",
+    "choices": {
+      "A": "6",
+      "B": "8",
+      "C": "5",
+      "D": "3",
+      "E": "4"
+    },
+    "correct_answer": "A",
+    "explanation": "C₃H₆O has one degree of unsaturation (a C=C or a C=O), and cyclic forms are excluded by the question. The acyclic constitutional isomers are: (1) propanal, CH₃CH₂CHO; (2) propan-2-one (acetone), CH₃COCH₃; (3) prop-2-en-1-ol, CH₂=CH–CH₂OH; (4) prop-1-en-1-ol, CH₃–CH=CH–OH (an enol); (5) prop-1-en-2-ol, CH₂=C(OH)–CH₃ (an enol); (6) methyl vinyl ether, CH₂=CH–O–CH₃. That is 6 distinct open-chain structures. (Cis/trans forms of prop-1-en-1-ol are not counted separately, and oxirane/oxetane-type rings are excluded.)",
+    "option_analysis": {
+      "A": "Correct: propanal, acetone, and four unsaturated structures (two allyl/vinyl alcohols counted here as prop-2-en-1-ol plus two enols, and methyl vinyl ether) give 6 acyclic isomers.",
+      "B": "Overcounts by including cyclic species (e.g. oxirane, methyloxirane) or by counting cis/trans of an enol separately, contrary to the stated restrictions.",
+      "C": "Counts five, typically by omitting one of the enol isomers (e.g. forgetting prop-1-en-1-ol).",
+      "D": "Counts only the aldehyde, the ketone and one alcohol, missing the ether and the enols.",
+      "E": "Counts only propanal, acetone, allyl alcohol and methyl vinyl ether, omitting the two additional enol isomers."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  }
+]

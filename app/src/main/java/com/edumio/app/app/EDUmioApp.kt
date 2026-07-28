@@ -1,0 +1,156 @@
+package com.edumio.app.app
+
+import android.app.Application
+import android.content.Context
+import android.content.Intent
+import android.os.Process
+import android.util.Log
+import com.edumio.app.CrashActivity
+import com.edumio.app.core.ActiveProfileManager
+import com.edumio.app.core.OnboardingPrefs
+import com.edumio.app.core.ProfileStore
+import com.edumio.app.db.DataIntegrityChecker
+import com.edumio.app.db.DatabaseProvider
+import com.edumio.app.db.DbSeeder
+import com.edumio.app.db.StartupAuditRecorder
+import com.edumio.app.db.StartupRuntimeState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import com.edumio.app.league.LeagueScheduler
+import java.io.File
+
+class EDUmioApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        logStartupPersistenceSync(this)
+        // Ensure a valid profile ID exists on first launch (single-profile mode).
+        ActiveProfileManager.getActiveProfileId(this)
+        // The Lig (league) surface is hidden for the first Play release — it has no backend and its
+        // opponents are simulated — so its weekly reset work is not scheduled either.
+        if (com.edumio.app.release.ReleaseProfile.leagueEnabled) LeagueScheduler.scheduleNextReset(this)
+        // Safe local study reminders (real-data gated inside the worker).
+        com.edumio.app.notification.NotificationScheduler.schedule(this)
+        // Daily Challenge reminders (09:00 / 16:00 / 20:30 local); suppressed once today is completed.
+        com.edumio.app.dailychallenge.DailyChallengeReminderScheduler.schedule(this)
+
+        CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
+            StartupRuntimeState.markInitializing()
+            Log.i(STARTUP_LOG_TAG, "Startup: seed → audit → publish (sequential IO)")
+            val payload = withContext(Dispatchers.IO) {
+                logStartupPersistenceAsync(this@EDUmioApp)
+                // LEGACY K-12/LGS/grade_based seed pipeline (the source of "15² kaçtır?"-style questions) is
+                // DEBUG-ONLY. In production EDUmio ships ONLY the isolated exam banks seeded below (IMAT,
+                // EdumioOriginal, TIL-I, CEnT-S) — no legacy content ever enters the DB.
+                val didSeed = if (com.edumio.app.BuildConfig.DEBUG) DbSeeder.seedIfNeeded(this@EDUmioApp) else false
+                Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed (legacy pipeline debug-only)")
+                val integrityResult = DataIntegrityChecker.runCleanup(this@EDUmioApp)
+                Log.i(STARTUP_LOG_TAG, "IntegrityCheck: hardDeleted=${integrityResult.hardDeleted} totalMarked=${integrityResult.totalMarked}")
+                // Seed the isolated official IMAT bank AFTER integrity cleanup so those
+                // official items are never touched by the K-12/LGS-tuned cleanup pass.
+                val imatSeeded = DbSeeder.seedImatIfNeeded(this@EDUmioApp)
+                Log.i(STARTUP_LOG_TAG, "IMAT seed: inserted=$imatSeeded")
+                // Seed the isolated EdumioOriginal ORIGINAL bank the same way (own pool, own version).
+                val edumio_originalSeeded = DbSeeder.seedEdumioOriginalIfNeeded(this@EDUmioApp)
+                Log.i(STARTUP_LOG_TAG, "EdumioOriginal seed: inserted=$edumio_originalSeeded")
+                // Seed the isolated TIL-I & CEnT-S Daily Challenge banks (own pools, own versions).
+                // Only production-eligible, semantically-verified questions ship in these assets.
+                val tilSeeded = DbSeeder.seedTilIIfNeeded(this@EDUmioApp)
+                val centsSeeded = DbSeeder.seedCentsIfNeeded(this@EDUmioApp)
+                Log.i(STARTUP_LOG_TAG, "TIL-I seed: inserted=$tilSeeded | CEnT-S seed: inserted=$centsSeeded")
+                val p = StartupAuditRecorder.finalizeStartupAudit(this@EDUmioApp)
+                Log.i(
+                    "AppStartupAudit",
+                    "AppStartupAudit: total=${p.auditSnapshot.total} active=${p.auditSnapshot.active} inactive=${p.auditSnapshot.inactive}"
+                )
+                p
+            }
+            StartupRuntimeState.publishReady(payload)
+        }
+
+        // DEBUG-ONLY developer crash screen. In a release build this must NOT be installed: it replaces
+        // (rather than chains) the default handler, which orphans Crashlytics and suppresses Play Console
+        // vitals — and it would show the user an obfuscated R8 stack trace under an English title.
+        if (com.edumio.app.BuildConfig.DEBUG) {
+            Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
+                try {
+                    val text = buildFullCrashReport(throwable)
+                    val i = Intent(this, CrashActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        putExtra("crash_text", text)
+                        putExtra("stack_trace", text)
+                        putExtra("error_details", text)
+                    }
+                    startActivity(i)
+                    Thread.sleep(400)
+                } catch (_: Exception) {
+                    // ignore
+                }
+                Process.killProcess(Process.myPid())
+                exitProcess(10)
+            }
+        }
+    }
+}
+
+private const val STARTUP_LOG_TAG = "EDUmioStartup"
+
+private fun logStartupPersistenceSync(context: Context) {
+    try {
+        val onboardingDone = OnboardingPrefs.isDone(context)
+        val profileCount = ProfileStore(context).getProfiles().size
+        val dataDir = context.applicationInfo?.dataDir ?: context.filesDir?.parent ?: "?"
+        val sharedPrefsDir = File(dataDir, "shared_prefs")
+        val prefsExists = sharedPrefsDir.exists() && sharedPrefsDir.isDirectory
+        val onboardingPrefsFile = File(sharedPrefsDir, "edu_onboarding_prefs.xml")
+        Log.i(STARTUP_LOG_TAG, "Persistence at startup (sync): onboardingDone=$onboardingDone profileCount=$profileCount dataDir=$dataDir sharedPrefsDirExists=$prefsExists onboardingPrefsFileExists=${onboardingPrefsFile.exists()}")
+    } catch (e: Exception) {
+        Log.w(STARTUP_LOG_TAG, "logStartupPersistenceSync failed", e)
+    }
+}
+
+private suspend fun logStartupPersistenceAsync(context: Context) {
+    try {
+        val db = DatabaseProvider.get(context)
+        // Note: database file keeps legacy name "edumio.db" for existing install compatibility
+        val dbPath = context.getDatabasePath("edumio.db")?.absolutePath ?: "?"
+        val dbExists = context.getDatabasePath("edumio.db")?.exists() ?: false
+        val meta = db.appMetaDao()
+        val dbSeeded = meta.get("db_seeded")
+        val dbSeedVersion = meta.get("db_seed_version")
+        val questionCount = db.questionDao().countAll()
+        Log.i(STARTUP_LOG_TAG, "Persistence at startup (async): dbPath=$dbPath dbExists=$dbExists db_seeded=$dbSeeded db_seed_version=$dbSeedVersion questionCount=$questionCount")
+    } catch (e: Exception) {
+        Log.w(STARTUP_LOG_TAG, "logStartupPersistenceAsync failed", e)
+    }
+}
+
+private fun buildFullCrashReport(throwable: Throwable): String = buildString {
+    val STACK_LINES = 60
+    var t: Throwable? = throwable
+    var depth = 0
+    while (t != null) {
+        val prefix = if (depth == 0) "" else "Caused by: "
+        append(prefix).append(t.javaClass.name)
+        t.message?.let { msg -> append(": ").append(msg) }
+        append("\n\n")
+        val trace = t.stackTrace
+        val linesToShow = minOf(STACK_LINES, trace.size)
+        for (i in 0 until linesToShow) {
+            append("\tat ").append(trace[i].toString()).append("\n")
+        }
+        if (trace.size > STACK_LINES) {
+            append("\t... ").append(trace.size - STACK_LINES).append(" more\n")
+        }
+        append("\n")
+        t = t.cause
+        depth++
+    }
+}.take(50_000)
+
+private fun exitProcess(code: Int): Nothing {
+    kotlin.system.exitProcess(code)
+}

@@ -1,0 +1,192 @@
+[
+  {
+    "id": "mio_ct_0062",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Principle application",
+    "subtopic": "Identifying the general principle an argument relies on: the tacit rule that, if accepted, licenses the move from the stated reason to the conclusion (relevance-only evaluation) in a single non-comparative argument",
+    "difficulty": "medium",
+    "estimated_time_seconds": 55,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "principle identification",
+      "relevance"
+    ],
+    "learning_objective": "Identify the general, often unstated, principle on which an argument's inference depends, distinguishing it from over-broad or merely empirical restatements.",
+    "question": "A food critic writes in her column: 'I have learned that the owner of this restaurant supports a political party I find repugnant. Nevertheless, I will not lower the restaurant's rating on that account. My task is to judge the cooking, the service and the value for money, and by those measures the restaurant remains excellent. Its three-star rating therefore stands.' Which of the following principles does the critic's reasoning most rely on?",
+    "choices": {
+      "A": "What a business sells matters more to its customers than who owns it.",
+      "B": "One should never allow personal feelings to influence any professional decision one makes.",
+      "C": "Criticism is fair only when the critic and the person being criticised have no personal connection.",
+      "D": "A person's private opinions ought to have no bearing on their public reputation.",
+      "E": "An assessment should be governed only by considerations that are relevant to the specific quality it sets out to measure."
+    },
+    "correct_answer": "E",
+    "explanation": "The critic reaches her conclusion (the rating stands) from a single reason: her task is to judge cooking, service and value, and the restaurant scores well on those. The move works only if we accept that a rating should be settled purely by factors relevant to what it is meant to measure, so the owner's politics (irrelevant to food quality) must be set aside. That relevance-only rule is the principle the inference depends on. The other options are either too broad, describe the wrong thing, or are empirical claims rather than the operative principle.",
+    "option_analysis": {
+      "A": "Wrong: this is an empirical claim about customer psychology, not the normative principle that licenses the critic's inference; her argument does not turn on what customers care about. Misconception: substituting a factual generalisation for the governing principle.",
+      "B": "Wrong: this is an absolute ban on all feelings in all decisions, far stronger than the argument needs; the critic bars only irrelevant considerations, not every personal reaction (she may still let delight at good food raise a score). Misconception: over-generalising the principle into a sweeping absolute.",
+      "C": "Wrong: this invents an impartiality-through-no-acquaintance condition that the argument never uses; the critic's point is about relevant criteria, not about having no connection to the person judged. Misconception: reading in an unrelated fairness condition.",
+      "D": "Wrong: this concerns a person's reputation in general, not the basis on which an evaluation should be conducted; the critic's argument is about what may count toward a rating, not about protecting the owner's reputation. Misconception: mistaking a broad statement about privacy/reputation for the specific evaluative rule doing the work.",
+      "E": "Correct: the inference from 'good on the relevant measures' to 'rating stands' requires exactly this principle - that an assessment be decided only by considerations relevant to the quality being measured - which is why the owner's irrelevant politics are excluded."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0063",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Spatial reasoning",
+    "subtopic": "Folding a cube net (a bent 1-4-1 net with staggered side tabs) and identifying opposite faces using the rule that faces two apart in a straight strip are opposite",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "critical thinking",
+      "spatial reasoning",
+      "cube net",
+      "visualisation"
+    ],
+    "learning_objective": "Mentally fold a cube net and determine opposite faces, applying the rule that faces two apart along a straight strip fold to opposite sides.",
+    "question": "Six squares, numbered 1 to 6, form a net that folds up into a cube. In the net, squares 1, 2, 3 and 4 form a single vertical strip, with 1 at the top, then 2 below it, then 3, and 4 at the bottom. Square 5 is joined to the left-hand edge of square 1, and square 6 is joined to the right-hand edge of square 3. When the net is folded into a cube, which face is directly opposite face 1?",
+    "choices": {
+      "A": "Face 2",
+      "B": "Face 5",
+      "C": "Face 6",
+      "D": "Face 3",
+      "E": "Face 4"
+    },
+    "correct_answer": "D",
+    "explanation": "The straight strip 1-2-3-4 folds into a band of four side faces around the cube. In such a band, faces that are two apart end up opposite each other, so 1 is opposite 3 and 2 is opposite 4. The two side tabs, 5 (on square 1) and 6 (on square 3), fold to become the remaining top and bottom faces and are opposite each other. Therefore the face opposite 1 is face 3.",
+    "option_analysis": {
+      "A": "Wrong: face 2 sits directly below face 1 in the strip, so they share an edge and become adjacent faces of the cube; adjacent faces are never opposite. Misconception: treating the neighbouring square in the net as the opposite face.",
+      "B": "Wrong: face 5 is joined directly to an edge of face 1, so it is adjacent to face 1, and in any case it pairs with face 6 as the top/bottom of the cube. Misconception: assuming a tab attached to a square folds to the position opposite that square.",
+      "C": "Wrong: face 6 folds to the cap opposite face 5, not opposite face 1; choosing it confuses the two protruding tabs with the strip faces. Misconception: assuming the tab farthest from face 1 must be its opposite.",
+      "D": "Correct: in the four-square strip the faces wrap into a band, and faces two apart in that band are opposite; faces 1 and 3 are two apart, so they fold onto opposite sides of the cube.",
+      "E": "Wrong: face 4 is the far end of the four-strip, but the ends of a four-strip are not opposite - each face pairs with the one two along, giving 1 with 3 and 2 with 4. Misconception: assuming the two ends of the strip are opposite."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0064",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Number and pattern reasoning",
+    "subtopic": "Discovering the generating rule of a numerical sequence: a third-order recurrence (each term the sum of the previous three), rejecting the Fibonacci and geometric-doubling traps",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "critical thinking",
+      "number patterns",
+      "sequences",
+      "recurrence"
+    ],
+    "learning_objective": "Infer the generating rule of a numerical sequence by testing higher-order recurrences and rejecting simpler rules that fit only the earliest terms.",
+    "question": "Consider the sequence 1, 2, 4, 7, 13, 24, 44, ... From the fourth term onwards, every term is produced from the earlier terms by one and the same rule. What is the next term in the sequence?",
+    "choices": {
+      "A": "88",
+      "B": "84",
+      "C": "81",
+      "D": "64",
+      "E": "68"
+    },
+    "correct_answer": "C",
+    "explanation": "From the fourth term on, each term is the sum of the previous three: 1+2+4 = 7, 2+4+7 = 13, 4+7+13 = 24, and 7+13+24 = 44. Applying the same rule, the next term is 13+24+44 = 81. Simpler rules (doubling, or summing the previous two) match only the first few terms and then break, which is what the distractors exploit.",
+    "option_analysis": {
+      "A": "Wrong: 88 = 2 x 44 continues the apparent doubling seen in 1, 2, 4, but doubling already fails at 4 to 7. Misconception: fitting only the earliest terms and ignoring where the simple rule breaks.",
+      "B": "Wrong: 84 = 44 + 40 assumes the gaps double (11, then 20, then about 40). Misconception: forcing a geometric pattern onto the differences.",
+      "C": "Correct: each term from the fourth on equals the sum of the previous three (1+2+4=7, 2+4+7=13, 4+7+13=24, 7+13+24=44), so the next term is 13+24+44 = 81.",
+      "D": "Wrong: 64 = 44 + 20 assumes the most recent gap (24 to 44 is 20) simply repeats, i.e. treats the sequence as eventually arithmetic. Misconception: extrapolating by holding the last first-difference constant.",
+      "E": "Wrong: 68 = 24 + 44 applies a Fibonacci rule (sum of the previous two terms), which does not reproduce the earlier terms (for example 4+7 = 11, not 13). Misconception: assuming any fast-growing integer sequence follows the sum-of-two recurrence."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0065",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: ascertainment / detection (surveillance) bias - attributing a rise in diagnosed cases to rising incidence when improved detection alone can inflate the recorded count",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "critical thinking",
+      "detect the flaw",
+      "detection bias",
+      "epidemiological reasoning"
+    ],
+    "learning_objective": "Recognise ascertainment/detection bias: an increase in detected cases need not reflect an increase in true incidence when the means of detection have improved.",
+    "question": "A regional health officer argues: 'Ten years ago our clinics recorded about 300 new cases of condition X each year; last year they recorded about 1,200. Over the same ten years the region introduced a free, now routine, screening test that picks up many mild cases that would once have gone unnoticed. Even so, the fourfold rise in recorded cases shows that people here have become four times as likely to develop condition X, so we must hunt for a new environmental cause.' The reasoning is flawed mainly because it:",
+    "choices": {
+      "A": "uses the raw number of cases rather than the number of cases per head of the population.",
+      "B": "treats the rise in the number of cases detected as proof of a rise in how often the condition actually occurs, when the new screening test can raise the number detected without the true rate changing.",
+      "C": "compares a single early year with a single recent year instead of averaging over several years.",
+      "D": "concludes that an environmental cause is responsible without first ruling out genetic causes.",
+      "E": "relies only on cases recorded by clinics and ignores cases diagnosed elsewhere."
+    },
+    "correct_answer": "B",
+    "explanation": "The argument slides from 'number of cases detected' to 'how likely people are to develop the condition.' The passage itself supplies a rival explanation: a new, now routine, screening test that finds mild cases previously missed. So the fourfold rise in recorded cases can be an artefact of better detection (ascertainment bias) rather than a genuine rise in incidence, which is the central weakness in the reasoning.",
+    "option_analysis": {
+      "A": "Wrong: a missing per-head denominator matters only if the population changed, and the passage gives no such information; the decisive rival explanation is the screening test. Misconception: assuming the flaw must be a missing per-capita rate.",
+      "B": "Correct: the officer equates more cases detected with more cases occurring, yet the newly introduced routine screening can inflate the recorded count on its own, so the rise does not establish a higher true rate - this is ascertainment/detection bias.",
+      "C": "Wrong: comparing two single years rather than multi-year averages is a minor concern, and a fourfold change with a stated systematic cause is not undone by ordinary year-to-year noise. Misconception: assuming any two-point comparison is automatically the fatal flaw.",
+      "D": "Wrong: failing to rule out genetic causes still grants that incidence rose; the deeper problem is that the rise in true incidence has not been established at all. Misconception: assuming the flaw is always a neglected alternative cause.",
+      "E": "Wrong: if some cases are diagnosed outside clinics, the clinic figures would be an undercount, which would not explain away a real rise and does not touch the detection-versus-incidence confusion. Misconception: treating incomplete counting as the main error."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0066",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Data and graph interpretation",
+    "subtopic": "Interpreting a described line graph: distinguishing the slope (annual net change) from the level (cumulative total) - a positive but falling rate of change still means a rising total",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "critical thinking",
+      "data interpretation",
+      "graph reading",
+      "rate vs level"
+    ],
+    "learning_objective": "Interpret a described line graph by separating the rate of change (slope) from the accumulated level, avoiding the slope-for-level error.",
+    "question": "A line graph plots, for each year from 2016 to 2023, the net change in a firm's customer base during that year (that is, customers gained minus customers lost in that year). Every plotted value is positive. The line rises from 2016 to a peak in 2019 and then falls in each successive year to 2023, where it is still positive (roughly half its 2016 value). Which conclusion is best supported by the graph?",
+    "choices": {
+      "A": "The firm's yearly rate of gaining customers rose in each year from 2019 to 2023.",
+      "B": "The firm's total number of customers fell between 2019 and 2023.",
+      "C": "The firm's total number of customers at the end of 2023 was greater than at the end of any earlier year shown.",
+      "D": "The firm gained more customers in 2016 than in any other year shown.",
+      "E": "The firm's total number of customers stayed the same between 2019 and 2023."
+    },
+    "correct_answer": "C",
+    "explanation": "The graph shows net change (gains minus losses), and every yearly value is positive. A positive net change each year means the running total of customers rose every year, so the total is at its largest at the end of the final year. The declining part of the line (2019 to 2023) shows that the yearly increase got smaller, not that the total shrank - the classic trap of reading a falling slope as a falling level.",
+    "option_analysis": {
+      "A": "Wrong: from 2019 to 2023 the net-change line falls, so the yearly rate of gaining customers decreased, not increased; this option reverses the described trend. Misconception: confusing a still-positive value with a still-rising one.",
+      "B": "Wrong: after 2019 the line falls but stays positive, so the firm still added customers on balance each year; the total therefore rose between 2019 and 2023 rather than falling. Misconception: reading a downward-sloping line as a fall in the underlying quantity (confusing rate with level).",
+      "C": "Correct: because the net change is positive in every year, the cumulative total increases each year, so the end-of-year total is greatest at the end of 2023, later than any earlier year shown.",
+      "D": "Wrong: the largest yearly gain is at the 2019 peak, not in 2016, which is merely where the line starts. Misconception: treating an endpoint of the graph as the maximum.",
+      "E": "Wrong: a positive net change in each year means the total kept increasing through 2019 to 2023, so it did not stay the same. Misconception: assuming that where the change line is falling, the total must be flat."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "İki farklı canlı türünde aynı gen için yapılan DNA analizinde A bazı oranları sırasıyla %28 ve %22 bulunuyor. Bu iki türün DNA'ları için aşağıdaki yorumlardan hangisi kesin olarak söylenebilir?",
+      "options": [
+        "İkisi de aynı türdendir çünkü A oranları birbirine yakındır.",
+        "İkisinde de timin oranı, kendi adenin oranına eşittir.",
+        "Guanin oranı birinde %22, diğerinde %28 olmalıdır.",
+        "Toplam nükleotit sayıları farklıdır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "yorumlama"],
+      "explanation": "DNA'da baz eşleşme kuralına göre A = T her zaman geçerlidir. Hangi tür olursa olsun adenin oranı timin oranına eşittir. G ve C oranları bilinmeden diğer yorumlar kesin değildir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q01"
+    },
+    {
+      "stem": "Bir popülasyonda baskın (B) ve çekinik (b) aleller sayıca eşittir. Bu bireyler kendi aralarında rastgele çiftleştiğinde heterozigot (Bb) genotipli bireylerin oranı yaklaşık yüzde kaç olur?",
+      "options": [
+        "%25",
+        "%50",
+        "%75",
+        "%100"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "alel_orani", "heterozigot", "populasyon"],
+      "explanation": "Baskın ve çekinik aleller eşit olduğunda (B=b=%50), çiftleşmelerde BB %25, bb %25, Bb %50 oranında oluşur. Bu, Punnett karesi ile bulunabilir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q02"
+    },
+    {
+      "stem": "Bir araştırmada aynı genotipe sahip tek yumurta ikizleri farklı çevrelerde büyütülüyor. Biri sporcu, diğeri değil. Boyları eşit, ancak vücut kitleleri farklı. Bu gözlem aşağıdakilerden hangisini destekler?",
+      "options": [
+        "Genotip fenotipi tamamen belirler.",
+        "Çevre bazı özellikleri etkileyebilir; bu özellikler kalıtsal olmayabilir.",
+        "Mutasyon meydana gelmiştir.",
+        "İkizler gerçekte tek yumurta ikizi değildir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "SCENARIO_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["genotip_fenotip", "cevre_etkisi", "modifikasyon"],
+      "explanation": "Aynı genotip, farklı çevre (spor vs hareketsizlik). Vücut kitle farkı çevresel etkiyle oluşur; kas-kilo farkı modifikasyona örnektir. Genotip aynı olduğu halde fenotipte fark var; bu, çevrenin bazı özellikleri etkileyebileceğini gösterir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q03"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam 720 nükleotit vardır. Adenin sayısı guanin sayısının 2 katıdır. Buna göre timin sayısı kaçtır?",
+      "options": [
+        "160",
+        "200",
+        "240",
+        "320"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "denklem"],
+      "explanation": "A = T, G = C. A = 2G. Toplam: 2A + 2G = 720. 2(2G) + 2G = 6G = 720 → G = 120, C = 120. A = 2G = 240 = T.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q04"
+    },
+    {
+      "stem": "Üç farklı bakteri türü antibiyotik ortamına bırakılıyor. A türü tamamen ölüyor, B türünde birkaç koloni kalıyor, C türü neredeyse hepsi yaşıyor. Bu sonuç için aşağıdaki yorumlardan hangisi en güçlü destek bulur?",
+      "options": [
+        "C türü en gelişmiş bakteridir.",
+        "B ve C'de muhtemelen antibiyotiğe direnç sağlayan mutasyonlar vardır; A'da yoktur.",
+        "Antibiyotik A türünü seçmiştir.",
+        "B ve C türleri modifikasyon geçirmiştir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "EXPERIMENT_INTERPRETATION",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "antibiyotik_direnci", "dogal_secilim", "yorumlama"],
+      "explanation": "Antibiyotik ortamında hayatta kalan bireyler genellikle direnç geni taşır; bu da mutasyonla oluşmuş olabilir. Modifikasyon kalıtsal değildir ve bu hızlı seçilimi açıklamaz. B'de az koloni, C'de çok – her ikisinde de direnç mutasyonları olma olasılığı yüksektir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q05"
+    },
+    {
+      "stem": "Aa genotipli bir birey rastgele seçilen başka bir Aa bireyle çaprazlanıyor. Oluşan yavrulardan biri rastgele seçildiğinde bu yavrunun baskın fenotipte olup heterozigot olma olasılığı kaçtır?",
+      "options": [
+        "1/4",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet", "olasilik", "kosullu"],
+      "explanation": "Aa × Aa → 1 AA : 2 Aa : 1 aa. Baskın fenotipliler AA ve Aa (3 adet). Bunların 2'si heterozigot (Aa). Baskın fenotipte olanlardan heterozigot olma olasılığı = 2/3.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q06"
+    },
+    {
+      "stem": "Bir araştırmada koyu renkli güve popülasyonu sanayi devrimi sonrası açık renklilerden daha fazla artmıştır. Ağaç gövdeleri ise dumanla kararmıştır. Bu durum hangi kavramla en iyi açıklanır?",
+      "options": [
+        "Modifikasyon: Güveler çevreye uyum sağlamıştır.",
+        "Doğal seçilim: Koyu renkliler avcılar tarafından daha zor fark edilmiş, daha fazla üremiştir.",
+        "Mutasyon: Güvelerde gen değişimi olmuştur.",
+        "Adaptasyon yalnızca bireyde gerçekleşir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "SCENARIO_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dogal_secilim", "adaptasyon", "cevre", "tarihsel_ornek"],
+      "explanation": "Sanayi devrimi sonrası ağaçlar karardığında açık renkli güveler daha kolay görülüp avlandı; koyu renkliler hayatta kaldı ve daha fazla üredi. Bu doğal seçilim örneğidir. Mutasyon zaten vardı; çevre değişince seçilim etkili oldu.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q07"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin + sitozin oranı %60'tır. Bu molekülde adenin oranı yüzde kaçtır?",
+      "options": [
+        "%10",
+        "%20",
+        "%40",
+        "%60"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "oran"],
+      "explanation": "G + C = %60 → A + T = %40. A = T olduğundan A = %20.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q08"
+    },
+    {
+      "stem": "İki karakter için AaBb genotipli iki birey çaprazlanıyor. Genler bağımsız dağılıyor. Yavrulardan her iki karakterde de çekinik fenotip görülme olasılığı kaçtır?",
+      "options": [
+        "1/16",
+        "1/8",
+        "1/4",
+        "1/2"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "cift_karakter", "bagimsiz_dagilim", "olasilik"],
+      "explanation": "Aa × Aa → aa olasılığı 1/4. Bb × Bb → bb olasılığı 1/4. Bağımsız olaylar: aabb = (1/4)(1/4) = 1/16.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q09"
+    },
+    {
+      "stem": "Bir öğrenci \"Mutasyon ve modifikasyon ikisi de fenotipte değişiklik yapar; bu yüzden ayırt edilemez.\" diyor. Bu önermeyi çürütmek için aşağıdaki gözlemlerden hangisi en etkili olur?",
+      "options": [
+        "İkisinde de DNA değişir.",
+        "Mutasyonda değişim nesillere aktarılabilir; modifikasyonda genellikle aktarılmaz.",
+        "Modifikasyon her zaman zararlıdır.",
+        "Mutasyon sadece hayvanlarda görülür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "modifikasyon", "ayrim", "kalitsal"],
+      "explanation": "Temel fark: Mutasyonda DNA dizilimi değişir ve değişim nesillere aktarılabilir. Modifikasyonda DNA değişmez, çevresel etkiyle fenotip değişir ve genellikle yavrulara geçmez. Bu gözlem, ikisini ayırt etmek için en güçlü kriterdir.",
+      "source": "edumio",
+      "sourceRef": "fen_dna_009_q10"
+    }
+  ]
+}

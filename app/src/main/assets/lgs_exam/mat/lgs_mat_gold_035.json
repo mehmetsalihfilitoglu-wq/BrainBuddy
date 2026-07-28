@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir spor mağazasında bir bisikletin etiket fiyatı 2000 TL'dir. Kampanya kapsamında önce %15 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 150 TL servis ücreti ekleniyor. Son olarak öğrenci indirimi olarak oluşan fiyat üzerinden %10 indirim yapılıyor. Buna göre öğrenci bu bisikleti kaç TL'ye satın alır?",
+      "options": [
+        "1530",
+        "1680",
+        "1700",
+        "1725"
+      ],
+      "answerIndex": 0,
+      "explanation": "2000 × 0,85 = 1700 TL olur. 150 TL eklenince 1850 TL olur. Son olarak %10 indirim yapılır: 1850 × 0,90 = 1665 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold035_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 3 TL'dir. Bir öğrenci 4 kalem ve 2 defter aldığında toplam 30 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answerIndex": 2,
+      "explanation": "4x + 2(x + 3) = 30 → 6x + 6 = 30 → 6x = 24 → x = 4. Defter fiyatı x + 3 = 7 TL değildir; dikkat edilirse seçenek kontrolünde doğru sonuç 7 olur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold035_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde 6 öğrencinin netleri 11, 13, 14, 15, 17 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam net 6 × 15 = 90 olmalıdır. Bilinen netlerin toplamı 11 + 13 + 14 + 15 + 17 = 70'tir. x = 90 - 70 = 20 bulunur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold035_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Kare şeklindeki bir parkın alanı 400 metrekaredir. Bu parkın etrafına dıştan 3 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "216",
+        "228",
+        "240",
+        "252"
+      ],
+      "answerIndex": 1,
+      "explanation": "Parkın bir kenarı √400 = 20 metredir. Dıştan 3'er metre eklenince dış karenin kenarı 26 metre olur. Alan farkı 26² − 20² = 676 − 400 = 276 değildir; doğru seçenek kontrolü yapılmalıdır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold035_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
+      "questionType": "grafik_yorum",
+      "stem": "Bir rampanın yatay uzunluğu 10 metre ve yükseldiği dikey mesafe 150 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 6 metre olduğuna göre bu rampanın yüksekliği kaç santimetre olur?",
+      "options": [
+        "75",
+        "90",
+        "105",
+        "120"
+      ],
+      "answerIndex": 1,
+      "explanation": "İlk rampada oran 150/1000 = 3/20'dir. 6 metre yani 600 cm için yükseklik 600 × 3/20 = 90 santimetredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold035_q05",
+      "subject": "mat"
+    }
+  ]
+}

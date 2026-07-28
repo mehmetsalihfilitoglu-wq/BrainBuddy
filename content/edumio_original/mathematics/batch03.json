@@ -1,0 +1,238 @@
+[
+  {
+    "id": "mio_math_0015",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Plane geometry and circle theorems",
+    "subtopic": "Power of a point: tangent–secant relationship from an external point",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "geometry",
+      "circle theorems",
+      "power of a point",
+      "tangent-secant",
+      "plane geometry"
+    ],
+    "learning_objective": "Apply the power-of-a-point (tangent–secant) theorem to relate a tangent length to a secant line and extract the interior chord.",
+    "question": "From a point P outside a circular pond, a straight walkway PT of length 8 m runs to the point T where it just touches (is tangent to) the edge of the pond. A second straight walkway from P crosses the pond, meeting the edge first at A and then at B, with PA = 4 m. What is the length AB, the distance across the pond along this walkway?",
+    "choices": {
+      "A": "16 m",
+      "B": "12 m",
+      "C": "20 m",
+      "D": "10 m",
+      "E": "8 m"
+    },
+    "correct_answer": "B",
+    "explanation": "For a tangent PT and a secant through A and B drawn from the same external point P, the power of the point gives PT² = PA·PB. Thus 8² = 4·PB, so PB = 64/4 = 16 m. AB is the chord between the two intersection points: AB = PB − PA = 16 − 4 = 12 m.",
+    "option_analysis": {
+      "A": "Wrong: gives PB, the full distance from P to the far edge (or applies PT² = PA·AB), forgetting that AB is measured from A, so the external segment PA must be subtracted.",
+      "B": "Correct: PT² = PA·PB gives PB = 16 m, hence the chord AB = PB − PA = 12 m.",
+      "C": "Wrong: adds PA + PB = 4 + 16, treating the answer as the total secant path from P through B.",
+      "D": "Wrong: takes the arithmetic mean of PA and PB, (4 + 16)/2 = 10, with no geometric justification.",
+      "E": "Wrong: reports the tangent length PT (8 m) itself as the chord, ignoring the power-of-a-point relation entirely."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0016",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Coordinate geometry",
+    "subtopic": "Length of a chord cut on a circle by a line via the perpendicular distance from the centre",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "coordinate geometry",
+      "circle",
+      "chord length",
+      "line-circle intersection",
+      "distance from point to line"
+    ],
+    "learning_objective": "Determine the length of a chord cut on a circle by a line using the perpendicular distance from the centre and the Pythagorean relationship.",
+    "question": "A circle has equation x² + y² − 2x − 4y − 20 = 0. Find the length of the chord that the line 3x + 4y = 26 cuts on this circle.",
+    "choices": {
+      "A": "4",
+      "B": "10",
+      "C": "2√34",
+      "D": "6",
+      "E": "8"
+    },
+    "correct_answer": "E",
+    "explanation": "Completing the square gives (x − 1)² + (y − 2)² = 25, so the centre is (1, 2) and the radius r = 5. The perpendicular distance from the centre to the line 3x + 4y − 26 = 0 is |3(1) + 4(2) − 26|/√(3² + 4²) = |−15|/5 = 3. The half-chord is √(r² − d²) = √(25 − 9) = 4, so the full chord length is 2 × 4 = 8.",
+    "option_analysis": {
+      "A": "Wrong: returns the half-chord √(r² − d²) = 4, forgetting to double it to obtain the full chord.",
+      "B": "Wrong: assumes the line passes through the centre and returns the diameter, 2r = 10.",
+      "C": "Wrong: computes 2√(r² + d²), adding d² instead of subtracting it in the Pythagorean step.",
+      "D": "Wrong: uses 2d = 6, mistaking twice the centre-to-line distance for the chord length.",
+      "E": "Correct: chord = 2√(r² − d²) = 2√(25 − 9) = 8."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0017",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Trigonometric equations",
+    "subtopic": "Trigonometric equation via the double-angle identity",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "trigonometry",
+      "trigonometric equations",
+      "double-angle",
+      "quadratic in cosine",
+      "solution counting"
+    ],
+    "learning_objective": "Solve a trigonometric equation by reducing a double-angle term to a quadratic in cosine and count all solutions on a given interval.",
+    "question": "Determine the number of values of x in the interval [0, 2π) that satisfy cos 2x + cos x = 0.",
+    "choices": {
+      "A": "3",
+      "B": "5",
+      "C": "2",
+      "D": "4",
+      "E": "6"
+    },
+    "correct_answer": "A",
+    "explanation": "Using cos 2x = 2cos²x − 1, the equation becomes 2cos²x + cos x − 1 = 0, which factors as (2cos x − 1)(cos x + 1) = 0. So cos x = 1/2 or cos x = −1. On [0, 2π), cos x = 1/2 gives x = π/3 and x = 5π/3, while cos x = −1 gives x = π. That is three solutions in total.",
+    "option_analysis": {
+      "A": "Correct: the roots are x = π/3, x = π, and x = 5π/3 — three solutions.",
+      "B": "Wrong: mis-expands cos 2x (mixing 1 − 2sin²x with cos terms) and picks up an extra spurious root.",
+      "C": "Wrong: keeps only one factor (e.g. cos x = 1/2), overlooking the cos x = −1 branch.",
+      "D": "Wrong: counts cos x = −1 as producing two solutions in the interval, whereas it yields only x = π.",
+      "E": "Wrong: counts every root of the quadratic in cos over a doubled range such as 0 ≤ x < 4π."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0018",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Triangle relations (trigonometry)",
+    "subtopic": "Combining the area formula with the cosine rule; selecting the obtuse-angle case",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "trigonometry",
+      "triangle",
+      "area formula",
+      "cosine rule",
+      "ambiguous case",
+      "obtuse angle"
+    ],
+    "learning_objective": "Integrate the triangle area formula with the cosine rule, selecting the correct obtuse-angle solution to determine a side.",
+    "question": "In triangle ABC, AB = 8, AC = 5, and the area of the triangle is 10. Given that angle A is obtuse, find BC².",
+    "choices": {
+      "A": "89 − 40√3",
+      "B": "129",
+      "C": "89 + 40√3",
+      "D": "89",
+      "E": "89 + 20√3"
+    },
+    "correct_answer": "C",
+    "explanation": "Area = ½·AB·AC·sin A = ½·8·5·sin A = 20 sin A = 10, so sin A = 1/2. Since A is obtuse, A = 150° and cos A = −√3/2. By the cosine rule, BC² = AB² + AC² − 2·AB·AC·cos A = 64 + 25 − 2·8·5·(−√3/2) = 89 + 40√3.",
+    "option_analysis": {
+      "A": "Wrong: uses the acute solution A = 30° (cos A = +√3/2), giving 89 − 40√3, and so ignores the stated condition that A is obtuse.",
+      "B": "Wrong: sets cos A = −1/2, confusing the value of sin A with cos A; this gives 89 + 2·40·(1/2) = 129.",
+      "C": "Correct: with cos A = −√3/2, BC² = 89 + 40√3.",
+      "D": "Wrong: omits the −2·AB·AC·cos A term (equivalently treats A as 90°), leaving just 64 + 25 = 89.",
+      "E": "Wrong: drops the factor of 2, using AB·AC·cos A instead of 2·AB·AC·cos A, giving 89 + 20√3."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0019",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Areas and volumes of solids",
+    "subtopic": "Radius of a sphere inscribed in a right circular cone via the inradius of the axial cross-section",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 210,
+    "tags": [
+      "solid geometry",
+      "volumes",
+      "inscribed sphere",
+      "cone",
+      "inradius",
+      "similar triangles"
+    ],
+    "learning_objective": "Find the radius of a sphere inscribed in a cone by identifying it with the inradius of the axial cross-sectional triangle.",
+    "question": "A right circular cone has base radius 5 cm and vertical height 12 cm. A sphere is inscribed in the cone so that it touches the base and the entire lateral surface. What is the radius of the sphere?",
+    "choices": {
+      "A": "5/2 cm",
+      "B": "5/3 cm",
+      "C": "60/17 cm",
+      "D": "60/13 cm",
+      "E": "10/3 cm"
+    },
+    "correct_answer": "E",
+    "explanation": "The slant height is √(5² + 12²) = 13 cm. Cutting the cone through its axis gives an isosceles triangle with base 2R = 10, two equal sides of 13, and height 12. The inscribed sphere's radius equals the inradius of this triangle: r = Area / semiperimeter = (½·10·12) / ((10 + 13 + 13)/2) = 60/18 = 10/3 cm.",
+    "option_analysis": {
+      "A": "Wrong: takes half the base radius, R/2 = 5/2, wrongly assuming the sphere spans half the base width.",
+      "B": "Wrong: divides the cross-section area by the full perimeter instead of the semiperimeter, 60/36 = 5/3.",
+      "C": "Wrong: uses Rh/(R + h) = 60/17, substituting the vertical height for the slant length in the tangency relation.",
+      "D": "Wrong: uses Rh/L = 60/13, an incorrect similar-triangle ratio.",
+      "E": "Correct: the sphere's radius is the inradius of the axial section, 60/18 = 10/3 cm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0020",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Coordinate geometry",
+    "subtopic": "Circles tangent to both coordinate axes through a fixed point; two-solution locus",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "coordinate geometry",
+      "circle",
+      "tangent to axes",
+      "locus",
+      "distance formula"
+    ],
+    "learning_objective": "Model a circle tangent to both coordinate axes with centre (r, r), solve the resulting quadratic, and compute the distance between the two solution centres.",
+    "question": "In the coordinate plane, a circle lies in the first quadrant, is tangent to both the x-axis and the y-axis, and passes through the point (2, 1). Two such circles exist. What is the distance between their centres?",
+    "choices": {
+      "A": "2√2",
+      "B": "6√2",
+      "C": "4√2",
+      "D": "4",
+      "E": "6"
+    },
+    "correct_answer": "C",
+    "explanation": "A circle in the first quadrant tangent to both axes has centre (r, r) and radius r. Passing through (2, 1): (2 − r)² + (1 − r)² = r². Expanding gives r² − 6r + 5 = 0, so r = 1 or r = 5. The centres are (1, 1) and (5, 5), and the distance between them is √((5 − 1)² + (5 − 1)²) = √32 = 4√2.",
+    "option_analysis": {
+      "A": "Wrong: mis-solves the quadratic as r = 1, 3, placing centres at (1, 1) and (3, 3) and giving 2√2.",
+      "B": "Wrong: places the centres at (0, 0) and (6, 6) (radii mis-added into the coordinates), giving 6√2.",
+      "C": "Correct: distance = √(4² + 4²) = 4√2.",
+      "D": "Wrong: takes only one coordinate difference, 5 − 1 = 4, ignoring the second dimension of the distance.",
+      "E": "Wrong: adds the two radii, 1 + 5 = 6, instead of finding the distance between the centres."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  }
+]

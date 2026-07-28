@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi olumsuzluk anlamı taşımaz?",
+      "options": ["Hâlâ", "Asla", "Hiç", "Hiçbir zaman"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük ve anlam",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Hâlâ' devam eden bir durumu belirtir ve olumsuzluk içermez; 'asla, hiç, hiçbir zaman' olumsuzluk içerir."
+    },
+    {
+      "stem": "'Yüzme biliyor musun?' cümlesindeki 'mu' hangi işlevi üstlenir?",
+      "options": ["Olumsuzluk", "Soru", "Pekiştirme", "Koşul"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Soru eki",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'-mu/-mü' soru eki cümleye soru anlamı katar."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi ünlem cümlesidir?",
+      "options": ["Bugün hava güzel.", "Yarın okula gideceğim.", "Ne kadar güzel bir gün!", "O oraya gitti mi?"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Cümle türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Ünlem cümleleri güçlü bir duygu ya da sevinç, şaşkınlık ifade eder ve ünlem işareti (!) ile biter."
+    },
+    {
+      "stem": "Bir metnin 'ton'u nedir?",
+      "options": ["Metnin uzunluğu", "Yazarın konuya yönelik duygusal tutumu ya da tavrı", "Metnin konusu", "Paragraf sayısı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin anlama",
+      "skills": ["Eleştirel okuma"],
+      "explanation": "Ton, yazarın metne yansıttığı duygusal tutumu ya da bakış açısını ifade eder; ciddi, ironik, neşeli gibi."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi hem eylem (fiil) hem de isim olarak kullanılabilir?",
+      "options": ["Güzel", "Yaz", "Büyük", "Hızlı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözcük türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Yaz' hem mevsim adı (isim) hem de 'yaz-' eyleminin kök biçimi olarak kullanılabilir."
+    },
+    {
+      "stem": "'Pencereyi kapatır mısın?' cümlesindeki '-ar mısın' hangi anlam taşır?",
+      "options": ["Emir", "Soru+Rica", "Koşul", "Olumsuzluk"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "Bu yapı ricalı soru oluşturur; doğrudan emir yerine nazik bir istek bildirir."
+    },
+    {
+      "stem": "Anlatımda 'ses efekti (onomatope)' ne anlama gelir?",
+      "options": ["Şiirde ritim sağlamak", "Doğadaki bir sesi taklit eden sözcük ya da yapı", "Uzun cümle kullanmak", "Anlam belirsizliği yaratmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Söz sanatları",
+      "skills": ["Dil bilinci"],
+      "explanation": "Onomatope (ses yansımalı sözcük) doğada duyulan sesleri dil aracılığıyla taklit eder: 'miyav, tıkırtı, hışırtı'."
+    },
+    {
+      "stem": "'Güllerin kraliçesi' ifadesinde hangi sanat vardır?",
+      "options": ["Teşhis", "Mecaz-ı mürsel", "Hüsn-i ta'lil", "Teşbih"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Söz sanatları",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'Güllerin kraliçesi' gül yerine güllerin özelliğini/topluluğunu anlatmak için parçadan bütüne ya da bütünden parçaya gidişi simgeleyen mecaz-ı mürsel (ad aktarması) örneğidir."
+    },
+    {
+      "stem": "Hüsn-i ta'lil sanatı nedir?",
+      "options": ["Abartılı söyleyiş", "Bir olayın gerçek nedenini bırakıp güzel/hayali bir nedene bağlama", "Kişileştirme", "Zıt anlamlı sözcükleri yan yana kullanma"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Söz sanatları",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Hüsn-i ta'lil, bir olayın gerçek nedenini açıklamak yerine şiirsel ve güzel bir neden uydurmaktır."
+    },
+    {
+      "stem": "Tecahül-i ârif sanatı nedir?",
+      "options": ["Bilinen bir şeyi bilmez gibi göstererek etkili anlatım", "Kişileştirme", "Abartma", "Benzetme"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Söz sanatları",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Tecahül-i ârif, aslında bilinen bir gerçeği sanki bilinmiyormuş gibi sorarak ya da göstererek anlatıma güç katmaktır."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerin hangisi ikileme değildir?",
+      "options": ["Yavaş yavaş", "Adım adım", "Büyük ev", "Renk renk"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sözcük grupları",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Büyük ev' sıfat tamlamasıdır; 'yavaş yavaş, adım adım, renk renk' tekrara dayalı ikileme örnekleridir."
+    },
+    {
+      "stem": "Bir metin türü olarak 'makale' nasıl tanımlanır?",
+      "options": ["Kurgusal olay anlatısı", "Bir konuda araştırma, inceleme ve kanıt dayalı görüş bildiren yazılı metin", "Kısa şiir", "Mektup türü"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Makale; bir konuyu araştırarak, kanıt ve gerekçeyle desteklenmiş bir görüşü akademik düzeyde sunan yazı türüdür."
+    },
+    {
+      "stem": "Söyleşi (sohbet) yazısı ile makalenin temel farkı nedir?",
+      "options": ["Söyleşi daha uzundur", "Söyleşi/sohbet daha samimi ve konuşma havasında, makale ise akademik ve kanıta dayalıdır", "Makale şiir gibi yazılır", "İkisi aynı türdür"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Sohbet yazısı samimi, esprili ve serbest bir dil kullanırken makale resmi, kanıta dayalı ve akademik bir dil gerektirir."
+    },
+    {
+      "stem": "Gezi yazısı (seyahatname) hangi tür metindir?",
+      "options": ["Kurgusal roman", "Yazarın gezdiği yerleri ve izlenimlerini aktardığı anlatı türü", "Şiir derlemesi", "Tarih kitabı"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Metin türleri",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "Gezi yazısı, yazar ya da gezginin gördüğü yerleri, kültürleri ve izlenimlerini aktardığı gerçekçi bir anlatı türüdür."
+    },
+    {
+      "stem": "Aşağıdaki edebî eserlerin hangisi Türk edebiyatına aittir?",
+      "options": ["Don Kişot", "Suç ve Ceza", "Kiralık Konak", "Uğultulu Tepeler"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk edebiyatı",
+      "skills": ["Edebiyat bilgisi"],
+      "explanation": "'Kiralık Konak' Yakup Kadri Karaosmanoğlu'nun Türk romanıdır; diğerleri yabancı edebiyata aittir."
+    },
+    {
+      "stem": "Bir metnin 'ana fikri' ile 'başlığı' arasındaki ilişki nasıldır?",
+      "options": ["Başlık her zaman ana fikri doğrudan verir", "Başlık konuyu ima edebilir; ana fikri metni okuyunca anlarız", "İkisi her zaman aynıdır", "Başlık hiçbir anlam taşımaz"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin anlama",
+      "skills": ["Okuryazarlık"],
+      "explanation": "Başlık konuya dikkat çeker ya da ipucu verir; ancak metnin tam ana fikrini anlamak için tüm metni okumak gerekir."
+    },
+    {
+      "stem": "'Yazarın amacı nedir?' sorusu metnin hangi boyutunu araştırır?",
+      "options": ["Metnin uzunluğunu", "Yazarın niyetini/mesajını", "Metnin yazıldığı yılı", "Metnin kaç karakteri olduğunu"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Eleştirel okuma",
+      "skills": ["Okuryazarlık"],
+      "explanation": "Yazarın amacı; metni neden yazdığını, ne mesaj vermek istediğini, kime sesleneceğini sorar."
+    },
+    {
+      "stem": "Bir metinde 'kanıt' ile 'görüş' arasındaki fark nedir?",
+      "options": ["Kanıt ve görüş aynı şeydir", "Kanıt doğrulanabilir bir gerçeğe dayanır; görüş ise kişisel yorumdur", "Görüş daha güvenilirdir", "Kanıt yalnızca matematik sorunlarında kullanılır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Eleştirel okuma",
+      "skills": ["Eleştirel düşünme"],
+      "explanation": "Kanıt ölçülebilir ve doğrulanabilir gerçek bilgilerdir; görüş kişinin yorumuna dayalı, kişiden kişiye değişebilen yargıdır."
+    },
+    {
+      "stem": "Aşağıdaki örneklerin hangisi 'kanıt' niteliği taşır?",
+      "options": ["Bu film çok sıkıcıydı.", "Türkiye'de 2023 nüfus sayımına göre yaklaşık 85 milyon kişi yaşıyor.", "Kitaplar en iyi arkadaştır.", "Doğa harikadır."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Eleştirel okuma",
+      "skills": ["Eleştirel düşünme"],
+      "explanation": "İstatistiksel veri kanıttır; 'çok sıkıcı, en iyi arkadaş, harika' ifadeleri ise kişisel yorum/görüştür."
+    },
+    {
+      "stem": "Bir metinde 'önyargı' ne anlama gelir?",
+      "options": ["Gerçek bilgi", "Önceden oluşturulmuş, kanıta dayanmayan olumsuz ya da olumlu yargı", "Nesnel değerlendirme", "Bağımsız araştırma"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Eleştirel okuma",
+      "skills": ["Eleştirel düşünme"],
+      "explanation": "Önyargı, kanıt araştırılmadan önceden oluşturulmuş ve değişmeye dirençli yargılardır."
+    },
+    {
+      "stem": "'Propaganda' metni ile 'bilgi aktarma' metni arasındaki temel fark nedir?",
+      "options": ["Uzunluk farkı", "Propaganda belirli bir görüşü empoze etmeyi hedeflerken bilgi aktarma tarafsız gerçek sunar", "İkisi aynı türdür", "Bilgi aktarma daha edebi dil kullanır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Medya okuryazarlığı",
+      "skills": ["Eleştirel düşünme"],
+      "explanation": "Propaganda okuyucunun düşüncesini değiştirmek için seçici bilgi ve duygusal dil kullanır; bilgi metni tarafsız gerçekler sunar."
+    },
+    {
+      "stem": "Bir metnin hedef kitlesi (okuyucu kitlesi) nasıl belirlenir?",
+      "options": ["Yalnızca başlığına bakarak", "Kullanılan dil, konu ve içerik derinliğine bakarak", "Metnin uzunluğuna göre", "Yazarın ismine göre"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin anlama",
+      "skills": ["Okuryazarlık"],
+      "explanation": "Hedef kitle; metnin dil düzeyi, kullandığı terimler, içerik derinliği ve konuya yaklaşımından anlaşılır."
+    },
+    {
+      "stem": "Aşağıdaki dilsel ifadelerden hangisi doğrudan bir emir bildirmez?",
+      "options": ["Pencereyi kapat!", "Buraya gel!", "Belki çıkarsın.", "Sessiz ol!"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Cümle anlam türleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Belki çıkarsın' öneri/olasılık içerir; doğrudan emir değildir."
+    },
+    {
+      "stem": "Konuşma dilinin yazı dilinden temel farkı nedir?",
+      "options": ["Konuşma dili yazıdan uzundur", "Konuşma dili daha kısa, eksik ve informal yapılar içerirken yazı dili daha kurallı ve formaldır", "Yazı dili daha az sözcük kullanır", "İkisi aynıdır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dil kullanımı",
+      "skills": ["Dil bilinci"],
+      "explanation": "Konuşma dili; kısaltmalar, informal ifadeler ve sözdizimi gevşekliği içerir; yazı dili ise dilbilgisi kurallarına daha sıkı uyar."
+    },
+    {
+      "stem": "Standart dil (yazı dili) neden önemlidir?",
+      "options": ["Bölgesel ağızları silmek için", "Farklı bölgelerden insanların ortak anlayışla iletişim kurabilmesi için", "Yalnızca resmi belgelerde kullanılır", "Halk dilini değiştirmek için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dil kullanımı",
+      "skills": ["Dil bilinci"],
+      "explanation": "Standart dil, farklı bölge ya da toplulukların ortak anlama zemininde buluşmasını sağlayan normlaştırılmış dil biçimidir."
+    },
+    {
+      "stem": "Ağız (lehçe) nedir?",
+      "options": ["Yabancı dillerin etkisiyle ortaya çıkan değişim", "Bir dilin belirli bir bölgede konuşulan ses, biçim ve sözcük farklılıkları içeren yerel biçimi", "Resmi dil kuralları", "Dilin tarihsel en eski biçimi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dil bilinci",
+      "skills": ["Dil bilinci"],
+      "explanation": "Ağız, bir dilin belirli bir coğrafyada farklılaşan ses ve biçimsel özellikler taşıyan konuşma biçimidir."
+    },
+    {
+      "stem": "Yazıda virgülün temel görevlerinden biri nedir?",
+      "options": ["Cümleyi bitirmek", "Bir cümledeki sıralı öğeleri birbirinden ayırmak ve okuma akışını düzenlemek", "Soru sormak", "Diyalog başlatmak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Virgül; sıralı öğeleri ayırır, yüklemden uzak öğeleri belirtir ve ara cümleleri çerçeveler."
+    },
+    {
+      "stem": "Noktalı virgülün (;) kullanım amacı nedir?",
+      "options": ["Cümle sonunda durmak için", "Virgülden güçlü, noktadan zayıf bir duraklama sağlamak; sıralı bağımsız cümleleri ya da uzun sıralamayı bölmek için", "Soru bildirmek için", "Alıntı yapmak için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Noktalama",
+      "skills": ["Yazım ve imla"],
+      "explanation": "Noktalı virgül, aralarında virgülün yetersiz kaldığı daha güçlü bir ayrım gerektiğinde ya da uzun listeleri bölmek için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi aynı zamanda bir yer adıdır (özel isim)?",
+      "options": ["masa", "trabzon", "kalem", "ev"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Özel isimler",
+      "skills": ["Yazım ve imla"],
+      "explanation": "'Trabzon' bir şehir adı olup özel isimdir ve büyük harfle 'Trabzon' yazılmalıdır."
+    },
+    {
+      "stem": "Türkçede unvan ve lakaplar kişi adından önce ya da sonra gelir. Bu sözcükler nasıl yazılır?",
+      "options": ["Hep küçük harfle", "Hep büyük harfle", "Kişi adından önce gelenlerde büyük, sıradan unvanlar küçük harf kullanılabilir", "Yalnızca italik yazılır"],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "topic": "Yazım kuralları",
+      "skills": ["Yazım ve imla"],
+      "explanation": "TDK'ya göre kişi adından önce gelen unvanlar (Doktor Ali) büyük, genel kullanımda küçük harfle de yazılabilir; ancak özel ad niteliğinde olanlar büyük harfle başlar."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'söz öbeği' (kelime grubu) değildir?",
+      "options": ["Güzel çiçek", "Ahmet'in kalemi", "Kitap okudum.", "Hızlı araba"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Söz öbekleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Kitap okudum.' tam bir cümledir; yüklem içerir. Diğerleri yüklem içermeyen söz öbekleridir."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi hem somut hem mecaz anlamda kullanılabilir?",
+      "options": ["Masa", "Kök", "Kalem", "Pencere"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlam bilgisi",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Kök' hem bitkilerin toprağa tutunan organı (somut) hem de köken, temel anlamında mecaz kullanım içerir."
+    },
+    {
+      "stem": "'Sözcüğün birincil anlamı' ne demektir?",
+      "options": ["En sık kullanılan anlamı", "Sözcüğün sözlükteki ilk ve asıl anlamı", "Mecaz anlamı", "Deyim içindeki anlamı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlam bilgisi",
+      "skills": ["Sözcük bilgisi"],
+      "explanation": "Bir sözcüğün birincil (temel) anlamı, tarihsel süreçte kazandığı ve sözlükte ilk sırada yer alan asıl anlamıdır."
+    },
+    {
+      "stem": "'Gönlümü kazandı.' cümlesinde 'gönül' hangi anlamda kullanılmıştır?",
+      "options": ["Somut, gerçek anlam", "Mecaz anlam (duygusal bağlılık)", "Terim anlam", "Yan anlam"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Anlam bilgisi",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Gönlümü kazandı' ifadesinde 'gönül' sevgi, saygı ve duygusal yakınlığı anlatan mecaz bir kullanımdır."
+    },
+    {
+      "stem": "Aşağıdaki atasözlerinin hangisi 'sabır' temasını işler?",
+      "options": ["Sakla samanı, gelir zamanı.", "Damlaya damlaya göl olur.", "Akıllı düşman akılsız dosttan iyidir.", "Söz gümüşse sükût altındır."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Atasözleri",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Damlaya damlaya göl olur', küçük küçük biriken çabaların zamanla büyük sonuçlar doğurduğunu; yani sabrın ve sürekli çabanın değerini vurgular."
+    },
+    {
+      "stem": "'Dost acı söyler.' atasözü ne anlama gelir?",
+      "options": ["Dostlar acı yemekler sever.", "Gerçek dostlar, sevilmese de gerçeği söyler.", "Dostluk acı verir.", "Acı gerçekler saklanmalıdır."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Atasözleri",
+      "skills": ["Anlam kavrama"],
+      "explanation": "Gerçek bir dost, kişiyi memnun etmek yerine ona faydalı olmak için doğruyu ve bazen acı gelen gerçeği söyler."
+    },
+    {
+      "stem": "'Söylemek kolay, yapmak güç.' bu düşünceyi en iyi karşılayan atasözü hangisidir?",
+      "options": ["Söz gümüşse sükût altındır.", "Lokma tatlı, yutmak güç.", "Boş teneke çok ses çıkarır.", "Çalma eline, çalarlar kapına."],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Atasözleri",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Lokma tatlı, yutmak güç' görünüşte kolay olan bir şeyin pratikte zor olduğunu anlatır."
+    },
+    {
+      "stem": "Aşağıdaki deyimlerden hangisi 'anlayışlı ve zeki olmak' anlamında kullanılır?",
+      "options": ["Kafası çalışmak", "Dili tutulmak", "Eli boş dönmek", "Gözü açık olmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Kafası çalışmak' zeki, anlayışlı ve hızlı düşünen biri için kullanılan deyimdir."
+    },
+    {
+      "stem": "'Dili tutulmak' deyiminin anlamı nedir?",
+      "options": ["Çok konuşmak", "Şaşkınlık ya da korku nedeniyle konuşamamak", "Yabancı dil öğrenmek", "Yüksek sesle bağırmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["Anlam bilgisi"],
+      "explanation": "'Dili tutulmak' şaşkınlık, korku ya da üzüntüden konuşma yetisini geçici olarak yitime uğramak anlamına gelir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'örtmece (öfemizm)' örneği vardır?",
+      "options": ["Adam öldü.", "Hayatını kaybetti.", "Bağırdı.", "Düştü."],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Anlam bilgisi",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Hayatını kaybetti' ölümün doğrudan söylenmesi yerine yumuşatılmış biçimidir; bu örtmece (euphemism/öfemizm) kullanımıdır."
+    },
+    {
+      "stem": "Türkçede 'kelam' sözcüğünün Türkçe karşılığı nedir?",
+      "options": ["Yazı", "Söz", "Okuma", "Dil"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözcük kökeni",
+      "skills": ["Sözcük bilgisi"],
+      "explanation": "'Kelam' Arapça kökenli olup 'söz, konuşma' anlamına gelir; TDK'nın önerdiği Türkçe karşılığı 'söz'dür."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi Farsça kökenlidir?",
+      "options": ["Kitap (Ar.)", "Pencere", "Masa (Port./Rum.)", "Sinema (Fr.)"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözcük kökeni",
+      "skills": ["Sözcük bilgisi"],
+      "explanation": "'Pencere' Farsça 'pencare' sözcüğünden Türkçeye geçmiştir."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi Fransızca kökenlidir?",
+      "options": ["Kalem", "Divan", "Asansör", "Pencere"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sözcük kökeni",
+      "skills": ["Sözcük bilgisi"],
+      "explanation": "'Asansör' Fransızca 'ascenseur' sözcüğünden dilimize geçmiştir."
+    },
+    {
+      "stem": "TDK'nın dil çalışmalarındaki temel amacı nedir?",
+      "options": ["Yabancı sözcüklerin kullanımını artırmak", "Türk dilini korumak, geliştirmek ve kurallarını belirlemek", "Yalnızca üniversitelere hizmet etmek", "Eski Osmanlıca metinleri yeniden yayımlamak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Dil kurumları",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Türk Dil Kurumu, Türk dilini araştırmak, korumak, geliştirmek ve kurallarını saptamak amacıyla kurulmuştur."
+    },
+    {
+      "stem": "Yazılı anlatımda 'özgün olmak' ne anlama gelir?",
+      "options": ["Başkalarının fikirlerini kopyalamak", "Düşünceleri kendi bakış açısıyla, özgün söylem ve ifadelerle aktarmak", "Çok uzun yazmak", "Yalnızca basit sözcükler kullanmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yazılı anlatım",
+      "skills": ["Yaratıcı yazarlık"],
+      "explanation": "Özgün olmak; başkalarından esinlense de kendi sesi, bakış açısı ve ifade biçimiyle yazmaktır."
+    },
+    {
+      "stem": "Yazılı bir metni düzenlerken 'revizyon' ne anlama gelir?",
+      "options": ["İlk taslağı silmek", "Yazdığı taslağı baştan okuyarak içerik, yapı ve dil açısından geliştirmek", "Yeni bir başlık koymak", "Yalnızca yazım hatalarını düzeltmek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yazım süreci",
+      "skills": ["Yazılı anlatım"],
+      "explanation": "Revizyon, yazım hataları dahil içerik açısından geliştirme, yeniden yapılandırma ve düzeltme sürecidir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi etkili bir sözlü sunum için gereken özellikler arasında değildir?",
+      "options": ["Konuya hâkim olmak", "Göz teması kurmak", "Sesini monoton ve donuk tutmak", "Akıcı ve açık konuşmak"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sözlü anlatım",
+      "skills": ["İletişim becerileri"],
+      "explanation": "Monoton ses tonu dinleyiciyi sıkar; etkili sunumda ses tonu değiştirilmeli, vurgu ve tonlama kullanılmalıdır."
+    },
+    {
+      "stem": "Dinleme becerisi neden önemlidir?",
+      "options": ["Yalnızca okul sınavları için", "Bilgi edinmek, empati kurmak ve etkili iletişim sağlamak için", "Sadece yabancı dil öğrenmede gereklidir", "Konuşma becerisinden daha az önemlidir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sözlü anlatım",
+      "skills": ["İletişim becerileri"],
+      "explanation": "Etkin dinleme bilgi almayı, duyguları anlamayı ve karşılıklı saygıya dayalı iletişim kurmayı sağlar."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi iyi bir dinleyicinin özelliği değildir?",
+      "options": ["Konuşanın sözünü kesmemek", "Göz teması kurmak", "Konuşurken cep telefonuna bakmak", "Konuşanı anlamaya çalışmak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sözlü anlatım",
+      "skills": ["İletişim becerileri"],
+      "explanation": "Dinleme sırasında telefona bakmak dikkat dağıtır ve karşı tarafa saygısızlık gösterir."
+    },
+    {
+      "stem": "Türkçede '-den beri' ifadesi hangi anlamı taşır?",
+      "options": ["Yön bildirme", "Başlangıç zamanından günümüze kadar süren bir durumu bildirme", "Geçici durum", "Bitiş zamanı bildirme"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Zaman ifadeleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'-den beri' ifadesi belirtilen başlangıç noktasından bu yana süregelen bir durumu anlatır: 'Sabahtan beri çalışıyorum.'"
+    },
+    {
+      "stem": "'Kadar' sözcüğü aşağıdaki hangi anlamı verebilir?",
+      "options": ["Yalnızca zaman anlamı", "Miktar, derece, zaman ve karşılaştırma anlamları", "Sadece yer bildirme", "Yalnızca soru anlamı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Edatlar",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Kadar' eşitlik, sınır, ölçü veya zaman bildiren çok işlevli bir edattır: 'Saat ikiyi buldu kadar, onun kadar, bu kadar'."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi bir 'tekil yargı cümlesi' değildir?",
+      "options": ["Ali geldi.", "Kitap okundu.", "Hem Ali hem Ayşe geldi.", "Kar yağdı."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Cümle yapısı",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Hem Ali hem Ayşe geldi.' birden fazla özneyi içerdiğinden tekil özne-tek yargı değil; bağlı yapıyı içerir."
+    },
+    {
+      "stem": "Öğretici metnin dili nasıl olmalıdır?",
+      "options": ["Şiirsel ve mecaz ağırlıklı", "Açık, yalın, anlaşılır ve kanıt temelli", "Ağlak ve duygusal", "Yalnızca soru cümleleri içermeli"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["Yazılı anlatım"],
+      "explanation": "Öğretici metinler anlaşılırlık ve güvenilirlik için yalın, açık ve kanıta dayalı bir dil kullanır."
+    },
+    {
+      "stem": "Bir metnin giriş, gelişme ve sonuç bölümlerinden oluşması hangi ilkeye dayanır?",
+      "options": ["Özgün anlatım ilkesi", "Metnin bütünlüğü ve planlaması ilkesi", "Kısa yazma ilkesi", "Kanıt toplama ilkesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yazım süreci",
+      "skills": ["Yazılı anlatım"],
+      "explanation": "Giriş-gelişme-sonuç yapısı, metnin mantıksal ve akıcı bir bütün oluşturmasını sağlayan temel planlama ilkesidir."
+    },
+    {
+      "stem": "Bir yazıda 'kaynak göstermek' neden önemlidir?",
+      "options": ["Yazıyı uzatmak için", "Okuyucunun bilginin doğruluğunu doğrulayabilmesi ve fikir hırsızlığından kaçınmak için", "Yalnızca akademik metinlerde gereklidir", "Metnin görünümünü iyileştirmek için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Akademik yazarlık",
+      "skills": ["Yazılı anlatım"],
+      "explanation": "Kaynak göstermek; bilginin doğrulanabilirliğini artırır, fikir hırsızlığını (intihal) önler ve okuyucuya daha fazla araştırma imkânı sunar."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde abartmalı (mübalağalı) bir ifade vardır?",
+      "options": ["Bu kitap 300 sayfadır.", "Sesi dağları yerinden oynattı.", "Hava bugün soğuk.", "Üç saat bekledi."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Söz sanatları",
+      "skills": ["Anlam kavrama"],
+      "explanation": "'Sesi dağları yerinden oynattı' gerçekçi olmayan bir abartıyla mübalağa sanatı yapılmaktadır."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisinde '-sız/-siz' eki olumsuzluk bildirmektedir?",
+      "options": ["Yüzsüz", "Evsiz", "Sessiz", "Hepsi"],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "topic": "Yapım ekleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'-sız/-siz' eki 'sahip olmama, yokluk' anlamı verir: yüzsüz (yüzü olmayan/utanmaz), evsiz (evi olmayan), sessiz (sesi olmayan). Hepsi olumsuzluk bildirmektedir."
+    },
+    {
+      "stem": "Türkçede '–(y)abilmek / –(y)ebilmek' eki ne anlama gelir?",
+      "options": ["Zorunluluk", "Yeterlilik/Olasılık (yapabilme gücü)", "Olumsuzluk", "Emir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Fiil ekleri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'-(y)abil-' yeterlilik eki; bir eylemi yapabilme yeteneğini ya da olasılığını bildirir: 'gidebilir, yazabilir'."
+    },
+    {
+      "stem": "'Neden-sonuç' ilişkisiyle kurulan cümleyi bulunuz.",
+      "options": ["Hava güzeldi ve dışarı çıktık.", "Hava güzel olduğundan dışarı çıktık.", "Hava güzeldi; ama dışarı çıkmadık.", "Hava güzel miydi?"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Cümle anlam ilişkileri",
+      "skills": ["Dil bilgisi"],
+      "explanation": "'Hava güzel olduğundan dışarı çıktık.' neden (güzel hava) – sonuç (çıkmak) ilişkisi kurar."
+    }
+  ]
+}

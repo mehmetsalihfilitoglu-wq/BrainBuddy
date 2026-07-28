@@ -1,0 +1,664 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "Bir çiftçinin 6 tarlası vardır. Her tarlanın alanı 245 metrekaredir. Tüm tarlaların toplam alanı kaç metrekaredir?",
+      "options": ["1470", "1420", "1450", "1520"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma",
+      "skills": ["çok basamaklı çarpma", "problem çözme"],
+      "explanation": "6 × 245 = 6 × 200 + 6 × 45 = 1200 + 270 = 1470 metrekare."
+    },
+    {
+      "stem": "Bir fabrika her gün 348 adet ürün üretiyor. Bu fabrika 7 günde kaç ürün üretir?",
+      "options": ["2436", "2436", "2388", "2484"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma",
+      "skills": ["çok basamaklı çarpma"],
+      "explanation": "7 × 348 = 7 × 300 + 7 × 48 = 2100 + 336 = 2436 ürün."
+    },
+    {
+      "stem": "756 ÷ 9 işleminin sonucu nedir?",
+      "options": ["84", "76", "88", "82"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme",
+      "skills": ["bölme işlemi", "çarpım tablosu"],
+      "explanation": "9 × 84 = 756. Kontrol: 9 × 80 = 720, 9 × 4 = 36, 720 + 36 = 756. Sonuç 84."
+    },
+    {
+      "stem": "968 ÷ 8 işleminde bölüm ve kalan nedir?",
+      "options": ["121 bölüm, kalan 0", "122 bölüm, kalan 0", "120 bölüm, kalan 8", "121 bölüm, kalan 1"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme",
+      "skills": ["tam bölünme kontrolü"],
+      "explanation": "8 × 121 = 968. 8 × 100 = 800, 8 × 21 = 168, 800 + 168 = 968. Kalan 0."
+    },
+    {
+      "stem": "Bir öğrenci 4/8 ile 3/8 kesirlerini toplamak istiyor. Sonuç ne olur?",
+      "options": ["7/8", "7/16", "1/2", "8/7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - Toplama",
+      "skills": ["eş paydali kesir toplama"],
+      "explanation": "Paydalar eşit olduğunda sadece paylar toplanır: 4/8 + 3/8 = (4+3)/8 = 7/8."
+    },
+    {
+      "stem": "5/6 - 2/6 işleminin sonucu nedir?",
+      "options": ["3/6", "3/12", "7/6", "2/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - Çıkarma",
+      "skills": ["eş paydali kesir çıkarma"],
+      "explanation": "Paydalar eşit olduğunda sadece paylar çıkarılır: 5/6 - 2/6 = (5-2)/6 = 3/6."
+    },
+    {
+      "stem": "Bir pizzanın 3/8'i Ali'ye, 2/8'i Ayşe'ye verildi. Toplam ne kadar pizza yenildi?",
+      "options": ["5/8", "5/16", "6/8", "1/2"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - Problem",
+      "skills": ["kesir toplama", "problem yorumlama"],
+      "explanation": "3/8 + 2/8 = 5/8. Paydalar aynı olduğundan paylar toplanır."
+    },
+    {
+      "stem": "Aşağıdaki kesirlerden hangisi 1/2'ye eşittir?",
+      "options": ["4/8", "2/6", "3/9", "5/12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Denk Kesirler",
+      "skills": ["denk kesir bulma", "sadeleştirme"],
+      "explanation": "4/8: her ikisini 4'e bölelim → 1/2. Denk kesirdir. 2/6 = 1/3, 3/9 = 1/3, 5/12 ≠ 1/2."
+    },
+    {
+      "stem": "Bir dikdörtgenin uzun kenarı 12 cm, kısa kenarı 7 cm'dir. Bu dikdörtgenin çevresi kaç cm'dir?",
+      "options": ["38", "36", "84", "19"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre - Dikdörtgen",
+      "skills": ["dikdörtgen çevre formülü"],
+      "explanation": "Çevre = 2 × (uzun kenar + kısa kenar) = 2 × (12 + 7) = 2 × 19 = 38 cm."
+    },
+    {
+      "stem": "Bir karenin bir kenarı 9 cm'dir. Bu karenin çevresi kaç cm'dir?",
+      "options": ["36", "81", "18", "27"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çevre - Kare",
+      "skills": ["kare çevre formülü"],
+      "explanation": "Kare çevresi = 4 × kenar = 4 × 9 = 36 cm."
+    },
+    {
+      "stem": "Bir dikdörtgenin alanı kaç birim karedir? (Uzunluk: 8 cm, Genişlik: 5 cm)",
+      "options": ["40", "26", "13", "45"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan - Dikdörtgen",
+      "skills": ["alan formülü", "dikdörtgen"],
+      "explanation": "Alan = uzunluk × genişlik = 8 × 5 = 40 cm²."
+    },
+    {
+      "stem": "Bir karenin alanı 49 cm²'dir. Bu karenin bir kenarı kaç cm'dir?",
+      "options": ["7", "8", "6", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan - Kare",
+      "skills": ["karekök mantığı", "alan'dan kenar bulma"],
+      "explanation": "Alan = kenar × kenar = kenar². 49 = 7 × 7 → kenar = 7 cm."
+    },
+    {
+      "stem": "3458 sayısında '4' rakamının basamak değeri nedir?",
+      "options": ["400", "40", "4", "4000"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak Değeri",
+      "skills": ["basamak değeri", "büyük sayılar"],
+      "explanation": "3458 sayısında rakamların yerleri: 3 = binler, 4 = yüzler, 5 = onlar, 8 = birler. '4' yüzler basamağında olduğundan değeri 400'dür."
+    },
+    {
+      "stem": "12 450 sayısını rakamlarla yazıldığında hangi seçenek doğrudur?",
+      "options": ["On iki bin dört yüz elli", "Yüz iki bin dört yüz elli", "On iki yüz elli", "İki bin dört yüz elli"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Büyük Sayılar - Okuma",
+      "skills": ["sayı okuma", "basamaklar"],
+      "explanation": "12 450 = 12 bin + 400 + 50 = On iki bin dört yüz elli."
+    },
+    {
+      "stem": "47 692 ile 38 415 sayılarının toplamı nedir?",
+      "options": ["86 107", "85 107", "86 007", "85 007"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama - Büyük Sayılar",
+      "skills": ["büyük sayı toplama", "elde"],
+      "explanation": "47 692 + 38 415: Birler: 2+5=7, Onlar: 9+1=10 (1 elde), Yüzler: 6+4+1=11 (1 elde), Binler: 7+8+1=16 (1 elde), On binler: 4+3+1=8. Sonuç: 86 107."
+    },
+    {
+      "stem": "65 000 - 28 746 işleminin sonucu nedir?",
+      "options": ["36 254", "37 254", "36 154", "37 354"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Çıkarma - Büyük Sayılar",
+      "skills": ["büyük sayı çıkarma", "borçlanma"],
+      "explanation": "65 000 - 28 746 = 36 254. Kontrol: 28 746 + 36 254 = 65 000. ✓"
+    },
+    {
+      "stem": "Bir depoda 4 kutuda toplam 1 200 kalem var. Her kutuda eşit sayıda kalem olduğuna göre, bir kutuda kaç kalem vardır?",
+      "options": ["300", "250", "400", "200"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme - Problem",
+      "skills": ["eşit paylaştırma", "problem çözme"],
+      "explanation": "1200 ÷ 4 = 300. Her kutuda 300 kalem bulunur."
+    },
+    {
+      "stem": "Bir okuldaki 360 öğrenci 8 sınıfa eşit olarak bölünecektir. Her sınıfta kaç öğrenci olur?",
+      "options": ["45", "40", "50", "48"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme - Problem",
+      "skills": ["bölme", "eşit dağıtma"],
+      "explanation": "360 ÷ 8 = 45. Her sınıfta 45 öğrenci bulunur."
+    },
+    {
+      "stem": "Aşağıdaki kesirlerden hangisi en büyüktür?\n3/7, 5/7, 2/7, 6/7",
+      "options": ["6/7", "5/7", "3/7", "2/7"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kesirleri Karşılaştırma",
+      "skills": ["eş paydali kesirleri sıralama"],
+      "explanation": "Paydalar eşit olduğunda pay büyüdükçe kesir büyür. 6 > 5 > 3 > 2, dolayısıyla 6/7 en büyük."
+    },
+    {
+      "stem": "1/4 + 1/4 + 1/4 işleminin sonucu nedir?",
+      "options": ["3/4", "3/12", "1/4", "1"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kesir Toplama",
+      "skills": ["tekrarlı toplama", "kesir"],
+      "explanation": "Paydalar eşit: (1+1+1)/4 = 3/4."
+    },
+    {
+      "stem": "Bir bölme işleminde bölen 6, bölüm 13 ve kalan 4'tür. Bölünen sayı nedir?",
+      "options": ["82", "81", "83", "78"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Bölme - Bölüneni Bulma",
+      "skills": ["bölme ilişkisi", "bölüneni hesaplama"],
+      "explanation": "Bölünen = bölen × bölüm + kalan = 6 × 13 + 4 = 78 + 4 = 82."
+    },
+    {
+      "stem": "Bir dörtgenin iç açılarının toplamı kaç derecedir?",
+      "options": ["360°", "180°", "270°", "90°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometri - İç Açı",
+      "skills": ["çokgen iç açı toplamı"],
+      "explanation": "Bir dörtgenin (4 köşeli çokgen) iç açıları toplamı 360°'dir. Üçgenin 180°, beşgenin 540°."
+    },
+    {
+      "stem": "Bir eşkenar üçgenin bir kenarı 8 cm'dir. Çevresi kaç cm'dir?",
+      "options": ["24", "16", "32", "64"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çevre - Üçgen",
+      "skills": ["eşkenar üçgen çevresi"],
+      "explanation": "Eşkenar üçgenin 3 kenarı eşittir. Çevre = 3 × 8 = 24 cm."
+    },
+    {
+      "stem": "Bir saatte kaç dakika vardır ve bir gün kaç saattir? Bu bilgilerden 3 saatin kaç dakika ettiği nedir?",
+      "options": ["180 dakika", "150 dakika", "240 dakika", "120 dakika"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman Ölçme",
+      "skills": ["saat-dakika dönüşümü"],
+      "explanation": "1 saat = 60 dakika. 3 saat = 3 × 60 = 180 dakika."
+    },
+    {
+      "stem": "2 saat 35 dakika + 1 saat 45 dakika kaç eder?",
+      "options": ["4 saat 20 dakika", "3 saat 80 dakika", "4 saat 80 dakika", "3 saat 20 dakika"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Zaman Toplama",
+      "skills": ["zaman toplama", "dakikadan saate geçiş"],
+      "explanation": "Dakikalar: 35 + 45 = 80 dakika = 1 saat 20 dakika. Saatler: 2 + 1 + 1 = 4 saat. Toplam: 4 saat 20 dakika."
+    },
+    {
+      "stem": "Bir çuval 15 kg pirinç içeriyor. 8 çuval pirincin toplam ağırlığı kaç kg'dır?",
+      "options": ["120", "105", "130", "115"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Problem",
+      "skills": ["çarpma", "ölçü birimleri"],
+      "explanation": "8 × 15 = 8 × 10 + 8 × 5 = 80 + 40 = 120 kg."
+    },
+    {
+      "stem": "Bir öğrenci hesap makinesine 24 × 15 girmek yerine yanlışlıkla 24 × 16 girdi. Sonuç gerçek sonuçtan kaç fazla çıkar?",
+      "options": ["24", "15", "16", "1"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Çarpma - Mantıksal Düşünme",
+      "skills": ["çarpmanın dağılma özelliği"],
+      "explanation": "24 × 16 - 24 × 15 = 24 × (16-15) = 24 × 1 = 24. Sonuç 24 fazla çıkar."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi hem 4'e hem de 6'ya tam bölünür?",
+      "options": ["24", "14", "18", "20"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Bölünebilme",
+      "skills": ["ortak kat bulma", "bölünebilme"],
+      "explanation": "24 ÷ 4 = 6 ✓, 24 ÷ 6 = 4 ✓. 14: 14÷4 tam değil. 18: 18÷4 tam değil. 20: 20÷6 tam değil."
+    },
+    {
+      "stem": "5 000 + 400 + 30 + 7 sayısı hangi seçenektir?",
+      "options": ["5 437", "5 473", "5 374", "5 347"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sayı Yazma",
+      "skills": ["genişletilmiş gösterim", "basamak değeri"],
+      "explanation": "5 000 + 400 + 30 + 7 = 5 437."
+    },
+    {
+      "stem": "Ahmet'in 750 TL'si var. Bir kitap 125 TL, bir defter 45 TL'dir. İkisini aldıktan sonra kaç TL'si kalır?",
+      "options": ["580", "590", "570", "600"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para Hesaplama",
+      "skills": ["çok işlemli problem", "para"],
+      "explanation": "Harcama = 125 + 45 = 170 TL. Kalan = 750 - 170 = 580 TL."
+    },
+    {
+      "stem": "Bir trende 6 vagon var. Her vagonda 48 koltuk bulunuyor. Trenin toplam kaç koltuğu vardır?",
+      "options": ["288", "278", "298", "268"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Problem",
+      "skills": ["çarpma", "çok basamaklı sayılar"],
+      "explanation": "6 × 48 = 6 × 40 + 6 × 8 = 240 + 48 = 288 koltuk."
+    },
+    {
+      "stem": "Bir kutuda 9'ar adet paketlenmiş çikolata var. 315 çikolata kaç kutuda paketlenir?",
+      "options": ["35", "30", "36", "40"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme - Problem",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "315 ÷ 9 = 35. Kontrol: 9 × 35 = 315. ✓"
+    },
+    {
+      "stem": "Aşağıdaki kesirlerden hangisi tam sayıya eşittir?\n8/4, 7/4, 5/4, 9/4",
+      "options": ["8/4", "7/4", "5/4", "9/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - Tam Sayıya Eşitlik",
+      "skills": ["kesir sadeleştirme", "tam sayı"],
+      "explanation": "8/4 = 2 (tam sayı). 7/4, 5/4, 9/4 ise tam sayıya eşit değil; birer karışık kesirdir."
+    },
+    {
+      "stem": "Bir bahçenin uzunluğu 25 m, genişliği 16 m'dir. Bahçenin alanı kaç m²'dir?",
+      "options": ["400", "82", "41", "375"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan - Problem",
+      "skills": ["alan hesaplama", "problem"],
+      "explanation": "Alan = uzunluk × genişlik = 25 × 16 = 400 m²."
+    },
+    {
+      "stem": "Bir parkın çevresi 96 m'dir. Parkin kare olduğu bilindiğine göre her kenarı kaç m'dir?",
+      "options": ["24", "48", "32", "16"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre - Kare (Ters Problem)",
+      "skills": ["çevreden kenar bulma", "kare"],
+      "explanation": "Kare çevresi = 4 × kenar → 96 = 4 × kenar → kenar = 96 ÷ 4 = 24 m."
+    },
+    {
+      "stem": "Aşağıdaki çarpma işlemlerinden hangisinin sonucu en büyüktür?\nA) 12 × 8  B) 9 × 11  C) 7 × 13  D) 15 × 6",
+      "options": ["12 × 8 = 96", "9 × 11 = 99", "7 × 13 = 91", "15 × 6 = 90"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Çarpma Karşılaştırma",
+      "skills": ["zihinden hesaplama", "karşılaştırma"],
+      "explanation": "12×8=96, 9×11=99, 7×13=91, 15×6=90. En büyük sonuç 99 → 9×11."
+    },
+    {
+      "stem": "Bir sayıyı 7 ile çarptığımızda 413 elde ediyoruz. Bu sayı nedir?",
+      "options": ["59", "58", "61", "57"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Bilinmeyeni Bulma",
+      "skills": ["bölme yoluyla bilinmeyen bulma"],
+      "explanation": "Sayı = 413 ÷ 7 = 59. Kontrol: 7 × 59 = 7 × 60 - 7 = 420 - 7 = 413. ✓"
+    },
+    {
+      "stem": "1 km = 1 000 m olduğuna göre, 3 km 450 m kaç metre eder?",
+      "options": ["3 450", "3 045", "3 400", "34 500"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uzunluk Ölçme - Dönüşüm",
+      "skills": ["km-m dönüşümü"],
+      "explanation": "3 km = 3 000 m. 3 km 450 m = 3 000 + 450 = 3 450 m."
+    },
+    {
+      "stem": "Bir sınıfta 32 öğrenci var. Öğretmen onları 4'erli gruplara ayırıyor. Kaç grup oluşur?",
+      "options": ["8", "6", "10", "7"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Bölme - Gruplara Ayırma",
+      "skills": ["bölme", "gruplama"],
+      "explanation": "32 ÷ 4 = 8 grup."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi çift sayıdır ve 3'e de bölünür?",
+      "options": ["18", "14", "16", "20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölünebilme Kuralları",
+      "skills": ["çift sayı", "3'e bölünebilme"],
+      "explanation": "18 çift sayıdır (18÷2=9) ve 3'e bölünür (18÷3=6). 14, 16, 20 3'e tam bölünmez."
+    },
+    {
+      "stem": "500 g + 750 g kaç kg eder?",
+      "options": ["1,25 kg", "1,5 kg", "1 kg", "0,75 kg"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ağırlık Ölçme",
+      "skills": ["gram-kilogram dönüşümü"],
+      "explanation": "500 + 750 = 1 250 g = 1,25 kg (1 kg 250 g)."
+    },
+    {
+      "stem": "Bir litre = 1 000 ml olduğuna göre, 2 litre 350 ml kaç ml eder?",
+      "options": ["2 350", "2 035", "2 300", "23 500"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıvı Ölçme",
+      "skills": ["litre-mililitre dönüşümü"],
+      "explanation": "2 litre = 2 000 ml. 2 000 + 350 = 2 350 ml."
+    },
+    {
+      "stem": "Bir çiftçi 4 hafta boyunca her gün 15 kg meyve topluyor. Toplam kaç kg meyve toplamıştır?",
+      "options": ["420", "400", "405", "440"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Zaman Problem",
+      "skills": ["çok işlemli problem", "haftadan güne dönüşüm"],
+      "explanation": "4 hafta = 28 gün. 28 × 15 = 28 × 10 + 28 × 5 = 280 + 140 = 420 kg."
+    },
+    {
+      "stem": "Bir sayı doğrusunda -3 ile +3 arasında kaç tam sayı vardır? (Uç sayılar dahil)",
+      "options": ["7", "6", "5", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tam Sayılar",
+      "skills": ["sayı doğrusu", "sayma"],
+      "explanation": "-3, -2, -1, 0, +1, +2, +3 → toplam 7 tam sayı."
+    },
+    {
+      "stem": "Bir dikdörtgenin alanı 72 cm² ve genişliği 8 cm'dir. Uzunluğu kaç cm'dir?",
+      "options": ["9", "8", "10", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Alan - Bilinmeyeni Bulma",
+      "skills": ["alan formülü", "bölme yoluyla kenar bulma"],
+      "explanation": "Alan = uzunluk × genişlik → 72 = uzunluk × 8 → uzunluk = 72 ÷ 8 = 9 cm."
+    },
+    {
+      "stem": "9 876 sayısı yuvarlanırsa en yakın bine göre kaçtır?",
+      "options": ["10 000", "9 000", "9 800", "9 900"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yuvarlama",
+      "skills": ["bine yuvarlama"],
+      "explanation": "9 876'nın yüzler basamağı 8'dir (5 veya üstü) → en yakın bin = 10 000."
+    },
+    {
+      "stem": "Bir terazi solda 3 kg 200 g, sağda 2 kg 900 g gösteriyor. Fark kaç gramdır?",
+      "options": ["300", "200", "400", "500"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ağırlık Çıkarma",
+      "skills": ["gram-kg dönüşümü", "çıkarma"],
+      "explanation": "3 kg 200 g = 3 200 g. 2 kg 900 g = 2 900 g. Fark = 3 200 - 2 900 = 300 g."
+    },
+    {
+      "stem": "Bir kağıt fabrikası bir günde 4 560 sayfa kağıt üretebiliyor. Fabrika 5 günde kaç sayfa üretir?",
+      "options": ["22 800", "20 800", "22 000", "21 800"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Problem",
+      "skills": ["çarpma işlemi"],
+      "explanation": "5 × 4 560 = 5 × 4 000 + 5 × 560 = 20 000 + 2 800 = 22 800."
+    },
+    {
+      "stem": "Aşağıdaki kesirlerden hangisi 1'den büyüktür?\n3/5, 7/5, 4/5, 5/5",
+      "options": ["7/5", "3/5", "4/5", "5/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - 1'le Karşılaştırma",
+      "skills": ["1'den büyük kesir", "pay-payda karşılaştırması"],
+      "explanation": "Pay > payda ise kesir 1'den büyüktür. 7/5: 7 > 5 → 1'den büyük. 5/5 = 1, diğerleri < 1."
+    },
+    {
+      "stem": "Bir toplama işleminde toplananlardan biri 3 456, toplam 8 000'dir. Diğer toplanan nedir?",
+      "options": ["4 544", "4 454", "4 544", "4 646"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama - Bilinmeyeni Bulma",
+      "skills": ["çıkarma yoluyla bilinmeyen bulma"],
+      "explanation": "Bilinmeyen = 8 000 - 3 456 = 4 544."
+    },
+    {
+      "stem": "Bir üçgen dik açılıdır. Dik açı dışındaki iki açının toplamı kaç derecedir?",
+      "options": ["90°", "180°", "270°", "45°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üçgen İç Açıları",
+      "skills": ["üçgen açı toplamı", "dik açı"],
+      "explanation": "Üçgende açılar toplamı 180°'dir. Dik açı = 90° olduğundan kalan iki açının toplamı = 180° - 90° = 90°."
+    },
+    {
+      "stem": "Bir öğrenci haftada 6 saat matematik çalışıyor. 9 haftada toplam kaç saat çalışmış olur?",
+      "options": ["54", "45", "63", "56"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çarpma",
+      "skills": ["çarpma tablosu"],
+      "explanation": "9 × 6 = 54 saat."
+    },
+    {
+      "stem": "486 ÷ 6 = ? işlemini doğru yapan öğrenci hangisi?\nAli: 81, Ayşe: 80, Can: 82, Deniz: 79",
+      "options": ["Ali", "Ayşe", "Can", "Deniz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme",
+      "skills": ["bölme kontrolü"],
+      "explanation": "6 × 81 = 486. Ali'nin yanıtı doğrudur. 6 × 80 = 480, 6 × 82 = 492."
+    },
+    {
+      "stem": "1/3 kesrinin payı 2 kat artırılırsa yeni kesir ne olur?",
+      "options": ["2/3", "2/6", "1/6", "3/3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir Değiştirme",
+      "skills": ["pay değişiminin etkisi"],
+      "explanation": "1/3 kesrinin payı 2 kat artınca: 2 × 1 = 2, payda değişmez → 2/3."
+    },
+    {
+      "stem": "Bir bisikletin ön tekeri 2 tam turda kaç derece döner?",
+      "options": ["720°", "360°", "180°", "540°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometri - Döngüsel Açı",
+      "skills": ["tam tur açısı", "çarpma"],
+      "explanation": "Bir tam tur = 360°. 2 tam tur = 2 × 360° = 720°."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 5'e tam bölünür ve 100'den büyük, 120'den küçüktür?",
+      "options": ["105", "103", "108", "112"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölünebilme",
+      "skills": ["5'e bölünebilme", "sayı aralığı"],
+      "explanation": "5'e bölünebilmek için sayı 0 veya 5 ile bitmelidir. 100<sayı<120 aralığında: 105, 110, 115. Seçenekler arasında 105 var."
+    },
+    {
+      "stem": "Bir sınıftaki 28 öğrenci 7 gruba bölünüyor. Her grupta kaç öğrenci var?",
+      "options": ["4", "3", "5", "7"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Bölme",
+      "skills": ["bölme"],
+      "explanation": "28 ÷ 7 = 4 öğrenci her grupta."
+    },
+    {
+      "stem": "Bir çikolata 6 eşit parçaya bölünmüştür. Alındıktan 2 parça yenilirse geriye kalan kesir nedir?",
+      "options": ["4/6", "2/6", "2/4", "6/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesirler - Kalan",
+      "skills": ["kesir çıkarma", "bütünü anlamak"],
+      "explanation": "Tamamı 6/6. 2/6 yenilirse kalan: 6/6 - 2/6 = 4/6."
+    },
+    {
+      "stem": "Bir çiftçi bir haftada 630 kg elma hasat ediyor. Günlük ortalama kaç kg elma hasat eder?",
+      "options": ["90", "80", "85", "95"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme - Ortalama",
+      "skills": ["ortalama hesabı", "bölme"],
+      "explanation": "1 hafta = 7 gün. 630 ÷ 7 = 90 kg/gün."
+    },
+    {
+      "stem": "Bir sayının 3 katı 225'tir. Bu sayı nedir?",
+      "options": ["75", "70", "80", "72"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma - Bilinmeyen",
+      "skills": ["bilinmeyeni bulma", "bölme"],
+      "explanation": "Sayı × 3 = 225 → sayı = 225 ÷ 3 = 75."
+    },
+    {
+      "stem": "36 ile 27'nin EBOB'u (en büyük ortak bölen) nedir?",
+      "options": ["9", "6", "3", "12"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "EBOB",
+      "skills": ["ortak bölen bulma", "EBOB"],
+      "explanation": "36 = 1,2,3,4,6,9,12,18,36. 27 = 1,3,9,27. Ortak bölenler: 1,3,9. En büyüğü: 9."
+    },
+    {
+      "stem": "Bir sınıfta kız öğrenci sayısı 18, erkek öğrenci sayısı 14'tür. Kız öğrencilerin tüm sınıfa oranı kaçtır?",
+      "options": ["18/32", "18/14", "14/32", "18/18"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Oran - Kesir",
+      "skills": ["oran kavramı", "kesir oluşturma"],
+      "explanation": "Toplam öğrenci = 18 + 14 = 32. Kız oranı = 18/32."
+    },
+    {
+      "stem": "Bir araba 3 saatte 210 km yol gidiyor. Saatte ortalama kaç km gider?",
+      "options": ["70", "60", "80", "75"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hız - Problem",
+      "skills": ["ortalama hız hesabı"],
+      "explanation": "210 ÷ 3 = 70 km/saat."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi hem 2'ye hem 3'e hem de 5'e tam bölünür?",
+      "options": ["30", "12", "20", "15"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Bölünebilme",
+      "skills": ["çoklu bölünebilme"],
+      "explanation": "30÷2=15✓, 30÷3=10✓, 30÷5=6✓. 12÷5 tam değil, 20÷3 tam değil, 15÷2 tam değil."
+    },
+    {
+      "stem": "Bir boru fabrikası 9 günde 2 700 boru üretiyor. Günde kaç boru üretir?",
+      "options": ["300", "250", "350", "270"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme - Günlük Üretim",
+      "skills": ["bölme", "günlük hesap"],
+      "explanation": "2 700 ÷ 9 = 300 boru/gün."
+    },
+    {
+      "stem": "Bir üçgenin iki açısı 65° ve 75°'dir. Üçüncü açı kaç derecedir?",
+      "options": ["40°", "50°", "45°", "35°"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üçgen Açıları",
+      "skills": ["üçgen açı toplamı", "çıkarma"],
+      "explanation": "Açılar toplamı = 180°. Üçüncü açı = 180° - 65° - 75° = 40°."
+    },
+    {
+      "stem": "Bir torbada 5 kırmızı, 3 mavi, 2 yeşil top var. Torbadan bir top çekilirse kırmızı çekme olasılığı kaçtır?",
+      "options": ["5/10", "3/10", "2/10", "1/10"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Olasılık - Temel",
+      "skills": ["basit olasılık", "kesir"],
+      "explanation": "Toplam top = 5+3+2 = 10. Kırmızı top = 5. Olasılık = 5/10 = 1/2."
+    },
+    {
+      "stem": "25 × 4 işlemini en kolay nasıl yaparsınız?",
+      "options": ["25 × 4 = 100 (çünkü 4 tane 25 = 100 yapar)", "25 × 4 = 80 (çünkü 20 × 4 = 80)", "25 × 4 = 120 (çünkü 30 × 4 = 120)", "25 × 4 = 90 (çünkü 25+25+25+25 = 90)"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Zihinden Çarpma",
+      "skills": ["sayı ilişkileri", "zihinden hesap"],
+      "explanation": "25 × 4 = 100. 4 tane 25 liralık bozuk para = 100 TL gibi. 4 × 25 = 100."
+    },
+    {
+      "stem": "Bir sayı doğrusunda 0 ile 1 arasında 4 eşit parçaya bölünmüş olsun. Bu parçaların her biri hangi kesri gösterir?",
+      "options": ["1/4", "1/8", "4/1", "2/4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kesir - Sayı Doğrusu",
+      "skills": ["kesir ve sayı doğrusu"],
+      "explanation": "0 ile 1 arasındaki bölge 4 eşit parçaya bölündüğünde her parça 1/4'tür."
+    },
+    {
+      "stem": "Bir öğrenci 72 kartpostalı eşit sayıda zarf içine koyacak. Her zarfa 8 kart koyarsa kaç zarf gerekir?",
+      "options": ["9", "8", "10", "7"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Bölme",
+      "skills": ["bölme", "problem"],
+      "explanation": "72 ÷ 8 = 9 zarf gerekir."
+    },
+    {
+      "stem": "Bir şeker kutusunda 6 sıra var ve her sırada 12 şeker var. Kutuda toplam kaç şeker vardır?",
+      "options": ["72", "62", "82", "66"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çarpma - Dizi",
+      "skills": ["dizi-sütun çarpma"],
+      "explanation": "6 × 12 = 72 şeker."
+    },
+    {
+      "stem": "Bir çelik fabrikası günde 5 650 kg çelik üretiyor. 3 günde toplam kaç kg üretir?",
+      "options": ["16 950", "15 950", "17 950", "16 500"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma",
+      "skills": ["4 basamaklı × 1 basamaklı"],
+      "explanation": "3 × 5 650 = 3 × 5 000 + 3 × 650 = 15 000 + 1 950 = 16 950 kg."
+    },
+    {
+      "stem": "Bir hesapta 4 işlem yapılıyor: 200 + 50 × 3 - 100 ÷ 2. Sonuç nedir?",
+      "options": ["300", "325", "275", "250"],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "İşlem Sırası",
+      "skills": ["işlem önceliği", "karma işlemler"],
+      "explanation": "Önce çarpma ve bölme: 50 × 3 = 150, 100 ÷ 2 = 50. Sonra toplama/çıkarma: 200 + 150 - 50 = 300."
+    }
+  ]
+}

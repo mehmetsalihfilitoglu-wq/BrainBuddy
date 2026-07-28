@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "stem": "Bir kaldıraç sisteminde yük kolu 4 m, kuvvet kolu 12 m'dir. 240 N'luk bir yük dengelenmek istenmektedir. Buna göre uygulanması gereken kuvvet kaç N'dur?",
+      "options": [
+        "40",
+        "60",
+        "80",
+        "120"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet kazancı = 12 / 4 = 3. Kuvvet = 240 / 3 = 80 N.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q01"
+    },
+    {
+      "stem": "Bir kaldıraçta kuvvet kolu yük kolunun 5 katıdır. Bu sistem ile ilgili aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "Kuvvet kazancı yoktur",
+        "Kuvvet kazancı 5'tir",
+        "Yoldan kazanç vardır",
+        "Enerji üretilir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "LEVER_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_kolu", "yuk_kolu"],
+      "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q02"
+    },
+    {
+      "stem": "Bir sistemde 2 sabit ve 2 hareketli makara bulunmaktadır. Buna göre sistemin kuvvet kazancı kaçtır?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "hareketli_makara", "kuvvet_kazanci"],
+      "explanation": "Kuvvet kazancı hareketli makara sayısının iki katıdır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q03"
+    },
+    {
+      "stem": "Kuvvet kazancı 3 olan bir makara sistemi ile 3 m yükseltilen bir yük için ip kaç metre çekilmiştir?",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "PULLEY_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
+      "explanation": "Yoldan kayıp kuvvet kazancı kadardır. 3 × 3 = 9 m.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q04"
+    },
+    {
+      "stem": "Bir eğik düzlemin yüksekliği sabit tutulurken uzunluğu iki katına çıkarılırsa aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Uygulanan kuvvet artar",
+        "Uygulanan kuvvet yarıya iner",
+        "Kuvvet değişmez",
+        "Enerji artar"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "INCLINED_PLANE_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["egik_duzlem", "kuvvet", "uzunluk"],
+      "explanation": "Eğik düzlem uzadıkça gereken kuvvet azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q05"
+    },
+    {
+      "stem": "150 N'luk bir yük 4 m yüksekliğe çıkarılıyor. Buna göre yapılan iş kaç joule'dür?",
+      "options": [
+        "300",
+        "450",
+        "600",
+        "750"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "WORK_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["is", "kuvvet", "yol", "enerji"],
+      "explanation": "İş = Kuvvet × Yol = 150 × 4 = 600 J.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q06"
+    },
+    {
+      "stem": "Bir dişli sisteminde küçük dişli büyük dişliyi döndürdüğünde aşağıdakilerden hangisi gerçekleşir?",
+      "options": [
+        "Hız artar",
+        "Kuvvet artar",
+        "Enerji üretilir",
+        "Hareket yönü değişmez"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "GEAR_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["disli_cark", "kuvvet", "hiz"],
+      "explanation": "Büyük dişli döndüğünde kuvvet artar fakat hız azalır.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q07"
+    },
+    {
+      "stem": "Kuvvet kazancı 4 olan bir kaldıraç ile 200 N'luk yük kaldırılmaktadır. Uygulanan kuvvet kaç N'dur?",
+      "options": [
+        "25",
+        "40",
+        "50",
+        "80"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
+      "explanation": "Kuvvet = Yük / Kuvvet kazancı = 200 / 4 = 50 N.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q08"
+    },
+    {
+      "stem": "Vida ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Kaldıracın gelişmiş hâlidir",
+        "Eğik düzlemin gelişmiş hâlidir",
+        "Makaranın gelişmiş hâlidir",
+        "Dişli çarkın gelişmiş hâlidir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "SCREW_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["vida", "egik_duzlem", "basit_makine"],
+      "explanation": "Vida eğik düzlemin silindir üzerine sarılmış hâlidir.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q09"
+    },
+    {
+      "stem": "Basit makineler için aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Enerji üretirler",
+        "İşten kazanç sağlarlar",
+        "Enerjiyi koruyarak işi kolaylaştırırlar",
+        "Enerjiyi yok ederler"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basit Makineler",
+      "skills": ["basit_makine", "enerji", "is"],
+      "explanation": "Basit makineler enerjiyi korur, işi kolaylaştırırlar.",
+      "source": "edumio",
+      "sourceRef": "fen_bm_003_q10"
+    }
+  ]
+}

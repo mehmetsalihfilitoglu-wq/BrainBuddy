@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir teknoloji mağazasında bir tabletin etiket fiyatı 1500 TL'dir. Mağaza hafta sonu kampanyasında önce ürün fiyatına %20 indirim uyguluyor. Daha sonra indirimli fiyat üzerine 180 TL kargo ve kurulum ücreti ekleniyor. Son aşamada öğrenci indirimi olarak oluşan yeni fiyat üzerinden %10 indirim yapılıyor. Buna göre öğrenci bu tableti kaç TL'ye satın alır?",
+      "options": [
+        "1215",
+        "1242",
+        "1260",
+        "1288"
+      ],
+      "answerIndex": 1,
+      "explanation": "1500 × 0,80 = 1200 TL olur. 180 TL eklenince 1380 TL olur. Son olarak %10 indirim uygulanır: 1380 × 0,90 = 1242 TL.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir okulda bilim kulübü ile sanat kulübündeki öğrenci sayılarının oranı 4 : 7'dir. Bilim kulübüne 8 öğrenci daha katılırken sanat kulübünden 10 öğrenci ayrıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
+      "options": [
+        "55",
+        "66",
+        "77",
+        "88"
+      ],
+      "answerIndex": 1,
+      "explanation": "Başlangıçta bilim kulübü 4k, sanat kulübü 7k olsun. 4k + 8 = 7k - 10 olduğundan 3k = 18 ve k = 6 bulunur. Başlangıçta toplam öğrenci sayısı 11k = 66'dır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "denklem_kurma",
+        "cebirsel_ifadeler",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 5 TL'dir. Bir öğrenci 2 kalem ve 3 defter aldığında toplam 45 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answerIndex": 2,
+      "explanation": "2x + 3(x + 5) = 45 olduğundan 5x + 15 = 45 olur. Buradan 5x = 30 ve x = 6 bulunur. Defterin fiyatı x + 5 = 11 TL'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Kare şeklindeki bir okul bahçesinin alanı 784 metrekaredir. Bu bahçenin etrafına dıştan 2 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": [
+        "208",
+        "224",
+        "240",
+        "256"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bahçenin bir kenarı √784 = 28 metredir. Dıştan 2'şer metre eklendiğinde dış karenin bir kenarı 32 metre olur. Yürüyüş yolunun alanı 32² - 28² = 1024 - 784 = 240 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Dikdörtgen şeklindeki bir bahçenin uzun kenarı kısa kenarından 4 metre fazladır. Bahçenin çevresi 40 metredir. Bu bahçenin alanı kaç metrekaredir?",
+      "options": [
+        "84",
+        "88",
+        "96",
+        "104"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kısa kenar x, uzun kenar x + 4 olsun. 2x + 2(x + 4) = 40 ise 4x + 8 = 40 olur. Buradan x = 8 bulunur. Uzun kenar 12 metredir. Alan 8 × 12 = 96 metrekaredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir etkinlikte kullanılmak üzere 72 kırmızı, 96 mavi ve 120 beyaz kart hazırlanmıştır. Kartlar, her pakette yalnızca tek renk olacak ve bütün paketlerde eşit sayıda kart bulunacak şekilde düzenlenecektir. Kart sayısının bir pakette mümkün olduğunca fazla olması istendiğine göre toplam kaç paket hazırlanır?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bir paketteki kart sayısının en büyük olması için 72, 96 ve 120 sayılarının EBOB'u alınır. EBOB = 24 bulunur. Buna göre paket sayıları 72/24 = 3, 96/24 = 4 ve 120/24 = 5 olur. Toplam paket sayısı 3 + 4 + 5 = 12'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold040_q10",
+      "subject": "mat"
+    }
+  ]
+}

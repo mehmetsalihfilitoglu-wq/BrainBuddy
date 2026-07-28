@@ -1,0 +1,772 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Aşağıdaki cümlelerde 'anlam daralması'na örnek hangisidir?",
+      "options": ["'Etmek' fiili eskiden 'yapmak' anlamında kullanılırken bugün bazı özel birleşimlerle sınırlıdır.", "Kelime anlamı hiç değişmemiştir.", "Kelime yeni anlam kazanmıştır.", "Kelime dilden kalkmıştır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlam değişmeleri",
+      "skills": ["anlam bilgisi"],
+      "explanation": "Anlam daralması: Bir kelimenin zamanla daha dar bir anlamda kullanılır hale gelmesidir."
+    },
+    {
+      "stem": "'Kalemim çok yazıyor.' cümlesinde 'kalem' kelimesi hangi anlamda kullanılmıştır?",
+      "options": ["Düz anlam (gerçek anlam)", "Mecaz anlam", "Deyimsel anlam", "Terim anlam"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük anlam türleri",
+      "skills": ["anlam bilgisi"],
+      "explanation": "Kalem fiziksel olarak yazmak için kullanılan nesneyi ifade ediyor → düz anlam."
+    },
+    {
+      "stem": "'Bu soru benim aklımı çeliyor.' cümlesinde 'aklımı çeliyor' deyiminin anlamı hangisidir?",
+      "options": ["Dikkatimi çekiyor, meraklandırıyor", "Aklımı kaybettiriyor", "Düşünmemi engelliyor", "Zihnime zarar veriyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["deyim anlamı"],
+      "explanation": "'Aklını çelmek/çelemek': Birinin dikkatini çekerek meraklandırmak ya da baştan çıkarmak anlamındadır."
+    },
+    {
+      "stem": "'Boş kaba çok ses gelir.' atasözünün anlamı hangisidir?",
+      "options": ["Bilgisiz ya da yetersiz kimseler çok gürültü çıkarır", "Kap boş olduğunda ses çıkarır", "Bilgili insanlar çok konuşur", "Gürültü boş ortamlarda olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atasözleri",
+      "skills": ["anlam yorumlama"],
+      "explanation": "Bu atasözü, içi boş yani bilgisiz kişilerin en çok gürültü çıkardığını, gereksiz yere çok konuştuğunu anlatır."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi 'ad durum ekleri' almamıştır?",
+      "options": ["Masa", "Masaya", "Masadan", "Masada"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ad hâl ekleri",
+      "skills": ["dil bilgisi"],
+      "explanation": "'Masa' yalın haldedir; herhangi bir durum (hâl) eki almamıştır."
+    },
+    {
+      "stem": "Türkçede '-e hâli' (yönelme hâli) hangi soruya cevap verir?",
+      "options": ["Nereye? Kime? Neye?", "Nerede? Kimde? Nede?", "Nereden? Kimden? Neden?", "Nereyi? Kimi? Neyi?"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ad hâl ekleri",
+      "skills": ["hâl eki bilgisi"],
+      "explanation": "Yönelme hâli (-e/-a): Yönelme, kime/neye yöneltildiğini belirtir. 'Okula gitti.' → Nereye? Okula."
+    },
+    {
+      "stem": "Türkçede 'vasıta hâli' (-le/-la/-yle/-yla) aşağıdaki cümlede hangisidir?",
+      "options": ["Trenle şehre gittim.", "Şehre gittim.", "Şehirde kaldım.", "Şehirden döndüm."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ad hâl ekleri",
+      "skills": ["hâl eki bilgisi"],
+      "explanation": "'Trenle': -le vasıta hâli ekidir; nasıl bir araçla/yolla yapıldığını bildirir."
+    },
+    {
+      "stem": "Türkçede 'iyelik eki' ne anlama gelir?",
+      "options": ["Sahiplik belirten ek; 'benim kitabım', 'onun arabası' gibi", "Çoğulluk eki", "Soru eki", "Fiil zaman eki"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İyelik ekleri",
+      "skills": ["ek bilgisi"],
+      "explanation": "İyelik eki: İsimlere gelerek kime ait olduğunu belirtir. '-ım/-im/-um/-üm' (benim), '-ın/-in' (senin), vb."
+    },
+    {
+      "stem": "Cümle türleri içinde 'sıralı cümle' nedir?",
+      "options": ["Yüklemleri birden fazla olan ve bu yüklemlerin virgül/noktalı virgülle ayrıldığı cümle", "Tek yüklemi olan cümle", "Yüklemi isim olan cümle", "Soru içeren cümle"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["cümle yapısı"],
+      "explanation": "Sıralı cümle: Birden fazla yansıtma cümlesinin virgül ya da noktalı virgülle sıralandığı yapıdır."
+    },
+    {
+      "stem": "'Bağımlı sıralı cümle' ile 'bağımsız sıralı cümle' arasındaki fark nedir?",
+      "options": ["Bağımlı sıralıda yüklemler ögelerini ortaklaşa kullanır; bağımsız sıralıda her cümle kendi başına anlamlıdır", "İkisi aynıdır", "Bağımlı sıralı cümle daha uzundur", "Bağımsız sıralı cümlede virgül yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["cümle yapısı"],
+      "explanation": "Bağımlı sıralı: Ögeleri ortak kullanır. Bağımsız sıralı: Cümleler birbirinden bağımsız anlam taşır."
+    },
+    {
+      "stem": "Aşağıdaki cümlede hangi fiil 'geçişsiz'dir? (Nesne alamaz)",
+      "options": ["Yağmur yağdı.", "Ali kitabı okudu.", "Öğrenci soruyu çözdü.", "Annem yemek yaptı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil türleri",
+      "skills": ["geçişsiz fiil"],
+      "explanation": "'Yağdı' fiiline 'neyi?' sorusu sorulamaz; nesne alamaz → geçişsiz fiil."
+    },
+    {
+      "stem": "Türkçede 'dönüşlü fiil' ne demektir?",
+      "options": ["Eylemin öznesi üzerinde gerçekleştiği fiil (örnek: yıkandı, tarandı)", "Eylemi birkaç kişinin yaptığı fiil", "Eylemi başkasına yaptıran fiil", "Eylemi başkası tarafından yapılan fiil"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil türleri",
+      "skills": ["dönüşlü fiil"],
+      "explanation": "Dönüşlü fiil: Öznenin eylemi kendine uyguladığı yapıdır. 'Yıkandı' = kendini yıkadı."
+    },
+    {
+      "stem": "'Öğrenciler sınıfta gürültü yapıyor.' cümlesinde yüklem kaçıncı derecede genişletilmiştir?",
+      "options": ["'Sınıfta' ve 'gürültü' ile genişletilmiştir (yer ve nesne tümleci)", "Yalnızca 'sınıfta' ile", "Hiç genişletilmemiştir", "Yalnızca 'öğrenciler' ile"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["cümle analizi"],
+      "explanation": "Yüklem 'yapıyor': 'Ne yapıyor?' → gürültü (nesne); 'Nerede?' → sınıfta (yer tümleci). İki tümleçle genişlemiştir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'bağlaç' grubuna girmez?",
+      "options": ["Üstünde (edat)", "Ve", "Ama", "Hem...hem de"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["bağlaç-edat ayrımı"],
+      "explanation": "'Üstünde' bir edattır; cümle ögelerine bağlanır. 've, ama, hem...hem de' ise bağlaçtır."
+    },
+    {
+      "stem": "Aşağıdakilerin hangisi 'özel ad'dır?",
+      "options": ["Ankara", "Şehir", "Dağ", "Nehir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İsim türleri",
+      "skills": ["özel ad"],
+      "explanation": "'Ankara' belirli tek bir yerin adıdır → özel addır ve büyük harfle yazılır."
+    },
+    {
+      "stem": "Türkçede '-dan/-den' ekiyle oluşturulan karşılaştırma cümlelerinde bu ek hangi görevi üstlenir?",
+      "options": ["Karşılaştırmanın esasını oluşturan ögeyi belirtir (daha büyük + den)", "Yönelme bildirir", "Ayrılma hâlini gösterir", "İyelik belirtir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Karşılaştırma",
+      "skills": ["dil bilgisi"],
+      "explanation": "'Ali Mehmet'ten uzundur.' → 'Mehmet'ten' karşılaştırmanın dayanağını gösterir. '-den' karşılaştırma ekidir."
+    },
+    {
+      "stem": "Kişi adlarında ek aldığında nasıl yazılır? 'Ahmet + e' → ?",
+      "options": ["Ahmet'e (kesme işaretiyle)", "Ahmete", "ahmet'e", "Ahmet'e değil, Ahmede"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazım kuralları",
+      "skills": ["kesme işareti"],
+      "explanation": "Özel isimlere eklenen çekim ekleri kesme işaretiyle (') ayrılır: Ahmet'e, Ankara'da, Türkiye'den."
+    },
+    {
+      "stem": "Aşağıdaki cümlede sıfat hangisidir? 'İhtiyar adam ağır ağır yürüyordu.'",
+      "options": ["İhtiyar ve ağır ağır", "Adam", "Yürüyordu", "Ve"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıfat",
+      "skills": ["sıfat tanıma"],
+      "explanation": "'İhtiyar' → adamı niteleyen sıfat. 'Ağır ağır' → yürüyüşün nasıl yapıldığını gösteren zarf."
+    },
+    {
+      "stem": "'Bir' sözcüğü aşağıdaki cümlelerin hangisinde belirsizlik sıfatı olarak kullanılmıştır?",
+      "options": ["Bir adam geldi.", "Bir sandım, iki çıktı.", "Hepsi bir.", "O bire bir benziyor."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıfat türleri",
+      "skills": ["belirsizlik sıfatı"],
+      "explanation": "'Bir adam geldi.' → 'Bir' hangi adam olduğunu belirtmeden önündeki ismi sınırlıyor → belirsizlik sıfatı."
+    },
+    {
+      "stem": "Türkçede 'İşaret zamiri' hangisidir?",
+      "options": ["Bu, şu, o (işaret zamiri olarak)", "Ben, sen, o (kişi zamiri)", "Kim, ne (soru zamiri)", "Kendim, kendin (dönüşlülük zamiri)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["zamir türleri"],
+      "explanation": "İşaret zamirleri: bu, şu, o. İsmin yerine geçip işaret ederler. Cümledeki konuma göre işlev değişebilir."
+    },
+    {
+      "stem": "'Kim', 'ne', 'nere', 'hangi' kelimeleri hangi zamir türüdür?",
+      "options": ["Soru zamiri", "İşaret zamiri", "Kişi zamiri", "İyelik zamiri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["zamir türleri"],
+      "explanation": "'Kim, ne, nere, hangi' soru anlamı taşıyan zamirlerdir → soru zamiri."
+    },
+    {
+      "stem": "Cümlede 'öznenin' gizli olduğunu nasıl anlarız?",
+      "options": ["Yüklemin kişi ekinden çıkarılabilir; cümlede yazılmamış olması gizli özneyi gösterir", "Cümlede yüklem yoksa özne gizlidir", "Her cümlede özne yazılmalıdır", "Gizli özne asla anlaşılamaz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["gizli özne"],
+      "explanation": "Türkçede yüklemin şahıs eki özneyse ifade edilmeyebilir: 'Geldim' → özne 'ben' gizlidir."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerin hangisi türemiş sözcüktür?",
+      "options": ["Yazarlık (yazar+lık)", "Kalem", "Taş", "Su"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük yapısı",
+      "skills": ["türeme"],
+      "explanation": "'Yazarlık': yaz- (kök) + -ar (yapım eki) + -lık (yapım eki) → türemiş sözcük."
+    },
+    {
+      "stem": "Türkçede '-mak/-mek' mastar (isim-fiil) eki, fiilin hangi biçimini oluşturur?",
+      "options": ["Fiilin isim görevinde kullanılan hâlini (isim-fiil/mastar)", "Fiil kök biçimini", "Fiil zaman ekini", "Sıfat-fiil biçimini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiilimsi",
+      "skills": ["isim-fiil"],
+      "explanation": "'-mak/-mek' isim-fiil ekidir; fiilin eylem adı durumunda kullanılmasını sağlar: 'yazmak', 'okumak'."
+    },
+    {
+      "stem": "Aşağıdaki cümlede 'özne ile yüklem arasındaki uyum' bozulmuştur, hangisi?",
+      "options": ["Öğrenciler koştu. (çoğul özne-tekil yüklem)", "Öğrenciler koştular.", "Ali geldi.", "Çocuk oynadı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Özne-yüklem uyumu",
+      "skills": ["dil bilgisi"],
+      "explanation": "Türkçede insan dışı varlıklar için çoğul özne-tekil yüklem kullanılabilir; ancak insanlar için 'Öğrenciler koştular' doğrudur. 'Koştu' tekil kip - uyum sorunu vardır."
+    },
+    {
+      "stem": "Bir metnin 'ağız ve şive' farkları hakkında doğru bilgi hangisidir?",
+      "options": ["Şive: Bir dilin lehçesi içindeki bölgesel farklılıklar; ağız: Daha yerel, köy düzeyindeki konuşma farklılıkları", "Şive ve ağız aynı şeydir", "Ağız standart Türkçedir", "Şive yalnızca yabancı dillerde olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dil çeşitliliği",
+      "skills": ["dilbilgisi"],
+      "explanation": "Şive: Lehçe içindeki bölgesel farklılıklar. Ağız: Daha küçük coğrafi birimlerdeki (köy, ilçe) konuşma biçimi."
+    },
+    {
+      "stem": "Türkçede 'terim' nedir?",
+      "options": ["Belirli bir bilim, sanat veya meslek alanında özel anlam kazanmış sözcük", "Yabancı dilden alınan sözcük", "Çok anlamlı sözcük", "Eski Türkçedeki sözcük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük türleri",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Terim: Fizikteki 'atom', tıptaki 'tansiyon', hukuktaki 'itiraz' gibi belirli alanda özel anlam taşıyan sözcüklerdir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi 'olumlu soru cümlesi'dir?",
+      "options": ["Ali geldi mi?", "Ali gelmedi mi?", "Ali gel!", "Ali geldi."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["cümle yapısı"],
+      "explanation": "'Ali geldi mi?' → olumlu + soru cümlesi. 'Ali gelmedi mi?' olumsuz soru cümlesidir."
+    },
+    {
+      "stem": "Yazılı anlatımda 'planla yazma' yaklaşımında hangi aşamalar yer alır?",
+      "options": ["Planlama (beyin fırtınası) → taslak → yazma → gözden geçirme/düzeltme", "Yalnızca yazma", "Yalnızca planlama ve yazma", "Yalnızca gözden geçirme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["yazma süreci"],
+      "explanation": "Etkili yazma süreci: Planlama → Taslak oluşturma → Yazma → Düzeltme aşamalarından oluşur."
+    },
+    {
+      "stem": "Bir hikâye yazarken başarılı bir 'giriş' bölümü nasıl olmalıdır?",
+      "options": ["Okuyucunun ilgisini çeken, karakterleri ve ortamı tanıtan, merak uyandıran bir açılışla", "Metnin sonucunu hemen veren", "Yalnızca konuyu açıklayan", "Uzun bir özet içeren"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["metin planı"],
+      "explanation": "Etkili bir giriş; merak uyandırmalı, okuyucuyu hikâyeye çekmeli ve temel unsurları tanıtmalıdır."
+    },
+    {
+      "stem": "Aşağıdaki bağlaçlardan hangisi 'karşıtlık' bildirir?",
+      "options": ["Ama, fakat, ancak, lakin", "Ve, hem...hem de, ile", "Ya...ya da, veya", "Çünkü, zira, madem"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["bağlaç türleri"],
+      "explanation": "'Ama, fakat, ancak, lakin' zıtlık/karşıtlık bağlaçlarıdır."
+    },
+    {
+      "stem": "Aşağıdaki bağlaçlardan hangisi 'sebep' bildirme işlevi taşır?",
+      "options": ["Çünkü, zira, madem", "Ama, fakat", "Ve, ile", "Ya...ya da"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["bağlaç türleri"],
+      "explanation": "'Çünkü, zira' sebep bildiren bağlaçlardır. 'Madem' ise gerekçe/kabul bildiren bir bağlaçtır."
+    },
+    {
+      "stem": "Türkçede sözcük türetme yollarından biri olan 'birleştirme' (bileşik sözcük) nedir?",
+      "options": ["İki ya da daha fazla sözcüğün bir araya gelerek yeni anlam kazandığı yapı", "Bir sözcüğe yapım eki eklenmesi", "İki çekimli sözcüğün yan yana gelmesi", "Sözcüklerin çoğullaşması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük yapısı",
+      "skills": ["bileşik sözcük"],
+      "explanation": "Bileşik sözcük: 'kahvaltı (kahve+altı)', 'hanımeli (hanım+eli)' gibi iki sözcüğün birleşimidir."
+    },
+    {
+      "stem": "'Hanımeli' sözcüğünün yapısını doğru açıklayan seçenek hangisidir?",
+      "options": ["İki sözcüğün (hanım+eli) birleşmesiyle oluşmuş bileşik isim", "Yapım eki almış türemiş isim", "Çekim eki almış isim", "Yabancı kökenli sözcük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük yapısı",
+      "skills": ["bileşik sözcük"],
+      "explanation": "'Hanımeli' bir çiçeğin adıdır; 'hanım' ve 'eli' sözcüklerinin birleşmesiyle oluşmuştur."
+    },
+    {
+      "stem": "Türkçede 'fiilden isim yapan' ekler arasında hangisi yer alır?",
+      "options": ["-ma/-me, -ış/-iş, -ak/-ek, -ı/-i", "'-lık/-lik' yalnızca", "'-ci/-cı' yalnızca", "'-sız/-siz' yalnızca"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yapım ekleri",
+      "skills": ["ek sınıflaması"],
+      "explanation": "Fiilden isim yapan ekler: -ma (yazma), -ış (gidiş), -ak (durak), -ı (yazı) gibi örneklerde görülür."
+    },
+    {
+      "stem": "Bir söylevin (nutuk) ve bir yazının yazıldığı kişiyi ifade eden kavram nedir?",
+      "options": ["Yazar / hatip", "Anlatıcı", "Kahraman", "Editör"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Edebi terimler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Yazar; bir metni kaleme alan kişidir. Hatip; söylev söyleyen kişidir. Anlatıcı ise metindeki anlatma sesini temsil eder."
+    },
+    {
+      "stem": "Bir metnin 'öznel' mi 'nesnel' mi olduğu nasıl anlaşılır?",
+      "options": ["Öznel: Yazar görüş ve duygusunu yansıtır; nesnel: Kanıtlanabilir bilgi ve olgular içerir", "Öznel: Her zaman doğrudur; nesnel: Yanlış olabilir", "Öznel: Kısa metinler; nesnel: Uzun metinler", "İkisi arasında fark yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin anlama",
+      "skills": ["nesnel-öznel ayrımı"],
+      "explanation": "Öznel: 'Bu film çok güzeldi.' (duygu/görüş). Nesnel: 'Film 1990 yılında yayımlandı.' (kanıtlanabilir bilgi)."
+    },
+    {
+      "stem": "'Gök gürültüsü gibi sesi vardı.' cümlesinde hangi söz sanatı kullanılmıştır?",
+      "options": ["Benzetme (teşbih)", "Abartma", "Kişileştirme", "Deyim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Söz sanatları",
+      "skills": ["sanat tanıma"],
+      "explanation": "'...gibi...' yapısı benzetmeyi gösterir. Ses, gök gürültüsüne benzetilmiştir → teşbih."
+    },
+    {
+      "stem": "Bir metnin 'ikna edici' (tartışmacı) metni olduğunun göstergesi nedir?",
+      "options": ["Okuyucuyu bir görüşe inandırmayı hedefler; kanıt, gerekçe ve çağrı içerir", "Yalnızca olay anlatır", "Tamamen tarafsızdır", "Yalnızca bilgi sunar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["metin analizi"],
+      "explanation": "İkna edici metin: Okuyucuyu etkilemek için görüş, kanıt ve gerekçe sunan; çoğunlukla eylem ya da inanış değişikliğine yönlendiren metindir."
+    },
+    {
+      "stem": "Türkçede 'yardımcı fiil' ne işlev görür?",
+      "options": ["Yalın başına anlamlı olmayan fiillere (etmek, olmak, kılmak, eylemek) anlam katar", "Cümle başında kullanılır", "Soru ekini taşır", "Nesneyi belirler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil türleri",
+      "skills": ["yardımcı fiil"],
+      "explanation": "Yardımcı fiiller: 'etmek, olmak, kılmak, eylemek'. Örnek: 'yardım etmek', 'mutlu olmak', 'namaz kılmak'."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'dilek-istek kipi' hangisinde kullanılmıştır?",
+      "options": ["Keşke burada olsaydın.", "Buraya geldi.", "Buraya gelecek.", "Buraya gel!"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil kipleri",
+      "skills": ["kip bilgisi"],
+      "explanation": "'Keşke...olsaydın' dilek-şart kipiyle gerçekleşmeyen bir dilek bildirir."
+    },
+    {
+      "stem": "Türkçede gereklilik kipi (-malı/-meli) hangi anlamı taşır?",
+      "options": ["Yapılması gereken bir eylemi bildirir", "Gerçekleşmemiş dilek", "Kesin geçmiş", "Emir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil kipleri",
+      "skills": ["kip bilgisi"],
+      "explanation": "Gereklilik kipi: 'Gitmeliyim.' → yapılması gerekli, zorunlu olan eylemi bildirir."
+    },
+    {
+      "stem": "Anlam bakımından 'soyut isim'e örnek hangisidir?",
+      "options": ["Özgürlük", "Masa", "Araba", "Elma"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İsim türleri",
+      "skills": ["somut-soyut"],
+      "explanation": "'Özgürlük' elle tutulamaz, gözle görülemez → soyut isimdir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'nesne' hangisinde yanlış tespit edilmiştir?",
+      "options": ["'Masaya oturdu.' → nesne: masaya", "'Kitabı okudu.' → nesne: kitabı", "'Topu attı.' → nesne: topu", "'Ödevi yaptı.' → nesne: ödevi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["nesne tespiti"],
+      "explanation": "'Masaya oturdu.' cümlesinde 'masaya' yer gösteren dolaylı tümleçtir, nesne değildir."
+    },
+    {
+      "stem": "Türkçede 'zarf tümleci' ile 'dolaylı tümleç' nasıl ayırt edilir?",
+      "options": ["Dolaylı tümleç hâl eki almış isim; zarf tümleci zarf ya da zarf işlevindeki sözcüktür", "İkisi aynıdır", "Dolaylı tümleç cümle başında gelir", "Zarf tümleci yüklemden önce gelir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["tümleç ayrımı"],
+      "explanation": "Dolaylı tümleç: '-e, -de, -den' hâl eki almış isim. Zarf tümleci: nasıl, ne zaman, neden gibi sorulara cevap veren zarf."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi 'ad tamlaması' değil 'sıfat tamlaması' oluşturur?",
+      "options": ["Kırmızı araba", "Okulun bahçesi", "Annemin çantası", "Türkiye'nin bayrağı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tamlamalar",
+      "skills": ["tamlama türleri"],
+      "explanation": "'Kırmızı araba': sıfat (kırmızı) + isim (araba) → sıfat tamlaması. Diğerleri isim tamlamasıdır."
+    },
+    {
+      "stem": "Türkçe metinlerde 'özlü söz' (aforizm) ne işlev görür?",
+      "options": ["Kısa ve etkili biçimde genel bir gerçeği aktarır; okuyucuyu düşündürür", "Uzun bir açıklama yapar", "Olayları anlatır", "Yalnızca atasözü olarak adlandırılır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Edebi terimler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Özlü söz (aforizm): Kısa, yoğun ve düşündürücü ifadelerdir. Atasözlerine benzer ancak belirli bir kişiye atfedilir."
+    },
+    {
+      "stem": "Bir şiirde 'redif' ne demektir?",
+      "options": ["Uyaktan (kafiyeden) sonra gelen aynı ek veya sözcük", "Şiirdeki uyak", "Şiirin başlığı", "Şiirin son kıtası"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["edebi terimler"],
+      "explanation": "Redif: Uyaktan sonra gelen, mısra sonlarında aynı olan ekler ya da sözcüklerdir."
+    },
+    {
+      "stem": "'Ar damarı çatlamak' deyiminin anlamı nedir?",
+      "options": ["Utanma duygusunu yitirmek, hiç utanmamak", "Çok sinirli olmak", "Çok kızgın olmak", "Hastalanmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["deyim anlamı"],
+      "explanation": "'Ar damarı çatlamak': Utanma ve ar duygusunu tamamen yitirmek anlamında kullanılan bir deyimdir."
+    },
+    {
+      "stem": "'El elden üstündür.' atasözünün anlamı aşağıdakilerden hangisidir?",
+      "options": ["Her güçlünün üstünde daha güçlü biri vardır", "El, insan vücudunun en önemli organıdır", "İnsanlar güçlüdür", "Başkaları her zaman haklıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atasözleri",
+      "skills": ["anlam yorumlama"],
+      "explanation": "Bu atasözü, ne kadar güçlü olunursa olunsun, her zaman daha güçlü birinin var olduğunu öğretir."
+    },
+    {
+      "stem": "Bir metni okurken 'çıkarım yapma' (inference) ne demektir?",
+      "options": ["Metinde açıkça söylenmeyen bilgiyi, verilen ipuçlarından mantıksal olarak çıkarmak", "Yalnızca açıkça yazılanları anlamak", "Metni özetlemek", "Metnin başlığını analiz etmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["çıkarım yapma"],
+      "explanation": "Çıkarım: Metnin satır aralarından, verilen ipuçlarından mantıksal sonuçlar çıkarmaktır."
+    },
+    {
+      "stem": "Bir anlatı metninde 'doruk noktası (klimaks)' nedir?",
+      "options": ["Olayların geriliminin en yükseğe ulaştığı, çatışmanın en yoğun hissedildiği an", "Hikâyenin başlangıcı", "Hikâyenin sonucu", "Karakterlerin tanıtıldığı yer"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatı yapısı",
+      "skills": ["metin analizi"],
+      "explanation": "Klimaks/doruk noktası: Gerilimin en yoğun yaşandığı, çatışmanın çözüme yaklaştığı kritik andır."
+    },
+    {
+      "stem": "Türkçede 'kalıplaşmış söz öbeği' olmasıyla deyim ve atasözü nasıl ayrılır?",
+      "options": ["Deyim kelime grubu düzeyinde; atasözü tam cümle düzeyinde genel bir yargı bildirir", "İkisi aynıdır", "Atasözü daha kısadır", "Deyim her zaman olumlu anlam taşır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyim-atasözü",
+      "skills": ["anlam bilgisi"],
+      "explanation": "Deyim: Söz grubu; mecaz anlam. Atasözü: Cümle; genel yargı ve ders içerir."
+    },
+    {
+      "stem": "Türkçede '-dır/-dir' ekinin bilgi aktarma dışında kullanıldığı başka bir işlevi nedir?",
+      "options": ["Kesinlik/pekiştirme anlamı katar", "Soru bildirir", "Çoğulluk ekidir", "Zaman bildirmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ek-fiil",
+      "skills": ["ek işlevi"],
+      "explanation": "'-dır/-dir' kesinlik pekiştirme işlevi taşıyabilir: 'Bu doğrudur.' → kesinlik vurgusu."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerin hangisi 'türemiş' değil 'bileşik' sözcüktür?",
+      "options": ["Aslanağzı (çiçek adı)", "Güzellik", "Yazıcı", "Çalışkan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük yapısı",
+      "skills": ["bileşik-türemiş ayrımı"],
+      "explanation": "'Aslanağzı': İki ayrı sözcüğün birleşimiyle oluşan bileşik isimdir."
+    },
+    {
+      "stem": "Gazete ve dergiler gibi süreli yayınların temel işlevi nedir?",
+      "options": ["Güncel bilgi ve haberleri topluma iletmek", "Yalnızca eğlendirmek", "Yalnızca reklam yapmak", "Bilimsel makale yayımlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Medya okuryazarlığı",
+      "skills": ["medya bilgisi"],
+      "explanation": "Gazete ve dergiler; güncel haberleri, toplumsal gelişmeleri ve bilgileri kamuoyuna ulaştıran süreli yayınlardır."
+    },
+    {
+      "stem": "Bir haberde 'kaynak göstermek' neden önemlidir?",
+      "options": ["Bilginin güvenilirliğini artırır ve okuyucunun doğrulama yapmasına olanak tanır", "Metni uzatmak için", "Sadece hukuki zorunluluktan", "Habercinin övünmesi için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Medya okuryazarlığı",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Kaynak belirtmek; bilginin güvenilirliğini, doğrulanabilirliğini ve sorumluluk alınmasını sağlar."
+    },
+    {
+      "stem": "Türkçede 'anlatım bozukluğu'nun en yaygın türlerinden biri nedir?",
+      "options": ["Anlam belirsizliği (özne veya nesne belirsizliği)", "Uzun cümle kurma", "Çok paragraf yazma", "Noktalama işareti kullanma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım bozukluğu",
+      "skills": ["dil bilgisi"],
+      "explanation": "Anlatım bozuklukları: özne-yüklem uyumsuzluğu, anlam belirsizliği, gereksiz sözcük kullanımı, eksik öge gibi durumları kapsar."
+    },
+    {
+      "stem": "'Göz ardı etmek' deyiminin anlamı hangisidir?",
+      "options": ["Dikkate almamak, görmezden gelmek", "Göz doktoru muayenesi yaptırmak", "Gözden uzak bir yere gitmek", "Göz hastalığı yaşamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["deyim anlamı"],
+      "explanation": "'Göz ardı etmek': Bir şeyi kasıtlı olarak görmezden gelmek, dikkate almamak."
+    },
+    {
+      "stem": "Türkçede 'ses olayı' olan 'ünlü uyumu' neden önemlidir?",
+      "options": ["Sözcüklerin telaffuzunu kolaylaştırır ve eklerin doğru biçimini belirler", "Yalnızca şiirde kullanılır", "Anlam değişikliğine yol açar", "Noktalama işaretlerini belirler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses bilgisi",
+      "skills": ["ünlü uyumu"],
+      "explanation": "Büyük ünlü uyumu; Türkçenin söyleyiş kolaylığını sağlayan ve eklerin hangi biçimde geldiğini belirleyen temel ses kuralıdır."
+    },
+    {
+      "stem": "Türkçede 'yabancı sözcük' kullanmak yerine 'öz Türkçe' kullanımının önemi nedir?",
+      "options": ["Dilin zenginliğini korur, anlaşılırlığı artırır ve dilsel bağımsızlığı destekler", "Yabancı sözcükler daha şık görünür", "Öz Türkçe zaten kullanılmıyor", "Hiçbir önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dil bilinci",
+      "skills": ["dil farkındalığı"],
+      "explanation": "Türkçe sözcüklerin kullanımı dilin canlılığını korur, toplumsal anlaşılırlığı artırır ve kültürel kimliği güçlendirir."
+    },
+    {
+      "stem": "Bir tartışmada 'karşı tarafın görüşünü anlamak' neden önemlidir?",
+      "options": ["Empati kurmak, daha iyi karşı argümanlar üretmek ve diyalogu geliştirmek için", "Karşı tarafa hak vermek zorundayız diye", "Tartışmayı kazanmak için tek yoldur", "Sadece nezaket göstergesidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dinleme ve konuşma",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Karşı görüşü anlamak; kendi argümanlarını geliştirmek, empatik yaklaşmak ve diyalog ortamını korumak için önemlidir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'deneme' türü yazının özelliğidir?",
+      "options": ["Yazar kendi görüşlerini serbest, düşündürücü biçimde paylaşır; kesin yargı vermez", "Her zaman bilimsel veriye dayanır", "Kurgu (hayal ürünü) içerir", "Yalnızca kısa cümlelerden oluşur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür özellikleri"],
+      "explanation": "Deneme: Yazarın bir konuda kişisel görüş ve düşüncelerini rahat, sohbet tarzında paylaştığı; kesin yargı içermeyen yazı türüdür."
+    },
+    {
+      "stem": "'Fıkra' türü yazı için doğru bilgi hangisidir?",
+      "options": ["Güncel konularda kısa, düşündürücü ve kişisel görüş içeren gazete köşe yazısı", "Uzun hikâye türü", "Bilimsel makale", "Şiir türü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür bilgisi"],
+      "explanation": "Fıkra: Gazetelerde güncel bir konuda kısa, özlü, kişisel görüş içeren köşe yazısıdır. Mizahi hikâye anlamındaki 'fıkra'dan farklıdır."
+    },
+    {
+      "stem": "Türkçede 'anlatı kişisi' ile 'yazar' arasındaki fark nedir?",
+      "options": ["Yazar gerçek kişidir; anlatıcı yazarın metinde kurguladığı ses/bakış açısıdır", "İkisi aynıdır", "Anlatıcı her zaman yazan kişidir", "Yazar metinde hiç yer almaz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatıcı",
+      "skills": ["edebi kavramlar"],
+      "explanation": "Yazar: Metni yazan gerçek kişi. Anlatıcı: Yazar tarafından yaratılan, olayları aktaran kurgusal sestir."
+    },
+    {
+      "stem": "Türkçede 'tür' olarak şiir, hikâye, roman ve makale neden ayrı sınıflandırılır?",
+      "options": ["Her birinin yapı, dil ve amaç bakımından özgün özellikleri vardır", "Uzunlukları farklı olduğu için", "Yayımlandıkları yerler farklı olduğu için", "Yazarları farklı olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Edebi türler",
+      "skills": ["tür bilgisi"],
+      "explanation": "Her edebi tür; biçim, dil, amaç ve yapı bakımından birbirinden ayrılan özgün özelliklere sahiptir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'okuma anlama' stratejisi değildir?",
+      "options": ["Metni ezberlemek", "Tahmin yürütmek", "Soru sormak", "Özet çıkarmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["okuma stratejileri"],
+      "explanation": "Ezberleme bir anlama stratejisi değildir; anlama stratejileri arasında tahmin, soru sorma, özetleme ve bağlamdan anlam çıkarma sayılabilir."
+    },
+    {
+      "stem": "Türkçede 'uzlaşma' sesleşme kuralı nedir?",
+      "options": ["Türkçede yan yana gelen iki ünlünün arasına kaynaştırma ünsüzü girer", "Türkçede iki ünlü yan yana kullanılabilir", "Yalnızca yazıda uygulanır", "Yalnızca isim tamlamalarında görülür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses bilgisi",
+      "skills": ["ses kuralları"],
+      "explanation": "Türkçede iki ünlünün yan yana gelmesi engellenir; araya y, ş, s, n kaynaştırma ünsüzlerinden biri girer."
+    },
+    {
+      "stem": "Bir metni 'eleştirel' okumak ne demektir?",
+      "options": ["Metindeki bilgileri sorgulamak, kanıtları değerlendirmek ve yazarın amacını tartmak", "Yalnızca hataları bulmak", "Metni hızlı okumak", "Yazar fikrinin her şeyini kabul etmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eleştirel okuma",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Eleştirel okuma: Metindeki bilgilerin doğruluğunu sorgulamak, kanıtları tartmak ve yazarın bakış açısını değerlendirmektir."
+    },
+    {
+      "stem": "Türkçede 'edat' (ilgeç) nedir?",
+      "options": ["Tek başına anlamı olmayan, cümleye ilişki anlamı katan sözcük (için, ile, gibi, kadar...)", "Her zaman cümle başında gelir", "İsim türündedir", "Çekim eki alır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["edat bilgisi"],
+      "explanation": "Edatlar: 'için, ile, kadar, gibi, karşı' gibi sözcüklerdir; tek başına anlamlı değil, ilişki bildiren sözcük türüdür."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'olumsuz soru' kullanılmıştır?",
+      "options": ["Bugün okula gitmedin mi?", "Bugün okula gittin mi?", "Bugün okula git!", "Bugün okula gidecek misin?"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle türleri",
+      "skills": ["cümle yapısı"],
+      "explanation": "'Gitmedin mi?' → olumsuz (-me) + soru (-mi) → olumsuz soru cümlesi."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'anlatım biçimi' olan 'tartışma'nın özelliğidir?",
+      "options": ["Bir konuda karşıt görüşler arasında seçim yaparak tezi destekleme amacı taşır", "Yalnızca hikâye anlatır", "Yalnızca bilgi verir", "Nesnel biçimde olayları aktarır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım biçimleri",
+      "skills": ["anlatım türleri"],
+      "explanation": "Tartışma: Bir tezin savunulduğu; karşı görüşlerin çürütüldüğü ve okuyucunun ikna edilmeye çalışıldığı anlatım biçimidir."
+    },
+    {
+      "stem": "'Açıklama' anlatım biçiminin amacı nedir?",
+      "options": ["Bir konuyu, kavramı ya da olayı anlaşılır biçimde, kanıt ve örneklerle ortaya koymak", "Okuyucuyu ağlatmak", "Okuyucuyu eğlendirmek", "Görüş bildirmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım biçimleri",
+      "skills": ["anlatım türleri"],
+      "explanation": "Açıklama (expository): Bir kavramı ya da olguyu anlaşılır kılmak için tanım, örnek ve açıklamalar kullanır."
+    },
+    {
+      "stem": "Türkçede 'öntakı (prefix)' kullanılır mı?",
+      "options": ["Türkçede öntakı kullanılmaz; ekler sözcüklerin sonuna gelir (sondan eklemeli dil)", "Evet, her sözcüğün önüne gelebilir", "Yalnızca yabancı sözcüklerde kullanılır", "Türkçe hem önden hem sondan ekli dildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkçenin yapısı",
+      "skills": ["dilbilgisi"],
+      "explanation": "Türkçe sondan eklemeli (aglutinatif) bir dildir; ekler sözcüklerin sonuna gelir, önüne gelmez."
+    },
+    {
+      "stem": "Bir metinde 'örnekleme' ne amaçla kullanılır?",
+      "options": ["Soyut bir fikri ya da kavramı somutlaştırmak ve anlaşılırlığını artırmak için", "Metni kısaltmak için", "Yazar görüşünü saklamak için", "Yalnızca çocuk metinlerinde kullanılır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım teknikleri",
+      "skills": ["anlama"],
+      "explanation": "Örnekleme; soyut kavramları ya da genel yargıları somut örneklerle destekleyerek anlaşılırlığı artırır."
+    },
+    {
+      "stem": "'Yıldırım gibi hızlı' ifadesi hangi söz sanatıdır?",
+      "options": ["Benzetme (teşbih)", "Kişileştirme", "Abartma", "Deyim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Söz sanatları",
+      "skills": ["sanat tanıma"],
+      "explanation": "'Yıldırım gibi': Hızı yıldırıma benzeten teşbih (benzetme) sanatıdır."
+    },
+    {
+      "stem": "Türkçe bir cümlede yüklem sonda gelir. Bu kurala neden uyulur?",
+      "options": ["Türkçenin sözdizimi (sıralama kuralı) SOV (Özne-Nesne-Yüklem) düzenindedir", "Yüklem her zaman cümle başında gelir", "Türkçede yüklem sabit bir yerde bulunmaz", "Yüklem ikinci sıradadır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle yapısı",
+      "skills": ["dil bilgisi"],
+      "explanation": "Türkçe SOV düzeni: Özne - Nesne - Yüklem. Yüklem genellikle cümle sonunda yer alır."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerden hangisi 'pekiştirme sıfatı' değildir?",
+      "options": ["Büyük büyük (bu, ikilem; pekiştirme sıfatı değildir)", "Bembeyaz", "Simsiyah", "Mosmor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıfatlar",
+      "skills": ["pekiştirme sıfatı"],
+      "explanation": "Pekiştirme sıfatları: İlk hecenin değiştirilmesiyle yapılır (bembeyaz, simsiyah, mosmor). 'Büyük büyük' ikilemdir."
+    },
+    {
+      "stem": "Türkçede 'geniş zaman' hangi anlamları taşıyabilir?",
+      "options": ["Her zaman doğru olan genel yargı ve alışkanlık bildirme", "Yalnızca geçmiş", "Yalnızca gelecek", "Yalnızca şimdiki an"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil zamanları",
+      "skills": ["kip bilgisi"],
+      "explanation": "Geniş zaman (-er/-ar): Alışkanlık, genel geçer yargı ve süreklilik bildirir. 'Güneş doğudan doğar.'"
+    },
+    {
+      "stem": "Aşağıdaki sözcük gruplarından hangisi 'birleşik fiil' değildir?",
+      "options": ["Hızlı koştu (zarf + fiil)", "Yardım etti", "Hasta oldu", "Göz attı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Birleşik fiil",
+      "skills": ["fiil türleri"],
+      "explanation": "'Hızlı koştu': Zarf + fiil yapısı, birleşik fiil değil. 'Yardım etti, hasta oldu, göz attı' birleşik fiildir."
+    },
+    {
+      "stem": "Bir 'karşılaştırma' paragrafının amacı nedir?",
+      "options": ["İki ya da daha fazla şeyin benzerlik ve farklılıklarını ortaya koymak", "Yalnızca benzerlik bulmak", "Yalnızca fark bulmak", "Olayları sıralamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım teknikleri",
+      "skills": ["karşılaştırma"],
+      "explanation": "Karşılaştırma paragrafı; iki konuyu benzerlik ve farklılıklar açısından ele alarak analitik bir bakış açısı sunar."
+    },
+    {
+      "stem": "Türkçede 'Sözcük türü' sınıflandırmasına göre kaç temel tür vardır?",
+      "options": ["İsim, sıfat, zamir, zarf, fiil, edat, bağlaç, ünlem = 8 temel tür", "5 tür", "3 tür", "10 tür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["dilbilgisi"],
+      "explanation": "Türkçede 8 temel sözcük türü: İsim, sıfat, zamir, zarf, fiil, edat (ilgeç), bağlaç ve ünlem."
+    },
+    {
+      "stem": "'Sükût-u hayal' ifadesi dilimizde ne anlama gelir?",
+      "options": ["Büyük hayal kırıklığı", "Sessizlik", "Karanlık", "Hayal görme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük anlamı",
+      "skills": ["yabancı kökenli sözcükler"],
+      "explanation": "'Sükût-u hayal': Arapça kökenli, 'büyük hayal kırıklığı, umudun suya düşmesi' anlamında kullanılır."
+    },
+    {
+      "stem": "Bir konuşmada dinleyiciyle göz teması kurmanın önemi nedir?",
+      "options": ["Dikkat ve saygı gösterir; iletişimi güçlendirir", "Yalnızca utanmayı ifade eder", "Her zaman gereksizdir", "Yalnızca öğretmenlerle yapılmalıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Konuşma becerileri",
+      "skills": ["iletişim"],
+      "explanation": "Göz teması: Karşı tarafa ilgi ve saygı gösterir, güven inşa eder ve iletişimi pekiştirir."
+    },
+    {
+      "stem": "'Dil' kavramı en geniş anlamıyla neyi kapsar?",
+      "options": ["İnsanlar arasında düşünce, duygu ve bilgi aktarımını sağlayan simgeler sistemi", "Yalnızca konuşulan sözcükler", "Yalnızca yazı dili", "Yalnızca beden dili"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dil bilgisi",
+      "skills": ["dil farkındalığı"],
+      "explanation": "Dil: Sözlü, yazılı ve beden dilini kapsayan; insanlığın temel iletişim ve ifade aracı olan simgeler sistemidir."
+    }
+  ]
+}

@@ -1,0 +1,813 @@
+[
+  {
+    "id": "mio_bio_0364",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the kidney and osmoregulation",
+    "subtopic": "Haemodialysis: predicting the direction of net diffusion of each solute from the dialysate–plasma concentration differences (bicarbonate replacement while urea and potassium are removed)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "kidney",
+      "haemodialysis",
+      "diffusion gradient",
+      "dialysate composition",
+      "acid-base",
+      "hyperkalaemia",
+      "data interpretation"
+    ],
+    "learning_objective": "Reason from a table of dialysate and plasma concentrations to the direction of net diffusion of each solute across a partially permeable dialysis membrane, recognising that a solute set higher in the dialysate is replenished into the blood while retained wastes are set to zero.",
+    "question": "A patient with chronic kidney failure undergoes haemodialysis. Their blood is separated from the dialysis fluid (dialysate) by a partially permeable membrane that allows small solutes and water, but not plasma proteins or blood cells, to cross. The table shows the concentration of five solutes in the patient's blood plasma entering the dialyser and in the fresh dialysate.\n\nSolute | Plasma (mmol L⁻¹) | Dialysate (mmol L⁻¹)\nUrea | 30 | 0\nPotassium (K⁺) | 6.0 | 2.0\nGlucose | 5.0 | 5.0\nSodium (Na⁺) | 140 | 140\nHydrogencarbonate (HCO₃⁻) | 16 | 35\n\nAssuming each solute crosses the membrane freely, for which solute is there a net movement FROM the dialysate INTO the patient's blood?",
+    "choices": {
+      "A": "Sodium",
+      "B": "Urea",
+      "C": "Potassium",
+      "D": "Hydrogencarbonate",
+      "E": "Glucose"
+    },
+    "correct_answer": "D",
+    "explanation": "Net diffusion of each freely permeable solute is down its own concentration gradient, so its direction is set by whether plasma or dialysate is more concentrated. Hydrogencarbonate is the only solute more concentrated in the dialysate (35) than in the plasma (16), so it diffuses from the dialysate into the blood — this is deliberate, replacing the bicarbonate the failed kidneys can no longer regenerate and so correcting the metabolic acidosis of kidney failure. Urea (30 vs 0) and potassium (6.0 vs 2.0) are more concentrated in the blood, so they diffuse out of the patient (clearing a waste and correcting hyperkalaemia). Glucose and sodium are set equal in the two fluids, so there is no net movement of either — the dialysate is matched to normal plasma for solutes that should be retained.",
+    "option_analysis": {
+      "A": "Wrong: sodium is set equal (140) in both fluids, so there is no net movement; this option overlooks that a zero concentration difference gives zero net diffusion.",
+      "B": "Wrong: plasma urea (30) exceeds dialysate urea (0), so the net movement of urea is OUT of the blood into the dialysate; this option reverses the gradient direction (a common error of assuming the 'named waste' is added to, rather than removed from, the blood).",
+      "C": "Wrong: plasma K⁺ (6.0) exceeds dialysate K⁺ (2.0), so potassium diffuses OUT of the blood, which is how dialysis corrects the dangerous hyperkalaemia of kidney failure; this option mistakes removal of a raised solute for replacement.",
+      "D": "Correct: the dialysate concentration of hydrogencarbonate (35) is greater than that in the plasma (16), so HCO₃⁻ diffuses down its gradient from the dialysate into the blood, replenishing base and correcting the acidosis of kidney failure.",
+      "E": "Wrong: glucose is at the same concentration (5.0) in plasma and dialysate, so there is no net diffusion — the dialysate is deliberately matched to plasma to avoid stripping glucose from the patient; this option assumes movement occurs where there is no concentration difference."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0365",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the kidney and osmoregulation",
+    "subtopic": "Countercurrent multiplier: how a longer loop of Henle multiplies the fixed 'single effect' to raise the medullary tip osmolarity, and how this sets the maximum urine concentration when the collecting-duct fluid equilibrates with the medulla",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "loop of Henle",
+      "countercurrent multiplier",
+      "single effect",
+      "medullary osmotic gradient",
+      "urine concentration",
+      "comparative physiology",
+      "ADH"
+    ],
+    "learning_objective": "Explain that the countercurrent multiplier repeatedly applies a small fixed transverse 'single effect' along the length of the loop, so a longer loop reaches a higher medullary-tip osmolarity, and deduce that under maximal ADH the maximum urine osmolarity equals that tip osmolarity.",
+    "question": "In the mammalian kidney the thick ascending limb of the loop of Henle actively transports NaCl out of the tubule but is impermeable to water. At any horizontal level of the medulla this can establish a maximum osmotic difference of about 200 mOsm kg⁻¹ between the tubular fluid and the surrounding interstitium (the 'single effect'). Two mammals are compared: a beaver, whose loops reach a medullary-tip interstitial osmolarity of about 600 mOsm kg⁻¹, and a desert kangaroo rat, whose longer loops reach about 1200 mOsm kg⁻¹ at the tip. In both, the cortical interstitium is about 300 mOsm kg⁻¹. Which statement best explains the higher tip osmolarity in the kangaroo rat AND correctly predicts the maximum osmolarity of the urine it can produce under maximal ADH?",
+    "choices": {
+      "A": "Its descending limb actively pumps water into the interstitium along the longer loop; maximum urine osmolarity ≈ 200 mOsm kg⁻¹.",
+      "B": "The single effect is multiplied along the greater loop length, but the urine can never be more concentrated than the 200 mOsm kg⁻¹ single effect; maximum urine osmolarity ≈ 200 mOsm kg⁻¹.",
+      "C": "Its collecting duct actively secretes water to concentrate the urine; maximum urine osmolarity ≈ 600 mOsm kg⁻¹.",
+      "D": "The fixed single effect is multiplied along the greater loop length by the countercurrent arrangement, building a higher osmolarity towards the tip; maximum urine osmolarity ≈ 1200 mOsm kg⁻¹.",
+      "E": "Its thick ascending limb generates a larger single effect (about 900 mOsm kg⁻¹); maximum urine osmolarity ≈ 300 mOsm kg⁻¹."
+    },
+    "correct_answer": "D",
+    "explanation": "The 'single effect' is a small, fixed transverse gradient (~200 mOsm kg⁻¹) set by the transport capacity of the ascending-limb pumps; it is NOT enlarged by making the loop longer. What a longer loop provides is more length over which this modest step can be repeatedly applied and accumulated by the countercurrent (hairpin) arrangement, so the interstitial osmolarity climbs steadily from ~300 mOsm kg⁻¹ in the cortex to a much higher value at the tip — 1200 in the kangaroo rat versus only 600 in the beaver. Under maximal ADH the collecting duct is fully water-permeable, so its fluid equilibrates with the interstitium it passes through; the fluid leaving the tip of the medulla can therefore reach the tip interstitial osmolarity. The kangaroo rat can thus produce urine of up to about 1200 mOsm kg⁻¹, far above the 200 mOsm single effect.",
+    "option_analysis": {
+      "A": "Wrong: the descending limb has no active water pump — water leaves it passively by osmosis into the already-concentrated interstitium; the option invents active water transport and gives a value that confuses the single effect with the final urine osmolarity.",
+      "B": "Wrong: it correctly identifies that multiplication occurs but then wrongly caps the urine at the single effect. The whole purpose of multiplication is that the accumulated gradient (1200) greatly exceeds the small repeated step (200) — a tempting trap for candidates who conflate the two.",
+      "C": "Wrong: no active secretion of water into the collecting duct exists; urine is concentrated by osmotic withdrawal of water into the hyperosmotic medulla, not by pumping water inward. The option invents a non-existent mechanism.",
+      "D": "Correct: countercurrent multiplication repeatedly applies the fixed ~200 mOsm single effect along the loop, so a longer loop reaches a higher tip osmolarity (1200); under maximal ADH the collecting-duct fluid equilibrates with the medulla, so maximum urine osmolarity ≈ 1200 mOsm kg⁻¹.",
+      "E": "Wrong: the single effect is a fixed property of the ascending-limb transporters (~200 mOsm), not something that grows with loop length; it also wrongly predicts urine equilibrating with the cortex (300) rather than the medullary tip. Two misconceptions combined."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0366",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the kidney and osmoregulation",
+    "subtopic": "ADH control of collecting-duct water permeability in overhydration: removal of aquaporins (permeability), not the osmotic gradient, is the factor limiting water reabsorption, so dilute urine is produced despite a steep medullary gradient",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ADH",
+      "aquaporin",
+      "collecting duct",
+      "overhydration",
+      "dilute urine",
+      "membrane permeability",
+      "osmosis"
+    ],
+    "learning_objective": "Recognise that whether water is reabsorbed from the collecting duct depends on membrane water permeability (ADH-controlled aquaporin insertion) as well as on the osmotic gradient, and explain that in a water-loaded, ADH-suppressed person the persisting steep gradient cannot drive reabsorption because the wall is nearly impermeable.",
+    "question": "A healthy volunteer drinks 1.5 L of pure water in a few minutes. Plasma osmolarity falls and secretion of antidiuretic hormone (ADH) is almost completely switched off. As the fluid in the medullary collecting duct passes through the inner medulla, the surrounding interstitium has an osmolarity of about 1200 mOsm kg⁻¹, while the tubular fluid itself is only about 100 mOsm kg⁻¹. Despite this large osmotic gradient almost no water is reabsorbed, and the volunteer produces a large volume of very dilute urine. Which statement best explains why almost no water is reabsorbed from the collecting duct in this situation?",
+    "choices": {
+      "A": "Without ADH, the collecting-duct cells actively pump water back into the tubule against the gradient.",
+      "B": "The osmotic gradient favours water moving from the interstitium into the tubule, so no water can be reabsorbed.",
+      "C": "Sodium ions are actively secreted into the collecting duct, drawing water into the tubule by osmosis.",
+      "D": "The medullary osmotic gradient has collapsed, because ADH is required to keep the interstitium concentrated.",
+      "E": "Without ADH, aquaporin water channels are removed from the collecting-duct cells, making the wall almost impermeable to water, so water cannot follow the osmotic gradient."
+    },
+    "correct_answer": "E",
+    "explanation": "Reabsorption of water is a passive, osmotic process, so it needs BOTH a favourable gradient AND a permeable membrane. Here the gradient is enormous and points outward (interstitium 1200 vs tubular fluid 100 mOsm kg⁻¹), so the gradient is not the limiting factor. The limiting factor is permeability: ADH normally causes aquaporin-2 channels to be inserted into the apical membrane of the collecting-duct cells. With ADH switched off, these channels are withdrawn (retrieved into the cells), so the wall becomes almost impermeable to water and water cannot follow the osmotic gradient — leaving a large volume of dilute urine. This is exactly how overhydration is corrected: suppressing ADH decouples the tubular fluid from the medullary gradient.",
+    "option_analysis": {
+      "A": "Wrong: cells cannot actively pump water; there is no water pump. Water only moves by osmosis, so an 'active water pump against the gradient' is physiologically impossible.",
+      "B": "Wrong: it reverses the gradient. The interstitium (1200) is far more concentrated than the tubular fluid (100), so osmosis actually favours water LEAVING the tubule; water is not reabsorbed because of low permeability, not because the gradient opposes it.",
+      "C": "Wrong: sodium is reabsorbed (removed) in the collecting duct, not secreted into it; the option invents inward sodium secretion to manufacture osmotic water entry that does not occur.",
+      "D": "Wrong: the medullary gradient is built by the loop-of-Henle countercurrent multiplier and does not collapse acutely when ADH falls; the stem even states the interstitium is still 1200 mOsm kg⁻¹. This confuses maintaining the gradient with using it.",
+      "E": "Correct: ADH controls the insertion of aquaporin-2 channels; when ADH is absent these channels are removed, so the collecting-duct wall is nearly water-impermeable and the steep osmotic gradient cannot drive reabsorption — hence dilute urine."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0367",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the kidney and osmoregulation",
+    "subtopic": "Change in a named solute's concentration along the nephron: why tubular-fluid Na⁺ falls below the plasma value in the water-impermeable thick ascending limb (the 'diluting segment')",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "nephron",
+      "sodium",
+      "thick ascending limb",
+      "diluting segment",
+      "TF/P ratio",
+      "water impermeability",
+      "micropuncture"
+    ],
+    "learning_objective": "Interpret how the tubular-fluid/plasma concentration ratio of a named solute changes along the nephron, and reason from the ascending limb's property (solute reabsorbed while water is retained) to explain how tubular Na⁺ can become more dilute than plasma.",
+    "question": "Micropuncture samples are taken along a single nephron of a mammal. For sodium ions the ratio of the tubular-fluid concentration to the plasma concentration (TF/P for Na⁺) is measured at three points: end of the proximal tubule = 1.0; tip (bend) of the loop = 1.4; start of the distal convoluted tubule = 0.3. (A TF/P of 1.0 means the tubular fluid has the same Na⁺ concentration as plasma.) Which mechanism best explains why TF/P for Na⁺ FALLS to 0.3 — that is, why the tubular fluid becomes more dilute in sodium than plasma — between the tip of the loop and the start of the distal tubule?",
+    "choices": {
+      "A": "Sodium is actively pumped out into the interstitium while water is simultaneously drawn into the tubule from the interstitium by osmosis.",
+      "B": "The proximal tubule reabsorbs sodium faster than water, an imbalance that is only detected further along the nephron.",
+      "C": "Water is secreted into the tubule along the ascending limb, diluting the sodium already present.",
+      "D": "The thick ascending limb reabsorbs Na⁺ (with Cl⁻ and K⁺) but is impermeable to water, so solute is removed while water stays behind, diluting the tubular fluid.",
+      "E": "The descending limb reabsorbs sodium without water, lowering the tubular sodium concentration."
+    },
+    "correct_answer": "D",
+    "explanation": "TF/P for Na⁺ falls below 1.0 only if sodium is removed from the tubular fluid faster than water — i.e. solute leaves but water does not follow. That is precisely the property of the thick ascending limb of the loop of Henle: it actively reabsorbs Na⁺, Cl⁻ and K⁺ into the interstitium but is impermeable to water. Because the water is left behind, the sodium that remains is dissolved in almost the same volume, so its concentration drops below that of plasma. This is why the segment is called the 'diluting segment', and why the fluid entering the distal tubule is hypo-osmotic to plasma regardless of hydration state. The rise to 1.4 at the loop tip beforehand reflects the water-permeable descending limb losing water into the concentrated medulla, which concentrates the sodium.",
+    "option_analysis": {
+      "A": "Wrong: it correctly states sodium is pumped out, but the ascending limb is impermeable to water, so water does NOT enter the tubule. The half-truth (Na⁺ removed) is spoiled by a false claim of osmotic water entry.",
+      "B": "Wrong: proximal-tubule reabsorption is essentially iso-osmotic — Na⁺ and water are reabsorbed in proportion, which is exactly why TF/P for Na⁺ stays at 1.0 there. The dilution is produced later, in the ascending limb, not by a delayed proximal imbalance.",
+      "C": "Wrong: no part of the nephron actively secretes water into the tubule; the wall does not add water. Dilution here comes from removing solute without water, not from adding water — a misconception of 'water secretion'.",
+      "D": "Correct: the water-impermeable thick ascending limb pumps out Na⁺ (with Cl⁻ and K⁺) while water cannot follow, so the sodium left behind is diluted and TF/P for Na⁺ falls below 1.0 — the classic 'diluting segment'.",
+      "E": "Wrong: it confuses the two limbs. The DESCENDING limb is water-permeable and does not actively reabsorb NaCl (it loses water, raising Na⁺); it is the ASCENDING limb that removes salt while retaining water."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0368",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the kidney and osmoregulation",
+    "subtopic": "Consequences of kidney failure and the limits of haemodialysis: persistent anaemia from loss of the kidney's erythropoietin (endocrine) function, which dialysis — a replacement only for excretory function — cannot restore",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "kidney failure",
+      "haemodialysis",
+      "erythropoietin",
+      "anaemia",
+      "endocrine function of the kidney",
+      "excretory vs endocrine",
+      "elimination reasoning"
+    ],
+    "learning_objective": "Distinguish the kidney's excretory functions (which haemodialysis replaces) from its endocrine functions (which it does not), and reason that persistent anaemia in an adequately dialysed patient arises from loss of erythropoietin secretion, ruling out excretory abnormalities that the stated data show are corrected.",
+    "question": "A patient with complete chronic kidney failure is treated with regular haemodialysis, using a dialysate that contains hydrogencarbonate and physiological concentrations of Na⁺, Ca²⁺ and glucose, and no urea or creatinine. After starting dialysis the patient's blood urea, plasma potassium, blood pH and fluid overload all return towards normal. However, the patient remains persistently anaemic (low haemoglobin), even though the dialysis is judged fully adequate and the patient is not iron-deficient. Which of the following is the best explanation for the persistent anaemia?",
+    "choices": {
+      "A": "Red blood cells are destroyed as the blood passes across the dialysis membrane, and this haemolysis outpaces their production.",
+      "B": "The failed kidneys can no longer secrete erythropoietin, and haemodialysis replaces the kidneys' excretory function but not this endocrine function, so red-blood-cell production in the bone marrow stays low.",
+      "C": "Retained urea suppresses the bone marrow, and because dialysis cannot remove urea the suppression continues.",
+      "D": "The low blood pH of kidney failure blocks haemoglobin synthesis, and dialysis cannot correct the pH.",
+      "E": "Iron is lost by diffusion across the dialysis membrane into the dialysate during every session."
+    },
+    "correct_answer": "B",
+    "explanation": "The kidney is not only an excretory organ but also an endocrine organ: it secretes erythropoietin (EPO), the hormone that stimulates red-cell production in the bone marrow. In kidney failure EPO secretion falls, so erythropoiesis is under-driven and the patient becomes anaemic. Haemodialysis substitutes only for the kidney's EXCRETORY role — it clears urea and creatinine, corrects potassium and pH (bicarbonate in the dialysate), and removes excess fluid — but it does nothing to replace the missing hormone. Hence the anaemia persists until EPO itself is given. The trap is that every distractor names a real feature of kidney failure, but the stem's own data show that the excretory problems (urea, K⁺, pH, fluid) have all been corrected, so the anaemia must stem from the one function dialysis cannot replace: the endocrine secretion of EPO.",
+    "option_analysis": {
+      "A": "Wrong: modern dialysis membranes are biocompatible and do not cause clinically significant haemolysis; and with adequate dialysis in an iron-replete patient, cell destruction is not the explanation. This is a misconception that the membrane 'shreds' blood cells.",
+      "B": "Correct: erythropoietin is a hormone secreted by the kidney to drive erythropoiesis; its loss in kidney failure causes anaemia. Dialysis restores excretory clearance but cannot secrete EPO, so the anaemia persists and requires EPO therapy — the key distinction between excretory and endocrine replacement.",
+      "C": "Wrong: dialysis removes urea efficiently — the stem explicitly states blood urea has normalised (the dialysate contains no urea, giving a maximal outward gradient). The premise that dialysis cannot remove urea is false, and uraemia is not the main cause of the anaemia.",
+      "D": "Wrong: the stem states blood pH has returned towards normal (the bicarbonate dialysate corrects the acidosis), so acidosis is neither uncorrected nor the cause. The option ignores data given in the stem.",
+      "E": "Wrong: iron circulates bound to transferrin and within haemoglobin and is not freely diffusible across the membrane, and the stem specifies the patient is not iron-deficient. The idea that dialysis strips iron is a misconception contradicted by the data."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0369",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration (anaerobic and comparative)",
+    "subtopic": "Respiratory quotient: calculating RQ for the complete oxidation of a fatty acid and what a low RQ reveals about the substrate",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "respiratory quotient",
+      "RQ",
+      "fatty acid oxidation",
+      "stoichiometry",
+      "substrate identification",
+      "aerobic respiration"
+    ],
+    "learning_objective": "Balance the equation for the complete oxidation of a fatty acid and calculate its respiratory quotient, explaining why a highly reduced substrate gives an RQ well below 1.",
+    "question": "Lauric acid, a saturated fatty acid with the molecular formula C12H24O2, is completely oxidised in aerobic respiration according to the (unbalanced) scheme C12H24O2 + O2 -> CO2 + H2O. Using the respiratory quotient RQ = (volume of CO2 produced) / (volume of O2 consumed), and taking equal volumes of gas to contain equal numbers of moles, what is the RQ for the complete oxidation of this fatty acid?",
+    "choices": {
+      "A": "0.50",
+      "B": "0.80",
+      "C": "0.71",
+      "D": "1.42",
+      "E": "1.00"
+    },
+    "correct_answer": "C",
+    "explanation": "Balancing the equation requires accounting for the two oxygen atoms already present in the carboxyl group of the fatty acid. Carbon balance fixes 12 CO2; hydrogen balance fixes 12 H2O. Oxygen balance then gives: right-hand side has 12x2 + 12 = 36 O atoms; the acid supplies 2, so O2 must supply 34 O atoms = 17 O2. The balanced equation is C12H24O2 + 17 O2 -> 12 CO2 + 12 H2O. Therefore RQ = 12/17 = 0.71. Fats are highly reduced (oxygen-poor) molecules, so a large amount of O2 is needed per CO2 released, driving the RQ well below the value of 1.0 characteristic of carbohydrate. The RQ value is thus a diagnostic clue to which class of respiratory substrate is being oxidised.",
+    "option_analysis": {
+      "A": "Wrong: 0.50 does not arise from the correct 12:17 ratio and results from mis-balancing the equation (for example under-counting the O2 required). Misconception: a stoichiometric slip in balancing the combustion equation.",
+      "B": "Wrong: an RQ of about 0.8-0.9 is the value characteristic of protein oxidation. Quoting it here is recall of a memorised 'typical' figure rather than balancing the equation for this particular fat. Misconception: applying the protein RQ or a generic mixed-diet value instead of calculating.",
+      "C": "Correct: the balanced equation C12H24O2 + 17 O2 -> 12 CO2 + 12 H2O gives RQ = 12/17 = 0.71. The low value reflects the highly reduced, oxygen-poor nature of a fatty acid, which demands a large volume of oxygen per unit of carbon dioxide produced.",
+      "D": "Wrong: 1.42 is 17/12, i.e. O2 consumed divided by CO2 produced, the reciprocal of the correct ratio. Misconception: inverting the RQ definition (taking O2/CO2 instead of CO2/O2).",
+      "E": "Wrong: RQ = 1.00 is the value for the complete oxidation of a carbohydrate, where CO2 produced equals O2 consumed. Assuming every substrate gives 1.00 ignores that fats contain far less internal oxygen and therefore need proportionally more O2, so their RQ is below 1. Misconception: all respiratory substrates have RQ = 1 / substrate identity does not affect RQ."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0370",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration (anaerobic and comparative)",
+    "subtopic": "Alcoholic fermentation stoichiometry in yeast: mass-mole-volume calculation of CO2 output, contrasted with the aerobic yield",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "alcoholic fermentation",
+      "yeast",
+      "stoichiometry",
+      "carbon dioxide",
+      "molar volume",
+      "anaerobic respiration"
+    ],
+    "learning_objective": "Use the balanced equation for alcoholic fermentation to convert a mass of glucose into a volume of carbon dioxide, and distinguish the anaerobic yield from the aerobic yield.",
+    "question": "In the absence of oxygen, brewer's yeast (Saccharomyces cerevisiae) ferments glucose completely to ethanol and carbon dioxide. A sealed vessel contains 45 g of glucose (molar mass 180 g mol-1) together with enough yeast to ferment all of it. Assuming the molar gas volume under the conditions used is 22.4 dm3 mol-1, what total volume of carbon dioxide is released?",
+    "choices": {
+      "A": "2.8 dm3",
+      "B": "22.4 dm3",
+      "C": "11.2 dm3",
+      "D": "33.6 dm3",
+      "E": "5.6 dm3"
+    },
+    "correct_answer": "C",
+    "explanation": "Alcoholic fermentation follows C6H12O6 -> 2 C2H5OH + 2 CO2, so each mole of glucose yields two moles of carbon dioxide. Moles of glucose = 45/180 = 0.25 mol. Moles of CO2 = 2 x 0.25 = 0.50 mol. Volume of CO2 = 0.50 x 22.4 = 11.2 dm3. The key steps are the 1:2 glucose:CO2 ratio of fermentation (not the 1:6 ratio of complete aerobic oxidation) and correct use of the molar gas volume.",
+    "option_analysis": {
+      "A": "Wrong: 2.8 dm3 combines the 'one CO2 per glucose' error with a further halving of the moles of glucose (using 0.125 mol). Misconception: a compound stoichiometric error.",
+      "B": "Wrong: 22.4 dm3 corresponds to 1.0 mol CO2, obtained by using an incorrect glucose molar mass (for example 90 g mol-1, the CH2O repeat unit) to get 0.5 mol glucose and then doubling. Misconception: using the empirical-formula mass rather than the true molar mass of glucose.",
+      "C": "Correct: 45/180 = 0.25 mol glucose; fermentation gives two CO2 per glucose, so 0.50 mol CO2; 0.50 x 22.4 = 11.2 dm3.",
+      "D": "Wrong: 33.6 dm3 corresponds to 1.5 mol CO2, the amount produced by complete aerobic oxidation (six CO2 per glucose), not by fermentation. Misconception: applying the aerobic respiration equation to an anaerobic process.",
+      "E": "Wrong: 0.25 x 22.4 = 5.6 dm3 counts only one CO2 per glucose, ignoring that fermentation produces two molecules of CO2 per glucose. Misconception: treating glucose -> 1 CO2 (forgetting the factor of 2 in the balanced equation)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0371",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration (anaerobic and comparative)",
+    "subtopic": "Lactate fermentation and the oxygen debt: NAD+ regeneration sustains glycolytic ATP, and the post-exercise fate of lactate",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "lactate fermentation",
+      "oxygen debt",
+      "EPOC",
+      "NAD+ regeneration",
+      "glycolysis",
+      "Cori cycle"
+    ],
+    "learning_objective": "Explain why lactate fermentation supplements aerobic respiration during intense exercise (regeneration of NAD+ for continued glycolytic ATP production) and why oxygen consumption stays elevated afterwards.",
+    "question": "A sprinter's leg muscles regenerate much of their ATP by lactate fermentation during a 200 m race, even though the athlete is breathing hard and oxygen is being delivered to the muscles. For several minutes after the race, oxygen consumption remains well above the resting rate (the 'oxygen debt', or excess post-exercise oxygen consumption). Which statement best explains why lactate fermentation is used during the race and accounts for the raised oxygen consumption afterwards?",
+    "choices": {
+      "A": "Lactate is a stronger reducing agent than NADH, so it feeds electrons directly into the electron transport chain, allowing it to make ATP anaerobically during the race.",
+      "B": "The lactate produced is broken down to carbon dioxide and exhaled directly through the lungs, which is why oxygen consumption and breathing rate stay high after the race.",
+      "C": "Fermenting pyruvate to lactate reoxidises NADH to NAD+ without oxygen, allowing glycolysis and its substrate-level ATP production to continue when oxidative phosphorylation cannot keep pace with demand; afterwards, extra oxygen is used to oxidise some of the lactate and to reconvert the rest to glucose or glycogen.",
+      "D": "Lactate fermentation is preferred because it yields more ATP per glucose than aerobic respiration during short bursts, and the extra oxygen afterwards is needed to store this additional ATP.",
+      "E": "No oxygen is used by the muscles during the sprint because glycolysis alone supplies the ATP; the post-exercise oxygen simply redissolves oxygen back into the blood plasma."
+    },
+    "correct_answer": "C",
+    "explanation": "Glycolysis can only continue while its oxidised coenzyme NAD+ is available. When ATP demand outstrips the rate at which oxidative phosphorylation can reoxidise NADH, reducing pyruvate to lactate regenerates NAD+ anaerobically, keeping glycolysis (and its net 2 ATP per glucose by substrate-level phosphorylation) running. This is fast but low-yield. Afterwards, the accumulated lactate is disposed of aerobically: a portion is fully oxidised to CO2 and water, providing the energy to reconvert the remainder to glucose/glycogen (Cori cycle) and to replenish phosphocreatine and oxymyoglobin. These processes require the extra oxygen consumed during recovery, which is the oxygen debt.",
+    "option_analysis": {
+      "A": "Wrong: the electron transport chain requires oxygen as its terminal electron acceptor and cannot operate anaerobically; lactate does not donate electrons to it during the sprint. Misconception: that the electron transport chain can run without oxygen.",
+      "B": "Wrong: lactate is not exhaled. It is metabolised in the body (oxidised, or converted back to glucose in the liver); the raised breathing supplies oxygen for this, it does not blow lactate off as CO2. Misconception: that the oxygen debt represents direct exhalation of lactate as carbon dioxide.",
+      "C": "Correct: fermentation regenerates NAD+ so glycolysis can keep producing ATP anaerobically when oxidative phosphorylation is rate-limiting; the raised post-exercise oxygen consumption is used to oxidise part of the lactate and to reconvert the rest to glucose/glycogen (and to restore phosphocreatine and myoglobin).",
+      "D": "Wrong: anaerobic fermentation yields only 2 ATP per glucose, far fewer than the roughly 30+ from aerobic respiration; it is faster per unit time but much less efficient. Misconception: that anaerobic respiration produces more ATP per glucose.",
+      "E": "Wrong: aerobic respiration does contribute during the sprint (the athlete is breathing hard) and fermentation only supplements it. The oxygen debt reflects active metabolism of lactate and restoration of energy stores, not merely redissolving oxygen in blood. Misconception: that there is no aerobic contribution and the debt is just reoxygenation of plasma."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0372",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration (anaerobic and comparative)",
+    "subtopic": "Respiratory quotient greater than 1: partitioning aerobic and anaerobic CO2 output in a germinating-seed respirometer",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "respiratory quotient",
+      "RQ greater than 1",
+      "anaerobic respiration",
+      "respirometer",
+      "germination",
+      "gas exchange calculation"
+    ],
+    "learning_objective": "Interpret an RQ above 1 as evidence of simultaneous anaerobic respiration and calculate the volume of carbon dioxide contributed by fermentation when the aerobic substrate is carbohydrate.",
+    "question": "Germinating pea seeds are placed in a respirometer. Over the measurement period they consume 10 cm3 of oxygen and release 14 cm3 of carbon dioxide (all volumes measured at the same temperature and pressure). It is known that the aerobic respiration in these seeds is oxidising carbohydrate (for which the aerobic RQ = 1.0) and that any anaerobic respiration occurring is alcoholic fermentation, which releases carbon dioxide but consumes no oxygen. What volume of carbon dioxide is produced by anaerobic respiration?",
+    "choices": {
+      "A": "14 cm3",
+      "B": "24 cm3",
+      "C": "10 cm3",
+      "D": "1.4 cm3",
+      "E": "4 cm3"
+    },
+    "correct_answer": "E",
+    "explanation": "The overall RQ = 14/10 = 1.4, which exceeds 1 and therefore cannot be produced by aerobic respiration of carbohydrate alone (that would give exactly 1.0). The excess CO2 signals a second, anaerobic source. All 10 cm3 of oxygen consumed is used in aerobic respiration of carbohydrate; because that process has RQ = 1.0, it releases 10 cm3 of CO2. The remaining carbon dioxide, 14 - 10 = 4 cm3, must come from alcoholic fermentation, which produces CO2 without using any oxygen.",
+    "option_analysis": {
+      "A": "Wrong: 14 cm3 is the total carbon dioxide released. Assigning all of it to fermentation ignores the 10 cm3 produced by aerobic respiration that consumes the measured oxygen. Misconception: treating all evolved CO2 as anaerobic in origin.",
+      "B": "Wrong: 24 cm3 is simply the sum of the oxygen consumed and carbon dioxide released (10 + 14) and has no physical meaning here. Misconception: adding the two gas volumes together.",
+      "C": "Wrong: 10 cm3 is the aerobic carbon dioxide (equal to the oxygen consumed at RQ = 1.0), i.e. the part that is NOT anaerobic. Misconception: identifying the aerobic component as the anaerobic one.",
+      "D": "Wrong: 1.4 is the value of the RQ itself, a dimensionless ratio, not a gas volume. Misconception: confusing the RQ with a measured volume of carbon dioxide.",
+      "E": "Correct: aerobic respiration of carbohydrate consumes 10 cm3 O2 and produces 10 cm3 CO2 (RQ = 1.0); the excess, 14 - 10 = 4 cm3, is carbon dioxide from oxygen-free alcoholic fermentation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0373",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration (anaerobic and comparative)",
+    "subtopic": "Energetics of fermentation: fraction of glucose's combustion energy released, from combustion enthalpies, showing why anaerobic respiration captures little energy",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "fermentation energetics",
+      "enthalpy of combustion",
+      "anaerobic respiration",
+      "energy yield",
+      "Hess-type calculation",
+      "ethanol"
+    ],
+    "learning_objective": "Use combustion enthalpies to quantify the small fraction of glucose's chemical energy released during alcoholic fermentation, and explain why anaerobic respiration recovers so little energy per glucose.",
+    "question": "Complete oxidation of glucose releases 2880 kJ mol-1; complete combustion of ethanol releases 1367 kJ mol-1. In alcoholic fermentation, one mole of glucose is converted to two moles of ethanol and two moles of carbon dioxide: C6H12O6 -> 2 C2H5OH + 2 CO2. Treating the enthalpy of combustion as a measure of the chemical energy available, what percentage of the energy obtainable from completely oxidising the glucose is actually released during alcoholic fermentation?",
+    "choices": {
+      "A": "6.3%",
+      "B": "94.9%",
+      "C": "52.5%",
+      "D": "2.5%",
+      "E": "5.1%"
+    },
+    "correct_answer": "E",
+    "explanation": "The energy released in fermentation equals the energy available from the glucose minus the energy still locked in the products that can themselves be combusted, i.e. the two ethanol molecules (the CO2 is fully oxidised and stores no further combustible energy). Energy released = 2880 - (2 x 1367) = 2880 - 2734 = 146 kJ per mole of glucose. As a fraction of the glucose's total combustion energy: 146/2880 = 0.051 = about 5.1%. Almost 95% of the chemical energy of the glucose remains in the ethanol, which is precisely why anaerobic fermentation captures so little energy per glucose compared with complete aerobic oxidation.",
+    "option_analysis": {
+      "A": "Wrong: 2/32 = 6.3% is the fraction based on ATP counts (about 2 ATP anaerobically versus about 32 aerobically), obtained by recalling ATP yields rather than using the combustion enthalpies actually provided. Misconception: substituting memorised ATP numbers for the required energy calculation.",
+      "B": "Wrong: 2734/2880 = 94.9% is the energy that remains stored in the two ethanol molecules, i.e. the energy NOT released. Misconception: reporting the retained (unreleased) energy instead of the energy released.",
+      "C": "Wrong: 52.5% comes from 2880 - 1367 = 1513 kJ, subtracting the combustion enthalpy of only one ethanol and ignoring that two ethanol molecules are formed per glucose. Misconception: forgetting the 1:2 glucose:ethanol stoichiometry of fermentation.",
+      "D": "Wrong: 2.5% comes from halving the released energy (73/2880), for example by mistakenly working per mole of ethanol. Misconception: dividing the energy released by two.",
+      "E": "Correct: energy released = 2880 - 2 x 1367 = 146 kJ per mole; 146/2880 = about 5.1%. Nearly all of the glucose's energy stays in the ethanol, so fermentation liberates only a small fraction of the available energy."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0374",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and hormones",
+    "subtopic": "Combined oral contraceptive pill: exogenous oestrogen/progestogen suppress FSH and LH by negative feedback, abolishing the mid-cycle LH surge and preventing ovulation",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "reproduction",
+      "hormones",
+      "contraception",
+      "negative feedback",
+      "LH surge",
+      "ovulation",
+      "HPG axis"
+    ],
+    "learning_objective": "Apply negative-feedback control of the hypothalamic-pituitary-gonadal axis to explain how a combined oral contraceptive prevents ovulation.",
+    "question": "A combined oral contraceptive pill contains a synthetic oestrogen and a synthetic progestogen and is taken daily for 21 days of each cycle. Which of the following best explains why a correctly used combined pill prevents ovulation?",
+    "choices": {
+      "A": "The oestrogen in the pill drives continuous positive feedback, causing the corpus luteum to persist and physically block the release of any egg.",
+      "B": "The synthetic hormones act directly on the ovary to destroy the developing follicles before any can mature.",
+      "C": "The pill maintains a high level of FSH throughout the cycle, so many follicles begin to grow but none can be selected as the dominant follicle.",
+      "D": "The synthetic progestogen stimulates the anterior pituitary to release a continuously high level of LH, which exhausts the follicles.",
+      "E": "The sustained high level of the synthetic hormones exerts negative feedback on the hypothalamus and anterior pituitary, keeping FSH and LH low and preventing the mid-cycle LH surge."
+    },
+    "correct_answer": "E",
+    "explanation": "The combined pill supplies steady, relatively high levels of oestrogen and progestogen from day 1 of the cycle. In the natural cycle these steroids exert negative feedback on the hypothalamus (reducing GnRH) and on the anterior pituitary (reducing FSH and LH). Because the exogenous levels never fall and never reach the very high, rapidly rising oestradiol threshold that would switch feedback to positive, the mid-cycle LH surge does not occur. No LH surge means no ovulation. Suppressed FSH also prevents follicular development in the first place. The mechanism is thus feedback inhibition of gonadotrophin release, not any direct destructive or stimulatory action on the ovary.",
+    "option_analysis": {
+      "A": "Wrong: invokes continuous positive feedback and a persisting corpus luteum. Positive feedback requires a rapidly rising oestradiol peak that the flat pill levels never produce, and a corpus luteum does not mechanically block ovulation.",
+      "B": "Wrong: assumes the hormones act cytotoxically on the ovary. Misconception that contraception works by damaging follicles rather than by suppressing the pituitary gonadotrophins that would otherwise drive follicular growth.",
+      "C": "Wrong: claims the pill raises FSH. The opposite is true, FSH is suppressed; this option confuses the pill's action with the multiple-follicle recruitment seen when FSH is deliberately given (as in IVF).",
+      "D": "Wrong: reverses the feedback direction, treating progestogen as a stimulator of LH release. In fact progestogen (with oestrogen) inhibits LH secretion; the pill lowers, not raises, LH.",
+      "E": "Correct: constant high exogenous oestrogen and progestogen keep GnRH, FSH and LH suppressed by negative feedback, so the LH surge that triggers ovulation never happens."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0375",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and hormones",
+    "subtopic": "Controlled ovarian stimulation in IVF: exogenous FSH recruits multiple follicles, a GnRH antagonist blocks a premature LH surge, and an hCG injection mimics the LH surge to trigger final oocyte maturation and ovulation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "reproduction",
+      "IVF",
+      "fertility treatment",
+      "FSH",
+      "LH surge",
+      "hCG",
+      "GnRH antagonist",
+      "ovulation trigger"
+    ],
+    "learning_objective": "Integrate the roles of FSH, LH and hCG to explain the pharmacological control of the ovarian cycle during IVF, including why hCG can substitute for the LH surge.",
+    "question": "During in-vitro fertilisation (IVF), a woman first receives daily injections of a high dose of FSH together with a GnRH antagonist; then, about 36 hours before the eggs are collected, she is given a single injection of human chorionic gonadotropin (hCG). Which statement correctly explains the role of all three treatments?",
+    "choices": {
+      "A": "FSH and hCG together stimulate follicle growth, while the GnRH antagonist causes the follicles to release their eggs about 36 hours later.",
+      "B": "FSH triggers the release of the eggs, the GnRH antagonist stimulates follicle growth, and hCG maintains the pituitary's output of LH.",
+      "C": "FSH stimulates the growth of multiple follicles, the GnRH antagonist prevents a premature LH surge, and hCG mimics the LH surge to trigger final egg maturation and ovulation.",
+      "D": "FSH stimulates multiple follicles, the GnRH antagonist triggers the LH surge, and hCG then blocks ovulation until egg collection.",
+      "E": "FSH prevents a premature LH surge, the GnRH antagonist stimulates multiple follicles to grow, and hCG suppresses ovulation until the eggs are collected."
+    },
+    "correct_answer": "C",
+    "explanation": "IVF protocols manipulate the same hormones that run the natural cycle. High-dose FSH overrides the normal single-follicle selection so that many follicles grow at once (giving several oocytes). A GnRH antagonist blocks the pituitary's GnRH receptors, preventing the woman from mounting her own premature LH surge (which would release the eggs before they could be collected). Finally, because hCG binds the same receptor as LH (LH and hCG share this receptor and hCG has a longer half-life), a single hCG injection acts as an artificial 'LH surge', triggering the final maturation of the oocytes and ovulation on a controlled timetable roughly 36 hours later. Egg collection is timed to just before that release.",
+    "option_analysis": {
+      "A": "Wrong: treats hCG as a follicle-growth factor like FSH and treats the antagonist as the release trigger. hCG acts on LH receptors as the ovulation trigger, not as a growth stimulus.",
+      "B": "Wrong: FSH does not trigger egg release (the LH surge does), and a GnRH antagonist blocks rather than stimulates. Misconception that FSH is the ovulation trigger.",
+      "C": "Correct: FSH grows multiple follicles, the GnRH antagonist prevents a premature endogenous LH surge, and hCG (acting on LH receptors) supplies the surge that triggers final maturation and ovulation.",
+      "D": "Wrong: a GnRH antagonist blocks GnRH signalling, so it cannot trigger the LH surge, and hCG is the trigger, not a blocker. Confuses an antagonist with an agonist.",
+      "E": "Wrong: swaps the roles of FSH and the antagonist and wrongly casts hCG as an ovulation-suppressor. FSH stimulates follicles; it does not block the LH surge."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0376",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and hormones",
+    "subtopic": "Onset of lactation after birth: placental progesterone blocks prolactin's action on the mammary gland during pregnancy, and progesterone withdrawal at delivery of the placenta permits milk synthesis",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "reproduction",
+      "pregnancy",
+      "birth",
+      "prolactin",
+      "progesterone",
+      "lactation",
+      "placenta",
+      "hormone withdrawal"
+    ],
+    "learning_objective": "Explain, using progesterone and prolactin, why copious milk secretion begins only after delivery despite high prolactin during pregnancy.",
+    "question": "Throughout the second half of pregnancy, blood prolactin concentration rises steadily and the mammary glands become fully developed, yet almost no milk is secreted until after the baby is born, with copious milk production beginning about two to three days post-partum. Which explanation best accounts for this timing?",
+    "choices": {
+      "A": "The fall in oxytocin that follows delivery removes an inhibition of the mammary glands, which allows milk synthesis to begin for the first time.",
+      "B": "The mammary glands are not structurally complete until after the birth, so no milk can physically be made while the fetus is still present.",
+      "C": "During pregnancy the high level of placental progesterone blocks prolactin's action on the mammary alveolar cells; delivery of the placenta removes this source, progesterone falls, and prolactin can then drive milk synthesis.",
+      "D": "Prolactin is only released after birth, in direct response to the baby suckling at the breast for the first time.",
+      "E": "High progesterone during pregnancy is required to stimulate milk synthesis, and it is the continued action of progesterone after birth that finally produces milk."
+    },
+    "correct_answer": "C",
+    "explanation": "During pregnancy prolactin is already high and the breast tissue is fully prepared, so the missing ingredient for milk secretion is not prolactin or gland development. The high placental steroids, especially progesterone, antagonise prolactin's action on the milk-secreting alveolar cells, keeping milk synthesis switched off. At delivery the placenta (the source of that progesterone) is removed, so progesterone falls sharply within a day or two while prolactin remains high. Freed from progesterone's inhibition, prolactin now drives copious milk synthesis (lactogenesis). This is why milk 'comes in' a couple of days after birth. Suckling then sustains prolactin secretion and separately triggers oxytocin for milk ejection, but the initiation depends on progesterone withdrawal.",
+    "option_analysis": {
+      "A": "Wrong: oxytocin controls milk ejection, not synthesis, and it rises (not falls) with suckling after birth. This reverses both the hormone's role and the direction of its change.",
+      "B": "Wrong: the mammary glands are in fact fully developed before birth. Misconception that a structural limit, rather than a hormonal block, prevents milk production during pregnancy.",
+      "C": "Correct: placental progesterone blocks prolactin's effect on the breast during pregnancy; loss of the placenta at birth removes progesterone, allowing the already-high prolactin to trigger milk synthesis.",
+      "D": "Wrong: prolactin is already high throughout late pregnancy, so its release is not what begins at birth. Misconception that prolactin appears only in response to the first suckling.",
+      "E": "Wrong: reverses progesterone's role, treating it as a stimulator of milk synthesis. Progesterone inhibits lactogenesis during pregnancy; it is its withdrawal, not its continuation, that permits milk."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0377",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and hormones",
+    "subtopic": "Emergency (post-coital) contraception with levonorgestrel: because it acts by inhibiting or delaying the LH surge, it can prevent ovulation only if taken before the surge and is ineffective once ovulation has occurred",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "reproduction",
+      "emergency contraception",
+      "levonorgestrel",
+      "LH surge",
+      "ovulation",
+      "graph interpretation",
+      "cause and effect",
+      "fertile window"
+    ],
+    "learning_objective": "Reason from the mechanism of levonorgestrel (inhibition of the LH surge) and the timing of ovulation to judge when emergency contraception can and cannot prevent pregnancy.",
+    "question": "Levonorgestrel, a progestogen used as an emergency ('morning-after') contraceptive, works principally by inhibiting or delaying the mid-cycle LH surge. A record of one woman's LH concentration through a single cycle shows a sharp LH peak on day 13; ovulation follows about a day after the peak, and a released oocyte remains fertilisable for roughly 24 hours. Assuming this is her typical pattern, on which of the following days would a single dose of levonorgestrel, taken after unprotected intercourse earlier that day, be LEAST likely to prevent a pregnancy?",
+    "choices": {
+      "A": "Day 15",
+      "B": "Day 9",
+      "C": "Day 11",
+      "D": "Day 12",
+      "E": "Day 7"
+    },
+    "correct_answer": "A",
+    "explanation": "Levonorgestrel prevents pregnancy chiefly by stopping or postponing the LH surge, which stops ovulation. This can only work if the drug is taken before the surge triggers ovulation. In this cycle the LH peak is on day 13 and ovulation follows about a day later, on roughly day 14; the oocyte then remains fertilisable for about another 24 hours, to roughly day 15. On days 7, 9, 11 and 12 the surge has not yet happened, so levonorgestrel can still suppress or delay it and prevent ovulation, making it likely to work. By day 15 the surge (day 13) and ovulation (about day 14) have already occurred and a fertilisable oocyte may still be present, so a genuine pregnancy risk exists, yet an agent that acts only by blocking the LH surge can no longer prevent the ovulation that has already taken place. Day 15 is therefore the occasion on which it is least likely to prevent pregnancy.",
+    "option_analysis": {
+      "A": "Correct: by day 15 the LH surge and ovulation have already happened, so a drug that works only by blocking the surge cannot prevent the released oocyte from being fertilised; it is least likely to prevent pregnancy.",
+      "B": "Wrong: day 9 is still before the surge; the drug can delay or block the surge, so it remains effective. Assumes effectiveness requires being close to the moment of ovulation.",
+      "C": "Wrong: day 11 precedes the surge, so ovulation can still be prevented. This distractor mistakes proximity to ovulation for reduced effectiveness.",
+      "D": "Wrong: day 12 is one day before the LH peak; the surge has not yet occurred, so it can still be inhibited. A common trap that 'the day before' is already too late, but the surge is still preventable.",
+      "E": "Wrong: day 7 is well before the day-13 surge, so levonorgestrel can still suppress the upcoming surge and prevent ovulation. Misconception that taking it far ahead of ovulation makes it 'too early' to help."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0378",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human reproduction and hormones",
+    "subtopic": "Ovulation induction with clomiphene: an oestrogen-receptor blocker at the hypothalamus/pituitary removes oestrogen negative feedback, raising GnRH and FSH to stimulate follicular development",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "reproduction",
+      "fertility treatment",
+      "clomiphene",
+      "oestrogen receptor",
+      "negative feedback",
+      "FSH",
+      "ovulation induction",
+      "HPG axis"
+    ],
+    "learning_objective": "Apply negative-feedback control of the HPG axis to explain how an oestrogen-receptor antagonist (clomiphene) raises FSH and induces ovulation.",
+    "question": "Clomiphene is a drug used to treat some forms of female infertility. It binds to and blocks oestrogen receptors in the hypothalamus and anterior pituitary but does not activate them. In a woman whose infertility is due to low FSH secretion, which sequence of effects explains how clomiphene can induce ovulation?",
+    "choices": {
+      "A": "Clomiphene mimics oestrogen and strengthens negative feedback, so FSH falls and this fall allows a single dominant follicle to be selected and ovulated.",
+      "B": "By blocking oestrogen receptors, clomiphene stops oestrogen's negative feedback, so the hypothalamus and pituitary respond as if oestrogen were low and increase GnRH and FSH secretion, stimulating follicle development.",
+      "C": "By blocking oestrogen receptors in the ovary, clomiphene prevents the corpus luteum from forming, which prolongs the follicular phase until a follicle matures.",
+      "D": "Clomiphene enhances the positive feedback of oestrogen at the pituitary, bringing the LH surge forward before any follicle has had time to mature.",
+      "E": "Clomiphene acts directly on the ovary as an FSH-receptor agonist, stimulating the follicles to grow independently of the pituitary."
+    },
+    "correct_answer": "B",
+    "explanation": "In the normal cycle, oestrogen from growing follicles feeds back negatively on the hypothalamus and anterior pituitary, restraining GnRH, FSH and LH. Clomiphene occupies oestrogen receptors in the hypothalamus and pituitary without switching them on, so these centres cannot 'see' the circulating oestrogen. Interpreting this as a low-oestrogen state, they increase GnRH pulses and therefore raise FSH (and LH) output. The higher FSH stimulates follicular growth in a woman who was previously under-secreting FSH, so a follicle can mature and ovulate. The drug works by removing negative feedback centrally, not by acting on the ovary and not by mimicking oestrogen.",
+    "option_analysis": {
+      "A": "Wrong: states clomiphene mimics oestrogen and lowers FSH. It blocks, not mimics, oestrogen receptors, and a fall in FSH would not induce ovulation in someone already deficient in FSH.",
+      "B": "Correct: clomiphene blocks central oestrogen receptors, removing negative feedback; the hypothalamus and pituitary respond by raising GnRH and FSH, which drives follicular development and ovulation.",
+      "C": "Wrong: puts the action in the ovary and invokes corpus-luteum suppression. The relevant receptors are in the hypothalamus and pituitary, and the mechanism is loss of negative feedback, not blocking luteal formation.",
+      "D": "Wrong: claims clomiphene boosts positive feedback. Because it blocks oestrogen receptors it cannot enhance oestrogen's positive-feedback action; a premature surge before follicle maturation is not how it works.",
+      "E": "Wrong: places the action on the ovary as an FSH-receptor agonist. Clomiphene acts centrally on oestrogen receptors; it does not bind ovarian FSH receptors."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0379",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Experimental design and data analysis",
+    "subtopic": "Identifying independent, dependent and controlled variables and recognising a confounding variable",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "experimental design",
+      "variables",
+      "confounding variable",
+      "photosynthesis practical",
+      "scientific method"
+    ],
+    "learning_objective": "Classify the independent, dependent and controlled variables in a described investigation and recognise an uncontrolled variable that confounds the intended comparison.",
+    "question": "A student investigates whether the colour of light affects the rate of photosynthesis in the pondweed Elodea. She places one sprig of pondweed in each of three beakers of 1% sodium hydrogencarbonate solution kept at 20 °C, and illuminates each beaker with a lamp fitted with a red, a green or a blue filter. She counts the number of oxygen bubbles released from the cut stem each minute. So that the three colours 'look equally bright', she positions each lamp at a different distance from its beaker. Which statement about the variables in this investigation is correct?",
+    "choices": {
+      "A": "Temperature is the independent variable because it drives the reaction.",
+      "B": "Light intensity should have been kept constant but was not, so it confounds the effect of colour.",
+      "C": "The volume of hydrogencarbonate solution is the independent variable.",
+      "D": "The number of oxygen bubbles released per minute is a controlled variable.",
+      "E": "The colour (wavelength) of the light is the dependent variable in this investigation."
+    },
+    "correct_answer": "B",
+    "explanation": "The variable the student deliberately changes (the independent variable) is the colour of the light; the variable she measures (the dependent variable) is the number of oxygen bubbles per minute. Everything else — solution volume and concentration, temperature, the same species and length of pondweed — should be held constant. By deliberately placing each lamp at a different distance she allowed light intensity to change together with colour. Light intensity is a major factor affecting photosynthesis, so any difference in bubble rate could be caused by intensity rather than colour: it is an uncontrolled, confounding variable that undermines the validity of the comparison.",
+    "option_analysis": {
+      "A": "Wrong: temperature is fixed at 20 °C, so it is a controlled variable; being important to the reaction does not make it the independent variable (misconception: the independent variable is whatever most affects the process).",
+      "B": "Correct: the intended independent variable is colour and the dependent variable is bubbles per minute, but by using different lamp distances she let light intensity vary as well, so intensity is an uncontrolled (confounding) variable that could produce the observed differences instead of colour.",
+      "C": "Wrong: the hydrogencarbonate volume is deliberately kept the same in every beaker, making it a controlled variable, not the independent variable (misconception: any quantity listed in the method can be the independent variable).",
+      "D": "Wrong: bubbles per minute is the dependent variable she measures, not a variable held constant (misconception: the measured outcome is a 'controlled' variable).",
+      "E": "Wrong: colour is the independent variable that she deliberately changes; labelling it the dependent variable confuses the manipulated cause with the measured outcome."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0380",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Experimental design and data analysis",
+    "subtopic": "The purpose of a control: choosing a valid solvent control to isolate the tested factor",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "experimental design",
+      "controls",
+      "negative control",
+      "solvent control",
+      "antimicrobial assay"
+    ],
+    "learning_objective": "Select the control that changes only the factor being tested, so that an observed effect can be validly attributed to that factor rather than to a confounding component of the treatment.",
+    "question": "A student investigates whether an extract of garlic inhibits the growth of a bacterium. She grinds garlic in ethanol, soaks a small paper disc in the resulting solution, and places the disc on a lawn of the bacterium growing on nutrient agar. After incubation, a clear zone (no bacterial growth) surrounds the disc, and she concludes that garlic extract inhibits the bacterium. Ethanol is itself able to kill bacteria. Which additional treatment is the most appropriate control to justify her conclusion?",
+    "choices": {
+      "A": "A disc soaked in a broad-spectrum antibiotic solution.",
+      "B": "A disc soaked in ethanol alone, with no garlic added.",
+      "C": "A disc soaked in sterile distilled water.",
+      "D": "A plate of nutrient agar incubated with no disc placed on it.",
+      "E": "Several further discs of the garlic-in-ethanol solution on the same plate."
+    },
+    "correct_answer": "B",
+    "explanation": "A valid control must be identical to the test treatment in every respect except the single factor under investigation — here, the garlic. Because the garlic was dissolved in ethanol, and ethanol alone can kill bacteria, the clear zone might be due to the solvent rather than the garlic. A disc soaked in ethanol only differs from the test disc solely by the absence of garlic. If this ethanol-only disc produces no zone, the clear zone around the test disc can be attributed to the garlic; if it does produce a zone, the solvent is a confounding cause. This is the negative (solvent) control that isolates the variable being tested.",
+    "option_analysis": {
+      "A": "Wrong: an antibiotic disc is a positive control that checks the method can detect inhibition at all; it does not test whether the ethanol solvent caused the zone (misconception: any comparison disc serves as the needed control).",
+      "B": "Correct: the ethanol-only disc is identical to the test disc except that it lacks garlic, so its result shows whether the zone is due to the garlic or merely to the ethanol solvent.",
+      "C": "Wrong: a water disc removes both the garlic and the ethanol, changing two things at once, so a difference could still be due to losing the solvent; a valid control changes only the factor under test (misconception: a control is simply 'something with no active ingredient').",
+      "D": "Wrong: a plate with no disc is a sterility/blank check on the agar; it does not isolate the effect of the solvent used to make the extract (misconception: any 'nothing added' set-up is the required control).",
+      "E": "Wrong: extra identical discs are replicates that improve reliability; they do not control for the solvent (misconception: replication and controls are the same thing)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0381",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Experimental design and data analysis",
+    "subtopic": "Validity versus reliability: systematic error, precision and accuracy",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "experimental design",
+      "validity",
+      "reliability",
+      "systematic error",
+      "precision vs accuracy",
+      "potometer"
+    ],
+    "learning_objective": "Distinguish reliability (repeatability/precision) from validity (accuracy of what is measured) and recognise that repeating measurements cannot remove a systematic error.",
+    "question": "To measure the rate of water uptake by a leafy shoot, a student takes three readings with a potometer: 2.01, 2.00 and 2.02 cm³ per hour. Afterwards she realises that an air bubble was lodged in the apparatus throughout, which made every reading roughly the same amount too low. Which statement best describes her three readings?",
+    "choices": {
+      "A": "They are both reliable and valid.",
+      "B": "Taking many more repeat readings would remove the error and make the mean accurate.",
+      "C": "They are valid but not reliable, because the three readings are so close together.",
+      "D": "They are reliable but not valid, because a systematic error made every reading inaccurate.",
+      "E": "Their close agreement shows that there was no significant error in the measurements."
+    },
+    "correct_answer": "D",
+    "explanation": "Reliability (precision) is about how close repeated measurements are to one another; the three readings agree to within 0.02 cm³ per hour, so they are highly reliable/repeatable. Validity (accuracy) is about whether the measurements reflect the true value. The trapped air bubble introduced a systematic error that shifted every reading by about the same amount, so the readings consistently misrepresent the true rate. Precise but consistently wrong data are reliable yet not valid. A systematic error affects all readings in the same direction, so averaging more repeats cannot remove it.",
+    "option_analysis": {
+      "A": "Wrong: the systematic bubble error means the readings do not reflect the true rate, so they cannot be valid despite being consistent (misconception: consistent data must be correct).",
+      "B": "Wrong: repeating a measurement reduces random scatter but cannot remove a systematic error that shifts every reading in the same direction by the same amount (misconception: more repeats fix any kind of error).",
+      "C": "Wrong: this reverses the terms — close agreement is precisely what 'reliable' means, and it is the systematic error, not the closeness, that destroys validity.",
+      "D": "Correct: the readings are highly repeatable (reliable/precise), but a constant systematic error makes them inaccurate, so they are not valid.",
+      "E": "Wrong: precision (close agreement) does not guarantee accuracy; a large systematic error can leave the readings tightly clustered yet all wrong (misconception: precision implies accuracy)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0382",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Experimental design and data analysis",
+    "subtopic": "Drawing justified conclusions: judging whether a difference is significant from overlapping data",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "data analysis",
+      "drawing conclusions",
+      "significance",
+      "overlap of ranges",
+      "evidence evaluation"
+    ],
+    "learning_objective": "Judge whether described data provide convincing evidence of a real difference by comparing the difference between means with the spread/overlap of the results, and avoid both over-interpreting means and equating 'not significant' with 'no difference'.",
+    "question": "An investigation compared the germination of a variety of lettuce seed with and without added nitrate. Five replicate trays of 60 seeds were used for each treatment. The results were: Treatment A (no nitrate) — mean germination 70%, range 64–76%; Treatment B (added nitrate) — mean germination 74%, range 66–82%. Which conclusion is best justified by these data?",
+    "choices": {
+      "A": "No conclusion is possible because the raw data for each tray were not listed.",
+      "B": "The difference between the means is small compared with the overlap of the ranges, so the data give no convincing evidence of a real effect.",
+      "C": "Adding nitrate significantly increases the percentage germination.",
+      "D": "Adding nitrate significantly decreases the percentage germination.",
+      "E": "Nitrate has no effect whatsoever on germination, as the two treatments are identical."
+    },
+    "correct_answer": "B",
+    "explanation": "The means differ by only 4 percentage points (70% versus 74%), whereas each treatment shows a spread of about 12–16 percentage points, and the two ranges overlap extensively (66–76% is common to both). When the difference between means is small relative to the variation within the groups, the higher mean for B could easily arise from ordinary random variation rather than a genuine effect of nitrate. The data therefore do not provide convincing evidence of a real difference; a larger sample or a statistical significance test would be needed to decide. Importantly, failing to demonstrate a difference is not the same as proving the treatments are identical.",
+    "option_analysis": {
+      "A": "Wrong: the means and ranges given are sufficient to see that the groups overlap; judging the overlap does not require every individual tray value (misconception: no conclusion is possible without the raw data).",
+      "B": "Correct: the 4-point gap between the means is small compared with the large, heavily overlapping ranges (64–76% versus 66–82%), so the data do not convincingly show a real effect, and more data or a statistical test would be required.",
+      "C": "Wrong: although B's mean is higher, the ranges overlap widely, so the higher mean is consistent with chance variation rather than a real effect (misconception: any difference between means is automatically 'significant').",
+      "D": "Wrong: this both mis-states the direction (B's mean is the higher one) and, like option A, reads a conclusion straight from the means while ignoring the overlap (misconception: the sign of the mean difference alone settles the effect).",
+      "E": "Wrong: not finding convincing evidence of a difference is not proof that nitrate has no effect, and the two means (70% and 74%) are not even equal (misconception: 'not significant' means 'no difference')."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0383",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Experimental design and data analysis",
+    "subtopic": "Sources of error and improving a method: correcting a systematic error with a control tube (respirometer)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "experimental design",
+      "sources of error",
+      "method improvement",
+      "control tube",
+      "respirometer",
+      "systematic error"
+    ],
+    "learning_objective": "Identify the source of a systematic error in a described method and select the modification (a matched control/thermobarometer tube) that corrects it, distinguishing this from changes that only alter sensitivity, signal size or repeats.",
+    "question": "A student measures oxygen consumption by germinating peas using a simple respirometer: a sealed tube containing the peas and soda lime (which absorbs carbon dioxide) is joined to a horizontal capillary tube holding a drop of coloured liquid. As oxygen is used up and carbon dioxide is absorbed, the drop moves towards the peas, and the distance it moves is recorded. During the experiment the laboratory warmed slightly; on its own this would make the gas expand and push the drop the other way. The student used only the one tube. Which modification would best correct the main flaw and give a valid measure of oxygen uptake?",
+    "choices": {
+      "A": "Repeat the measurement several more times and use the mean distance moved.",
+      "B": "Use a capillary tube of wider bore so that the drop moves more slowly.",
+      "C": "Remove the soda lime so that carbon dioxide is no longer absorbed.",
+      "D": "Use a larger mass of peas so that the drop moves a greater distance.",
+      "E": "Set up an identical tube containing glass beads of the same volume as the peas, and measure the peas' drop movement relative to this tube."
+    },
+    "correct_answer": "E",
+    "explanation": "The main flaw is a systematic error: a change in room temperature (and atmospheric pressure) alters the gas volume in the tube and moves the drop independently of respiration, biasing every reading. The standard correction is a control (thermobarometer) tube that is identical in every way — same tube, same soda lime, same total volume — but contains inert glass beads instead of living peas. This control experiences the same temperature and pressure changes but carries out no respiration, so measuring the peas' drop movement relative to the control cancels the physical artefact and isolates the volume change due to oxygen uptake. The other options change sensitivity, signal size or repeat number without removing the temperature bias.",
+    "option_analysis": {
+      "A": "Wrong: averaging more repeats reduces random scatter but not the systematic drift from the temperature change, which biases every reading in the same direction (misconception: repeating measurements corrects systematic error).",
+      "B": "Wrong: a wider bore only makes the drop travel a shorter distance for a given volume change, lowering sensitivity while leaving the temperature error entirely uncorrected (misconception: altering tube bore improves accuracy).",
+      "C": "Wrong: without soda lime the carbon dioxide released roughly replaces the oxygen used, so the drop barely moves and oxygen uptake can no longer be measured (misconception: removing the CO₂ absorber simplifies and improves the method).",
+      "D": "Wrong: more peas increase the size of the respiration signal but do nothing to correct the temperature/pressure artefact, and they also change the experimental conditions (misconception: a larger effect size removes systematic error).",
+      "E": "Correct: an identical tube with inert beads of equal volume (a thermobarometer control) undergoes the same temperature and pressure changes but no respiration, so measuring the peas' movement relative to it cancels the temperature artefact and isolates oxygen uptake."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  }
+]

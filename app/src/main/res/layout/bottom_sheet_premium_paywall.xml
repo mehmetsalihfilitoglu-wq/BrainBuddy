@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_round"
+    android:maxHeight="640dp"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="28dp">
+
+        <!-- Drag handle -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_bottom_sheet_handle"/>
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_edumio_mascot_celebrate"
+            android:contentDescription="@string/dc_cd_mascot"/>
+
+        <TextView
+            android:id="@+id/tvPaywallTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/paywall_title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/edu_text_dark"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/paywall_subtitle"
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.35"
+            android:textColor="@color/edu_text_muted"
+            android:gravity="center"/>
+
+        <!-- Value list (populated programmatically) -->
+        <LinearLayout
+            android:id="@+id/benefitsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Current subscription status -->
+        <TextView
+            android:id="@+id/tvSubscriptionStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/edu_text_muted"/>
+
+        <!-- Subscription offers (populated programmatically) -->
+        <LinearLayout
+            android:id="@+id/plansContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/paywall_availability"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.4"
+            android:textColor="@color/edu_text_muted"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btnPaywallPremium"
+            style="@style/Edu.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/paywall_cta"
+            android:textAllCaps="false"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tvRestore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:minHeight="48dp"
+            android:gravity="center"
+            android:text="@string/paywall_restore"
+            android:textSize="13sp"
+            android:textColor="@color/emeraldDark"/>
+
+        <TextView
+            android:id="@+id/tvPaywallDismiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:minHeight="48dp"
+            android:gravity="center"
+            android:text="@string/paywall_dismiss"
+            android:textSize="14sp"
+            android:textColor="@color/edu_text_muted"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

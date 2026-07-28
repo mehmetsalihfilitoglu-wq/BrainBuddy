@@ -1,0 +1,236 @@
+[
+  {
+    "id": "mio_math_0105",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Logarithmic scales",
+    "subtopic": "Richter magnitude scale: amplitude ratio from a magnitude difference",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "logarithms",
+      "logarithmic scales",
+      "Richter scale",
+      "exponents",
+      "word problem"
+    ],
+    "learning_objective": "Convert a difference of readings on a base-10 logarithmic scale into a multiplicative ratio of the underlying quantity.",
+    "question": "The Richter magnitude of an earthquake is given by M = log10(A / A0), where A is the maximum ground-motion amplitude recorded and A0 is a fixed reference amplitude. On the same seismograph, earthquake P is recorded at magnitude 6.8 and earthquake Q at magnitude 4.8. How many times larger is the maximum ground-motion amplitude of P than that of Q?",
+    "choices": {
+      "A": "1000 times",
+      "B": "2 times",
+      "C": "10 times",
+      "D": "100 times",
+      "E": "20 times"
+    },
+    "correct_answer": "D",
+    "explanation": "Because M = log10(A/A0), the amplitude is A = A0 * 10^M, so the ratio of two amplitudes depends only on the difference of magnitudes: A_P / A_Q = 10^(M_P - M_Q) = 10^(6.8 - 4.8) = 10^2 = 100. Each whole unit of magnitude corresponds to a tenfold change in amplitude, so a difference of 2 units is 10^2 = 100.",
+    "option_analysis": {
+      "A": "Wrong: uses 10^3, either miscounting the magnitude difference as 3 or confusing the amplitude relation with the energy relation (energy grows by about 10^(1.5*deltaM)).",
+      "B": "Wrong: subtracts the magnitudes and reads the difference (2) directly as the amplitude ratio, treating the Richter scale as linear rather than logarithmic.",
+      "C": "Wrong: recognises that a factor of 10 is involved but applies it only once, forgetting that each unit of magnitude multiplies the amplitude by 10, so a difference of 2 gives 10^2, not 10.",
+      "D": "Correct: amplitude ratio = 10^(M_P - M_Q) = 10^(6.8 - 4.8) = 10^2 = 100.",
+      "E": "Wrong: multiplies the magnitude difference (2) by 10, mixing an additive step with a multiplicative one instead of raising 10 to the power of the difference."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0106",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Logarithmic scales",
+    "subtopic": "Decibel scale: level increase from adding identical intensity sources (10 log n)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "logarithms",
+      "logarithmic scales",
+      "decibels",
+      "log laws",
+      "word problem"
+    ],
+    "learning_objective": "Apply the laws of logarithms to a decibel (10 log) scale to find the level produced when identical intensities are added.",
+    "question": "The sound-intensity level of a source is L = 10 log10(I / I0) decibels, where I is the sound intensity and I0 is the fixed threshold reference intensity. A single machine on a factory floor produces a sound-intensity level of 68 dB. Assuming the machines are identical and their intensities add, what sound-intensity level is produced by 100 such machines operating together?",
+    "choices": {
+      "A": "6800 dB",
+      "B": "70 dB",
+      "C": "88 dB",
+      "D": "78 dB",
+      "E": "168 dB"
+    },
+    "correct_answer": "C",
+    "explanation": "Running 100 identical machines multiplies the intensity by 100: I_total = 100 * I_single. On the decibel scale this adds 10 log10(100) = 10 * 2 = 20 dB, because log10(100 * I/I0) = log10(I/I0) + log10(100). Hence the new level is 68 + 20 = 88 dB. Note that a 100-fold rise in intensity is only a 20 dB rise in level, illustrating the compression of the logarithmic scale.",
+    "option_analysis": {
+      "A": "Wrong: multiplies the decibel level by 100, treating the logarithmic (decibel) scale as if it were linear.",
+      "B": "Wrong: computes log10(100) = 2 but omits the factor of 10 in the decibel definition, adding only 2 dB instead of 10 log10(100) = 20 dB.",
+      "C": "Correct: adding 100 equal intensities multiplies I by 100, so L rises by 10 log10(100) = 20 dB, giving 68 + 20 = 88 dB.",
+      "D": "Wrong: assumes 100 sources raise the level by a flat 10 dB (a single factor-of-ten rule) rather than by 10 log10(100) = 20 dB.",
+      "E": "Wrong: adds the number of sources (100) to the level, confusing the intensity multiplier with an additive number of decibels."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0107",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Logarithmic scales",
+    "subtopic": "pH scale: hydrogen-ion concentration ratio from a non-integer pH difference",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "logarithms",
+      "logarithmic scales",
+      "pH",
+      "fractional exponents",
+      "index laws"
+    ],
+    "learning_objective": "Convert a non-integer difference on a negative-log scale into a concentration ratio, splitting the exponent using index laws.",
+    "question": "For an aqueous solution, pH = -log10[H+], where [H+] is the hydrogen-ion concentration in mol dm^-3. Solution X has pH 1.5 and solution Y has pH 4.0. Using the approximation sqrt(10) is approximately 3.16, how many times greater is the hydrogen-ion concentration of X than that of Y?",
+    "choices": {
+      "A": "1000 times",
+      "B": "25 times",
+      "C": "100 times",
+      "D": "316 times",
+      "E": "2.5 times"
+    },
+    "correct_answer": "D",
+    "explanation": "From pH = -log10[H+] we have [H+] = 10^(-pH). The ratio is [H+]_X / [H+]_Y = 10^(-1.5) / 10^(-4.0) = 10^(4.0 - 1.5) = 10^2.5. Splitting the exponent by index laws, 10^2.5 = 10^2 * 10^0.5 = 100 * sqrt(10) = 100 * 3.16 = 316. The lower-pH solution (X) is the more concentrated in H+, consistent with a ratio greater than 1.",
+    "option_analysis": {
+      "A": "Wrong: rounds the exponent 2.5 up to 3, computing 10^3.",
+      "B": "Wrong: multiplies the pH difference by 10, combining an additive and a multiplicative step instead of raising 10 to the difference.",
+      "C": "Wrong: rounds the exponent 2.5 down to 2 (or drops the sqrt(10) factor), computing 10^2 instead of 10^2.5.",
+      "D": "Correct: ratio = 10^(4.0 - 1.5) = 10^2.5 = 10^2 * 10^0.5 = 100 * 3.16 = 316.",
+      "E": "Wrong: reads the pH difference (4.0 - 1.5 = 2.5) directly as the concentration ratio, treating the pH scale as linear."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0108",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Compound growth and interest",
+    "subtopic": "Compound versus simple interest over two years: the interest-on-interest difference (P*r^2)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "compound interest",
+      "simple interest",
+      "percentages",
+      "growth",
+      "word problem"
+    ],
+    "learning_objective": "Model and compare compound and simple interest algebraically and solve for the principal from their difference.",
+    "question": "A sum of money is invested for 2 years. When it earns compound interest at 10% per annum (compounded annually) the total interest is 63 euro more than it would be under simple interest at the same annual rate over the same period. What sum was invested?",
+    "choices": {
+      "A": "12600 euro",
+      "B": "6300 euro",
+      "C": "630 euro",
+      "D": "315 euro",
+      "E": "300 euro"
+    },
+    "correct_answer": "B",
+    "explanation": "Let the principal be P and r = 0.10. Compound interest over 2 years is P(1 + r)^2 - P = P(2r + r^2), and simple interest is P(2r). Their difference is P(2r + r^2) - P(2r) = P*r^2 = P(0.10)^2 = 0.01P. This extra amount is exactly the interest earned in the second year on the first year's interest. Setting 0.01P = 63 gives P = 6300 euro.",
+    "option_analysis": {
+      "A": "Wrong: uses a difference of 0.005P (for example by halving the two-year excess), giving twice the correct principal.",
+      "B": "Correct: the two-year excess of compound over simple interest is P*r^2 = 0.01P; setting 0.01P = 63 gives P = 6300 euro.",
+      "C": "Wrong: sets the difference equal to P*r = 0.1P, forgetting that the extra is the interest earned on the first year's interest and is proportional to r^2, not r.",
+      "D": "Wrong: treats 63 euro as the total simple interest (0.20P = 63) rather than as the difference.",
+      "E": "Wrong: treats 63 euro as the total compound interest (0.21P = 63) rather than as the difference between compound and simple interest."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0109",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Laws of logarithms",
+    "subtopic": "Number of digits of a large power via log10 (log2 and log3 given)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "logarithms",
+      "log laws",
+      "base-10 logarithm",
+      "number of digits",
+      "powers"
+    ],
+    "learning_objective": "Use the laws of logarithms with given values of log2 and log3 to determine the number of digits of a large power via the floor(log10 N)+1 rule.",
+    "question": "Given that log10 2 = 0.301 and log10 3 = 0.477, how many digits are there in the decimal representation of 12^15?",
+    "choices": {
+      "A": "18",
+      "B": "17",
+      "C": "16",
+      "D": "15",
+      "E": "12"
+    },
+    "correct_answer": "B",
+    "explanation": "The number of digits of a positive integer N is floor(log10 N) + 1. Here log10(12^15) = 15 * log10 12. Since 12 = 2^2 * 3, log10 12 = 2 log10 2 + log10 3 = 2(0.301) + 0.477 = 0.602 + 0.477 = 1.079. Then 15 * 1.079 = 16.185, so the number of digits is floor(16.185) + 1 = 16 + 1 = 17.",
+    "option_analysis": {
+      "A": "Wrong: rounds 16.185 up to 17 before adding 1, applying the rounding step twice.",
+      "B": "Correct: log10(12^15) = 15(2 log10 2 + log10 3) = 15(0.602 + 0.477) = 16.185, so the digit count is floor(16.185) + 1 = 17.",
+      "C": "Wrong: computes 15 log10 12 = 16.185 correctly but reports the integer part, forgetting that the digit count is floor(log10 N) + 1.",
+      "D": "Wrong: assumes the number of digits equals the exponent (15).",
+      "E": "Wrong: mis-factorises 12 as 2 * 3, using log10 12 = 0.301 + 0.477 = 0.778, which gives 15 * 0.778 = 11.67 and 12 digits (12 is actually 2^2 * 3)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0110",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Exponentials and logarithms",
+    "subtopic": "Exponential growth threshold: number of doublings from a logarithmic inequality, converted to a time",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "exponential growth",
+      "doubling time",
+      "logarithm",
+      "inequality",
+      "word problem"
+    ],
+    "learning_objective": "Model repeated doubling as an exponential, use a logarithm to find the least number of doublings needed to exceed a threshold, and convert to a time.",
+    "question": "A bacterial culture doubles in number every 30 minutes. Starting from 1000 cells, after how long does the population FIRST exceed 1 000 000 cells? (Use log10 2 ≈ 0.301, and note that the number must be a whole number of doublings.)",
+    "choices": {
+      "A": "4 hours 30 minutes",
+      "B": "5 hours",
+      "C": "3 hours",
+      "D": "10 hours",
+      "E": "6 hours"
+    },
+    "correct_answer": "B",
+    "explanation": "After n doublings the population is 1000 × 2^n. It first exceeds 1 000 000 when 1000 × 2^n > 10^6, i.e. 2^n > 1000. Taking logs, n > 3/log10 2 = 3/0.301 ≈ 9.97, so the least whole number of doublings is n = 10 (2^9 = 512 < 1000, but 2^10 = 1024 > 1000). Ten doublings at 30 minutes each take 10 × 30 = 300 minutes = 5 hours.",
+    "option_analysis": {
+      "A": "Wrong: 4 h 30 min corresponds to 9 doublings, but 2^9 = 512 gives only 512 000 cells, which does not yet exceed 1 000 000.",
+      "B": "Correct: 2^n > 1000 requires n = 10 doublings (2^9 = 512 is too few), and 10 × 30 min = 300 min = 5 hours.",
+      "C": "Wrong: 3 hours is only 6 doublings (2^6 = 64), giving 64 000 cells — far below 1 000 000.",
+      "D": "Wrong: 10 hours treats the 10 doublings as if each took an hour, ignoring that each doubling takes 30 minutes.",
+      "E": "Wrong: 6 hours corresponds to 12 doublings, more than the minimum needed to first exceed the threshold."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  }
+]

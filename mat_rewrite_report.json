@@ -1,0 +1,44 @@
+{
+  "scan_date": "2025-03-08",
+  "summary": {
+    "duplicate_stems": "Check with QuestionStemHash normalization across packs",
+    "short_item_criteria": "stem < 80 chars OR (stem < 120 AND no problem keywords)",
+    "one_operation_criteria": "Single arithmetic step, direct definition, or trivial pattern",
+    "rewrites_applied": 16
+  },
+  "files_modified": [
+    "lgs_mat_gold_025.json",
+    "lgs_mat_gold_030.json",
+    "lgs_mat_gold_009.json",
+    "lgs_mat_gold_011.json",
+    "lgs_mat_gold_014.json"
+  ],
+  "rewrites_detail": [
+    {
+      "file": "lgs_mat_gold_025.json",
+      "count": 8,
+      "items": ["q03 ortalama", "q04 kare alan", "q05 olasılık", "q06 uslu 2^5×2^3", "q07 dikdörtgen alan", "q08 eğim", "q09 EBOB", "q10 anket oran"]
+    },
+    {
+      "file": "lgs_mat_gold_030.json",
+      "count": 4,
+      "items": ["q04 kare 784", "q05 olasılık", "q07 dikdörtgen 8×11", "q08 eğim"]
+    },
+    {
+      "file": "lgs_mat_gold_009.json",
+      "count": 1,
+      "items": ["q10 %30 artış"]
+    },
+    {
+      "file": "lgs_mat_gold_011.json",
+      "count": 1,
+      "items": ["%20 artış gezi"]
+    },
+    {
+      "file": "lgs_mat_gold_014.json",
+      "count": 2,
+      "items": ["kare 225 çevre", "ortalama 8,10,12..."]
+    }
+  ],
+  "preserved": ["schema", "sourceRef", "answerIndex", "options", "all other fields"]
+}

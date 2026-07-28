@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzdeler",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
+      "questionType": "long_context",
+      "stem": "Bir kitap mağazasında satılan romanın etiket fiyatı 480 TL'dir. Mağaza ilk olarak bu kitaba %25 indirim uyguluyor. Daha sonra indirimli fiyat üzerine 40 TL kargo ücreti ekleniyor. Son olarak sadakat kartı olan müşterilere oluşan yeni fiyat üzerinden %10 indirim uygulanıyor. Buna göre müşteri bu kitabı kaç TL'ye satın alır?",
+      "options": [
+        "364",
+        "360",
+        "372",
+        "348"
+      ],
+      "answerIndex": 1,
+      "explanation": "480 × 0,75 = 360 TL olur. 40 TL kargo eklenince 400 TL olur. %10 indirim: 400 × 0,90 = 360 TL. Son fiyat 360 TL'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q01",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde 9 öğrencinin netleri sırasıyla 11, 12, 13, 14, 15, 16, 17, 18 ve x olarak ölçülmüştür. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam net = 9 × 15 = 135. Bilinen toplam = 116. x = 135 − 116 = 19.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q02",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir sınıftaki kız ve erkek öğrencilerin sayıları oranı 4 : 5'tir. Sınıfa 3 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "36",
+        "40",
+        "27",
+        "50"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kız = 4k, erkek = 5k. 4k + 3 = 5k → k = 3. Başlangıçta toplam öğrenci = 9k = 27 olur.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q03",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": [
+        "karekok",
+        "alan",
+        "yorumlama"
+      ],
+      "questionType": "reasoning",
+      "stem": "Alanı 784 metrekare olan kare şeklindeki bir bahçenin etrafına tel çekilecektir. İşçiler önce karenin bir kenar uzunluğunu hesaplayacak, ardından çevre formülüyle gereken tel miktarını belirleyecektir. Buna göre bu bahçenin çevresi kaç metredir?",
+      "options": [
+        "112",
+        "100",
+        "96",
+        "84"
+      ],
+      "answerIndex": 0,
+      "explanation": "Karenin bir kenarı √784 = 28 metredir. Çevresi 4 × 28 = 112 metredir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q04",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
+      "questionType": "paragraph",
+      "stem": "Olasılık deneyinde bir kutuda 5 kırmızı, 3 mavi ve 2 yeşil top bulunmaktadır. Öğrenci kutudan rastgele bir top seçecektir. Önce toplam sonuç sayısını, ardından kırmızı top sayısının bu toplama oranını hesaplayarak olasılığı bulması gerekmektedir. Buna göre seçilen topun kırmızı olma olasılığı kaçtır?",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        "1/5"
+      ],
+      "answerIndex": 0,
+      "explanation": "Toplam 10 top vardır. 5'i kırmızı olduğundan olasılık 5/10 = 1/2.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q05",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "uslu_sayilar",
+      "skills": [
+        "uslu_ifadeler",
+        "problem_cozme"
+      ],
+      "questionType": "reasoning",
+      "stem": "Bir veri merkezinde 2^5 sunucu vardır. Her sunucuda 2^4 işlemci ve her işlemcide 2^3 çekirdek bulunmaktadır. Buna göre veri merkezinde toplam kaç çekirdek vardır?",
+      "options": [
+        "256",
+        "512",
+        "4096",
+        "2048"
+      ],
+      "answerIndex": 2,
+      "explanation": "2^5 × 2^4 × 2^3 = 2^12 = 4096. Toplam 4096 çekirdek vardır.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q06",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 1,
+      "topic": "geometrik_olcme",
+      "skills": [
+        "alan",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Belediye kısa kenarı 8 metre, uzun kenarı 11 metre olan dikdörtgen şeklindeki bir yeşil alanın çim maliyetini hesaplamaktadır. Önce bahçenin alanını metrekare cinsinden bulacak, ardından metrekaresine göre çim fiyatıyla çarpacaktır. Buna göre bu bahçenin alanı kaç metrekaredir?",
+      "options": [
+        "72",
+        "88",
+        "96",
+        "104"
+      ],
+      "answerIndex": 1,
+      "explanation": "Alan = 8 × 11 = 88 metrekare.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q07",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": [
+        "egim",
+        "koordinat"
+      ],
+      "questionType": "reasoning",
+      "stem": "Koordinat düzleminde A(1,2) ve B(5,10) noktalarından geçen bir rampa planlanmaktadır. Mühendisler rampanın eğimini hesaplamak için bu iki nokta arasındaki dikey ve yatay farkı bulup oranlayacaktır. Buna göre bu doğrunun eğimi kaçtır?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 0,
+      "explanation": "(10 − 2) / (5 − 1) = 8 / 4 = 2.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q08",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "carpanlar_ve_katlar",
+      "skills": [
+        "ebob",
+        "problem_cozme"
+      ],
+      "questionType": "paragraph",
+      "stem": "Bir etkinlikte kullanılmak üzere 84 kırmızı ve 126 mavi balon vardır. Balonlar eşit sayıda olacak şekilde gruplara ayrılacaktır. Bir gruptaki balon sayısı en fazla kaç olabilir?",
+      "options": [
+        "12",
+        "18",
+        "21",
+        "42"
+      ],
+      "answerIndex": 3,
+      "explanation": "84 ve 126 sayılarının EBOB'u 42'dir.",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q09",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "topic": "donusum_geometrisi",
+      "skills": [
+        "koordinat",
+        "yansima",
+        "oteleme"
+      ],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Koordinat düzleminde A noktası (-2,3) konumundadır. Bu nokta önce y eksenine göre yansıtılıyor, ardından 4 birim sağa ve 2 birim aşağı öteleniyor. Buna göre son noktanın koordinatları nedir?",
+      "options": [
+        "(6,1)",
+        "(2,1)",
+        "(4,-1)",
+        "(2,-1)"
+      ],
+      "answerIndex": 0,
+      "explanation": "(-2,3) noktası y eksenine göre yansıtılırsa (2,3) olur. 4 sağa → (6,3). 2 aşağı → (6,1).",
+      "imageAsset": null,
+      "source": "edumio_generated",
+      "sourceRef": "gold030_q10",
+      "subject": "mat"
+    }
+  ]
+}

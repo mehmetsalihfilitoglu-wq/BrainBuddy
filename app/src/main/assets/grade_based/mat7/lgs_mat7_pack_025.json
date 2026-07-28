@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "edumio",
+  "questions": [
+    {
+      "id": "mat7_0240",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 450 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "360",
+        "420",
+        "400",
+        "440"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-10/100) = 450. x = 400 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0240",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0241",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 402 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "450",
+        "500",
+        "550",
+        "525"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-30/100) = 402. x = 500 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0241",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0242",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 4 : 3 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "60",
+        "50",
+        "65",
+        "70"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 5k, 3k. 4k + 5 = 5k → k = 5.0. Toplam = 12·k = 60.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0242",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0243",
+      "stem": "Bir torbada 4 kırmızı, 3 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "13/18",
+        "1/9",
+        "12/18",
+        "13/19"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0243",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0244",
+      "stem": "Kenarları 10 m ve 15 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "150",
+        "36",
+        "114",
+        "84"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (10-6)×(15-6) = 4×9 = 36 m².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0244",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0245",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 74, 74, 74, 74, 77 puan almıştır. Altıncı sınava girince ortalaması 78 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "78",
+        "100",
+        "95",
+        "90"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 373. 6. sınav x ise (total5 + x)/6 = 78 → x = 95.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0245",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0246",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 827 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "800",
+        "880",
+        "720",
+        "840"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-10/100) = 827. x = 800 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0246",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0247",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 2 : 5 oranındadır. Birinci sınıfa 12 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "76",
+        "66",
+        "71",
+        "56"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 4k, 5k. 2k + 12 = 4k → k = 6.0. Toplam = 11·k = 66.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0247",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0248",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 4 TL zam yapılmış, ardından 9 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-4",
+        "0",
+        "4",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0248",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0249",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "101",
+        "96",
+        "91"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "edumio",
+      "sourceRef": "mat7_pack_0249",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}
