@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 21
-        versionName = "1.0.0"  // fixes the titled-dialog crash: Material title style must supply layout params
+        versionCode = 22
+        versionName = "1.0.0"  // wrong-question reviews: scheduled, hidden until due, injected same-section
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
